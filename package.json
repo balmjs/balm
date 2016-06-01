@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "write once, build anywhere.",
   "homepage": "https://github.com/balmjs/balm#readme",
   "author": {
@@ -22,6 +22,7 @@
     "eslint": "^2.1.0",
     "eslint-config-xo-space": "^0.13.0",
     "eslint-plugin-babel": "^3.1.0",
+    "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-exclude-gitignore": "^1.0.0",
     "gulp-istanbul": "^0.10.3",
@@ -54,7 +55,6 @@
     "css-loader": "^0.23.1",
     "del": "^2.2.0",
     "file-loader": "^0.8.5",
-    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-cache": "^0.4.5",
     "gulp-cssnano": "^2.1.2",

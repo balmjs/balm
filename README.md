@@ -4,22 +4,32 @@
 ## Installation
 
 ```sh
-$ npm install --save-dev balm
+$ npm install --save-dev balm gulp
 ```
 
 ## Usage
 
-```.babelrc
+```js
+// gulpfile.js
+var balm = require('balm');
+
+balm.config = {
+  // your project config
+};
+
+balm.go();
+```
+
+## Config
+
+```
+// .babelrc
 {
   "presets": ["es2015"]
 }
 ```
 
-```js
-var balm = require('balm');
-
-balm.go();
-```
+Coming Soon...
 
 ## License
 
