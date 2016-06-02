@@ -77,15 +77,20 @@ $ npm install --save-dev babel-preset-es2015
 }
 ```
 
-### Autoprefixer
+### Style
 
 ```
 {
   ...
-  AUTOPREFIXER: ['last 2 versions'],
+  styles: {
+    AUTOPREFIXER: ['last 2 versions'],
+    ext: 'scss'
+  },
   ...
 }
 ```
+
+> __Support extension:__ sass, scss, less
 
 ### Script
 
@@ -108,7 +113,7 @@ $ npm install --save-dev babel-preset-es2015
 ```
 {
   ...
-  sprite: {
+  sprites: {
     basePath: '..',      // relative to css file
     cssPath: '/sprites', // css folder
     imgList: ['icon']    // image folder
