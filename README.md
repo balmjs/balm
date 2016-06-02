@@ -20,16 +20,102 @@ balm.config = {
 balm.go();
 ```
 
+```sh
+# for development
+$ gulp
+
+# for production
+$ gulp --production
+```
+
 ## Config
 
 ```
+// for ES6
+$ npm install --save-dev babel-preset-es2015
+
 // .babelrc
 {
   "presets": ["es2015"]
 }
 ```
 
-Coming Soon...
+### Root
+
+```
+{
+  ...
+  roots: {
+    app: 'app',  // input folder
+    dist: 'dist' // output folder
+  },
+  ...
+}
+```
+
+### Path
+
+```
+{
+  ...
+  paths: {
+    app: {
+      css: '/styles',
+      js: '/scripts',
+      img: '/images',
+      font: '/fonts'
+    },
+    dist: {
+      base: '/',
+      css: '/css',
+      js: '/js',
+      img: '/img',
+      font: '/fonts'
+    }
+  },
+  ...
+}
+```
+
+### Autoprefixer
+
+```
+{
+  ...
+  AUTOPREFIXER: ['last 2 versions'],
+  ...
+}
+```
+
+### Script
+
+```
+{
+  ...
+  scripts: {
+    entry: {
+      'home': './app/scripts/home.js',
+      'about': './app/scripts/about.js',
+      'contact': './app/scripts/contact.js'
+    }
+  },
+  ...
+}
+```
+
+### Sprite
+
+```
+{
+  ...
+  sprite: {
+    basePath: '..',      // relative to css file
+    cssPath: '/sprites', // css folder
+    imgList: ['icon']    // image folder
+  },
+  ...
+}
+```
 
 ## License
 
