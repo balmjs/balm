@@ -40,6 +40,20 @@ $ npm install --save-dev babel-preset-es2015
 }
 ```
 
+### Server
+
+```
+{
+  ...
+  server: {
+    proxy: undefined, // e.g. project.local
+    port: 9000,
+    notify: false
+  },
+  ...
+}
+```
+
 ### Root
 
 ```
