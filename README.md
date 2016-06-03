@@ -60,13 +60,14 @@ $ npm install --save-dev babel-preset-es2015
   ...
   paths: {
     app: {
+      html: '/',
       css: '/styles',
       js: '/scripts',
       img: '/images',
       font: '/fonts'
     },
     dist: {
-      base: '/',
+      html: '/',
       css: '/css',
       js: '/js',
       img: '/img',
@@ -99,9 +100,7 @@ $ npm install --save-dev babel-preset-es2015
   ...
   scripts: {
     entry: {
-      'home': './app/scripts/home.js',
-      'about': './app/scripts/about.js',
-      'contact': './app/scripts/contact.js'
+      'main': './app/scripts/main.js'
     }
   },
   ...
