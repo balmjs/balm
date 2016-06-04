@@ -140,11 +140,11 @@ $ npm install --save-dev babel-preset-es2015
  © [elf-mouse](http://elf-mouse.me/)
 
 
-[npm-image]: https://badge.fury.io/js/balm.svg
-[npm-url]: https://npmjs.org/package/balm
-[travis-image]: https://travis-ci.org/balm.svg?branch=master
-[travis-url]: https://travis-ci.org/balm
-[daviddm-image]: https://david-dm.org/balm.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/balm
+[npm-image]: https://badge.fury.io/js/node.svg
+[npm-url]: https://npmjs.org/package/node
+[travis-image]: https://travis-ci.org//node.svg?branch=master
+[travis-url]: https://travis-ci.org//node
+[daviddm-image]: https://david-dm.org//node.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org//node
 
 __thx node&gulp__
