@@ -40,6 +40,22 @@ $ npm install --save-dev babel-preset-es2015
 }
 ```
 
+```
+// for IE8(ES3)
+$ npm install --save-dev babel-preset-es2015-loose
+$ npm install --save-dev babel-plugin-transform-es3-member-expression-literals
+$ npm install --save-dev babel-plugin-transform-es3-property-literals
+
+// .babelrc
+{
+  "presets": ["es2015-loose"],
+  "plugins": [
+    "transform-es3-member-expression-literals",
+    "transform-es3-property-literals"
+  ]
+}
+```
+
 ### Server
 
 ```
