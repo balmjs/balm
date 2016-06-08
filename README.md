@@ -76,8 +76,8 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 {
   ...
   roots: {
-    app: 'app',  // input folder
-    dist: 'dist' // output folder
+    source: 'app',  // input folder
+    target: 'dist' // output folder
   },
   ...
 }
@@ -89,14 +89,14 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 {
   ...
   paths: {
-    app: {
+    source: {
       html: '/',
       css: '/styles',
       js: '/scripts',
       img: '/images',
       font: '/fonts'
     },
-    dist: {
+    target: {
       html: '/',
       css: '/css',
       js: '/js',
@@ -121,7 +121,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 }
 ```
 
-> __Support extension:__ sass, scss, less
+> __Support extension:__ less, sass, scss
 
 ### Script
 
