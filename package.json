@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.3.0-alpha",
+  "version": "0.3.0-beta",
   "description": "write once, build anywhere.",
   "homepage": "https://github.com/balmjs/balm#readme",
   "author": {
@@ -80,6 +80,7 @@
     "gulp.spritesmith": "^6.2.1",
     "main-bower-files": "^2.13.1",
     "merge-stream": "^1.0.0",
+    "require-dir": "^0.3.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
