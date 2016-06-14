@@ -148,6 +148,8 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 }
 ```
 
+> for your extension: `npm install --save-dev vue-loader`
+
 ### Sprite
 
 ```
