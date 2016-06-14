@@ -1,6 +1,12 @@
 # BalmJS [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 >
 
+## Demo
+
+- [x] [HTML](https://github.com/balmjs/balm-html)
+- [x] [Laravel](https://github.com/balmjs/balm-php)
+- [ ] [Vue](https://github.com/balmjs/balm-vue)
+
 ## Installation
 
 ```sh
@@ -114,7 +120,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 {
   ...
   styles: {
-    AUTOPREFIXER: ['last 2 versions'],
+    autoprefixer: ['last 2 versions'],
     ext: 'scss'
   },
   ...
@@ -131,7 +137,12 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
   scripts: {
     entry: {
       'main': './app/scripts/main.js'
-    }
+    },
+    loaders: [{
+      test: /\.vue$/,
+      loader: 'vue'
+    }],
+    extensions: ['.vue']
   },
   ...
 }
@@ -153,7 +164,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 
 ## License
 
- © [elf-mouse](http://elf-mouse.me/)
+ © [Elf-mousE](http://elf-mouse.me/)
 
 
 [npm-image]: https://badge.fury.io/js/balm.svg
