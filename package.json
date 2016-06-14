@@ -80,6 +80,7 @@
     "gulp-util": "^3.0.7",
     "gulp.spritesmith": "^6.2.1",
     "html-loader": "^0.4.3",
+    "json-loader": "^0.5.4",
     "main-bower-files": "^2.13.1",
     "merge-stream": "^1.0.0",
     "require-dir": "^0.3.0",
