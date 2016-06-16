@@ -96,18 +96,20 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
   ...
   paths: {
     source: {
-      html: '/',
-      css: '/styles',
-      js: '/scripts',
-      img: '/images',
-      font: '/fonts'
+      base: '',
+      html: '',
+      css: 'styles', // css dir
+      js: 'scripts', // javascript dir
+      img: 'images', // image dir
+      font: 'fonts'  // font dir
     },
     target: {
-      html: '/',
-      css: '/css',
-      js: '/js',
-      img: '/img',
-      font: '/fonts'
+      base: '',
+      html: '',
+      css: 'css',
+      js: 'js',
+      img: 'img',
+      font: 'fonts'
     }
   },
   ...
@@ -156,9 +158,9 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 {
   ...
   sprites: {
-    basePath: '..',      // relative to css file
-    cssPath: '/sprites', // css folder
-    imgList: ['icon']    // image folder
+    basePath: '..',     // relative to css file
+    cssPath: 'sprites', // css folder
+    imgList: ['icon']   // image folder
   },
   ...
 }
