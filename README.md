@@ -4,7 +4,7 @@
 ## Demo
 
 - [x] [HTML](https://github.com/balmjs/balm-html)
-- [x] [Laravel](https://github.com/balmjs/balm-php)
+- [x] [Laravel](https://github.com/balmjs/balm-laravel)
 - [ ] [Vue](https://github.com/balmjs/balm-vue)
 
 ## Installation
@@ -110,6 +110,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
       js: 'js',
       img: 'img',
       font: 'fonts'
+      // build: 'assets' // custom cache dir
     }
   },
   ...
@@ -162,6 +163,16 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
     cssPath: 'sprites', // css folder
     imgList: ['icon']   // image folder
   },
+  ...
+}
+```
+
+### Cache
+
+```
+{
+  ...
+  cache: false,
   ...
 }
 ```
