@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "write once, build anywhere.",
   "homepage": "https://github.com/balmjs/balm#readme",
   "author": {
@@ -52,7 +52,7 @@
   },
   "private": true,
   "dependencies": {
-    "autoprefixer-loader": "^3.2.0",
+    "autoprefixer": "^6.3.6",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
@@ -89,6 +89,8 @@
     "json-loader": "^0.5.4",
     "main-bower-files": "^2.13.1",
     "merge-stream": "^1.0.0",
+    "postcss-loader": "^0.9.1",
+    "precss": "^1.4.0",
     "require-dir": "^0.3.0",
     "rollup-plugin-bower-resolve": "^0.1.1",
     "rollup-plugin-commonjs": "^3.0.0",
