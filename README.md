@@ -5,7 +5,7 @@
 
 - [x] [HTML](https://github.com/balmjs/balm-html)
 - [x] [Laravel](https://github.com/balmjs/balm-laravel)
-- [ ] [Vue](https://github.com/balmjs/balm-vue)
+- [x] [Vue](https://github.com/balmjs/balm-vue)
 
 ## Installation
 
@@ -62,14 +62,25 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 }
 ```
 
+### Project Type
+
+```
+{
+  ...
+  static: false, // set `true` for the static HTML project
+  ...
+}
+```
+
 ### Server
 
 ```
 {
   ...
   server: {
-    proxy: undefined, // e.g. project.local
+    host: null,
     port: 9000,
+    proxy: undefined, // your localhost, e.g. project.local
     notify: false
   },
   ...
@@ -110,7 +121,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
       js: 'js',
       img: 'img',
       font: 'fonts'
-      // build: 'assets' // custom cache dir
+      // cache: 'assets' // custom cache dir
     }
   },
   ...
@@ -173,6 +184,16 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 {
   ...
   cache: false,
+  ...
+}
+```
+
+### Zip
+
+```
+{
+  ...
+  zip: 'archive', // zip filename
   ...
 }
 ```
