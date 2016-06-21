@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.4.2-alpha",
+  "version": "0.4.2-alpha.2",
   "description": "write once, build anywhere.",
   "homepage": "https://github.com/balmjs/balm#readme",
   "author": {
@@ -20,10 +20,10 @@
     "babel-core": "^6.9.1",
     "babel-eslint": "^6.0.5",
     "babel-preset-es2015": "^6.9.0",
-    "del": "^2.2.0",
+    "del": "^2.2.1",
     "eslint": "^2.13.1",
     "eslint-config-xo-space": "^0.14.0",
-    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-babel": "^3.3.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-eslint": "^2.0.0",
@@ -60,7 +60,7 @@
     "bower": "^1.7.9",
     "browser-sync": "^2.13.0",
     "css-loader": "^0.23.1",
-    "del": "^2.2.0",
+    "del": "^2.2.1",
     "file-loader": "^0.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-cache": "^0.4.5",
@@ -76,7 +76,7 @@
     "gulp-postcss": "^6.1.1",
     "gulp-rev": "^7.1.0",
     "gulp-rev-replace": "^0.4.3",
-    "gulp-rollup": "^1.9.0",
+    "gulp-rollup": "^2.0.1",
     "gulp-sass": "^2.3.2",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
@@ -98,6 +98,8 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0",
     "wiredep": "^4.0.0"
   }
 }
