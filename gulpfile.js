@@ -58,7 +58,7 @@ gulp.task('watch', function () {
 gulp.task('babel', ['clean'], function () {
   return gulp.src('lib/**/*.js')
     .pipe(babel({
-      'presets': ['es2015', 'stage-0']
+      'presets': ['es2015']
     }))
     .pipe(gulp.dest('dist'));
 });
@@ -67,5 +67,5 @@ gulp.task('clean', function () {
   return del('dist');
 });
 
-gulp.task('prepublish', ['babel']);
+gulp.task('prepublish', ['nsp', 'babel']);
 gulp.task('default', ['static', 'test']);
