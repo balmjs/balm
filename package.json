@@ -89,6 +89,7 @@
     "json-loader": "^0.5.4",
     "main-bower-files": "^2.13.1",
     "merge-stream": "^1.0.0",
+    "postcss-loader": "^0.9.1",
     "postcss-scss": "^0.1.8",
     "precss": "^1.4.0",
     "require-dir": "^0.3.0",
