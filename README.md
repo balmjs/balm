@@ -37,6 +37,12 @@ $ gulp --production
 ## Config
 
 ```
+// just for npm2
+$ npm install --save-dev webpack-dev-middleware
+$ npm install --save-dev webpack-hot-middleware
+```
+
+```
 // for ES6
 $ npm install --save-dev babel-preset-es2015
 
@@ -77,11 +83,10 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 ```
 {
   ...
+  proxy: undefined, // your.project.local
   server: {
     host: null,
-    port: 9000,
-    proxy: undefined, // your localhost, e.g. project.local
-    notify: false
+    port: 3000
   },
   ...
 }
@@ -141,7 +146,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 }
 ```
 
-> __Support extension:__ less, sass, scss
+> __Support extension:__ css, less, sass, scss
 
 ### Script
 
@@ -152,17 +157,17 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
     entry: {
       'main': './app/scripts/main.js'
     },
-    loaders: [{
-      test: /\.vue$/,
-      loader: 'vue'
-    }],
-    extensions: ['.vue']
+    publicPath: '/',
+    filename: '[name].js',
+    loaders: [], // e.g. { test: /\.vue$/, loader: 'vue' }
+    extensions: [], // e.g. '.vue'
+    alias: {}
   },
   ...
 }
 ```
 
-> for your extension: `npm install --save-dev vue-loader`
+> __BalmJS__ default loaders: `html`, `style`, `css`, `postcss`, `babel`, `url`, `file`, `json`.
 
 ### Sprite
 
@@ -172,7 +177,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
   sprites: {
     basePath: '..',     // relative to css file
     cssPath: 'sprites', // css folder
-    imgList: ['icon']   // image folder
+    imgList: []         // image folder, e.g. 'icon'
   },
   ...
 }
