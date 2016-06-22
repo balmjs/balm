@@ -169,6 +169,8 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 
 > __BalmJS__ default loaders: `html`, `style`, `css`, `postcss`, `babel`, `url`, `file`, `json`.
 
+> __BalmJS__ default extensions: `.js`, `.jsx`, `.json`.
+
 ### Sprite
 
 ```
