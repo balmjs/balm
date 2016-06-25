@@ -6,6 +6,7 @@
 - [x] [HTML](https://github.com/balmjs/balm-html)
 - [x] [Laravel](https://github.com/balmjs/balm-laravel)
 - [x] [Vue](https://github.com/balmjs/balm-vue)
+- [x] [TypeScript](https://github.com/balmjs/balm-ts)
 
 ## Installation
 
@@ -118,6 +119,9 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
       img: 'images', // image dir
       font: 'fonts'  // font dir
     },
+    tmp: {
+      // the same to `source`
+    }
     target: {
       base: '',
       html: '',
