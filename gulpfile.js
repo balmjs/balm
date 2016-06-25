@@ -57,9 +57,7 @@ gulp.task('watch', function () {
 
 gulp.task('babel', ['clean'], function () {
   return gulp.src('lib/**/*.js')
-    .pipe(babel({
-      'presets': ['es2015']
-    }))
+    .pipe(babel())
     .pipe(gulp.dest('dist'));
 });
 
