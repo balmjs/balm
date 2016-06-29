@@ -119,9 +119,6 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
       img: 'images', // image dir
       font: 'fonts'  // font dir
     },
-    tmp: {
-      // the same to `source`
-    }
     target: {
       base: '',
       html: '',
