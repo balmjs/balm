@@ -211,7 +211,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 
 
 [npm-image]: https://badge.fury.io/js/balm.svg
-[npm-url]: https://npmjs.org/package/node
+[npm-url]: https://npmjs.org/package/balm
 [travis-image]: https://travis-ci.org/balmjs/balm.svg?branch=master
 [travis-url]: https://travis-ci.org/balmjs/balm
 [daviddm-image]: https://david-dm.org/balmjs/balm.svg?theme=shields.io
