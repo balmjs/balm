@@ -157,11 +157,22 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
     entry: {
       'main': './app/scripts/main.js'
     },
-    publicPath: '/',
+    vendors: [], // e.g. 'jquery'
+    publicPath: '/js/',
     filename: '[name].js',
+    chunkFilename: '[id].js',
     loaders: [], // e.g. { test: /\.vue$/, loader: 'vue' }
     extensions: [], // e.g. '.vue'
-    alias: {}
+    alias: {},
+    stats: {
+      colors: true,
+      modules: false,
+      children: false,
+      chunks: false,
+      chunkModules: false
+    },
+    plugins: [],
+    extends: {} // for webpack config
   },
   ...
 }
