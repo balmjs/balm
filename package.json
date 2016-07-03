@@ -51,7 +51,7 @@
     "prepublish": "gulp prepublish",
     "test": "gulp"
   },
-  "private": false,
+  "private": true,
   "dependencies": {
     "autoprefixer": "^6.3.7",
     "babel-core": "^6.10.4",
