@@ -39,7 +39,7 @@ $ gulp --production
 
 ```
 // just for npm2
-$ npm install --save-dev webpack-hot-middleware
+$ npm install webpack-hot-middleware
 ```
 
 ```
