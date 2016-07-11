@@ -39,6 +39,7 @@ $ gulp --production
 
 ```
 // just for npm2
+$ npm install babel-runtime
 $ npm install webpack-hot-middleware
 ```
 
@@ -146,7 +147,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 }
 ```
 
-> __Support extension:__ css, less, sass, scss
+> __Support extension:__ [css](http://postcss.org/), [less](http://lesscss.org/), [sass](http://sass-lang.com/), [scss](http://sass-lang.com/)
 
 ### Script
 
@@ -178,9 +179,18 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 }
 ```
 
-> __BalmJS__ default loaders: `html`, `style`, `css`, `postcss`, `babel`, `url`, `file`, `json`.
+> __BalmJS__ default loaders:
 
-> __BalmJS__ default extensions: `.js`, `.jsx`, `.json`.
+- [`html`](https://github.com/webpack/html-loader)
+- [`style`](https://github.com/webpack/style-loader)
+- [`css`](https://github.com/webpack/css-loader)
+- [`postcss`](https://github.com/postcss/postcss-loader)
+- [`babel`](https://github.com/babel/babel-loader)
+- [`url`](https://github.com/webpack/url-loader)
+- [`file`](https://github.com/webpack/file-loader)
+- [`json`](https://github.com/webpack/json-loader)
+
+> __BalmJS__ default extensions: `.js`, [`.jsx`](https://facebook.github.io/react/), [`.json`](http://www.json.org/).
 
 ### Sprite
 
