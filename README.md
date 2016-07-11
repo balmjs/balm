@@ -238,4 +238,4 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 [daviddm-image]: https://david-dm.org/balmjs/balm.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/balmjs/balm
 
-__thx node&gulp__
+> __thx [node](https://nodejs.org/en/)&[gulp](http://gulpjs.com/)&[webpack](http://webpack.github.io/)__
