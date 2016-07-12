@@ -44,17 +44,20 @@ $ npm install webpack-hot-middleware
 ```
 
 ```
-// for ES6
+// for ES6 compilation ability
 $ npm install --save-dev babel-preset-es2015
+
+// for ES7 compilation ability
+$ npm install --save-dev babel-preset-stage-0
 
 // .babelrc
 {
-  "presets": ["es2015"]
+  "presets": ["es2015", "stage-0"]
 }
 ```
 
 ```
-// for IE8(ES3)
+// just for IE8(ES3)
 $ npm install --save-dev babel-preset-es2015-loose
 $ npm install --save-dev babel-plugin-transform-es3-member-expression-literals
 $ npm install --save-dev babel-plugin-transform-es3-property-literals
@@ -71,7 +74,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 
 ### Project Type
 
-```
+```js
 {
   ...
   static: false, // set `true` for the static HTML project
@@ -81,7 +84,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 
 ### Server
 
-```
+```js
 {
   ...
   proxy: undefined, // your.project.local
@@ -95,7 +98,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 
 ### Root
 
-```
+```js
 {
   ...
   roots: {
@@ -108,7 +111,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 
 ### Path
 
-```
+```js
 {
   ...
   paths: {
@@ -127,7 +130,6 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
       js: 'js',
       img: 'img',
       font: 'fonts'
-      // cache: 'assets' // custom cache dir
     }
   },
   ...
@@ -136,7 +138,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 
 ### Style
 
-```
+```js
 {
   ...
   styles: {
@@ -151,7 +153,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 
 ### Script
 
-```
+```js
 {
   ...
   scripts: {
@@ -194,7 +196,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 
 ### Sprite
 
-```
+```js
 {
   ...
   sprites: {
@@ -208,17 +210,22 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 
 ### Cache
 
-```
+```js
 {
   ...
   cache: false,
+  paths: {
+    target: {
+      // cache: 'assets' // custom cache dir
+    }
+  },
   ...
 }
 ```
 
 ### Zip
 
-```
+```js
 {
   ...
   zip: 'archive', // zip filename
