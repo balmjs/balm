@@ -200,13 +200,16 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 {
   ...
   sprites: {
-    basePath: '..',     // relative to css file
-    cssPath: 'sprites', // css folder
-    imgList: []         // image folder, e.g. 'icon'
+    basePath: '..', // relative to css file
+    image: [],      // image folder, e.g. 'icon'
+    mode: 'css',    // svg mode
+    svg: []         // svg folder
   },
   ...
 }
 ```
+
+> __SVG mode:__ `css`, `view`, `defs`, `symbol`, `stack`
 
 ### Cache
 
