@@ -142,7 +142,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 {
   ...
   styles: {
-    autoprefixer: ['last 2 versions'],
+    autoprefixer: ['last 1 version'],
     ext: 'scss'
   },
   ...
