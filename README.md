@@ -222,6 +222,9 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
       // cache: 'assets' // custom cache dir
     }
   },
+  scripts: {
+    // chunkFilename: '[chunkhash].js'
+  },
   ...
 }
 ```
