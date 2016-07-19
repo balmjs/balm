@@ -220,11 +220,11 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
   cache: false,
   paths: {
     target: {
-      // cache: 'assets' // custom cache dir
+      cache: 'assets' // custom cache dir for the dynamic project
     }
   },
   scripts: {
-    // chunkFilename: '[chunkhash].js'
+    chunkFilename: '[chunkhash].js' // for asynchronous javascript
   },
   ...
 }
@@ -236,6 +236,22 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 {
   ...
   zip: 'archive', // zip filename
+  ...
+}
+```
+
+### Ftp
+
+```js
+{
+  ...
+  ftp: {
+    host: '', // required
+    port: 22,
+    user: 'anonymous',
+    pass: null,
+    remotePath: '/'
+  },
   ...
 }
 ```
