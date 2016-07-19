@@ -158,9 +158,10 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
   ...
   scripts: {
     entry: {
+      // 'common': ['jquery'],
       'main': './app/scripts/main.js'
     },
-    vendors: [], // e.g. 'jquery'
+    vendors: [], // e.g. 'common' = scripts.entry.common
     publicPath: '/js/',
     filename: '[name].js',
     chunkFilename: '[id].js',
