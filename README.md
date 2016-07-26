@@ -145,7 +145,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
   ...
   styles: {
     autoprefixer: ['last 1 version'],
-    ext: 'scss'
+    ext: 'css'
   },
   ...
 }
@@ -219,7 +219,11 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 ```js
 {
   ...
-  cache: false,
+  cache: {
+    enabled: false,
+    manifest: 'manifest.json',
+    revDel: true
+  },
   paths: {
     target: {
       cache: 'assets' // custom cache dir for the dynamic project
@@ -237,7 +241,7 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 ```js
 {
   ...
-  zip: 'archive', // zip filename
+  zip: 'archive.zip', // zip filename
   ...
 }
 ```
