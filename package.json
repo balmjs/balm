@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.4.16",
+  "version": "0.4.17",
   "description": "Write Once, Build Anywhere.",
   "homepage": "https://github.com/balmjs/balm#readme",
   "author": {
@@ -54,7 +54,7 @@
   "private": true,
   "dependencies": {
     "autoprefixer": "^6.3.7",
-    "babel-core": "^6.10.4",
+    "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-register": "^6.11.6",
