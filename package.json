@@ -86,6 +86,7 @@
     "gulp-zip": "^3.2.0",
     "gulp.spritesmith": "^6.2.1",
     "html-loader": "^0.4.3",
+    "http-proxy-middleware": "^0.17.0",
     "json-loader": "^0.5.4",
     "main-bower-files": "^2.13.1",
     "merge-stream": "^1.0.0",
