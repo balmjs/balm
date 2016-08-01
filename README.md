@@ -89,10 +89,16 @@ $ npm install --save-dev babel-plugin-transform-es3-property-literals
 ```js
 {
   ...
-  proxy: undefined, // your.project.local
   server: {
     host: null,
-    port: 3000
+    port: 3000,
+    proxy: undefined, // your.project.local
+    proxyTable: {
+      // '/api': {
+      //   target: 'http://your.project.local', // target host
+      //   changeOrigin: true // needed for virtual hosted sites
+      // }
+    }
   },
   ...
 }
