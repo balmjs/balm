@@ -19,7 +19,7 @@ balm.config = {
   scripts: {
     entry: {
       common: ['jquery'],
-      main: './src/scripts/main.js'
+      main: './app/scripts/main.js'
     },
     vendors: ['common']
   },

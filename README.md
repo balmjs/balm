@@ -34,6 +34,9 @@ npm install --save-dev balm gulp
 
 ## [Configuration](docs/configuration.md)
 
+- [example](docs/_gulpfile.js)
+- [template](docs/_index.html)
+
 ```js
 // File: gulpfile.js
 
