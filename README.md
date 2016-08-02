@@ -1,5 +1,5 @@
 # BalmJS [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> a flexible Front-End workflow
+> A flexible Front-End workflow
 
 ## Demo
 
@@ -55,6 +55,9 @@ $ gulp
 # for production
 $ gulp --production
 ```
+
+
+## [Changelog](docs/changelog.md)
 
 
 ## License

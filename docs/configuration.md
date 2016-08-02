@@ -15,13 +15,16 @@ balm.go();
 ## Project Type
 
 ```js
-static: false, // set `true` for the static HTML project
+static: true,
 ...
 ```
 
 ### `static`
 
-> Default: `false`
+- set `true` for a static HTML project
+- set `false` for a dynamic language project
+
+> Default: `true`
 
 ## Server
 
@@ -64,7 +67,7 @@ Define HTTP proxies to your custom API backend
 
 ```js
 roots: {
-  source: 'app',
+  source: 'src',
   target: 'dist'
 },
 ...
@@ -74,7 +77,7 @@ roots: {
 
 Input folder
 
-> Default: `'app'`
+> Default: `'src'`
 
 #### `roots.target`
 
@@ -175,6 +178,8 @@ Font dir
 Custom cache dir for the dynamic project
 
 > Default: `undefined`
+
+See [Cache](#cache)
 
 ## Style
 
