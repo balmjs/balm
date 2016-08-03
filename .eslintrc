@@ -1,22 +1,21 @@
 {
-  "parserOptions": {
-    "ecmaVersion": 7,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "globalReturn": true
-    }
-  },
+  "root": true,
+  "parser": "babel-eslint",
   "env": {
-    "browser": true,
     "node": true,
     "es6": true,
     "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module"
   },
   "rules": {
     "quotes": [
       2,
       "single"
-    ]
+    ],
+    "generator-star-spacing": 0
   },
   "extends": [
     "eslint:recommended",

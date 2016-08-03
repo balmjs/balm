@@ -1,3 +1,7 @@
+## 0.4.22
+
+- add rename for copy
+
 ## 0.4.21
 
 - update documents
