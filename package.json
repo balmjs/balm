@@ -73,6 +73,7 @@
     "gulp-load-plugins": "^1.2.4",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.1.1",
+    "gulp-rename": "^1.2.2",
     "gulp-rev-all": "^0.8.24",
     "gulp-rev-delete-original": "^0.2.2",
     "gulp-sass": "^2.3.2",
