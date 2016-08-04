@@ -1,6 +1,7 @@
 ## 0.4.22
 
 - add rename for copy
+- code optimization
 
 ## 0.4.21
 
