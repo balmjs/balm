@@ -32,6 +32,7 @@
       2,
       "single"
     ],
-    "generator-star-spacing": 0
+    "generator-star-spacing": 0,
+    "no-new": 0
   }
 }
