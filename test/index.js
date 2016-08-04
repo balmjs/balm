@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: "error" */
+
 import assert from 'assert';
 import node from '../lib';
 
