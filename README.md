@@ -1,4 +1,4 @@
-# BalmJS [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# BalmJS [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > A flexible Front-End workflow
 
 ## Demo
@@ -59,9 +59,7 @@ $ gulp
 $ gulp --production
 ```
 
-
 ## [Changelog](docs/changelog.md)
-
 
 ## License
 
@@ -74,5 +72,8 @@ $ gulp --production
 [travis-url]: https://travis-ci.org/balmjs/balm
 [daviddm-image]: https://david-dm.org/balmjs/balm.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/balmjs/balm
+[coveralls-image]: https://coveralls.io/repos/balmjs/balm/badge.svg
+[coveralls-url]: https://coveralls.io/r/balmjs/balm
+
 
 > __thx [node](https://nodejs.org/en/)&[gulp](http://gulpjs.com/)&[webpack](http://webpack.github.io/)__
