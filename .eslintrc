@@ -10,15 +10,28 @@
     "ecmaVersion": 7,
     "sourceType": "module"
   },
+  "globals": {
+    "path": true,
+    "gulp": true,
+    "$": true,
+    "browserSync": true,
+    "reload": true,
+    "config": true,
+    "Task": true,
+    "noop": true,
+    "RN": true,
+    "mix": true,
+    "collections": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "xo-space"
+  ],
   "rules": {
     "quotes": [
       2,
       "single"
     ],
     "generator-star-spacing": 0
-  },
-  "extends": [
-    "eslint:recommended",
-    "xo-space"
-  ]
+  }
 }
