@@ -1,3 +1,7 @@
+## 0.4.23
+
+- update custom task
+
 ## 0.4.22
 
 - add rename for copy
@@ -106,12 +110,6 @@
 - add `custom` task
 - fix `build` task
 - fix `webpack` callback
-
-```
-balm.go(function(mix) {
-  mix.someTask();
-});
-```
 
 ## 0.3.0
 

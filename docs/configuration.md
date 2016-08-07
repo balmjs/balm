@@ -12,6 +12,8 @@ balm.config = {
 balm.go();
 ```
 
+---
+
 ## Project Type
 
 ```js
@@ -453,3 +455,7 @@ Required
 #### `ftp.remotePath`
 
 > Default: `'/'`
+
+---
+
+### [Custom Task](custom-task.md)
