@@ -12,12 +12,6 @@ balm.config = {
 };
 
 balm.go(function(mix) {
-  mix.css('./src/css/main.css', './dist/css');
-  mix.less('./src/less/main.less', './dist/css');
-  mix.sass('./src/sass/main.scss', './dist/css');
-
-  mix.js('./src/scripts/main.js', './dist/js');
-
   if (balm.config.production) {
     mix.cssmin('./dist/css/**/*.css', './dist/css');
     mix.jsmin('./dist/js/**/*.js', './dist/js');
@@ -29,6 +23,12 @@ balm.go(function(mix) {
       suffix: '.blade',
       extname: '.php'
     });
+  } else {
+    mix.css('./src/css/main.css', './dist/css');
+    mix.less('./src/less/main.less', './dist/css');
+    mix.sass('./src/sass/main.scss', './dist/css');
+
+    mix.js('./src/scripts/main.js', './dist/js');
   }
 });
 ```
