@@ -1,3 +1,8 @@
+## 0.4.24
+
+- fix watch task
+- fix style for css/less
+
 ## 0.4.23
 
 - update custom task
