@@ -59,8 +59,6 @@ $ gulp
 $ gulp --production
 ```
 
-## [Changelog](docs/changelog.md)
-
 ## License
 
  © [Elf-mousE](http://elf-mouse.me/)
