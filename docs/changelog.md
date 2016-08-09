@@ -1,3 +1,7 @@
+## 0.4.25
+
+- fix less bug
+
 ## 0.4.24
 
 - fix watch task
