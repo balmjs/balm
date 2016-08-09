@@ -1,3 +1,7 @@
+## 0.4.26
+
+- update watch for style
+
 ## 0.4.25
 
 - fix less bug
