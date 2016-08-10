@@ -1,3 +1,7 @@
+## 0.4.28
+
+- update publish task
+
 ## 0.4.27
 
 - add publish task

@@ -1,6 +1,6 @@
-## Custom task
+# Custom task
 
-```js
+```javascript
 // File: gulpfile.js
 
 var balm = require('balm');
@@ -20,7 +20,7 @@ balm.go(function(mix) {
     mix.copy('./dist/**/*', '/path/to/yours');
 
     mix.publish();
-    mix.copy('/src/templates/*.html', '/path/to/yours/tpl', {
+    mix.publish('/src/templates/index.html', 'path/to/yours/tpl', { // output: relative path
       suffix: '.blade',
       extname: '.php'
     });

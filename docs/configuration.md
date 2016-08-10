@@ -462,11 +462,31 @@ All static files
 
 ### `root`
 
-> Default: `'public'`
+> Default: `'.'`
 
 ### `publicPath`
 
+> Default: `'public'`
+
+### `subDir`
+
 > Default: `''`
+
+#### `regex.css`
+
+> Default: `/"css\//g`
+
+#### `regex.js`
+
+> Default: `/"js\//g`
+
+#### `replacement.begin`
+
+> Default: `'"/'`
+
+#### `replacement.end`
+
+> Default: `'/'`
 
 ---
 
