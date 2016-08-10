@@ -19,6 +19,7 @@ balm.go(function(mix) {
     mix.zip('./dist/**/*'); // default output: ./archive.zip
     mix.copy('./dist/**/*', '/path/to/yours');
 
+    mix.publish();
     mix.copy('/src/templates/*.html', '/path/to/yours/tpl', {
       suffix: '.blade',
       extname: '.php'

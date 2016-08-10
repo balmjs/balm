@@ -456,6 +456,18 @@ Required
 
 > Default: `'/'`
 
+## Publish
+
+All static files
+
+### `root`
+
+> Default: `'public'`
+
+### `publicPath`
+
+> Default: `''`
+
 ---
 
 ### [Custom Task](custom-task.md)

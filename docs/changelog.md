@@ -1,3 +1,8 @@
+## 0.4.27
+
+- add publish task
+- update copy task
+
 ## 0.4.26
 
 - update watch for style

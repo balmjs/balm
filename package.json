@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.4.26",
+  "version": "0.4.27",
   "description": "Write Once, Build Anywhere.",
   "homepage": "https://github.com/balmjs/balm#readme",
   "author": {
@@ -36,8 +36,7 @@
     "gulp-mocha": "^3.0.0",
     "gulp-nsp": "^2.4.2",
     "gulp-plumber": "^1.1.0",
-    "isparta": "^4.0.0",
-    "stream-combiner2": "^1.1.1"
+    "isparta": "^4.0.0"
   },
   "repository": {
     "type": "git",
@@ -70,6 +69,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.1.1",
     "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
     "gulp-rev-all": "^0.8.24",
     "gulp-rev-delete-original": "^0.2.2",
     "gulp-sass": "^2.3.2",
@@ -92,6 +92,7 @@
     "precss": "^1.4.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",
+    "stream-combiner2": "^1.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
