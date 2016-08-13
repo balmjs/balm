@@ -17,10 +17,11 @@ balm.go(function(mix) {
     mix.jsmin('./dist/js/**/*.js', './dist/js');
 
     mix.zip('./dist/**/*'); // default output: ./archive.zip
-    mix.copy('./dist/**/*', '/path/to/yours');
+    mix.copy('./dist/**/*', '/path/to/project');
 
-    mix.publish();
-    mix.publish('/src/templates/index.html', 'path/to/yours/tpl', { // output: relative path
+    mix.remove(['/path/to/project/public/css', '/path/to/project/public/js']);
+    mix.publish(null, '/path/to/project/public'); // all static assets files
+    mix.publish('index.html', '/path/to/project/views', {
       suffix: '.blade',
       extname: '.php'
     });

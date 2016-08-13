@@ -1,3 +1,7 @@
+## 0.4.29
+
+- reconsitution assets system
+
 ## 0.4.28
 
 - update publish task

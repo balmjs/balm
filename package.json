@@ -71,7 +71,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-rev-all": "^0.8.24",
-    "gulp-rev-delete-original": "^0.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sftp": "^0.1.5",
     "gulp-size": "^2.1.0",
