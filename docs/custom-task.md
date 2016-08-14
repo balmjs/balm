@@ -20,7 +20,7 @@ balm.go(function(mix) {
     mix.copy('./dist/**/*', '/path/to/project');
 
     mix.remove(['/path/to/project/public/css', '/path/to/project/public/js']);
-    mix.publish(null, '/path/to/project/public'); // all static assets files
+    mix.publish(); // publish assets to `config.assets.root/config.assets.publicPath`
     mix.publish('index.html', '/path/to/project/views', {
       suffix: '.blade',
       extname: '.php'

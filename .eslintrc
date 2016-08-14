@@ -16,6 +16,7 @@
     "$": true,
     "browserSync": true,
     "reload": true,
+    "del": true,
     "config": true,
     "Task": true,
     "noop": true,

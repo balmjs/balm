@@ -1,3 +1,7 @@
+## 0.4.30
+
+- fix `svg` bug
+
 ## 0.4.29
 
 - reconsitution assets system
