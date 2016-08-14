@@ -496,11 +496,14 @@ Versioning/Cache Busting switch
 
 ```js
 cache: true, // required
+scripts: {
+  publicPath: '/mobile/js/' // according to `assets.subDir`
+},
 assets: {
   manifest: 'manifest.json',
   root: 'assets',
   publicPath: 'public',
-  subDir: ''
+  subDir: 'mobile'
 },
 ...
 ```
