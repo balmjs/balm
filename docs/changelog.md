@@ -1,15 +1,18 @@
 ## 0.4.29
 
 - reconsitution assets system
+- add `remove` task
+- update `publish` task
+- update dependencies
 
 ## 0.4.28
 
-- update publish task
+- update `publish` task
 
 ## 0.4.27
 
-- add publish task
-- update copy task
+- add `publish` task
+- update `copy` task
 
 ## 0.4.26
 
@@ -22,7 +25,7 @@
 ## 0.4.24
 
 - fix watch task
-- fix style for css/less
+- fix style for `css`/`less`
 
 ## 0.4.23
 
@@ -30,7 +33,7 @@
 
 ## 0.4.22
 
-- add rename for copy
+- add rename for `copy`
 - code optimization
 
 ## 0.4.21
@@ -61,7 +64,7 @@
 
 ## 0.4.15
 
-- fix `sprite` & `svg` task
+- fix `sprites` & `svg` task
 
 ## 0.4.14
 
@@ -70,9 +73,9 @@
 ## 0.4.13
 
 - add custom workspace
-- update cache config & log
-- update style task
-- update extra task
+- update `cache` config & log
+- update `styles` task
+- update `extras` task
 
 ## 0.4.12
 

@@ -24,7 +24,7 @@ static: true,
 ### `static`
 
 - set `true` for a static HTML project
-- set `false` for a dynamic language project
+- set `false` for a dynamic language project (e.g. PHP framework)
 
 > Default: `true`
 
@@ -69,7 +69,7 @@ Define HTTP proxies to your custom API backend
 
 ```js
 roots: {
-  source: 'src',
+  source: 'app',
   target: 'dist'
 },
 ...
@@ -77,13 +77,13 @@ roots: {
 
 #### `roots.source`
 
-Input folder
+Input folder (Source Code)
 
 > Default: `'src'`
 
 #### `roots.target`
 
-Output folder
+Output folder (Production)
 
 > Default: `'dist'`
 
@@ -105,51 +105,51 @@ paths: {
     css: 'css',
     js: 'js',
     img: 'img',
-    font: 'fonts'
+    font: 'font'
   }
 },
 ...
 ```
 
-#### Input
+#### Source Input
 
 ##### `paths.source.base`
 
-Application dir
+Application directory
 
 > Default: `''`
 
 ##### `paths.source.html`
 
-Template dir
+Template directory
 
 > Default: `''`
 
 ##### `paths.source.css`
 
-CSS dir
+Stylesheet directory
 
 > Default: `'styles'`
 
 ##### `paths.source.js`
 
-JavaScript dir
+JavaScript directory
 
 > Default: `'scripts'`
 
 ##### `paths.source.img`
 
-Image dir
+Image directory
 
 > Default: `'images'`
 
 ##### `paths.source.font`
 
-Font dir
+Font directory
 
 > Default: `'fonts'`
 
-#### Output
+#### Target Output
 
 ##### `paths.target.base`
 
@@ -173,37 +173,75 @@ Font dir
 
 ##### `paths.target.font`
 
-> Default: `'fonts'`
+> Default: `'font'`
 
-##### `paths.target.cache`
+## Html
 
-Custom cache dir for the dynamic project
+```js
+html: {
+  regex: {
+    css: new RegExp('css/', 'g'),
+    js: new RegExp('js/', 'g'),
+    img: new RegExp('images/', 'g'),
+    font: new RegExp('fonts/', 'g')
+  },
+  replacement: {
+    begin: '',
+    end: '/'
+  }
+},
+...
+```
 
-> Default: `undefined`
+#### Regex
 
-See [Cache](#cache)
+##### `html.regex.css`
+
+> Default: `new RegExp('css/', 'g')`
+
+##### `html.regex.js`
+
+> Default: `new RegExp('js/', 'g')`
+
+##### `html.regex.img`
+
+> Default: `new RegExp('images/', 'g')`
+
+##### `html.regex.font`
+
+> Default: `new RegExp('fonts/', 'g')`
+
+#### Replacement
+
+##### `html.replacement.begin`
+
+> Default: `''`
+
+##### `html.replacement.end`
+
+> Default: `'/'`
 
 ## Style
 
 ```js
 styles: {
-  autoprefixer: ['last 1 version'],
-  ext: 'css'
+  ext: 'css',
+  autoprefixer: ['last 1 version']
 },
 ...
 ```
-
-#### `styles.autoprefixer`
-
-Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/)
-
-> Default: `['last 1 version']`
 
 #### `styles.ext`
 
 Supported CSS extensions are [css](http://postcss.org/), [sass](http://sass-lang.com/), [scss](http://sass-lang.com/), [less](http://lesscss.org/)
 
 > Default: `'css'`
+
+#### `styles.autoprefixer`
+
+Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/)
+
+> Default: `['last 1 version']`
 
 ## Script
 
@@ -215,8 +253,8 @@ scripts: {
   },
   vendors: [], // e.g. 'common' = scripts.entry.common
   publicPath: '/js/',
-  filename: '[name].js',
-  chunkFilename: '[id].js',
+  filename: '[name]',
+  chunkFilename: '[id]',
   loaders: [], // e.g. { test: /\.vue$/, loader: 'vue' }
   extensions: [], // e.g. '.vue'
   alias: {},
@@ -245,6 +283,8 @@ Vendor Modules
 
 > Default: `[]`
 
+### Output
+
 #### `scripts.publicPath`
 
 The `publicPath` specifies the public URL address of the output files when referenced in a browser.
@@ -255,7 +295,7 @@ The `publicPath` specifies the public URL address of the output files when refer
 
 Specifies the name of each output file on disk. You must __not__ specify an absolute path here!
 
-> Default: `'[name].js'`
+> Default: `'[name]'`
 
 #### `scripts.chunkFilename`
 
@@ -266,7 +306,9 @@ The filename of non-entry chunks as relative path inside the `output.path` direc
 - `[hash]` is replaced by the hash of the compilation.
 - `[chunkhash]` is replaced by the hash of the chunk.
 
-> Default: `'[id].js'`
+> Default: `'[id]'`
+
+### Module
 
 #### `scripts.loaders`
 
@@ -293,6 +335,10 @@ __BalmJS__ default loaders:
 - [`file`](https://github.com/webpack/file-loader)
 - [`json`](https://github.com/webpack/json-loader)
 
+> [List of loaders](http://webpack.github.io/docs/list-of-loaders.html)
+
+### Resolve
+
 #### `scripts.extensions`
 
 An array of extensions that should be used to resolve modules.
@@ -302,14 +348,17 @@ An array of extensions that should be used to resolve modules.
 __BalmJS__ default extensions:
 
 - `.js`
-- [`.jsx`](https://facebook.github.io/react/)
 - [`.json`](http://www.json.org/)
+- [`.jsx`](https://facebook.github.io/react/)
+- [`.vue`](http://vuejs.org/)
 
 #### `scripts.alias`
 
 Replace modules by other modules or paths.
 
 > Default: `{}`
+
+### Profile
 
 #### `scripts.stats`
 
@@ -323,6 +372,8 @@ Capture timing information for each module.
     chunkModules: false
   }`
 
+### Plugin
+
 #### `scripts.plugins`
 
 Add additional plugins to the compiler.
@@ -334,6 +385,12 @@ Add additional plugins to the compiler.
 Extend config for webpack
 
 > Default: `{}`
+
+### Hot Reload
+
+#### `scripts.HMR`
+
+> Default: `true`
 
 ## Sprite
 
@@ -370,43 +427,6 @@ Output modes: `css`, `view`, `defs`, `symbol`, `stack`
 SVG folder name
 
 > Default: `[]`
-
-## Cache
-
-```js
-cache: {
-  enabled: false,
-  manifest: 'manifest.json',
-  revDel: true
-},
-paths: {
-  target: {
-    cache: 'assets'
-  }
-},
-scripts: {
-  chunkFilename: '[chunkhash].js' // for asynchronous javascript
-},
-...
-```
-
-#### `cache.enabled`
-
-Versioning/Cache Busting switch
-
-> Default: `false`
-
-#### `cache.manifest`
-
-Set the filename of the file created
-
-> Default: `'manifest.json'`
-
-#### `cache.revDel`
-
-Delete the original file rewritten
-
-> Default: `true`
 
 ## Zip
 
@@ -456,37 +476,58 @@ Required
 
 > Default: `'/'`
 
-## Publish
+## Cache
 
-All static files
+```js
+cache: true,
+scripts: {
+  chunkFilename: '[chunkhash]' // for asynchronous javascript
+},
+...
+```
 
-### `root`
+### `cache`
 
-> Default: `'.'`
+Versioning/Cache Busting switch
 
-### `publicPath`
+> Default: `false`
+
+## Assets
+
+```js
+cache: true, // required
+assets: {
+  manifest: 'manifest.json',
+  root: 'assets',
+  publicPath: 'public',
+  subDir: ''
+},
+...
+```
+
+#### `assets.manifest`
+
+Set the filename of the file created
+
+> Default: `'manifest.json'`
+
+#### `assets.root`
+
+Remote project root simulation
+
+> Default: `'assets'`
+
+#### `assets.publicPath`
+
+The `public` directory contains the front controller and your assets (images, JavaScript, CSS, etc.)
 
 > Default: `'public'`
 
-### `subDir`
+#### `assets.subDir`
+
+Public subdirectory
 
 > Default: `''`
-
-#### `regex.css`
-
-> Default: `/"css\//g`
-
-#### `regex.js`
-
-> Default: `/"js\//g`
-
-#### `replacement.begin`
-
-> Default: `'"/'`
-
-#### `replacement.end`
-
-> Default: `'/'`
 
 ---
 
