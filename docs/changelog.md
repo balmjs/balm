@@ -1,3 +1,7 @@
+## 0.4.31
+
+- fix assets path
+
 ## 0.4.30
 
 - fix `svg` bug
