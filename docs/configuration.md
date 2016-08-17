@@ -175,52 +175,6 @@ Font directory
 
 > Default: `'font'`
 
-## Html
-
-```js
-html: {
-  regex: {
-    css: new RegExp('css/', 'g'),
-    js: new RegExp('js/', 'g'),
-    img: new RegExp('images/', 'g'),
-    font: new RegExp('fonts/', 'g')
-  },
-  replacement: {
-    begin: '',
-    end: '/'
-  }
-},
-...
-```
-
-#### Regex
-
-##### `html.regex.css`
-
-> Default: `new RegExp('css/', 'g')`
-
-##### `html.regex.js`
-
-> Default: `new RegExp('js/', 'g')`
-
-##### `html.regex.img`
-
-> Default: `new RegExp('images/', 'g')`
-
-##### `html.regex.font`
-
-> Default: `new RegExp('fonts/', 'g')`
-
-#### Replacement
-
-##### `html.replacement.begin`
-
-> Default: `''`
-
-##### `html.replacement.end`
-
-> Default: `'/'`
-
 ## Style
 
 ```js

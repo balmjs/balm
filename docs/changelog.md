@@ -1,3 +1,11 @@
+## 0.4.32
+
+- fix `style` task
+- update `clean` task
+- update watch
+- update html config
+- update dependencies
+
 ## 0.4.31
 
 - fix assets path
