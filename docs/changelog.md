@@ -1,3 +1,7 @@
+## 0.4.33
+
+- update `less` error handling
+
 ## 0.4.32
 
 - fix `style` task
