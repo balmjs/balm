@@ -180,7 +180,11 @@ Font directory
 ```js
 styles: {
   ext: 'css',
-  autoprefixer: ['last 1 version']
+  autoprefixer: ['last 1 version'],
+  options: {
+    safe: true,
+    autoprefixer: false
+  }
 },
 ...
 ```
@@ -196,6 +200,16 @@ Supported CSS extensions are [css](http://postcss.org/), [sass](http://sass-lang
 Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/)
 
 > Default: `['last 1 version']`
+
+#### `styles.options`
+
+> Default: `{
+  safe: true,
+  autoprefixer: false,
+  discardComments: {
+    removeAll: true
+  }
+}`
 
 ## Script
 
@@ -229,7 +243,9 @@ scripts: {
 
 The entry point for the bundle.
 
-> Default: `{ 'main': './app/scripts/main.js' }`
+> Default: `{
+  'main': './app/scripts/main.js'
+}`
 
 #### `scripts.vendors`
 
@@ -319,12 +335,12 @@ Replace modules by other modules or paths.
 Capture timing information for each module.
 
 > Default: `{
-    colors: true,
-    modules: false,
-    children: false,
-    chunks: false,
-    chunkModules: false
-  }`
+  colors: true,
+  modules: false,
+  children: false,
+  chunks: false,
+  chunkModules: false
+}`
 
 ### Plugin
 

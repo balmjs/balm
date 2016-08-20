@@ -1,6 +1,8 @@
 ## 0.4.33
 
 - update `less` error handling
+- update styles config
+- update dependencies
 
 ## 0.4.32
 
