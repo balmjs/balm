@@ -2,6 +2,7 @@
 
 - update `less` error handling
 - update styles config
+- update `lint` task
 - update dependencies
 
 ## 0.4.32
