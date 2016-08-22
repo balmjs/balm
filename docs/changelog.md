@@ -1,3 +1,7 @@
+## 0.4.34
+
+- fix `html` task for build
+
 ## 0.4.33
 
 - update `less` error handling
