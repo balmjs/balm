@@ -1,3 +1,7 @@
+## 0.4.36
+
+- fix `html` task for replace references
+
 ## 0.4.35
 
 - fix `html` task for replace references
