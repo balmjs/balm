@@ -26,16 +26,16 @@ project
 └── ...
 ```
 
-## [Installation & Setup](docs/installation.md)
+## [Installation & Setup](https://github.com/balmjs/balm/blob/master/docs/installation.md)
 
 ```sh
 npm install --save-dev balm gulp
 ```
 
-## [Configuration](docs/configuration.md)
+## [Configuration](https://github.com/balmjs/balm/blob/master/docs/configuration.md)
 
-- [example](docs/_gulpfile.js)
-- [template](docs/_index.html)
+- [example](https://github.com/balmjs/balm/blob/master/docs/_gulpfile.js)
+- [template](https://github.com/balmjs/balm/blob/master/docs/_index.html)
 
 ```js
 // File: gulpfile.js
@@ -58,6 +58,8 @@ $ gulp
 # for production
 $ gulp --production
 ```
+
+## [Common Issues](https://github.com/balmjs/balm/blob/master/docs/issues.md)
 
 ## License
 
