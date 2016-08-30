@@ -38,11 +38,15 @@ balm.config = {
 
 balm.go(function (mix) {
   if (balm.config.production) {
+    // manual delete `assets` folder
     // mix.remove('./assets');
 
-    mix.publish(); // publish assets to `./assets/public`
+    // publish assets(styles,javascripts,images,fonts) to `./assets/public`
+    mix.publish();
 
+    // publish `index.html` to `./assets/public`
     mix.publish('index.html', 'public');
+
     // mix.publish('index.html', 'public', {
     //   basename: 'yourFilename',
     //   suffix: '.blade',

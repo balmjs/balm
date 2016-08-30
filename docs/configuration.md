@@ -247,6 +247,12 @@ The entry point for the bundle.
   'main': './app/scripts/main.js'
 }`
 
+#### `scripts.vendor`
+
+All vendors in one (for SPA)
+
+> Default: `false`
+
 #### `scripts.vendors`
 
 Vendor Modules
@@ -361,6 +367,14 @@ Extend config for webpack
 #### `scripts.HMR`
 
 > Default: `true`
+
+### ESLint
+
+The pluggable linting utility for JavaScript and JSX
+
+#### `scripts.eslint`
+
+> Default: `false`
 
 ## Sprite
 
