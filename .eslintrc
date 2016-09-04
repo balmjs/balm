@@ -17,12 +17,9 @@
     "browserSync": true,
     "reload": true,
     "del": true,
-    "config": true,
-    "Task": true,
-    "noop": true,
-    "RN": true,
-    "mix": true,
-    "collections": true
+    "webpack": true,
+    "BalmJS": true,
+    "config": true
   },
   "extends": [
     "eslint:recommended",
@@ -34,6 +31,7 @@
       "single"
     ],
     "generator-star-spacing": 0,
-    "no-new": 0
+    "space-before-function-paren": 0,
+    "no-console": 0
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.4.37",
+  "version": "0.5.0-beta",
   "description": "Write Once, Build Anywhere.",
   "homepage": "https://github.com/balmjs/balm#readme",
   "author": {
@@ -37,7 +37,8 @@
     "gulp-mocha": "^3.0.1",
     "gulp-nsp": "^2.4.2",
     "gulp-plumber": "^1.1.0",
-    "isparta": "^4.0.0"
+    "isparta": "^4.0.0",
+    "shelljs": "^0.7.4"
   },
   "repository": {
     "type": "git",

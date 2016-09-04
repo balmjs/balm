@@ -25,18 +25,18 @@ balm.config = {
     vendors: ['common']
   }
   // sprites: {
-  //   image: ['img-icon'],
-  //   svg: ['svg-icon']
+  //   image: ['img-icon'], // iconPath = app/images/img-icon
+  //   svg: ['svg-icon']    //  svgPath = app/images/svg-icon
   // },
   // cache: true,
   // assets: {
-  //   root: 'assets',
+  //   root: '/path/to/your-project', // default: `assets`
   //   publicPath: 'public',
   //   subDir: ''
   // }
 };
 
-balm.go(function (mix) {
+balm.go(function(mix) {
   if (balm.config.production) {
     // manual delete `assets` folder
     // mix.remove('./assets');

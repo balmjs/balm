@@ -1,4 +1,27 @@
-# Custom task
+## Custom task
+
+### stylesheets
+
+- css
+- less
+- sass
+- cssmin
+
+### scripts
+
+- js
+- jsmin
+
+### others
+
+- copy
+- remove
+- zip
+- ftp
+
+### for production
+
+- publish
 
 ```javascript
 // File: gulpfile.js
@@ -8,7 +31,7 @@ var balm = require('balm');
 balm.config = {
   // your project config
   ...,
-  useDefault: false
+  useDefault: false // don't start balm default workflow
 };
 
 balm.go(function(mix) {
@@ -16,8 +39,9 @@ balm.go(function(mix) {
     mix.cssmin('./dist/css/**/*.css', './dist/css');
     mix.jsmin('./dist/js/**/*.js', './dist/js');
 
-    mix.zip('./dist/**/*'); // default output: ./archive.zip
     mix.copy('./dist/**/*', '/path/to/project');
+    mix.zip('./dist/**/*'); // default output: ./archive.zip
+    mix.ftp('./archive.zip');
 
     mix.remove(['/path/to/project/public/css', '/path/to/project/public/js']);
     mix.publish(); // publish assets to `config.assets.root/config.assets.publicPath`

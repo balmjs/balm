@@ -45,6 +45,12 @@ server: {
 ...
 ```
 
+#### `server.open`
+
+Decide which URL to open automatically when server starts.
+
+> Default: `true`
+
 #### `server.host`
 
 > Default: `null`
