@@ -1,6 +1,8 @@
 ## 0.5.0
 
 - reconsitution all
+- fix `html` for external url
+- update dependencies
 
 ## 0.4.37
 
