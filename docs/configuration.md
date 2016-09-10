@@ -186,7 +186,7 @@ Font directory
 ```js
 styles: {
   ext: 'css',
-  autoprefixer: ['last 1 version'],
+  autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR'],
   options: {
     safe: true,
     autoprefixer: false
@@ -206,6 +206,8 @@ Supported CSS extensions are [css](http://postcss.org/), [sass](http://sass-lang
 Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/)
 
 > Default: `['last 1 version']`
+
+- Autoprefixer uses [Browserslist](https://github.com/ai/browserslist#queries)
 
 #### `styles.options`
 
