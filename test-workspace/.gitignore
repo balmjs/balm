@@ -1,2 +1,4 @@
+bower_components
 .tmp
-./dist
+dist
+assets
