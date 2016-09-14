@@ -8,6 +8,7 @@ balm.config = balmConfig; // test set
 // test build
 balm.go(function(mix) {
   mix.publish();
+  mix.publish('index.html', 'public');
 });
 
 balm.go(); // test singleton
