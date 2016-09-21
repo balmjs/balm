@@ -19,8 +19,7 @@
     "del": true,
     "webpack": true,
     "BalmJS": true,
-    "config": true,
-    "assert": true
+    "config": true
   },
   "extends": [
     "eslint:recommended",

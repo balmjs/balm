@@ -38,7 +38,7 @@ const balmConfig = {
     }
   },
   styles: {
-    ext: 'scss'
+    ext: 'css'
   },
   scripts: {
     vender: true,

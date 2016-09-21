@@ -10,8 +10,9 @@ before(function() {
   balm.go(function(mix) {
     // test compiling
     mix.css('app/styles/main.css', balm.config.tmp.base + '/styles/css');
-    mix.less('app/styles/main.less', balm.config.tmp.base + '/styles/less');
     mix.sass('app/styles/main.sass', balm.config.tmp.base + '/styles/sass');
+    mix.sass('app/styles/main.scss', balm.config.tmp.base + '/styles/scss');
+    mix.less('app/styles/main.less', balm.config.tmp.base + '/styles/less');
     mix.js('./app/scripts/main.js', balm.config.tmp.base + '/scripts');
     // test minify
     mix.cssmin('.tmp/styles/**/*.css', balm.config.target.static + '/minify/css');
