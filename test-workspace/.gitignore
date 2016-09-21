@@ -1,4 +1,7 @@
 bower_components
+app/styles/sprites
+app/styles/svg
 .tmp
 dist
 assets
+*.zip

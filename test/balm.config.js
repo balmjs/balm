@@ -2,20 +2,22 @@ import path from 'path';
 
 const root = path.resolve(__dirname, '..');
 const workspace = path.join(root, 'test-workspace');
-const app = path.join(workspace, 'app');
 const assets = path.join(workspace, 'assets');
 
 const testConfig = {
   root: root,
   workspace: workspace,
-  app: app,
   assets: assets
 };
 
 const balmConfig = {
-  debug: true,
   useDefault: true,
+  debug: true,
   production: true,
+  // server: {
+  //   open: false,
+  //   browser: 'PhantomJS'
+  // },
   workspace: testConfig.workspace,
   roots: {
     source: 'app',
@@ -36,15 +38,15 @@ const balmConfig = {
     }
   },
   styles: {
-    ext: 'css'
+    ext: 'scss'
   },
   scripts: {
     vender: true,
     eslint: true
   },
   sprites: {
-    image: ['icon'],
-    svg: ['icon']
+    image: ['img-icon'],
+    svg: ['svg-icon']
   },
   cache: true,
   assets: {
