@@ -1,25 +1,25 @@
-## Custom task
+# Custom task
 
-### stylesheets
+## stylesheets
 
 - css
 - less
 - sass
 - cssmin
 
-### scripts
+## scripts
 
 - js
 - jsmin
 
-### others
+## others
 
 - copy
 - remove
 - zip
 - ftp
 
-### for production
+## for production
 
 - publish
 
@@ -36,12 +36,12 @@ balm.config = {
 
 balm.go(function(mix) {
   if (balm.config.production) {
-    mix.cssmin('./dist/css/**/*.css', './dist/css');
-    mix.jsmin('./dist/js/**/*.js', './dist/js');
+    mix.cssmin('dist/css/**/*.css', 'dist/css');
+    mix.jsmin('dist/js/**/*.js', 'dist/js');
 
-    mix.copy('./dist/**/*', '/path/to/project');
-    mix.zip('./dist/**/*'); // default output: ./archive.zip
-    mix.ftp('./archive.zip');
+    mix.copy('/path/to/dist/**/*', '/path/to/project');
+    mix.zip('dist/**/*', '.'); // default output: ./archive.zip
+    mix.ftp('archive.zip');
 
     mix.remove(['/path/to/project/public/css', '/path/to/project/public/js']);
     mix.publish(); // publish assets to `config.assets.root/config.assets.publicPath`
@@ -50,11 +50,11 @@ balm.go(function(mix) {
       extname: '.php'
     });
   } else {
-    mix.css('./src/css/main.css', './dist/css');
-    mix.less('./src/less/main.less', './dist/css');
-    mix.sass('./src/sass/main.scss', './dist/css');
+    mix.css('src/css/main.css', 'dist/css');
+    mix.less('src/less/main.less', 'dist/css');
+    mix.sass('src/sass/main.scss', 'dist/css');
 
-    mix.js('./src/scripts/main.js', './dist/js');
+    mix.js('./src/scripts/main.js', 'dist/js');
   }
 });
 ```

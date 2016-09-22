@@ -34,10 +34,10 @@ static: true,
 server: {
   host: '192.168.1.1',
   port: 8080,
-  proxy: 'your.project.local'
-  proxyTable: {
+  // proxy: 'your.project.local' // proxy all
+  proxyTable: { // proxy partial
     '/api': {
-       target: 'http://your.project.local', // target host
+       target: 'http://your.project.dev', // target host
        changeOrigin: true // needed for virtual hosted sites
     }
   }
@@ -98,16 +98,12 @@ Output folder (Production)
 ```js
 paths: {
   source: {
-    base: '',
-    html: '',
     css: 'styles',
     js: 'scripts',
     img: 'images',
     font: 'fonts'
   },
   target: {
-    base: '',
-    html: '',
     css: 'css',
     js: 'js',
     img: 'img',
@@ -122,12 +118,6 @@ paths: {
 ##### `paths.source.base`
 
 Application directory
-
-> Default: `''`
-
-##### `paths.source.html`
-
-Template directory
 
 > Default: `''`
 
@@ -161,10 +151,6 @@ Font directory
 
 > Default: `''`
 
-##### `paths.target.html`
-
-> Default: `''`
-
 ##### `paths.target.css`
 
 > Default: `'css'`
@@ -186,18 +172,14 @@ Font directory
 ```js
 styles: {
   ext: 'css',
-  autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR'],
-  options: {
-    safe: true,
-    autoprefixer: false
-  }
+  autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR']
 },
 ...
 ```
 
 #### `styles.ext`
 
-Supported CSS extensions are [css](http://postcss.org/), [sass](http://sass-lang.com/), [scss](http://sass-lang.com/), [less](http://lesscss.org/)
+Supported CSS extensions are [css](http://postcss.org/), [sass|scss](http://sass-lang.com/), [less](http://lesscss.org/)
 
 > Default: `'css'`
 
@@ -208,6 +190,12 @@ Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/)
 > Default: `['last 1 version']`
 
 - Autoprefixer uses [Browserslist](https://github.com/ai/browserslist#queries)
+
+#### `styles.postcss`
+
+PostCSS [plugins](http://postcss.parts/)
+
+> Default: `[]`
 
 #### `styles.options`
 
@@ -229,20 +217,8 @@ scripts: {
   },
   vendors: [], // e.g. 'common' = scripts.entry.common
   publicPath: '/js/',
-  filename: '[name]',
-  chunkFilename: '[id]',
   loaders: [], // e.g. { test: /\.vue$/, loader: 'vue' }
-  extensions: [], // e.g. '.vue'
-  alias: {},
-  stats: {
-    colors: true,
-    modules: false,
-    children: false,
-    chunks: false,
-    chunkModules: false
-  },
-  plugins: [],
-  extends: {}
+  extensions: [] // e.g. '.vue'
 },
 ...
 ```
@@ -263,7 +239,7 @@ All vendors in one (for SPA)
 
 #### `scripts.vendors`
 
-Vendor Modules
+Custom Vendor Modules
 
 > Default: `[]`
 
@@ -388,10 +364,8 @@ The pluggable linting utility for JavaScript and JSX
 
 ```js
 sprites: {
-  basePath: '../',
-  image: [], // e.g. 'icon'
-  mode: 'css',
-  svg: [] // e.g. 'icon'
+  image: [], // e.g. ['img-icon-folder', 'img-button-folder']
+  svg: [] // e.g. ['svg-logo-folder']
 },
 ...
 ```
@@ -493,7 +467,7 @@ scripts: {
 },
 assets: {
   manifest: 'manifest.json',
-  root: 'assets',
+  root: '/path/to/your_project',
   publicPath: 'public',
   subDir: 'mobile'
 },
