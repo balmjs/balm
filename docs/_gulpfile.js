@@ -24,13 +24,13 @@ balm.config = {
     },
     vendors: ['common']
   }
-  // sprites: {
+  // , sprites: {
   //   image: ['img-icon'], // iconPath = app/images/img-icon
   //   svg: ['svg-icon']    //  svgPath = app/images/svg-icon
   // },
   // cache: true,
   // assets: {
-  //   root: '/path/to/your-project', // default: `assets`
+  //   root: '/path/to/your_project', // default: `assets`
   //   publicPath: 'public',
   //   subDir: ''
   // }
@@ -38,19 +38,14 @@ balm.config = {
 
 balm.go(function(mix) {
   if (balm.config.production) {
-    // manual delete `assets` folder
-    // mix.remove('./assets');
-
-    // publish assets(styles,javascripts,images,fonts) to `./assets/public`
+    // publish assets(styles,javascripts,images,fonts) to `/path/to/your_project/public`
     mix.publish();
 
-    // publish `index.html` to `./assets/public`
-    mix.publish('index.html', 'public');
-
-    // mix.publish('index.html', 'public', {
-    //   basename: 'yourFilename',
-    //   suffix: '.blade',
-    //   extname: '.php'
-    // });
+    // publish `index.html` to `/path/to/your_project/public`
+    mix.publish('index.html', 'public', {
+      basename: 'yourFilename',
+      suffix: '.blade',
+      extname: '.php'
+    });
   }
 });
