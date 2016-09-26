@@ -76,4 +76,4 @@ gulp.task('clean', function () {
 });
 
 gulp.task('prepublish', ['babel']);
-gulp.task('default', ['static', 'coveralls']);
+gulp.task('default', ['static', 'test', 'coveralls']);

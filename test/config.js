@@ -4,6 +4,10 @@ import balm from '../lib/main';
 import balmConfig from './balm.config';
 
 describe('Balm Config', function() {
+  it('production should return `true`', function() {
+    assert.equal(balm.config.production, balmConfig.production);
+  });
+
   describe('#source', function() {
     let appDir = path.join(balmConfig.workspace, balmConfig.roots.source);
 
