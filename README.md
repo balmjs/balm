@@ -29,25 +29,28 @@ project
 ## [Installation & Setup](https://github.com/balmjs/balm/blob/master/docs/installation.md)
 
 ```sh
-npm install --save-dev balm gulp
+npm install --save-dev gulp balm
 ```
 
 ## [Configuration](https://github.com/balmjs/balm/blob/master/docs/configuration.md)
 
-- [example](https://github.com/balmjs/balm/blob/master/docs/_gulpfile.js)
-- [template](https://github.com/balmjs/balm/blob/master/docs/_index.html)
+File: `gulpfile.js`
 
 ```js
-// File: gulpfile.js
-
+// 1. import balm
 var balm = require('balm');
 
+// 2. config balm
 balm.config = {
   // your project config
 };
 
+// 3. run balm
 balm.go();
 ```
+
+- [example](https://github.com/balmjs/balm/blob/master/docs/_gulpfile.js)
+- [template](https://github.com/balmjs/balm/blob/master/docs/_index.html)
 
 ## Usage
 
@@ -63,7 +66,7 @@ $ gulp --production
 
 ## License
 
- © [Elf-mousE](http://elf-mouse.me/)
+MIT © [Elf-mousE](http://elf-mouse.me/)
 
 
 [npm-image]: https://badge.fury.io/js/balm.svg
@@ -76,4 +79,4 @@ $ gulp --production
 [coveralls-url]: https://coveralls.io/r/balmjs/balm
 
 
-> __thx [node](https://nodejs.org/en/)&[gulp](http://gulpjs.com/)&[webpack](http://webpack.github.io/)__
+> __thx [node](https://nodejs.org/) & [gulp](http://gulpjs.com/) & [webpack](http://webpack.github.io/)__

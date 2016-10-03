@@ -1,7 +1,6 @@
 ## 0.5.0
 
-- reconsitution all
-- fix `html` for external url
+- refactoring
 - update dependencies
 
 ## 0.4.37
@@ -46,7 +45,7 @@
 
 ## 0.4.29
 
-- reconsitution assets system
+- refactor assets system
 - add `remove` task
 - update `publish` task
 - update dependencies
@@ -129,7 +128,7 @@
 
 ## 0.4.11
 
-- reconsitution
+- refactor task
 - update `build` task
 - fix `webpack` vendors
 - add `ftp` task
@@ -188,7 +187,7 @@
 
 ## 0.3.0
 
-- reconsitution
+- refactoring
 
 ## 0.2.0
 

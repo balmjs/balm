@@ -1,8 +1,8 @@
 # Configuration
 
-```js
-// File: gulpfile.js
+File: `gulpfile.js`
 
+```js
 var balm = require('balm');
 
 balm.config = {

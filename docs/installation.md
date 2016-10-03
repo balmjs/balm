@@ -17,7 +17,7 @@ npm install --global gulp-cli
 ### [Balm](http://balmjs.com/)
 
 ```sh
-npm install --save-dev balm gulp
+npm install --save-dev gulp balm
 ```
 
 ## Setup
@@ -63,10 +63,35 @@ npm install webpack-hot-middleware
 
 The [gulpfile.js](configuration.md) file in your project's root directory contains all of your Balm tasks.
 
+Default, use:
+
 ```sh
 # for development
 $ gulp
 
 # for production
 $ gulp --production
+```
+
+### TIPS
+
+File: `package.json`
+
+```json
+...
+"scripts": {
+  "dev": "gulp",
+  "prod": "gulp --production"
+},
+...
+```
+
+Then, you can use:
+
+```sh
+# for development
+$ npm run dev
+
+# for production
+$ npm run prod
 ```
