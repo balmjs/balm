@@ -1,6 +1,7 @@
 ## 0.5.1
 
 - update sourcemap config for scripts
+- update documents
 
 ## 0.5.0
 

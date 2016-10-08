@@ -1,37 +1,28 @@
-# Custom task
+## Custom Task
 
-## stylesheets
+- stylesheets
+    - css
+    - less
+    - sass
+    - cssmin
+- scripts
+    - js
+    - jsmin
+- others
+    - copy
+    - remove
+    - zip
+    - ftp
 
-- css
-- less
-- sass
-- cssmin
+__File: gulpfile.js__
 
-## scripts
-
-- js
-- jsmin
-
-## others
-
-- copy
-- remove
-- zip
-- ftp
-
-## for production
-
-- publish
-
-```javascript
-// File: gulpfile.js
-
+```js
 var balm = require('balm');
 
 balm.config = {
   // your project config
   ...,
-  useDefault: false // don't start balm default workflow
+  useDefault: false // don't start balm default task
 };
 
 balm.go(function(mix) {

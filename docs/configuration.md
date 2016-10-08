@@ -12,6 +12,82 @@ balm.config = {
 balm.go();
 ```
 
+1. [__Project Type__](#project-type)
+    - [static](#static)
+2. [__Server__](#server)
+    - [server.open](#serveropen)
+    - [server.host](#serverhost)
+    - [server.port](#serverport)
+    - [server.proxy](#serverproxy)
+    - [server.proxyTable](#serverproxytable)
+3. [__Root & Path__](#root-path)
+    - source input
+        - [roots.source](#rootssource)
+        - [paths.source.base](#pathssourcebase)
+        - [paths.source.css](#pathssourcecss)
+        - [paths.source.js](#pathssourcejs)
+        - [paths.source.img](#pathssourceimg)
+        - [paths.source.font](#pathssourcefont)
+    - target output
+        - [roots.target](#rootstarget)
+        - [paths.target.base](#pathstargetbase)
+        - [paths.target.css](#pathstargetcss)
+        - [paths.target.js](#pathstargetjs)
+        - [paths.target.img](#pathstargetimg)
+        - [paths.target.font](#pathstargetfont)
+4. __HyperText Markup Language__
+    - coming soon...
+5. [__Cascading Style Sheets__](#style)
+    - [styles.ext](#stylesext)
+    - [styles.autoprefixer](#stylesautoprefixer)
+    - [styles.postcss](#stylespostcss)
+    - [styles.options](#stylesoptions)
+6. [__JavaScript__](#script)
+    - base
+        - [scripts.entry](#scriptsentry)
+        - [scripts.vendor](#scriptsvendor)
+        - [scripts.vendors](#scriptsvendors)
+    - output
+        - [scripts.publicPath](#scriptspublicpath)
+        - [scripts.filename](#scriptsfilename)
+        - [scripts.chunkFilename](#scriptschunkfilename)
+    - module
+        - [scripts.loaders](#scriptsloaders)
+    - resolve
+        - [scripts.extensions](#scriptsextensions)
+        - [scripts.alias](#scriptsalias)
+    - profile
+        - [scripts.stats](#scriptsstats)
+    - plugin
+        - [scripts.plugins](#scriptsplugins)
+        - [scripts.extends](#scriptsextends)
+    - others
+        - [scripts.HMR](#scriptshmr)
+        - [scripts.sourceMap](#scriptssourcemap)
+        - [scripts.eslint](#scriptseslint)
+7. [__CSS Sprites__](#sprite)
+    - [sprites.basePath](#spritesbasepath)
+    - [sprites.image](#spritesimage)
+    - [sprites.mode](#spritesmode)
+    - [sprites.svg](#spritessvg)
+8. __Publish__
+    - Zip
+        - [zip](#zip)
+    - FTP
+        - [ftp.host](#ftphost)
+        - [ftp.port](#ftpport)
+        - [ftp.user](#ftpuser)
+        - [ftp.pass](#ftppass)
+        - [ftp.remotePath](#ftpremotepath)
+    - Cache
+        - [cache](#cache)
+    - Assets
+        - [assets.manifest](#assetsmanifest)
+        - [assets.root](#assetsroot)
+        - [assets.publicPath](#assetspublicpath)
+        - [assets.subDir](#assetssubdir)
+9. [__Custom Task__](custom-task.md)
+
 ---
 
 ## Project Type
@@ -45,57 +121,39 @@ server: {
 ...
 ```
 
-#### `server.open`
+### `server.open`
 
 Decide which URL to open automatically when server starts.
 
 > Default: `true`
 
-#### `server.host`
+### `server.host`
 
 > Default: `null`
 
-#### `server.port`
+### `server.port`
 
 > Default: `3000`
 
-#### `server.proxy`
+### `server.proxy`
 
 Proxy an EXISTING vhost. Browsersync will wrap your vhost with a proxy URL to view your site.
 
 > Default: `undefined`
 
-#### `server.proxyTable`
+### `server.proxyTable`
 
 Define HTTP proxies to your custom API backend
 
 > Default: `{}`
 
-## Root
+## Root & Path
 
 ```js
 roots: {
   source: 'app',
   target: 'dist'
 },
-...
-```
-
-#### `roots.source`
-
-Input folder (Source Code)
-
-> Default: `'src'`
-
-#### `roots.target`
-
-Output folder (Production)
-
-> Default: `'dist'`
-
-## Path
-
-```js
 paths: {
   source: {
     css: 'styles',
@@ -113,57 +171,69 @@ paths: {
 ...
 ```
 
-#### Source Input
+### `roots.source`
 
-##### `paths.source.base`
+Input folder (Source Code)
+
+> Default: `'src'`
+
+### `roots.target`
+
+Output folder (Production)
+
+> Default: `'dist'`
+
+__Source Input__
+
+### `paths.source.base`
 
 Application directory
 
 > Default: `''`
 
-##### `paths.source.css`
+### `paths.source.css`
 
 Stylesheet directory
 
 > Default: `'styles'`
 
-##### `paths.source.js`
+### `paths.source.js`
 
 JavaScript directory
 
 > Default: `'scripts'`
 
-##### `paths.source.img`
+### `paths.source.img`
 
 Image directory
 
 > Default: `'images'`
 
-##### `paths.source.font`
+### `paths.source.font`
 
 Font directory
 
 > Default: `'fonts'`
 
-#### Target Output
+__Target Output__
 
-##### `paths.target.base`
+### `paths.target.base`
 
 > Default: `''`
 
-##### `paths.target.css`
+### `paths.target.css`
 
 > Default: `'css'`
 
-##### `paths.target.js`
+### `paths.target.js`
 
 > Default: `'js'`
 
-##### `paths.target.img`
+### `paths.target.img`
 
 > Default: `'img'`
 
-##### `paths.target.font`
+### `paths.target.font`
 
 > Default: `'font'`
 
@@ -177,13 +247,13 @@ styles: {
 ...
 ```
 
-#### `styles.ext`
+### `styles.ext`
 
 Supported CSS extensions are [css](http://postcss.org/), [sass|scss](http://sass-lang.com/), [less](http://lesscss.org/)
 
 > Default: `'css'`
 
-#### `styles.autoprefixer`
+### `styles.autoprefixer`
 
 Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/)
 
@@ -191,13 +261,13 @@ Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/)
 
 - Autoprefixer uses [Browserslist](https://github.com/ai/browserslist#queries)
 
-#### `styles.postcss`
+### `styles.postcss`
 
 PostCSS [plugins](http://postcss.parts/)
 
 > Default: `[]`
 
-#### `styles.options`
+### `styles.options`
 
 > Default: `{
   safe: true,
@@ -223,7 +293,7 @@ scripts: {
 ...
 ```
 
-#### `scripts.entry`
+### `scripts.entry`
 
 The entry point for the bundle.
 
@@ -231,33 +301,33 @@ The entry point for the bundle.
   'main': './app/scripts/main.js'
 }`
 
-#### `scripts.vendor`
+### `scripts.vendor`
 
 All vendors in one (for SPA)
 
 > Default: `false`
 
-#### `scripts.vendors`
+### `scripts.vendors`
 
 Custom Vendor Modules
 
 > Default: `[]`
 
-### Output
+__Output__
 
-#### `scripts.publicPath`
+### `scripts.publicPath`
 
 The `publicPath` specifies the public URL address of the output files when referenced in a browser.
 
 > Default: `'/js/'`
 
-#### `scripts.filename`
+### `scripts.filename`
 
 Specifies the name of each output file on disk. You must __not__ specify an absolute path here!
 
 > Default: `'[name]'`
 
-#### `scripts.chunkFilename`
+### `scripts.chunkFilename`
 
 The filename of non-entry chunks as relative path inside the `output.path` directory.
 
@@ -268,9 +338,9 @@ The filename of non-entry chunks as relative path inside the `output.path` direc
 
 > Default: `'[id]'`
 
-### Module
+__Module__
 
-#### `scripts.loaders`
+### `scripts.loaders`
 
 An array of automatically applied loaders.
 
@@ -297,9 +367,9 @@ __BalmJS__ default loaders:
 
 > [List of loaders](http://webpack.github.io/docs/list-of-loaders.html)
 
-### Resolve
+__Resolve__
 
-#### `scripts.extensions`
+### `scripts.extensions`
 
 An array of extensions that should be used to resolve modules.
 
@@ -312,15 +382,15 @@ __BalmJS__ default extensions:
 - [`.jsx`](https://facebook.github.io/react/)
 - [`.vue`](http://vuejs.org/)
 
-#### `scripts.alias`
+### `scripts.alias`
 
 Replace modules by other modules or paths.
 
 > Default: `{}`
 
-### Profile
+__Profile__
 
-#### `scripts.stats`
+### `scripts.stats`
 
 Capture timing information for each module.
 
@@ -332,37 +402,37 @@ Capture timing information for each module.
   chunkModules: false
 }`
 
-### Plugin
+__Plugin__
 
-#### `scripts.plugins`
+### `scripts.plugins`
 
 Add additional plugins to the compiler.
 
 > Default: `[]`
 
-#### `scripts.extends`
+### `scripts.extends`
 
 Extend config for webpack
 
 > Default: `{}`
 
-### Hot Reload
+__Hot Reload__
 
-#### `scripts.HMR`
+### `scripts.HMR`
 
 > Default: `true`
 
-### Source Map
+__Source Map__
 
-#### `scripts.sourceMap`
+### `scripts.sourceMap`
 
 Production SourceMap
 
 > Default: `false`
 
-### ESLint
+__ESLint__
 
-#### `scripts.eslint`
+### `scripts.eslint`
 
 The pluggable linting utility for JavaScript and JSX
 
@@ -378,31 +448,33 @@ sprites: {
 ...
 ```
 
-#### `sprites.basePath`
+### `sprites.basePath`
 
 Path to use in CSS referring to image location
 
 > Default: `'../'`
 
-#### `sprites.image`
+### `sprites.image`
 
 Image folder name
 
 > Default: `[]`
 
-#### `sprites.mode`
+### `sprites.mode`
 
 Output modes: `css`, `view`, `defs`, `symbol`, `stack`
 
 > Default: `'css'`
 
-#### `sprites.svg`
+### `sprites.svg`
 
 SVG folder name
 
 > Default: `[]`
 
-## Zip
+## Publish
+
+__Zip__
 
 ```js
 zip: 'archive.zip'
@@ -415,7 +487,7 @@ Zip filename
 
 > Default: `'archive.zip'`
 
-## Ftp
+__Ftp__
 
 ```js
 ftp: {
@@ -428,29 +500,29 @@ ftp: {
 ...
 ```
 
-#### `ftp.host`
+### `ftp.host`
 
 Required
 
 > Default: `undefined`
 
-#### `ftp.port`
+### `ftp.port`
 
 > Default: `22`
 
-#### `ftp.user`
+### `ftp.user`
 
 > Default: `'anonymous'`
 
-#### `ftp.pass`
+### `ftp.pass`
 
 > Default: `null`
 
-#### `ftp.remotePath`
+### `ftp.remotePath`
 
 > Default: `'/'`
 
-## Cache
+__Cache__
 
 ```js
 cache: true,
@@ -466,7 +538,7 @@ Versioning/Cache Busting switch
 
 > Default: `false`
 
-## Assets
+__Assets__
 
 ```js
 cache: true, // required
@@ -482,30 +554,28 @@ assets: {
 ...
 ```
 
-#### `assets.manifest`
+### `assets.manifest`
 
 Set the filename of the file created
 
 > Default: `'manifest.json'`
 
-#### `assets.root`
+### `assets.root`
 
 Remote project root simulation
 
 > Default: `'assets'`
 
-#### `assets.publicPath`
+### `assets.publicPath`
 
 The `public` directory contains the front controller and your assets (images, JavaScript, CSS, etc.)
 
 > Default: `'public'`
 
-#### `assets.subDir`
+### `assets.subDir`
 
 Public subdirectory
 
 > Default: `''`
-
----
 
 ### [Custom Task](custom-task.md)
