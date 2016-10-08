@@ -352,11 +352,19 @@ Extend config for webpack
 
 > Default: `true`
 
+### Source Map
+
+#### `scripts.sourceMap`
+
+Production SourceMap
+
+> Default: `false`
+
 ### ESLint
 
-The pluggable linting utility for JavaScript and JSX
-
 #### `scripts.eslint`
+
+The pluggable linting utility for JavaScript and JSX
 
 > Default: `false`
 
