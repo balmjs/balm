@@ -1,3 +1,8 @@
+## 0.5.2
+
+- add `sprites` & `svg` padding
+- update dependencies
+
 ## 0.5.1
 
 - update sourcemap config for scripts

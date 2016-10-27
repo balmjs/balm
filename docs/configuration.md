@@ -67,6 +67,7 @@ balm.go();
         - [scripts.eslint](#scriptseslint)
 7. [__CSS Sprites__](#sprite)
     - [sprites.basePath](#spritesbasepath)
+    - [sprites.padding](#spritespadding)
     - [sprites.image](#spritesimage)
     - [sprites.mode](#spritesmode)
     - [sprites.svg](#spritessvg)
@@ -453,6 +454,12 @@ sprites: {
 Path to use in CSS referring to image location
 
 > Default: `'../'`
+
+### `sprites.padding`
+
+Amount of pixels to include between images or svgs
+
+> Default: `0`
 
 ### `sprites.image`
 
