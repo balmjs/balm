@@ -1,3 +1,7 @@
+## 0.5.3
+
+- fix browser sync reload bug
+
 ## 0.5.2
 
 - add `sprites` & `svg` padding
