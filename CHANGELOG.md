@@ -1,3 +1,8 @@
+## 0.5.4
+
+- update logger
+- update dependencies
+
 ## 0.5.3
 
 - fix browser sync reload bug

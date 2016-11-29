@@ -23,7 +23,8 @@
     "del": true,
     "webpack": true,
     "BalmJS": true,
-    "config": true
+    "config": true,
+    "logger": true
   },
   "rules": {
     "quotes": [

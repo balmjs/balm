@@ -35,8 +35,10 @@ balm.go();
         - [paths.target.js](#pathstargetjs)
         - [paths.target.img](#pathstargetimg)
         - [paths.target.font](#pathstargetfont)
-4. __HyperText Markup Language__
-    - coming soon...
+4. [__HyperText Markup Language__](#html)
+    - [html.regex](#htmlregex)
+    - [html.replacement](#htmlreplacement)
+    - [html.options](#htmloptions)
 5. [__Cascading Style Sheets__](#style)
     - [styles.ext](#stylesext)
     - [styles.autoprefixer](#stylesautoprefixer)
@@ -237,6 +239,46 @@ __Target Output__
 ### `paths.target.font`
 
 > Default: `'font'`
+
+## HTML
+
+```
+Before:
+<link rel="stylesheet" href="css/main.css">
+...
+<script src="http(s)://cdn.com/path/to/js/lib.js"></script>
+<script src="js/main.js"></script>
+
+After:
+<link rel="stylesheet" href="/css/main.css">
+...
+<script src="http(s)://cdn.com/path/to/js/lib.js"></script>
+<script src="/js/main.js"></script>
+```
+
+### `html.regex`
+
+> Default: `{
+  css: 'css',
+  js: 'js',
+  img: 'images'
+}`
+
+### `html.replacement`
+
+> Default: `{
+  prefix: '"',
+  begin: '/',
+  end: '/'
+}`
+
+### `html.options`
+
+> Default: `{
+  collapseWhitespace: true,
+  minifyCSS: true,
+  minifyJS: true
+}`
 
 ## Style
 
