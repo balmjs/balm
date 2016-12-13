@@ -5,6 +5,15 @@ var balm = require('balm');
 
 // 2. config balm
 balm.config = {
+  // server: {
+  //   open: true,
+  //   proxyTable: {
+  //     '/api': {
+  //       target: 'http://your.project.dev', // target host
+  //       changeOrigin: true // needed for virtual hosted sites
+  //     }
+  //   }
+  // },
   roots: {
     source: 'app' // source code root
   },

@@ -1,7 +1,7 @@
 {
   "name": "balm",
   "version": "0.5.5",
-  "description": "A flexible front-end workflow",
+  "description": "A flexible front-end workflow for webapps",
   "homepage": "https://github.com/balmjs/balm#readme",
   "author": {
     "name": "Elf-mousE",
@@ -15,6 +15,9 @@
   "keywords": [
     "balm",
     "balmjs",
+    "web",
+    "app",
+    "front-end",
     "workflow"
   ],
   "dependencies": {
@@ -99,6 +102,9 @@
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
+  },
+  "engines": {
+    "node": ">=4"
   },
   "license": "MIT",
   "private": true

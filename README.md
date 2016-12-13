@@ -1,12 +1,12 @@
 # BalmJS [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> A flexible Front-End workflow
+> A flexible Front-End workflow for webapps
 
 ## Demo
 
-- [x] [HTML](https://github.com/balmjs/balm-html)
-- [x] [Laravel](https://github.com/balmjs/balm-laravel)
-- [x] [Vue](https://github.com/balmjs/balm-vue)
-- [x] [TypeScript](https://github.com/balmjs/balm-ts)
+- [x] [HTML](https://github.com/balmjs/demo-html)
+- [x] [Laravel](https://github.com/balmjs/demo-laravel)
+- [x] [Vue](https://github.com/balmjs/demo-vue)
+- [x] [TypeScript](https://github.com/balmjs/demo-ts)
 
 ## [Structure](https://github.com/balmjs/balm-boilerplate)
 
