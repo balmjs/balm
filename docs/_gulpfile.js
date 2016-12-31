@@ -19,10 +19,10 @@ balm.config = {
   },
   paths: {
     source: {
-      css: 'styles',   // css dir = app/styles
-      js: 'scripts',    // js dir = app/scripts
-      img: 'images', // image dir = app/images
-      font: 'fonts'   // font dir = app/fonts
+      css: 'styles',   // css dir = ./app/styles
+      js: 'scripts',    // js dir = ./app/scripts
+      img: 'images', // image dir = ./app/images
+      font: 'fonts'   // font dir = ./app/fonts
     }
   },
   styles: {
@@ -31,18 +31,18 @@ balm.config = {
   },
   scripts: {
     entry: {
-      common: ['jquery'],
+      common: ['your-project-vendors', 'your-project-plugins'],
       main: './app/scripts/main.js'
     },
-    vendors: ['common']
+    vendors: ['common'] // <script src="js/vendor/common.js"></script>
   }
   // , sprites: {
-  //   image: ['img-icon'], // iconPath = app/images/img-icon
-  //   svg: ['svg-icon']    //  svgPath = app/images/svg-icon
+  //   image: ['img-icon'], // iconPath = ./app/images/img-icon
+  //   svg: ['svg-icon']    //  svgPath = ./app/images/svg-icon
   // },
   // cache: true,
   // assets: {
-  //   root: '/path/to/your_project',
+  //   root: '/path/to/your_project', // remote project root path
   //   publicPath: 'public',
   //   subDir: ''
   // }
@@ -54,8 +54,8 @@ balm.go(function(mix) {
     // publish assets(styles,scripts,images,fonts) to `/path/to/your_project/public`
     mix.publish();
 
-    // publish `index.html` to `/path/to/your_project/public`
-    mix.publish('index.html', 'public', {
+    // publish `index.html` to `/path/to/your_project/views`
+    mix.publish('index.html', 'views', {
       basename: 'yourFilename',
       suffix: '.blade',
       extname: '.php'
