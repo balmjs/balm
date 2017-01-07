@@ -1,3 +1,10 @@
+## 0.5.7
+
+- fix browser reload
+- fix `version` for vendor all in one
+- update dependencies
+- fix test
+
 ## 0.5.6
 
 - from `npm` to `yarn`

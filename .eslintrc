@@ -19,7 +19,6 @@
     "gulp": true,
     "$": true,
     "browserSync": true,
-    "reload": true,
     "del": true,
     "webpack": true,
     "BalmJS": true,

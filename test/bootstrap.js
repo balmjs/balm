@@ -23,10 +23,10 @@ before(function() {
       suffix: '.blade',
       extname: '.php'
     });
-    // // test zip
+    // test zip
     mix.remove(balm.config.workspace + '/archive.zip');
     mix.zip();
-    // // test publish
+    // test publish
     mix.publish();
     mix.publish('index.html', 'public/web', {
       basename: 'home',
