@@ -1,9 +1,24 @@
+## 0.6.0
+
+Coming soon
+
+- use node >= 6 (Recommended)
+- update dependencies
+- use webpack2
+- remove `json-loader`
+- clean code
+- update test
+
+---
+
 ## 0.5.7
 
 - fix browser reload
 - fix `version` for vendor all in one
 - update dependencies
 - fix test
+
+---
 
 ## 0.5.6
 

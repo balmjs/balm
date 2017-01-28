@@ -43,10 +43,10 @@ const balmConfig = {
   scripts: {
     entry: {
       // lib: ['jquery'],
-      main: path.join(workspace, 'app/scripts/main.js')
+      main: './app/scripts/main'
     },
     // vendors: ['lib'],
-    vendor: true,
+    // vendor: true,
     eslint: true
   },
   sprites: {

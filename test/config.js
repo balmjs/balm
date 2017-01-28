@@ -91,10 +91,4 @@ describe('Balm Config', function() {
       assert.equal(balm.config.assets.font, path.join(assetsDir, balmConfig.paths.target.font));
     });
   });
-
-  describe('#scripts', function() {
-    it('entry.main should return `path/to/workspace/app/scripts/main.js`', function() {
-      assert.equal(balm.config.scripts.entry.main, balm.config.source.js + '/main.js');
-    });
-  });
 });
