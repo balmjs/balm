@@ -8,7 +8,7 @@
 - [x] [Vue](https://github.com/balmjs/demo-vue)
 - [x] [TypeScript](https://github.com/balmjs/demo-ts)
 
-## [Structure](https://github.com/balmjs/balm-boilerplate)
+## [Structure](https://github.com/balmjs/demo-boilerplate)
 
 ```
 project
