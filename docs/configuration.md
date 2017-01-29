@@ -326,7 +326,7 @@ PostCSS [plugins](http://postcss.parts/)
 scripts: {
   entry: {
     // 'common': ['jquery'],
-    'main': './app/scripts/main.js'
+    'main': './app/scripts/main'
   },
   vendors: [], // e.g. 'common' = scripts.entry.common
   publicPath: '/js/',
@@ -341,7 +341,7 @@ scripts: {
 The entry point for the bundle.
 
 > Default: `{
-  'main': './app/scripts/main.js'
+  'main': './app/scripts/main'
 }`
 
 ### `scripts.vendor`

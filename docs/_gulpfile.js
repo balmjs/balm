@@ -32,7 +32,7 @@ balm.config = {
   scripts: {
     entry: {
       common: ['your-project-vendors', 'your-project-plugins'],
-      main: './app/scripts/main.js'
+      main: './app/scripts/main'
     },
     vendors: ['common'] // <script src="js/vendor/common.js"></script>
   }

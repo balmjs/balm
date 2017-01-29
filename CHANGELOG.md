@@ -1,7 +1,5 @@
 ## 0.6.0
 
-Coming soon
-
 - use node >= 6 (Recommended)
 - update dependencies
 - use webpack2
