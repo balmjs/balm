@@ -362,7 +362,7 @@ __Output__
 
 The `publicPath` specifies the public URL address of the output files when referenced in a browser.
 
-> Default: `'/js/'`
+> Default: `''`
 
 ### `scripts.filename`
 
