@@ -115,7 +115,7 @@ server: {
   port: 8080,
   // proxy: 'your.project.local' // proxy all
   proxyTable: { // proxy partial
-    '/api': {
+    '/api': { // context
        target: 'http://your.project.dev', // target host
        changeOrigin: true // needed for virtual hosted sites
     }
@@ -149,6 +149,8 @@ Proxy an EXISTING vhost. Browsersync will wrap your vhost with a proxy URL to vi
 Define HTTP proxies to your custom API backend
 
 > Default: `{}`
+
+- full list of `http-proxy-middleware` [configuration options](https://github.com/chimurai/http-proxy-middleware#options)
 
 ## Root & Path
 
