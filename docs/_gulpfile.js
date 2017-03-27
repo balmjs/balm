@@ -1,60 +1,65 @@
-// balm config simple demo
+// Balm config simple demo
 
-// 1. import balm
+// 1. Import balm
 var balm = require('balm');
 
-// 2. config balm
+// 2. Config balm
 balm.config = {
-  // server: {
-  //   open: true,
-  //   proxyTable: {
-  //     '/api': {
-  //       target: 'http://your.project.dev', // target host
-  //       changeOrigin: true // needed for virtual hosted sites
-  //     }
-  //   }
-  // },
+  server: {
+    open: true,
+    proxyTable: {
+      '/api': {
+        target: 'http://your.project.dev', // Target host
+        changeOrigin: true // Needed for virtual hosted sites
+      }
+    }
+  },
   roots: {
-    source: 'app' // source code root
+    source: 'app' // Source code root
   },
   paths: {
     source: {
-      css: 'styles',   // css dir = ./app/styles
-      js: 'scripts',    // js dir = ./app/scripts
-      img: 'images', // image dir = ./app/images
-      font: 'fonts'   // font dir = ./app/fonts
+      css: 'styles', // CSS dir = ./app/styles
+      js: 'scripts', // JS dir = ./app/scripts
+      img: 'images', // Image dir = ./app/images
+      font: 'fonts' // Font dir = ./app/fonts
     }
   },
   styles: {
-    ext: 'scss', // style extensions
+    ext: 'scss', // Main style extension
     autoprefixer: ['last 2 versions']
   },
   scripts: {
     entry: {
-      common: ['your-project-vendors', 'your-project-plugins'],
+      common: [
+        'your-project-vendors',
+        'your-project-plugins'
+      ],
       main: './app/scripts/main'
     },
-    vendors: ['common'] // <script src="js/vendor/common.js"></script>
+    vendors: ['common'] // HTML: <script src="js/vendor/common.js"></script>
+  },
+  sprites: {
+    image: ['img-icon'], // Icon path: './app/images/img-icon'
+    svg: ['svg-icon'] //  SVG path: './app/images/svg-icon'
+  },
+  cache: false,
+  assets: {
+    root: '/path/to/your_project', // Remote project root path
+    publicPath: 'public', // '/path/to/your_project/public'
+    subDir: '' // `/path/to/your_project/public/${subDir}`
   }
-  // , sprites: {
-  //   image: ['img-icon'], // iconPath = ./app/images/img-icon
-  //   svg: ['svg-icon']    //  svgPath = ./app/images/svg-icon
-  // },
-  // cache: true,
-  // assets: {
-  //   root: '/path/to/your_project', // remote project root path
-  //   publicPath: 'public',
-  //   subDir: ''
-  // }
 };
 
-// 3. run balm
+// 3. Run balm
 balm.go(function(mix) {
   if (balm.config.production) {
-    // publish assets(styles,scripts,images,fonts) to `/path/to/your_project/public`
+    // Publish assets(styles,scripts,images,fonts)
+    // to `${assets.root}/${assets.publicPath}/${assets.subDir}`
     mix.publish();
 
-    // publish `index.html` to `/path/to/your_project/views`
+    // Publish `${roots.source}/index.html`
+    // to `${assets.root}/views`
     mix.publish('index.html', 'views', {
       basename: 'yourFilename',
       suffix: '.blade',

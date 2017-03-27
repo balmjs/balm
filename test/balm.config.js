@@ -14,6 +14,7 @@ const balmConfig = {
   useDefault: true,
   debug: true,
   production: true,
+  // Server config
   // server: {
   //   open: false,
   //   browser: 'PhantomJS'
@@ -42,11 +43,8 @@ const balmConfig = {
   },
   scripts: {
     entry: {
-      // lib: ['jquery'],
       main: './app/scripts/main'
     },
-    // vendors: ['lib'],
-    // vendor: true,
     eslint: true
   },
   sprites: {

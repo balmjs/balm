@@ -7,7 +7,7 @@
     "mocha": true
   },
   "parserOptions": {
-    "ecmaVersion": 7,
+    "ecmaVersion": 2017,
     "sourceType": "module"
   },
   "extends": [
@@ -26,22 +26,14 @@
     "logger": true
   },
   "rules": {
-    "quotes": [
-      2,
-      "single"
-    ],
-    "generator-star-spacing": 0,
+    "quotes": ["error", "single"],
     "space-before-function-paren": 0,
-    "operator-linebreak": [
-      "error",
-      "after",
-      {
-        "overrides": {
-          "?": "ignore",
-          ":": "ignore"
-        }
+    "operator-linebreak": ["error", "after", {
+      "overrides": {
+        "?": "ignore",
+        ":": "ignore"
       }
-    ],
-    "no-console": 0
+    }],
+    "no-compare-neg-zero": 0
   }
 }

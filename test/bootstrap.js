@@ -2,31 +2,32 @@ import balm from '../lib/main';
 import balmConfig from './balm.config';
 
 before(function() {
-  console.log('Previously on BalmJS:\n', balm.config); // test get
+  // Test get
+  // console.log('Previously on BalmJS:\n', balm.config);
 
-  balm.config = balmConfig; // test set
+  balm.config = balmConfig; // Test set
 
-  // test build
+  // Test build
   balm.go(function(mix) {
-    // test compiling
+    // Test compiling
     mix.css('app/styles/main.css', '.tmp/styles/css');
     mix.sass('app/styles/main.sass', '.tmp/styles/sass');
     mix.sass('app/styles/main.scss', '.tmp/styles/scss');
     mix.less('app/styles/main.less', '.tmp/styles/less');
     mix.js('./app/scripts/main.js', '.tmp/scripts');
-    // test minify
+    // Test minify
     mix.cssmin(['.tmp/styles/**/*.css'], 'dist/minify/css');
     mix.jsmin(['.tmp/scripts/**/*.js'], 'dist/minify/js');
-    // test copy
+    // Test copy
     mix.copy(balm.config.workspace + '/app/index.html', balm.config.assets.static + '/copy-dest', {
       basename: 'newfile',
       suffix: '.blade',
       extname: '.php'
     });
-    // test zip
+    // Test zip
     mix.remove(balm.config.workspace + '/archive.zip');
     mix.zip();
-    // test publish
+    // Test publish
     mix.publish();
     mix.publish('index.html', 'public/web', {
       basename: 'home',
@@ -35,9 +36,9 @@ before(function() {
     });
   });
 
-  balm.go(); // wrong
+  balm.go(); // Wrong
 
-  balm.go('unkonwn'); // wrong
+  balm.go('unkonwn'); // Wrong
 
-  balm.go('default'); // right
+  balm.go('default'); // Right
 });
