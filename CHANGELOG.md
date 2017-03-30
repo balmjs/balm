@@ -6,6 +6,7 @@
 - remove `json-loader`
 - clean code
 - update test
+- update uglifyjs for production
 
 ---
 

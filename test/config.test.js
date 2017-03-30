@@ -1,9 +1,8 @@
 import assert from 'assert';
-
 import balm from '../lib/main';
 import balmConfig from './balm.config';
 
-describe('Balm Config', function() {
+describe('Test balm config', function() {
   it('production should return `true`', function() {
     assert.equal(balm.config.production, balmConfig.production);
   });
