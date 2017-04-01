@@ -7,6 +7,7 @@
 - [x] [Laravel](https://github.com/balmjs/demo-laravel)
 - [x] [Vue](https://github.com/balmjs/demo-vue)
 - [x] [TypeScript](https://github.com/balmjs/demo-ts)
+- [x] AnyAwesome...
 
 ## [Structure](https://github.com/balmjs/demo-boilerplate)
 

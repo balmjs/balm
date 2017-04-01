@@ -6,7 +6,7 @@ File: `gulpfile.js`
 var balm = require('balm');
 
 balm.config = {
-  // your project config
+  // Your project config
 };
 
 balm.go();
@@ -21,14 +21,14 @@ balm.go();
     - [server.proxy](#serverproxy)
     - [server.proxyTable](#serverproxytable)
 3. [__Root & Path__](#root-path)
-    - source input
+    - Source Input
         - [roots.source](#rootssource)
         - [paths.source.base](#pathssourcebase)
         - [paths.source.css](#pathssourcecss)
         - [paths.source.js](#pathssourcejs)
         - [paths.source.img](#pathssourceimg)
         - [paths.source.font](#pathssourcefont)
-    - target output
+    - Target Output
         - [roots.target](#rootstarget)
         - [paths.target.base](#pathstargetbase)
         - [paths.target.css](#pathstargetcss)
@@ -45,27 +45,31 @@ balm.go();
     - [styles.postcss](#stylespostcss)
     - [styles.options](#stylesoptions)
 6. [__JavaScript__](#script)
-    - base
+    - Entry
         - [scripts.entry](#scriptsentry)
+    - Output
+        - [scripts.filename](#scriptsfilename)
+        - [scripts.publicPath](#scriptspublicpath)
+        - [scripts.chunkFilename](#scriptschunkfilename)
         - [scripts.vendor](#scriptsvendor)
         - [scripts.vendors](#scriptsvendors)
-    - output
-        - [scripts.publicPath](#scriptspublicpath)
-        - [scripts.filename](#scriptsfilename)
-        - [scripts.chunkFilename](#scriptschunkfilename)
-    - module
+    - Module
         - [scripts.loaders](#scriptsloaders)
-    - resolve
+    - Resolve
         - [scripts.extensions](#scriptsextensions)
         - [scripts.alias](#scriptsalias)
-    - profile
-        - [scripts.stats](#scriptsstats)
-    - plugin
+    - Plugins
         - [scripts.plugins](#scriptsplugins)
-        - [scripts.extends](#scriptsextends)
-    - others
-        - [scripts.HMR](#scriptshmr)
+    - DevServer
+        - [scripts.hot](#scriptshot)
+    - Devtool
         - [scripts.sourceMap](#scriptssourcemap)
+    - Target
+        - [scripts.target](#scriptstarget)
+    - Stats
+        - [scripts.stats](#scriptsstats)
+    - Other Options
+        - [scripts.extends](#scriptsextends)
         - [scripts.eslint](#scriptseslint)
 7. [__CSS Sprites__](#sprite)
     - [sprites.basePath](#spritesbasepath)
@@ -73,7 +77,10 @@ balm.go();
     - [sprites.image](#spritesimage)
     - [sprites.mode](#spritesmode)
     - [sprites.svg](#spritessvg)
-8. __Publish__
+8. [__Extra Files__](#extra)
+    - [excludes](#extrasexcludes)
+    - [includes](#extrasincludes)
+9. [__Publish__](#publish)
     - Zip
         - [zip](#zip)
     - FTP
@@ -89,7 +96,7 @@ balm.go();
         - [assets.root](#assetsroot)
         - [assets.publicPath](#assetspublicpath)
         - [assets.subDir](#assetssubdir)
-9. [__Custom Task__](custom-task.md)
+10. [__Custom Task__](custom-task.md)
 
 ---
 
@@ -338,6 +345,8 @@ scripts: {
 ...
 ```
 
+__Entry__
+
 ### `scripts.entry`
 
 The entry point for the bundle.
@@ -345,6 +354,31 @@ The entry point for the bundle.
 > Default: `{
   'main': './app/scripts/main'
 }`
+
+__Output__
+
+### `scripts.filename`
+
+Specifies the name of each output file on disk. You must __not__ specify an absolute path here!
+
+> Default: `'[name]'`
+
+### `scripts.publicPath`
+
+The `publicPath` specifies the public URL address of the output files when referenced in a browser.
+
+> Default: `''`
+
+### `scripts.chunkFilename`
+
+The filename of non-entry chunks as relative path inside the `output.path` directory.
+
+- `[id]` is replaced by the id of the chunk.
+- `[name]` is replaced by the name of the chunk (or with the id when the chunk has no name).
+- `[hash]` is replaced by the hash of the compilation.
+- `[chunkhash]` is replaced by the hash of the chunk.
+
+> Default: `''`
 
 ### `scripts.vendor`
 
@@ -357,31 +391,6 @@ All vendors in one (for SPA)
 Custom Vendor Modules
 
 > Default: `[]`
-
-__Output__
-
-### `scripts.publicPath`
-
-The `publicPath` specifies the public URL address of the output files when referenced in a browser.
-
-> Default: `''`
-
-### `scripts.filename`
-
-Specifies the name of each output file on disk. You must __not__ specify an absolute path here!
-
-> Default: `'[name]'`
-
-### `scripts.chunkFilename`
-
-The filename of non-entry chunks as relative path inside the `output.path` directory.
-
-- `[id]` is replaced by the id of the chunk.
-- `[name]` is replaced by the name of the chunk (or with the id when the chunk has no name).
-- `[hash]` is replaced by the hash of the compilation.
-- `[chunkhash]` is replaced by the hash of the chunk.
-
-> Default: `'[id]'`
 
 __Module__
 
@@ -408,9 +417,8 @@ __BalmJS__ default loaders:
 - [`babel`](https://github.com/babel/babel-loader)
 - [`url`](https://github.com/webpack/url-loader)
 - [`file`](https://github.com/webpack/file-loader)
-- [`json`](https://github.com/webpack/json-loader)
 
-> [List of loaders](http://webpack.github.io/docs/list-of-loaders.html)
+> [List of loaders](https://webpack.js.org/loaders/)
 
 __Resolve__
 
@@ -433,7 +441,35 @@ Replace modules by other modules or paths.
 
 > Default: `{}`
 
-__Profile__
+__Plugin__
+
+### `scripts.plugins`
+
+Add additional plugins to the compiler.
+
+> Default: `[]`
+
+__DevServer__
+
+### `scripts.hot`
+
+> Default: `true`
+
+__Devtool__
+
+### `scripts.sourceMap`
+
+Source mapping
+
+> Default: `false`
+
+__Target__
+
+### `scripts.target`
+
+> Default: `'web'`
+
+__Stats__
 
 ### `scripts.stats`
 
@@ -447,35 +483,13 @@ Capture timing information for each module.
   chunkModules: false
 }`
 
-__Plugin__
-
-### `scripts.plugins`
-
-Add additional plugins to the compiler.
-
-> Default: `[]`
+__Other Options__
 
 ### `scripts.extends`
 
 Extend config for webpack
 
 > Default: `{}`
-
-__Hot Reload__
-
-### `scripts.HMR`
-
-> Default: `true`
-
-__Source Map__
-
-### `scripts.sourceMap`
-
-Production SourceMap
-
-> Default: `false`
-
-__ESLint__
 
 ### `scripts.eslint`
 
@@ -520,6 +534,16 @@ Output modes: `css`, `view`, `defs`, `symbol`, `stack`
 ### `sprites.svg`
 
 SVG folder name
+
+> Default: `[]`
+
+## Extra
+
+### `extras.excludes`
+
+> Default: `['css', 'js', 'json', 'md', 'lock']`
+
+### `extras.includes`
 
 > Default: `[]`
 
