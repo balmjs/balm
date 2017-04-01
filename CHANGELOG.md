@@ -7,6 +7,7 @@
 - clean code
 - update test
 - update uglifyjs for production
+- update docs
 
 ---
 

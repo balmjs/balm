@@ -268,8 +268,8 @@ After:
 ### `html.regex`
 
 > Default: `{
-  css: 'css',
-  js: 'js',
+  css: 'styles',
+  js: 'scripts',
   img: 'images'
 }`
 
@@ -334,11 +334,12 @@ PostCSS [plugins](http://postcss.parts/)
 ```js
 scripts: {
   entry: {
-    // 'common': ['jquery'],
-    'main': './app/scripts/main'
+    'lib': ['jquery', 'lodash'],
+    'ui': ['jquery-ui'],
+    'main': './app/scripts/main',
+    'subpage': './app/scripts/subpage'
   },
-  vendors: [], // e.g. 'common' = scripts.entry.common
-  publicPath: '/js/',
+  vendors: ['lib', 'ui'],
   loaders: [], // e.g. { test: /\.vue$/, loader: 'vue' }
   extensions: [] // e.g. '.vue'
 },
@@ -449,9 +450,13 @@ Add additional plugins to the compiler.
 
 > Default: `[]`
 
+> [List of plugins](https://webpack.js.org/plugins/)
+
 __DevServer__
 
 ### `scripts.hot`
+
+Hot reload
 
 > Default: `true`
 
@@ -463,13 +468,13 @@ Source mapping
 
 > Default: `false`
 
-__Target__
+[__Target__](https://webpack.js.org/configuration/target/)
 
 ### `scripts.target`
 
 > Default: `'web'`
 
-__Stats__
+[__Stats__](https://webpack.js.org/configuration/stats/)
 
 ### `scripts.stats`
 

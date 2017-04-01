@@ -1,6 +1,10 @@
 # BalmJS [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > A flexible Front-End workflow for webapps
 
+## Quick Start
+
+👻 [The webapps' scaffolding tool](https://github.com/balmjs/balm-cli)
+
 ## Demo
 
 - [x] [HTML](https://github.com/balmjs/demo-html)
@@ -52,6 +56,8 @@ balm.go();
 
 - [example](https://github.com/balmjs/balm/blob/master/docs/_gulpfile.js)
 - [template](https://github.com/balmjs/balm/blob/master/docs/_index.html)
+
+## [Custom Task](https://github.com/balmjs/balm/blob/master/docs/custom-task.md)
 
 ## Usage
 
