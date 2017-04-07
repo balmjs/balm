@@ -17,6 +17,8 @@ npm install --global gulp-cli
 ### [Balm](http://balmjs.com/)
 
 ```sh
+yarn add --dev gulp balm
+# OR
 npm install --save-dev gulp balm
 ```
 

@@ -34,7 +34,9 @@ project
 ## [Installation & Setup](https://github.com/balmjs/balm/blob/master/docs/installation.md)
 
 ```sh
-npm install --save-dev gulp balm
+yarn add -D gulp balm
+# OR
+npm install -D gulp balm
 ```
 
 ## [Configuration](https://github.com/balmjs/balm/blob/master/docs/configuration.md)
