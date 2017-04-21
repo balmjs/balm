@@ -8,6 +8,7 @@
 - update test
 - update uglifyjs for production
 - update docs
+- add `end` task
 
 ---
 

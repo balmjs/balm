@@ -34,6 +34,10 @@ before(function() {
       suffix: '.blade',
       extname: '.php'
     });
+    // Test end
+    // mix.end(function() {
+    //   console.log('gg');
+    // });
   });
 
   balm.go(); // Wrong
