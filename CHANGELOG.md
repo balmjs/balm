@@ -9,6 +9,7 @@
 - update uglifyjs for production
 - update docs
 - add `end` task
+- add `includePaths` config for styles(sass/less)
 
 ---
 
