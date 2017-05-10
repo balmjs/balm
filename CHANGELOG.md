@@ -10,6 +10,7 @@
 - update docs
 - add `end` task
 - add `includePaths` config for styles(sass/less)
+- add `historyApiFallback` config for server
 
 ---
 
