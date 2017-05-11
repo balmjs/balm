@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.6.0-beta.9",
+  "version": "0.6.0-beta.10",
   "description": "A flexible front-end workflow for webapps",
   "homepage": "https://github.com/balmjs/balm#readme",
   "author": {
@@ -60,7 +60,7 @@
     "http-proxy-middleware": "^0.17.4",
     "main-bower-files": "^2.13.1",
     "merge-stream": "^1.0.1",
-    "postcss-loader": "^2.0.4",
+    "postcss-loader": "^2.0.5",
     "postcss-scss": "^1.0.0",
     "precss": "^1.4.0",
     "require-dir": "^0.3.1",
