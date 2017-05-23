@@ -33,14 +33,14 @@ describe('Test balm config', function() {
     it('tmp.base should return `path/to/workspace/.tmp`', function() {
       assert.equal(balm.config.tmp.base, tmpDir);
     });
-    it('tmp.css should return `path/to/workspace/.tmp/css`', function() {
-      assert.equal(balm.config.tmp.css, path.join(tmpDir, balmConfig.paths.target.css));
+    it('tmp.css should return `path/to/workspace/.tmp/styles`', function() {
+      assert.equal(balm.config.tmp.css, path.join(tmpDir, balmConfig.paths.source.css));
     });
-    it('tmp.js should return `path/to/workspace/.tmp/js`', function() {
-      assert.equal(balm.config.tmp.js, path.join(tmpDir, balmConfig.paths.target.js));
+    it('tmp.js should return `path/to/workspace/.tmp/scripts`', function() {
+      assert.equal(balm.config.tmp.js, path.join(tmpDir, balmConfig.paths.source.js));
     });
-    it('tmp.img should return `path/to/workspace/.tmp/img`', function() {
-      assert.equal(balm.config.tmp.img, path.join(tmpDir, balmConfig.paths.target.img));
+    it('tmp.img should return `path/to/workspace/.tmp/images`', function() {
+      assert.equal(balm.config.tmp.img, path.join(tmpDir, balmConfig.paths.source.img));
     });
     it('tmp.font should return `path/to/workspace/.tmp/fonts`', function() {
       assert.equal(balm.config.tmp.font, path.join(tmpDir, balmConfig.paths.source.font));

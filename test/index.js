@@ -29,7 +29,7 @@ before(function() {
     mix.zip();
     // Test publish
     mix.publish();
-    mix.publish('index.html', 'public/web', {
+    mix.publish('index.html', 'views', {
       basename: 'home',
       suffix: '.blade',
       extname: '.php'
