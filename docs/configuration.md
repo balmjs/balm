@@ -20,6 +20,8 @@ balm.go();
     - [server.port](#serverport)
     - [server.proxy](#serverproxy)
     - [server.proxyTable](#serverproxytable)
+    - [server.localOnly](#serverlocalonly)
+    - [server.historyApiFallback](#serverhistoryapifallback)
 3. [__Root & Path__](#root-path)
     - Source Input
         - [roots.source](#rootssource)
@@ -156,6 +158,18 @@ Proxy an EXISTING vhost. Browsersync will wrap your vhost with a proxy URL to vi
 Define HTTP proxies to your custom API backend
 
 > Default: `{}`
+
+### `server.localOnly`
+
+Support environments where dynamic hostnames are not required (ie: electron)
+
+> Default: `false`
+
+### `server.historyApiFallback`
+
+Using the HTML5 History API
+
+> Default: `false`
 
 - full list of `http-proxy-middleware` [configuration options](https://github.com/chimurai/http-proxy-middleware#options)
 
@@ -336,8 +350,8 @@ scripts: {
   entry: {
     'lib': ['jquery', 'lodash'],
     'ui': ['jquery-ui'],
-    'main': './app/scripts/main',
-    'subpage': './app/scripts/subpage'
+    'main': './app/scripts/main.js',
+    'subpage': './app/scripts/subpage.js'
   },
   vendors: ['lib', 'ui'],
   loaders: [], // e.g. { test: /\.vue$/, loader: 'vue' }
@@ -353,7 +367,7 @@ __Entry__
 The entry point for the bundle.
 
 > Default: `{
-  'main': './app/scripts/main'
+  'main': './app/scripts/main.js'
 }`
 
 __Output__
@@ -468,13 +482,11 @@ Source mapping
 
 > Default: `false`
 
-[__Target__](https://webpack.js.org/configuration/target/)
-
 ### `scripts.target`
 
 > Default: `'web'`
 
-[__Stats__](https://webpack.js.org/configuration/stats/)
+> [Target config](https://webpack.js.org/configuration/target/)
 
 ### `scripts.stats`
 
@@ -488,6 +500,8 @@ Capture timing information for each module.
   chunkModules: false
 }`
 
+> [Stats config](https://webpack.js.org/configuration/stats/)
+
 __Other Options__
 
 ### `scripts.extends`
@@ -495,6 +509,8 @@ __Other Options__
 Extend config for webpack
 
 > Default: `{}`
+
+> [All configuration options](https://webpack.js.org/configuration/)
 
 ### `scripts.eslint`
 
@@ -522,7 +538,7 @@ Path to use in CSS referring to image location
 
 Amount of pixels to include between images or svgs
 
-> Default: `0`
+> Default: `1`
 
 ### `sprites.image`
 

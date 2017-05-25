@@ -27,17 +27,17 @@ balm.config = {
   },
   styles: {
     ext: 'scss', // Main style extension
-    autoprefixer: ['last 2 versions']
+    autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR']
   },
   scripts: {
     entry: {
-      common: [
+      mylib: [
         'your-project-vendors',
         'your-project-plugins'
       ],
-      main: './app/scripts/main'
+      main: './app/scripts/main.js'
     },
-    vendors: ['common'] // HTML: <script src="js/vendor/common.js"></script>
+    vendors: ['mylib'] // HTML: <script src="js/vendor/mylib.js"></script>
   },
   sprites: {
     image: ['img-icon'], // Icon path: './app/images/img-icon'

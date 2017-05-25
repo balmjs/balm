@@ -47,5 +47,9 @@ balm.go(function(mix) {
 
     mix.js('./src/scripts/main.js', 'dist/js');
   }
+
+  mix.end(function() {
+    // your tasks
+  });
 });
 ```

@@ -1,3 +1,4 @@
+/* eslint no-console: 0 */
 import balm from '../lib/main';
 import balmConfig from './balm.config';
 
@@ -35,9 +36,9 @@ before(function() {
       extname: '.php'
     });
     // Test end
-    // mix.end(function() {
-    //   console.log('gg');
-    // });
+    mix.end(function() {
+      console.log('gg');
+    });
   });
 
   balm.go(); // Wrong

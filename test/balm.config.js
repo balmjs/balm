@@ -43,11 +43,8 @@ const balmConfig = {
   },
   scripts: {
     entry: {
-      // lib: ['jquery'],
-      main: './app/scripts/main'
+      main: './app/scripts/main.js'
     },
-    // vendor: true,
-    // vendors: ['lib'],
     eslint: true
   },
   sprites: {
