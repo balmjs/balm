@@ -46,6 +46,7 @@ balm.go();
     - [styles.autoprefixer](#stylesautoprefixer)
     - [styles.postcss](#stylespostcss)
     - [styles.options](#stylesoptions)
+    - [styles.includePaths](#stylesincludepaths)
 6. [__JavaScript__](#script)
     - Entry
         - [scripts.entry](#scriptsentry)
@@ -342,6 +343,12 @@ PostCSS [plugins](http://postcss.parts/)
     removeAll: true
   }
 }`
+
+### `styles.includePaths`
+
+Ensure file's parent directory in the include path
+
+> Default: `[]`
 
 ## Script
 
