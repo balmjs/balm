@@ -3,3 +3,14 @@
   margin: 0;
   padding: 0;
 }
+
+img {
+  width: 64px;
+  height: 64px;
+}
+
+#app {
+  a, img, span {
+    vertical-align: middle;
+  }
+}
