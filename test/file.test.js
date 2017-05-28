@@ -1,3 +1,4 @@
+import path from 'path';
 import assert from 'assert';
 import fs from 'fs';
 import balmConfig from './balm.config';
