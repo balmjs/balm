@@ -14,3 +14,7 @@ img {
     vertical-align: middle;
   }
 }
+
+.test {
+  background: url('../images/test.png');
+}

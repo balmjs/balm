@@ -45,8 +45,7 @@ const balmConfig = {
     entry: {
       main: './app/scripts/main.js'
     },
-    eslint: true,
-    sourceMap: true
+    eslint: true
   },
   sprites: {
     image: ['img-icon'],
