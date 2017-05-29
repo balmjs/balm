@@ -4,7 +4,7 @@ import balmConfig from './balm.config';
 
 before(function() {
   // Test get
-  // console.log('Previously on BalmJS:\n', balm.config);
+  // console.log('Previously on BalmJS:\n', balm.config, '\n');
 
   balm.config = balmConfig; // Test set
 

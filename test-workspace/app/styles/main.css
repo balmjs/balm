@@ -1,7 +1,18 @@
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"),local("Roboto-Regular"),url("../fonts/roboto-regular.woff") format("woff")
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: Roboto, Arial;
 }
 
 img {
@@ -15,6 +26,6 @@ img {
   }
 }
 
-.test {
-  background: url('../images/test.png');
+.logo {
+  background: url('../images/logo.svg');
 }
