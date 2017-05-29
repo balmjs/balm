@@ -58,8 +58,9 @@ balm.go(function(mix) {
     // to `${assets.root}/${assets.publicPath}/${assets.subDir}`
     mix.publish();
 
-    // Publish `${roots.source}/index.html`
-    // to `${assets.root}/views`
+    // Publish a template:
+    // from `${roots.source}/index.html`
+    // to `${assets.root}/views/index.blade.php`
     mix.publish('index.html', 'views', {
       basename: 'yourFilename',
       suffix: '.blade',

@@ -13,6 +13,8 @@
     - remove
     - zip
     - ftp
+- tasks
+    - end
 
 __File: gulpfile.js__
 
