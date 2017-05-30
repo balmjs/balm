@@ -43,8 +43,14 @@ const balmConfig = {
   },
   scripts: {
     entry: {
+      // Vendors custom config
+      // 'mylib': ['jquery', 'lodash'],
+      // 'page-a': './app/scripts/page-a.js',
+      // 'page-b': './app/scripts/page-b.js',
       main: './app/scripts/main.js'
     },
+    // Vendor all in one
+    // vendor: true,
     eslint: true
   },
   sprites: {
