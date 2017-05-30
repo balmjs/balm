@@ -54,6 +54,7 @@ balm.go();
         - [scripts.filename](#scriptsfilename)
         - [scripts.publicPath](#scriptspublicpath)
         - [scripts.chunkFilename](#scriptschunkfilename)
+        - [scripts.vendorName](#scriptsvendorname)
         - [scripts.vendor](#scriptsvendor)
         - [scripts.vendors](#scriptsvendors)
     - Module
@@ -373,7 +374,9 @@ __Entry__
 
 The entry point for the bundle.
 
-> Default: `{}`
+> Default: `{
+  main: './src/scripts/main.js'
+}`
 
 __Output__
 
@@ -400,6 +403,12 @@ The filename of non-entry chunks as relative path inside the `output.path` direc
 
 > Default: `''`
 
+### `scripts.vendorName`
+
+AllInOne vendor filename or Custom Vendor folder name
+
+> Default: `'vendor'`
+
 ### `scripts.vendor`
 
 All vendors in one (for SPA)
@@ -410,7 +419,7 @@ All vendors in one (for SPA)
 
 Custom Vendor Modules
 
-> Default: `[]`
+> Default: `[]` (automatic setting by `scripts.entry`)
 
 __Module__
 

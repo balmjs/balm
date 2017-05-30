@@ -11,6 +11,7 @@
 - add `end` task
 - add `includePaths` config for styles(sass/less)
 - add `historyApiFallback` config for server
+- automatic setting scripts' `vendors` by `entry`
 
 ---
 
