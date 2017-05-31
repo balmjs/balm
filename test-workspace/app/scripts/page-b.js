@@ -1,6 +1,9 @@
 import './hello';
-import $ from 'jquery';
-import _ from 'lodash';
+// import $ from 'jquery';
+// import _ from 'lodash';
+
+const $ = window.$;
+const _ = window._;
 
 console.log(`I'm page B, use jQuery and lodash`);
 console.log('window height: ' + $(window).height());
