@@ -19,6 +19,14 @@ before(function() {
     // Test minify
     mix.cssmin(['.tmp/styles/**/*.css'], 'dist/minify/css');
     mix.jsmin(['.tmp/scripts/**/*.js'], 'dist/minify/js');
+    // Test version
+    // mix.copy(balm.config.workspace + '/app/index.html', balm.config.workspace + '/dist/minify');
+    // mix.copy(balm.config.workspace + '/dist/minify/css/css/*.css', balm.config.workspace + '/dist/minify/css');
+    // mix.version([
+    //   'dist/minify/css/*.css',
+    //   'dist/minify/js/*.js',
+    //   'dist/minify/*.html'
+    // ], 'dist/version');
     // Test copy
     mix.copy(balm.config.workspace + '/app/index.html', balm.config.assets.static + '/copy-dest', {
       basename: 'newfile',
