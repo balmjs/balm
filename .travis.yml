@@ -11,11 +11,11 @@ node_js:
   - v7
   - v6
 
-before_script:
-  - npm install -g gulp
+before_script: npm install -g gulp
 
-script:
-  - gulp
+script: npm run test
+
+#after_success: npm run coverage
 
 cache:
   directories:

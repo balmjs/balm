@@ -1,8 +1,8 @@
-version: {build}
+version: "{build}"
 
 branches:
   only:
-    - master
+    - next
 
 init:
   - git config --global core.autocrlf input
@@ -27,4 +27,4 @@ install:
 build: off
 
 test_script:
-  - gulp
+  - npm run test

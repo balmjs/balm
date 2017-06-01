@@ -1,0 +1,15 @@
+{
+  "include": [
+    "lib/**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "coverage",
+    "test/**/*.spec.js"
+  ],
+  "require": [
+    "babel-register"
+  ],
+  "sourceMap": false,
+  "instrument": false
+}

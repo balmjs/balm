@@ -1,7 +1,7 @@
 import path from 'path';
 import assert from 'assert';
 import fs from 'fs';
-import balmConfig from './balm.config';
+import balmConfig from '../test-workspace/balmrc';
 
 describe('Test build files', function() {
   let appDir = path.join(balmConfig.workspace, balmConfig.roots.source);
