@@ -1,3 +1,9 @@
+sudo: false
+
+branches:
+  only:
+    - master
+
 language: node_js
 
 node_js:
@@ -15,5 +21,6 @@ cache:
   directories:
     - $HOME/.node-gyp
     - $HOME/.npm
+    - $HOME/.yarn-cache
     - node_modules
   yarn: true

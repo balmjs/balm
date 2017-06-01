@@ -1,19 +1,30 @@
+version: {build}
+
+branches:
+  only:
+    - master
+
+init:
+  - git config --global core.autocrlf input
+
 environment:
   matrix:
     - nodejs_version: "6"
 
-platform:
-  - x86
-  - x64
+matrix:
+  fast_finish: true
 
-build: off
+cache:
+  - node_modules
 
 install:
-  - ps: Install-Product node $env:nodejs_version $env:platform
+  - ps: Install-Product node $env:nodejs_version x64
   - node --version
   - npm --version
   - npm install -g gulp
   - npm install
+
+build: off
 
 test_script:
   - gulp
