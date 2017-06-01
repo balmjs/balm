@@ -14,7 +14,9 @@ before(function() {
     mix.css('app/styles/main.css', '.tmp/styles/css');
     mix.sass('app/styles/main.sass', '.tmp/styles/sass');
     mix.sass('app/styles/main.scss', '.tmp/styles/scss');
-    mix.less('app/styles/main.less', '.tmp/styles/less');
+    if (process.platform !== 'win32') {
+      mix.less('app/styles/main.less', '.tmp/styles/less');
+    }
     mix.js('./app/scripts/main.js', '.tmp/scripts');
     // Test minify
     mix.cssmin(['.tmp/styles/**/*.css'], 'dist/minify/css');
@@ -53,7 +55,5 @@ before(function() {
 
   balm.go('unkonwn'); // Wrong
 
-  if (process.platform !== 'win32') {
-    balm.go('default'); // Right
-  }
+  balm.go('default'); // Right
 });
