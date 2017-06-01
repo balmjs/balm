@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.6.0",
+  "version": "0.6.0-rc.2",
   "description": "A flexible front-end workflow for webapps",
   "homepage": "https://github.com/balmjs/balm#readme",
   "author": {
