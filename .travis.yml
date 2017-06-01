@@ -1,12 +1,11 @@
 language: node_js
 
 node_js:
+  - v8
   - v7
   - v6
 
 before_script:
-  - node --version
-  - npm --version
   - npm install -g gulp
 
 script:
