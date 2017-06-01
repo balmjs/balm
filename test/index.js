@@ -53,5 +53,7 @@ before(function() {
 
   balm.go('unkonwn'); // Wrong
 
-  balm.go('default'); // Right
+  if (process.platform !== 'win32') {
+    balm.go('default'); // Right
+  }
 });
