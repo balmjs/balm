@@ -1,4 +1,4 @@
-## 0.6.0
+## 0.6.0 (2017.06.03)
 
 - use node >= 6 (Recommended)
 - update dependencies
@@ -12,6 +12,7 @@
 - add `includePaths` config for styles(sass/less)
 - add `historyApiFallback` config for server
 - automatic setting scripts' `vendors` by `entry`
+- add test for `OS X/Windows/Linux`
 
 ---
 
