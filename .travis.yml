@@ -4,17 +4,18 @@ branches:
   only:
     - master
     - 0.5.x
+    - next
 
-os:
-  - linux
-  - osx
+#os:
+#  - linux
+#  - osx
 
 language: node_js
 
 node_js:
   - v8
   - v7
-  - v6
+#  - v6
 
 before_script: npm install -g gulp
 
