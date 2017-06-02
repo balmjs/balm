@@ -1,4 +1,4 @@
-# BalmJS [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# BalmJS [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Build Status][appveyor-image]][appveyor-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > A flexible Front-End workflow for webapps
 
 ## Quick Start
@@ -83,6 +83,8 @@ MIT © [Elf-mousE](http://elf-mouse.me/)
 [npm-url]: https://npmjs.org/package/balm
 [travis-image]: https://travis-ci.org/balmjs/balm.svg?branch=master
 [travis-url]: https://travis-ci.org/balmjs/balm
+[appveyor-image]: https://ci.appveyor.com/api/projects/status/github/balmjs/balm?svg=true
+[appveyor-url]: https://ci.appveyor.com/project/balmjs/balm
 [daviddm-image]: https://david-dm.org/balmjs/balm.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/balmjs/balm
 [coveralls-image]: https://coveralls.io/repos/balmjs/balm/badge.svg
