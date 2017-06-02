@@ -3,100 +3,100 @@ import assert from 'assert';
 import balm from '../lib/main';
 import balmConfig from '../test-workspace/balmrc';
 
-describe('Test balm config', function() {
-  it('production should return `true`', function() {
+describe('Test balm config', () => {
+  it('production should return `true`', () => {
     assert.equal(balm.config.production, balmConfig.production);
   });
 
-  describe('#source', function() {
+  describe('#source', () => {
     let appDir = path.join(balmConfig.workspace, balmConfig.roots.source);
 
-    it('source.base should return `path/to/workspace/app`', function() {
+    it('source.base should return `path/to/workspace/app`', () => {
       assert.equal(balm.config.source.base, appDir);
     });
-    it('source.css should return `path/to/workspace/app/styles`', function() {
+    it('source.css should return `path/to/workspace/app/styles`', () => {
       assert.equal(balm.config.source.css, path.join(appDir, balmConfig.paths.source.css));
     });
-    it('source.js should return `path/to/workspace/app/scripts`', function() {
+    it('source.js should return `path/to/workspace/app/scripts`', () => {
       assert.equal(balm.config.source.js, path.join(appDir, balmConfig.paths.source.js));
     });
-    it('source.img should return `path/to/workspace/app/images`', function() {
+    it('source.img should return `path/to/workspace/app/images`', () => {
       assert.equal(balm.config.source.img, path.join(appDir, balmConfig.paths.source.img));
     });
-    it('source.font should return `path/to/workspace/app/fonts`', function() {
+    it('source.font should return `path/to/workspace/app/fonts`', () => {
       assert.equal(balm.config.source.font, path.join(appDir, balmConfig.paths.source.font));
     });
   });
 
-  describe('#tmp', function() {
+  describe('#tmp', () => {
     let tmpDir = path.join(balmConfig.workspace, '.tmp');
 
-    it('tmp.base should return `path/to/workspace/.tmp`', function() {
+    it('tmp.base should return `path/to/workspace/.tmp`', () => {
       assert.equal(balm.config.tmp.base, tmpDir);
     });
-    it('tmp.css should return `path/to/workspace/.tmp/css`', function() {
+    it('tmp.css should return `path/to/workspace/.tmp/css`', () => {
       assert.equal(balm.config.tmp.css, path.join(tmpDir, balmConfig.paths.target.css));
     });
-    it('tmp.js should return `path/to/workspace/.tmp/js`', function() {
+    it('tmp.js should return `path/to/workspace/.tmp/js`', () => {
       assert.equal(balm.config.tmp.js, path.join(tmpDir, balmConfig.paths.target.js));
     });
-    it('tmp.img should return `path/to/workspace/.tmp/img`', function() {
+    it('tmp.img should return `path/to/workspace/.tmp/img`', () => {
       assert.equal(balm.config.tmp.img, path.join(tmpDir, balmConfig.paths.target.img));
     });
-    it('tmp.font should return `path/to/workspace/.tmp/fonts`', function() {
+    it('tmp.font should return `path/to/workspace/.tmp/fonts`', () => {
       assert.equal(balm.config.tmp.font, path.join(tmpDir, balmConfig.paths.source.font));
     });
   });
 
-  describe('#target', function() {
+  describe('#target', () => {
     let distDir = path.join(balmConfig.workspace, balmConfig.roots.target);
     let distAssetsDir = path.join(distDir, balmConfig.assets.subDir);
 
-    it('target.base should return `path/to/workspace/dist`', function() {
+    it('target.base should return `path/to/workspace/dist`', () => {
       assert.equal(balm.config.target.base, distDir);
     });
-    it('target.css should return `path/to/workspace/dist/css`', function() {
+    it('target.css should return `path/to/workspace/dist/css`', () => {
       assert.equal(balm.config.target.css, path.join(distAssetsDir, balmConfig.paths.target.css));
     });
-    it('target.js should return `path/to/workspace/dist/js`', function() {
+    it('target.js should return `path/to/workspace/dist/js`', () => {
       assert.equal(balm.config.target.js, path.join(distAssetsDir, balmConfig.paths.target.js));
     });
-    it('target.img should return `path/to/workspace/dist/img`', function() {
+    it('target.img should return `path/to/workspace/dist/img`', () => {
       assert.equal(balm.config.target.img, path.join(distAssetsDir, balmConfig.paths.target.img));
     });
-    it('target.font should return `path/to/workspace/dist/font`', function() {
+    it('target.font should return `path/to/workspace/dist/font`', () => {
       assert.equal(balm.config.target.font, path.join(distAssetsDir, balmConfig.paths.target.font));
     });
-    it('target.static should return `path/to/workspace/dist`', function() {
+    it('target.static should return `path/to/workspace/dist`', () => {
       assert.equal(balm.config.target.static, distAssetsDir);
     });
   });
 
-  describe('#assets', function() {
+  describe('#assets', () => {
     let assetsDir = path.join(balmConfig.assets.root, balmConfig.assets.publicPath, balmConfig.assets.subDir);
 
-    it('assets.static should return `path/to/remote/assets`', function() {
+    it('assets.static should return `path/to/remote/assets`', () => {
       assert.equal(balm.config.assets.static, assetsDir);
     });
-    it('assets.css should return `path/to/remote/assets/css`', function() {
+    it('assets.css should return `path/to/remote/assets/css`', () => {
       assert.equal(balm.config.assets.css, path.join(assetsDir, balmConfig.paths.target.css));
     });
-    it('assets.js should return `path/to/remote/assets/js`', function() {
+    it('assets.js should return `path/to/remote/assets/js`', () => {
       assert.equal(balm.config.assets.js, path.join(assetsDir, balmConfig.paths.target.js));
     });
-    it('assets.img should return `path/to/remote/assets/img`', function() {
+    it('assets.img should return `path/to/remote/assets/img`', () => {
       assert.equal(balm.config.assets.img, path.join(assetsDir, balmConfig.paths.target.img));
     });
-    it('assets.font should return `path/to/remote/assets/font`', function() {
+    it('assets.font should return `path/to/remote/assets/font`', () => {
       assert.equal(balm.config.assets.font, path.join(assetsDir, balmConfig.paths.target.font));
     });
   });
 
-  describe('#html', function() {
-    it('html.regex.css should same to `paths.target.css`', function() {
+  describe('#html', () => {
+    it('html.regex.css should same to `paths.target.css`', () => {
       assert.equal(balm.config.html.regex.css, balmConfig.paths.target.css);
     });
-    it('html.regex.js should same to `paths.target.js`', function() {
+    it('html.regex.js should same to `paths.target.js`', () => {
       assert.equal(balm.config.html.regex.js, balmConfig.paths.target.js);
     });
   });
