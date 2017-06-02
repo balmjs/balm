@@ -1,11 +1,9 @@
 # BalmJS [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > A flexible Front-End workflow for webapps
 
-⚠️ __SASS__ compiler has error in `node@8` (We will fix it as soon as possible)
-
 ## Quick Start
 
-👻 [The webapps' scaffolding tool](https://github.com/balmjs/balm-cli)
+👻 [The webapps' scaffolding tool](https://github.com/balmjs/balm-cli) 👻
 
 ## Demo
 
@@ -21,11 +19,12 @@
 project
 ├── dist
 ├─┬ src
-│ ├─┬ css
-│ │ └── main.css
-│ ├── img
-│ ├─┬ js
+│ ├── fonts
+│ ├── images
+│ ├─┬ scripts
 │ │ └── main.js
+│ ├─┬ styles
+│ │ └── main.css
 │ └── index.html
 ├── dotfile
 ├── gulpfile.js
