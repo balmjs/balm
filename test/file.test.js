@@ -1,30 +1,31 @@
+// NOTE: test for local
 import path from 'path';
 import assert from 'assert';
 import fs from 'fs';
 import balmConfig from '../test-workspace/balmrc';
 
-describe('Test sprites files', () => {
-  let appDir = path.join(balmConfig.workspace, balmConfig.roots.source);
-  let cssDir = path.join(appDir, balmConfig.paths.source.css);
-
-  describe('#image', () => {
-    let imageStyle = path.join(cssDir, 'sprites', `_${balmConfig.sprites.image[0]}.css`);
-    it('Image sprites: `path/to/workspace/app/styles/sprites/_img-icon.css`', done => {
-      fs.exists(imageStyle, exists => {
-        assert.ok(exists);
-        done();
-      });
-    });
-
-    let svgStyle = path.join(cssDir, 'svg', `_${balmConfig.sprites.svg[0]}.css`);
-    it('SVG sprites: `path/to/workspace/app/styles/svg/_svg-icon.css`', done => {
-      fs.exists(svgStyle, exists => {
-        assert.ok(exists);
-        done();
-      });
-    });
-  });
-});
+// describe('Test sprites files', () => {
+//   let appDir = path.join(balmConfig.workspace, balmConfig.roots.source);
+//   let cssDir = path.join(appDir, balmConfig.paths.source.css);
+//
+//   describe('#image', () => {
+//     let imageStyle = path.join(cssDir, 'sprites', `_${balmConfig.sprites.image[0]}.css`);
+//     it('Image sprites: `path/to/workspace/app/styles/sprites/_img-icon.css`', done => {
+//       fs.exists(imageStyle, exists => {
+//         assert.ok(exists);
+//         done();
+//       });
+//     });
+//
+//     let svgStyle = path.join(cssDir, 'svg', `_${balmConfig.sprites.svg[0]}.css`);
+//     it('SVG sprites: `path/to/workspace/app/styles/svg/_svg-icon.css`', done => {
+//       fs.exists(svgStyle, exists => {
+//         assert.ok(exists);
+//         done();
+//       });
+//     });
+//   });
+// });
 
 // describe('Test assets files', () => {
 //   let publicDir = path.join(balmConfig.assets.root, balmConfig.assets.publicPath, balmConfig.assets.subDir);
