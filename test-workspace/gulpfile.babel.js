@@ -13,9 +13,7 @@ balm.go(mix => {
   mix.css('app/styles/main.css', '.tmp/styles/css');
   mix.sass('app/styles/main.sass', '.tmp/styles/sass');
   mix.sass('app/styles/main.scss', '.tmp/styles/scss');
-  if (process.platform !== 'win32') {
-    mix.less('app/styles/main.less', '.tmp/styles/less');
-  }
+  mix.less('app/styles/main.less', '.tmp/styles/less');
   mix.js('./app/scripts/main.js', '.tmp/scripts');
   // Test minify
   mix.cssmin(['.tmp/styles/**/*.css'], 'dist/minify/css');
@@ -29,9 +27,8 @@ balm.go(mix => {
   //   'dist/minify/*.html'
   // ], 'dist/version');
   // Test copy
-  mix.copy(`${balm.config.workspace}/app/index.html`, `${balm.config.assets.static}/copy-dest`, {
+  mix.copy(`${balm.config.workspace}/app/index.html`, `${balm.config.workspace}/.tmp`, {
     basename: 'newfile',
-    suffix: '.blade',
     extname: '.php'
   });
   // Test zip
