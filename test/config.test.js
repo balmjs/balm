@@ -1,7 +1,7 @@
-import path from 'path';
-import assert from 'assert';
 import balm from '../lib/main';
 import balmConfig from '../test-workspace/balmrc';
+import path from 'path';
+import assert from 'assert';
 
 describe('Test balm config', () => {
   it('production should return `true`', () => {

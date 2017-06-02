@@ -1,9 +1,5 @@
-/* eslint no-console: 0 */
 import balm from '../lib/main';
 import balmConfig from './balmrc';
-
-// Test get
-console.log('Previously on BalmJS:\n', balm.config, '\n');
 
 balm.config = balmConfig;
 
@@ -41,14 +37,4 @@ balm.go(mix => {
     suffix: '.blade',
     extname: '.php'
   });
-  // Test end
-  mix.end(() => {
-    console.log('gg');
-  });
 });
-
-balm.go(); // Wrong
-
-balm.go('unkonwn'); // Wrong
-
-balm.go('default'); // Right

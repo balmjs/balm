@@ -75,6 +75,7 @@
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
+    "babel-plugin-istanbul": "^4.1.4",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -101,8 +102,8 @@
   "scripts": {
     "prepublish": "gulp prepublish",
     "pretest": "cd test-workspace && gulp",
-    "test": "cross-env NODE_ENV=test nyc mocha --reporter nyan",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "test": "cross-env NODE_ENV=test nyc mocha -R nyan",
+    "coverage": "nyc report --reporter=text --reporter=text-summary | coveralls"
   },
   "engines": {
     "node": ">=6"

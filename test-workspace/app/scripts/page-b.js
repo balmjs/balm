@@ -1,14 +1,14 @@
 import './hello';
-// import $ from 'jquery';
+// Import $ from 'jquery';
 // import _ from 'lodash';
 
 const $ = window.$;
 const _ = window._;
 
-console.log(`I'm page B, use jQuery and lodash`);
+console.log('I\'m page B, use jQuery and lodash');
 console.log('window height: ' + $(window).height());
 
-let a = _.defaults({ 'a': 1 }, { 'a': 3, 'b': 2 });
+let a = _.defaults({a: 1}, {a: 3, b: 2});
 // → { 'a': 1, 'b': 2 }
 
 let b = _.partition([1, 2, 3, 4], n => n % 2);

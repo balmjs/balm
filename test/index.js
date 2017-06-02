@@ -1,87 +1,57 @@
+/* eslint no-console: 0 */
 import balm from '../lib/main';
 import balmConfig from '../test-workspace/balmrc';
-import path from 'path';
-import fs from 'fs';
-import assert from 'assert';
+
+// Test get
+// console.log('Previously on BalmJS:\n', balm.config, '\n');
 
 before(() => {
   balm.config = balmConfig;
+  balm.config.debug = true;
 
+  // Test build
   balm.go(mix => {
+    // Test compiling
+    mix.css('app/styles/main.css', '.tmp/styles/css');
+    mix.sass('app/styles/main.sass', '.tmp/styles/sass');
+    mix.sass('app/styles/main.scss', '.tmp/styles/scss');
+    mix.less('app/styles/main.less', '.tmp/styles/less');
+    mix.js('./app/scripts/main.js', '.tmp/scripts');
+    // Test minify
+    mix.cssmin(['.tmp/styles/**/*.css'], 'dist/minify/css');
+    mix.jsmin(['.tmp/scripts/**/*.js'], 'dist/minify/js');
+    // Test version
+    // mix.copy(balm.config.workspace + '/app/index.html', balm.config.workspace + '/dist/minify');
+    // mix.copy(balm.config.workspace + '/dist/minify/css/css/*.css', balm.config.workspace + '/dist/minify/css');
+    // mix.version([
+    //   'dist/minify/css/*.css',
+    //   'dist/minify/js/*.js',
+    //   'dist/minify/*.html'
+    // ], 'dist/version');
+    // Test copy
+    mix.copy(`${balm.config.workspace}/app/index.html`, `${balm.config.workspace}/.tmp`, {
+      basename: 'newfile',
+      extname: '.php'
+    });
+    // Test zip
+    mix.remove(`${balm.config.workspace}/archive.zip`);
+    mix.zip();
+    // Test publish
+    mix.publish();
+    mix.publish('index.html', 'views', {
+      basename: 'home',
+      suffix: '.blade',
+      extname: '.php'
+    });
+    // Test end
     mix.end(() => {
-      describe('Test sprites files', () => {
-        let appDir = path.join(balmConfig.workspace, balmConfig.roots.source);
-        let cssDir = path.join(appDir, balmConfig.paths.source.css);
-
-        describe('#image', () => {
-          let imageStyle = path.join(cssDir, 'sprites', `_${balmConfig.sprites.image[0]}.css`);
-          it('Image sprites: `path/to/workspace/app/styles/sprites/_img-icon.css`', done => {
-            fs.exists(imageStyle, exists => {
-              assert.ok(exists);
-              done();
-            });
-          });
-
-          let svgStyle = path.join(cssDir, 'svg', `_${balmConfig.sprites.svg[0]}.css`);
-          it('SVG sprites: `path/to/workspace/app/styles/svg/_svg-icon.css`', done => {
-            fs.exists(svgStyle, exists => {
-              assert.ok(exists);
-              done();
-            });
-          });
-        });
-      });
-
-      describe('Test assets files', () => {
-        let publicDir = path.join(balmConfig.assets.root, balmConfig.assets.publicPath, balmConfig.assets.subDir);
-        let viewsDir = path.join(balmConfig.assets.root, 'views');
-
-        describe('#public', () => {
-          let cssFolder = path.join(publicDir, balmConfig.paths.target.css);
-          let jsFolder = path.join(publicDir, balmConfig.paths.target.js);
-          let imgFolder = path.join(publicDir, balmConfig.paths.target.img);
-          let fontFolder = path.join(publicDir, balmConfig.paths.target.font);
-
-          it('CSS: `path/to/remote/assets/public/web/css`', done => {
-            fs.exists(cssFolder, exists => {
-              assert.ok(exists);
-              done();
-            });
-          });
-
-          it('JS: `path/to/remote/assets/public/web/js`', done => {
-            fs.exists(jsFolder, exists => {
-              assert.ok(exists);
-              done();
-            });
-          });
-
-          it('Images: `path/to/remote/assets/public/web/img`', done => {
-            fs.exists(imgFolder, exists => {
-              assert.ok(exists);
-              done();
-            });
-          });
-
-          it('Fonts: `path/to/remote/assets/public/web/font`', done => {
-            fs.exists(fontFolder, exists => {
-              assert.ok(exists);
-              done();
-            });
-          });
-        });
-
-        describe('#views', () => {
-          let indexFile = path.join(viewsDir, 'home.blade.php');
-          it('Index file: `path/to/remote/assets/views/home.blade.php`', done => {
-            fs.exists(indexFile, exists => {
-              assert.ok(exists);
-              done();
-            });
-          });
-        });
-      });
-
+      console.log('gg');
     });
   });
+
+  balm.go(); // Wrong
+
+  balm.go('unkonwn'); // Wrong
+
+  balm.go('default'); // Right
 });

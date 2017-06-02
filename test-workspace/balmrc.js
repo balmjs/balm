@@ -11,8 +11,6 @@ const testConfig = {
 };
 
 const balmConfig = {
-  useDefault: true,
-  debug: true,
   production: true,
   // Server config
   // server: {

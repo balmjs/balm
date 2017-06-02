@@ -1,11 +1,14 @@
 {
-  "include": [
-    "lib/**/*.js"
-  ],
   "exclude": [
     "node_modules",
     "coverage",
     "test/**/*.spec.js"
+  ],
+  "reporter": [
+    "lcov",
+    "json",
+    "text",
+    "text-summary"
   ],
   "require": [
     "babel-register"
