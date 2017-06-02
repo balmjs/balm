@@ -6,6 +6,10 @@ branches:
     - 0.5.x
     - next
 
+os:
+  - linux
+  - osx
+
 language: node_js
 
 node_js:
@@ -16,11 +20,3 @@ before_script: npm install -g gulp
 script: npm run test
 
 #after_success: npm run coverage
-
-cache:
-  directories:
-    - $HOME/.node-gyp
-    - $HOME/.npm
-    - $HOME/.yarn-cache
-    - node_modules
-  yarn: true
