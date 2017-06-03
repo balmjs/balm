@@ -1,3 +1,7 @@
+## 0.6.1
+
+- add `includes` config for assets cache
+
 ## 0.6.0 (2017.06.03)
 
 - use node >= 6 (Recommended)
