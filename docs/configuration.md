@@ -44,9 +44,9 @@ balm.go();
 5. [__Cascading Style Sheets__](#style)
     - [styles.ext](#stylesext)
     - [styles.autoprefixer](#stylesautoprefixer)
-    - [styles.postcss](#stylespostcss)
     - [styles.options](#stylesoptions)
     - [styles.includePaths](#stylesincludepaths)
+    - [styles.postcss](#stylespostcss)
 6. [__JavaScript__](#script)
     - Entry
         - [scripts.entry](#scriptsentry)
@@ -329,12 +329,6 @@ Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/)
 
 - Autoprefixer uses [Browserslist](https://github.com/ai/browserslist#queries)
 
-### `styles.postcss`
-
-PostCSS [plugins](http://postcss.parts/)
-
-> Default: `[]`
-
 ### `styles.options`
 
 > Default: `{
@@ -350,6 +344,30 @@ PostCSS [plugins](http://postcss.parts/)
 Ensure file's parent directory in the include path
 
 > Default: `[]`
+
+### `styles.postcss`
+
+- `plugins`: [PostCSS plugins](http://postcss.parts/)
+- `options`: [PostCSS options](https://github.com/postcss/postcss#options)
+- `loaderOptions`: [PostCSS Loader options](https://github.com/postcss/postcss-loader#options)
+
+> Default: `{
+  plugins: [],
+  options: {},
+  loaderOptions: {
+    exec: undefined,
+    parser: undefined,
+    syntax: undefined,
+    stringifier: undefined,
+    config: undefined,
+    sourceMap: false
+  }
+}`
+
+__BalmJS__ default postcss plugins:
+
+- [postcss-cssnext](http://cssnext.io/)
+- [postcss-import](https://github.com/postcss/postcss-import)
 
 ## Script
 
