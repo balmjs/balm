@@ -1,8 +1,12 @@
+/*@import 'normalize.css';*/
+/*@import 'bower_components/normalize-css/normalize.css';*/
+@import 'global/_var.css';
+
 @font-face {
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"),local("Roboto-Regular"),url("../fonts/roboto-regular.woff") format("woff")
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.woff") format("woff")
 }
 
 * {
@@ -13,6 +17,7 @@
 
 body {
   font-family: Roboto, Arial;
+  color: var(--primaryColor);
 }
 
 img {
@@ -21,11 +26,11 @@ img {
 }
 
 #app {
-  a, img, span {
+  & a, & img, & span {
     vertical-align: middle;
   }
 }
 
 .logo {
-  background: url('../images/logo.svg');
+  background: url("../images/logo.svg");
 }

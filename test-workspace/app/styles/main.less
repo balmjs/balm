@@ -1,8 +1,12 @@
+// @import 'node_modules/normalize.css/normalize.less';
+// @import 'bower_components/normalize-css/normalize.less';
+@import 'global/_var-less';
+
 @font-face {
   font-family: Roboto;
-  font-style: normal;
   font-weight: 400;
-  src: local("Roboto"),local("Roboto-Regular"),url("../fonts/roboto-regular.woff") format("woff")
+  font-style: normal;
+  src: local('Roboto'),local('Roboto-Regular'),url('../fonts/roboto-regular.woff') format('woff');
 }
 
 * {
@@ -13,6 +17,7 @@
 
 body {
   font-family: Roboto, Arial;
+  color: @primaryColor;
 }
 
 img {
@@ -21,7 +26,9 @@ img {
 }
 
 #app {
-  a, img, span {
+  a,
+  img,
+  span {
     vertical-align: middle;
   }
 }
