@@ -1,4 +1,11 @@
-## 0.6.2
+## 0.6.3
+
+- update dependencies
+- update eslint@4
+
+---
+
+## 0.6.2 (The Stable Version)
 
 - update postcss config
 - update test for `@import` css/sass/scss/less
