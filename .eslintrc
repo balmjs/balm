@@ -1,6 +1,5 @@
 {
   "root": true,
-  "parser": "babel-eslint",
   "env": {
     "node": true,
     "es6": true,
@@ -10,10 +9,6 @@
     "ecmaVersion": 2017,
     "sourceType": "module"
   },
-  "extends": [
-    "eslint:recommended",
-    "xo-space"
-  ],
   "globals": {
     "path": true,
     "gulp": true,
@@ -25,15 +20,13 @@
     "config": true,
     "logger": true
   },
+  "extends": [
+    "eslint:recommended",
+    "xo-space"
+  ],
   "rules": {
-    "quotes": ["error", "single"],
-    "space-before-function-paren": 0,
-    "operator-linebreak": ["error", "after", {
-      "overrides": {
-        "?": "ignore",
-        ":": "ignore"
-      }
-    }],
-    "no-compare-neg-zero": 0
+    "quotes": [2, "single", "avoid-escape"],
+    "space-before-function-paren": [2, "never"],
+    "operator-linebreak": [2, "after"]
   }
 }
