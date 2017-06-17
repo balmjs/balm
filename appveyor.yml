@@ -20,7 +20,7 @@ install:
   - ps: Install-Product node $env:nodejs_version x64
   - node --version
   - npm --version
-  - npm install -g gulp
+  - npm install -g gulp-cli
   - npm install
 
 build: off

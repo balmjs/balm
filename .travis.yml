@@ -11,7 +11,7 @@ node_js:
   - v7
   - v6
 
-before_script: npm install -g gulp
+before_script: npm install -g gulp-cli
 
 script: npm run test
 
