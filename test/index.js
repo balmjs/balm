@@ -2,9 +2,9 @@
 import balm from '../lib/main';
 import balmConfig from '../test-workspace/balmrc';
 import configTests from './config.test';
-import fileTests from './file.test';
+// import fileTests from './file.test';
 
-describe('Balm Test', async () => {
+describe('Balm Test', () => {
   // Test get
   // console.log('Previously on BalmJS:\n', balm.config, '\n');
 
@@ -61,5 +61,5 @@ describe('Balm Test', async () => {
   });
 
   configTests(balm);
-  fileTests();
+  // fileTests();
 });
