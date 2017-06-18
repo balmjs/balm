@@ -12,10 +12,6 @@ node_js:
   - v7
   - v6
 
-before_script:
-  - npm install -g bower
-  - npm install -g gulp-cli
-
 script: npm run test
 
 #after_success: npm run coverage
