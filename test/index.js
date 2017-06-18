@@ -4,7 +4,7 @@ import balmConfig from '../test-workspace/balmrc';
 import configTests from './config.test';
 import fileTests from './file.test';
 
-describe('Balm Test', function() {
+describe('Balm Test', async () => {
   // Test get
   // console.log('Previously on BalmJS:\n', balm.config, '\n');
 
@@ -62,5 +62,4 @@ describe('Balm Test', function() {
 
   configTests(balm);
   fileTests();
-
 });

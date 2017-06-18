@@ -2,7 +2,7 @@ import balmConfig from '../test-workspace/balmrc';
 import path from 'path';
 import assert from 'assert';
 
-const configTests = (balm) => {
+const configTests = balm => {
 
   describe('Test balm config', () => {
     it('production should return `true`', () => {
