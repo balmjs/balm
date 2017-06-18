@@ -2,7 +2,7 @@
   "name": "balm-test",
   "private": true,
   "authors": [
-    "elf-mouse <ifmouz@gmail.com>"
+    "Elf-mousE <ifmouz@gmail.com>"
   ],
   "ignore": [
     "**/.*",
@@ -12,7 +12,7 @@
     "tests"
   ],
   "dependencies": {
-    "normalize-css": "^5.0.0",
+    "normalize-css": "^7.0.0",
     "jquery": "^3.0.0",
     "lodash": "^4.0.0"
   }

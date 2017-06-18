@@ -1,5 +1,5 @@
 {
-  "presets": ["latest", "stage-0"],
+  "presets": ["env"],
   "plugins": ["transform-runtime"],
   "env": {
     "test": {

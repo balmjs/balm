@@ -37,7 +37,8 @@ const balmConfig = {
     }
   },
   styles: {
-    ext: 'css'
+    ext: 'css',
+    autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR']
   },
   scripts: {
     entry: {

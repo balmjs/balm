@@ -1,3 +1,18 @@
+## 0.7.0
+
+- update `babel-preset` & `babel-plugin`
+
+__New `.babelrc` for balm-templates__
+
+```
+{
+  "presets": ["env"],
+  "plugins": ["transform-runtime"]
+}
+```
+
+---
+
 ## 0.6.3
 
 - update dependencies
