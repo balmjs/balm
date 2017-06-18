@@ -13,24 +13,16 @@ const fileTests = () => {
       let imageStyle = path.join(cssDir, 'sprites', `_${balmConfig.sprites.image[0]}.css`);
       it('Image sprites: `path/to/workspace/app/styles/sprites/_img-icon.css`', done => {
         fs.exists(imageStyle, exists => {
-          try {
-            assert.ok(exists);
-            done();
-          } catch (error) {
-            done(error);
-          }
+          assert.ok(exists);
+          done();
         });
       });
 
       let svgStyle = path.join(cssDir, 'svg', `_${balmConfig.sprites.svg[0]}.css`);
       it('SVG sprites: `path/to/workspace/app/styles/svg/_svg-icon.css`', done => {
         fs.exists(svgStyle, exists => {
-          try {
-            assert.ok(exists);
-            done();
-          } catch (error) {
-            done(error);
-          }
+          assert.ok(exists);
+          done();
         });
       });
     });
@@ -48,45 +40,29 @@ const fileTests = () => {
 
       it('CSS: `path/to/remote/assets/public/web/css`', done => {
         fs.exists(cssFolder, exists => {
-          try {
-            assert.ok(exists);
-            done();
-          } catch (error) {
-            done(error);
-          }
+          assert.ok(exists);
+          done();
         });
       });
 
       it('JS: `path/to/remote/assets/public/web/js`', done => {
         fs.exists(jsFolder, exists => {
-          try {
-            assert.ok(exists);
-            done();
-          } catch (error) {
-            done(error);
-          }
+          assert.ok(exists);
+          done();
         });
       });
 
       it('Images: `path/to/remote/assets/public/web/img`', done => {
         fs.exists(imgFolder, exists => {
-          try {
-            assert.ok(exists);
-            done();
-          } catch (error) {
-            done(error);
-          }
+          assert.ok(exists);
+          done();
         });
       });
 
       it('Fonts: `path/to/remote/assets/public/web/font`', done => {
         fs.exists(fontFolder, exists => {
-          try {
-            assert.ok(exists);
-            done();
-          } catch (error) {
-            done(error);
-          }
+          assert.ok(exists);
+          done();
         });
       });
     });
@@ -95,12 +71,8 @@ const fileTests = () => {
       let indexFile = path.join(viewsDir, 'home.blade.php');
       it('Index file: `path/to/remote/assets/views/home.blade.php`', done => {
         fs.exists(indexFile, exists => {
-          try {
-            assert.ok(exists);
-            done();
-          } catch (error) {
-            done(error);
-          }
+          assert.ok(exists);
+          done();
         });
       });
     });

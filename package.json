@@ -101,7 +101,6 @@
   },
   "scripts": {
     "prepublish": "gulp prepublish",
-    "pretest": "cd test-workspace & npm install",
     "test": "cross-env NODE_ENV=test nyc mocha -t 16000",
     "coverage": "nyc report --reporter=text --reporter=text-summary | coveralls"
   },
