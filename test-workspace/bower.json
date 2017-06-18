@@ -1,9 +1,7 @@
 {
   "name": "balm-test",
   "private": true,
-  "authors": [
-    "Elf-mousE <ifmouz@gmail.com>"
-  ],
+  "authors": "Elf-mousE <ifmouz@gmail.com>",
   "ignore": [
     "**/.*",
     "node_modules",

@@ -1,25 +1,7 @@
 {
-  "name": "balm",
-  "version": "0.7.0-beta",
-  "description": "A flexible front-end workflow for webapps",
-  "homepage": "https://github.com/balmjs/balm#readme",
-  "author": {
-    "name": "Elf-mousE",
-    "email": "ifmouz@gmail.com",
-    "url": "http://elf-mouse.me/"
-  },
-  "files": [
-    "dist"
-  ],
-  "main": "dist/main.js",
-  "keywords": [
-    "balm",
-    "balmjs",
-    "web",
-    "app",
-    "front-end",
-    "workflow"
-  ],
+  "name": "balm-test",
+  "private": true,
+  "author": "Elf-mousE <ifmouz@gmail.com>",
   "dependencies": {
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.25.0",
@@ -73,41 +55,7 @@
     "webpack-hot-middleware": "^2.18.0",
     "wiredep": "^4.0.0"
   },
-  "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-istanbul": "^4.1.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.5.2",
-    "babel-register": "^6.24.1",
-    "coveralls": "^2.13.1",
-    "cross-env": "^5.0.1",
-    "del": "^3.0.0",
-    "eslint": "^4.0.0",
-    "eslint-config-xo-space": "^0.16.0",
-    "eslint-plugin-babel": "^4.1.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^4.0.0",
-    "gulp-exclude-gitignore": "^1.1.1",
-    "gulp-line-ending-corrector": "^1.0.1",
-    "gulp-nsp": "^2.4.2",
-    "mocha": "^3.4.2",
-    "nyc": "^11.0.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/balmjs/balm.git"
-  },
   "scripts": {
-    "prepublish": "gulp prepublish",
-    "pretest": "cd test-workspace & npm install",
-    "test": "cross-env NODE_ENV=test nyc mocha -t 16000",
-    "coverage": "nyc report --reporter=text --reporter=text-summary | coveralls"
-  },
-  "engines": {
-    "node": ">=6"
-  },
-  "license": "MIT",
-  "private": true
+    "preinstall": "bower install"
+  }
 }
