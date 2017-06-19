@@ -2,7 +2,7 @@
 
 - update `babel-preset` & `babel-plugin`
 
-__New `.babelrc` for balm-templates__
+__New `.babelrc` for all balm-templates__
 
 ```
 {

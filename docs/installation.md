@@ -24,6 +24,18 @@ npm install --save-dev gulp balm
 
 ## Setup
 
+### balm@0.7.0+
+
+```
+// .babelrc
+{
+  "presets": ["env"],
+  "plugins": ["transform-runtime"]
+}
+```
+
+### balm version < 0.7.0
+
 ```
 // for ES6 compilation ability
 npm install --save-dev babel-preset-es2015
@@ -52,6 +64,8 @@ npm install --save-dev babel-plugin-transform-es3-property-literals
   ]
 }
 ```
+
+### npm@2.x
 
 ```
 npm -v
