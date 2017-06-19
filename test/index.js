@@ -2,7 +2,7 @@
 import balm from '../lib/main';
 import balmConfig from '../test-workspace/balmrc';
 import configTests from './config.test';
-// import fileTests from './file.test';
+import fileTests from './file.test';
 
 describe('Balm Test', () => {
   // Test get
@@ -61,5 +61,5 @@ describe('Balm Test', () => {
   });
 
   configTests(balm);
-  // fileTests();
+  fileTests();
 });
