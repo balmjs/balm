@@ -1,3 +1,8 @@
+## 0.7.1
+
+- update dependencies
+- update `webpack@3`
+
 ## 0.7.0
 
 - update `babel-preset` & `babel-plugin`
@@ -16,7 +21,7 @@ __New `.babelrc` for all balm-templates__
 ## 0.6.3
 
 - update dependencies
-- update eslint@4
+- update `eslint@4`
 
 ---
 
@@ -39,7 +44,7 @@ __New `.babelrc` for all balm-templates__
 
 - use node >= 6 (Recommended)
 - update dependencies
-- use webpack2
+- use `webpack@2`
 - remove `json-loader`
 - clean code
 - update test
