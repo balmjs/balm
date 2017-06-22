@@ -4,6 +4,7 @@
 - add `publicUrl` config for html
 - add `jsmin` error handling
 - add `%PUBLIC_URL%` variable for sites
+- add rename option for `cssmin` & `jsmin`
 
 ---
 
