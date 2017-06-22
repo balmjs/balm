@@ -1,7 +1,18 @@
+## 0.7.2
+
+- `extras` bugfix
+- add `publicUrl` config for html
+- add `jsmin` error handling
+- add `%PUBLIC_URL%` variable for sites
+
+---
+
 ## 0.7.1
 
 - update dependencies
 - update `webpack@3`
+
+---
 
 ## 0.7.0
 

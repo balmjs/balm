@@ -594,7 +594,7 @@ SVG folder name
 
 ### `extras.excludes`
 
-> Default: `['css', 'js', 'json', 'md', 'lock']`
+> Default: `[]`
 
 ### `extras.includes`
 

@@ -36,6 +36,9 @@ const balmConfig = {
       font: 'font'
     }
   },
+  html: {
+    publicUrl: 'http://balmjs.com'
+  },
   styles: {
     ext: 'css',
     autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR']
