@@ -1,9 +1,17 @@
+## 0.7.3
+
+- remove `publicUrl` config for html
+- update `html` task for RegExp
+- update docs
+
+---
+
 ## 0.7.2
 
 - `extras` bugfix
-- add `publicUrl` config for html
+- <del>add `publicUrl` config for html</del>
 - add `jsmin` error handling
-- add `%PUBLIC_URL%` variable for sites
+- <del>add `%PUBLIC_URL%` variable for sites</del>
 - add rename option for `cssmin` & `jsmin`
 
 ---

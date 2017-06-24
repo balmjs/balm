@@ -37,7 +37,9 @@ const balmConfig = {
     }
   },
   html: {
-    publicUrl: 'http://balmjs.com'
+    replacement: {
+      begin: '/'
+    }
   },
   styles: {
     ext: 'css',
@@ -63,16 +65,16 @@ const balmConfig = {
   assets: {
     root: testConfig.assets,
     publicPath: 'public',
-    subDir: 'web'
+    subDir: 'web',
     // Extra cache files
     // includes: [
     //   'dist/web/css/vendor.css',
     //   'dist/web/js/vendors/jquery.js',
     //   'dist/web/js/vendors/lodash.js'
     // ],
-    // excludes: [
-    //   'dist/web/js/main.js'
-    // ]
+    excludes: [
+      'dist/web/img/icons/icon-*.png'
+    ]
   }
 };
 

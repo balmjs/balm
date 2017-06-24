@@ -96,10 +96,12 @@ balm.go();
     - Cache
         - [cache](#cache)
     - Assets
-        - [assets.manifest](#assetsmanifest)
         - [assets.root](#assetsroot)
         - [assets.publicPath](#assetspublicpath)
         - [assets.subDir](#assetssubdir)
+        - [assets.options](#assetsoptions)
+        - [assets.includes](#assetsincludes)
+        - [assets.excludes](#assetsexcludes)
 10. [__Custom Task__](custom-task.md)
 
 ---
@@ -674,19 +676,12 @@ scripts: {
   publicPath: '/mobile/js/' // according to `assets.subDir`
 },
 assets: {
-  manifest: 'manifest.json',
   root: '/path/to/your_project',
   publicPath: 'public',
   subDir: 'mobile'
 },
 ...
 ```
-
-### `assets.manifest`
-
-Set the filename of the file created
-
-> Default: `'manifest.json'`
 
 ### `assets.root`
 
@@ -705,5 +700,23 @@ The `public` directory contains the front controller and your assets (images, Ja
 Public subdirectory
 
 > Default: `''`
+
+### `assets.options`
+
+> Default: `{
+  fileNameManifest: 'rev-manifest.json',
+  dontRenameFile: ['.html', '.php'],
+  dontUpdateReference: ['.html', '.php']
+}`;
+
+### `assets.includes`
+
+> Default: `[]`
+
+### `assets.excludes`
+
+> Default: `[]`
+
+---
 
 ### [Custom Task](custom-task.md)
