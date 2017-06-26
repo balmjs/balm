@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "A flexible front-end workflow for webapps",
   "homepage": "https://github.com/balmjs/balm#readme",
   "author": {
@@ -83,7 +83,7 @@
     "coveralls": "^2.13.1",
     "cross-env": "^5.0.1",
     "del": "^3.0.0",
-    "eslint": "^4.0.0",
+    "eslint": "^4.1.1",
     "eslint-config-xo-space": "^0.16.0",
     "eslint-plugin-babel": "^4.1.1",
     "gulp": "^3.9.1",
@@ -93,7 +93,7 @@
     "gulp-line-ending-corrector": "^1.0.1",
     "gulp-nsp": "^2.4.2",
     "mocha": "^3.4.2",
-    "nyc": "^11.0.2"
+    "nyc": "^11.0.3"
   },
   "repository": {
     "type": "git",
