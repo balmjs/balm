@@ -1,3 +1,9 @@
+## 0.7.4
+
+- `manifest.json` dest bugfix
+
+---
+
 ## 0.7.3
 
 - remove `publicUrl` config for html
