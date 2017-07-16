@@ -1,3 +1,10 @@
+## 0.7.6
+
+- fix external url in `styles` task
+- deprecated `.sass` (recommended `.scss`)
+
+---
+
 ## 0.7.5
 
 - update dependencies

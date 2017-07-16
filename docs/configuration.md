@@ -319,7 +319,7 @@ styles: {
 
 ### `styles.ext`
 
-Supported CSS extensions are [css](http://postcss.org/), [sass|scss](http://sass-lang.com/), [less](http://lesscss.org/)
+Supported CSS extensions are [css](http://postcss.org/), [scss](http://sass-lang.com/), [less](http://lesscss.org/)
 
 > Default: `'css'`
 
