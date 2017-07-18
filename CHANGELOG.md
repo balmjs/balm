@@ -1,3 +1,9 @@
+## 0.8.0
+
+Coming up
+
+---
+
 ## 0.7.6
 
 - fix external url in `styles` task

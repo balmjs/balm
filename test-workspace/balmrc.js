@@ -46,7 +46,6 @@ const balmConfig = {
     autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR']
   },
   scripts: {
-    publicPath: '/',
     entry: {
       // Vendors custom config
       // 'mylib': ['jquery', 'lodash'],
@@ -64,6 +63,7 @@ const balmConfig = {
   },
   cache: true,
   assets: {
+    publicUrl: '/',
     root: testConfig.assets,
     publicPath: 'public',
     subDir: 'web',
