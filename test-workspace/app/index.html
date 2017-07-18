@@ -10,9 +10,9 @@
     manifest.json provides metadata used when your web app is added to the
     homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
   -->
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/favicon.ico">
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/main.css">
   <style>
     body {
       color: red;
@@ -23,14 +23,14 @@
 <body>
   <div id="app">
     <span>Hello</span>
-    <img src="images/logo.svg" alt="BalmJS">
+    <img src="%PUBLIC_URL%/images/logo.svg" alt="BalmJS">
     <a href="//balmjs.com/">BalmJS</a>
   </div>
   <!-- <script src="https://cdn.example.com/path/to/scripts/library.js"></script> -->
   <!-- <script src="//cdn.example.com/path/to/js/library.js"></script> -->
   <!-- <script src="/js/vendor.js"></script> -->
   <!-- <script src="js/vendor/mylib.js"></script> -->
-  <script src="js/main.js"></script>
+  <script src="%PUBLIC_URL%/js/main.js"></script>
   <script>
     var msg = 'gg';
     console.log(msg);
