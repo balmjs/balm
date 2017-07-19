@@ -39,7 +39,6 @@ balm.go();
         - [paths.target.font](#pathstargetfont)
 4. [__HyperText Markup Language__](#html)
     - [html.regex](#htmlregex)
-    - [html.replacement](#htmlreplacement)
     - [html.options](#htmloptions)
 5. [__Cascading Style Sheets__](#style)
     - [styles.ext](#stylesext)
@@ -52,7 +51,6 @@ balm.go();
         - [scripts.entry](#scriptsentry)
     - Output
         - [scripts.filename](#scriptsfilename)
-        - [scripts.publicPath](#scriptspublicpath)
         - [scripts.chunkFilename](#scriptschunkfilename)
         - [scripts.vendorName](#scriptsvendorname)
         - [scripts.vendor](#scriptsvendor)
@@ -75,13 +73,14 @@ balm.go();
     - Other Options
         - [scripts.extends](#scriptsextends)
         - [scripts.eslint](#scriptseslint)
+        - [scripts.options](#scriptsoptions)
 7. [__CSS Sprites__](#sprite)
     - [sprites.basePath](#spritesbasepath)
     - [sprites.padding](#spritespadding)
     - [sprites.image](#spritesimage)
     - [sprites.mode](#spritesmode)
     - [sprites.svg](#spritessvg)
-8. [__Extra Files__](#extra)
+8. [__Extra Files__](#extra) New in 0.6.0
     - [excludes](#extrasexcludes)
     - [includes](#extrasincludes)
 9. [__Publish__](#publish)
@@ -96,12 +95,14 @@ balm.go();
     - Cache
         - [cache](#cache)
     - Assets
+        - [assets.publicUrlPlaceholder](#assetspublicurlplaceholder) New in 0.8.0
+        - [assets.publicUrl](#assetspublicurl) New in 0.8.0
         - [assets.root](#assetsroot)
         - [assets.publicPath](#assetspublicpath)
         - [assets.subDir](#assetssubdir)
         - [assets.options](#assetsoptions)
-        - [assets.includes](#assetsincludes)
         - [assets.excludes](#assetsexcludes)
+        - [assets.includes](#assetsincludes)
 10. [__Custom Task__](custom-task.md)
 
 ---
@@ -172,6 +173,7 @@ Support environments where dynamic hostnames are not required (ie: electron)
 ### `server.historyApiFallback`
 
 Using the HTML5 History API
+> New in 0.6.0
 
 > Default: `false`
 
@@ -291,7 +293,7 @@ After:
   img: 'images'
 }`
 
-### `html.replacement`
+### <del>`html.replacement`</del> (Deprecated in 0.8.0)
 
 > Default: `{
   prefix: '"',
@@ -344,6 +346,7 @@ Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/)
 ### `styles.includePaths`
 
 Ensure file's parent directory in the include path
+> New in 0.6.0
 
 > Default: `[]`
 
@@ -352,6 +355,8 @@ Ensure file's parent directory in the include path
 - `plugins`: [PostCSS plugins](http://postcss.parts/)
 - `options`: [PostCSS options](https://github.com/postcss/postcss#options)
 - `loaderOptions`: [PostCSS Loader options](https://github.com/postcss/postcss-loader#options)
+
+> New in 0.6.2
 
 > Default: `{
   plugins: [],
@@ -406,7 +411,7 @@ Specifies the name of each output file on disk. You must __not__ specify an abso
 
 > Default: `'[name]'`
 
-### `scripts.publicPath`
+### <del>`scripts.publicPath`</del> (Deprecated in 0.8.0, see [`assets.publicUrl`](#assetspublicurl))
 
 The `publicPath` specifies the public URL address of the output files when referenced in a browser.
 
@@ -552,6 +557,18 @@ The pluggable linting utility for JavaScript and JSX
 
 > Default: `false`
 
+### `scripts.options`
+
+> New in 0.6.0
+
+> Default: `{
+  compress: {
+    warnings: false
+  },
+  comments: false,
+  minimize: true
+}`
+
 ## Sprite
 
 ```js
@@ -683,6 +700,18 @@ assets: {
 ...
 ```
 
+### `assets.publicUrlPlaceholder`
+
+> New in 0.8.0
+
+> Default: `'%PUBLIC_URL%'`
+
+### `assets.publicUrl`
+
+> New in 0.8.0
+
+> Default: `''`
+
 ### `assets.root`
 
 Remote project root simulation
@@ -703,17 +732,23 @@ Public subdirectory
 
 ### `assets.options`
 
+> New in 0.6.0
+
 > Default: `{
   fileNameManifest: 'rev-manifest.json',
   dontRenameFile: ['.html', '.php'],
   dontUpdateReference: ['.html', '.php']
 }`;
 
-### `assets.includes`
+### `assets.excludes`
+
+> New in 0.6.0
 
 > Default: `[]`
 
-### `assets.excludes`
+### `assets.includes`
+
+> New in 0.6.1
 
 > Default: `[]`
 

@@ -2,6 +2,27 @@
 
 Coming up
 
+🎉 __New Feature: html templates can use `%PUBLIC_URL%` for CDN__
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Webapp</title>
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/main.css">
+</head>
+
+<body>
+  <div id="app">Your Template</div>
+  <script src="%PUBLIC_URL%/js/main.js"></script>
+</body>
+
+</html>
+```
+
 ---
 
 ## 0.7.6
@@ -52,7 +73,7 @@ Coming up
 
 - update `babel-preset` & `babel-plugin`
 
-__New `.babelrc` for all balm-templates__
+🎉 __New Feature: `.babelrc` for all [balm-templates](https://github.com/balmjs/balm-cli)__
 
 ```
 {
