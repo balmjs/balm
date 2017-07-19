@@ -1,6 +1,14 @@
 ## 0.8.0
 
-Coming up
+Deprecated config:
+
+- `html.replacement`
+- `scripts.publicPath`
+
+New config:
+
+- `assets.publicUrlPlaceholder`
+- `assets.publicUrl`
 
 🎉 __New Feature: html templates can use `%PUBLIC_URL%` for CDN__
 
