@@ -36,11 +36,6 @@ const balmConfig = {
       font: 'font'
     }
   },
-  html: {
-    replacement: {
-      begin: '/'
-    }
-  },
   styles: {
     ext: 'css',
     autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR']
@@ -51,7 +46,7 @@ const balmConfig = {
       // 'mylib': ['jquery', 'lodash'],
       // 'page-a': './app/scripts/page-a.js',
       // 'page-b': './app/scripts/page-b.js',
-      main: './app/scripts/main.js'
+      'main': './app/scripts/main.js'
     },
     // Vendor all in one
     // vendor: true,

@@ -1,18 +1,25 @@
-import './hello';
-// Import $ from 'jquery';
+// Automatic
+// import $ from 'jquery';
 // import _ from 'lodash';
 
+// Manual
 const $ = window.$;
 const _ = window._;
 
-console.log('I\'m page B, use jQuery and lodash');
-console.log('window height: ' + $(window).height());
+console.log(`I'm page B, use jQuery and lodash`);
 
-let a = _.defaults({a: 1}, {a: 3, b: 2});
-// → { 'a': 1, 'b': 2 }
+function test() {
+  let height = $(window).height();
+  console.log(`window height: ${height}`);
 
-let b = _.partition([1, 2, 3, 4], n => n % 2);
-// → [[1, 3], [2, 4]]
+  let a = _.defaults({a: 1}, {a: 3, b: 2});
+  // → { 'a': 1, 'b': 2 }
 
-console.log('defaults', a);
-console.log('partition', b);
+  let b = _.partition([1, 2, 3, 4], n => n % 2);
+  // → [[1, 3], [2, 4]]
+
+  console.log('defaults', a);
+  console.log('partition', b);
+}
+
+test();

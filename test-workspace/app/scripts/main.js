@@ -9,4 +9,4 @@ hello.greet();
 //   m.default.greet();
 // });
 
-console.log('I\'m home page');
+console.log(`I'm home page`);

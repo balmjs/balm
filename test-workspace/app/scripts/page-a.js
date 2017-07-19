@@ -1,7 +1,14 @@
-import './hello';
-// Import $ from 'jquery';
+// Automatic
+// import $ from 'jquery';
 
+// Manual
 const $ = window.$;
 
-console.log('I\'m page A, use jQuery');
-console.log('window width: ' + $(window).width());
+console.log(`I'm page A, use jQuery`);
+
+function test() {
+  let width = $(window).width();
+  console.log(`window width: ${width}`);
+}
+
+test();
