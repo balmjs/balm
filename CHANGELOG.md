@@ -1,3 +1,9 @@
+## 0.8.2
+
+- `html` task bugfix for `manifest.json`
+
+---
+
 ## 0.8.1
 
 Deprecated config:
