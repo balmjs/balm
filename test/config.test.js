@@ -92,15 +92,6 @@ const configTests = balm => {
         assert.equal(balm.config.assets.font, path.join(assetsDir, balmConfig.paths.target.font));
       });
     });
-
-    describe('#html', () => {
-      it('html.regex.css should same to `paths.target.css`', () => {
-        assert.equal(balm.config.html.regex.css, balmConfig.paths.target.css);
-      });
-      it('html.regex.js should same to `paths.target.js`', () => {
-        assert.equal(balm.config.html.regex.js, balmConfig.paths.target.js);
-      });
-    });
   });
 
 };
