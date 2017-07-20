@@ -59,7 +59,7 @@ balm.go();
 
 - [example](https://github.com/balmjs/balm/blob/master/docs/_gulpfile.js)
 - [template](https://github.com/balmjs/balm/blob/master/docs/_index.html)
-- [old template](https://github.com/balmjs/balm/blob/master/docs/_index-old.html)(version < 0.8.0)
+- [old template](https://github.com/balmjs/balm/blob/master/docs/_index-old.html)(version < 0.8.1)
 
 ## [Custom Task](https://github.com/balmjs/balm/blob/master/docs/custom-task.md)
 
