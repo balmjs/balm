@@ -38,7 +38,6 @@ balm.go();
         - [paths.target.img](#pathstargetimg)
         - [paths.target.font](#pathstargetfont)
 4. [__HyperText Markup Language__](#html)
-    - [html.regex](#htmlregex)
     - [html.options](#htmloptions)
 5. [__Cascading Style Sheets__](#style)
     - [styles.ext](#stylesext)
@@ -285,7 +284,7 @@ After:
 <script src="/js/main.js"></script>
 ```
 
-### `html.regex`
+### <del>`html.regex`</del> (Deprecated in 0.8.1)
 
 > Default: `{
   css: 'styles',

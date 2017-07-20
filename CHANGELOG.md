@@ -1,3 +1,35 @@
+## 0.8.1
+
+Deprecated config:
+
+- html.regex
+
+Update html template:
+
+- change `css` to `styles` pathname for default config
+- change `js` to `scripts` pathname for default config
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Webapp</title>
+  <link rel="stylesheet" href="%PUBLIC_URL%/styles/main.css">
+</head>
+
+<body>
+  <div id="app">Your Template</div>
+  <script src="%PUBLIC_URL%/scripts/main.js"></script>
+</body>
+
+</html>
+```
+
+---
+
 ## 0.8.0
 
 Deprecated config:
