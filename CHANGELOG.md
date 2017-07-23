@@ -1,3 +1,10 @@
+## 0.8.3
+
+- remove `gulp-autoprefixer` dependencies
+- use `gulp-postcss` & `autoprefixer` for all styles
+
+---
+
 ## 0.8.2
 
 - `html` task bugfix for `manifest.json`
