@@ -50,6 +50,12 @@ const balmConfig = {
     },
     // Vendor all in one
     // vendor: true,
+    // webpack: {
+    //   output: {
+    //     library: 'BalmUI',
+    //     libraryTarget: 'umd'
+    //   }
+    // },
     eslint: true
   },
   sprites: {
