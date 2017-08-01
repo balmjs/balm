@@ -1,3 +1,17 @@
+## 0.8.4
+
+Deprecated config:
+
+- `scripts.extends`
+
+New config:
+
+- `scripts.library`
+- `scripts.libraryTarget`
+- `scripts.webpack`
+
+---
+
 ## 0.8.3
 
 - remove `gulp-autoprefixer` dependencies
@@ -15,7 +29,7 @@
 
 Deprecated config:
 
-- html.regex
+- `html.regex`
 
 Update html template:
 

@@ -50,6 +50,8 @@ balm.go();
         - [scripts.entry](#scriptsentry)
     - Output
         - [scripts.filename](#scriptsfilename)
+        - [scripts.library](#scriptslibrary) New in 0.8.4
+        - [scripts.libraryTarget](#scriptslibrarytarget) New in 0.8.4
         - [scripts.chunkFilename](#scriptschunkfilename)
         - [scripts.vendorName](#scriptsvendorname)
         - [scripts.vendor](#scriptsvendor)
@@ -69,8 +71,8 @@ balm.go();
         - [scripts.target](#scriptstarget)
     - Stats
         - [scripts.stats](#scriptsstats)
-    - Other Options
-        - [scripts.extends](#scriptsextends)
+    - Other Advanced Options
+        - [scripts.webpack](#scriptswebpack) New in 0.8.4
         - [scripts.eslint](#scriptseslint)
         - [scripts.options](#scriptsoptions)
 7. [__CSS Sprites__](#sprite)
@@ -163,6 +165,8 @@ Define HTTP proxies to your custom API backend
 
 > Default: `{}`
 
+- full list of `http-proxy-middleware` [configuration options](https://github.com/chimurai/http-proxy-middleware#options)
+
 ### `server.localOnly`
 
 Support environments where dynamic hostnames are not required (ie: electron)
@@ -175,8 +179,6 @@ Using the HTML5 History API
 > New in 0.6.0
 
 > Default: `false`
-
-- full list of `http-proxy-middleware` [configuration options](https://github.com/chimurai/http-proxy-middleware#options)
 
 ## Root & Path
 
@@ -320,9 +322,9 @@ styles: {
 
 ### `styles.ext`
 
-Supported CSS extensions are [css](http://postcss.org/), [scss](http://sass-lang.com/), [less](http://lesscss.org/)
-
 > Default: `'css'`
+
+Supported CSS extensions: [css](http://postcss.org/), [scss](http://sass-lang.com/), [less](http://lesscss.org/)
 
 ### `styles.autoprefixer`
 
@@ -415,6 +417,22 @@ Specifies the name of each output file on disk. You must __not__ specify an abso
 The `publicPath` specifies the public URL address of the output files when referenced in a browser.
 
 > Default: `''`
+
+### `scripts.library`
+
+The name of the exported library.
+> New in 0.8.4
+
+> Default: `''`
+
+### `scripts.libraryTarget`
+
+The type of the exported library.
+> New in 0.8.4
+
+> Default: `'var'`
+
+Supported options: `var`, `this`, `window`, `global`, `commonjs`, `commonjs2`, `amd`, `umd`
 
 ### `scripts.chunkFilename`
 
@@ -530,21 +548,16 @@ Source mapping
 
 Capture timing information for each module.
 
-> Default: `{
-  colors: true,
-  modules: false,
-  children: false,
-  chunks: false,
-  chunkModules: false
-}`
+> Default: `errors-only`
 
 > [Stats config](https://webpack.js.org/configuration/stats/)
 
-__Other Options__
+__Other Advanced Options__
 
-### `scripts.extends`
+### `scripts.webpack`
 
-Extend config for webpack
+Overwrite webpack config
+> New in 0.8.4
 
 > Default: `{}`
 
