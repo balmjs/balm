@@ -548,7 +548,13 @@ Source mapping
 
 Capture timing information for each module.
 
-> Default: `errors-only`
+> Default: `{
+  colors: true,
+  modules: false,
+  children: false,
+  chunks: false,
+  chunkModules: false
+}`
 
 > [Stats config](https://webpack.js.org/configuration/stats/)
 

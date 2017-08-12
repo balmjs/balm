@@ -1,10 +1,20 @@
-## 0.8.4
+## 0.8.5 (2017.08.12)
 
-Deprecated config:
+### Bugfix
+
+- restore `scripts.stats` default value
+
+### Update dependencies
+
+---
+
+## 0.8.4 (2017.08.02)
+
+### Deprecated config
 
 - `scripts.extends`
 
-New config:
+### New config
 
 - `scripts.library`
 - `scripts.libraryTarget`
@@ -12,26 +22,26 @@ New config:
 
 ---
 
-## 0.8.3
+## 0.8.3 (2017.07.23)
 
 - remove `gulp-autoprefixer` dependencies
 - use `gulp-postcss` & `autoprefixer` for all styles
 
 ---
 
-## 0.8.2
+## 0.8.2 (2017.07.21)
 
 - `html` task bugfix for `manifest.json`
 
 ---
 
-## 0.8.1
+## 0.8.1 (2017.07.20)
 
-Deprecated config:
+### Deprecated config
 
 - `html.regex`
 
-Update html template:
+### Update html template
 
 - change `css` to `styles` pathname for default config
 - change `js` to `scripts` pathname for default config
@@ -57,14 +67,14 @@ Update html template:
 
 ---
 
-## 0.8.0
+## 0.8.0 (2017.07.19)
 
-Deprecated config:
+### Deprecated config
 
 - `html.replacement`
 - `scripts.publicPath`
 
-New config:
+### New config
 
 - `assets.publicUrlPlaceholder`
 - `assets.publicUrl`
@@ -92,26 +102,26 @@ New config:
 
 ---
 
-## 0.7.6
+## 0.7.6 (2017.07.16)
 
 - fix external url in `styles` task
 - deprecated `.sass` (recommended `.scss`)
 
 ---
 
-## 0.7.5
+## 0.7.5 (2017.07.09)
 
 - update dependencies
 
 ---
 
-## 0.7.4
+## 0.7.4 (2017.06.27)
 
 - `manifest.json` dest bugfix
 
 ---
 
-## 0.7.3
+## 0.7.3 (2017.06.24)
 
 - remove `publicUrl` config for html
 - update `html` task for RegExp
@@ -119,7 +129,7 @@ New config:
 
 ---
 
-## 0.7.2
+## 0.7.2 (2017.06.23)
 
 - `extras` bugfix
 - <del>add `publicUrl` config for html</del>
@@ -129,14 +139,14 @@ New config:
 
 ---
 
-## 0.7.1
+## 0.7.1 (2017.06.21)
 
 - update dependencies
 - update `webpack@3`
 
 ---
 
-## 0.7.0
+## 0.7.0 (2017.06.19)
 
 - update `babel-preset` & `babel-plugin`
 
@@ -151,14 +161,14 @@ New config:
 
 ---
 
-## 0.6.3
+## 0.6.3 (2017.06.15)
 
 - update dependencies
 - update `eslint@4`
 
 ---
 
-## 0.6.2 (The Stable Version)
+## 0.6.2 (2017.06.10)
 
 - update postcss config
 - update test for `@import` css/sass/scss/less
@@ -167,7 +177,7 @@ New config:
 
 ---
 
-## 0.6.1
+## 0.6.1 (2017.06.03)
 
 - add `includes` config for assets cache
 
