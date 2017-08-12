@@ -581,7 +581,9 @@ The pluggable linting utility for JavaScript and JSX
 
 > Default: `{
   compress: {
-    warnings: false
+    warnings: false,
+    drop_console: true,
+    pure_funcs: ['console.log']
   },
   comments: false,
   minimize: true

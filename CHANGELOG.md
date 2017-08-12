@@ -1,3 +1,12 @@
+## 0.8.6 (2017.08.12)
+
+### New feature - Scope Hoisting
+
+- update `scripts.options.compress` default value
+- optimize build
+
+---
+
 ## 0.8.5 (2017.08.12)
 
 ### Bugfix
