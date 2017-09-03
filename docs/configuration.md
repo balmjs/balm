@@ -21,7 +21,7 @@ balm.go();
     - [server.proxy](#serverproxy)
     - [server.proxyTable](#serverproxytable)
     - [server.localOnly](#serverlocalonly)
-    - [server.historyApiFallback](#serverhistoryapifallback)
+    - [server.historyApiFallback](#serverhistoryapifallback) New in 0.6.0
 3. [__Root & Path__](#root-path)
     - Source Input
         - [roots.source](#rootssource)
