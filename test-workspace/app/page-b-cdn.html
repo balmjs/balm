@@ -11,7 +11,13 @@
 <body>
   <div>Page B</div>
 
-  <!-- <script src="%PUBLIC_URL%/scripts/vendor.js"></script> -->
+  <!-- build:js web/js/cdn/jquery-b.js -->
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- endbuild -->
+  <!-- build:js web/js/cdn/mylib-b.js -->
+  <script src="/bower_components/moment/min/moment.min.js"></script>
+  <!-- endbuild -->
+
   <script src="%PUBLIC_URL%/scripts/page-b.js"></script>
 </body>
 

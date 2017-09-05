@@ -12,11 +12,6 @@ const testConfig = {
 
 const balmConfig = {
   production: true,
-  // Server config
-  // server: {
-  //   open: false,
-  //   browser: 'PhantomJS'
-  // },
   workspace: testConfig.workspace,
   roots: {
     source: 'app',
@@ -41,22 +36,32 @@ const balmConfig = {
     autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR']
   },
   scripts: {
-    entry: {
-      // Vendors custom config
-      // 'mylib': ['jquery', 'lodash'],
-      // 'page-a': './app/scripts/page-a.js',
-      // 'page-b': './app/scripts/page-b.js',
-      'main': './app/scripts/main.js'
-    },
     // Vendor all in one
     // vendor: true,
+    // cdn: {
+    //   'jquery': '$',
+    //   'lodash': '_',
+    //   'moment': 'moment'
+    // },
+    entry: {
+      'page-a': './app/scripts/page-a.js',
+      'page-b': './app/scripts/page-b.js',
+      // 'main-async': './app/scripts/main-async.js',
+      'main-sync': './app/scripts/main-sync.js'
+    },
     // webpack: {
     //   output: {
     //     library: 'BalmUI',
     //     libraryTarget: 'umd'
     //   }
     // },
-    eslint: true
+    eslint: true,
+    options: {
+      compress: {
+        warnings: false,
+        drop_console: false
+      }
+    }
   },
   sprites: {
     image: ['img-icon'],

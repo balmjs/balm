@@ -1,25 +1,17 @@
-// Automatic
-// import $ from 'jquery';
-// import _ from 'lodash';
+import $ from 'jquery';
+import moment from 'moment';
 
-// Manual
-const $ = window.$;
-const _ = window._;
-
-console.log(`I'm page B, use jQuery and lodash`);
+console.info(`I'm page B, use jQuery and moment`);
 
 function test() {
   let height = $(window).height();
+
+  let now = moment().format('MMMM Do YYYY, h:mm:ss a'); // September 4th 2017, 9:53:03 am
+  let week = moment().format('dddd'); // Monday
+
   console.log(`window height: ${height}`);
-
-  let a = _.defaults({a: 1}, {a: 3, b: 2});
-  // → { 'a': 1, 'b': 2 }
-
-  let b = _.partition([1, 2, 3, 4], n => n % 2);
-  // → [[1, 3], [2, 4]]
-
-  console.log('defaults', a);
-  console.log('partition', b);
+  console.log('now: ', now);
+  console.log('week: ', week);
 }
 
 test();

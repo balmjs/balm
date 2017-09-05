@@ -6,10 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#2196F3">
   <title>Hello BalmJS</title>
-  <!--
-    manifest.json provides metadata used when your web app is added to the
-    homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-  -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
   <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/favicon.ico">
   <link rel="stylesheet" href="%PUBLIC_URL%/styles/main.css">
@@ -21,16 +17,20 @@
 </head>
 
 <body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
   <div id="app">
     <span>Hello</span>
     <img src="%PUBLIC_URL%/images/logo.svg" alt="BalmJS">
     <a href="//balmjs.com/">BalmJS</a>
   </div>
+
   <!-- <script src="https://cdn.example.com/path/to/scripts/library.js"></script> -->
   <!-- <script src="//cdn.example.com/path/to/js/library.js"></script> -->
   <!-- <script src="%PUBLIC_URL%/scripts/vendor.js"></script> -->
-  <!-- <script src="%PUBLIC_URL%/scripts/vendor/mylib.js"></script> -->
-  <script src="%PUBLIC_URL%/scripts/main.js"></script>
+  <script src="%PUBLIC_URL%/scripts/main-sync.js"></script>
   <script>
     var msg = 'gg';
     console.log(msg);
