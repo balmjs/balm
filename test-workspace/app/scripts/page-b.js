@@ -1,7 +1,7 @@
-import $ from 'jquery';
+import $ from 'zepto';
 import moment from 'moment';
 
-console.info(`I'm page B, use jQuery and moment`);
+console.info(`I'm page B, use Zepto and moment`);
 
 function test() {
   let height = $(window).height();

@@ -41,11 +41,12 @@ const balmConfig = {
     // cdn: {
     //   'jquery': '$',
     //   'lodash': '_',
-    //   'moment': 'moment'
+    //   'moment': 'moment',
+    //   'zepto': '$'
     // },
     entry: {
-      'page-a': './app/scripts/page-a.js',
-      'page-b': './app/scripts/page-b.js',
+      // 'page-a': './app/scripts/page-a.js',
+      // 'page-b': './app/scripts/page-b.js',
       // 'main-async': './app/scripts/main-async.js',
       'main-sync': './app/scripts/main-sync.js'
     },
