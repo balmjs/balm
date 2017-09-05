@@ -275,20 +275,6 @@ __Target Output__
 
 ## HTML
 
-```
-Before:
-<link rel="stylesheet" href="css/main.css">
-...
-<script src="http(s)://cdn.com/path/to/js/lib.js"></script>
-<script src="js/main.js"></script>
-
-After:
-<link rel="stylesheet" href="/css/main.css">
-...
-<script src="http(s)://cdn.com/path/to/js/lib.js"></script>
-<script src="/js/main.js"></script>
-```
-
 ### <del>`html.regex`</del> (Deprecated in 0.8.1)
 
 > Default: `{
@@ -310,7 +296,12 @@ After:
 > Default: `{
   collapseWhitespace: true,
   minifyCSS: true,
-  minifyJS: true
+  minifyJS: {compress: {drop_console: true}},
+  processConditionalComments: true,
+  removeComments: true,
+  removeEmptyAttributes: true,
+  removeScriptTypeAttributes: true,
+  removeStyleLinkTypeAttributes: true
 }`
 
 ## Style

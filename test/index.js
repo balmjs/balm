@@ -19,7 +19,7 @@ describe('Balm Test', () => {
       mix.sass('app/styles/main.sass', '.tmp/styles/sass');
       mix.sass('app/styles/main.scss', '.tmp/styles/scss');
       mix.less('app/styles/main.less', '.tmp/styles/less');
-      mix.js('./app/scripts/main.js', '.tmp/scripts');
+      mix.js('./app/scripts/main-sync.js', '.tmp/scripts');
       // Test minify
       mix.cssmin(['.tmp/styles/**/*.css'], 'dist/minify/css');
       mix.jsmin(['.tmp/scripts/**/*.js'], 'dist/minify/js');
