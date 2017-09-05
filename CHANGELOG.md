@@ -1,3 +1,61 @@
+## 0.9.0 (2017.09.05)
+
+- clean code
+- optimized `cache`
+- update test
+
+🎉 __New feature - Library Code Splitting__
+
+__balmrc.js__
+
+```js
+const balmConfig = {
+  ...
+  scripts: {
+    cdn: {
+      'jquery': '$',
+      'zepto': '$'
+    },
+    entry: {
+      'desktop': './app/scripts/desktop.js',
+      'mobile': './app/scripts/mobile.js'
+    },
+    ...
+  },
+  ...
+};
+```
+
+__desktop.html__
+
+```html
+<body>
+  ...
+
+  <!-- build:js js/cdn/lib-desktop.js -->
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- endbuild -->
+
+  <script src="%PUBLIC_URL%/scripts/desktop.js"></script>
+</body>
+```
+
+__mobile.html__
+
+```html
+<body>
+  ...
+
+  <!-- build:js js/cdn/lib-mobile.js -->
+  <script src="/node_modules/zepto/zepto.min.js"></script>
+  <!-- endbuild -->
+
+  <script src="%PUBLIC_URL%/scripts/mobile.js"></script>
+</body>
+```
+
+---
+
 ## 0.8.6 (2017.08.12)
 
 ### New feature - Scope Hoisting

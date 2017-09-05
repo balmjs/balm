@@ -52,10 +52,8 @@ balm.go();
         - [scripts.filename](#scriptsfilename)
         - [scripts.library](#scriptslibrary) New in 0.8.4
         - [scripts.libraryTarget](#scriptslibrarytarget) New in 0.8.4
+        - [scripts.umdNamedDefine](#scriptsumdnameddefine) New in 0.9.0
         - [scripts.chunkFilename](#scriptschunkfilename)
-        - [scripts.vendorName](#scriptsvendorname)
-        - [scripts.vendor](#scriptsvendor)
-        - [scripts.vendors](#scriptsvendors)
     - Module
         - [scripts.loaders](#scriptsloaders)
     - Resolve
@@ -75,6 +73,11 @@ balm.go();
         - [scripts.webpack](#scriptswebpack) New in 0.8.4
         - [scripts.eslint](#scriptseslint)
         - [scripts.options](#scriptsoptions)
+    - Optimization
+        - [scripts.vendorName](#scriptsvendorname)
+        - [scripts.vendor](#scriptsvendor)
+        - [scripts.vendors](#scriptsvendors)
+        - [scripts.cdn](scriptscdn) New in 0.9.0
 7. [__CSS Sprites__](#sprite)
     - [sprites.basePath](#spritesbasepath)
     - [sprites.padding](#spritespadding)
@@ -434,6 +437,13 @@ The type of the exported library.
 
 Supported options: `var`, `this`, `window`, `global`, `commonjs`, `commonjs2`, `amd`, `umd`
 
+### `scripts.umdNamedDefine`
+
+When using libraryTarget: "umd", setting: `true`
+> New in 0.9.0
+
+> Default: `false`
+
 ### `scripts.chunkFilename`
 
 The filename of non-entry chunks as relative path inside the `output.path` directory.
@@ -444,24 +454,6 @@ The filename of non-entry chunks as relative path inside the `output.path` direc
 - `[chunkhash]` is replaced by the hash of the chunk.
 
 > Default: `''`
-
-### `scripts.vendorName`
-
-AllInOne vendor filename or Custom Vendor folder name
-
-> Default: `'vendor'`
-
-### `scripts.vendor`
-
-All vendors in one (for SPA)
-
-> Default: `false`
-
-### `scripts.vendors`
-
-Custom Vendor Modules
-
-> Default: `[]` (automatic setting by `scripts.entry`)
 
 __Module__
 
@@ -588,6 +580,32 @@ The pluggable linting utility for JavaScript and JSX
   comments: false,
   minimize: true
 }`
+
+__Optimization__
+
+### `scripts.vendorName`
+
+AllInOne vendor filename or Custom Vendor folder name
+
+> Default: `'vendor'`
+
+### `scripts.vendor`
+
+All vendors in one (for SPA)
+
+> Default: `false`
+
+### `scripts.vendors`
+
+Custom Vendor Modules
+
+> Default: `[]` (automatic setting by `scripts.entry`)
+
+### `scripts.cdn`
+
+The same to webpack.[externals](https://webpack.js.org/configuration/externals/#externals)
+
+> Default: `null`
 
 ## Sprite
 
