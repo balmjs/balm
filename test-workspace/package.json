@@ -43,7 +43,7 @@
     "main-bower-files": "^2.13.1",
     "merge-stream": "^1.0.1",
     "postcss-cssnext": "^3.0.2",
-    "postcss-import": "^10.0.0",
+    "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.6",
     "require-dir": "^0.3.2",
     "run-sequence": "^2.1.0",
