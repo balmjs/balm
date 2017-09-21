@@ -29,6 +29,7 @@ balm.go();
         - [paths.source.css](#pathssourcecss)
         - [paths.source.js](#pathssourcejs)
         - [paths.source.img](#pathssourceimg)
+        - [paths.source.media](#pathssourcemedia) New in 0.9.1
         - [paths.source.font](#pathssourcefont)
     - Target Output
         - [roots.target](#rootstarget)
@@ -36,6 +37,7 @@ balm.go();
         - [paths.target.css](#pathstargetcss)
         - [paths.target.js](#pathstargetjs)
         - [paths.target.img](#pathstargetimg)
+        - [paths.target.media](#pathstargetmedia) New in 0.9.1
         - [paths.target.font](#pathstargetfont)
 4. [__HyperText Markup Language__](#html)
     - [html.options](#htmloptions)
@@ -73,6 +75,7 @@ balm.go();
         - [scripts.webpack](#scriptswebpack) New in 0.8.4
         - [scripts.eslint](#scriptseslint)
         - [scripts.options](#scriptsoptions)
+        - [scripts.include](#scriptsinclude) New in 0.9.1
     - Optimization
         - [scripts.vendorName](#scriptsvendorname)
         - [scripts.vendor](#scriptsvendor)
@@ -245,6 +248,13 @@ Image directory
 
 > Default: `'images'`
 
+### `paths.source.media`
+
+Media directory
+> New in 0.9.1
+
+> Default: `'media'`
+
 ### `paths.source.font`
 
 Font directory
@@ -268,6 +278,12 @@ __Target Output__
 ### `paths.target.img`
 
 > Default: `'img'`
+
+### `paths.target.media`
+
+> New in 0.9.1
+
+> Default: `'media'`
 
 ### `paths.target.font`
 
@@ -565,12 +581,22 @@ The pluggable linting utility for JavaScript and JSX
 > Default: `{
   compress: {
     warnings: false,
-    drop_console: true,
-    pure_funcs: ['console.log']
+    comparisons: false,
+    drop_console: true
   },
-  comments: false,
-  minimize: true
+  output: {
+    comments: false,
+    ascii_only: true
+  }
 }`
+
+### `scripts.include`
+
+[Rule.include](https://webpack.js.org/configuration/module/#rule-include) in `babel-loader`
+
+> New in 0.9.1
+
+> Default: `[]`
 
 __Optimization__
 

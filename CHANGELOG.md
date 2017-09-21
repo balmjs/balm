@@ -1,3 +1,34 @@
+## 0.9.1 (2017.09.21)
+
+### New
+
+#### Config
+
+- `scripts.include`
+- `paths.source.media`
+- `paths.target.media`
+
+#### Task
+
+- add `media` task
+
+### Optimization
+
+- update eslint config
+- update project architecture
+- update webpack plugins
+
+### Bugfix
+
+- fix build `manifest.json` for PWA
+- fix `html` task
+
+### Test
+
+- add media test
+
+---
+
 ## 0.9.0 (2017.09.05)
 
 - clean code
