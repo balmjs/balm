@@ -59,7 +59,6 @@ const balmConfig = {
     eslint: true,
     options: {
       compress: {
-        warnings: false,
         drop_console: false
       }
     }

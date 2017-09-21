@@ -595,6 +595,7 @@ Custom Vendor Modules
 ### `scripts.cdn`
 
 The same to webpack.[externals](https://webpack.js.org/configuration/externals/#externals)
+> New in 0.9.0
 
 > Default: `null`
 

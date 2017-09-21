@@ -5,6 +5,7 @@
     "es6": true,
     "mocha": true
   },
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2017,
     "sourceType": "module"
@@ -20,13 +21,9 @@
     "config": true,
     "logger": true
   },
-  "extends": [
-    "eslint:recommended",
-    "xo-space"
-  ],
+  "extends": "xo-space",
   "rules": {
-    "quotes": [2, "single", "avoid-escape"],
-    "space-before-function-paren": [2, "never"],
-    "operator-linebreak": [2, "after"]
+    "operator-linebreak": [2, "before"],
+    "camelcase": [2, {properties: "never"}] 
   }
 }

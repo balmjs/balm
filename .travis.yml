@@ -7,9 +7,9 @@ branches:
 language: node_js
 
 node_js:
-  - v8
-  - v7
-  - v6
+  - 8
+  - 7
+  - 6
 
 before_script:
   - npm install -g bower
