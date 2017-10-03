@@ -14,7 +14,7 @@ const balmConfig = {
   production: true,
   workspace: testConfig.workspace,
   roots: {
-    source: 'app',
+    source: 'src',
     target: 'dist'
   },
   paths: {
@@ -45,10 +45,10 @@ const balmConfig = {
     //   'zepto': '$'
     // },
     entry: {
-      // 'page-a': './app/scripts/page-a.js',
-      // 'page-b': './app/scripts/page-b.js',
-      // 'main-async': './app/scripts/main-async.js',
-      'main-sync': './app/scripts/main-sync.js'
+      // 'page-a': './src/scripts/page-a.js',
+      // 'page-b': './src/scripts/page-b.js',
+      // 'main-async': './src/scripts/main-async.js',
+      'main-sync': './src/scripts/main-sync.js'
     },
     // webpack: {
     //   output: {

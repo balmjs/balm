@@ -1,3 +1,4 @@
+import gulp from 'gulp';
 import balm from '../lib/main';
 import balmConfig from './balmrc';
 
@@ -7,24 +8,23 @@ balm.config = balmConfig;
 balm.go(mix => {
   if (balm.config.production) {
     // Test compiling
-    mix.css('app/styles/main.css', '.tmp/styles/css');
-    mix.sass('app/styles/main.sass', '.tmp/styles/sass');
-    mix.sass('app/styles/main.scss', '.tmp/styles/scss');
-    mix.less('app/styles/main.less', '.tmp/styles/less');
-    mix.js('./app/scripts/main-sync.js', '.tmp/scripts');
+    mix.css('src/styles/main.css', '.compile/styles/css');
+    mix.sass('src/styles/main.scss', '.compile/styles/scss');
+    mix.less('src/styles/main.less', '.compile/styles/less');
+    mix.js('./src/scripts/main-sync.js', '.compile/scripts');
     // Test minify
-    mix.cssmin(['.tmp/styles/**/*.css'], 'dist/minify/css');
-    mix.jsmin(['.tmp/scripts/**/*.js'], 'dist/minify/js');
+    mix.cssmin(['.tmp/styles/**/*.css'], '.compile/minify/css');
+    mix.jsmin(['.tmp/scripts/**/*.js'], '.compile/minify/js');
     // Test version
-    // mix.copy(balm.config.workspace + '/app/index.html', balm.config.workspace + '/dist/minify');
-    // mix.copy(balm.config.workspace + '/dist/minify/css/css/*.css', balm.config.workspace + '/dist/minify/css');
+    // mix.copy(balm.config.workspace + '/src/index.html', balm.config.workspace + '/.compile/minify');
+    // mix.copy(balm.config.workspace + '/dist/minify/css/css/*.css', balm.config.workspace + '/.compile/minify/css');
     // mix.version([
-    //   'dist/minify/css/*.css',
-    //   'dist/minify/js/*.js',
-    //   'dist/minify/*.html'
-    // ], 'dist/version');
+    //   '.compile/minify/css/*.css',
+    //   '.compile/minify/js/*.js',
+    //   '.compile/minify/*.html'
+    // ], '.compile/version');
     // Test copy
-    mix.copy(`${balm.config.workspace}/app/index.html`, `${balm.config.workspace}/.tmp`, {
+    mix.copy(`${balm.config.workspace}/src/index.html`, `${balm.config.workspace}/.compile`, {
       basename: 'newfile',
       extname: '.php'
     });

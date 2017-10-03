@@ -19,11 +19,13 @@
     "webpack": true,
     "BalmJS": true,
     "config": true,
-    "logger": true
+    "logger": true,
+    "File": true,
+    "Task": true
   },
-  "extends": "xo-space",
+  "extends": ["eslint:recommended", "xo-space"],
   "rules": {
     "operator-linebreak": [2, "before"],
-    "camelcase": [2, {properties: "never"}] 
+    "camelcase": [2, {properties: "never"}]
   }
 }

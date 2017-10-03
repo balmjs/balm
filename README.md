@@ -17,16 +17,21 @@
 
 ```
 project
-├── dist
+├── .tmp // for development
+├── dist // for production
 ├─┬ src
 │ ├── fonts
 │ ├── images
+│ ├── media
 │ ├─┬ scripts
 │ │ └── main.js
 │ ├─┬ styles
 │ │ └── main.css
 │ └── index.html
-├── dotfile
+├─┬ config
+│ ├── balmrc.js
+│ └── publish.js
+├── .dotfile
 ├── gulpfile.js
 ├── package.json
 └── ...
@@ -77,7 +82,9 @@ $ gulp --production
 
 ## License
 
-MIT © [Elf-mousE](http://elf-mouse.me/)
+[MIT](https://opensource.org/licenses/MIT)
+
+© 2016-present, [Elf-mousE](http://elf-mouse.me/)
 
 
 [npm-image]: https://badge.fury.io/js/balm.svg
@@ -92,4 +99,4 @@ MIT © [Elf-mousE](http://elf-mouse.me/)
 [coveralls-url]: https://coveralls.io/r/balmjs/balm
 
 
-> __thx [node](https://nodejs.org/) & [gulp](http://gulpjs.com/) & [webpack](http://webpack.github.io/)__
+> __thx [node](https://nodejs.org/) & [gulp](http://gulpjs.com/) & [webpack](https://webpack.js.org/)__

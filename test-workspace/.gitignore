@@ -3,6 +3,7 @@ node_modules
 app/styles/sprites
 app/styles/svg
 .tmp
+.compile
 dist
 assets
 *.zip
