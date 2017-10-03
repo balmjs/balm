@@ -11,7 +11,7 @@ const fileTests = () => {
 
     describe('#image', () => {
       let imageStyle = path.join(cssDir, 'sprites', `_${balmConfig.sprites.image[0]}.css`);
-      it('Image sprites: `path/to/workspace/app/styles/sprites/_img-icon.css`', done => {
+      it('Image sprites: `path/to/workspace/src/styles/sprites/_img-icon.css`', done => {
         fs.exists(imageStyle, exists => {
           assert.ok(exists);
           done();
@@ -19,7 +19,7 @@ const fileTests = () => {
       });
 
       let svgStyle = path.join(cssDir, 'svg', `_${balmConfig.sprites.svg[0]}.css`);
-      it('SVG sprites: `path/to/workspace/app/styles/svg/_svg-icon.css`', done => {
+      it('SVG sprites: `path/to/workspace/src/styles/svg/_svg-icon.css`', done => {
         fs.exists(svgStyle, exists => {
           assert.ok(exists);
           done();

@@ -11,6 +11,10 @@ describe('Balm Test', () => {
   before(done => {
     balm.config = balmConfig;
     balm.config.debug = true;
+    balm.config.afterTask = () => {
+      console.log('gg');
+      done();
+    };
 
     // Test build
     balm.go(mix => {
@@ -45,11 +49,6 @@ describe('Balm Test', () => {
         basename: 'home',
         suffix: '.blade',
         extname: '.php'
-      });
-      // Test end
-      mix.end(() => {
-        console.log('gg');
-        done();
       });
     });
 

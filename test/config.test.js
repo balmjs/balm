@@ -12,19 +12,19 @@ const configTests = balm => {
     describe('#source', () => {
       let appDir = path.join(balmConfig.workspace, balmConfig.roots.source);
 
-      it('source.base should return `path/to/workspace/app`', () => {
+      it('source.base should return `path/to/workspace/src`', () => {
         assert.equal(balm.config.source.base, appDir);
       });
-      it('source.css should return `path/to/workspace/app/styles`', () => {
+      it('source.css should return `path/to/workspace/src/styles`', () => {
         assert.equal(balm.config.source.css, path.join(appDir, balmConfig.paths.source.css));
       });
-      it('source.js should return `path/to/workspace/app/scripts`', () => {
+      it('source.js should return `path/to/workspace/src/scripts`', () => {
         assert.equal(balm.config.source.js, path.join(appDir, balmConfig.paths.source.js));
       });
-      it('source.img should return `path/to/workspace/app/images`', () => {
+      it('source.img should return `path/to/workspace/src/images`', () => {
         assert.equal(balm.config.source.img, path.join(appDir, balmConfig.paths.source.img));
       });
-      it('source.font should return `path/to/workspace/app/fonts`', () => {
+      it('source.font should return `path/to/workspace/src/fonts`', () => {
         assert.equal(balm.config.source.font, path.join(appDir, balmConfig.paths.source.font));
       });
     });
