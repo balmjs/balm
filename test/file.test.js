@@ -4,7 +4,6 @@ import fs from 'fs';
 import assert from 'assert';
 
 const fileTests = () => {
-
   describe('Test sprites files', () => {
     let appDir = path.join(balmConfig.workspace, balmConfig.roots.source);
     let cssDir = path.join(appDir, balmConfig.paths.source.css);
@@ -77,7 +76,6 @@ const fileTests = () => {
       });
     });
   });
-
 };
 
 export default fileTests;

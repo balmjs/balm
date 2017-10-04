@@ -3,7 +3,6 @@ import path from 'path';
 import assert from 'assert';
 
 const configTests = balm => {
-
   describe('Test balm config', () => {
     it('production should return `true`', () => {
       assert.equal(balm.config.production, balmConfig.production);
@@ -93,7 +92,6 @@ const configTests = balm => {
       });
     });
   });
-
 };
 
 export default configTests;

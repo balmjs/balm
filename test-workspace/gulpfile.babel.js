@@ -3,6 +3,9 @@ import balm from '../lib/main';
 import balmConfig from './balmrc';
 
 balm.config = balmConfig;
+balm.config.beforeTask = () => {
+  console.log('Hello BalmJS');
+};
 
 // Test build
 balm.go(mix => {
