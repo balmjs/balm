@@ -1,4 +1,7 @@
 {
+  "include": [
+    "lib/**/*.js"
+  ],
   "exclude": [
     "node_modules",
     "coverage",
