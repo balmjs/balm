@@ -1,1 +1,2 @@
-src/scripts/*.js
+src/scripts/**/*.js
+test/**/*.js
