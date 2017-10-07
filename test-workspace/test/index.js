@@ -3,6 +3,7 @@ import balmConfig from '../balmrc';
 import gulp from 'gulp';
 import chai from 'chai';
 import remove from 'rimraf';
+import configTests from './config.test';
 
 global.path = require('path');
 global.fs = require('fs');
@@ -22,6 +23,8 @@ global.balm = balm;
 global.workspace = balmConfig.workspace;
 global.appDir = path.join(workspace, balmConfig.roots.source);
 
+let flag = false;
+
 global.runGulp = assertions => {
   gulp.start('default', () => {
     assertions();
@@ -32,5 +35,10 @@ global.runGulp = assertions => {
     remove.sync(`${workspace}/dist`);
     remove.sync(`${workspace}/assets`);
     remove.sync(`${workspace}/archive.zip`);
+
+    if (!flag) {
+      flag = true;
+      configTests();
+    }
   });
 };

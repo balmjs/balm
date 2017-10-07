@@ -13,7 +13,7 @@ describe('JsMin Task', () => {
     });
 
     runGulp(() => {
-      // shouldExist('.compile/minify/main.min.js');
+      shouldExist('.compile/minify/main.min.js');
 
       done();
     });

@@ -8,17 +8,6 @@ describe('Publish Task', () => {
   it('publish assets to remote', done => {
     balm.go(mix => {
       mix.publish();
-    });
-
-    runGulp(() => {
-      shouldExist('assets/public/web');
-
-      done();
-    });
-  });
-
-  it('publish templates to remote', done => {
-    balm.go(mix => {
       mix.publish('index.html', 'views', {
         basename: 'home',
         suffix: '.blade',
@@ -27,6 +16,7 @@ describe('Publish Task', () => {
     });
 
     runGulp(() => {
+      shouldExist('assets/public/web');
       shouldExist('assets/views/home.blade.php');
 
       done();
