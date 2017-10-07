@@ -1,3 +1,5 @@
+import configTests from './config.test';
+
 describe('Default Task', () => {
 
   beforeEach(() => {
@@ -9,6 +11,8 @@ describe('Default Task', () => {
     balm.go();
 
     runGulp(() => {
+      configTests();
+
       shouldExist('dist/index.html');
       shouldExist('dist/manifest.json');
       shouldExist('dist/web/css/main.73635859.css');

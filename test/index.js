@@ -1,9 +1,13 @@
-import balm from '../../lib/main';
-import balmConfig from '../balmrc';
+import balm from '../lib/main';
+import balmConfig from '../test-workspace/balmrc';
 import gulp from 'gulp';
 import chai from 'chai';
 import remove from 'rimraf';
-import configTests from './config.test';
+
+balm.config = balmConfig;
+global.balm = balm;
+global.workspace = balmConfig.workspace;
+global.appDir = path.join(workspace, balmConfig.roots.source);
 
 global.path = require('path');
 global.fs = require('fs');
@@ -11,19 +15,14 @@ global.should = chai.should();
 global.expect = chai.expect;
 
 global.shouldExist = (file, contents) => {
+  file = `${workspace}/${file}`;
+
   fs.existsSync(file).should.be.true;
 
   if (contents) {
     fs.readFileSync(file, {encoding: 'utf8'}).should.eql(contents);
   }
 };
-
-balm.config = balmConfig;
-global.balm = balm;
-global.workspace = balmConfig.workspace;
-global.appDir = path.join(workspace, balmConfig.roots.source);
-
-let flag = false;
 
 global.runGulp = assertions => {
   gulp.start('default', () => {
@@ -35,10 +34,5 @@ global.runGulp = assertions => {
     remove.sync(`${workspace}/dist`);
     remove.sync(`${workspace}/assets`);
     remove.sync(`${workspace}/archive.zip`);
-
-    if (!flag) {
-      flag = true;
-      configTests();
-    }
   });
 };

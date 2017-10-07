@@ -1,4 +1,4 @@
-import balmConfig from '../balmrc';
+import balmConfig from '../test-workspace/balmrc';
 import path from 'path';
 import assert from 'assert';
 
