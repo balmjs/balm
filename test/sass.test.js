@@ -1,5 +1,4 @@
 describe('Sass Task', () => {
-
   beforeEach(() => balm.reset());
 
   it('compiles Sass files to the public/css directory', done => {

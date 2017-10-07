@@ -1,5 +1,4 @@
 describe('Css Task', () => {
-
   beforeEach(() => balm.reset());
 
   it('compiles Css files to the public/css directory', done => {

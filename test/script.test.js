@@ -1,5 +1,4 @@
 describe('Scripts Task', () => {
-
   beforeEach(() => balm.reset());
 
   it('bundles with Webpack', done => {

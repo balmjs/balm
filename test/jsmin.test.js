@@ -1,5 +1,4 @@
 describe('JsMin Task', () => {
-
   beforeEach(() => balm.reset());
 
   it('minify Js files to a custom directory and file name', done => {

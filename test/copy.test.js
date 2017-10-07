@@ -1,5 +1,4 @@
 describe('Copy Task', () => {
-
   beforeEach(() => balm.reset());
 
   it('copies a file to a new location', done => {

@@ -1,5 +1,4 @@
 describe('Zip Task', () => {
-
   beforeEach(() => balm.reset());
 
   it('generate zip file', done => {

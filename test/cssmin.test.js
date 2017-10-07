@@ -1,5 +1,4 @@
 describe('CssMin Task', () => {
-
   beforeEach(() => balm.reset());
 
   it('minify Css files to a custom directory and file name', done => {

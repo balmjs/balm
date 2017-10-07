@@ -1,5 +1,4 @@
 describe('Less Task', () => {
-
   beforeEach(() => balm.reset());
 
   it('compiles Less files to the public/css directory', done => {

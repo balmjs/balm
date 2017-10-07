@@ -1,7 +1,6 @@
 import configTests from './config.test';
 
 describe('Default Task', () => {
-
   beforeEach(() => {
     balm.reset();
     balm.config.useDefault = true;

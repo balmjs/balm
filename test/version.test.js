@@ -1,5 +1,4 @@
 describe('Version Task', () => {
-
   beforeEach(() => balm.reset());
 
   it('cache css files', done => {

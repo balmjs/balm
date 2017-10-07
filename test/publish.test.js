@@ -1,5 +1,4 @@
 describe('Publish Task', () => {
-
   beforeEach(() => {
     balm.reset();
     balm.config.useDefault = true;
