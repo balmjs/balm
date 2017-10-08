@@ -60,7 +60,7 @@
   "scripts": {
     "preinstall": "bower install",
     "dev": "gulp",
-    "prod": "gulp -p",
+    "prod": "gulp --production",
     "clear": "gulp clean"
   }
 }

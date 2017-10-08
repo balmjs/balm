@@ -1,3 +1,13 @@
+## 0.10.1 (2017.10.9)
+
+### Bugfix
+
+- fix `--production`
+- fix empty sprite tasks bug
+- add errorHandler for `wiredep`
+
+---
+
 ## 0.10.0 (2017.10.8)
 
 __New feature: We can run `npm run prod` when `npm run dev` is running__
