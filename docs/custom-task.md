@@ -1,20 +1,23 @@
-## Custom Task
+## Custom Task API
 
+- files
+    - `copy(from, to, renameOptions = {})`
+    - `remove(src)`
 - stylesheets
-    - css
-    - less
-    - sass
-    - cssmin
+    - `css(input, output)`
+    - `less(input, output)`
+    - `sass(input, output)`
+    - `cssmin(input, output, renameOptions = {suffix: '.min'})`
 - scripts
-    - js
-    - jsmin
-- others
-    - copy
-    - remove
-    - zip
-    - ftp
-- tasks (New in 0.6.0)
-    - end
+    - `js(input, output)`
+    - `jsmin(input, output, renameOptions = {suffix: '.min'})`
+- assets
+    - `version(input, output, renameOptions = {})`
+    - `zip(input = '', output = '')`
+    - `ftp(input)`
+    - `publish(input = '', output = '', renameOptions = {})`
+
+> `mix.end` is deprecated since 0.10.0, you can set `balm.config.afterTask`
 
 __File: gulpfile.js__
 
@@ -23,35 +26,32 @@ var balm = require('balm');
 
 balm.config = {
   // your project config
-  ...,
-  useDefault: false // don't start balm default task
+  useDefault: false, // don't start balm default task
+  ...
 };
 
 balm.go(function(mix) {
   if (balm.config.production) {
-    mix.cssmin('dist/css/**/*.css', 'dist/css');
-    mix.jsmin('dist/js/**/*.js', 'dist/js');
+    mix.cssmin('./dist/css/**/*.css', 'dist/css');
+    mix.jsmin('./dist/js/**/*.js', 'dist/js');
 
-    mix.copy('/path/to/dist/**/*', '/path/to/project');
-    mix.zip('dist/**/*', '.'); // default output: ./archive.zip
+    mix.copy('./dist/**/*', 'copy-dest');
+    mix.remove('./src/somefile.txt');
+
+    mix.zip('./dist/**/*', '.'); // default output: ./archive.zip
     mix.ftp('archive.zip');
 
-    mix.remove(['/path/to/project/public/css', '/path/to/project/public/js']);
     mix.publish(); // publish assets to `config.assets.root/config.assets.publicPath`
     mix.publish('index.html', '/path/to/project/views', {
       suffix: '.blade',
       extname: '.php'
     });
   } else {
-    mix.css('src/css/main.css', 'dist/css');
-    mix.less('src/less/main.less', 'dist/css');
-    mix.sass('src/sass/main.scss', 'dist/css');
+    mix.css('./src/css/main.css', 'compile');
+    mix.less('./src/less/main.less', 'compile');
+    mix.sass('./src/sass/main.scss', 'compile');
 
-    mix.js('./src/scripts/main.js', 'dist/js');
+    mix.js('./src/scripts/main.js', 'compile');
   }
-
-  mix.end(function() {
-    // your tasks
-  });
 });
 ```

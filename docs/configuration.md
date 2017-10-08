@@ -29,16 +29,16 @@ balm.go();
         - [paths.source.css](#pathssourcecss)
         - [paths.source.js](#pathssourcejs)
         - [paths.source.img](#pathssourceimg)
-        - [paths.source.media](#pathssourcemedia) New in 0.9.1
         - [paths.source.font](#pathssourcefont)
+        - [paths.source.media](#pathssourcemedia) New in 0.9.1
     - Target Output
         - [roots.target](#rootstarget)
         - [paths.target.base](#pathstargetbase)
         - [paths.target.css](#pathstargetcss)
         - [paths.target.js](#pathstargetjs)
         - [paths.target.img](#pathstargetimg)
-        - [paths.target.media](#pathstargetmedia) New in 0.9.1
         - [paths.target.font](#pathstargetfont)
+        - [paths.target.media](#pathstargetmedia) New in 0.9.1
 4. [__HyperText Markup Language__](#html)
     - [html.options](#htmloptions)
 5. [__Cascading Style Sheets__](#style)
@@ -110,7 +110,11 @@ balm.go();
         - [assets.options](#assetsoptions)
         - [assets.excludes](#assetsexcludes)
         - [assets.includes](#assetsincludes)
-10. [__Custom Task__](custom-task.md)
+10. [__Others__][#others]
+    - [useDefault](#usedefault)
+    - [beforeTask](#beforetask) New in 0.10.0
+    - [afterTask](#aftertask) New in 0.10.0
+11. [__Custom Task__](custom-task.md)
 
 ---
 
@@ -248,18 +252,18 @@ Image directory
 
 > Default: `'images'`
 
+### `paths.source.font`
+
+Font directory
+
+> Default: `'fonts'`
+
 ### `paths.source.media`
 
 Media directory
 > New in 0.9.1
 
 > Default: `'media'`
-
-### `paths.source.font`
-
-Font directory
-
-> Default: `'fonts'`
 
 __Target Output__
 
@@ -279,15 +283,15 @@ __Target Output__
 
 > Default: `'img'`
 
+### `paths.target.font`
+
+> Default: `'font'`
+
 ### `paths.target.media`
 
 > New in 0.9.1
 
 > Default: `'media'`
-
-### `paths.target.font`
-
-> Default: `'font'`
 
 ## HTML
 
@@ -312,7 +316,11 @@ __Target Output__
 > Default: `{
   collapseWhitespace: true,
   minifyCSS: true,
-  minifyJS: {compress: {drop_console: true}},
+  minifyJS: {
+    compress: {
+      drop_console: true
+    }
+  },
   processConditionalComments: true,
   removeComments: true,
   removeEmptyAttributes: true,
@@ -349,6 +357,7 @@ Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/)
 > Default: `{
   safe: true,
   autoprefixer: false,
+  sourcemap: false,
   discardComments: {
     removeAll: true
   }
@@ -392,14 +401,15 @@ __BalmJS__ default postcss plugins:
 ```js
 scripts: {
   entry: {
-    'lib': ['jquery', 'lodash'],
-    'ui': ['jquery-ui'],
+    'lib': ['vue', 'vue-router', 'vuex'],
+    'ui': ['balm-ui-lite'],
     'main': './app/scripts/main.js',
     'subpage': './app/scripts/subpage.js'
   },
-  vendors: ['lib', 'ui'],
-  loaders: [], // e.g. { test: /\.vue$/, loader: 'vue' }
-  extensions: [] // e.g. '.vue'
+  loaders: [{
+    test: /\.vue$/,
+    loader: 'vue'
+  }]
 },
 ...
 ```
@@ -727,14 +737,6 @@ Required
 
 __Cache__
 
-```js
-cache: true,
-scripts: {
-  chunkFilename: '[chunkhash]' // for asynchronous javascript
-},
-...
-```
-
 ### `cache`
 
 Versioning/Cache Busting switch
@@ -745,10 +747,8 @@ __Assets__
 
 ```js
 cache: true, // required
-scripts: {
-  publicPath: '/mobile/js/' // according to `assets.subDir`
-},
 assets: {
+  publicUrl: '',
   root: '/path/to/your_project',
   publicPath: 'public',
   subDir: 'mobile'
@@ -807,6 +807,26 @@ Public subdirectory
 > New in 0.6.1
 
 > Default: `[]`
+
+__Others__
+
+### `useDefault`
+
+Use balm default task
+
+> Default: `true`
+
+### `beforeTask`
+
+> New in 0.10.0
+
+> Default: `() => {}`
+
+### `afterTask`
+
+> New in 0.10.0
+
+> Default: `() => {}`
 
 ---
 

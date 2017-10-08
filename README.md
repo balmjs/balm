@@ -20,7 +20,7 @@
 
 Project | Status | Description
 ------- | ------ | -----------
-[balm-cli](https://github.com/balmjs/balm-cli) | [![NPM version][balm-cli-image]][balm-cli-url] | Project scaffolding 👻
+[balm-cli](https://github.com/balmjs/balm-cli) | [![NPM version][balm-cli-image]][balm-cli-url] | Project scaffolding 👻👻👻
 [balm-gui](https://github.com/balmjs/balm-gui) | N/A | GUI for BalmJS
 [balm-ui](https://github.com/balmjs/ui-vue)    | [![NPM version][balm-ui-image]][balm-ui-url] | Material Components + Vue
 [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | Material Design Lite + Vue
@@ -33,20 +33,20 @@ Project | Status | Description
 - [x] [TypeScript](https://github.com/balmjs/demo-ts)
 - [x] AnyAwesome...
 
-## [Structure](https://github.com/balmjs/demo-boilerplate)
+## Structure
 
 ```
 project
 ├── .tmp // for development
 ├── dist // for production
 ├─┬ src
-│ ├── fonts
-│ ├── images
-│ ├── media
-│ ├─┬ scripts
-│ │ └── main.js
 │ ├─┬ styles
 │ │ └── main.css
+│ ├─┬ scripts
+│ │ └── main.js
+│ ├── images
+│ ├── fonts
+│ ├── media
 │ └── index.html
 ├─┬ config
 │ ├── balmrc.js
@@ -86,7 +86,7 @@ balm.go();
 - [template](https://github.com/balmjs/balm/blob/master/docs/_index.html)
 - [old template](https://github.com/balmjs/balm/blob/master/docs/_index-old.html)(version < 0.8.1)
 
-## [Custom Task](https://github.com/balmjs/balm/blob/master/docs/custom-task.md)
+## [Custom Task API](https://github.com/balmjs/balm/blob/master/docs/custom-task.md)
 
 ## Usage
 

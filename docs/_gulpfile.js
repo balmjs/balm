@@ -31,13 +31,14 @@ balm.config = {
   },
   scripts: {
     entry: {
+      // HTML: <script src="js/vendor/mylib.js"></script>
       mylib: [
         'your-project-vendors',
         'your-project-plugins'
       ],
+      // Entry
       main: './app/scripts/main.js'
-    },
-    vendors: ['mylib'] // HTML: <script src="js/vendor/mylib.js"></script>
+    }
   },
   sprites: {
     image: ['img-icon'], // Icon path: './app/images/img-icon'
@@ -54,7 +55,7 @@ balm.config = {
 // 3. Run balm
 balm.go(function(mix) {
   if (balm.config.production) {
-    // Publish assets(styles,scripts,images,fonts)
+    // Publish assets(styles,scripts,images,fonts,media)
     // to `${assets.root}/${assets.publicPath}/${assets.subDir}`
     mix.publish();
 
