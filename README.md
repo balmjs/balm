@@ -20,10 +20,10 @@
 
 Project | Status | Description
 ------- | ------ | -----------
-[balm-cli](https://github.com/balmjs/balm-cli) | [![NPM version][npm-image]][balm-cli-url] | Project scaffolding 👻
-[balm-gui](https://github.com/balmjs/balm-gui) | [![NPM version][npm-image]][balm-gui-url] | GUI for BalmJS
-[balm-ui](https://github.com/balmjs/ui-vue)    | [![NPM version][npm-image]][balm-ui-url] | Material Components + Vue
-[balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][npm-image]][balm-ui-lite-url] | Material Design Lite + Vue
+[balm-cli](https://github.com/balmjs/balm-cli) | [![NPM version][balm-cli-image]][balm-cli-url] | Project scaffolding 👻
+[balm-gui](https://github.com/balmjs/balm-gui) | [![NPM version][balm-gui-image]][balm-gui-url] | GUI for BalmJS
+[balm-ui](https://github.com/balmjs/ui-vue)    | [![NPM version][balm-ui-image]][balm-ui-url] | Material Components + Vue
+[balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | Material Design Lite + Vue
 
 ## Demo
 
@@ -117,9 +117,14 @@ $ gulp --production
 [daviddm-url]: https://david-dm.org/balmjs/balm
 [coveralls-image]: https://coveralls.io/repos/balmjs/balm/badge.svg
 [coveralls-url]: https://coveralls.io/r/balmjs/balm
+
+[balm-cli-image]: https://badge.fury.io/js/balm-cli.svg
 [balm-cli-url]: https://npmjs.org/package/balm-cli
+[balm-gui-image]: https://badge.fury.io/js/balm-gui.svg
 [balm-gui-url]: https://npmjs.org/package/balm-gui
+[balm-ui-image]: https://badge.fury.io/js/balm-ui.svg
 [balm-ui-url]: https://npmjs.org/package/balm-ui
+[balm-ui-lite-image]: https://badge.fury.io/js/balm-ui-lite.svg
 [balm-ui-lite-url]: https://npmjs.org/package/balm-ui-lite
 
 
