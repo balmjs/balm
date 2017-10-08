@@ -110,7 +110,7 @@ balm.go();
         - [assets.options](#assetsoptions)
         - [assets.excludes](#assetsexcludes)
         - [assets.includes](#assetsincludes)
-10. [__Others__][#others]
+10. [__Others__](#others)
     - [useDefault](#usedefault)
     - [beforeTask](#beforetask) New in 0.10.0
     - [afterTask](#aftertask) New in 0.10.0
