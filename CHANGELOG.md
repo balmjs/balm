@@ -1,3 +1,45 @@
+## 0.10.0 (2017.10.8)
+
+__New feature: We can run `npm run prod` when `npm run dev` is running__
+
+### New
+
+- refactor file system
+- optimize api
+- update dependencies
+
+### Config
+
+- `beforeTask`
+- `afterTask`
+
+### Task
+
+- update `clean` folder for media
+- update `server` deps for media and fix watch html bug
+- fix `cache` bug
+- fix `media` task for development
+- remove `mix.end` task
+- optimize `default` task
+
+### Unit Test
+
+- config
+- default
+- copy
+- css
+- sass
+- less
+- cssmin
+- js
+- jsmin
+- version
+- zip
+- publish
+- remove
+
+---
+
 ## 0.9.1 (2017.09.21)
 
 ### New
