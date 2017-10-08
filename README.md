@@ -3,6 +3,7 @@
     <img width="128" heigth="128" src="http://balmjs.com/logo.png">
   </a>
   <br>
+  <br>
 
   [![NPM version][npm-image]][npm-url]
   [![Build Status][travis-image]][travis-url]
@@ -12,9 +13,7 @@
   <br>
 
   <h1>BalmJS</h1>
-  <blockquote>
-    <p>A flexible Front-End workflow for webapps</p>
-  </blockquote>
+  <p>A flexible Front-End workflow for webapps</p>
 </div>
 
 ## Quick Start
