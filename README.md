@@ -1,3 +1,9 @@
+<div align="center">
+  <a href="http://balmjs.com/">
+    <img width="128" heigth="128" src="http://balmjs.com/logo.png">
+  </a>
+</div>
+
 # BalmJS [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Build Status][appveyor-image]][appveyor-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > A flexible Front-End workflow for webapps
 
