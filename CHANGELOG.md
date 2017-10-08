@@ -7,6 +7,7 @@ __New feature: We can run `npm run prod` when `npm run dev` is running__
 - refactor file system
 - optimize api
 - update dependencies
+- update docs
 
 ### Config
 
