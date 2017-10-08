@@ -132,6 +132,8 @@ static: true,
 
 > Default: `true`
 
+---
+
 ## Server
 
 ```js
@@ -189,6 +191,8 @@ Using the HTML5 History API
 > New in 0.6.0
 
 > Default: `false`
+
+---
 
 ## Root & Path
 
@@ -293,6 +297,8 @@ __Target Output__
 
 > Default: `'media'`
 
+---
+
 ## HTML
 
 ### <del>`html.regex`</del> (Deprecated in 0.8.1)
@@ -327,6 +333,8 @@ __Target Output__
   removeScriptTypeAttributes: true,
   removeStyleLinkTypeAttributes: true
 }`
+
+---
 
 ## Style
 
@@ -395,6 +403,8 @@ __BalmJS__ default postcss plugins:
 
 - [postcss-cssnext](http://cssnext.io/)
 - [postcss-import](https://github.com/postcss/postcss-import)
+
+---
 
 ## Script
 
@@ -635,6 +645,8 @@ The same to webpack.[externals](https://webpack.js.org/configuration/externals/#
 
 > Default: `null`
 
+---
+
 ## Sprite
 
 ```js
@@ -675,6 +687,8 @@ SVG folder name
 
 > Default: `[]`
 
+---
+
 ## Extra
 
 ### `extras.excludes`
@@ -684,6 +698,8 @@ SVG folder name
 ### `extras.includes`
 
 > Default: `[]`
+
+---
 
 ## Publish
 
@@ -808,7 +824,9 @@ Public subdirectory
 
 > Default: `[]`
 
-__Others__
+---
+
+## Others
 
 ### `useDefault`
 
