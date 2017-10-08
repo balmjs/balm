@@ -16,9 +16,14 @@
   <p>A flexible Front-End workflow for webapps</p>
 </div>
 
-## Quick Start
+## Ecosystem
 
-👻 [The webapps' scaffolding tool](https://github.com/balmjs/balm-cli) 👻
+Project | Status | Description
+------- | ------ | -----------
+[balm-cli](https://github.com/balmjs/balm-cli) | [![NPM version][npm-image]][balm-cli-url] | Project scaffolding 👻
+[balm-gui](https://github.com/balmjs/balm-gui) | [![NPM version][npm-image]][balm-gui-url] | GUI for BalmJS
+[balm-ui](https://github.com/balmjs/ui-vue)    | [![NPM version][npm-image]][balm-ui-url] | Material Components + Vue
+[balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][npm-image]][balm-ui-lite-url] | Material Design Lite + Vue
 
 ## Demo
 
@@ -112,6 +117,10 @@ $ gulp --production
 [daviddm-url]: https://david-dm.org/balmjs/balm
 [coveralls-image]: https://coveralls.io/repos/balmjs/balm/badge.svg
 [coveralls-url]: https://coveralls.io/r/balmjs/balm
+[balm-cli-url]: https://npmjs.org/package/balm-cli
+[balm-gui-url]: https://npmjs.org/package/balm-gui
+[balm-ui-url]: https://npmjs.org/package/balm-ui
+[balm-ui-lite-url]: https://npmjs.org/package/balm-ui-lite
 
 
 > __thx [node](https://nodejs.org/) & [gulp](http://gulpjs.com/) & [webpack](https://webpack.js.org/)__
