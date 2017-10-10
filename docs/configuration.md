@@ -430,9 +430,7 @@ __Entry__
 
 The entry point for the bundle.
 
-> Default: `{
-  main: './src/scripts/main.js'
-}`
+> Default: `null`
 
 __Output__
 

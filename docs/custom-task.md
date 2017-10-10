@@ -1,5 +1,7 @@
 ## Custom Task API
 
+- server
+    - `server()`
 - files
     - `copy(from, to, renameOptions = {})`
     - `remove(src)`
@@ -7,6 +9,7 @@
     - `css(input, output)`
     - `less(input, output)`
     - `sass(input, output)`
+    - `buildStyle()`
     - `cssmin(input, output, renameOptions = {suffix: '.min'})`
 - scripts
     - `js(input, output)`
@@ -32,6 +35,9 @@ balm.config = {
 
 balm.go(function(mix) {
   if (balm.config.production) {
+    mix.sass(); // compile all sass files
+    mix.buildStyle(); // rename 'images,fonts' to 'img,font' in compiled css files
+
     mix.cssmin('./dist/css/**/*.css', 'dist/css');
     mix.jsmin('./dist/js/**/*.js', 'dist/js');
 
@@ -53,6 +59,8 @@ balm.go(function(mix) {
     mix.sass('./src/sass/main.scss', 'compile');
 
     mix.js('./src/scripts/main.js', 'compile');
+
+    mix.server();
   }
 });
 ```

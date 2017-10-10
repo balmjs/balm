@@ -1,3 +1,16 @@
+## 0.10.2 (2017.10.10)
+
+### New API
+
+- add `mix.server`
+- add `mix.buildStyle`
+
+### Config
+
+- change `scripts.entry` default value to `null`
+
+---
+
 ## 0.10.1 (2017.10.9)
 
 ### Bugfix
@@ -10,7 +23,7 @@
 
 ## 0.10.0 (2017.10.8)
 
-__New feature: We can run `npm run prod` when `npm run dev` is running__
+🎉 __New feature: We can run `npm run prod` when `npm run dev` is running__
 
 ### New
 
