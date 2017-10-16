@@ -26,6 +26,6 @@
   "extends": ["eslint:recommended", "xo-space"],
   "rules": {
     "operator-linebreak": [2, "before"],
-    "camelcase": [2, {properties: "never"}]
+    "camelcase": [2, { "properties": "never" }]
   }
 }

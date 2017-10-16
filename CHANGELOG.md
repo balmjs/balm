@@ -1,3 +1,5 @@
+# BalmJS ChangeLog
+
 ## 0.10.2 (2017.10.10)
 
 ### New API

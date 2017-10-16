@@ -15,7 +15,7 @@ describe('Zip Task', () => {
 
   it('generate zip file to a custom output path', done => {
     let src = './src/**/*';
-    let output = '.compile'
+    let output = '.compile';
 
     balm.go(mix => {
       mix.zip(src, output);
