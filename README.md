@@ -22,8 +22,8 @@ Project | Status | Description
 ------- | ------ | -----------
 [balm-cli](https://github.com/balmjs/balm-cli) | [![NPM version][balm-cli-image]][balm-cli-url] | Project scaffolding 👻👻👻
 [balm-gui](https://github.com/balmjs/balm-gui) | N/A | GUI for BalmJS
-[balm-ui](https://github.com/balmjs/ui-vue)    | [![NPM version][balm-ui-image]][balm-ui-url] | Material Components + Vue
 [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | Material Design Lite + Vue
+[balm-ui](https://github.com/balmjs/ui-vue)    | [![NPM version][balm-ui-image]][balm-ui-url] | Material Components + Vue
 
 ## Demo
 
@@ -120,10 +120,10 @@ $ gulp --production
 
 [balm-cli-image]: https://badge.fury.io/js/balm-cli.svg
 [balm-cli-url]: https://npmjs.org/package/balm-cli
-[balm-ui-image]: https://badge.fury.io/js/balm-ui.svg
-[balm-ui-url]: https://npmjs.org/package/balm-ui
 [balm-ui-lite-image]: https://badge.fury.io/js/balm-ui-lite.svg
 [balm-ui-lite-url]: https://npmjs.org/package/balm-ui-lite
+[balm-ui-image]: https://badge.fury.io/js/balm-ui.svg
+[balm-ui-url]: https://npmjs.org/package/balm-ui
 
 
 > __thx [node](https://nodejs.org/) & [gulp](http://gulpjs.com/) & [webpack](https://webpack.js.org/)__

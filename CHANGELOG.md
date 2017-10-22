@@ -1,6 +1,6 @@
 # BalmJS ChangeLog
 
-## 0.10.3
+## 0.10.3 (2017.10.22)
 
 ### Config
 
@@ -10,6 +10,11 @@
 ### Bugfix
 
 - fix `server` options buy in proxy mode
+- fix `mix.remove(string|array)` input bug
+
+### Unit Test
+
+- remove: add test for array
 
 ---
 

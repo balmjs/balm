@@ -16,6 +16,7 @@ balm.go();
     - [static](#static)
 2. [__Server__](#server)
     - [server.open](#serveropen)
+    - [server.https](#serverhttps) New in 0.10.3
     - [server.host](#serverhost)
     - [server.port](#serverport)
     - [server.proxy](#serverproxy)
@@ -156,6 +157,13 @@ server: {
 Decide which URL to open automatically when server starts.
 
 > Default: `true`
+
+### `server.https`
+
+Enable https for localhost development. Note - this is not needed for proxy option as it will be inferred from your target url.
+> New in 0.10.3
+
+> Default: `undefined`
 
 ### `server.host`
 
