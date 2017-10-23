@@ -1,6 +1,6 @@
 # BalmJS ChangeLog
 
-## 0.10.3 (2017.10.22)
+## 0.10.3 (2017.10.23)
 
 ### Config
 
@@ -15,6 +15,8 @@
 ### Unit Test
 
 - remove: add test for array
+
+### Update dependencies & remove `gulp-cache`
 
 ---
 
