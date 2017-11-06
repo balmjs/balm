@@ -20,9 +20,11 @@ balm.go();
     - [server.host](#serverhost)
     - [server.port](#serverport)
     - [server.proxy](#serverproxy)
+    - [server.serveStatic](#serverservestatic) New in 0.10.4
     - [server.proxyTable](#serverproxytable)
     - [server.localOnly](#serverlocalonly)
     - [server.historyApiFallback](#serverhistoryapifallback) New in 0.6.0
+    - [server.options](#serveroptions) New in 0.10.4
 3. [__Root & Path__](#root-path)
     - Source Input
         - [roots.source](#rootssource)
@@ -179,6 +181,13 @@ Proxy an EXISTING vhost. Browsersync will wrap your vhost with a proxy URL to vi
 
 > Default: `undefined`
 
+### `server.serveStatic`
+
+Add additional directories from which static files should be served. Should only be used in `proxy` or `snippet` mode.
+> New in 0.10.4
+
+> Default: `[]`
+
 ### `server.proxyTable`
 
 Define HTTP proxies to your custom API backend
@@ -199,6 +208,13 @@ Using the HTML5 History API
 > New in 0.6.0
 
 > Default: `false`
+
+### `server.options`
+
+[Browsersync options](https://browsersync.io/docs/options)
+> New in 0.10.4
+
+> Default: `{}`
 
 ---
 

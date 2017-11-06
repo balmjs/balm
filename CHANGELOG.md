@@ -1,5 +1,14 @@
 # BalmJS ChangeLog
 
+## 0.10.4 (2017.11.06)
+
+### Config
+
+- add `server.serveStatic`
+- add `server.options`
+
+---
+
 ## 0.10.3 (2017.10.23)
 
 ### Config
