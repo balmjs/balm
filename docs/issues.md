@@ -1,5 +1,43 @@
 ## Common Issues
 
+### import zepto's modules
+
+```sh
+yarn add -D exports-loader script-loader
+// or
+npm i --save-dev exports-loader script-loader
+```
+
+`__balmrc.js__`
+
+```js
+balm.config = {
+  ...
+  scripts: {
+    ...
+    loaders: [{
+      test: /zepto\.js/,
+      loader: 'exports-loader?window.Zepto!script-loader'
+    }],
+    alias: {
+      zeptoSrc: 'zepto/src'
+    }
+  },
+  ...
+};
+```
+
+`__/path/to/main.js__`
+
+```js
+import $ from 'zeptoSrc/zepto';
+import 'zeptoSrc/event';
+
+// enjoy coding
+```
+
+---
+
 ### npm2
 
 Q:
