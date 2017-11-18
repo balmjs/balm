@@ -1,5 +1,13 @@
 # BalmJS ChangeLog
 
+## 0.10.5 (2017.11.18)
+
+### Bugfix
+
+- fix css sourcemap
+
+---
+
 ## 0.10.4 (2017.11.06)
 
 ### Config
