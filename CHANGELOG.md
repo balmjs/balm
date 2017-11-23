@@ -1,5 +1,12 @@
 # BalmJS ChangeLog
 
+## 0.11.0 (2017.11.23)
+> `v0.10.x` is deprecated
+
+- fix style tasks bug in `v0.10.x`
+
+---
+
 ## 0.10.5 (2017.11.18)
 
 ### Bugfix

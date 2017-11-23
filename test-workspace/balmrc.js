@@ -12,6 +12,9 @@ const testConfig = {
 
 const balmConfig = {
   production: true,
+  server: {
+    open: false
+  },
   workspace: testConfig.workspace,
   roots: {
     source: 'src',
