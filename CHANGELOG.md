@@ -8,7 +8,7 @@
 
 ### Bugfix
 
-- fix cache filename conflict
+- fix cache filename conflict (thx [@hccde](https://github.com/hccde))
 
 ### Clean Code
 
