@@ -23,7 +23,7 @@
     "File": true,
     "Task": true
   },
-  "extends": ["eslint:recommended", "xo-space"],
+  "extends": ["eslint:recommended", "xo"],
   "rules": {
     "operator-linebreak": [2, "before"],
     "camelcase": [2, { "properties": "never" }]
