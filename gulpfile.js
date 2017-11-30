@@ -10,24 +10,26 @@ var del = require('del');
 // when they're loaded
 require('babel-register');
 
-gulp.task('static', function () {
-  return gulp.src('**/*.js')
+gulp.task('static', function() {
+  return gulp
+    .src('**/*.js')
     .pipe(excludeGitignore())
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('nsp', function (cb) {
-  nsp({package: path.resolve('package.json')}, cb);
+gulp.task('nsp', function(cb) {
+  nsp({ package: path.resolve('package.json') }, cb);
 });
 
-gulp.task('clean', function () {
+gulp.task('clean', function() {
   return del('dist');
 });
 
-gulp.task('babel', ['clean'], function () {
-  return gulp.src('lib/**/*.js')
+gulp.task('babel', ['clean'], function() {
+  return gulp
+    .src('lib/**/*.js')
     .pipe(babel())
     .pipe(gulp.dest('dist'));
 });
