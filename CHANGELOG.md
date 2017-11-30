@@ -6,6 +6,10 @@
 
 - update `mix.js(entry: string|array|object, output: string)` for naming
 
+### Bugfix
+
+- fix cache filename conflict
+
 ---
 
 ## 0.11.0 (2017.11.23)
