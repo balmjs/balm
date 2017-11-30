@@ -23,9 +23,20 @@
     "File": true,
     "Task": true
   },
-  "extends": ["eslint:recommended", "xo"],
+  "extends": [
+    "xo",
+    "prettier"
+  ],
   "rules": {
-    "operator-linebreak": [2, "before"],
-    "camelcase": [2, { "properties": "never" }]
-  }
+    "camelcase": [2, { "properties": "never" }],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true
+      }
+    ]
+  },
+  "plugins": [
+    "prettier"
+  ]
 }
