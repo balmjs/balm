@@ -10,6 +10,8 @@
 
 - fix cache filename conflict
 
+### Clean Code
+
 ---
 
 ## 0.11.0 (2017.11.23)
