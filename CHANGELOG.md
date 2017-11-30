@@ -1,5 +1,13 @@
 # BalmJS ChangeLog
 
+## 0.11.1 (2017.11.30)
+
+### API
+
+- update `mix.js(entry: string|array|object, output: string)` for naming
+
+---
+
 ## 0.11.0 (2017.11.23)
 > `v0.10.x` is deprecated
 
