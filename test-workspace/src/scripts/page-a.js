@@ -1,3 +1,4 @@
+import '../styles/page-a.css';
 import $ from 'jquery';
 import _ from 'lodash';
 
