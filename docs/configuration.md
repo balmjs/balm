@@ -81,9 +81,11 @@ balm.go();
         - [scripts.include](#scriptsinclude) New in 0.9.1
     - Optimization
         - [scripts.vendorName](#scriptsvendorname)
-        - [scripts.vendor](#scriptsvendor)
+        - [scripts.extractAllVendors](#scriptsextractallvendors)
         - [scripts.vendors](#scriptsvendors)
-        - [scripts.cdn](scriptscdn) New in 0.9.0
+        - [scripts.cdn](#scriptscdn) New in 0.9.0
+        - [scripts.cssLoader](#scriptscssloader) New in 0.12.0
+        - [scripts.extractCss](#scriptsextractcss) New in 0.12.0
 7. [__CSS Sprites__](#sprite)
     - [sprites.basePath](#spritesbasepath)
     - [sprites.padding](#spritespadding)
@@ -648,7 +650,9 @@ AllInOne vendor filename or Custom Vendor folder name
 
 > Default: `'vendor'`
 
-### `scripts.vendor`
+### `scripts.extractAllVendors`
+
+> Named 'scripts.vendor' in version < 0.12.0
 
 All vendors in one (for SPA)
 
@@ -666,6 +670,28 @@ The same to webpack.[externals](https://webpack.js.org/configuration/externals/#
 > New in 0.9.0
 
 > Default: `null`
+
+### `scripts.cssLoader`
+
+Use BalmJS default rules or custom rules for css-loader
+> New in 0.12.0
+
+> Default: `true`
+
+### `scripts.extractCss`
+
+Extract css from some bundle
+> New in 0.12.0
+
+> Default: `{
+  enabled: false,
+  use: 'css-loader',
+  fallback: 'style-loader',
+  publicPath: '',
+  pluginOptions: {
+    filename: 'css/vendor/[name].css'
+  }
+}`
 
 ---
 
