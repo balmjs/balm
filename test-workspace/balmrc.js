@@ -64,6 +64,10 @@ const balmConfig = {
       compress: {
         drop_console: false
       }
+    },
+    extractCss: {
+      enabled: false,
+      // publicPath: '../'
     }
   },
   sprites: {
