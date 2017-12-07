@@ -1,5 +1,17 @@
 # BalmJS ChangeLog
 
+## 0.12.0 (2017.12.07)
+
+🎉 __New feature: Extract css from bundle__
+
+### New config
+
+- `scripts.vendor` rename to `scripts.extractAllVendors`
+- `scripts.cssLoader`
+- `scripts.extractCss`
+
+---
+
 ## 0.11.1 (2017.11.30)
 
 ### API
