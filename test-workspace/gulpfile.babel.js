@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import balm from '../lib/main';
-import balmConfig from './balmrc';
+import balmConfig from './config/balmrc';
 
 balm.config = balmConfig;
 balm.config.beforeTask = () => {

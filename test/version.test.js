@@ -27,7 +27,7 @@ describe('Version Task', () => {
     });
 
     runGulp(() => {
-      shouldExist('.compile/cache/main.a16a5679.js');
+      shouldExist('.compile/cache/main.42f4914e.js');
 
       done();
     });

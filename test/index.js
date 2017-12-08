@@ -1,5 +1,5 @@
 import balm from '../lib/main';
-import balmConfig from '../test-workspace/balmrc';
+import balmConfig from '../test-workspace/config/balmrc';
 import gulp from 'gulp';
 import chai from 'chai';
 import remove from 'rimraf';

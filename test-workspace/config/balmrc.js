@@ -1,6 +1,26 @@
 import path from 'path';
 
-const root = path.resolve(__dirname, '..');
+import jsConfig from './main-sync';
+// import jsConfig from './main-async';
+// import jsConfig from './vendor-all'; // Just for production
+// import jsConfig from './vendor-custom';
+// import jsConfig from './cdn';
+// import jsConfig from './extract-css';
+
+const scripts = Object.assign(
+  {},
+  {
+    eslint: true,
+    options: {
+      compress: {
+        drop_console: false
+      }
+    }
+  },
+  jsConfig
+);
+
+const root = path.resolve(__dirname, '..', '..');
 const workspace = path.join(root, 'test-workspace');
 const assets = path.join(workspace, 'assets');
 
@@ -38,38 +58,7 @@ const balmConfig = {
     ext: 'css',
     autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR']
   },
-  scripts: {
-    // Vendor all in one
-    // vendor: true,
-    // cdn: {
-    //   'jquery': '$',
-    //   'lodash': '_',
-    //   'moment': 'moment',
-    //   'zepto': '$'
-    // },
-    entry: {
-      // 'page-a': './src/scripts/page-a.js',
-      // 'page-b': './src/scripts/page-b.js',
-      // 'main-async': './src/scripts/main-async.js',
-      'main-sync': './src/scripts/main-sync.js'
-    },
-    // webpack: {
-    //   output: {
-    //     library: 'BalmUI',
-    //     libraryTarget: 'umd'
-    //   }
-    // },
-    eslint: true,
-    options: {
-      compress: {
-        drop_console: false
-      }
-    },
-    extractCss: {
-      enabled: false,
-      // publicPath: '../'
-    }
-  },
+  scripts,
   sprites: {
     image: ['img-icon'],
     svg: ['svg-icon']
@@ -86,9 +75,7 @@ const balmConfig = {
     //   'dist/web/js/vendors/jquery.js',
     //   'dist/web/js/vendors/lodash.js'
     // ],
-    excludes: [
-      'dist/web/img/icons/icon-*.png'
-    ]
+    excludes: ['dist/web/img/icons/icon-*.png']
   }
 };
 

@@ -4,4 +4,4 @@ hello().then(m => {
   m.default.greet();
 });
 
-console.log(`I'm home page (async)`);
+console.log(`I'm home page (Async)`);
