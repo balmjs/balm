@@ -62,7 +62,7 @@ project
 ```sh
 yarn add -D gulp balm
 # OR
-npm install -D gulp balm
+npm i -D gulp balm
 ```
 
 ## [Configuration](https://github.com/balmjs/balm/blob/master/docs/configuration.md)

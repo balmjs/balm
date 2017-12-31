@@ -1,5 +1,15 @@
 # BalmJS ChangeLog
 
+## 0.12.1 (2017.12.31)
+
+### Update dependencies
+
+- gulp-htmlmin
+- gulp-size
+- webpack-dev-middleware
+
+---
+
 ## 0.12.0 (2017.12.07)
 
 🎉 __New feature: Extract css from bundle__
