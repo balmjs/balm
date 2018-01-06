@@ -1,25 +1,11 @@
 # BalmJS Configuration Docs [中文文档](https://github.com/balmjs/balm/blob/master/docs/cn/readme.md)
 
-:memo: __HTML template__
+:memo: __HTML template__ (`/path/to/project/index.html`)
 
 - [template](https://github.com/balmjs/balm/blob/master/docs/example/_index.html)
 - [old template](https://github.com/balmjs/balm/blob/master/docs/example/_index-old.html)(`balm` version < 0.8.1)
 
-:rocket: __`gulpfile.js`__
-
-- see [example](https://github.com/balmjs/balm/blob/master/docs/example/_gulpfile.js)
-
-```js
-var balm = require('balm');
-
-balm.config = {
-  // Your project config
-};
-
-balm.go();
-```
-
-:key: __`.babelrc`__
+:key: __`.babelrc`__ (`/path/to/project/.babelrc`)
 
 > enable [ES2015 features](https://babeljs.io/learn-es2015/) using [Babel](https://babeljs.io/)
 
@@ -52,6 +38,20 @@ Then, edit `.babelrc`:
 {
   "presets": ["es2015", "stage-0"]
 }
+```
+
+:rocket: __`gulpfile.js`__ (`/path/to/project/gulpfile.js`)
+
+- see [example](https://github.com/balmjs/balm/blob/master/docs/example/_gulpfile.js)
+
+```js
+var balm = require('balm');
+
+balm.config = {
+  // Your project config (see Full Options :point_down:)
+};
+
+balm.go();
 ```
 
 :coffee: __Full Options__
