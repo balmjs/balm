@@ -1,6 +1,11 @@
-# Configuration
+# BalmJS Configuration Docs [中文文档](https://github.com/balmjs/balm/blob/master/docs/cn/readme.md)
 
-File: `gulpfile.js`
+__HTML template__
+
+- [template](https://github.com/balmjs/balm/blob/master/docs/example/_index.html)
+- [old template](https://github.com/balmjs/balm/blob/master/docs/example/_index-old.html)(`balm` version < 0.8.1)
+
+__`gulpfile.js`__
 
 ```js
 var balm = require('balm');
@@ -11,6 +16,10 @@ balm.config = {
 
 balm.go();
 ```
+
+- [example](https://github.com/balmjs/balm/blob/master/docs/example/_gulpfile.js)
+
+__Full Options__
 
 1. [__Project Type__](#project-type)
     - [static](#static)
@@ -896,4 +905,4 @@ Use balm default task
 
 ---
 
-### [Custom Task](custom-task.md)
+### [Custom Task API](https://github.com/balmjs/balm/blob/master/docs/api.md)

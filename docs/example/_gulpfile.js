@@ -15,7 +15,8 @@ balm.config = {
     }
   },
   roots: {
-    source: 'app' // Source code root
+    source: 'app', // Source code root
+    target: 'dist' // The production build
   },
   paths: {
     source: {
@@ -31,11 +32,8 @@ balm.config = {
   },
   scripts: {
     entry: {
-      // HTML: <script src="js/vendor/mylib.js"></script>
-      mylib: [
-        'your-project-vendors',
-        'your-project-plugins'
-      ],
+      // HTML: <script src="%PUBLIC_URL%/scripts/vendor/mylib.js"></script>
+      mylib: ['your-project-vendors', 'your-project-plugins'],
       // Entry
       main: './app/scripts/main.js'
     }
@@ -46,9 +44,9 @@ balm.config = {
   },
   cache: false,
   assets: {
-    root: '/path/to/your_project', // Remote project root path
-    publicPath: 'public', // '/path/to/your_project/public'
-    subDir: '' // `/path/to/your_project/public/${subDir}`
+    root: '/path/to/your_remote_project', // Remote project root path
+    publicPath: 'public', // '/path/to/your_remote_project/public'
+    subDir: '' // `/path/to/your_remote_project/public/${subDir}`
   }
 };
 
@@ -56,14 +54,15 @@ balm.config = {
 balm.go(function(mix) {
   if (balm.config.production) {
     // Publish assets(styles,scripts,images,fonts,media)
+    // from local `${roots.target}/{css,js,img,font,media}`
     // to `${assets.root}/${assets.publicPath}/${assets.subDir}`
     mix.publish();
 
-    // Publish a template:
-    // from `${roots.source}/index.html`
-    // to `${assets.root}/views/index.blade.php`
+    // Publish html templates
+    // from local `${roots.target}/index.html`
+    // to remote `${assets.root}/views/index.blade.php`
     mix.publish('index.html', 'views', {
-      basename: 'yourFilename',
+      basename: 'new-filename',
       suffix: '.blade',
       extname: '.php'
     });

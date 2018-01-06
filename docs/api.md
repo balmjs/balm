@@ -48,7 +48,7 @@ balm.go(function(mix) {
     mix.ftp('archive.zip');
 
     mix.publish(); // publish assets to `config.assets.root/config.assets.publicPath`
-    mix.publish('index.html', 'views', { // publish template to  `config.assets.root/views`
+    mix.publish('index.html', 'views', { // publish html template to `config.assets.root/views`
       basename: 'new-filename',
       suffix: '.blade',
       extname: '.php'

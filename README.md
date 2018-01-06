@@ -61,7 +61,7 @@ Project | Status | Description
 - [x] [Laravel](https://github.com/balmjs/demo-laravel)
 - [x] [Vue](https://github.com/balmjs/demo-vue)
 - [x] [TypeScript](https://github.com/balmjs/demo-ts)
-- [x] Yours awesome projects...
+- [ ] Yours awesome projects...
 
 ## Installation
 
@@ -110,7 +110,7 @@ balm.config = {
 balm.go();
 ```
 
-:page_with_curl: Refer to [our configuration docs](https://github.com/balmjs/balm/blob/master/docs/en/configuration.md) to learn more about config __`balm`__.
+:page_with_curl: Refer to [our configuration docs](https://github.com/balmjs/balm/blob/master/docs/en/readme.md) to learn more about config __`balm`__.
 
 ### 3. Usage
 
@@ -127,7 +127,8 @@ $ gulp --production
 ## Documentation
 
 - [Getting Started](https://github.com/balmjs/balm/blob/master/docs/getting-started.md)
-- [Configuration](https://github.com/balmjs/balm/blob/master/docs/en/configuration.md)
+- [Configuration](https://github.com/balmjs/balm/blob/master/docs/en/readme.md)
+- [Custom Task API](https://github.com/balmjs/balm/blob/master/docs/api.md)
 - [Recipes](https://github.com/balmjs/balm/blob/master/docs/recipes.md)
 - [FAQ](https://github.com/balmjs/balm/blob/master/docs/faq.md)
 
