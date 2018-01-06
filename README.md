@@ -51,8 +51,7 @@ project
 Project | Status | Description
 ------- | ------ | -----------
 [balm-cli](https://github.com/balmjs/balm-cli) | [![NPM version][balm-cli-image]][balm-cli-url] | :spades: BalmJS scaffolding tool :ghost:
-[balm-gui](https://github.com/balmjs/balm-gui) | N/A |
-:clubs: GUI for BalmJS
+[balm-gui](https://github.com/balmjs/balm-gui) | N/A | :clubs: GUI for BalmJS
 [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue
 [balm-ui](https://github.com/balmjs/ui-vue)    | [![NPM version][balm-ui-image]][balm-ui-url] | :diamonds: Material Components + Vue
 
@@ -72,24 +71,24 @@ You need to set up your development environment before you can do anything.
 
 Install [Node.js® and npm](https://nodejs.org/en/download/) if they are not already on your machine.
 
-> __Verify that you are running at least node `6.x.x` and npm `3.x.x`__ by running `node -v` and `npm -v` in a terminal/console window. Older versions produce errors, but newer versions are fine.
+> __Verify that you are running at least node `6.x.x` and npm `3.x.x`__ by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
 
 BalmJS workflow using [gulp](https://gulpjs.com/) for the build process, so you need install `gulp`.
 
 ```sh
-npm install --global gulp-cli
+$ npm install --global gulp-cli
 
 # Verify
-gulp -v
+$ gulp -v
 ```
 
 ### 1. Installing __`balm`__
 
 ```sh
-yarn add -D gulp balm
+$ yarn add -D gulp balm
 
 # OR
-npm i -D gulp balm
+$ npm i -D gulp balm
 ```
 
 ### 2. Configuration
@@ -109,7 +108,7 @@ balm.config = {
 balm.go();
 ```
 
-:page_with_curl: Refer to [our documentation](https://github.com/balmjs/balm/blob/master/docs/configuration.md) to learn more about config __`balm`__.
+:page_with_curl: Refer to [our configuration docs](https://github.com/balmjs/balm/blob/master/docs/en/configuration.md) to learn more about config __`balm`__.
 
 ### 3. Usage
 
@@ -123,10 +122,10 @@ $ gulp --production
 
 ## Documentation
 
-- Getting Started
-- [Configuration](https://github.com/balmjs/balm/blob/master/docs/configuration.md)
-- Recipes
-- FAQ
+- [Getting Started](https://github.com/balmjs/balm/blob/master/docs/getting-started.md)
+- [Configuration](https://github.com/balmjs/balm/blob/master/docs/en/configuration.md)
+- [Recipes](https://github.com/balmjs/balm/blob/master/docs/recipes.md)
+- [FAQ](https://github.com/balmjs/balm/blob/master/docs/faq.md)
 
 ## License
 
