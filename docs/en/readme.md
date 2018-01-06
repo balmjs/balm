@@ -48,7 +48,7 @@ Then, edit `.babelrc`:
 var balm = require('balm');
 
 balm.config = {
-  // Your project config (see Full Options :point_down:)
+  // Your project config (see Full Options)
 };
 
 balm.go();
