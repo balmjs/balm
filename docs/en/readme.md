@@ -25,7 +25,7 @@ balm.go();
 
 In your project directory, create a file named `.babelrc` in your project root with these contents:
 
-For `balm` version >= 0.7.0
+- For `balm` version >= 0.7.0
 
 ```json
 {
@@ -34,7 +34,7 @@ For `balm` version >= 0.7.0
 }
 ```
 
-For `balm` version < 0.7.0
+- For `balm` version < 0.7.0
 
 First, run this command in your project directory:
 
@@ -54,7 +54,7 @@ Then, edit `.babelrc`:
 }
 ```
 
-__Full Options__
+:coffee: __Full Options__
 
 1. [__Project Type__](#project-type)
     - [static](#static)
