@@ -1,11 +1,13 @@
 # BalmJS Configuration Docs [中文文档](https://github.com/balmjs/balm/blob/master/docs/cn/readme.md)
 
-__HTML template__
+:memo: __HTML template__
 
 - [template](https://github.com/balmjs/balm/blob/master/docs/example/_index.html)
 - [old template](https://github.com/balmjs/balm/blob/master/docs/example/_index-old.html)(`balm` version < 0.8.1)
 
-__`gulpfile.js`__
+:rocket: __`gulpfile.js`__
+
+- see [example](https://github.com/balmjs/balm/blob/master/docs/example/_gulpfile.js)
 
 ```js
 var balm = require('balm');
@@ -17,7 +19,40 @@ balm.config = {
 balm.go();
 ```
 
-- [example](https://github.com/balmjs/balm/blob/master/docs/example/_gulpfile.js)
+:key: __`.babelrc`__
+
+> enable [ES2015 features](https://babeljs.io/learn-es2015/) using [Babel](https://babeljs.io/)
+
+In your project directory, create a file named `.babelrc` in your project root with these contents:
+
+For `balm` version >= 0.7.0
+
+```json
+{
+  "presets": ["env"],
+  "plugins": ["transform-runtime"]
+}
+```
+
+For `balm` version < 0.7.0
+
+First, run this command in your project directory:
+
+```sh
+# for ES6 compilation ability
+$ npm install --save-dev babel-preset-es2015
+
+# for ES7 compilation ability
+$ npm install --save-dev babel-preset-stage-0
+```
+
+Then, edit `.babelrc`:
+
+```json
+{
+  "presets": ["es2015", "stage-0"]
+}
+```
 
 __Full Options__
 
@@ -128,7 +163,7 @@ __Full Options__
     - [useDefault](#usedefault)
     - [beforeTask](#beforetask) New in 0.10.0
     - [afterTask](#aftertask) New in 0.10.0
-11. [__Custom Task__](custom-task.md)
+11. [__Custom Task API__](https://github.com/balmjs/balm/blob/master/docs/api.md)
 
 ---
 

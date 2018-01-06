@@ -1,14 +1,17 @@
 ## Common Issues
 
-### import zepto's modules
+### How to import `zepto` modules?
+
+First, run this command in your project directory:
 
 ```sh
 yarn add -D exports-loader script-loader
-// or
-npm i --save-dev exports-loader script-loader
+
+// OR
+npm i -D exports-loader script-loader
 ```
 
-`__balmrc.js__`
+Then, edit `balm` config:
 
 ```js
 balm.config = {
@@ -27,7 +30,7 @@ balm.config = {
 };
 ```
 
-`__/path/to/main.js__`
+And, use it in `/path/to/main.js`.
 
 ```js
 import $ from 'zeptoSrc/zepto';
@@ -36,46 +39,22 @@ import 'zeptoSrc/event';
 // enjoy coding
 ```
 
----
-
-### npm2
-
-Q:
+### `npm@2.x.x` bug
 
 ```
-Error: Cannot find module 'babel-runtime/helpers/classCallCheck'
+Q: Error: Cannot find module 'babel-runtime/helpers/classCallCheck'
+
+A: npm install babel-runtime
 ```
 
-A:
-
 ```
-npm install babel-runtime
-```
+Q: Error: Cannot resolve module 'webpack-hot-middleware/client' in /path/to/your_project
 
----
-
-Q:
-
-```
-Error: Cannot resolve module 'webpack-hot-middleware/client' in /path/to/your_project
+A: npm install webpack-hot-middleware
 ```
 
-A:
-
 ```
-npm install webpack-hot-middleware
-```
+Q: Error: Couldn't find preset "es2015" relative to directory "/path/to/your_project"
 
----
-
-Q:
-
-```
-Error: Couldn't find preset "es2015" relative to directory "/path/to/your_project"
-```
-
-A:
-
-```
-npm install babel-preset-es2015
+A: npm install babel-preset-es2015
 ```
