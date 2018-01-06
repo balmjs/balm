@@ -1,6 +1,6 @@
 <div align="center">
   <a href="http://balmjs.com/">
-    <img width="128" heigth="128" src="http://balmjs.com/logo.png">
+    <img width="128" heigth="128" src="http://balmjs.com/logo.png" alt="BalmJS">
   </a>
   <br>
   <br>
@@ -16,30 +16,19 @@
   <p>A flexible Front-End workflow for webapps</p>
 </div>
 
-## Ecosystem
+## What's BalmJS?
 
-Project | Status | Description
-------- | ------ | -----------
-[balm-cli](https://github.com/balmjs/balm-cli) | [![NPM version][balm-cli-image]][balm-cli-url] | Project scaffolding 👻👻👻
-[balm-gui](https://github.com/balmjs/balm-gui) | N/A | GUI for BalmJS
-[balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | Material Design Lite + Vue
-[balm-ui](https://github.com/balmjs/ui-vue)    | [![NPM version][balm-ui-image]][balm-ui-url] | Material Components + Vue
-
-## Demo
-
-- [x] [HTML](https://github.com/balmjs/demo-html)
-- [x] [Laravel](https://github.com/balmjs/demo-laravel)
-- [x] [Vue](https://github.com/balmjs/demo-vue)
-- [x] [TypeScript](https://github.com/balmjs/demo-ts)
-- [x] AnyAwesome...
+BalmJS prescribes best practices and tools to help you stay productive.
 
 ## Structure
 
+> Returning to webapp's original nature.
+
 ```
 project
-├── .tmp // for development
-├── dist // for production
-├─┬ src
+├── .tmp // Scaffolds out a temporary directory for development
+├── dist // Scaffolds out the production build
+├─┬ src  // Source code in here
 │ ├─┬ styles
 │ │ └── main.css
 │ ├─┬ scripts
@@ -51,23 +40,61 @@ project
 ├─┬ config
 │ ├── balmrc.js
 │ └── publish.js
-├── .dotfile
+├── .dotfile (.babelrc, .gitignore, etc...)
 ├── gulpfile.js
 ├── package.json
 └── ...
 ```
 
-## [Installation & Setup](https://github.com/balmjs/balm/blob/master/docs/installation.md)
+## Ecosystem
+
+Project | Status | Description
+------- | ------ | -----------
+[balm-cli](https://github.com/balmjs/balm-cli) | [![NPM version][balm-cli-image]][balm-cli-url] | :spades: BalmJS scaffolding tool :ghost:
+[balm-gui](https://github.com/balmjs/balm-gui) | N/A |
+:clubs: GUI for BalmJS
+[balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue
+[balm-ui](https://github.com/balmjs/ui-vue)    | [![NPM version][balm-ui-image]][balm-ui-url] | :diamonds: Material Components + Vue
+
+## Demo
+
+- [x] [Simple HTML](https://github.com/balmjs/demo-html)
+- [x] [Laravel](https://github.com/balmjs/demo-laravel)
+- [x] [Vue](https://github.com/balmjs/demo-vue)
+- [x] [TypeScript](https://github.com/balmjs/demo-ts)
+- [x] Yours awesome projects...
+
+## Installation
+
+### 0. Requirements
+
+You need to set up your development environment before you can do anything.
+
+Install [Node.js® and npm](https://nodejs.org/en/download/) if they are not already on your machine.
+
+> __Verify that you are running at least node `6.x.x` and npm `3.x.x`__ by running `node -v` and `npm -v` in a terminal/console window. Older versions produce errors, but newer versions are fine.
+
+BalmJS workflow using [gulp](https://gulpjs.com/) for the build process, so you need install `gulp`.
+
+```sh
+npm install --global gulp-cli
+
+# Verify
+gulp -v
+```
+
+### 1. Installing __`balm`__
 
 ```sh
 yarn add -D gulp balm
+
 # OR
 npm i -D gulp balm
 ```
 
-## [Configuration](https://github.com/balmjs/balm/blob/master/docs/configuration.md)
+### 2. Configuration
 
-File: `gulpfile.js`
+Edit `gulpfile.js`
 
 ```js
 // 1. import balm
@@ -82,13 +109,9 @@ balm.config = {
 balm.go();
 ```
 
-- [example](https://github.com/balmjs/balm/blob/master/docs/_gulpfile.js)
-- [template](https://github.com/balmjs/balm/blob/master/docs/_index.html)
-- [old template](https://github.com/balmjs/balm/blob/master/docs/_index-old.html)(version < 0.8.1)
+:page_with_curl: Refer to [our documentation](https://github.com/balmjs/balm/blob/master/docs/configuration.md) to learn more about config __`balm`__.
 
-## [Custom Task API](https://github.com/balmjs/balm/blob/master/docs/custom-task.md)
-
-## Usage
+### 3. Usage
 
 ```sh
 # for development
@@ -98,13 +121,26 @@ $ gulp
 $ gulp --production
 ```
 
-## [Common Issues](https://github.com/balmjs/balm/blob/master/docs/issues.md)
+## Documentation
+
+- Getting Started
+- [Configuration](https://github.com/balmjs/balm/blob/master/docs/configuration.md)
+- Recipes
+- FAQ
 
 ## License
 
 [MIT](https://opensource.org/licenses/MIT)
 
 © 2016-present, [Elf-mousE](http://elf-mouse.me/)
+
+## Thanks to
+
+In chronological order
+
+- [Node.js](https://nodejs.org/)
+- [gulp.js](https://gulpjs.com/)
+- [webpack](https://webpack.js.org/)
 
 
 [npm-image]: https://badge.fury.io/js/balm.svg
@@ -124,6 +160,3 @@ $ gulp --production
 [balm-ui-lite-url]: https://npmjs.org/package/balm-ui-lite
 [balm-ui-image]: https://badge.fury.io/js/balm-ui.svg
 [balm-ui-url]: https://npmjs.org/package/balm-ui
-
-
-> __thx [node](https://nodejs.org/) & [gulp](http://gulpjs.com/) & [webpack](https://webpack.js.org/)__
