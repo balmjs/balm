@@ -84,6 +84,8 @@ $ gulp -v
 
 ### 1. Installing __`balm`__
 
+Run this command in your project directory:
+
 ```sh
 $ yarn add -D gulp balm
 
@@ -93,7 +95,7 @@ $ npm i -D gulp balm
 
 ### 2. Configuration
 
-Edit `gulpfile.js`
+In your project directory, create a file named `gulpfile.js` in your project root with these contents:
 
 ```js
 // 1. import balm
@@ -111,6 +113,8 @@ balm.go();
 :page_with_curl: Refer to [our configuration docs](https://github.com/balmjs/balm/blob/master/docs/en/configuration.md) to learn more about config __`balm`__.
 
 ### 3. Usage
+
+Run the gulp command in your project directory:
 
 ```sh
 # for development
