@@ -1,9 +1,9 @@
-# BalmJS Configuration Docs [中文文档](https://github.com/balmjs/balm/blob/master/docs/cn/readme.md)
+# BalmJS Configuration Docs
 
 :memo: __HTML template__ (`/path/to/project/index.html`)
 
-- [template](https://github.com/balmjs/balm/blob/master/docs/example/_index.html)
-- [old template](https://github.com/balmjs/balm/blob/master/docs/example/_index-old.html)(`balm` version < 0.8.1)
+- [template](example/_index.html)
+- [old template](example/_index-old.html)(`balm` version < 0.8.1)
 
 :key: __`.babelrc`__ (`/path/to/project/.babelrc`)
 
@@ -42,7 +42,7 @@ Then, edit `.babelrc`:
 
 :rocket: __`gulpfile.js`__ (`/path/to/project/gulpfile.js`)
 
-- see [example](https://github.com/balmjs/balm/blob/master/docs/example/_gulpfile.js)
+- see [example](example/_gulpfile.js)
 
 ```js
 var balm = require('balm');
@@ -58,18 +58,7 @@ balm.go();
 
 1. [__Project Type__](#project-type)
     - [static](#static)
-2. [__Server__](#server)
-    - [server.open](#serveropen)
-    - [server.https](#serverhttps) New in 0.10.3
-    - [server.host](#serverhost)
-    - [server.port](#serverport)
-    - [server.proxy](#serverproxy)
-    - [server.serveStatic](#serverservestatic) New in 0.10.4
-    - [server.proxyTable](#serverproxytable)
-    - [server.localOnly](#serverlocalonly)
-    - [server.historyApiFallback](#serverhistoryapifallback) New in 0.6.0
-    - [server.options](#serveroptions) New in 0.10.4
-3. [__Root & Path__](#root-path)
+2. [__Root & Path__](#root-path)
     - Source Input
         - [roots.source](#rootssource)
         - [paths.source.base](#pathssourcebase)
@@ -77,7 +66,7 @@ balm.go();
         - [paths.source.js](#pathssourcejs)
         - [paths.source.img](#pathssourceimg)
         - [paths.source.font](#pathssourcefont)
-        - [paths.source.media](#pathssourcemedia) New in 0.9.1
+        - [paths.source.media](#pathssourcemedia)
     - Target Output
         - [roots.target](#rootstarget)
         - [paths.target.base](#pathstargetbase)
@@ -85,23 +74,25 @@ balm.go();
         - [paths.target.js](#pathstargetjs)
         - [paths.target.img](#pathstargetimg)
         - [paths.target.font](#pathstargetfont)
-        - [paths.target.media](#pathstargetmedia) New in 0.9.1
-4. [__HyperText Markup Language__](#html)
+        - [paths.target.media](#pathstargetmedia)
+3. [__HyperText Markup Language__](#html)
     - [html.options](#htmloptions)
-5. [__Cascading Style Sheets__](#style)
+4. [__Cascading Style Sheets__](#style)
     - [styles.ext](#stylesext)
     - [styles.autoprefixer](#stylesautoprefixer)
     - [styles.options](#stylesoptions)
     - [styles.includePaths](#stylesincludepaths)
-    - [styles.postcss](#stylespostcss)
-6. [__JavaScript__](#script)
+    - [styles.postcssPlugins](#stylespostcssplugins)
+    - [styles.postcssOptions](#stylespostcssoptions)
+    - [styles.postcssLoaderOptions](#stylespostcssloaderoptions)
+5. [__JavaScript__](#script)
     - Entry
         - [scripts.entry](#scriptsentry)
     - Output
         - [scripts.filename](#scriptsfilename)
-        - [scripts.library](#scriptslibrary) New in 0.8.4
-        - [scripts.libraryTarget](#scriptslibrarytarget) New in 0.8.4
-        - [scripts.umdNamedDefine](#scriptsumdnameddefine) New in 0.9.0
+        - [scripts.library](#scriptslibrary)
+        - [scripts.libraryTarget](#scriptslibrarytarget)
+        - [scripts.umdNamedDefine](#scriptsumdnameddefine)
         - [scripts.chunkFilename](#scriptschunkfilename)
     - Module
         - [scripts.loaders](#scriptsloaders)
@@ -119,26 +110,37 @@ balm.go();
     - Stats
         - [scripts.stats](#scriptsstats)
     - Other Advanced Options
-        - [scripts.webpack](#scriptswebpack) New in 0.8.4
+        - [scripts.webpack](#scriptswebpack)
         - [scripts.eslint](#scriptseslint)
         - [scripts.options](#scriptsoptions)
-        - [scripts.include](#scriptsinclude) New in 0.9.1
+        - [scripts.include](#scriptsinclude)
     - Optimization
         - [scripts.vendorName](#scriptsvendorname)
         - [scripts.extractAllVendors](#scriptsextractallvendors)
         - [scripts.vendors](#scriptsvendors)
-        - [scripts.cdn](#scriptscdn) New in 0.9.0
-        - [scripts.cssLoader](#scriptscssloader) New in 0.12.0
-        - [scripts.extractCss](#scriptsextractcss) New in 0.12.0
-7. [__CSS Sprites__](#sprite)
+        - [scripts.cdn](#scriptscdn)
+        - [scripts.cssLoader](#scriptscssloader)
+        - [scripts.extractCss](#scriptsextractcss)
+6. [__CSS Sprites__](#sprite)
     - [sprites.basePath](#spritesbasepath)
     - [sprites.padding](#spritespadding)
     - [sprites.image](#spritesimage)
     - [sprites.mode](#spritesmode)
     - [sprites.svg](#spritessvg)
-8. [__Extra Files__](#extra) New in 0.6.0
+7. [__Extra Files__](#extra)
     - [excludes](#extrasexcludes)
     - [includes](#extrasincludes)
+8. [__Server__](#server)
+    - [server.open](#serveropen)
+    - [server.https](#serverhttps)
+    - [server.host](#serverhost)
+    - [server.port](#serverport)
+    - [server.proxy](#serverproxy)
+    - [server.serveStatic](#serverservestatic)
+    - [server.proxyTable](#serverproxytable)
+    - [server.localOnly](#serverlocalonly)
+    - [server.historyApiFallback](#serverhistoryapifallback)
+    - [server.options](#serveroptions)
 9. [__Publish__](#publish)
     - Zip
         - [zip](#zip)
@@ -148,248 +150,193 @@ balm.go();
         - [ftp.user](#ftpuser)
         - [ftp.pass](#ftppass)
         - [ftp.remotePath](#ftpremotepath)
-    - Cache
-        - [cache](#cache)
     - Assets
-        - [assets.publicUrlPlaceholder](#assetspublicurlplaceholder) New in 0.8.0
-        - [assets.publicUrl](#assetspublicurl) New in 0.8.0
+        - [assets.publicUrlPlaceholder](#assetspublicurlplaceholder)
+        - [assets.publicUrl](#assetspublicurl)
         - [assets.root](#assetsroot)
         - [assets.publicPath](#assetspublicpath)
         - [assets.subDir](#assetssubdir)
         - [assets.options](#assetsoptions)
         - [assets.excludes](#assetsexcludes)
         - [assets.includes](#assetsincludes)
+    - Cache
+        - [cache](#cache)
 10. [__Others__](#others)
     - [useDefault](#usedefault)
-    - [beforeTask](#beforetask) New in 0.10.0
-    - [afterTask](#aftertask) New in 0.10.0
-11. [__Custom Task API__](https://github.com/balmjs/balm/blob/master/docs/api.md)
+    - [beforeTask](#beforetask)
+    - [afterTask](#aftertask)
+11. [__Custom Task API__](api.md)
 
 ---
 
 ## Project Type
 
-```js
-static: true,
-...
-```
-
 ### `static`
 
-- set `true` for a static HTML project
-- set `false` for a dynamic language project (e.g. PHP framework)
+`boolean`
 
-> Default: `true`
+Set project type, defaults to `true`.
 
----
+- `static: true` - for a static HTML project
+- `static: false` - for a dynamic language project (e.g. PHP framework)
 
-## Server
+For example:
 
 ```js
-server: {
-  host: '192.168.1.1',
-  port: 8080,
-  // proxy: 'your.project.local' // proxy all
-  proxyTable: { // proxy partial
-    '/api': { // context
-       target: 'http://your.project.dev', // target host
-       changeOrigin: true // needed for virtual hosted sites
-    }
-  }
-},
-...
+static: true
 ```
 
-### `server.open`
-
-Decide which URL to open automatically when server starts.
-
-> Default: `true`
-
-### `server.https`
-
-Enable https for localhost development. Note - this is not needed for proxy option as it will be inferred from your target url.
-> New in 0.10.3
-
-> Default: `undefined`
-
-### `server.host`
-
-> Default: `null`
-
-### `server.port`
-
-> Default: `3000`
-
-### `server.proxy`
-
-Proxy an EXISTING vhost. Browsersync will wrap your vhost with a proxy URL to view your site.
-
-> Default: `undefined`
-
-### `server.serveStatic`
-
-Add additional directories from which static files should be served. Should only be used in `proxy` or `snippet` mode.
-> New in 0.10.4
-
-> Default: `[]`
-
-### `server.proxyTable`
-
-Define HTTP proxies to your custom API backend
-
-> Default: `{}`
-
-- full list of `http-proxy-middleware` [configuration options](https://github.com/chimurai/http-proxy-middleware#options)
-
-### `server.localOnly`
-
-Support environments where dynamic hostnames are not required (ie: electron)
-
-> Default: `false`
-
-### `server.historyApiFallback`
-
-Using the HTML5 History API
-> New in 0.6.0
-
-> Default: `false`
-
-### `server.options`
-
-[Browsersync options](https://browsersync.io/docs/options)
-> New in 0.10.4
-
-> Default: `{}`
-
----
-
 ## Root & Path
+
+### `roots.source`
+
+`string`
+
+Source Code (Input directory), defaults to `'src'`.
+
+### `roots.target`
+
+`string`
+
+Production (Output directory), defaults to `'dist'`.
+
+For example:
 
 ```js
 roots: {
   source: 'app',
   target: 'dist'
-},
+}
+```
+
+__Source Input__
+
+### `paths.source.base`
+
+`string`
+
+(Input) Application directory, defaults to `''`.
+
+### `paths.source.css`
+
+`string`
+
+(Input) Stylesheet directory, defaults to `'styles'`.
+
+### `paths.source.js`
+
+`string`
+
+(Input) JavaScript directory, defaults to `'scripts'`.
+
+### `paths.source.img`
+
+`string`
+
+(Input) Image directory, defaults to `'images'`.
+
+### `paths.source.font`
+
+`string`
+
+(Input) Font directory, defaults to `'fonts'`.
+
+### `paths.source.media`
+
+`string`
+
+> New in 0.9.1
+
+(Input) Media directory, defaults to `'media'`.
+
+For example:
+
+```js
 paths: {
   source: {
     css: 'styles',
     js: 'scripts',
     img: 'images',
     font: 'fonts'
-  },
+  }
+}
+```
+
+__Target Output__
+
+### `paths.target.base`
+
+`string`
+
+(Output) Application directory, defaults to `''`.
+
+### `paths.target.css`
+
+`string`
+
+(Output) Stylesheet directory, defaults to `'css'`.
+
+### `paths.target.js`
+
+`string`
+
+(Output) JavaScript directory, defaults to `'js'`.
+
+### `paths.target.img`
+
+`string`
+
+(Output) Image directory, defaults to `'img'`.
+
+### `paths.target.font`
+
+`string`
+
+(Output) Font directory, defaults to `'font'`.
+
+### `paths.target.media`
+
+`string`
+
+> New in 0.9.1
+
+(Output) Media directory, defaults to `'media'`.
+
+For example:
+
+```js
+paths: {
   target: {
     css: 'css',
     js: 'js',
     img: 'img',
     font: 'font'
   }
-},
-...
+}
 ```
-
-### `roots.source`
-
-Input folder (Source Code)
-
-> Default: `'src'`
-
-### `roots.target`
-
-Output folder (Production)
-
-> Default: `'dist'`
-
-__Source Input__
-
-### `paths.source.base`
-
-Application directory
-
-> Default: `''`
-
-### `paths.source.css`
-
-Stylesheet directory
-
-> Default: `'styles'`
-
-### `paths.source.js`
-
-JavaScript directory
-
-> Default: `'scripts'`
-
-### `paths.source.img`
-
-Image directory
-
-> Default: `'images'`
-
-### `paths.source.font`
-
-Font directory
-
-> Default: `'fonts'`
-
-### `paths.source.media`
-
-Media directory
-> New in 0.9.1
-
-> Default: `'media'`
-
-__Target Output__
-
-### `paths.target.base`
-
-> Default: `''`
-
-### `paths.target.css`
-
-> Default: `'css'`
-
-### `paths.target.js`
-
-> Default: `'js'`
-
-### `paths.target.img`
-
-> Default: `'img'`
-
-### `paths.target.font`
-
-> Default: `'font'`
-
-### `paths.target.media`
-
-> New in 0.9.1
-
-> Default: `'media'`
-
----
 
 ## HTML
 
 ### <del>`html.regex`</del> (Deprecated in 0.8.1)
 
-> Default: `{
-  css: 'styles',
-  js: 'scripts',
-  img: 'images'
-}`
+`object`
+
+Defaults to `{ css: 'styles', js: 'scripts', img: 'images' }`.
 
 ### <del>`html.replacement`</del> (Deprecated in 0.8.0)
 
-> Default: `{
-  prefix: '"',
-  begin: '/',
-  end: '/'
-}`
+`object`
+
+Defaults to `{ prefix: '"', begin: '/', end: '/' }`.
 
 ### `html.options`
 
-> Default: `{
+`object`
+
+[HTMLMinifier options](https://github.com/kangax/html-minifier#options-quick-reference), Defaults to:
+
+```js
+{
   collapseWhitespace: true,
   minifyCSS: true,
   minifyJS: {
@@ -402,61 +349,103 @@ __Target Output__
   removeEmptyAttributes: true,
   removeScriptTypeAttributes: true,
   removeStyleLinkTypeAttributes: true
-}`
+}
+```
 
----
+For example:
+
+```js
+html: {
+  options: {
+    collapseWhitespace: true,
+    minifyCSS: true,
+    minifyJS: {
+      compress: {
+        drop_console: false
+      }
+    }
+  }
+}
+```
 
 ## Style
 
-```js
-styles: {
-  ext: 'css',
-  autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR']
-},
-...
-```
-
 ### `styles.ext`
 
-> Default: `'css'`
+`string`
 
-Supported CSS extensions: [css](http://postcss.org/), [scss](http://sass-lang.com/), [less](http://lesscss.org/)
+Supported CSS extensions: [css](http://postcss.org/), [scss](http://sass-lang.com/), [less](http://lesscss.org/); defaults to `'css'`.
+
+For example:
+
+```js
+styles: {
+  ext: 'scss'
+}
+```
 
 ### `styles.autoprefixer`
 
-Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/)
+`array`
 
-> Default: `['last 1 version']`
+Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/), defaults to `['last 1 version']`.
 
-- Autoprefixer uses [Browserslist](https://github.com/ai/browserslist#queries)
+> Autoprefixer uses [Browserslist](https://github.com/ai/browserslist#queries)
+
+For example:
+
+```js
+styles: {
+  autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR']
+}
+```
 
 ### `styles.options`
 
-> Default: `{
+`object`
+
+CSS optimisations, defaults to:
+
+```js
+{
   safe: true,
   autoprefixer: false,
   sourcemap: false,
   discardComments: {
     removeAll: true
   }
-}`
+}
+```
+
+For example:
+
+```js
+styles: {
+  options: {
+    safe: true,
+    autoprefixer: false
+  }
+}
+```
 
 ### `styles.includePaths`
 
-Ensure file's parent directory in the include path
+`array`
+
 > New in 0.6.0
 
-> Default: `[]`
+Ensure file's parent directory in the include path, defaults to `[]`.
 
-### `styles.postcss`
+### <del>`styles.postcss`</del> (Deprecated in 0.13.0)
 
-- `plugins`: [PostCSS plugins](http://postcss.parts/)
-- `options`: [PostCSS options](https://github.com/postcss/postcss#options)
-- `loaderOptions`: [PostCSS Loader options](https://github.com/postcss/postcss-loader#options)
+`object`
 
 > New in 0.6.2
 
-> Default: `{
+PostCSS options, defaults to:
+
+```js
+{
   plugins: [],
   options: {},
   loaderOptions: {
@@ -467,77 +456,136 @@ Ensure file's parent directory in the include path
     config: undefined,
     sourceMap: false
   }
-}`
+}
+```
+
+### `styles.postcssPlugins`
+
+`array`
+
+> New in 0.13.0
+
+[PostCSS plugins](https://www.postcss.parts/), defaults to `[]`.
 
 __BalmJS__ default postcss plugins:
 
+- [autoprefixer](https://github.com/postcss/autoprefixer)
 - [postcss-cssnext](http://cssnext.io/)
 - [postcss-import](https://github.com/postcss/postcss-import)
 
----
+### `styles.postcssOptions`
+
+`object`
+
+> New in 0.13.0
+
+[PostCSS options](https://github.com/postcss/postcss#options), defaults to `{}`.
+
+### `styles.postcssOptions`
+
+`object`
+
+> New in 0.13.0
+
+[PostCSS loader options](https://github.com/postcss/postcss-loader#options), defaults to:
+
+```js
+{
+  exec: undefined,
+  parser: undefined,
+  syntax: undefined,
+  stringifier: undefined,
+  config: undefined,
+  // plugins: [], // NOTE Use `styles.postcssPlugins` to set.
+  sourceMap: false
+}
+```
 
 ## Script
+
+__Entry__
+
+### `scripts.entry`
+
+`object`
+
+The entry point for the bundle. Defaults to `null`.
+
+1. `key(string): value(string)`: Creates a separate file (known as a chunk), consisting of common modules shared between multiple entry points.
+2. `key(string): value(array)`: Bundle one entry point per HTML page.
+
+For example:
 
 ```js
 scripts: {
   entry: {
     'lib': ['vue', 'vue-router', 'vuex'],
     'ui': ['balm-ui-lite'],
-    'main': './app/scripts/main.js',
-    'subpage': './app/scripts/subpage.js'
-  },
-  loaders: [{
-    test: /\.vue$/,
-    loader: 'vue'
-  }]
-},
-...
+    'home-page': './app/scripts/main.js',
+    'sub-page': './app/scripts/subpage.js'
+  }
+}
 ```
 
-__Entry__
+Then, your templates:
 
-### `scripts.entry`
+```html
+<!-- Page One -->
+<script src="%PUBLIC_URL%/scripts/vendor/lib.js"></script>
+<script src="%PUBLIC_URL%/scripts/vendor/ui.js"></script>
+<script src="%PUBLIC_URL%/scripts/home-page.js"></script>
+```
 
-The entry point for the bundle.
-
-> Default: `null`
+```html
+<!-- Page Two -->
+<script src="%PUBLIC_URL%/scripts/vendor/lib.js"></script>
+<script src="%PUBLIC_URL%/scripts/vendor/ui.js"></script>
+<script src="%PUBLIC_URL%/scripts/sub-page.js"></script>
+```
 
 __Output__
 
 ### `scripts.filename`
 
-Specifies the name of each output file on disk. You must __not__ specify an absolute path here!
+`string`
 
-> Default: `'[name]'`
+Specifies the name of each output file on disk. You must __not__ specify an absolute path here! Defaults to `'[name]'`.
 
 ### <del>`scripts.publicPath`</del> (Deprecated in 0.8.0, see [`assets.publicUrl`](#assetspublicurl))
 
-The `publicPath` specifies the public URL address of the output files when referenced in a browser.
+`string`
 
-> Default: `''`
+The `publicPath` specifies the public URL address of the output files when referenced in a browser. Defaults to `''`.
 
 ### `scripts.library`
 
-The name of the exported library.
+`string`
+
 > New in 0.8.4
 
-> Default: `''`
+The name of the exported library. Defaults to `''`.
 
 ### `scripts.libraryTarget`
 
-The type of the exported library.
+`string`
+
 > New in 0.8.4
 
-> Default: `'var'`
+The type of the exported library. Defaults to `'var'`.
 
-Supported options: `var`, `this`, `window`, `global`, `commonjs`, `commonjs2`, `amd`, `umd`
+Supported options: `var`, `this`, `window`, `global`, `commonjs`, `commonjs2`, `amd`, `umd`.
 
 ### `scripts.umdNamedDefine`
 
-When using libraryTarget: "umd", setting: `true`
+`string`
+
 > New in 0.9.0
 
-> Default: `false`
+When using `libraryTarget: 'umd'`, setting:
+
+```js
+umdNamedDefine: true
+```
 
 ### `scripts.chunkFilename`
 
@@ -550,11 +598,19 @@ The filename of non-entry chunks as relative path inside the `output.path` direc
 
 > Default: `''`
 
+For example:
+
+```js
+
+```
+
 __Module__
 
 ### `scripts.loaders`
 
-An array of automatically applied loaders.
+`array`
+
+An array of automatically applied loaders. Defaults to `[]`.
 
 Each item can have these properties:
 
@@ -563,8 +619,6 @@ Each item can have these properties:
 - `include`: A condition that must be met
 - `loader`: A string of “!” separated loaders
 - `loaders`: An array of loaders as string
-
-> Default: `[]`
 
 __BalmJS__ default loaders:
 
@@ -576,7 +630,29 @@ __BalmJS__ default loaders:
 - [`url`](https://github.com/webpack/url-loader)
 - [`file`](https://github.com/webpack/file-loader)
 
-> [List of loaders](https://webpack.js.org/loaders/)
+__[List of loaders](https://webpack.js.org/loaders/)__
+
+For example:
+
+First, install some loader:
+
+```sh
+$ yarn add -D vue-loader
+
+# OR
+$ npm i -D vue-loader
+```
+
+Then, use it:
+
+```js
+scripts: {
+  loaders: [{
+    test: /\.vue$/,
+    loader: 'vue'
+  }]
+}
+```
 
 __Resolve__
 
@@ -793,6 +869,87 @@ SVG folder name
 
 ---
 
+## Server
+
+```js
+server: {
+  host: '192.168.1.1',
+  port: 8080,
+  // proxy: 'your.project.local' // proxy all
+  proxyTable: { // proxy partial
+    '/api': { // context
+       target: 'http://your.project.dev', // target host
+       changeOrigin: true // needed for virtual hosted sites
+    }
+  }
+},
+...
+```
+
+### `server.open`
+
+Decide which URL to open automatically when server starts.
+
+> Default: `true`
+
+### `server.https`
+
+Enable https for localhost development. Note - this is not needed for proxy option as it will be inferred from your target url.
+> New in 0.10.3
+
+> Default: `undefined`
+
+### `server.host`
+
+> Default: `null`
+
+### `server.port`
+
+> Default: `3000`
+
+### `server.proxy`
+
+Proxy an EXISTING vhost. Browsersync will wrap your vhost with a proxy URL to view your site.
+
+> Default: `undefined`
+
+### `server.serveStatic`
+
+Add additional directories from which static files should be served. Should only be used in `proxy` or `snippet` mode.
+> New in 0.10.4
+
+> Default: `[]`
+
+### `server.proxyTable`
+
+Define HTTP proxies to your custom API backend
+
+> Default: `{}`
+
+- full list of `http-proxy-middleware` [configuration options](https://github.com/chimurai/http-proxy-middleware#options)
+
+### `server.localOnly`
+
+Support environments where dynamic hostnames are not required (ie: electron)
+
+> Default: `false`
+
+### `server.historyApiFallback`
+
+Using the HTML5 History API
+> New in 0.6.0
+
+> Default: `false`
+
+### `server.options`
+
+[Browsersync options](https://browsersync.io/docs/options)
+> New in 0.10.4
+
+> Default: `{}`
+
+---
+
 ## Publish
 
 __Zip__
@@ -842,14 +999,6 @@ Required
 ### `ftp.remotePath`
 
 > Default: `'/'`
-
-__Cache__
-
-### `cache`
-
-Versioning/Cache Busting switch
-
-> Default: `false`
 
 __Assets__
 
@@ -916,6 +1065,14 @@ Public subdirectory
 
 > Default: `[]`
 
+__Cache__
+
+### `cache`
+
+Versioning/Cache Busting switch
+
+> Default: `false`
+
 ---
 
 ## Others
@@ -940,4 +1097,4 @@ Use balm default task
 
 ---
 
-### [Custom Task API](https://github.com/balmjs/balm/blob/master/docs/api.md)
+### [Custom Task API](api.md)
