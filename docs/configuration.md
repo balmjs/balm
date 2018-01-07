@@ -496,7 +496,7 @@ __BalmJS__ default postcss plugins:
   syntax: undefined,
   stringifier: undefined,
   config: undefined,
-  // plugins: [], // NOTE Use `styles.postcssPlugins` to set.
+  // plugins: [], // NOTE: Use `styles.postcssPlugins` to set.
   sourceMap: false
 }
 ```
@@ -673,6 +673,28 @@ __BalmJS__ default extensions:
 - [`.jsx`](https://facebook.github.io/react/)
 - [`.vue`](https://vuejs.org/)
 
+🌰 For example:
+
+```js
+scripts: {
+  extensions: ['.ts']
+}
+```
+
+Before, usage:
+
+```js
+// main.js
+import foo from 'foo.ts';
+```
+
+Now, you can:
+
+```js
+// main.js
+import foo from 'foo';
+```
+
 ### `scripts.alias`
 
 `object`
@@ -683,7 +705,6 @@ Replace modules by other modules or paths. Defaults to `{}`.
 
 ```js
 scripts: {
-  extensions: ['.ts'],
   alias: {
     'vue$': balm.config.production ? 'vue/dist/vue.min.js' : 'vue/dist/vue.esm.js'
   }
@@ -943,6 +964,18 @@ Proxy an EXISTING vhost. Browsersync will wrap your vhost with a proxy URL to vi
 
 Add additional directories from which static files should be served. Should only be used in `proxy` or `snippet` mode. Defaults to `[]`.
 
+🌰 For example:
+
+```js
+server: {
+  proxy: 'your.project.com',
+  serveStatic: [{
+    route: '/public',
+    dir: '/path/to/your_local_public'
+  }]
+}
+```
+
 ### `server.proxyTable`
 
 `object`
@@ -950,6 +983,21 @@ Add additional directories from which static files should be served. Should only
 Define HTTP proxies to your custom API backend. Defaults to `{}`.
 
 > Full list of `http-proxy-middleware` [configuration options](https://github.com/chimurai/http-proxy-middleware#options)
+
+🌰 For example:
+
+```js
+server: {
+  host: '192.168.1.1',
+  port: 8080,
+  proxyTable: { // proxy partial
+    '/api': { // context
+       target: 'http://your.project.dev', // target host
+       changeOrigin: true // needed for virtual hosted sites
+    }
+  }
+}
+```
 
 ### `server.localOnly`
 
@@ -972,22 +1020,6 @@ Using the HTML5 History API. Defaults to `false`.
 > New in 0.10.4
 
 [Browsersync options](https://browsersync.io/docs/options). Defaults to `{}`.
-
-🌰 For example:
-
-```js
-server: {
-  host: '192.168.1.1',
-  port: 8080,
-  // proxy: 'your.project.local' // proxy all
-  proxyTable: { // proxy partial
-    '/api': { // context
-       target: 'http://your.project.dev', // target host
-       changeOrigin: true // needed for virtual hosted sites
-    }
-  }
-}
-```
 
 ## Publish
 
