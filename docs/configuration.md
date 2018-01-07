@@ -180,7 +180,7 @@ Set project type, defaults to `true`.
 - `static: true` - for a static HTML project
 - `static: false` - for a dynamic language project (e.g. PHP framework)
 
-For example:
+🌰 For example:
 
 ```js
 static: true
@@ -200,7 +200,7 @@ Source Code (Input directory), defaults to `'src'`.
 
 Production (Output directory), defaults to `'dist'`.
 
-For example:
+🌰 For example:
 
 ```js
 roots: {
@@ -249,7 +249,7 @@ __Source Input__
 
 (Input) Media directory, defaults to `'media'`.
 
-For example:
+🌰 For example:
 
 ```js
 paths: {
@@ -302,7 +302,7 @@ __Target Output__
 
 (Output) Media directory, defaults to `'media'`.
 
-For example:
+🌰 For example:
 
 ```js
 paths: {
@@ -352,7 +352,7 @@ Defaults to `{ prefix: '"', begin: '/', end: '/' }`.
 }
 ```
 
-For example:
+🌰 For example:
 
 ```js
 html: {
@@ -376,7 +376,7 @@ html: {
 
 Supported CSS extensions: [css](http://postcss.org/), [scss](http://sass-lang.com/), [less](http://lesscss.org/); defaults to `'css'`.
 
-For example:
+🌰 For example:
 
 ```js
 styles: {
@@ -392,7 +392,7 @@ Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/), 
 
 > Autoprefixer uses [Browserslist](https://github.com/ai/browserslist#queries)
 
-For example:
+🌰 For example:
 
 ```js
 styles: {
@@ -417,7 +417,7 @@ CSS optimisations, defaults to:
 }
 ```
 
-For example:
+🌰 For example:
 
 ```js
 styles: {
@@ -514,7 +514,7 @@ The entry point for the bundle. Defaults to `null`.
 1. `key(string): value(string)`: Creates a separate file (known as a chunk), consisting of common modules shared between multiple entry points.
 2. `key(string): value(array)`: Bundle one entry point per HTML page.
 
-For example:
+🌰 For example:
 
 ```js
 scripts: {
@@ -598,7 +598,7 @@ The filename of non-entry chunks as relative path inside the `output.path` direc
 
 > Default: `''`
 
-For example:
+🌰 For example:
 
 ```js
 
@@ -632,7 +632,7 @@ __BalmJS__ default loaders:
 
 __[List of loaders](https://webpack.js.org/loaders/)__
 
-For example:
+🌰 For example:
 
 First, install some loader:
 
