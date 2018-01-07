@@ -1,11 +1,11 @@
 # BalmJS Configuration Docs
 
-:memo: __HTML template__ (`/path/to/project/index.html`)
+## :memo: HTML template (`/path/to/project/index.html`)
 
 - [template](example/_index.html)
 - [old template](example/_index-old.html)(`balm` version < 0.8.1)
 
-:key: __`.babelrc`__ (`/path/to/project/.babelrc`)
+## :key: `.babelrc` (`/path/to/project/.babelrc`)
 
 > enable [ES2015 features](https://babeljs.io/learn-es2015/) using [Babel](https://babeljs.io/)
 
@@ -40,7 +40,7 @@ Then, edit `.babelrc`:
 }
 ```
 
-:rocket: __`gulpfile.js`__ (`/path/to/project/gulpfile.js`)
+## :rocket: `gulpfile.js` (`/path/to/project/gulpfile.js`)
 
 - see [example](example/_gulpfile.js)
 
@@ -54,7 +54,7 @@ balm.config = {
 balm.go();
 ```
 
-:coffee: __Full Options__
+## :coffee: Full Options
 
 1. [__Project Type__](#project-type)
     - [static](#static)
