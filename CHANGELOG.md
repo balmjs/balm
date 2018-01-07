@@ -1,5 +1,18 @@
 # BalmJS ChangeLog
 
+## 0.13.0 (2018.01.07)
+
+🎉 __New feature: [Full Documentation](https://github.com/balmjs/balm#documentation)__
+
+### New config
+
+- <del>`styles.postcss`</del> is deprecated
+- `styles.postcssPlugins`
+- `styles.postcssOptions`
+- `styles.postcssLoaderOptions`
+
+---
+
 ## 0.12.1 (2017.12.31)
 
 ### Update dependencies
