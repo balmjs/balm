@@ -1,4 +1,4 @@
-## Common Issues
+## FAQ
 
 ### How to import `zepto` modules?
 
