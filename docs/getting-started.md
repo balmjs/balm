@@ -45,7 +45,7 @@ balm.config = {
 balm.go();
 ```
 
-:page_with_curl: Refer to [our configuration docs](https://github.com/balmjs/balm/blob/master/docs/en/readme.md) to learn more about config __`balm`__.
+:page_with_curl: Refer to [our configuration docs](configuration.md) to learn more about config __`balm`__.
 
 ### 3. Usage
 
@@ -58,3 +58,8 @@ $ gulp
 # for production
 $ gulp --production
 ```
+
+## Where do I go now?
+
+- [Configuration](configuration.md)
+- [Recipes](recipes.md)
