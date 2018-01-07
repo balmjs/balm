@@ -175,7 +175,7 @@ balm.go();
 
 `boolean`
 
-Set project type, defaults to `true`.
+Set project type. Defaults to `true`.
 
 - `static: true` - for a static HTML project
 - `static: false` - for a dynamic language project (e.g. PHP framework)
@@ -192,13 +192,13 @@ static: true
 
 `string`
 
-Source Code (Input directory), defaults to `'src'`.
+Source Code (Input directory). Defaults to `'src'`.
 
 ### `roots.target`
 
 `string`
 
-Production (Output directory), defaults to `'dist'`.
+Production (Output directory). Defaults to `'dist'`.
 
 🌰 For example:
 
@@ -215,31 +215,31 @@ __Source Input__
 
 `string`
 
-(Input) Application directory, defaults to `''`.
+(Input) Application directory. Defaults to `''`.
 
 ### `paths.source.css`
 
 `string`
 
-(Input) Stylesheet directory, defaults to `'styles'`.
+(Input) Stylesheet directory. Defaults to `'styles'`.
 
 ### `paths.source.js`
 
 `string`
 
-(Input) JavaScript directory, defaults to `'scripts'`.
+(Input) JavaScript directory. Defaults to `'scripts'`.
 
 ### `paths.source.img`
 
 `string`
 
-(Input) Image directory, defaults to `'images'`.
+(Input) Image directory. Defaults to `'images'`.
 
 ### `paths.source.font`
 
 `string`
 
-(Input) Font directory, defaults to `'fonts'`.
+(Input) Font directory. Defaults to `'fonts'`.
 
 ### `paths.source.media`
 
@@ -247,7 +247,7 @@ __Source Input__
 
 > New in 0.9.1
 
-(Input) Media directory, defaults to `'media'`.
+(Input) Media directory. Defaults to `'media'`.
 
 🌰 For example:
 
@@ -268,31 +268,31 @@ __Target Output__
 
 `string`
 
-(Output) Application directory, defaults to `''`.
+(Output) Application directory. Defaults to `''`.
 
 ### `paths.target.css`
 
 `string`
 
-(Output) Stylesheet directory, defaults to `'css'`.
+(Output) Stylesheet directory. Defaults to `'css'`.
 
 ### `paths.target.js`
 
 `string`
 
-(Output) JavaScript directory, defaults to `'js'`.
+(Output) JavaScript directory. Defaults to `'js'`.
 
 ### `paths.target.img`
 
 `string`
 
-(Output) Image directory, defaults to `'img'`.
+(Output) Image directory. Defaults to `'img'`.
 
 ### `paths.target.font`
 
 `string`
 
-(Output) Font directory, defaults to `'font'`.
+(Output) Font directory. Defaults to `'font'`.
 
 ### `paths.target.media`
 
@@ -300,7 +300,7 @@ __Target Output__
 
 > New in 0.9.1
 
-(Output) Media directory, defaults to `'media'`.
+(Output) Media directory. Defaults to `'media'`.
 
 🌰 For example:
 
@@ -333,7 +333,7 @@ Defaults to `{ prefix: '"', begin: '/', end: '/' }`.
 
 `object`
 
-[HTMLMinifier options](https://github.com/kangax/html-minifier#options-quick-reference), Defaults to:
+[HTMLMinifier options](https://github.com/kangax/html-minifier#options-quick-reference). Defaults to:
 
 ```js
 {
@@ -374,7 +374,7 @@ html: {
 
 `string`
 
-Supported CSS extensions: [css](http://postcss.org/), [scss](http://sass-lang.com/), [less](http://lesscss.org/); defaults to `'css'`.
+Supported CSS extensions: [css](http://postcss.org/), [scss](http://sass-lang.com/), [less](http://lesscss.org/). Defaults to `'css'`.
 
 🌰 For example:
 
@@ -388,7 +388,7 @@ styles: {
 
 `array`
 
-Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/), defaults to `['last 1 version']`.
+Parse CSS and add vendor prefixes to rules by [Can I Use](http://caniuse.com/). Defaults to `['last 1 version']`.
 
 > Autoprefixer uses [Browserslist](https://github.com/ai/browserslist#queries)
 
@@ -404,7 +404,7 @@ styles: {
 
 `object`
 
-CSS optimisations, defaults to:
+CSS optimisations. Defaults to:
 
 ```js
 {
@@ -434,7 +434,7 @@ styles: {
 
 > New in 0.6.0
 
-Ensure file's parent directory in the include path, defaults to `[]`.
+Ensure file's parent directory in the include path. Defaults to `[]`.
 
 ### <del>`styles.postcss`</del> (Deprecated in 0.13.0)
 
@@ -442,7 +442,7 @@ Ensure file's parent directory in the include path, defaults to `[]`.
 
 > New in 0.6.2
 
-PostCSS options, defaults to:
+PostCSS options. Defaults to:
 
 ```js
 {
@@ -465,7 +465,7 @@ PostCSS options, defaults to:
 
 > New in 0.13.0
 
-[PostCSS plugins](https://www.postcss.parts/), defaults to `[]`.
+[PostCSS plugins](https://www.postcss.parts/). Defaults to `[]`.
 
 __BalmJS__ default postcss plugins:
 
@@ -479,7 +479,7 @@ __BalmJS__ default postcss plugins:
 
 > New in 0.13.0
 
-[PostCSS options](https://github.com/postcss/postcss#options), defaults to `{}`.
+[PostCSS options](https://github.com/postcss/postcss#options). Defaults to `{}`.
 
 ### `styles.postcssOptions`
 
@@ -487,7 +487,7 @@ __BalmJS__ default postcss plugins:
 
 > New in 0.13.0
 
-[PostCSS loader options](https://github.com/postcss/postcss-loader#options), defaults to:
+[PostCSS loader options](https://github.com/postcss/postcss-loader#options). Defaults to:
 
 ```js
 {
@@ -527,7 +527,7 @@ scripts: {
 }
 ```
 
-Then, your templates:
+Then, your HTML templates:
 
 ```html
 <!-- Page One -->
@@ -550,6 +550,18 @@ __Output__
 `string`
 
 Specifies the name of each output file on disk. You must __not__ specify an absolute path here! Defaults to `'[name]'`.
+
+- Using the unique hash generated for every build:
+
+```js
+filename: '[name].[hash]'
+```
+
+- Using hashes based on each chunks' content:
+
+```js
+filename: '[chunkhash]'
+```
 
 ### <del>`scripts.publicPath`</del> (Deprecated in 0.8.0, see [`assets.publicUrl`](#assetspublicurl))
 
@@ -589,20 +601,12 @@ umdNamedDefine: true
 
 ### `scripts.chunkFilename`
 
-The filename of non-entry chunks as relative path inside the `output.path` directory.
+The filename of non-entry chunks as relative path inside the `output.path` directory. Defaults to `'(auto)'`.
 
-- `[id]` is replaced by the id of the chunk.
+- `[id]` is replaced by the id of the chunk. (automatic setting for development)
 - `[name]` is replaced by the name of the chunk (or with the id when the chunk has no name).
 - `[hash]` is replaced by the hash of the compilation.
-- `[chunkhash]` is replaced by the hash of the chunk.
-
-> Default: `''`
-
-🌰 For example:
-
-```js
-
-```
+- `[chunkhash]` is replaced by the hash of the chunk. (automatic setting for production)
 
 __Module__
 
@@ -630,7 +634,7 @@ __BalmJS__ default loaders:
 - [`url`](https://github.com/webpack/url-loader)
 - [`file`](https://github.com/webpack/file-loader)
 
-__[List of loaders](https://webpack.js.org/loaders/)__
+> [List of loaders](https://webpack.js.org/loaders/)
 
 🌰 For example:
 
@@ -658,30 +662,41 @@ __Resolve__
 
 ### `scripts.extensions`
 
-An array of extensions that should be used to resolve modules.
+`array`
 
-> Default: `[]`
+An array of extensions that should be used to resolve modules. Defaults to `[]`.
 
 __BalmJS__ default extensions:
 
 - `.js`
 - [`.json`](http://www.json.org/)
 - [`.jsx`](https://facebook.github.io/react/)
-- [`.vue`](http://vuejs.org/)
+- [`.vue`](https://vuejs.org/)
 
 ### `scripts.alias`
 
-Replace modules by other modules or paths.
+`object`
 
-> Default: `{}`
+Replace modules by other modules or paths. Defaults to `{}`.
+
+🌰 For example:
+
+```js
+scripts: {
+  extensions: ['.ts'],
+  alias: {
+    'vue$': balm.config.production ? 'vue/dist/vue.min.js' : 'vue/dist/vue.esm.js'
+  }
+}
+```
 
 __Plugin__
 
 ### `scripts.plugins`
 
-Add additional plugins to the compiler.
+`array`
 
-> Default: `[]`
+Add additional plugins to the compiler. Defaults to `[]`.
 
 > [List of plugins](https://webpack.js.org/plugins/)
 
@@ -689,35 +704,41 @@ __DevServer__
 
 ### `scripts.hot`
 
-Hot reload
+`boolean`
 
-> Default: `true`
+Hot reload. Defaults to `true`.
 
 __Devtool__
 
 ### `scripts.sourceMap`
 
-Source mapping
+`boolean`
 
-> Default: `false`
+Source mapping. Defaults to `false`.
 
 ### `scripts.target`
 
-> Default: `'web'`
+`string`
 
-> [Target config](https://webpack.js.org/configuration/target/)
+To target a specific environment. Defaults to `'web'`.
+
+> [Target config](https://webpack.js.org/configuration/target/#string)
 
 ### `scripts.stats`
 
-Capture timing information for each module.
+`object`
 
-> Default: `{
+Capture timing information for each module. Defaults to:
+
+```js
+{
   colors: true,
   modules: false,
   children: false,
   chunks: false,
   chunkModules: false
-}`
+}
+```
 
 > [Stats config](https://webpack.js.org/configuration/stats/)
 
@@ -725,24 +746,30 @@ __Other Advanced Options__
 
 ### `scripts.webpack`
 
-Overwrite webpack config
+`object`
+
 > New in 0.8.4
 
-> Default: `{}`
+Overwrite webpack config. Defaults to `{}`.
 
 > [All configuration options](https://webpack.js.org/configuration/)
 
 ### `scripts.eslint`
 
-The pluggable linting utility for JavaScript and JSX
+`boolean`
 
-> Default: `false`
+The pluggable linting utility for JavaScript and JSX. Defaults to `false`.
 
 ### `scripts.options`
 
+`object`
+
 > New in 0.6.0
 
-> Default: `{
+[UglifyJS options](http://lisperator.net/uglifyjs/). Defaults to:
+
+```js
+{
   compress: {
     warnings: false,
     comparisons: false,
@@ -752,58 +779,65 @@ The pluggable linting utility for JavaScript and JSX
     comments: false,
     ascii_only: true
   }
-}`
+}
+```
 
 ### `scripts.include`
 
-[Rule.include](https://webpack.js.org/configuration/module/#rule-include) in `babel-loader`
+`array`
 
 > New in 0.9.1
 
-> Default: `[]`
+Supply a [Rule.include](https://webpack.js.org/configuration/module/#rule-include) option in `babel-loader` for some vendor scripts from `node_modules`. Defaults to `[]`.
 
 __Optimization__
 
 ### `scripts.vendorName`
 
-AllInOne vendor filename or Custom Vendor folder name
+`string`
 
-> Default: `'vendor'`
+AllInOne vendor filename or Custom Vendor folder name. Defaults to `'vendor'`.
 
 ### `scripts.extractAllVendors`
 
-> Named 'scripts.vendor' in version < 0.12.0
+`boolean`
 
-All vendors in one (for SPA)
+> Named `scripts.vendor` in version < 0.12.0
 
-> Default: `false`
+All vendors in one (for SPA). Defaults to `false`.
 
 ### `scripts.vendors`
 
-Custom Vendor Modules
+`array`
 
-> Default: `[]` (automatic setting by `scripts.entry`)
+Custom Vendor Modules. Defaults to `[]`. (automatic setting by `scripts.entry`)
 
 ### `scripts.cdn`
 
-The same to webpack.[externals](https://webpack.js.org/configuration/externals/#externals)
+`string` `array` `object` `function` `regex`
+
 > New in 0.9.0
 
-> Default: `null`
+The same to webpack [externals](https://webpack.js.org/configuration/externals/#externals). Defaults to `null`.
 
 ### `scripts.cssLoader`
 
-Use BalmJS default rules or custom rules for css-loader
+`boolean`
+
 > New in 0.12.0
 
-> Default: `true`
+Use BalmJS default rules or custom rules for `css-loader`. Defaults to `true`.
 
 ### `scripts.extractCss`
 
-Extract css from some bundle
+`object`
+
 > New in 0.12.0
 
-> Default: `{
+Extract css from some bundle. Defaults to:
+
+```js
+{
   enabled: false,
   use: 'css-loader',
   fallback: 'style-loader',
@@ -811,65 +845,135 @@ Extract css from some bundle
   pluginOptions: {
     filename: 'css/vendor/[name].css'
   }
-}`
-
----
+}
+```
 
 ## Sprite
 
-```js
-sprites: {
-  image: [], // e.g. ['img-icon-folder', 'img-button-folder']
-  svg: [] // e.g. ['svg-logo-folder']
-},
-...
-```
-
 ### `sprites.basePath`
 
-Path to use in CSS referring to image location
+`string`
 
-> Default: `'../'`
+Path to use in CSS referring to image location. Defaults to `'../'`.
 
 ### `sprites.padding`
 
-Amount of pixels to include between images or svgs
+`number`
 
-> Default: `1`
+Amount of pixels to include between images or svgs. Defaults to `1`.
 
 ### `sprites.image`
 
-Image folder name
+`array`
 
-> Default: `[]`
+Image folder name. Defaults to `[]`.
 
 ### `sprites.mode`
 
-Output modes: `css`, `view`, `defs`, `symbol`, `stack`
-
-> Default: `'css'`
+Output modes: `css`, `view`, `defs`, `symbol`, `stack`. Defaults to `'css'`.
 
 ### `sprites.svg`
 
-SVG folder name
+`array`
 
-> Default: `[]`
+SVG folder name. Defaults to `[]`.
 
----
+🌰 For example:
+
+```js
+sprites: {
+  image: ['img-icon-folder', 'img-button-folder']
+  svg: ['svg-logo-folder']
+}
+```
 
 ## Extra
 
 ### `extras.excludes`
 
-> Default: `[]`
+`array`
+
+Defaults to `[]`.
 
 ### `extras.includes`
 
-> Default: `[]`
+`array`
 
----
+Defaults to `[]`.
 
 ## Server
+
+### `server.open`
+
+`boolean`
+
+Decide which URL to open automatically when server starts. Defaults to `true`.
+
+### `server.https`
+
+`boolean`
+
+> New in 0.10.3
+
+Enable https for localhost development. Note - this is not needed for proxy option as it will be inferred from your target url. Defaults to `undefined`.
+
+### `server.host`
+
+`string`
+
+Override host detection if you know the correct IP to use. Defaults to `null`.
+
+### `server.port`
+
+`number`
+
+Use a specific port. Defaults to `3000`.
+
+### `server.proxy`
+
+`string` `object` `boolean`
+
+Proxy an EXISTING vhost. Browsersync will wrap your vhost with a proxy URL to view your site. Defaults to `undefined`.
+
+### `server.serveStatic`
+
+`array`
+
+> New in 0.10.4
+
+Add additional directories from which static files should be served. Should only be used in `proxy` or `snippet` mode. Defaults to `[]`.
+
+### `server.proxyTable`
+
+`object`
+
+Define HTTP proxies to your custom API backend. Defaults to `{}`.
+
+> Full list of `http-proxy-middleware` [configuration options](https://github.com/chimurai/http-proxy-middleware#options)
+
+### `server.localOnly`
+
+`boolean`
+
+Support environments where dynamic hostnames are not required (ie: electron). Defaults to `false`.
+
+### `server.historyApiFallback`
+
+`boolean`
+
+> New in 0.6.0
+
+Using the HTML5 History API. Defaults to `false`.
+
+### `server.options`
+
+`object`
+
+> New in 0.10.4
+
+[Browsersync options](https://browsersync.io/docs/options). Defaults to `{}`.
+
+🌰 For example:
 
 ```js
 server: {
@@ -882,218 +986,180 @@ server: {
        changeOrigin: true // needed for virtual hosted sites
     }
   }
-},
-...
+}
 ```
-
-### `server.open`
-
-Decide which URL to open automatically when server starts.
-
-> Default: `true`
-
-### `server.https`
-
-Enable https for localhost development. Note - this is not needed for proxy option as it will be inferred from your target url.
-> New in 0.10.3
-
-> Default: `undefined`
-
-### `server.host`
-
-> Default: `null`
-
-### `server.port`
-
-> Default: `3000`
-
-### `server.proxy`
-
-Proxy an EXISTING vhost. Browsersync will wrap your vhost with a proxy URL to view your site.
-
-> Default: `undefined`
-
-### `server.serveStatic`
-
-Add additional directories from which static files should be served. Should only be used in `proxy` or `snippet` mode.
-> New in 0.10.4
-
-> Default: `[]`
-
-### `server.proxyTable`
-
-Define HTTP proxies to your custom API backend
-
-> Default: `{}`
-
-- full list of `http-proxy-middleware` [configuration options](https://github.com/chimurai/http-proxy-middleware#options)
-
-### `server.localOnly`
-
-Support environments where dynamic hostnames are not required (ie: electron)
-
-> Default: `false`
-
-### `server.historyApiFallback`
-
-Using the HTML5 History API
-> New in 0.6.0
-
-> Default: `false`
-
-### `server.options`
-
-[Browsersync options](https://browsersync.io/docs/options)
-> New in 0.10.4
-
-> Default: `{}`
-
----
 
 ## Publish
 
 __Zip__
 
-```js
-zip: 'archive.zip'
-...
-```
-
 ### `zip`
 
-Zip filename
+`string`
 
-> Default: `'archive.zip'`
+Production to zip. Defaults to `'archive.zip'`.
+
+🌰 For example:
+
+```js
+zip: 'archive.zip'
+```
 
 __Ftp__
 
-```js
-ftp: {
-  host: undefined,
-  port: 22,
-  user: 'anonymous',
-  pass: null,
-  remotePath: '/'
-},
-...
-```
-
 ### `ftp.host`
 
-Required
+`string`
 
-> Default: `undefined`
+Required. Defaults to `undefined`.
 
 ### `ftp.port`
 
-> Default: `22`
+`number`
+
+Defaults to `22`.
 
 ### `ftp.user`
 
-> Default: `'anonymous'`
+`string`
+
+Defaults to `'anonymous'`.
 
 ### `ftp.pass`
 
-> Default: `null`
+`string`
+
+Defaults to `null`.
 
 ### `ftp.remotePath`
 
-> Default: `'/'`
+`string`
+
+Defaults to `'/'`.
+
+🌰 For example:
+
+```js
+ftp: {
+  host: '192.168.1.1',
+  port: 22,
+  user: 'root',
+  pass: '123456',
+  remotePath: '/path/to/webroot'
+}
+```
 
 __Assets__
+
+### `assets.publicUrlPlaceholder`
+
+`string`
+
+> New in 0.8.0
+
+Just for HTML template. Defaults to `'%PUBLIC_URL%'`.
+
+### `assets.publicUrl`
+
+`string`
+
+> New in 0.8.0
+
+Defaults to `''`.
+
+### `assets.root`
+
+`string`
+
+Remote project root simulation. Defaults to `'assets'`.
+
+### `assets.publicPath`
+
+`string`
+
+The `public` directory contains the front controller and your assets (images, JavaScript, CSS, etc.). Defaults to `'public'`.
+
+### `assets.subDir`
+
+`string`
+
+Public subdirectory. Defaults to `''`.
+
+### `assets.options`
+
+`object`
+
+> New in 0.6.0
+
+Defaults to:
+
+```js
+{
+  fileNameManifest: 'rev-manifest.json',
+  dontRenameFile: ['.html', '.php'],
+  dontUpdateReference: ['.html', '.php']
+}
+```
+
+### `assets.excludes`
+
+`array`
+
+> New in 0.6.0
+
+Defaults to `[]`.
+
+### `assets.includes`
+
+`array`
+
+> New in 0.6.1
+
+Defaults to `[]`.
+
+🌰 For example:
 
 ```js
 cache: true, // required
 assets: {
   publicUrl: '',
-  root: '/path/to/your_project',
+  root: '/path/to/your_remote_project',
   publicPath: 'public',
   subDir: 'mobile'
-},
-...
+}
 ```
-
-### `assets.publicUrlPlaceholder`
-
-> New in 0.8.0
-
-> Default: `'%PUBLIC_URL%'`
-
-### `assets.publicUrl`
-
-> New in 0.8.0
-
-> Default: `''`
-
-### `assets.root`
-
-Remote project root simulation
-
-> Default: `'assets'`
-
-### `assets.publicPath`
-
-The `public` directory contains the front controller and your assets (images, JavaScript, CSS, etc.)
-
-> Default: `'public'`
-
-### `assets.subDir`
-
-Public subdirectory
-
-> Default: `''`
-
-### `assets.options`
-
-> New in 0.6.0
-
-> Default: `{
-  fileNameManifest: 'rev-manifest.json',
-  dontRenameFile: ['.html', '.php'],
-  dontUpdateReference: ['.html', '.php']
-}`;
-
-### `assets.excludes`
-
-> New in 0.6.0
-
-> Default: `[]`
-
-### `assets.includes`
-
-> New in 0.6.1
-
-> Default: `[]`
 
 __Cache__
 
 ### `cache`
 
-Versioning/Cache Busting switch
+`boolean`
 
-> Default: `false`
-
----
+Versioning/Cache Busting switch. Defaults to `false`.
 
 ## Others
 
 ### `useDefault`
 
-Use balm default task
+`boolean`
 
-> Default: `true`
+Use balm default task. Defaults to `true`.
 
 ### `beforeTask`
 
+`function`
+
 > New in 0.10.0
 
-> Default: `() => {}`
+Do something before all tasks. Defaults to `() => {}`.
 
 ### `afterTask`
 
+`function`
+
 > New in 0.10.0
 
-> Default: `() => {}`
+Do something after all tasks. Defaults to `() => {}`.
 
 ---
 
