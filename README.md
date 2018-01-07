@@ -37,7 +37,7 @@ project
 │ ├── fonts
 │ ├── media
 │ └── index.html
-├─┬ config
+├─┬ config (Optional. But recommended.)
 │ ├── balmrc.js
 │ └── publish.js
 ├── .dotfile (.babelrc, .gitignore, etc...)
@@ -45,6 +45,8 @@ project
 ├── package.json
 └── ...
 ```
+
+> We recommend using [Balm CLI](https://github.com/balmjs/balm-cli) to scaffold out a front-end web app.
 
 ## Ecosystem
 
