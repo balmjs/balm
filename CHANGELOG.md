@@ -1,10 +1,24 @@
 # BalmJS ChangeLog
 
+## 0.14.0 (2018.01.08)
+
+### :gear: Custom task API changes
+
+- `balm.config.beforeTask` change to `balm.beforeTask`
+- `balm.config.afterTask` change to `balm.afterTask`
+
+### :page_with_curl: Update Docs
+
+- configuration
+- custom task api
+
+---
+
 ## 0.13.0 (2018.01.07)
 
-🎉 __New feature: [Full Documentation](https://github.com/balmjs/balm#documentation)__
+:tada: __New feature: [Full Documentation](https://github.com/balmjs/balm#documentation)__
 
-### New config
+### :gear: New config
 
 - <del>`styles.postcss`</del> is deprecated
 - `styles.postcssPlugins`
@@ -25,7 +39,7 @@
 
 ## 0.12.0 (2017.12.07)
 
-🎉 __New feature: Extract css from bundle__
+:tada: __New feature: Extract css from bundle__
 
 ### New config
 
@@ -118,7 +132,7 @@
 
 ## 0.10.0 (2017.10.8)
 
-🎉 __New feature: We can run `npm run prod` when `npm run dev` is running__
+:tada: __New feature: We can run `npm run prod` when `npm run dev` is running__
 
 ### New
 
@@ -196,7 +210,7 @@
 - optimized `cache`
 - update test
 
-🎉 __New feature - Library Code Splitting__
+:tada: __New feature - Library Code Splitting__
 
 __balmrc.js__
 
@@ -338,7 +352,7 @@ __mobile.html__
 - `assets.publicUrlPlaceholder`
 - `assets.publicUrl`
 
-🎉 __New Feature: html templates can use `%PUBLIC_URL%` for CDN__
+:tada: __New Feature: html templates can use `%PUBLIC_URL%` for CDN__
 
 ```html
 <!DOCTYPE html>
@@ -409,7 +423,7 @@ __mobile.html__
 
 - update `babel-preset` & `babel-plugin`
 
-🎉 __New Feature: `.babelrc` for all [balm-templates](https://github.com/balmjs/balm-cli)__
+:tada: __New Feature: `.babelrc` for all [balm-templates](https://github.com/balmjs/balm-cli)__
 
 ```
 {

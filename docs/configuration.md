@@ -178,8 +178,6 @@ balm.go();
         - [cache](#cache)
 10. [__Others__](#others)
     - [useDefault](#usedefault)
-    - [beforeTask](#beforetask)
-    - [afterTask](#aftertask)
 11. [__Custom Task API__](api.md)
 
 ---
@@ -1191,23 +1189,5 @@ Versioning/Cache Busting switch. Defaults to `false`.
 `boolean`
 
 Use balm default task. Defaults to `true`.
-
-### `beforeTask`
-
-`function`
-
-> New in 0.10.0
-
-Do something before all tasks. Defaults to `() => {}`.
-
-### `afterTask`
-
-`function`
-
-> New in 0.10.0
-
-Do something after all tasks. Defaults to `() => {}`.
-
----
 
 ### [Custom Task API](api.md)

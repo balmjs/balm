@@ -20,7 +20,8 @@
     - `ftp(input)`
     - `publish(input = '', output = '', renameOptions = {})`
 
-> `mix.end` is deprecated since 0.10.0, you can set `balm.config.afterTask`
+> <del>`mix.end`</del> is deprecated in 0.10.0
+> <del>`balm.config.afterTask`</del> is deprecated in 0.14.0
 
 __File: gulpfile.js__
 
@@ -28,9 +29,19 @@ __File: gulpfile.js__
 var balm = require('balm');
 
 balm.config = {
-  // your project config
-  useDefault: false, // don't start balm default task
+  useDefault: false, // don't start balm default tasks
+  // Your project config (see BalmJS Configuration Docs)
   ...
+};
+
+// Do something before all tasks. New in 0.14.0
+balm.beforeTask = () => {
+  console.log('Hello BalmJS');
+};
+
+// Do something after all tasks. New in 0.14.0
+balm.afterTask = () => {
+  console.log('gg');
 };
 
 balm.go(function(mix) {
