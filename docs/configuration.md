@@ -1,6 +1,6 @@
 # BalmJS Configuration Docs
 
-## :ghost: The tiny webapp structure ([Full Version](https://github.com/balmjs/balm#structure))
+## :ghost: The simplest structure for webapp ([Full version](https://github.com/balmjs/balm#structure))
 
 ```
 project
