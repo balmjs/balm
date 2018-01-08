@@ -28,9 +28,9 @@ $ npm run prod
 First, run this command in your project directory:
 
 ```sh
-$ npm install --save-dev babel-preset-es2015-loose
-$ npm install --save-dev babel-plugin-transform-es3-member-expression-literals
-$ npm install --save-dev babel-plugin-transform-es3-property-literals
+$ npm i -D babel-preset-es2015-loose
+$ npm i -D babel-plugin-transform-es3-member-expression-literals
+$ npm i -D babel-plugin-transform-es3-property-literals
 ```
 
 Then, edit `.babelrc`:

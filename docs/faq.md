@@ -5,10 +5,10 @@
 First, run this command in your project directory:
 
 ```sh
-yarn add -D exports-loader script-loader
-
-// OR
 npm i -D exports-loader script-loader
+
+// OR install with yarn
+yarn add -D exports-loader script-loader
 ```
 
 Then, edit `balm` config:

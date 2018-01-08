@@ -128,8 +128,8 @@ balm.go();
     - [sprites.mode](#spritesmode)
     - [sprites.svg](#spritessvg)
 7. [__Extra Files__](#extra)
-    - [excludes](#extrasexcludes)
-    - [includes](#extrasincludes)
+    - [extras.excludes](#extrasexcludes)
+    - [extras.includes](#extrasincludes)
 8. [__Server__](#server)
     - [server.open](#serveropen)
     - [server.https](#serverhttps)
@@ -641,10 +641,10 @@ __BalmJS__ default loaders:
 First, install some loader:
 
 ```sh
-$ yarn add -D vue-loader
-
-# OR
 $ npm i -D vue-loader
+
+# OR install with yarn
+$ yarn add -D vue-loader
 ```
 
 Then, use it:

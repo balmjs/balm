@@ -37,7 +37,7 @@ project
 │ ├── fonts
 │ ├── media
 │ └── index.html
-├─┬ config (Optional. But recommended.)
+├─┬ config (Optional. But recommended. Refer to BalmCLI's templates.)
 │ ├── balmrc.js
 │ └── publish.js
 ├── .dotfile (.babelrc, .gitignore, etc...)
@@ -46,13 +46,13 @@ project
 └── ...
 ```
 
-> We recommend using [Balm CLI](https://github.com/balmjs/balm-cli) to scaffold out a front-end web app.
+> :zap: We recommend using [Balm CLI](https://github.com/balmjs/balm-cli) to scaffold out a front-end web app. :ghost:
 
 ## Ecosystem
 
 Project | Status | Description
 ------- | ------ | -----------
-[balm-cli](https://github.com/balmjs/balm-cli) | [![NPM version][balm-cli-image]][balm-cli-url] | :spades: BalmJS scaffolding tool :ghost:
+[balm-cli](https://github.com/balmjs/balm-cli) | [![NPM version][balm-cli-image]][balm-cli-url] | :spades: BalmJS scaffolding tool
 [balm-gui](https://github.com/balmjs/balm-gui) | N/A | :clubs: GUI for BalmJS
 [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue
 [balm-ui](https://github.com/balmjs/ui-vue)    | [![NPM version][balm-ui-image]][balm-ui-url] | :diamonds: Material Components + Vue
@@ -86,13 +86,16 @@ $ gulp -v
 
 ### 1. Installing __`balm`__
 
-Run this command in your project directory:
+Install with npm:
 
 ```sh
-$ yarn add -D gulp balm
+$ npm install --save-dev gulp balm
+```
 
-# OR
-$ npm i -D gulp balm
+Install with yarn:
+
+```sh
+$ yarn add --dev gulp balm
 ```
 
 ### 2. Configuration

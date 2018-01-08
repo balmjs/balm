@@ -19,13 +19,16 @@ $ gulp -v
 
 ### 1. Installing __`balm`__
 
-Run this command in your project directory:
+Install with npm:
 
 ```sh
-$ yarn add -D gulp balm
+$ npm install --save-dev gulp balm
+```
 
-# OR
-$ npm i -D gulp balm
+Install with yarn:
+
+```sh
+$ yarn add --dev gulp balm
 ```
 
 ### 2. Configuration
