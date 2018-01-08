@@ -75,7 +75,7 @@ Install [Node.js® and npm](https://nodejs.org/en/download/) if they are not alr
 
 > __Verify that you are running at least node `6.x.x` and npm `3.x.x`__ by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
 
-BalmJS workflow using [gulp](https://gulpjs.com/) for the build process, so you need install `gulp`.
+BalmJS workflow using [gulp](https://gulpjs.com/) for the build process, so you need install `gulp-cli`.
 
 ```sh
 $ npm install --global gulp-cli
