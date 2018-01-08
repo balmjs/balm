@@ -1,5 +1,20 @@
 # BalmJS Configuration Docs
 
+## :ghost: The tiny webapp structure
+
+```
+project
+├─┬ app
+│ ├─┬ styles
+│ │ └── main.css
+│ ├─┬ scripts
+│ │ └── main.js
+│ └── index.html
+├── .dotfile (.babelrc, .gitignore, etc...)
+├── gulpfile.js
+└── package.json
+```
+
 ## :memo: HTML template (`/path/to/project/app/index.html`)
 
 - [template](example/_index.html)
