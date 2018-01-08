@@ -3,8 +3,13 @@ import balm from '../lib/main';
 import balmConfig from './config/balmrc';
 
 balm.config = balmConfig;
-balm.config.beforeTask = () => {
+
+balm.beforeTask = () => {
   console.log('Hello BalmJS');
+};
+
+balm.afterTask = () => {
+  console.log('gg');
 };
 
 // Test build
