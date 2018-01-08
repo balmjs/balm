@@ -9,8 +9,8 @@
 
 ### :page_with_curl: Update Docs
 
-- configuration
-- custom task api
+- [BalmJS Configuration Docs](https://github.com/balmjs/balm/blob/master/docs/configuration.md)
+- [Custom Task API](https://github.com/balmjs/balm/blob/master/docs/api.md)
 
 ---
 

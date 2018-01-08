@@ -20,8 +20,8 @@
     - `ftp(input)`
     - `publish(input = '', output = '', renameOptions = {})`
 
-> <del>`mix.end`</del> is deprecated in 0.10.0
-> <del>`balm.config.afterTask`</del> is deprecated in 0.14.0
+> <del>`mix.end`</del> is deprecated in `0.10.0`,
+> <del>`balm.config.afterTask`</del> is deprecated in `0.14.0`.
 
 __File: gulpfile.js__
 
@@ -41,7 +41,7 @@ balm.beforeTask = () => {
 
 // Do something after all tasks. New in 0.14.0
 balm.afterTask = () => {
-  console.log('gg');
+  console.log('Good Game');
 };
 
 balm.go(function(mix) {
