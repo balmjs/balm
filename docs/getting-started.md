@@ -25,7 +25,7 @@ Install with npm:
 $ npm install --save-dev gulp balm
 ```
 
-Install with yarn:
+Install with [yarn](https://yarnpkg.com/en/docs/install):
 
 ```sh
 $ yarn add --dev gulp balm
