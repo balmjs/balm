@@ -15,7 +15,7 @@ balm.config = {
     }
   },
   roots: {
-    source: 'app', // Source code root
+    source: 'app', // Source code root (Create a directory named 'app' in project)
     target: 'dist' // The production build
   },
   paths: {
@@ -33,21 +33,21 @@ balm.config = {
   scripts: {
     entry: {
       // HTML: <script src="%PUBLIC_URL%/scripts/vendor/mylib.js"></script>
-      mylib: ['your-project-vendors', 'your-project-plugins'],
+      // mylib: ['your-project-vendors', 'your-project-plugins'],
       // Entry
       main: './app/scripts/main.js'
     }
   },
-  sprites: {
-    image: ['img-icon'], // Icon path: './app/images/img-icon'
-    svg: ['svg-icon'] //  SVG path: './app/images/svg-icon'
-  },
-  cache: false,
+  // sprites: {
+  //   image: ['img-icon'], // Icon path: './app/images/img-icon'
+  //   svg: ['svg-icon'] //  SVG path: './app/images/svg-icon'
+  // },
   assets: {
     root: '/path/to/your_remote_project', // Remote project root path
     publicPath: 'public', // '/path/to/your_remote_project/public'
     subDir: '' // `/path/to/your_remote_project/public/${subDir}`
-  }
+  },
+  cache: false
 };
 
 // 3. Run balm

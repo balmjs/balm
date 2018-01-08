@@ -1,6 +1,6 @@
 # BalmJS Configuration Docs
 
-## :memo: HTML template (`/path/to/project/index.html`)
+## :memo: HTML template (`/path/to/project/app/index.html`)
 
 - [template](example/_index.html)
 - [old template](example/_index-old.html)(`balm` version < 0.8.1)

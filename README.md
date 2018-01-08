@@ -26,23 +26,23 @@ BalmJS prescribes best practices and tools to help you stay productive.
 
 ```
 project
-├── .tmp // Scaffolds out a temporary directory for development
-├── dist // Scaffolds out the production build
-├─┬ src  // Source code in here
+├── .tmp         // Scaffolds out a temporary directory for development
+├── dist         // Scaffolds out the production build
+├─┬ src          // Source code in here (Create a directory in project)
 │ ├─┬ styles
-│ │ └── main.css
+│ │ └── main.css // Required. A entry file for CSS.
 │ ├─┬ scripts
-│ │ └── main.js
+│ │ └── main.js  // Required. A entry file for JS.
 │ ├── images
 │ ├── fonts
 │ ├── media
-│ └── index.html
-├─┬ config (Optional. But recommended. Refer to BalmCLI's templates.)
+│ └── index.html // Required. A entry file for HTML.
+├─┬ config       // Optional. But recommended. Refer to BalmCLI's templates.
 │ ├── balmrc.js
 │ └── publish.js
-├── .dotfile (.babelrc, .gitignore, etc...)
-├── gulpfile.js
-├── package.json
+├── .dotfile     // (.babelrc, .gitignore, etc...)
+├── gulpfile.js  // Required. A configuration file for Balm.
+├── package.json // Required.
 └── ...
 ```
 
