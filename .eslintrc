@@ -16,6 +16,7 @@
     "$": true,
     "browserSync": true,
     "del": true,
+    "cssnano": true,
     "webpack": true,
     "BalmJS": true,
     "config": true,
