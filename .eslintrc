@@ -21,6 +21,7 @@
     "BalmJS": true,
     "config": true,
     "logger": true,
+    "getNamespace": true,
     "File": true,
     "Task": true
   },
