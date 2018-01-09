@@ -1,16 +1,21 @@
 import gulp from 'gulp';
 import balm from '../lib/main';
 import balmConfig from './config/balmrc';
+// import './config/task';
 
 balm.config = balmConfig;
 
-balm.beforeTask = () => {
-  console.log('Hello BalmJS');
-};
+// Function test
+// balm.beforeTask = () => {
+//   console.log('Hello BalmJS');
+// };
+// balm.afterTask = () => {
+//   console.log('gg');
+// };
 
-balm.afterTask = () => {
-  console.log('gg');
-};
+// String test
+// balm.beforeTask = 'task:before';
+// balm.afterTask = 'task:after';
 
 // Test build
 balm.go(mix => {
