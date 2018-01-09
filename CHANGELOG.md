@@ -1,5 +1,20 @@
 # BalmJS ChangeLog
 
+## 0.15.0 (2018.01.09)
+
+### :tada: Improvements
+
+- update `logger`
+- add `namespace` for `balm` tasks
+- `beforeTask` & `afterTask` support `string` (gulp task name)
+
+### :gear: Update dependencies
+
+- remove `gulp-util`, add `ansi-colors` & `fancy-log`
+- remove `gulp-cssnano`, add `cssnano`
+
+---
+
 ## 0.14.0 (2018.01.08)
 
 ### :gear: Custom task API changes
