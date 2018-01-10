@@ -1,11 +1,12 @@
 # BalmJS ChangeLog
 
-## 0.15.1 (2018.01.10)
+## 0.15.2 (2018.01.10)
 
 ### :beetle: Bug fixes and improvements
 
 - fix `server` watch bug
 - update styles watch event
+- fix `production` flag bug (you can run `gulp --production` or `gulp -p` for build)
 
 ---
 
