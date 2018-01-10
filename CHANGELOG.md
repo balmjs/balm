@@ -1,5 +1,14 @@
 # BalmJS ChangeLog
 
+## 0.15.1 (2018.01.10)
+
+### :beetle: Bug fixes and improvements
+
+- fix `server` watch bug
+- update styles watch event
+
+---
+
 ## 0.15.0 (2018.01.09)
 
 ### :tada: Improvements
