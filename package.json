@@ -100,7 +100,7 @@
     "url": "git+https://github.com/balmjs/balm.git"
   },
   "scripts": {
-    "prepublish": "gulp prepublish",
+    "prepublishOnly": "gulp prepublish",
     "test": "gulp"
   },
   "engines": {
