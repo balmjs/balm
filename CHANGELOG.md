@@ -1,9 +1,17 @@
+## 0.5.8 (2018.01.11)
+
+- Fix `require-dir` on Node 8, which tweaks `require.extensions`.
+
+---
+
 ## 0.5.7
 
 - fix browser reload
 - fix `version` for vendor all in one
 - update dependencies
 - fix test
+
+---
 
 ## 0.5.6
 
