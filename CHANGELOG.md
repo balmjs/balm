@@ -1,5 +1,18 @@
 # BalmJS ChangeLog
 
+## 0.15.3 (2018.01.11)
+
+### :beetle: Bug fixes and improvements
+
+- update `logger` format and color
+- update `scripts.loaders` merge for `webpack`
+
+### :gear: Update dependencies
+
+- add `webpack-merge`
+
+---
+
 ## 0.15.2 (2018.01.10)
 
 ### :beetle: Bug fixes and improvements

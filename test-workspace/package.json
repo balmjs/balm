@@ -54,6 +54,7 @@
     "webpack": "^3.10.0",
     "webpack-dev-middleware": "^2.0.4",
     "webpack-hot-middleware": "^2.21.0",
+    "webpack-merge": "^4.1.1",
     "wiredep": "^4.0.0"
   },
   "devDependencies": {
