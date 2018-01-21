@@ -1,5 +1,16 @@
 # BalmJS ChangeLog
 
+## 0.16.0 (2018.01.21)
+
+:tada: __New feature: [New Full Documentation](http://balmjs.com/docs/)__
+
+### :beetle: Bug fixes and improvements
+
+- fix `remove` bug for sass api
+- update `logger`
+
+---
+
 ## 0.15.3 (2018.01.11)
 
 ### :beetle: Bug fixes and improvements
