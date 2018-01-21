@@ -110,7 +110,7 @@
     "coverage": "nyc report --reporter=text --reporter=text-summary | coveralls"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "license": "MIT",
   "private": true

@@ -4,6 +4,10 @@
 
 :tada: __New feature: [New Full Documentation](http://balmjs.com/docs/)__
 
+### :ghost: Breaking change
+
+- I think `node >= 8` has WebAssembly
+
 ### :beetle: Bug fixes and improvements
 
 - fix `remove` bug for sass api
