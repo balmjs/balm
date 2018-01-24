@@ -129,7 +129,7 @@ $ gulp
 $ gulp --production
 ```
 
-## [Documentation](http://balmjs.com/docs/)
+## [Documentation](http://balmjs.com/docs/en/) | [中文文档](http://balmjs.com/docs/zh-cn/)
 
 - [Getting Started](http://balmjs.com/docs/en/basic/getting-started.html)
 - [Configuration](http://balmjs.com/docs/en/configuration/toc.html)

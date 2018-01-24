@@ -1,5 +1,17 @@
 # BalmJS ChangeLog
 
+## 0.16.1 (2018.01.24)
+
+:tada: __New feature: [中文文档](http://balmjs.com/docs/zh-cn/)__
+
+### :beetle: Bug fixes and improvements
+
+- fix api: `mix.serve()`
+- rename api `mix.buildStyle()` to `mix.csspath()`
+- add api: `mix.html()`
+
+---
+
 ## 0.16.0 (2018.01.21)
 
 :tada: __New feature: [New Full Documentation](http://balmjs.com/docs/)__
