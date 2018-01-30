@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   entry: {
     cdn: './src/scripts/cdn.js'
   },

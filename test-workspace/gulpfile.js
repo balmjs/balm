@@ -1,15 +1,16 @@
-import gulp from 'gulp';
-import balm from '../lib/main';
-import balmConfig from './config/balmrc';
-// import './config/task';
+var gulp = require('gulp');
+// var balm = require('../lib/main'); // from local
+var balm = require('balm'); // from node_modules
+var balmConfig = require('./config/balmrc');
+// require('./config/task');
 
 balm.config = balmConfig;
 
 // Function test
-// balm.beforeTask = () => {
+// balm.beforeTask = function() => {
 //   console.log('Hello BalmJS');
 // };
-// balm.afterTask = () => {
+// balm.afterTask = function() => {
 //   console.log('gg');
 // };
 
@@ -18,7 +19,7 @@ balm.config = balmConfig;
 // balm.afterTask = 'task:after';
 
 // Test build
-balm.go(mix => {
+balm.go(function(mix) {
   if (balm.config.production) {
     // Test compiling
     mix.css('src/styles/main.css', '.compile/styles/css');

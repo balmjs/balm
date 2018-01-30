@@ -1,13 +1,13 @@
-import path from 'path';
+var path = require('path');
 
-import jsConfig from './main-sync';
-// import jsConfig from './main-async';
-// import jsConfig from './vendor-all'; // Just for production
-// import jsConfig from './vendor-custom';
-// import jsConfig from './cdn';
-// import jsConfig from './extract-css';
+var jsConfig = require('./main-sync');
+// var jsConfig = require('./main-async');
+// var jsConfig = require('./vendor-all'); // Just for production
+// var jsConfig = require('./vendor-custom');
+// var jsConfig = require('./cdn');
+// var jsConfig = require('./extract-css');
 
-const scripts = Object.assign(
+var scripts = Object.assign(
   {},
   {
     eslint: true,
@@ -20,17 +20,17 @@ const scripts = Object.assign(
   jsConfig
 );
 
-const root = path.resolve(__dirname, '..', '..');
-const workspace = path.join(root, 'test-workspace');
-const assets = path.join(workspace, 'assets');
+var root = path.resolve(__dirname, '..', '..');
+var workspace = path.join(root, 'test-workspace');
+var assets = path.join(workspace, 'assets');
 
-const testConfig = {
+var testConfig = {
   root: root,
   workspace: workspace,
   assets: assets
 };
 
-const balmConfig = {
+var balmConfig = {
   production: true,
   server: {
     open: false
@@ -79,4 +79,4 @@ const balmConfig = {
   }
 };
 
-export default balmConfig;
+module.exports = balmConfig;

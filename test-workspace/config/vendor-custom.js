@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   entry: {
     'vendor-a': ['jquery'],
     'vendor-b': ['lodash'],

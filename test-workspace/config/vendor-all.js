@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   entry: {
     'vendor-all': './src/scripts/vendor-page.js'
   },
