@@ -5,18 +5,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hello BalmJS</title>
-  <!-- build:css css/reset.css -->
-  <!-- bower:css -->
+
+  <!-- build:css css/bower/reset.css -->
   <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css" />
-  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css css/npm/reset.css -->
+  <link rel="stylesheet" href="/node_modules/normalize.css/normalize.css" />
   <!-- endbuild -->
 </head>
 
 <body>
   <h1>Local CDN</h1>
-  <!-- build:js js/cdn/lib.js -->
+
+  <!-- build:js js/bower/lib.js -->
   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- endbuild -->
+
+  <!-- build:js js/npm/lib.js -->
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- endbuild -->
+
   <script src="%PUBLIC_URL%/scripts/cdn.js"></script>
 </body>
 
