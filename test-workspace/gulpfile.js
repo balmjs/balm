@@ -1,6 +1,6 @@
 var gulp = require('gulp');
-// var balm = require('../lib/main'); // from local
-var balm = require('balm'); // from node_modules
+var balm = require('../lib/main'); // from local
+// var balm = require('balm'); // from node_modules
 var balmConfig = require('./config/balmrc');
 // require('./config/task');
 
