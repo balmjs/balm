@@ -5,12 +5,12 @@
   <br>
   <br>
 
-  [![NPM version][npm-image]][npm-url]
-  [![Build Status][travis-image]][travis-url]
-  [![Build Status][appveyor-image]][appveyor-url]
-  [![Dependency Status][daviddm-image]][daviddm-url]
-  [![Coverage percentage][coveralls-image]][coveralls-url]
-  <br>
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Build Status][appveyor-image]][appveyor-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
+[![Coverage percentage][coveralls-image]][coveralls-url]
+<br>
 
   <h1>BalmJS</h1>
   <p>A flexible Front-End workflow for webapps</p>
@@ -50,20 +50,20 @@ project
 
 ## Ecosystem
 
-Project | Status | Description
-------- | ------ | -----------
-[balm-cli](https://github.com/balmjs/balm-cli) | [![NPM version][balm-cli-image]][balm-cli-url] | :spades: BalmJS scaffolding tool
-[balm-gui](https://github.com/balmjs/balm-gui) | N/A | :clubs: GUI for BalmJS
-[balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue
-[balm-ui](https://github.com/balmjs/ui-vue)    | [![NPM version][balm-ui-image]][balm-ui-url] | :diamonds: Material Components + Vue
+| Project                                               | Status                                                 | Description                          |
+| ----------------------------------------------------- | ------------------------------------------------------ | ------------------------------------ |
+| [balm-cli](https://github.com/balmjs/balm-cli)        | [![NPM version][balm-cli-image]][balm-cli-url]         | :spades: BalmJS scaffolding tool     |
+| [balm-gui](https://github.com/balmjs/balm-gui)        | N/A                                                    | :clubs: GUI for BalmJS               |
+| [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue  |
+| [balm-ui](https://github.com/balmjs/ui-vue)           | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Material Components + Vue |
 
 ## Demo
 
-- [x] [Simple HTML](https://github.com/balmjs/demo-html)
-- [x] [Laravel](https://github.com/balmjs/demo-laravel)
-- [x] [Vue](https://github.com/balmjs/demo-vue)
-- [x] [TypeScript](https://github.com/balmjs/demo-ts)
-- [ ] Yours awesome projects...
+* [x] [Simple HTML](https://github.com/balmjs/demo-html)
+* [x] [Laravel](https://github.com/balmjs/demo-laravel)
+* [x] [Vue](https://github.com/balmjs/demo-vue)
+* [x] [TypeScript](https://github.com/balmjs/demo-ts)
+* [x] Yours awesome projects...
 
 ## Installation
 
@@ -73,7 +73,7 @@ You need to set up your development environment before you can do anything.
 
 Install [Node.js® and npm](https://nodejs.org/en/download/) if they are not already on your machine.
 
-> __Verify that you are running at least node `6.x.x` and npm `3.x.x`__ by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
+> **Verify that you are running at least node `6.x.x` and npm `3.x.x`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
 
 BalmJS workflow using [gulp](https://gulpjs.com/) for the build process, so you need install `gulp-cli`.
 
@@ -84,7 +84,7 @@ $ npm install --global gulp-cli
 $ gulp -v
 ```
 
-### 1. Installing __`balm`__
+### 1. Installing **`balm`**
 
 Install with npm:
 
@@ -115,7 +115,7 @@ balm.config = {
 balm.go();
 ```
 
-:page_with_curl: Refer to [our configuration docs](http://balmjs.com/docs/en/configuration/toc.html) to learn more about config __`balm`__.
+:page_with_curl: Refer to [our configuration docs](http://balmjs.com/docs/en/configuration/toc.html) to learn more about config **`balm`**.
 
 ### 3. Usage
 
@@ -131,11 +131,11 @@ $ gulp --production
 
 ## [Documentation](http://balmjs.com/docs/en/) | [中文文档](http://balmjs.com/docs/zh-cn/)
 
-- [Getting Started](http://balmjs.com/docs/en/basic/getting-started.html)
-- [Configuration](http://balmjs.com/docs/en/configuration/toc.html)
-- [Custom Task API](http://balmjs.com/docs/en/api/toc.html)
-- [Recipes](http://balmjs.com/docs/en/recipes/toc.html)
-- [FAQ](http://balmjs.com/docs/en/faq.html)
+* [Getting Started](http://balmjs.com/docs/en/basic/getting-started.html)
+* [Configuration](http://balmjs.com/docs/en/configuration/toc.html)
+* [Custom Task API](http://balmjs.com/docs/en/api/toc.html)
+* [Recipes](http://balmjs.com/docs/en/recipes/toc.html)
+* [FAQ](http://balmjs.com/docs/en/faq.html)
 
 ## License
 
@@ -147,10 +147,9 @@ $ gulp --production
 
 In chronological order
 
-- [Node.js](https://nodejs.org/)
-- [gulp.js](https://gulpjs.com/)
-- [webpack](https://webpack.js.org/)
-
+* [Node.js](https://nodejs.org/)
+* [gulp.js](https://gulpjs.com/)
+* [webpack](https://webpack.js.org/)
 
 [npm-image]: https://badge.fury.io/js/balm.svg
 [npm-url]: https://npmjs.org/package/balm
@@ -162,7 +161,6 @@ In chronological order
 [daviddm-url]: https://david-dm.org/balmjs/balm
 [coveralls-image]: https://coveralls.io/repos/balmjs/balm/badge.svg
 [coveralls-url]: https://coveralls.io/r/balmjs/balm
-
 [balm-cli-image]: https://badge.fury.io/js/balm-cli.svg
 [balm-cli-url]: https://npmjs.org/package/balm-cli
 [balm-ui-lite-image]: https://badge.fury.io/js/balm-ui-lite.svg
