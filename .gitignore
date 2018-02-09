@@ -29,7 +29,7 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
+# Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
 # Dependency directories
@@ -57,5 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
-# Build directory (custom)
+# next.js build output
+.next
+
+# BalmJS build output (custom)
 dist
