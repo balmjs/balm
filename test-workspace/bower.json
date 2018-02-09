@@ -2,13 +2,7 @@
   "name": "balm-test",
   "private": true,
   "authors": "Elf-mousE <ifmouz@gmail.com>",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
   "dependencies": {
     "normalize-css": "^7.0.0",
     "jquery": "^3.0.0",
