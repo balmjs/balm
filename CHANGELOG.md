@@ -1,5 +1,11 @@
 # BalmJS ChangeLog
 
+## 0.16.2 (2018.02.16)
+
+:tada: Happy Lunar New Year
+
+---
+
 ## 0.16.1 (2018.01.24)
 
 :tada: **New feature: [中文文档](http://balmjs.com/docs/zh-cn/)**
