@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    cdn: './src/scripts/cdn.js'
+    main: './src/scripts/cdn.js'
   },
   cdn: {
     jquery: '$',

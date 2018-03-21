@@ -1,5 +1,5 @@
 module.exports = {
   entry: {
-    'main-async': './src/scripts/main-async.js'
+    main: './src/scripts/main-async.js'
   }
 };

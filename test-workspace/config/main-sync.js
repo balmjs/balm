@@ -1,5 +1,5 @@
 module.exports = {
   entry: {
-    'main-sync': './src/scripts/main-sync.js'
+    main: './src/scripts/main-sync.js'
   }
 };

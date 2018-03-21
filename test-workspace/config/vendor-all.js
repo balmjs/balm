@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    'vendor-all': './src/scripts/vendor-page.js'
+    main: './src/scripts/vendor-page.js'
   },
   extractAllVendors: true
 };
