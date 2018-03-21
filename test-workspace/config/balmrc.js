@@ -2,7 +2,7 @@ var path = require('path');
 
 var jsConfig = require('./main-sync');
 // var jsConfig = require('./main-async');
-// var jsConfig = require('./vendor-all'); // Just for production
+// var jsConfig = require('./vendor-all');
 // var jsConfig = require('./vendor-custom');
 // var jsConfig = require('./cdn');
 // var jsConfig = require('./extract-css');

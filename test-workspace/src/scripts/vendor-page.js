@@ -2,6 +2,10 @@ import $ from 'jquery';
 import _ from 'lodash';
 import moment from 'moment';
 
+['a', 'b', 'c', 'd', 'e', 'f', 'g'].forEach(item => {
+  import(`./async/${item}`);
+});
+
 let width = $(window).width();
 
 let a = _.defaults({ 'a': 1 }, { 'a': 3, 'b': 2 });
