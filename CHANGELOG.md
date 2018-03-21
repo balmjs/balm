@@ -1,5 +1,21 @@
 # BalmJS ChangeLog
 
+## 0.17.0 (2018.03.21)
+
+:tada: **New feature: Upgrade to webpack@4**
+
+### New
+
+* refactor bundler
+* update dependencies
+
+### :gear: New config
+
+* `scripts.optimization`
+* `scripts.extractCss.filename`
+
+---
+
 ## 0.16.2 (2018.02.16)
 
 :tada: Happy Lunar New Year
