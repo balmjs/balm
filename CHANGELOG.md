@@ -1,12 +1,20 @@
 # BalmJS ChangeLog
 
+## 0.17.1 (2018.03.23)
+
+### :gear: config
+
+* restore `scripts.vendorName` default value `vendor`
+
+---
+
 ## 0.17.0 (2018.03.21)
 
 :tada: **New feature: Upgrade to webpack@4**
 
-### New
+### :rocket: Big changes
 
-* refactor bundler
+* bundler refactoring
 * update dependencies
 
 ### :gear: New config
