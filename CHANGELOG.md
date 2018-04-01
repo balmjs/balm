@@ -1,5 +1,27 @@
 # BalmJS ChangeLog
 
+## 0.18.0 (2018.04.01)
+
+:tada: **Refactoring middleware for server**
+
+### :gear: New config
+
+* `server.devOptions`
+* `server.hotOptions`
+* `server.proxyContext`
+* `server.proxyOptions`
+* `server.historyOptions`
+* `server.middlewares`
+
+### :ghost: Breaking change
+
+* `server.proxyTable` is deprecated. Use `server.proxyContext` and `server.proxyOptions` instead.
+* `server.historyApiFallback` rename to `server.historyOptions`
+
+### :page_with_curl: Update Docs for `server` new configs
+
+---
+
 ## 0.17.1 (2018.03.23)
 
 ### :gear: config
