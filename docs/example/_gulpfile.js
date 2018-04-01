@@ -7,11 +7,18 @@ var balm = require('balm');
 balm.config = {
   server: {
     open: true,
+    // Version < 0.18.0
     proxyTable: {
       '/api': {
         target: 'http://your.project.dev', // Target host
         changeOrigin: true // Needed for virtual hosted sites
       }
+    },
+    // Version >= 0.18.0
+    proxyContext: '/api',
+    proxyOptions: {
+      target: 'http://your.project.dev',
+      changeOrigin: true
     }
   },
   roots: {
@@ -38,6 +45,7 @@ balm.config = {
       main: './app/scripts/main.js'
     }
   },
+  // Sprite config
   // sprites: {
   //   image: ['img-icon'], // Icon path: './app/images/img-icon'
   //   svg: ['svg-icon'] //  SVG path: './app/images/svg-icon'
