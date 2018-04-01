@@ -6,17 +6,16 @@
 
 ### :gear: New config
 
-* `server.devOptions`
-* `server.hotOptions`
-* `server.proxyContext`
-* `server.proxyOptions`
-* `server.historyOptions`
-* `server.middlewares`
+* add `server.devOptions` for `webpack-dev-middleware`
+* add `server.hotOptions` for `webpack-hot-middleware`
+* add `server.proxyContext`, `server.proxyOptions` for `http-proxy-middleware`
+* add `server.historyOptions` for `connect-history-api-fallback`
+* add `server.middlewares` for Browsersync
 
 ### :ghost: Breaking change
 
-* `server.proxyTable` is deprecated. Use `server.proxyContext` and `server.proxyOptions` instead.
-* `server.historyApiFallback` rename to `server.historyOptions`
+* `server.proxyTable` was removed -> `server.proxyContext`, `server.proxyOptions`
+* `server.historyApiFallback` was renamed -> `server.historyOptions`
 
 ### :page_with_curl: Update Docs for `server` new configs
 
