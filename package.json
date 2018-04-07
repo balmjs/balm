@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.18.0",
+  "version": "0.19.0",
   "description": "A flexible front-end workflow for webapps",
   "homepage": "http://balmjs.com/",
   "author": {
@@ -39,7 +39,7 @@
     "gulp-replace": "^0.6.1",
     "gulp-rev-all": "^0.9.7",
     "gulp-rev-delete-original": "^0.2.3",
-    "gulp-sass": "^3.2.1",
+    "gulp-sass": "^4.0.0",
     "gulp-sftp": "^0.1.5",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.4",
@@ -61,8 +61,8 @@
     "style-loader": "^0.20.2",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "url-loader": "^1.0.1",
-    "webpack": "^4.4.1",
-    "webpack-dev-middleware": "^3.1.0",
+    "webpack": "^4.5.0",
+    "webpack-dev-middleware": "^3.1.2",
     "webpack-hot-middleware": "^2.21.0",
     "webpack-merge": "^4.1.2",
     "wiredep": "^4.0.0"

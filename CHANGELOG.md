@@ -1,5 +1,13 @@
 # BalmJS ChangeLog
 
+## 0.19.0 (2018.04.07)
+
+### :rocket: Big changes
+
+* update `gulp-sass@4`
+
+---
+
 ## 0.18.0 (2018.04.01)
 
 :tada: **Refactoring middleware for server**
