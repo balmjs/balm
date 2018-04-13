@@ -1,11 +1,14 @@
 var path = require('path');
 
-var jsConfig = require('./main-sync');
+// var jsConfig = require('./main-sync');
 // var jsConfig = require('./main-async');
 // var jsConfig = require('./vendor-all');
 // var jsConfig = require('./vendor-custom');
 // var jsConfig = require('./cdn');
 // var jsConfig = require('./extract-css');
+// var jsConfig = require('./ssr/client');
+// var jsConfig = require('./ssr/server');
+var jsConfig = require('./ssr');
 
 var scripts = Object.assign(
   {},
@@ -31,9 +34,10 @@ var testConfig = {
 };
 
 var balmConfig = {
-  production: true,
+  // production: true,
   server: {
-    open: false
+    open: false,
+    historyOptions: true
   },
   workspace: testConfig.workspace,
   roots: {
@@ -63,12 +67,12 @@ var balmConfig = {
     image: ['img-icon'],
     svg: ['svg-icon']
   },
-  cache: true,
+  cache: false,
   assets: {
     publicUrl: '/',
     root: testConfig.assets,
     publicPath: 'public',
-    subDir: 'web',
+    // subDir: 'web',
     // Extra cache files
     // includes: [
     //   'dist/web/css/vendor.css',

@@ -3,15 +3,23 @@
   "private": true,
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.0",
     "jquery": "^3.0.0",
+    "jsdom": "^11.7.0",
+    "jsdom-global": "^3.0.2",
+    "lru-cache": "^4.1.2",
     "normalize.css": "^7.0.0",
     "vue": "^2.3.0",
+    "vue-meta": "^1.5.0",
     "vue-router": "^2.5.0",
     "vue-server-renderer": "^2.3.0",
-    "vuex": "^3.0.0"
+    "vuex": "^3.0.0",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-stage-2": "^6.24.1",
     "vue-loader": "^12.0.0",
     "vue-style-loader": "^3.0.0",
     "vue-template-compiler": "^2.3.0"
@@ -20,6 +28,7 @@
     "preinstall": "bower install",
     "dev": "gulp",
     "prod": "gulp --production",
+    "start": "node server",
     "build": "npm run build:client && npm run build:server",
     "build:client": "gulp -p",
     "build:server": "gulp -p -ssr"

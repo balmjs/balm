@@ -1,0 +1,18 @@
+{
+  "code": 200,
+  "message": "OK",
+  "data": [
+    {
+      "name": "Home",
+      "url": "/home"
+    },
+    {
+      "name": "About",
+      "url": "/about"
+    },
+    {
+      "name": "User",
+      "url": "/user"
+    }
+  ]
+}
