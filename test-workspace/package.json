@@ -4,12 +4,16 @@
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "dependencies": {
     "axios": "^0.18.0",
-    "express": "^4.16.0",
+    "compression": "^1.7.1",
+    "cross-env": "^5.1.1",
+    "express": "^4.16.2",
     "jquery": "^3.0.0",
     "jsdom": "^11.7.0",
     "jsdom-global": "^3.0.2",
-    "lru-cache": "^4.1.2",
+    "lru-cache": "^4.1.1",
     "normalize.css": "^7.0.0",
+    "route-cache": "0.4.3",
+    "serve-favicon": "^2.4.5",
     "vue": "^2.3.0",
     "vue-meta": "^1.5.0",
     "vue-router": "^2.5.0",
@@ -22,13 +26,14 @@
     "babel-preset-stage-2": "^6.24.1",
     "vue-loader": "^12.0.0",
     "vue-style-loader": "^3.0.0",
-    "vue-template-compiler": "^2.3.0"
+    "vue-template-compiler": "^2.3.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
     "preinstall": "bower install",
     "dev": "gulp",
     "prod": "gulp --production",
-    "start": "node server",
+    "start": "cross-env NODE_ENV=production node server",
     "build": "npm run build:client && npm run build:server",
     "build:client": "gulp -p",
     "build:server": "gulp -p -ssr"
