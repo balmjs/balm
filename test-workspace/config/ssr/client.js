@@ -1,14 +1,26 @@
+var balm = require('../../../dist/main'); // from local
+// var balm = require('balm'); // from node_modules
 var VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
+var balmConfig = require('./balmrc');
 var base = require('./base');
 
-var config = Object.assign(base, {
+balmConfig.scripts = Object.assign(base, {
   entry: {
-    // lib: ['vue', 'vue-router', 'vuex', 'axios'],
     app: './src/scripts/entry-client.js'
   },
   // This plugins generates `vue-ssr-client-manifest.json` in the
   // output directory.
   plugins: [new VueSSRClientPlugin()]
 });
+
+balm.config = balmConfig;
+
+balm.go(function(mix) {
+  if (balm.config.production) {
+    mix.copy('src/data/*', 'dist/data');
+  }
+});
+
+var config = balm.getWebpackConfig();
 
 module.exports = config;
