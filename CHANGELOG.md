@@ -1,5 +1,15 @@
 # BalmJS ChangeLog
 
+## 0.19.1 (2018.04.18)
+
+### :beetle: Bug fixes and improvements
+
+* fix `scripts.plugins` bug since `0.17`
+* SSR supported for build
+* optimize webpack default config
+
+---
+
 ## 0.19.0 (2018.04.07)
 
 ### :rocket: Big changes
