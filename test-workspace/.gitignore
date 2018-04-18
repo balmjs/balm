@@ -4,6 +4,7 @@ app/styles/sprites
 app/styles/svg
 .tmp
 .compile
+copy-dest
 dist
 assets
 *.zip

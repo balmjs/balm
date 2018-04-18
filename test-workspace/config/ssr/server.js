@@ -2,7 +2,7 @@ var balm = require('../../../dist/main'); // from local
 // var balm = require('balm'); // from node_modules
 var nodeExternals = require('webpack-node-externals');
 var VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
-var balmConfig = require('./balmrc');
+var balmConfig = require('../balmrc');
 var base = require('./base');
 
 balmConfig.ssr = true;

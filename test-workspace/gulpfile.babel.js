@@ -1,2 +1,2 @@
-// require('./config/balmrc');
-require('./config/ssr/client');
+require('./config/spa');
+// require('./config/ssr/client');

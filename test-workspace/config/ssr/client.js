@@ -1,9 +1,10 @@
 var balm = require('../../../dist/main'); // from local
 // var balm = require('balm'); // from node_modules
 var VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
-var balmConfig = require('./balmrc');
+var balmConfig = require('../balmrc');
 var base = require('./base');
 
+balmConfig.server.historyOptions = true;
 balmConfig.scripts = Object.assign(base, {
   entry: {
     app: './src/scripts/entry-client.js'
