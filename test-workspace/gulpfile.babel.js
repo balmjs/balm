@@ -1,11 +1,18 @@
 var balm = require('../lib/main');
 
 balm.config = {
-  // debug: true
-  useDefault: true
+  debug: true,
+  server: {
+    open: false
+  },
+  scripts: {
+    entry: {
+      main: './src/scripts/main-sync.js'
+    }
+  }
 };
 
-// console.log(balm.config);
+balm.go();
 
 // require('./config/spa');
 // require('./config/ssr/client');
