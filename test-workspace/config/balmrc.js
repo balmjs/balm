@@ -11,6 +11,7 @@ var testConfig = {
 };
 
 var balmConfig = {
+  // debug: true,
   server: {
     open: false
   },

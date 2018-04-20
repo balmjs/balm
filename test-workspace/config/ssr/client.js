@@ -8,11 +8,11 @@ balmConfig.server.historyOptions = true;
 balmConfig.scripts = Object.assign(base, {
   entry: {
     app: './src/scripts/entry-client.js'
-  },
-  // This plugins generates `vue-ssr-client-manifest.json` in the
-  // output directory.
-  plugins: [new VueSSRClientPlugin()]
+  }
 });
+// This plugins generates `vue-ssr-client-manifest.json` in the
+// output directory.
+balmConfig.scripts.plugins.push(new VueSSRClientPlugin());
 
 balm.config = balmConfig;
 
@@ -21,7 +21,3 @@ balm.go(function(mix) {
     mix.copy('src/data/*', 'dist/data');
   }
 });
-
-var config = balm.getWebpackConfig();
-
-module.exports = config;

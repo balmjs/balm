@@ -21,17 +21,13 @@ balmConfig.scripts = Object.assign(base, {
   externals: nodeExternals({
     // do not externalize CSS files in case we need to import it from a dep
     whitelist: /\.css$/
-  }),
-  // This is the plugin that turns the entire output of the server build
-  // into a single JSON file. The default file name will be
-  // `vue-ssr-server-bundle.json`
-  plugins: [new VueSSRServerPlugin()]
+  })
 });
+// This is the plugin that turns the entire output of the server build
+// into a single JSON file. The default file name will be
+// `vue-ssr-server-bundle.json`
+balmConfig.scripts.plugins.push(new VueSSRServerPlugin());
 
 balm.config = balmConfig;
 
 balm.go();
-
-var config = balm.getWebpackConfig();
-
-module.exports = config;
