@@ -59,12 +59,12 @@ balm.go(function(mix) {
     //   '.compile/minify/*.html'
     // ], '.compile/version');
     // Test copy
-    mix.copy(`src/index.html`, `.compile`, {
+    mix.copy('src/index.html', '.compile', {
       basename: 'newfile',
       extname: '.php'
     });
     // Test zip
-    mix.remove(`archive.zip`);
+    mix.remove('archive.zip');
     mix.zip();
     // Test publish
     mix.publish();

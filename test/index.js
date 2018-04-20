@@ -7,7 +7,6 @@ import remove from 'rimraf';
 balm.config = balmConfig;
 global.balm = balm;
 global.workspace = balmConfig.workspace;
-global.appDir = path.join(workspace, balmConfig.roots.source);
 
 global.path = require('path');
 global.fs = require('fs');
@@ -20,7 +19,7 @@ global.shouldExist = (file, contents) => {
   fs.existsSync(file).should.be.true;
 
   if (contents) {
-    fs.readFileSync(file, {encoding: 'utf8'}).should.eql(contents);
+    fs.readFileSync(file, { encoding: 'utf8' }).should.eql(contents);
   }
 };
 

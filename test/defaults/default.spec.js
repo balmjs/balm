@@ -1,4 +1,4 @@
-import configTests from './config.test';
+import configTests from './config.spec';
 
 describe('Default Task', () => {
   beforeEach(() => {
@@ -14,9 +14,9 @@ describe('Default Task', () => {
 
       shouldExist('dist/index.html');
       shouldExist('dist/manifest.json');
-      // shouldExist('dist/web/css/main.fbcfc71a.css');
-      // shouldExist('dist/web/js/main-sync.a16a5679.js');
-      // shouldExist('dist/web/img/logo.005d8bd1.svg');
+      // shouldExist('dist/web/css/main.2280f1dc.css');
+      // shouldExist('dist/web/js/main.835e9446.js');
+      // shouldExist('dist/web/img/logo.bae9298c.svg');
       // shouldExist('dist/web/font/roboto-regular.77cf2123.woff');
 
       done();
