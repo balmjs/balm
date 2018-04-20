@@ -10,7 +10,7 @@ module.exports = {
       loader: 'vue-loader'
     }
   ],
-  // plugins: [new VueLoaderPlugin()],
+  plugins: [], // new VueLoaderPlugin()
   eslint: false,
   options: {
     compress: {
