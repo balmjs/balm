@@ -1,5 +1,61 @@
 # BalmJS ChangeLog
 
+## 0.20.0 (2014.04.21)
+
+### :rocket: Refactoring
+
+* plugins
+* loaders
+* logger
+* `Balm` pattern
+* test
+
+### :beetle: Bug fixes and improvements
+
+* fix `scripts.entry` bug
+* fix `svg` bug
+* clean code for `clean` & `cache`
+
+**balmrc.js**
+
+Before:
+
+```js
+const balmConfig = {
+  ...
+  scripts: {
+    loaders: [
+      {
+        test: /\.vue$/,
+        loader: 'vue' // Since `balm@0.20`, deprecated usage for default
+      }
+    ],
+    ...
+  },
+  ...
+};
+```
+
+Now:
+
+```js
+const balmConfig = {
+  ...
+  scripts: {
+    loaders: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader' // We strongly recommend using the full name
+      }
+    ],
+    ...
+  },
+  ...
+};
+```
+
+---
+
 ## 0.19.1 (2018.04.18)
 
 ### :beetle: Bug fixes and improvements
