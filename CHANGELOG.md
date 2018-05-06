@@ -1,6 +1,12 @@
 # BalmJS ChangeLog
 
-## 0.20.0 (2014.04.21)
+## 0.20.3 (2018.05.06)
+
+* update dependencies for new colors
+
+---
+
+## 0.20.0 (2018.04.21)
 
 ### :rocket: Refactoring
 
