@@ -1,5 +1,13 @@
 # BalmJS ChangeLog
 
+## 0.20.4 (2018.05.07)
+
+### :beetle: Bug fixes and improvements
+
+* fix js entry bug for `mix.js` api
+
+---
+
 ## 0.20.3 (2018.05.06)
 
 * update dependencies for new colors
