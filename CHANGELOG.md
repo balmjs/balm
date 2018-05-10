@@ -1,5 +1,13 @@
 # BalmJS ChangeLog
 
+## 0.20.5 (2018.05.10)
+
+### :beetle: Bug fixes and improvements
+
+* fix cacheGroups's `chunks` bug
+
+---
+
 ## 0.20.4 (2018.05.07)
 
 ### :beetle: Bug fixes and improvements
