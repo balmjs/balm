@@ -1,6 +1,6 @@
 # BalmJS ChangeLog
 
-## 0.20.5 (2018.05.10)
+## 0.20.6 (2018.05.11)
 
 ### :beetle: Bug fixes and improvements
 
