@@ -1,8 +1,8 @@
-console.log('Loading...');
+console.info('Loading hello');
 
 const hello = {
   greet: () => {
-    console.info('Hello BalmJS');
+    console.log('Hello BalmJS');
   }
 };
 

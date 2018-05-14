@@ -25,13 +25,15 @@ var balmConfig = {
       css: 'styles',
       js: 'scripts',
       img: 'images',
-      font: 'fonts'
+      font: 'fonts',
+      media: 'media'
     },
     target: {
-      css: 'css',
-      js: 'js',
-      img: 'img',
-      font: 'font'
+      css: 'a',
+      js: 'b',
+      img: 'c',
+      font: 'd',
+      media: 'e'
     }
   },
   styles: {

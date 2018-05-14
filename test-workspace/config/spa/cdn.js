@@ -2,7 +2,7 @@ module.exports = {
   entry: {
     main: './src/scripts/cdn.js'
   },
-  cdn: {
+  externals: {
     jquery: '$',
     lodash: '_',
     moment: 'moment'

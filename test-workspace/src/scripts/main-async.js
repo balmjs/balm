@@ -1,11 +1,14 @@
 const hello = () => import('./hello');
 
-['a', 'b', 'c', 'd', 'e', 'f', 'g'].forEach(item => {
-  import(`./async/${item}`);
-});
+console.info('[Async]', 'before');
 
 hello().then(m => {
   m.default.greet();
 });
 
-console.log(`I'm home page (Async)`);
+['a', 'b', 'c', 'd', 'e', 'f', 'g'].forEach(item => {
+  console.log(`Loading ${item}`);
+  import(`./async/${item}`);
+});
+
+console.info('[Async]', 'after');

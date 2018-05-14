@@ -1,5 +1,7 @@
 import hello from './hello';
 
+console.info('[Sync]', 'before');
+
 hello.greet();
 
-console.log(`I'm home page (Sync)`);
+console.info('[Sync]', 'after');
