@@ -1,5 +1,5 @@
 import assert from 'assert';
-import balmConfig from '../../test-workspace/config/spa/test';
+import balmConfig from '../../test-workspace/config/test';
 
 const configTests = () => {
   describe('Test balm config', () => {

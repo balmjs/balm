@@ -1,5 +1,5 @@
-var balmConfig = require('../balmrc');
-var jsConfig = require('./main-sync');
+var balmConfig = require('./balmrc');
+var jsConfig = require('./spa/main-sync');
 
 var scripts = Object.assign(jsConfig, {
   eslint: true,
