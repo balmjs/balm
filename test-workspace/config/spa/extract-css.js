@@ -5,6 +5,6 @@ module.exports = {
   },
   extractCss: {
     enabled: true,
-    // publicPath: '../../'
+    prefix: ''
   }
 };
