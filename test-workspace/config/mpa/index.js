@@ -4,9 +4,8 @@ var balm = require('../../../lib/main'); // from local
 var balmConfig = require('../balmrc');
 
 balmConfig.scripts = {
-  // extractAllVendors: true,
   entry: {
-    lib: ['jquery', 'lodash', 'moment'],
+    // lib: ['jquery', 'lodash', 'moment'],
     // lib1: ['jquery'],
     // lib2: ['lodash'],
     // lib3: ['moment'],
@@ -14,6 +13,7 @@ balmConfig.scripts = {
     'page-b': './src/scripts/page-b.js',
     'page-c': './src/scripts/page-c.js'
   },
+  // extractAllVendors: true,
   options: {
     compress: {
       drop_console: false
