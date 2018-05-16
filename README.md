@@ -20,8 +20,6 @@
 
 BalmJS prescribes best practices and tools to help you stay productive.
 
-:tada: **Let's `webpack@4` from `balm@0.17`, NOW!!!**
-
 ## Structure
 
 > Returning to webapp's original nature.

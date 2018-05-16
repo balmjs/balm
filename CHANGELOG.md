@@ -1,5 +1,55 @@
 # BalmJS ChangeLog
 
+## 0.21.0 (2018.05.16)
+
+:tada: **Update bundler for SPA and MPA in webpack@4**
+
+### Example 1
+
+```html
+<!-- All vendors in one -->
+<script src="%PUBLIC_URL%/scripts/vendor.js"></script>
+<!-- Entry -->
+<script src="%PUBLIC_URL%/scripts/main.js"></script>
+```
+
+```js
+balm.config = {
+  scripts: {
+    entry: {
+      main: './src/scripts/main.js'
+    },
+    extractAllVendors: true
+  }
+};
+```
+
+### Example 2
+
+```html
+<!-- Custom vendors -->
+<script src="%PUBLIC_URL%/scripts/vendor/lib.js"></script>
+<script src="%PUBLIC_URL%/scripts/vendor/plugin.js"></script>
+<!-- Entry -->
+<script src="%PUBLIC_URL%/scripts/page-a.js"></script>
+```
+
+```js
+balm.config = {
+  scripts: {
+    entry: {
+      lib: ['library-1', 'library-2'],
+      plugin: ['plugin-1', 'plugin-2'],
+      'page-a': './src/scripts/page-a.js',
+      'page-b': './src/scripts/page-b.js',
+      'page-c': './src/scripts/page-c.js'
+    }
+  }
+};
+```
+
+---
+
 ## 0.20.6 (2018.05.11)
 
 ### :beetle: Bug fixes and improvements
