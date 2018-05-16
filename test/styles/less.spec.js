@@ -9,7 +9,7 @@ describe('Less Task', () => {
     });
 
     runGulp(() => {
-      shouldExist('dist/web/css/main.css');
+      shouldExist('dist/web/a/main.css');
 
       done();
     });

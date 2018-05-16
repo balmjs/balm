@@ -7,7 +7,7 @@ describe('Scripts Task', () => {
     balm.go(mix => mix.js(src));
 
     runGulp(() => {
-      shouldExist('dist/js/main.js');
+      shouldExist('dist/b/main.js');
 
       done();
     });
