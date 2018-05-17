@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.21.0",
+  "version": "0.21.1",
   "description": "A flexible front-end workflow for webapps",
   "homepage": "http://balmjs.com/",
   "author": {
@@ -36,7 +36,7 @@
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
     "gulp-rename": "^1.2.3",
-    "gulp-replace": "^0.6.1",
+    "gulp-replace": "^1.0.0",
     "gulp-rev-all": "^0.9.7",
     "gulp-rev-delete-original": "^0.2.3",
     "gulp-sass": "^4.0.1",
