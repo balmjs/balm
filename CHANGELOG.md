@@ -1,6 +1,6 @@
 # BalmJS ChangeLog
 
-## 0.21.2 (2018.05.28)
+## 0.22.0 (2018.05.28)
 
 ### :gear: New config
 
