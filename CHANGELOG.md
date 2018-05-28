@@ -9,6 +9,9 @@
 ### :beetle: Bug fixes and improvements
 
 - fix `gulp@3` bug for `node@10`
+- update default input for `sass` task
+- remove inject css in the styles
+- remove error log for `font` task
 
 ---
 
