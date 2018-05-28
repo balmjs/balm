@@ -1,5 +1,17 @@
 # BalmJS ChangeLog
 
+## 0.21.2 (2018.05.28)
+
+### :gear: New config
+
+- add `scripts.base64Limit`
+
+### :beetle: Bug fixes and improvements
+
+- fix `gulp@3` bug for `node@10`
+
+---
+
 ## 0.21.0 (2018.05.16)
 
 :tada: **Update bundler for SPA and MPA in webpack@4**
@@ -54,7 +66,7 @@ balm.config = {
 
 ### :beetle: Bug fixes and improvements
 
-* fix cacheGroups's `chunks` bug
+- fix cacheGroups's `chunks` bug
 
 ---
 
@@ -62,13 +74,13 @@ balm.config = {
 
 ### :beetle: Bug fixes and improvements
 
-* fix js entry bug for `mix.js` api
+- fix js entry bug for `mix.js` api
 
 ---
 
 ## 0.20.3 (2018.05.06)
 
-* update dependencies for new colors
+- update dependencies for new colors
 
 ---
 
@@ -76,17 +88,17 @@ balm.config = {
 
 ### :rocket: Refactoring
 
-* plugins
-* loaders
-* logger
-* `Balm` pattern
-* test
+- plugins
+- loaders
+- logger
+- `Balm` pattern
+- test
 
 ### :beetle: Bug fixes and improvements
 
-* fix `scripts.entry` bug
-* fix `svg` bug
-* clean code for `clean` & `cache`
+- fix `scripts.entry` bug
+- fix `svg` bug
+- clean code for `clean` & `cache`
 
 **balmrc.js**
 
@@ -132,9 +144,9 @@ const balmConfig = {
 
 ### :beetle: Bug fixes and improvements
 
-* fix `scripts.plugins` bug since `0.17`
-* SSR supported for build
-* optimize webpack default config
+- fix `scripts.plugins` bug since `0.17`
+- SSR supported for build
+- optimize webpack default config
 
 ---
 
@@ -142,7 +154,7 @@ const balmConfig = {
 
 ### :rocket: Big changes
 
-* update `gulp-sass@4`
+- update `gulp-sass@4`
 
 ---
 
@@ -152,16 +164,16 @@ const balmConfig = {
 
 ### :gear: New config
 
-* add `server.devOptions` for `webpack-dev-middleware`
-* add `server.hotOptions` for `webpack-hot-middleware`
-* add `server.proxyContext`, `server.proxyOptions` for `http-proxy-middleware`
-* add `server.historyOptions` for `connect-history-api-fallback`
-* add `server.middlewares` for Browsersync
+- add `server.devOptions` for `webpack-dev-middleware`
+- add `server.hotOptions` for `webpack-hot-middleware`
+- add `server.proxyContext`, `server.proxyOptions` for `http-proxy-middleware`
+- add `server.historyOptions` for `connect-history-api-fallback`
+- add `server.middlewares` for Browsersync
 
 ### :ghost: Breaking change
 
-* `server.proxyTable` was removed -> `server.proxyContext`, `server.proxyOptions`
-* `server.historyApiFallback` was renamed -> `server.historyOptions`
+- `server.proxyTable` was removed -> `server.proxyContext`, `server.proxyOptions`
+- `server.historyApiFallback` was renamed -> `server.historyOptions`
 
 ### :page_with_curl: Update Docs for `server` new configs
 
@@ -171,7 +183,7 @@ const balmConfig = {
 
 ### :gear: config
 
-* restore `scripts.vendorName` default value `vendor`
+- restore `scripts.vendorName` default value `vendor`
 
 ---
 
@@ -181,13 +193,13 @@ const balmConfig = {
 
 ### :rocket: Big changes
 
-* bundler refactoring
-* update dependencies
+- bundler refactoring
+- update dependencies
 
 ### :gear: New config
 
-* `scripts.optimization`
-* `scripts.extractCss.filename`
+- `scripts.optimization`
+- `scripts.extractCss.filename`
 
 ---
 
@@ -203,9 +215,9 @@ const balmConfig = {
 
 ### :beetle: Bug fixes and improvements
 
-* fix api: `mix.serve()`
-* rename api `mix.buildStyle()` to `mix.csspath()`
-* add api: `mix.html()`
+- fix api: `mix.serve()`
+- rename api `mix.buildStyle()` to `mix.csspath()`
+- add api: `mix.html()`
 
 ---
 
@@ -215,12 +227,12 @@ const balmConfig = {
 
 ### :ghost: Breaking change
 
-* I think `node >= 8` has WebAssembly
+- I think `node >= 8` has WebAssembly
 
 ### :beetle: Bug fixes and improvements
 
-* fix `remove` bug for sass api
-* update `logger`
+- fix `remove` bug for sass api
+- update `logger`
 
 ---
 
@@ -228,12 +240,12 @@ const balmConfig = {
 
 ### :beetle: Bug fixes and improvements
 
-* update `logger` format and color
-* update `scripts.loaders` merge for `webpack`
+- update `logger` format and color
+- update `scripts.loaders` merge for `webpack`
 
 ### :gear: Update dependencies
 
-* add `webpack-merge`
+- add `webpack-merge`
 
 ---
 
@@ -241,9 +253,9 @@ const balmConfig = {
 
 ### :beetle: Bug fixes and improvements
 
-* fix `server` watch bug
-* update styles watch event
-* fix `production` flag bug (you can run `gulp --production` or `gulp -p` for build)
+- fix `server` watch bug
+- update styles watch event
+- fix `production` flag bug (you can run `gulp --production` or `gulp -p` for build)
 
 ---
 
@@ -251,14 +263,14 @@ const balmConfig = {
 
 ### :tada: Improvements
 
-* update `logger`
-* add `namespace` for `balm` tasks
-* `beforeTask` & `afterTask` support `string` (gulp task name)
+- update `logger`
+- add `namespace` for `balm` tasks
+- `beforeTask` & `afterTask` support `string` (gulp task name)
 
 ### :gear: Update dependencies
 
-* remove `gulp-util`, add `ansi-colors` & `fancy-log`
-* remove `gulp-cssnano`, add `cssnano`
+- remove `gulp-util`, add `ansi-colors` & `fancy-log`
+- remove `gulp-cssnano`, add `cssnano`
 
 ---
 
@@ -266,13 +278,13 @@ const balmConfig = {
 
 ### :gear: Custom task API changes
 
-* `balm.config.beforeTask` change to `balm.beforeTask`
-* `balm.config.afterTask` change to `balm.afterTask`
+- `balm.config.beforeTask` change to `balm.beforeTask`
+- `balm.config.afterTask` change to `balm.afterTask`
 
 ### :page_with_curl: Update Docs
 
-* [BalmJS Configuration Docs](https://github.com/balmjs/balm/blob/master/docs/configuration.md)
-* [Custom Task API](https://github.com/balmjs/balm/blob/master/docs/api.md)
+- [BalmJS Configuration Docs](https://github.com/balmjs/balm/blob/master/docs/configuration.md)
+- [Custom Task API](https://github.com/balmjs/balm/blob/master/docs/api.md)
 
 ---
 
@@ -282,10 +294,10 @@ const balmConfig = {
 
 ### :gear: New config
 
-* <del>`styles.postcss`</del> is deprecated
-* `styles.postcssPlugins`
-* `styles.postcssOptions`
-* `styles.postcssLoaderOptions`
+- <del>`styles.postcss`</del> is deprecated
+- `styles.postcssPlugins`
+- `styles.postcssOptions`
+- `styles.postcssLoaderOptions`
 
 ---
 
@@ -293,9 +305,9 @@ const balmConfig = {
 
 ### Update dependencies
 
-* gulp-htmlmin
-* gulp-size
-* webpack-dev-middleware
+- gulp-htmlmin
+- gulp-size
+- webpack-dev-middleware
 
 ---
 
@@ -305,9 +317,9 @@ const balmConfig = {
 
 ### New config
 
-* `scripts.vendor` rename to `scripts.extractAllVendors`
-* `scripts.cssLoader`
-* `scripts.extractCss`
+- `scripts.vendor` rename to `scripts.extractAllVendors`
+- `scripts.cssLoader`
+- `scripts.extractCss`
 
 ---
 
@@ -315,11 +327,11 @@ const balmConfig = {
 
 ### API
 
-* update `mix.js(entry: string|array|object, output: string)` for naming
+- update `mix.js(entry: string|array|object, output: string)` for naming
 
 ### Bugfix
 
-* fix cache filename conflict (thx [@hccde](https://github.com/hccde))
+- fix cache filename conflict (thx [@hccde](https://github.com/hccde))
 
 ### Clean Code
 
@@ -329,7 +341,7 @@ const balmConfig = {
 
 > `v0.10.x` is deprecated
 
-* fix style tasks bug in `v0.10.x`
+- fix style tasks bug in `v0.10.x`
 
 ---
 
@@ -337,7 +349,7 @@ const balmConfig = {
 
 ### Bugfix
 
-* fix css sourcemap
+- fix css sourcemap
 
 ---
 
@@ -345,8 +357,8 @@ const balmConfig = {
 
 ### Config
 
-* add `server.serveStatic`
-* add `server.options`
+- add `server.serveStatic`
+- add `server.options`
 
 ---
 
@@ -354,17 +366,17 @@ const balmConfig = {
 
 ### Config
 
-* add `server.https` support
-* update `server.browser`
+- add `server.https` support
+- update `server.browser`
 
 ### Bugfix
 
-* fix `server` options buy in proxy mode
-* fix `mix.remove(string|array)` input bug
+- fix `server` options buy in proxy mode
+- fix `mix.remove(string|array)` input bug
 
 ### Unit Test
 
-* remove: add test for array
+- remove: add test for array
 
 ### Update dependencies & remove `gulp-cache`
 
@@ -374,12 +386,12 @@ const balmConfig = {
 
 ### New API
 
-* add `mix.server`
-* add `mix.buildStyle`
+- add `mix.server`
+- add `mix.buildStyle`
 
 ### Config
 
-* change `scripts.entry` default value to `null`
+- change `scripts.entry` default value to `null`
 
 ---
 
@@ -387,9 +399,9 @@ const balmConfig = {
 
 ### Bugfix
 
-* fix `--production`
-* fix empty sprite tasks bug
-* add errorHandler for `wiredep`
+- fix `--production`
+- fix empty sprite tasks bug
+- add errorHandler for `wiredep`
 
 ---
 
@@ -399,40 +411,40 @@ const balmConfig = {
 
 ### New
 
-* refactor file system
-* optimize api
-* update dependencies
-* update docs
+- refactor file system
+- optimize api
+- update dependencies
+- update docs
 
 ### Config
 
-* `beforeTask`
-* `afterTask`
+- `beforeTask`
+- `afterTask`
 
 ### Task
 
-* update `clean` folder for media
-* update `server` deps for media and fix watch html bug
-* fix `cache` bug
-* fix `media` task for development
-* remove `mix.end` task
-* optimize `default` task
+- update `clean` folder for media
+- update `server` deps for media and fix watch html bug
+- fix `cache` bug
+- fix `media` task for development
+- remove `mix.end` task
+- optimize `default` task
 
 ### Unit Test
 
-* config
-* default
-* copy
-* css
-* sass
-* less
-* cssmin
-* js
-* jsmin
-* version
-* zip
-* publish
-* remove
+- config
+- default
+- copy
+- css
+- sass
+- less
+- cssmin
+- js
+- jsmin
+- version
+- zip
+- publish
+- remove
 
 ---
 
@@ -442,36 +454,36 @@ const balmConfig = {
 
 #### Config
 
-* `scripts.include`
-* `paths.source.media`
-* `paths.target.media`
+- `scripts.include`
+- `paths.source.media`
+- `paths.target.media`
 
 #### Task
 
-* add `media` task
+- add `media` task
 
 ### Optimization
 
-* update eslint config
-* update project architecture
-* update webpack plugins
+- update eslint config
+- update project architecture
+- update webpack plugins
 
 ### Bugfix
 
-* fix build `manifest.json` for PWA
-* fix `html` task
+- fix build `manifest.json` for PWA
+- fix `html` task
 
 ### Test
 
-* add media test
+- add media test
 
 ---
 
 ## 0.9.0 (2017.09.05)
 
-* clean code
-* optimized `cache`
-* update test
+- clean code
+- optimized `cache`
+- update test
 
 :tada: **New feature - Library Code Splitting**
 
@@ -529,8 +541,8 @@ const balmConfig = {
 
 ### New feature - Scope Hoisting
 
-* update `scripts.options.compress` default value
-* optimize build
+- update `scripts.options.compress` default value
+- optimize build
 
 ---
 
@@ -538,7 +550,7 @@ const balmConfig = {
 
 ### Bugfix
 
-* restore `scripts.stats` default value
+- restore `scripts.stats` default value
 
 ### Update dependencies
 
@@ -548,26 +560,26 @@ const balmConfig = {
 
 ### Deprecated config
 
-* `scripts.extends`
+- `scripts.extends`
 
 ### New config
 
-* `scripts.library`
-* `scripts.libraryTarget`
-* `scripts.webpack`
+- `scripts.library`
+- `scripts.libraryTarget`
+- `scripts.webpack`
 
 ---
 
 ## 0.8.3 (2017.07.23)
 
-* remove `gulp-autoprefixer` dependencies
-* use `gulp-postcss` & `autoprefixer` for all styles
+- remove `gulp-autoprefixer` dependencies
+- use `gulp-postcss` & `autoprefixer` for all styles
 
 ---
 
 ## 0.8.2 (2017.07.21)
 
-* `html` task bugfix for `manifest.json`
+- `html` task bugfix for `manifest.json`
 
 ---
 
@@ -575,12 +587,12 @@ const balmConfig = {
 
 ### Deprecated config
 
-* `html.regex`
+- `html.regex`
 
 ### Update html template
 
-* change `css` to `styles` pathname for default config
-* change `js` to `scripts` pathname for default config
+- change `css` to `styles` pathname for default config
+- change `js` to `scripts` pathname for default config
 
 ```html
 <!DOCTYPE html>
@@ -607,13 +619,13 @@ const balmConfig = {
 
 ### Deprecated config
 
-* `html.replacement`
-* `scripts.publicPath`
+- `html.replacement`
+- `scripts.publicPath`
 
 ### New config
 
-* `assets.publicUrlPlaceholder`
-* `assets.publicUrl`
+- `assets.publicUrlPlaceholder`
+- `assets.publicUrl`
 
 :tada: **New Feature: html templates can use `%PUBLIC_URL%` for CDN**
 
@@ -640,51 +652,51 @@ const balmConfig = {
 
 ## 0.7.6 (2017.07.16)
 
-* fix external url in `styles` task
-* deprecated `.sass` (recommended `.scss`)
+- fix external url in `styles` task
+- deprecated `.sass` (recommended `.scss`)
 
 ---
 
 ## 0.7.5 (2017.07.09)
 
-* update dependencies
+- update dependencies
 
 ---
 
 ## 0.7.4 (2017.06.27)
 
-* `manifest.json` dest bugfix
+- `manifest.json` dest bugfix
 
 ---
 
 ## 0.7.3 (2017.06.24)
 
-* remove `publicUrl` config for html
-* update `html` task for RegExp
-* update docs
+- remove `publicUrl` config for html
+- update `html` task for RegExp
+- update docs
 
 ---
 
 ## 0.7.2 (2017.06.23)
 
-* `extras` bugfix
-* <del>add `publicUrl` config for html</del>
-* add `jsmin` error handling
-* <del>add `%PUBLIC_URL%` variable for sites</del>
-* add rename option for `cssmin` & `jsmin`
+- `extras` bugfix
+- <del>add `publicUrl` config for html</del>
+- add `jsmin` error handling
+- <del>add `%PUBLIC_URL%` variable for sites</del>
+- add rename option for `cssmin` & `jsmin`
 
 ---
 
 ## 0.7.1 (2017.06.21)
 
-* update dependencies
-* update `webpack@3`
+- update dependencies
+- update `webpack@3`
 
 ---
 
 ## 0.7.0 (2017.06.19)
 
-* update `babel-preset` & `babel-plugin`
+- update `babel-preset` & `babel-plugin`
 
 :tada: **New Feature: `.babelrc` for all [balm-templates](https://github.com/balmjs/balm-cli)**
 
@@ -699,377 +711,377 @@ const balmConfig = {
 
 ## 0.6.3 (2017.06.15)
 
-* update dependencies
-* update `eslint@4`
+- update dependencies
+- update `eslint@4`
 
 ---
 
 ## 0.6.2 (2017.06.10)
 
-* update postcss config
-* update test for `@import` css/sass/scss/less
-* remove `postcss-scss` & `precss` dependencies
-* add `postcss-cssnext` & `postcss-import` dependencies
+- update postcss config
+- update test for `@import` css/sass/scss/less
+- remove `postcss-scss` & `precss` dependencies
+- add `postcss-cssnext` & `postcss-import` dependencies
 
 ---
 
 ## 0.6.1 (2017.06.03)
 
-* add `includes` config for assets cache
+- add `includes` config for assets cache
 
 ---
 
 ## 0.6.0 (2017.06.03)
 
-* use node >= 6 (Recommended)
-* update dependencies
-* use `webpack@2`
-* remove `json-loader`
-* clean code
-* update test
-* update uglifyjs for production
-* update docs
-* add `end` task
-* add `includePaths` config for styles(sass/less)
-* add `historyApiFallback` config for server
-* automatic setting scripts' `vendors` by `entry`
-* add test for `OS X/Windows/Linux`
+- use node >= 6 (Recommended)
+- update dependencies
+- use `webpack@2`
+- remove `json-loader`
+- clean code
+- update test
+- update uglifyjs for production
+- update docs
+- add `end` task
+- add `includePaths` config for styles(sass/less)
+- add `historyApiFallback` config for server
+- automatic setting scripts' `vendors` by `entry`
+- add test for `OS X/Windows/Linux`
 
 ---
 
 ## 0.5.8 (2018.01.11)
 
-* Fix `require-dir` on Node 8, which tweaks `require.extensions`.
+- Fix `require-dir` on Node 8, which tweaks `require.extensions`.
 
 ---
 
 ## 0.5.7
 
-* fix browser reload
-* fix `version` for vendor all in one
-* update dependencies
-* fix test
+- fix browser reload
+- fix `version` for vendor all in one
+- update dependencies
+- fix test
 
 ---
 
 ## 0.5.6
 
-* from `npm` to `yarn`
-* update dependencies
+- from `npm` to `yarn`
+- update dependencies
 
 ---
 
 ## 0.5.5
 
-* update dependencies
+- update dependencies
 
 ---
 
 ## 0.5.4
 
-* update logger
-* update dependencies
+- update logger
+- update dependencies
 
 ---
 
 ## 0.5.3
 
-* fix browser sync reload bug
+- fix browser sync reload bug
 
 ---
 
 ## 0.5.2
 
-* add `sprites` & `svg` padding
-* update dependencies
+- add `sprites` & `svg` padding
+- update dependencies
 
 ---
 
 ## 0.5.1
 
-* update sourcemap config for scripts
-* update documents
+- update sourcemap config for scripts
+- update documents
 
 ---
 
 ## 0.5.0
 
-* refactoring
-* update dependencies
+- refactoring
+- update dependencies
 
 ---
 
 ## 0.4.37
 
-* update `webpack` task for vendors
-* update dependencies
+- update `webpack` task for vendors
+- update dependencies
 
 ---
 
 ## 0.4.36
 
-* fix `html` task for replace references
+- fix `html` task for replace references
 
 ---
 
 ## 0.4.35
 
-* fix `html` task for replace references
+- fix `html` task for replace references
 
 ---
 
 ## 0.4.34
 
-* fix `html` task for build
+- fix `html` task for build
 
 ---
 
 ## 0.4.33
 
-* update `less` error handling
-* update styles config
-* update `lint` task
-* update dependencies
+- update `less` error handling
+- update styles config
+- update `lint` task
+- update dependencies
 
 ---
 
 ## 0.4.32
 
-* fix `style` task
-* update `clean` task
-* update watch
-* update html config
-* update dependencies
+- fix `style` task
+- update `clean` task
+- update watch
+- update html config
+- update dependencies
 
 ---
 
 ## 0.4.31
 
-* fix assets path
+- fix assets path
 
 ---
 
 ## 0.4.30
 
-* fix `svg` bug
+- fix `svg` bug
 
 ---
 
 ## 0.4.29
 
-* refactor assets system
-* add `remove` task
-* update `publish` task
-* update dependencies
+- refactor assets system
+- add `remove` task
+- update `publish` task
+- update dependencies
 
 ---
 
 ## 0.4.28
 
-* update `publish` task
+- update `publish` task
 
 ---
 
 ## 0.4.27
 
-* add `publish` task
-* update `copy` task
+- add `publish` task
+- update `copy` task
 
 ---
 
 ## 0.4.26
 
-* update watch for style
+- update watch for style
 
 ---
 
 ## 0.4.25
 
-* fix less bug
+- fix less bug
 
 ---
 
 ## 0.4.24
 
-* fix watch task
-* fix style for `css`/`less`
+- fix watch task
+- fix style for `css`/`less`
 
 ---
 
 ## 0.4.23
 
-* update custom task
+- update custom task
 
 ---
 
 ## 0.4.22
 
-* add rename for `copy`
-* code optimization
+- add rename for `copy`
+- code optimization
 
 ---
 
 ## 0.4.21
 
-* update documents
-* update dependencies
+- update documents
+- update dependencies
 
 ---
 
 ## 0.4.20
 
-* update proxy for server
+- update proxy for server
 
 ---
 
 ## 0.4.19
 
-* add HMR switch for script
+- add HMR switch for script
 
 ---
 
 ## 0.4.18
 
-* fix some bug
+- fix some bug
 
 ---
 
 ## 0.4.17
 
-* optimize style & sprite
+- optimize style & sprite
 
 ---
 
 ## 0.4.16
 
-* fix `svg` bug for css
-* update remote build
+- fix `svg` bug for css
+- update remote build
 
 ---
 
 ## 0.4.15
 
-* fix `sprites` & `svg` task
+- fix `sprites` & `svg` task
 
 ---
 
 ## 0.4.14
 
-* fix `clean` task
+- fix `clean` task
 
 ---
 
 ## 0.4.13
 
-* add custom workspace
-* update `cache` config & log
-* update `styles` task
-* update `extras` task
+- add custom workspace
+- update `cache` config & log
+- update `styles` task
+- update `extras` task
 
 ---
 
 ## 0.4.12
 
-* fix `html` task bug
+- fix `html` task bug
 
 ---
 
 ## 0.4.11
 
-* refactor task
-* update `build` task
-* fix `webpack` vendors
-* add `ftp` task
+- refactor task
+- update `build` task
+- fix `webpack` vendors
+- add `ftp` task
 
 ---
 
 ## 0.4.10
 
-* add `svg` task
+- add `svg` task
 
 ---
 
 ## 0.4.9
 
-* fix `clean` task bug
+- fix `clean` task bug
 
 ---
 
 ## 0.4.8
 
-* fix windows path bug
+- fix windows path bug
 
 ---
 
 ## 0.4.7
 
-* update `build` task
-* fix some bug
+- update `build` task
+- fix some bug
 
 ---
 
 ## 0.4.6
 
-* add `webpack` vendors
+- add `webpack` vendors
 
 ---
 
 ## 0.4.5
 
-* fix config tmp path bug
+- fix config tmp path bug
 
 ---
 
 ## 0.4.4
 
-* add `js` task
+- add `js` task
 
 ---
 
 ## 0.4.3
 
-* fix config tmp path
-* fix `webpack` build for production
+- fix config tmp path
+- fix `webpack` build for production
 
 ---
 
 ## 0.4.2
 
-* add `css` task
-* add `webpack` alias
-* fix `webpack` entry bug
+- add `css` task
+- add `webpack` alias
+- fix `webpack` entry bug
 
 ---
 
 ## 0.4.1
 
-* fix `version` bug
+- fix `version` bug
 
 ---
 
 ## 0.4.0
 
-* add `copy` task
-* add `zip` task
-* add `custom` task
-* fix `build` task
-* fix `webpack` callback
+- add `copy` task
+- add `zip` task
+- add `custom` task
+- fix `build` task
+- fix `webpack` callback
 
 ---
 
 ## 0.3.0
 
-* refactoring
+- refactoring
 
 ---
 
 ## 0.2.0
 
-* add `less` task
-* add `sprites` task
+- add `less` task
+- add `sprites` task
 
 ---
 
 ## 0.1.0
 
-* Demo
+- Demo

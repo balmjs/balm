@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.21.1",
+  "version": "0.21.2",
   "description": "A flexible front-end workflow for webapps",
   "homepage": "http://balmjs.com/",
   "author": {
@@ -8,9 +8,18 @@
     "email": "ifmouz@gmail.com",
     "url": "http://elf-mouse.me/"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "dist/main.js",
-  "keywords": ["balm", "balmjs", "web", "app", "front-end", "workflow"],
+  "keywords": [
+    "balm",
+    "balmjs",
+    "web",
+    "app",
+    "front-end",
+    "workflow"
+  ],
   "dependencies": {
     "ansi-colors": "^2.0.1",
     "autoprefixer": "^8.5.1",
