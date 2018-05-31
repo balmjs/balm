@@ -59,11 +59,11 @@ project
 
 ## Demo
 
-* [x] [Simple HTML](https://github.com/balmjs/demo-html)
-* [x] [Laravel](https://github.com/balmjs/demo-laravel)
-* [x] [Vue](https://github.com/balmjs/demo-vue)
-* [x] [TypeScript](https://github.com/balmjs/demo-ts)
-* [x] Yours awesome projects...
+- [x] [Simple HTML](https://github.com/balmjs/demo-html)
+- [x] [Laravel](https://github.com/balmjs/demo-laravel)
+- [x] [Vue](https://github.com/balmjs/demo-vue)
+- [x] [TypeScript](https://github.com/balmjs/demo-ts)
+- [x] Yours awesome projects...
 
 ## Installation
 
@@ -73,7 +73,7 @@ You need to set up your development environment before you can do anything.
 
 Install [Node.js® and npm](https://nodejs.org/en/download/) if they are not already on your machine.
 
-> **Verify that you are running at least node `6.x.x` and npm `3.x.x`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
+> **Verify that you are running at least node `8.x.x` and npm `5.x.x`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
 
 BalmJS workflow using [gulp](https://gulpjs.com/) for the build process, so you need install `gulp-cli`.
 
@@ -131,11 +131,11 @@ $ gulp --production
 
 ## [Documentation](http://balmjs.com/docs/en/) | [中文文档](http://balmjs.com/docs/zh-cn/)
 
-* [Getting Started](http://balmjs.com/docs/en/basic/getting-started.html)
-* [Configuration](http://balmjs.com/docs/en/configuration/toc.html)
-* [Custom Task API](http://balmjs.com/docs/en/api/toc.html)
-* [Recipes](http://balmjs.com/docs/en/recipes/toc.html)
-* [FAQ](http://balmjs.com/docs/en/faq.html)
+- [Getting Started](http://balmjs.com/docs/en/basic/getting-started.html)
+- [Configuration](http://balmjs.com/docs/en/configuration/toc.html)
+- [Custom Task API](http://balmjs.com/docs/en/api/toc.html)
+- [Recipes](http://balmjs.com/docs/en/recipes/toc.html)
+- [FAQ](http://balmjs.com/docs/en/faq.html)
 
 ## License
 
@@ -147,9 +147,9 @@ $ gulp --production
 
 In chronological order
 
-* [Node.js](https://nodejs.org/)
-* [gulp.js](https://gulpjs.com/)
-* [webpack](https://webpack.js.org/)
+- [Node.js](https://nodejs.org/)
+- [gulp.js](https://gulpjs.com/)
+- [webpack](https://webpack.js.org/)
 
 [npm-image]: https://badge.fury.io/js/balm.svg
 [npm-url]: https://npmjs.org/package/balm

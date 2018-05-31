@@ -1,5 +1,19 @@
 # BalmJS ChangeLog
 
+## 0.23.0 (2018.05.31)
+
+:tada: **`balm@0.23` for two years old and keep pioneering**
+
+### :rocket: Update dependency
+
+- `postcss-cssnext` has been deprecated in favor of `postcss-preset-env`
+
+### :beetle: Bug fixes and improvements
+
+- fix hot reload bug in `development` mode
+
+---
+
 ## 0.22.0 (2018.05.28)
 
 ### :gear: New config

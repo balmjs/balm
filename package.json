@@ -8,9 +8,18 @@
     "email": "ifmouz@gmail.com",
     "url": "http://elf-mouse.me/"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "dist/main.js",
-  "keywords": ["balm", "balmjs", "web", "app", "front-end", "workflow"],
+  "keywords": [
+    "balm",
+    "balmjs",
+    "web",
+    "app",
+    "front-end",
+    "workflow"
+  ],
   "dependencies": {
     "ansi-colors": "^2.0.1",
     "autoprefixer": "^8.5.2",
