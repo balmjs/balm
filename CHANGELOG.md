@@ -1,5 +1,11 @@
 # BalmJS ChangeLog
 
+## 0.23.1 (2018.05.31)
+
+:tada: **Use PostCSS all features for default**
+
+---
+
 ## 0.23.0 (2018.05.31)
 
 :tada: **`balm@0.23` for two years old and keep pioneering**
