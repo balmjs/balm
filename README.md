@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="http://balmjs.com/">
-    <img width="128" heigth="128" src="http://balmjs.com/logo.png" alt="BalmJS">
+  <a href="https://balmjs.com/">
+    <img width="128" heigth="128" src="https://balmjs.com/logo.png" alt="BalmJS">
   </a>
   <br>
   <br>
@@ -115,7 +115,7 @@ balm.config = {
 balm.go();
 ```
 
-:page_with_curl: Refer to [our configuration docs](http://balmjs.com/docs/en/configuration/toc.html) to learn more about config **`balm`**.
+:page_with_curl: Refer to [our configuration docs](https://balmjs.com/docs/en/configuration/toc.html) to learn more about config **`balm`**.
 
 ### 3. Usage
 
@@ -129,13 +129,13 @@ $ gulp
 $ gulp --production
 ```
 
-## [Documentation](http://balmjs.com/docs/en/) | [中文文档](http://balmjs.com/docs/zh-cn/)
+## [Documentation](https://balmjs.com/docs/en/) | [中文文档](https://balmjs.com/docs/zh-cn/)
 
-- [Getting Started](http://balmjs.com/docs/en/basic/getting-started.html)
-- [Configuration](http://balmjs.com/docs/en/configuration/toc.html)
-- [Custom Task API](http://balmjs.com/docs/en/api/toc.html)
-- [Recipes](http://balmjs.com/docs/en/recipes/toc.html)
-- [FAQ](http://balmjs.com/docs/en/faq.html)
+- [Getting Started](https://balmjs.com/docs/en/basic/getting-started.html)
+- [Configuration](https://balmjs.com/docs/en/configuration/toc.html)
+- [Custom Task API](https://balmjs.com/docs/en/api/toc.html)
+- [Recipes](https://balmjs.com/docs/en/recipes/toc.html)
+- [FAQ](https://balmjs.com/docs/en/faq.html)
 
 ## License
 

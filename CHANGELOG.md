@@ -234,7 +234,7 @@ const balmConfig = {
 
 ## 0.16.1 (2018.01.24)
 
-:tada: **New feature: [中文文档](http://balmjs.com/docs/zh-cn/)**
+:tada: **New feature: [中文文档](https://balmjs.com/docs/zh-cn/)**
 
 ### :beetle: Bug fixes and improvements
 
@@ -246,7 +246,7 @@ const balmConfig = {
 
 ## 0.16.0 (2018.01.21)
 
-:tada: **New feature: [New Full Documentation](http://balmjs.com/docs/)**
+:tada: **New feature: [New Full Documentation](https://balmjs.com/docs/)**
 
 ### :ghost: Breaking change
 
