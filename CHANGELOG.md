@@ -1,5 +1,11 @@
 # BalmJS ChangeLog
 
+## 0.23.2 (2018.06.06)
+
+:tada: [BalmJS](https://balmjs.com/) official website upgrade to https
+
+---
+
 ## 0.23.1 (2018.05.31)
 
 :tada: **Use PostCSS all features for default**

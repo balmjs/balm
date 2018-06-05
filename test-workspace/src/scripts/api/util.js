@@ -11,7 +11,7 @@ const callback = ({ code, data, message }) => {
   if (code === 200) {
     result.success = true;
   } else {
-    // You need BalmUI Lite (http://mdl.balmjs.com)
+    // You need BalmUI Lite (https://mdl.balmjs.com)
     if (bus.$alert) {
       // For desktop
       bus.$alert(message);
