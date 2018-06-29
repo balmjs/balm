@@ -1,5 +1,17 @@
 # BalmJS ChangeLog
 
+## 0.23.4 (2018.06.30)
+
+- update dependencies
+
+---
+
+## 0.23.3 (2018.06.09)
+
+- update dependencies
+
+---
+
 ## 0.23.2 (2018.06.06)
 
 :tada: [BalmJS](https://balmjs.com/) official website upgrade to https
