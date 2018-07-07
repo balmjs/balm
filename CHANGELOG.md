@@ -1,5 +1,15 @@
 # BalmJS ChangeLog
 
+## 0.23.5 (2018.07.07)
+
+:tada: Update `cssnano` and `css-loader` to minimum require `node@6.9` and `webpack@4`
+
+### :beetle: Bug fixes and improvements
+
+- fix `url-loader` some bug in development mode
+
+---
+
 ## 0.23.4 (2018.06.30)
 
 - update dependencies
