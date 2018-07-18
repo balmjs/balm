@@ -1,5 +1,29 @@
 # BalmJS ChangeLog
 
+## 0.23.7 (2018.07.19)
+
+:tada: Update `autoprefixer@9.0`
+
+- Remove Node.js 9 and Node.js 4 support.
+- Remove IE and “dead” browsers from Babel.
+- Use PostCSS 7.0.
+- Use Browserslist 4.0.
+
+```js
+balm.config = {
+  styles: {
+    autoprefixer: [
+      '> 0.5%',
+      'last 2 versions',
+      'Firefox ESR',
+      'not dead' // new
+    ]
+  }
+};
+```
+
+---
+
 ## 0.23.5 (2018.07.07)
 
 :tada: Update `cssnano` and `css-loader` to minimum require `node@6.9` and `webpack@4`
