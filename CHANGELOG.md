@@ -1,5 +1,11 @@
 # BalmJS ChangeLog
 
+## 0.23.8 (2018.08.05)
+
+- update dependencies
+
+---
+
 ## 0.23.7 (2018.07.19)
 
 :tada: Update `autoprefixer@9.0`
