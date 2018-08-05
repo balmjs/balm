@@ -13,7 +13,7 @@ init:
 # environment variables
 environment:
   matrix:
-    - nodejs_version: node
+    - nodejs_version: 10
     - nodejs_version: 8
 
 # this is how to allow failing jobs in the matrix
