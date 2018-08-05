@@ -1,28 +1,40 @@
+# version format
 version: "{build}"
 
+# branches to build
 branches:
   only:
     - master
 
+# scripts that are called at very beginning, before repo cloning
 init:
   - git config --global core.autocrlf input
 
+# environment variables
 environment:
   matrix:
-    - nodejs_version: "node"
-    - nodejs_version: "8"
+    - nodejs_version: node
+    - nodejs_version: 8
 
+# this is how to allow failing jobs in the matrix
 matrix:
   fast_finish: true
 
+# scripts that run after cloning repository
 install:
-  - ps: Install-Product node $env:nodejs_version x64
+  - ps: Install-Product node $env:nodejs_version $env:platform
   - node --version
   - npm --version
   - npm install -g gulp-cli
   - npm install
 
+# build platform, i.e. x86, x64, Any CPU. This setting is optional.
+platform:
+  - x64
+
+# Skip MSBuild stage
 build: off
 
+# to run your custom scripts instead of automatic tests
 test_script:
-  - npm run test
+  - npm test
