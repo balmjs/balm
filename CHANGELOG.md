@@ -1,5 +1,14 @@
 # BalmJS ChangeLog
 
+## 0.23.9 (2018.08.07)
+
+:tada: Update `gulp-postcss@8.0`
+
+- Bump PostCSS to 7.0
+- Drop Node 4 support
+
+---
+
 ## 0.23.8 (2018.08.05)
 
 - update dependencies
