@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "0.23.9",
+  "version": "0.23.10",
   "description": "A flexible front-end workflow for webapps",
   "homepage": "https://balmjs.com/",
   "author": {
@@ -63,11 +63,11 @@
     "merge-stream": "^1.0.1",
     "mini-css-extract-plugin": "^0.4.1",
     "postcss-import": "^12.0.0",
-    "postcss-loader": "^2.1.6",
+    "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^5.3.0",
     "require-dir": "^1.0.0",
     "run-sequence": "^2.2.1",
-    "style-loader": "^0.21.0",
+    "style-loader": "^0.22.1",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "url-loader": "^1.0.1",
     "webpack": "^4.16.5",
@@ -98,7 +98,7 @@
     "gulp-nsp": "^3.0.1",
     "mocha": "^5.2.0",
     "nyc": "^12.0.2",
-    "prettier": "^1.14.0",
+    "prettier": "^1.14.2",
     "rimraf": "^2.6.2"
   },
   "resolutions": {
