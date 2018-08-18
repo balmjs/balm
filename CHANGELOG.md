@@ -1,5 +1,11 @@
 # BalmJS ChangeLog
 
+## 0.23.11 (2018.08.19)
+
+:tada: Update `ansi-colors@3.0`
+
+---
+
 ## 0.23.10 (2018.08.09)
 
 :tada: Update `postcss-loader@3.0`
