@@ -1,7 +1,7 @@
 <template>
   <div class="page--about-ui">
     <h2><a href="//material.balmjs.com/">BalmUI</a></h2>
-    <p>Material Components + Vue</p>
+    <p>Next Generation Material UI for Vue.js</p>
   </div>
 </template>
 

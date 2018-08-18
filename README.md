@@ -50,12 +50,12 @@ project
 
 ## Ecosystem
 
-| Project                                               | Status                                                 | Description                          |
-| ----------------------------------------------------- | ------------------------------------------------------ | ------------------------------------ |
-| [balm-cli](https://github.com/balmjs/balm-cli)        | [![NPM version][balm-cli-image]][balm-cli-url]         | :spades: BalmJS scaffolding tool     |
-| [balm-gui](https://github.com/balmjs/balm-gui)        | N/A                                                    | :clubs: GUI for BalmJS               |
-| [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue  |
-| [balm-ui](https://github.com/balmjs/ui-vue)           | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Material Components + Vue |
+| Project                                               | Status                                                 | Description                                       |
+| ----------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------- |
+| [balm-cli](https://github.com/balmjs/balm-cli)        | [![NPM version][balm-cli-image]][balm-cli-url]         | :spades: BalmJS scaffolding tool                  |
+| [balm-gui](https://github.com/balmjs/balm-gui)        | N/A                                                    | :clubs: GUI for BalmJS                            |
+| [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue               |
+| [balm-ui](https://github.com/balmjs/ui-vue)           | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Next Generation Material UI for Vue.js |
 
 ## Demo
 
