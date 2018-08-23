@@ -1,5 +1,13 @@
 # BalmJS ChangeLog
 
+## 0.23.12 (2018.08.23)
+
+:tada: Update `file-loader@2.0`
+
+- Enforces `engines` of `"node": ">=6.9.0 < 7.0.0 || >= 8.9.0"`
+
+--
+
 ## 0.23.11 (2018.08.19)
 
 :tada: Update `ansi-colors@3.0`
