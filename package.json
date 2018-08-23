@@ -101,6 +101,9 @@
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2"
   },
+  "peerDependencies": {
+    "gulp": "^3.9.1"
+  },
   "resolutions": {
     "natives": "1.1.4"
   },
