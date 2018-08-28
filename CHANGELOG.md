@@ -1,11 +1,17 @@
 # BalmJS ChangeLog
 
-## 0.24.0 (2018.08.28)
+## 0.24.0
 
 :tada: Update `babel-loader@8.0`
 
 - This is the first stable release of babel-loader for Babel 7.x.
 - Drop node 4 support.
+
+---
+
+## 0.23.13 (2018.08.28)
+
+- update dependencies
 
 ---
 
