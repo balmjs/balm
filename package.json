@@ -59,7 +59,7 @@
     "gulp-zip": "^4.2.0",
     "gulp.spritesmith": "^6.9.0",
     "html-loader": "^0.5.5",
-    "http-proxy-middleware": "^0.18.0",
+    "http-proxy-middleware": "^0.19.0",
     "main-bower-files": "^2.13.1",
     "merge-stream": "^1.0.1",
     "mini-css-extract-plugin": "^0.4.2",
