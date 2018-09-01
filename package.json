@@ -73,7 +73,7 @@
     "url-loader": "^1.1.1",
     "webpack": "^4.17.1",
     "webpack-dev-middleware": "^3.2.0",
-    "webpack-hot-middleware": "^2.22.3",
+    "webpack-hot-middleware": "^2.23.0",
     "webpack-merge": "^4.1.4",
     "wiredep": "^4.0.0"
   },
@@ -88,7 +88,7 @@
     "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
     "del": "^3.0.0",
-    "eslint": "^5.4.0",
+    "eslint": "^5.5.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-config-xo": "^0.24.2",
     "eslint-plugin-prettier": "^2.6.2",
