@@ -4,10 +4,38 @@
 
 :tada: Update `babel@7.0`
 
+**NEW**
+
 ```sh
-npm i --save-dev balm@next
+npm i -D balm@next
 # OR
-yarn add --dev balm@next
+yarn add -D balm@next
+```
+
+- `babel.config.js`
+
+```js
+module.exports = {
+  presets: ['@babel/preset-env'],
+  plugins: ['@babel/plugin-transform-runtime']
+};
+```
+
+**OLD**
+
+```sh
+npm i -D balm@23
+# OR
+yarn add -D balm@23
+```
+
+- `.babelrc`
+
+```json
+{
+  "presets": ["env"],
+  "plugins": ["transform-runtime"]
+}
 ```
 
 ---
