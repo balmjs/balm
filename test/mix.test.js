@@ -5,11 +5,9 @@ import './defaults/default.spec';
 import './styles/sass.spec';
 import './styles/less.spec';
 import './styles/css.spec';
-import './styles/cssmin.spec';
 
 // Working With JavaScript
 import './scripts/js.spec';
-import './scripts/jsmin.spec';
 
 // Files & Directories
 import './files/copy.spec';

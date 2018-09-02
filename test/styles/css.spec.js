@@ -1,7 +1,7 @@
 describe('Css Task', () => {
   beforeEach(() => balm.reset());
 
-  it('compiles Css files to the public/css directory', done => {
+  it('compiles Css files to the .tmp/dist directory', done => {
     let src = './src/styles/main.css';
 
     balm.go(mix => {
@@ -9,7 +9,11 @@ describe('Css Task', () => {
     });
 
     runGulp(() => {
-      shouldExist('dist/web/a/main.css');
+      if (balm.config.production) {
+        shouldExist('dist/web/a/main.min.css');
+      } else {
+        shouldExist('.tmp/a/main.css');
+      }
 
       done();
     });
@@ -22,7 +26,11 @@ describe('Css Task', () => {
     balm.go(mix => mix.css(src, output));
 
     runGulp(() => {
-      shouldExist('.compile/css/main.css');
+      if (balm.config.production) {
+        shouldExist('.compile/css/main.min.css');
+      } else {
+        shouldExist('.compile/css/main.css');
+      }
 
       done();
     });

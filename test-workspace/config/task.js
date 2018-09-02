@@ -1,4 +1,4 @@
-var gulp = require('gulp');
+const gulp = require('gulp');
 
 gulp.task('task:before:css', function() {
   console.log('task:before:css');

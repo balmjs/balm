@@ -1,7 +1,7 @@
 describe('Less Task', () => {
   beforeEach(() => balm.reset());
 
-  it('compiles Less files to the public/css directory', done => {
+  it('compiles Less files to the .tmp/dist directory', done => {
     let src = './src/styles/main.less';
 
     balm.go(mix => {
@@ -9,7 +9,11 @@ describe('Less Task', () => {
     });
 
     runGulp(() => {
-      shouldExist('dist/web/a/main.css');
+      if (balm.config.production) {
+        shouldExist('dist/web/a/main.min.css');
+      } else {
+        shouldExist('.tmp/a/main.css');
+      }
 
       done();
     });
@@ -22,7 +26,11 @@ describe('Less Task', () => {
     balm.go(mix => mix.less(src, output));
 
     runGulp(() => {
-      shouldExist('.compile/less/main.css');
+      if (balm.config.production) {
+        shouldExist('.compile/less/main.min.css');
+      } else {
+        shouldExist('.compile/less/main.css');
+      }
 
       done();
     });

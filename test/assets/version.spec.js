@@ -23,11 +23,11 @@ describe('Version Task', () => {
 
     balm.go(mix => {
       mix.js(src, output);
-      mix.version('.compile/cache/main.js', output);
+      mix.version('.compile/cache/main.min.js', output);
     });
 
     runGulp(() => {
-      shouldExist('.compile/cache/main.4bbeed7c.js');
+      shouldExist('.compile/cache/main.min.38f3ddd8.js');
 
       done();
     });

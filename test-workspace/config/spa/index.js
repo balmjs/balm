@@ -1,16 +1,16 @@
-var balm = require('../../../lib/main'); // from local
-// var balm = require('balm'); // from node_modules
+let balm = require('../../../lib/main'); // from local
+// let balm = require('balm'); // from node_modules
 // require('../task');
 
-var balmConfig = require('../balmrc');
-var jsConfig = require('./main-sync');
-// var jsConfig = require('./main-async');
-// var jsConfig = require('./vendor-all');
-// var jsConfig = require('./vendor-custom');
-// var jsConfig = require('./cdn');
-// var jsConfig = require('./extract-css');
+let balmConfig = require('../balmrc');
+let jsConfig = require('./main-sync');
+// let jsConfig = require('./main-async');
+// let jsConfig = require('./vendor-all');
+// let jsConfig = require('./vendor-custom');
+// let jsConfig = require('./cdn');
+// let jsConfig = require('./extract-css');
 
-var scripts = Object.assign(jsConfig, {
+let scripts = Object.assign(jsConfig, {
   eslint: true,
   options: {
     compress: {
@@ -47,9 +47,6 @@ balm.go(function(mix) {
     mix.sass('src/styles/main.scss', '.compile/styles/scss');
     mix.less('src/styles/main.less', '.compile/styles/less');
     mix.js('./src/scripts/main-sync.js', '.compile/scripts');
-    // Test minify
-    mix.cssmin(['.tmp/css/**/*.css'], '.compile/minify/css');
-    mix.jsmin(['.tmp/js/**/*.js'], '.compile/minify/js');
     // Test version
     // mix.copy('src/index.html', '.compile/minify');
     // mix.copy('dist/minify/css/css/*.css', '.compile/minify/css');

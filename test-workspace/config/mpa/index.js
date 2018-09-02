@@ -1,7 +1,7 @@
-var balm = require('../../../lib/main'); // from local
-// var balm = require('balm'); // from node_modules
+let balm = require('../../../lib/main'); // from local
+// let balm = require('balm'); // from node_modules
 
-var balmConfig = require('../balmrc');
+let balmConfig = require('../balmrc');
 
 balmConfig.scripts = {
   entry: {

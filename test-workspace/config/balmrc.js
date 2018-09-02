@@ -1,16 +1,16 @@
-var path = require('path');
+const path = require('path');
 
-var root = path.resolve(__dirname, '..', '..');
-var workspace = path.join(root, 'test-workspace');
-var assets = path.join(workspace, 'assets');
+const root = path.resolve(__dirname, '..', '..');
+const workspace = path.join(root, 'test-workspace');
+const assets = path.join(workspace, 'assets');
 
-var testConfig = {
-  root: root,
-  workspace: workspace,
-  assets: assets
+const testConfig = {
+  root,
+  workspace,
+  assets
 };
 
-var balmConfig = {
+const balmConfig = {
   // debug: true,
   server: {
     open: false

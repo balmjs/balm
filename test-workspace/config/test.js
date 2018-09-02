@@ -1,7 +1,7 @@
-var balmConfig = require('./balmrc');
-var jsConfig = require('./spa/main-sync');
+let balmConfig = require('./balmrc');
+const jsConfig = require('./spa/main-sync');
 
-var scripts = Object.assign(jsConfig, {
+const scripts = Object.assign(jsConfig, {
   eslint: true,
   options: {
     compress: {
