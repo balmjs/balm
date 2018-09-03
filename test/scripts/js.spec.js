@@ -8,7 +8,7 @@ describe('Scripts Task', () => {
 
     runGulp(() => {
       if (balm.config.production) {
-        shouldExist('dist/web/b/main.min.js');
+        shouldExist('dist/web/b/main.js');
       } else {
         shouldExist('.tmp/b/main.js');
       }
@@ -24,11 +24,7 @@ describe('Scripts Task', () => {
     balm.go(mix => mix.js(src, output));
 
     runGulp(() => {
-      if (balm.config.production) {
-        shouldExist('.compile/js/main.min.js');
-      } else {
-        shouldExist('.compile/js/main.js');
-      }
+      shouldExist('.compile/js/main.js');
 
       done();
     });

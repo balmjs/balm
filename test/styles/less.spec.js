@@ -10,7 +10,7 @@ describe('Less Task', () => {
 
     runGulp(() => {
       if (balm.config.production) {
-        shouldExist('dist/web/a/main.min.css');
+        shouldExist('dist/web/a/main.css');
       } else {
         shouldExist('.tmp/a/main.css');
       }
@@ -26,11 +26,7 @@ describe('Less Task', () => {
     balm.go(mix => mix.less(src, output));
 
     runGulp(() => {
-      if (balm.config.production) {
-        shouldExist('.compile/less/main.min.css');
-      } else {
-        shouldExist('.compile/less/main.css');
-      }
+      shouldExist('.compile/less/main.css');
 
       done();
     });

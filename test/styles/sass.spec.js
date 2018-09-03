@@ -10,7 +10,7 @@ describe('Sass Task', () => {
 
     runGulp(() => {
       if (balm.config.production) {
-        shouldExist('dist/web/a/main.min.css');
+        shouldExist('dist/web/a/main.css');
       } else {
         shouldExist('.tmp/a/main.css');
       }
@@ -26,11 +26,7 @@ describe('Sass Task', () => {
     balm.go(mix => mix.sass(src, output));
 
     runGulp(() => {
-      if (balm.config.production) {
-        shouldExist('.compile/sass/main.min.css');
-      } else {
-        shouldExist('.compile/sass/main.css');
-      }
+      shouldExist('.compile/sass/main.css');
 
       done();
     });
