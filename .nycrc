@@ -1,20 +1,20 @@
 {
+  "require": [
+    "@babel/register"
+  ],
   "include": [
     "lib/**/*.js"
   ],
   "exclude": [
     "node_modules",
     "coverage",
-    "test/**/*.spec.js"
+    "test/**/*"
   ],
   "reporter": [
     "lcov",
     "json",
     "text",
     "text-summary"
-  ],
-  "require": [
-    "babel-register"
   ],
   "sourceMap": false,
   "instrument": false
