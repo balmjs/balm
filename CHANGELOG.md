@@ -1,6 +1,8 @@
 # BalmJS ChangeLog
 
-## 0.24.0 (2018.09.02)
+## 0.24.0
+
+> since 2018.09.02
 
 :tada: Update `babel@7.0`
 
