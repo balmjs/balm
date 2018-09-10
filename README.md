@@ -90,20 +90,20 @@ Install with npm:
 
 ```sh
 # babel 7.x
-$ npm install --save-dev gulp balm@next
+$ npm install --save-dev gulp balm
 
 # babel 6.x
-$ npm install --save-dev gulp balm
+$ npm install --save-dev gulp balm@0.23
 ```
 
 Install with [yarn](https://yarnpkg.com/en/docs/install):
 
 ```sh
 # babel 7.x
-$ yarn add --dev gulp balm@next
+$ yarn add --dev gulp balm
 
 # babel 6.x
-$ yarn add --dev gulp balm
+$ yarn add --dev gulp balm@0.23
 ```
 
 ### 2. Configuration

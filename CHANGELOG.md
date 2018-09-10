@@ -1,8 +1,50 @@
 # BalmJS ChangeLog
 
-## 0.24.0
+## 0.24.1 (2018.09.11)
 
-> since 2018.09.02
+:tada: `balm@24` released
+
+**NEW**
+
+> Use `babel@7.0`
+
+```sh
+npm i -D balm
+# OR
+yarn add -D balm
+```
+
+- `babel.config.js`
+
+```js
+module.exports = {
+  presets: ['@babel/preset-env'],
+  plugins: ['@babel/plugin-transform-runtime']
+};
+```
+
+**OLD**
+
+> Use `babel@6.0`
+
+```sh
+npm i -D balm@0.23
+# OR
+yarn add -D balm@0.23
+```
+
+- `.babelrc`
+
+```json
+{
+  "presets": ["env"],
+  "plugins": ["transform-runtime"]
+}
+```
+
+---
+
+## 0.24.0 (2018.09.02)
 
 :tada: Update `babel@7.0`
 
@@ -26,9 +68,9 @@ module.exports = {
 **OLD**
 
 ```sh
-npm i -D balm@23
+npm i -D balm@0.23
 # OR
-yarn add -D balm@23
+yarn add -D balm@0.23
 ```
 
 - `.babelrc`
