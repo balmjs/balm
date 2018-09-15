@@ -1,6 +1,6 @@
 # BalmJS Changelog
 
-> **Tags:**
+> **Tags:** (@since `balm@0.23`)
 >
 > - :tada: [Releases]
 > - :rocket: [New Features]
@@ -19,14 +19,14 @@
 
 ### :memo: Documentation
 
-- Update docs
+- update docs
   - Custom Task API - `mix.js`
 
 ### :package: Update Dependencies
 
 - `uglifyjs-webpack-plugin`: 1.3.0 -> 2.0.0
-- `webpack`: 4.18.0 -> 4.19.0
-- `webpack-hot-middleware`: 2.23.1 -> 2.24.0
+- `webpack`
+- `webpack-hot-middleware`
 
 ---
 
@@ -34,7 +34,7 @@
 
 ### :memo: Documentation
 
-- Update docs
+- update docs
   - Installation
   - Getting Started
 
@@ -80,7 +80,11 @@ yarn add -D balm@0.23
 
 ## 0.24.0 (2018.09.02)
 
-:tada: Update `babel@7.0`
+### :memo: Documentation
+
+- update docs
+  - Installation
+  - Getting Started
 
 **NEW**
 
@@ -116,57 +120,84 @@ yarn add -D balm@0.23
 }
 ```
 
+### :package: Update Dependencies
+
+- `babel`: 6 -> 7
+- `babel-loader`: 7 -> 8
+
 ---
 
-## 0.23.13 (2018.08.28)
+## :tada: 0.23.13 (2018.08.28)
 
-- update dependencies
+### :package: Update Dependencies
+
+- `babel-loader`: 7.1.5 -> 7
 
 ---
 
 ## 0.23.12 (2018.08.23)
 
-:tada: Update `file-loader@2.0`
+### :package: Update Dependencies
 
-- Enforces `engines` of `"node": ">=6.9.0 < 7.0.0 || >= 8.9.0"`
+- `ansi-colors`
+- `autoprefixer`
+- `file-loader`: 1.1.11 -> 2.0.0
+- `mini-css-extract-plugin`
+- `webpack`
 
 ---
 
 ## 0.23.11 (2018.08.19)
 
-:tada: Update `ansi-colors@3.0`
+### :package: Update Dependencies
+
+- `ansi-colors`: 2.0.5 -> 3.0.1
+- `autoprefixer`
+- `uglifyjs-webpack-plugin`
+- `url-loader`
 
 ---
 
 ## 0.23.10 (2018.08.09)
 
-:tada: Update `postcss-loader@3.0`
+### :package: Update Dependencies
+
+- `postcss-loader`: 2.1.6 -> 3.0.0
+- `style-loader`
 
 ---
 
 ## 0.23.9 (2018.08.07)
 
-:tada: Update `gulp-postcss@8.0`
+### :package: Update Dependencies
 
-- Bump PostCSS to 7.0
-- Drop Node 4 support
+- `gulp-postcss`: 7.0.1 -> 8.0.0
+- `webpack`
 
 ---
 
 ## 0.23.8 (2018.08.05)
 
-- update dependencies
+### :package: Update Dependencies
+
+- `ansi-colors`
+- `autoprefixer`
+- `browser-sync`
+- `cssnano`
+- `gulp-rename`
+- `gulp-rev-all`: 0.9.7 -> 1.0.0
+- `gulp-uglify`
+- `gulp-zip`
+- `postcss-import`: 11.1.0 -> 12.0.0
+- `postcss-preset-env`
+- `webpack`
+- `webpack-merge`
 
 ---
 
 ## 0.23.7 (2018.07.19)
 
-:tada: Update `autoprefixer@9.0`
-
-- Remove Node.js 9 and Node.js 4 support.
-- Remove IE and “dead” browsers from Babel.
-- Use PostCSS 7.0.
-- Use Browserslist 4.0.
+### :rocket: New Features
 
 ```js
 balm.config = {
@@ -181,53 +212,93 @@ balm.config = {
 };
 ```
 
+### :package: Update Dependencies
+
+- `ansi-colors`
+- `autoprefixer`: 8.6.5 -> 9.0.0
+- `cssnano`
+- `gulp-less`
+- `postcss-loader`
+- `postcss-preset-env`
+- `webpack`
+- `webpack-hot-middleware`
+
 ---
 
 ## 0.23.5 (2018.07.07)
 
-:tada: Update `cssnano` and `css-loader` to minimum require `node@6.9` and `webpack@4`
+### :bug: Bug Fixes
 
-### :beetle: Bug fixes and improvements
+- `url-loader`: fix some bug in development mode
 
-- fix `url-loader` some bug in development mode
+### :package: Update Dependencies
+
+- `autoprefixer`
+- `babel-loader`
+- `css-loader`: 0.28.11 -> 1.0.0
+- `cssnano`: 3.10.0 -> 4.0.0
+- `webpack`
 
 ---
 
 ## 0.23.4 (2018.06.30)
 
-- update dependencies
+### :package: Update Dependencies
+
+- `ansi-colors`
+- `autoprefixer`
+- `browser-sync`
+- `gulp-rename`
+- `mini-css-extract-plugin`
+- `postcss-preset-env`
+- `uglifyjs-webpack-plugin`
+- `webpack`
+- `webpack-merge`
 
 ---
 
 ## 0.23.3 (2018.06.09)
 
-- update dependencies
+### :package: Update Dependencies
+
+- `autoprefixer`
+- `webpack`
 
 ---
 
-## 0.23.2 (2018.06.06)
+## :tada: 0.23.2 (2018.06.06)
 
-:tada: [BalmJS](https://balmjs.com/) official website upgrade to https
+> [BalmJS](https://balmjs.com/) official website upgrade to https
+
+### :package: Update Dependencies
+
+- `autoprefixer`
+- `webpack`
 
 ---
 
 ## 0.23.1 (2018.05.31)
 
-:tada: **Use PostCSS all features for default**
+### :rocket: New Features
+
+- `PostCSS`: use all features for default
 
 ---
 
-## 0.23.0 (2018.05.31)
+## :tada: 0.23.0 (2018.05.31)
 
-:tada: **`balm@0.23` for two years old and keep pioneering**
+> `balm@0.23` for two years old and keep pioneering
 
-### :rocket: Update dependency
+### :bug: Bug Fixes
 
-- `postcss-cssnext` has been deprecated in favor of `postcss-preset-env`
+- fix hot reload bug in development mode
 
-### :beetle: Bug fixes and improvements
+### :package: Update Dependencies
 
-- fix hot reload bug in `development` mode
+- `autoprefixer`
+- `postcss-cssnext` (deprecated)
+- `postcss-preset-env` (new)
+- `webpack`
 
 ---
 
