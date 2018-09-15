@@ -1,10 +1,44 @@
-# BalmJS ChangeLog
+# BalmJS Changelog
 
-## 0.24.1 (2018.09.11)
+> **Tags:**
+>
+> - :tada: [Releases]
+> - :rocket: [New Features]
+> - :bug: [Bug Fixes]
+> - :eyeglasses: [Spec Compliancy]
+> - :boom: [Breaking Change]
+> - :memo: [Documentation]
+> - :house: [Code Refactoring]
+> - :package: [Update Dependencies]
 
-:tada: `balm@24` released
+## 0.24.2 (2018.09.15)
 
-**NEW**
+### :rocket: New Features
+
+- `mix.js`: `mix.js(input, output)` -> `mix.js(input, output, uglifyOptions)`
+
+### :memo: Documentation
+
+- Update docs
+  - Custom Task API - `mix.js`
+
+### :package: Update Dependencies
+
+- `uglifyjs-webpack-plugin`: 1.3.0 -> 2.0.0
+- `webpack`: 4.18.0 -> 4.19.0
+- `webpack-hot-middleware`: 2.23.1 -> 2.24.0
+
+---
+
+## :tada: 0.24.1 (2018.09.11)
+
+### :memo: Documentation
+
+- Update docs
+  - Installation
+  - Getting Started
+
+**New**
 
 > Use `babel@7.0`
 
@@ -23,7 +57,7 @@ module.exports = {
 };
 ```
 
-**OLD**
+**Old**
 
 > Use `babel@6.0`
 
