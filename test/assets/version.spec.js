@@ -11,7 +11,7 @@ describe('Version Task', () => {
     });
 
     runGulp(() => {
-      shouldExist('.compile/cache/main.d0093e89.css');
+      shouldExist(`${output}/main.d0093e89.css`);
 
       done();
     });
@@ -27,7 +27,7 @@ describe('Version Task', () => {
     });
 
     runGulp(() => {
-      shouldExist('.compile/cache/main.d06e5be4.js');
+      shouldExist(`${output}/main.e31b0757.js`);
 
       done();
     });

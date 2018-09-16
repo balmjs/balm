@@ -26,7 +26,7 @@ describe('Css Task', () => {
     balm.go(mix => mix.css(src, output));
 
     runGulp(() => {
-      shouldExist('.compile/css/main.css');
+      shouldExist(`${output}/main.css`);
 
       done();
     });

@@ -1,4 +1,4 @@
-let balm = require('../../../dist/main'); // from local
+let balm = require('../../../lib/main'); // from local
 // let balm = require('balm'); // from node_modules
 
 // require('../task');

@@ -22,7 +22,7 @@ describe('Zip Task', () => {
     });
 
     runGulp(() => {
-      shouldExist('.compile/archive.zip');
+      shouldExist(`${output}/archive.zip`);
 
       done();
     });

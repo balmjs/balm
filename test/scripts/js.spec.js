@@ -24,7 +24,26 @@ describe('Scripts Task', () => {
     balm.go(mix => mix.js(src, output));
 
     runGulp(() => {
-      shouldExist('.compile/js/main.js');
+      shouldExist(`${output}/main.js`);
+
+      done();
+    });
+  });
+
+  it('minify JS file to a custom directory', done => {
+    let src = ['./src/scripts/cmd/*.js'];
+    let output = '.compile/cmd';
+    let uglifyOptions = {
+      mangle: false
+    };
+
+    balm.go(mix => {
+      mix.jsmin(src, output, uglifyOptions);
+    });
+
+    runGulp(() => {
+      shouldExist(`${output}/main.min.js`);
+      shouldExist(`${output}/spinning.min.js`);
 
       done();
     });

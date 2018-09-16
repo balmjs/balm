@@ -8,7 +8,7 @@ describe('Copy Task', () => {
     balm.go(mix => mix.copy(from, to));
 
     runGulp(() => {
-      shouldExist('copy-dest/foo.txt');
+      shouldExist(`${to}/foo.txt`);
 
       done();
     });
@@ -24,7 +24,7 @@ describe('Copy Task', () => {
     balm.go(mix => mix.copy(from, to, options));
 
     runGulp(() => {
-      shouldExist('copy-dest/changed.txt');
+      shouldExist(`${to}/changed.txt`);
 
       done();
     });
@@ -37,8 +37,8 @@ describe('Copy Task', () => {
     balm.go(mix => mix.copy(from, to));
 
     runGulp(() => {
-      shouldExist('copy-dest/foobar/foo.txt');
-      shouldExist('copy-dest/foobar/bar.txt');
+      shouldExist(`${to}/foo.txt`);
+      shouldExist(`${to}/bar.txt`);
 
       done();
     });
@@ -51,7 +51,7 @@ describe('Copy Task', () => {
     balm.go(mix => mix.copy(from, to));
 
     runGulp(() => {
-      shouldExist('copy-dest/some.dir/baz.txt');
+      shouldExist(`${to}/baz.txt`);
 
       done();
     });

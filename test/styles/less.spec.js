@@ -26,7 +26,7 @@ describe('Less Task', () => {
     balm.go(mix => mix.less(src, output));
 
     runGulp(() => {
-      shouldExist('.compile/less/main.css');
+      shouldExist(`${output}/main.css`);
 
       done();
     });

@@ -26,7 +26,7 @@ describe('Sass Task', () => {
     balm.go(mix => mix.sass(src, output));
 
     runGulp(() => {
-      shouldExist('.compile/sass/main.css');
+      shouldExist(`${output}/main.css`);
 
       done();
     });
