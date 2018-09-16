@@ -11,7 +11,7 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
-## 0.24.2 (2018.09.15)
+## 0.24.2 (2018.09.16)
 
 ### :rocket: New Features
 
@@ -86,7 +86,7 @@ yarn add -D balm@0.23
   - Installation
   - Getting Started
 
-**NEW**
+**New**
 
 ```sh
 npm i -D balm@next
@@ -103,7 +103,7 @@ module.exports = {
 };
 ```
 
-**OLD**
+**Old**
 
 ```sh
 npm i -D balm@0.23
