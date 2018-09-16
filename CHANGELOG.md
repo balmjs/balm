@@ -15,12 +15,12 @@
 
 ### :rocket: New Features
 
-- `mix.js`: `mix.js(input, output)` -> `mix.js(input, output, uglifyOptions)`
+- `mix.jsmin`: restore `mix.jsmin(input, output, uglifyOptions, renameOptions)`
 
 ### :memo: Documentation
 
 - update docs
-  - Custom Task API - `mix.js`
+  - Custom Task API - `mix.jsmin`
 
 ### :package: Update Dependencies
 
