@@ -6,10 +6,31 @@
 > - :rocket: [New Features]
 > - :bug: [Bug Fixes]
 > - :eyeglasses: [Spec Compliancy]
+> - :nail_care: [Polish]
 > - :boom: [Breaking Change]
 > - :memo: [Documentation]
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
+
+## 0.24.3 (2018.09.20)
+
+### :nail_care: Polish
+
+- optimized code for the entry and loaders of the bundler
+
+### :package: Update Dependencies
+
+- `@babel/core`
+- `@babel/plugin-transform-runtime`
+- `@babel/preset-env`
+- `ansi-colors`
+- `gulp-svg-sprite`
+- `mini-css-extract-plugin`
+- `uglifyjs-webpack-plugin`
+- `webpack`
+- `webpack-hot-middleware`
+
+---
 
 ## 0.24.2 (2018.09.16)
 
