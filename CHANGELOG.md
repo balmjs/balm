@@ -26,6 +26,7 @@
 - `ansi-colors`
 - `gulp-svg-sprite`
 - `mini-css-extract-plugin`
+- `postcss-preset-env`: 5.3.0 -> 6.0.2
 - `uglifyjs-webpack-plugin`
 - `webpack`
 - `webpack-hot-middleware`
