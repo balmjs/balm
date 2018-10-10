@@ -12,6 +12,17 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 0.24.4 (2018.10.10)
+
+### :package: Update Dependencies
+
+- `@babel/core`
+- `browser-sync`
+- `style-loader`
+- `webpack-hot-middleware`
+
+---
+
 ## 0.24.3 (2018.09.20)
 
 ### :nail_care: Polish
