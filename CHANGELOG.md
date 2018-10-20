@@ -12,6 +12,21 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 0.24.5 (2018.10.20)
+
+### :package: Update Dependencies
+
+- `autoprefixer`
+- `browser-sync`
+- `cssnano`
+- `gulp-sass`
+- `mini-css-extract-plugin`
+- `postcss-preset-env`
+- `url-loader`
+- `webpack`
+
+---
+
 ## 0.24.4 (2018.10.10)
 
 ### :package: Update Dependencies
