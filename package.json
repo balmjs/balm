@@ -106,7 +106,7 @@
     "gulp": "^3.9.1"
   },
   "resolutions": {
-    "natives": "1.1.5"
+    "natives": "1.1.6"
   },
   "repository": {
     "type": "git",
