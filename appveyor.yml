@@ -13,7 +13,6 @@ init:
 # environment variables
 environment:
   matrix:
-    - nodejs_version: 11
     - nodejs_version: 10
     - nodejs_version: 8
 
@@ -23,8 +22,12 @@ matrix:
 
 # scripts that run after cloning repository
 install:
-  - ps: Install-Product node $env:nodejs_version
+  - ps: Install-Product node $env:nodejs_version $env:platform
   - npm install -g gulp-cli
+
+# build platform, i.e. x86, x64, Any CPU. This setting is optional.
+platform:
+  - x64
 
 # Skip MSBuild stage
 build: off
