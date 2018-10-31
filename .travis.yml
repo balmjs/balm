@@ -14,6 +14,8 @@ node_js:
 before_script:
   - npm install -g gulp-cli
 
-script: npm test
+script:
+  - node --version && npm --version
+  - npm test
 
 #after_success: npm run coverage

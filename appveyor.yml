@@ -13,9 +13,9 @@ init:
 # environment variables
 environment:
   matrix:
-    - nodejs_version: '11'
-    - nodejs_version: '10'
-    - nodejs_version: '8'
+    - nodejs_version: 11
+    - nodejs_version: 10
+    - nodejs_version: 8
 
 # this is how to allow failing jobs in the matrix
 matrix:
@@ -23,19 +23,13 @@ matrix:
 
 # scripts that run after cloning repository
 install:
-  - ps: Install-Product node $env:nodejs_version $env:platform
-  - node --version
-  - npm --version
+  - ps: Install-Product node $env:nodejs_version
   - npm install -g gulp-cli
-  - npm install
-
-# build platform, i.e. x86, x64, Any CPU. This setting is optional.
-platform:
-  - x64
 
 # Skip MSBuild stage
 build: off
 
 # to run your custom scripts instead of automatic tests
 test_script:
+  - node --version && npm --version
   - npm test
