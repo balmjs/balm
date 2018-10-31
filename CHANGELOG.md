@@ -12,6 +12,25 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 0.24.6 (2018.10.31)
+
+### :package: Update Dependencies
+
+- `@babel/runtime`
+- `ansi-colors`
+- `autoprefixer`
+- `babel-loader`
+- `css-loader`
+- `cssnano`
+- `gulp-useref`
+- `postcss-import`
+- `postcss-preset-env`
+- `require-dir`
+- `webpack`
+- `webpack-dev-middleware`
+
+---
+
 ## 0.24.5 (2018.10.20)
 
 ### :package: Update Dependencies
