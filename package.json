@@ -67,7 +67,6 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.3.0",
     "require-dir": "^1.1.0",
-    "run-sequence": "^2.2.1",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "url-loader": "^1.1.2",

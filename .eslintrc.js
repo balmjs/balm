@@ -14,7 +14,11 @@ module.exports = {
   },
   globals: {
     path: true,
-    gulp: true,
+    task: true,
+    series: true,
+    parallel: true,
+    src: true,
+    dest: true,
     $: true,
     browserSync: true,
     del: true,
@@ -24,8 +28,8 @@ module.exports = {
     config: true,
     logger: true,
     getNamespace: true,
-    File: true,
-    Task: true
+    BalmFile: true,
+    BalmTask: true
   },
   plugins: ['prettier'],
   extends: ['xo', 'plugin:prettier/recommended'],
