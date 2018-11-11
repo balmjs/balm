@@ -16,7 +16,6 @@ module.exports = {
     path: true,
     task: true,
     series: true,
-    parallel: true,
     src: true,
     dest: true,
     $: true,
