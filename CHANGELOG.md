@@ -12,6 +12,19 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 0.24.7 (2018.11.19)
+
+### :package: Update Dependencies
+
+- `@babel/core`
+- `@babel/preset-env`
+- `@babel/runtime`
+- `gulp-imagemin`
+- `postcss-preset-env`
+- `webpack`
+
+---
+
 ## 0.24.6 (2018.10.31)
 
 ### :package: Update Dependencies
@@ -969,19 +982,17 @@ const balmConfig = {
 ```html
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Webapp</title>
+    <link rel="stylesheet" href="%PUBLIC_URL%/styles/main.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Webapp</title>
-  <link rel="stylesheet" href="%PUBLIC_URL%/styles/main.css">
-</head>
-
-<body>
-  <div id="app">Your Template</div>
-  <script src="%PUBLIC_URL%/scripts/main.js"></script>
-</body>
-
+  <body>
+    <div id="app">Your Template</div>
+    <script src="%PUBLIC_URL%/scripts/main.js"></script>
+  </body>
 </html>
 ```
 
@@ -1004,19 +1015,17 @@ const balmConfig = {
 ```html
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Webapp</title>
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/main.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Webapp</title>
-  <link rel="stylesheet" href="%PUBLIC_URL%/css/main.css">
-</head>
-
-<body>
-  <div id="app">Your Template</div>
-  <script src="%PUBLIC_URL%/js/main.js"></script>
-</body>
-
+  <body>
+    <div id="app">Your Template</div>
+    <script src="%PUBLIC_URL%/js/main.js"></script>
+  </body>
 </html>
 ```
 
