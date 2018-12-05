@@ -12,6 +12,26 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 0.24.8 (2018.12.05)
+
+### :package: Update Dependencies
+
+- `@babel/core`
+- `@babel/plugin-transform-runtime`
+- `@babel/preset-env`
+- `@babel/runtime`
+- `ansi-colors`
+- `autoprefixer`
+- `webpack`
+- `fancy-log`
+- `gulp-plumber`
+- `http-proxy-middleware`
+- `mini-css-extract-plugin`
+- `require-dir`
+- `webpack`
+
+---
+
 ## 0.24.7 (2018.11.19)
 
 ### :package: Update Dependencies
