@@ -12,6 +12,20 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 0.24.9 (2018.12.18)
+
+### :package: Update Dependencies
+
+- `ansi-colors`
+- `autoprefixer`
+- `css-loader`: 1.0.1 -> 2.0.1
+- `mini-css-extract-plugin`
+- `postcss-preset-env`
+- `webpack`
+- `webpack-merge`
+
+---
+
 ## 0.24.8 (2018.12.05)
 
 ### :package: Update Dependencies
@@ -22,7 +36,6 @@
 - `@babel/runtime`
 - `ansi-colors`
 - `autoprefixer`
-- `webpack`
 - `fancy-log`
 - `gulp-plumber`
 - `http-proxy-middleware`
