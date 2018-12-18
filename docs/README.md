@@ -1,7 +1,2 @@
-## Documentation
-
-- [Getting Started](getting-started.md)
-- [Configuration](configuration.md)
-- [Custom Task API](api.md)
-- [Recipes](recipes.md)
-- [FAQ](faq.md)
+- [Documentation](https://balmjs.com/docs/en/)
+- [中文文档](https://balmjs.com/docs/zh-cn/)
