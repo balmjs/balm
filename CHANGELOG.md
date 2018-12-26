@@ -12,6 +12,20 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 0.24.10 (2018.12.26)
+
+### :package: Update Dependencies
+
+- `@babel/core`
+- `@babel/preset-env`
+- `css-loader`
+- `cssnano`
+- `file-loader`: 2.0.0 -> 3.0.1
+- `uglifyjs-webpack-plugin`
+- `webpack`
+
+---
+
 ## 0.24.9 (2018.12.18)
 
 ### :package: Update Dependencies
