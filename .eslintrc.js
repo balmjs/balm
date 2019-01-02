@@ -27,7 +27,7 @@ module.exports = {
     BalmJS: true,
     config: true,
     logger: true,
-    getNamespace: true,
+    toNamespace: true,
     BalmFile: true,
     BalmTask: true
   },
