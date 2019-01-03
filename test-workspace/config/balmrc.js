@@ -41,8 +41,7 @@ const balmConfig = {
     autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR']
   },
   sprites: {
-    image: ['img-icon'],
-    svg: ['svg-icon']
+    image: ['img-icon']
   },
   assets: {
     publicUrl: '/',
