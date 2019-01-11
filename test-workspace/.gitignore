@@ -2,7 +2,6 @@ bower_components
 node_modules
 app/styles/sprites
 app/styles/svg
-.babelrc
 .tmp
 .compile
 copy-dest

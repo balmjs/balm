@@ -1,4 +1,4 @@
-const path = require('path');
+import path from 'path';
 
 const root = path.resolve(__dirname, '..', '..');
 const workspace = path.join(root, 'test-workspace');

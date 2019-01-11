@@ -1,4 +1,4 @@
-const gulp = require('gulp');
+import { task, series, parallel } from 'gulp';
 
 const beforeCssTask = cb => {
   console.log('before:task:css');
@@ -10,7 +10,7 @@ const beforeJsTask = cb => {
   cb();
 };
 
-gulp.task('beforeTask', gulp.series(beforeCssTask, beforeJsTask));
+task('beforeTask', series(beforeCssTask, beforeJsTask));
 
 const afterCssTask = cb => {
   console.log('after:task:css');
@@ -22,4 +22,4 @@ const afterJsTask = cb => {
   cb();
 };
 
-gulp.task('afterTask', gulp.parallel(afterCssTask, afterJsTask));
+task('afterTask', parallel(afterCssTask, afterJsTask));

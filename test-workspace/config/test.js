@@ -1,5 +1,5 @@
-let balmConfig = require('./balmrc');
-const jsConfig = require('./spa/main-sync');
+import balmConfig from './balmrc';
+import jsConfig from './spa/main-sync';
 
 const scripts = Object.assign(jsConfig, {
   eslint: true,
@@ -17,4 +17,4 @@ balmConfig = Object.assign(balmConfig, {
   cache: true
 });
 
-module.exports = balmConfig;
+export default balmConfig;

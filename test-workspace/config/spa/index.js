@@ -1,15 +1,8 @@
-let balm = require('../../../dist/main'); // from local
-// let balm = require('balm'); // from node_modules
+import balm from '../../../dist/main'; // from local
+// import balm from 'balm'; // from node_modules
 
-// require('../task');
-
-let balmConfig = require('../balmrc');
-let jsConfig = require('./main-sync');
-// let jsConfig = require('./main-async');
-// let jsConfig = require('./vendor-all');
-// let jsConfig = require('./vendor-custom');
-// let jsConfig = require('./cdn');
-// let jsConfig = require('./extract-css');
+import jsConfig from './test';
+let balmConfig = require('../balmrc'); // Note: Imported Variables Are Read-only
 
 let scripts = Object.assign(jsConfig, {
   eslint: true,

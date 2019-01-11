@@ -1,7 +1,6 @@
 {
   "name": "balm-test",
   "version": "0.0.0",
-  "private": true,
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "dependencies": {
     "axios": "^0.18.0",
@@ -44,5 +43,6 @@
     "build": "npm run build:client && npm run build:server",
     "build:client": "gulp -p --gulpfile config/ssr/client.js",
     "build:server": "gulp -p -ssr --gulpfile config/ssr/server.js"
-  }
+  },
+  "private": true
 }
