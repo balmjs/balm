@@ -1,4 +1,4 @@
-import balm from '../../../dist/main'; // from local
+import balm from '../../../dist'; // from local
 // import balm from 'balm'; // from node_modules
 
 import jsConfig from './test';
