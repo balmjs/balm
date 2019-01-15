@@ -1,5 +1,6 @@
-import balmConfig from './balmrc';
 import jsConfig from './spa/main-sync';
+
+let balmConfig = require('./balmrc');
 
 const scripts = Object.assign(jsConfig, {
   eslint: true,
