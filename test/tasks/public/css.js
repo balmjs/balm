@@ -3,33 +3,28 @@ import CssTask from '../../../lib/tasks/public/css';
 describe('Css Task', () => {
   it('compiles css files to the .tmp/dist directory', done => {
     const cssTask = new CssTask();
-
     const task = gulp.series(cssTask.fn);
-    const assertion = () => {
+    const test = () => {
       if (balm.config.production) {
-        shouldExist('dist/web/a/main1.css');
+        shouldExist('dist/web/a/main.css');
       } else {
         shouldExist('.tmp/a/main.css');
       }
     };
 
-    runTask(task, assertion, done);
+    runTask(task, test, done);
   });
 
-  // it('compiles css files to a custom directory and file name', () => {
-  //   const cssTask = new CssTask();
+  it('compiles css files to a custom directory and file name', done => {
+    let input = './src/styles/main.css';
+    let output = '.compile/css';
 
-  //   let input = './src/styles/main.css';
-  //   let output = '.compile/css';
+    const cssTask = new CssTask(input, output);
+    const task = gulp.series(cssTask.fn);
+    const test = () => {
+      shouldExist(`${output}/main.css`);
+    };
 
-  //   cssTask.input = input;
-  //   cssTask.output = output;
-
-  //   const task = gulp.series(cssTask.fn);
-  //   const done = () => {
-  //     shouldExist(`${output}/main2.css`);
-  //   };
-
-  //   runTask(task, done);
-  // });
+    runTask(task, test, done);
+  });
 });
