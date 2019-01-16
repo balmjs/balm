@@ -6,3 +6,6 @@ import './public/css';
 import './public/js';
 import './public/jsmin';
 // import './public/remove'; // NOTE: ok
+// import './public/version';
+// import './public/publish';
+// import './public/zip';
