@@ -2,7 +2,9 @@ import CssTask from '../../../lib/tasks/public/css';
 
 describe('Css Task', () => {
   it('compiles css files to the .tmp/dist directory', done => {
-    const cssTask = new CssTask();
+    let input = './src/styles/main.css';
+
+    const cssTask = new CssTask(input);
     const task = gulp.series(cssTask.fn);
     const test = () => {
       if (balm.config.production) {

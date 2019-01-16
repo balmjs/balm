@@ -29,5 +29,5 @@ global.runTask = (task, assertions, done) => {
   setTimeout(() => {
     assertions();
     done();
-  }, 1000);
+  }, 1500);
 };
