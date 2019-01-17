@@ -1,7 +1,7 @@
 import CleanTask from '../../../lib/tasks/private/clean';
 
 describe('Clean Task', () => {
-  it('cleanTask', done => {
+  it('clear dist', done => {
     const task = new CleanTask();
     const test = `dist`;
 
