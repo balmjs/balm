@@ -34,7 +34,7 @@ const shouldNoExist = file => {
 };
 
 global.runTask = ({ task, test, done }, result = true) => {
-  gulp.series(task.fn)();
+  gulp.series(task.fn || task)();
 
   setTimeout(() => {
     if (Array.isArray(test)) {
