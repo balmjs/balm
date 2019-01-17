@@ -5,7 +5,7 @@ import './public/less';
 import './public/css';
 import './public/js';
 import './public/jsmin';
-// import './public/remove'; // NOTE: ok
-// import './public/version';
+import './public/version';
+import './public/zip';
+// import './public/remove'; // NOTE: ok for manual
 // import './public/publish';
-// import './public/zip';

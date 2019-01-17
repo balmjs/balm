@@ -14,20 +14,37 @@ global.balm = balm;
 global.balmConfig = balmConfig;
 global.workspace = balmConfig.workspace;
 
-global.shouldExist = (file, contents) => {
-  file = `${workspace}/${file}`;
-
-  fs.existsSync(file).should.be.true;
+const shouldExist = (file, contents) => {
+  let path = `${workspace}/${file}`;
+  let result;
 
   if (contents) {
-    fs.readFileSync(file, { encoding: 'utf8' }).should.eql(contents);
+    result = fs.readFileSync(file, { encoding: 'utf8' });
+    result.should.eql(contents);
+  } else {
+    result = fs.existsSync(path);
+    result.should.be.true;
   }
 };
 
-global.runTask = (task, assertions, done) => {
-  task();
+const shouldNoExist = file => {
+  let path = `${workspace}/${file}`;
+  let result = fs.existsSync(path);
+  result.should.be.false;
+};
+
+global.runTask = ({ task, test, done }, result = true) => {
+  gulp.series(task.fn)();
+
   setTimeout(() => {
-    assertions();
+    if (Array.isArray(test)) {
+      test.forEach(file => {
+        result ? shouldExist(file) : shouldNoExist(file);
+      });
+    } else {
+      result ? shouldExist(test) : shouldNoExist(test);
+    }
+
     done();
   }, 1500);
 };

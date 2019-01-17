@@ -8,13 +8,13 @@ describe('JsMin Task', () => {
       mangle: false
     };
 
-    const jsMinTask = new JsMinTask(input, output, options);
-    const task = gulp.series(jsMinTask.fn);
-    const test = () => {
-      shouldExist(`${output}/main.min.js`);
-      shouldExist(`${output}/spinning.min.js`);
-    };
+    const task = new JsMinTask(input, output, options);
+    const test = [`${output}/main.min.js`, `${output}/spinning.min.js`];
 
-    runTask(task, test, done);
+    runTask({
+      task,
+      test,
+      done
+    });
   });
 });
