@@ -1,4 +1,11 @@
 import './private/clean';
+import './private/sprite';
+import './private/html';
+import './private/image';
+import './private/media';
+import './private/font';
+import './private/extra';
+
 import './public/copy';
 import './public/sass';
 import './public/less';
