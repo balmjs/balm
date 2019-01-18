@@ -10,14 +10,16 @@ describe('Version Task', () => {
     const task = new VersionTask(input, output);
     const test = `${output}/main.d0093e89.css`;
 
-    const copyTask = new CopyTask('./src/styles/main.css', output);
-    gulp.series(copyTask.fn, () => {
-      runTask({
-        task,
-        test,
-        done
-      });
-    })();
+    runTask({
+      task: new CopyTask('./src/styles/main.css', output),
+      test: () => {
+        runTask({
+          task,
+          test,
+          done
+        });
+      }
+    });
   });
 
   it('cache js files', done => {
@@ -27,13 +29,15 @@ describe('Version Task', () => {
     const task = new VersionTask(input, output);
     const test = `${output}/main.e31b0757.js`;
 
-    const jsTask = new JsTask('./src/scripts/main-sync.js', output);
-    gulp.series(jsTask.fn, () => {
-      runTask({
-        task,
-        test,
-        done
-      });
-    })();
+    runTask({
+      task: new JsTask('./src/scripts/main-sync.js', output),
+      test: () => {
+        runTask({
+          task,
+          test,
+          done
+        });
+      }
+    });
   });
 });

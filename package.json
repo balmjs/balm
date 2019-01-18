@@ -112,7 +112,7 @@
   },
   "scripts": {
     "prepublishOnly": "gulp prepublish",
-    "test": "cross-env NODE_ENV=test nyc mocha -r ./test/setup.js",
+    "test": "cross-env NODE_ENV=test nyc mocha -r ./test/setup.js -t 4000",
     "coverage": "nyc | coveralls"
   },
   "engines": {

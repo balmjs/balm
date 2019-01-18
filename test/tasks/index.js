@@ -1,5 +1,7 @@
 import './private/clean';
 import './private/sprite';
+import './private/style';
+import './private/script';
 import './private/html';
 import './private/image';
 import './private/media';

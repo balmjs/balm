@@ -4,6 +4,7 @@ import chai from 'chai';
 import gulp from 'gulp';
 import balm from '../lib';
 import balmConfig from '../test-workspace/config/test';
+import { isArray, isFunction } from '../lib/utilities';
 
 global.path = path;
 global.fs = fs;
@@ -37,14 +38,18 @@ global.runTask = ({ task, test, done }, result = true) => {
   gulp.series(task.fn || task)();
 
   setTimeout(() => {
-    if (Array.isArray(test)) {
-      test.forEach(file => {
-        result ? shouldExist(file) : shouldNoExist(file);
-      });
+    if (isFunction(test)) {
+      test();
     } else {
-      result ? shouldExist(test) : shouldNoExist(test);
-    }
+      if (isArray(test)) {
+        test.forEach(file => {
+          result ? shouldExist(file) : shouldNoExist(file);
+        });
+      } else {
+        result ? shouldExist(test) : shouldNoExist(test);
+      }
 
-    done();
+      done();
+    }
   }, 1500);
 };
