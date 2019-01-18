@@ -1,5 +1,4 @@
 import remove from 'rimraf';
-import './config';
 import './tasks';
 
 const reset = () => {
