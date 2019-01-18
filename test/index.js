@@ -3,6 +3,7 @@ import './config';
 import './tasks';
 
 const reset = () => {
+  balm.reset();
   remove.sync(`${workspace}/copy-dest`);
   remove.sync(`${workspace}/.tmp`);
   remove.sync(`${workspace}/.compile`);
