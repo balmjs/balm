@@ -26,7 +26,7 @@ describe('Default Task', () => {
       'dist/index.html',
       'dist/manifest.json',
       'dist/web/a/main.d2551023.css',
-      'dist/web/b/main-sync.d17a5582.js',
+      'dist/web/b/main.e31b0757.js',
       'dist/web/c/logo.bae9298c.svg',
       'dist/web/d/roboto-regular.f94d5e51.woff'
     ];
