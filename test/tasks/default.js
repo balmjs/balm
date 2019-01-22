@@ -1,7 +1,7 @@
 describe('Default Task', () => {
   it('run balm task', done => {
-    balm.go(mix => {
-      if (balm.config.production) {
+    if (balm.config.isProd) {
+      balm.go(mix => {
         let input = 'index.html';
         let output = 'views';
         let options = {
@@ -9,20 +9,21 @@ describe('Default Task', () => {
           suffix: '.blade',
           extname: '.php'
         };
-
         mix.publish();
         mix.publish(input, output, options);
-      }
 
-      console.log('gg');
-
-      done();
-    });
+        done();
+      });
+    } else {
+      balm.go(() => {
+        done();
+      });
+    }
   });
 
   it('verify balm task result', done => {
     const task = 'default';
-    const test = balm.config.production
+    const test = balm.config.isProd
       ? [
           'dist/index.html',
           'dist/manifest.json',

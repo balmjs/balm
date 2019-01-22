@@ -13,7 +13,7 @@ const scripts = Object.assign(jsConfig, {
 
 balmConfig.assets.subDir = 'web';
 balmConfig = Object.assign(balmConfig, {
-  production: true,
+  isProd: true,
   scripts,
   cache: true
 });

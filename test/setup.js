@@ -53,6 +53,6 @@ global.runTask = ({ task, test, done }, result = true) => {
         done();
       }
     },
-    task === 'default' ? 5000 : 2500
+    task === 'default' ? 5000 : 2000
   );
 };
