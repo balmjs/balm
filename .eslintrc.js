@@ -20,7 +20,7 @@ module.exports = {
     src: true,
     dest: true,
     $: true,
-    browserSync: true,
+    server: true,
     del: true,
     cssnano: true,
     webpack: true,
