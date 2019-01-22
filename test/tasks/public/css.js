@@ -5,9 +5,7 @@ describe('Css Task', () => {
     let input = './src/styles/main.css';
 
     const task = new CssTask(input);
-    const test = balm.config.production
-      ? 'dist/web/a/main.css'
-      : '.tmp/a/main.css';
+    const test = balm.config.isProd ? 'dist/web/a/main.css' : '.tmp/a/main.css';
 
     runTask({
       task,

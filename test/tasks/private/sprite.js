@@ -6,7 +6,9 @@ describe('Sprite Task', () => {
     const task = spriteTask.deps.map(
       taskName => `${BalmJS.NAMESPACE}:${taskName}`
     );
-    const test = 'dist/web/c/img-icon-sprite.png';
+    const test = balm.config.isProd
+      ? 'dist/web/c/img-icon-sprite.png'
+      : '.tmp/c/img-icon-sprite.png';
 
     runTask({
       task,

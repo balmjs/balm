@@ -27,7 +27,9 @@ describe('Version Task', () => {
     let output = '.compile/cache';
 
     const task = new VersionTask(input, output);
-    const test = `${output}/main.e31b0757.js`;
+    const test = balm.config.isProd
+      ? `${output}/main.e31b0757.js`
+      : `${output}/main.e0997e40.js`;
 
     runTask({
       task: new JsTask('./src/scripts/main-sync.js', output),

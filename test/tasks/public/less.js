@@ -5,9 +5,7 @@ describe('Less Task', () => {
     let input = './src/styles/main.less';
 
     const task = new LessTask(input);
-    const test = balm.config.production
-      ? 'dist/web/a/main.css'
-      : '.tmp/a/main.css';
+    const test = balm.config.isProd ? 'dist/web/a/main.css' : '.tmp/a/main.css';
 
     runTask({
       task,

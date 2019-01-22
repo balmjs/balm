@@ -5,9 +5,7 @@ describe('Js Task', () => {
     let input = './src/scripts/main-sync.js';
 
     const task = new JsTask(input);
-    const test = balm.config.production
-      ? 'dist/web/b/main.js'
-      : '.tmp/b/main.js';
+    const test = balm.config.isProd ? 'dist/web/b/main.js' : '.tmp/b/main.js';
 
     runTask({
       task,
