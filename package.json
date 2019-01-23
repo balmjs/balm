@@ -104,7 +104,7 @@
   },
   "scripts": {
     "prepublishOnly": "gulp prepublish",
-    "test": "cross-env NODE_ENV=test nyc mocha -r ./test/setup.js -t 20000",
+    "test": "cross-env NODE_ENV=test nyc mocha -A -r ./test/setup.js -t 8000",
     "coverage": "nyc | coveralls"
   },
   "engines": {

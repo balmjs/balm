@@ -8,9 +8,10 @@ describe('Start Task', () => {
     };
   });
 
-  it('before task', () => {
+  it('before task', done => {
     const task = new StartTask();
 
     gulp.series(task.fn)();
+    done();
   });
 });

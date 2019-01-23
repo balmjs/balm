@@ -8,9 +8,10 @@ describe('End Task', () => {
     };
   });
 
-  it('after task', () => {
+  it('after task', done => {
     const task = new EndTask();
 
     gulp.series(task.fn)();
+    done();
   });
 });
