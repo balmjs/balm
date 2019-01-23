@@ -3,7 +3,7 @@ export default {
     'vendor-a': ['jquery'],
     'vendor-b': ['lodash'],
     'vendor-c': ['moment'],
-    main: './src/scripts/vendor-main.js'
+    main: './src/scripts/spa/vendor-main.js'
   },
   optimization: {
     splitChunks: {

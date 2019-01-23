@@ -1,5 +1,5 @@
 export default {
   entry: {
-    main: './src/scripts/main-async.js'
+    main: './src/scripts/spa/main-async.js'
   }
 };

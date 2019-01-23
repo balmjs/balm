@@ -1,4 +1,4 @@
-import hello from './hello';
+import hello from './main-hello';
 
 console.info('[Sync]', 'before');
 

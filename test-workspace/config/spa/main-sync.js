@@ -1,5 +1,6 @@
+// You need add "@babel/plugin-syntax-dynamic-import" in `.babelrc`
 export default {
   entry: {
-    main: './src/scripts/main-sync.js'
+    main: './src/scripts/spa/main-sync.js'
   }
 };

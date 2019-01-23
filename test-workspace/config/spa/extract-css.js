@@ -1,7 +1,7 @@
 export default {
   entry: {
-    'page-a': './src/scripts/css-page-a.js',
-    'page-b': './src/scripts/css-page-b.js'
+    'css-a': './src/scripts/spa/css-page-a.js',
+    'css-b': './src/scripts/spa/css-page-b.js'
   },
   extractCss: {
     enabled: true,

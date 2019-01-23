@@ -1,6 +1,6 @@
 export default {
   entry: {
-    main: './src/scripts/cdn.js'
+    main: './src/scripts/spa/cdn.js'
   },
   externals: {
     jquery: '$',
