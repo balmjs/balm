@@ -1,27 +1,18 @@
 <template>
   <div class="container">
-    <header class="hero">
-      <img :src="logo" alt="">
-      <hello></hello>
-    </header>
-    <hr>
-    <div class="content">
-      <my-menu></my-menu>
-      <router-view></router-view>
-    </div>
+    <img :src="logo" alt="">
+    <hello></hello>
   </div>
 </template>
 
 <script>
-const Hello = () => import('../components/hello');
-const MyMenu = () => import('../components/my-menu');
-import logo from '../../../images/logo.png';
+import Hello from '../components/hello';
+import logo from '../../assets/logo.png';
 
 export default {
   name: 'app',
   components: {
-    Hello,
-    MyMenu
+    Hello
   },
   data() {
     return {
