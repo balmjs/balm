@@ -1,4 +1,4 @@
-# BalmJS Changelog
+# [BalmJS](https://balmjs.com/) Changelog
 
 > **Tags:** (@since `balm@0.23`)
 >
@@ -11,6 +11,36 @@
 > - :memo: [Documentation]
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
+
+## 1.0.0 (Coming Soon)
+
+### :rocket: New Features
+
+- New balm tasks for `gulp@4`
+- Optimize partial APIs
+
+### :bug: [Bug Fixes]
+
+- Fix hot reload bug
+
+### :boom: [Breaking Change]
+
+- Config
+  - update `production` to `isProd`
+  - add `isTest` and `isDev`
+  - remove `zip`
+  - update `assets.publicPath` to `assets.mainDir`
+  - add `ftp.logging`
+  - update default value for `server.devOptions` and `server.hotOptions`
+  - remove `sprites.mode` and `sprites.svg`
+- Remove SVG sprites task
+
+### :house: [Code Refactoring]
+
+- Refactor balm tasks
+- Refactor unit testing
+
+---
 
 ## 0.24.6 (2018.10.31)
 
@@ -80,7 +110,7 @@
 
 ## 0.24.2 (2018.09.16)
 
-### :rocket: New Features
+### ### :rocket: New Features
 
 - `mix.jsmin`: restore `mix.jsmin(input, output, uglifyOptions, renameOptions)`
 
@@ -969,19 +999,17 @@ const balmConfig = {
 ```html
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Webapp</title>
+    <link rel="stylesheet" href="%PUBLIC_URL%/styles/main.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Webapp</title>
-  <link rel="stylesheet" href="%PUBLIC_URL%/styles/main.css">
-</head>
-
-<body>
-  <div id="app">Your Template</div>
-  <script src="%PUBLIC_URL%/scripts/main.js"></script>
-</body>
-
+  <body>
+    <div id="app">Your Template</div>
+    <script src="%PUBLIC_URL%/scripts/main.js"></script>
+  </body>
 </html>
 ```
 
@@ -1004,19 +1032,17 @@ const balmConfig = {
 ```html
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Webapp</title>
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/main.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Webapp</title>
-  <link rel="stylesheet" href="%PUBLIC_URL%/css/main.css">
-</head>
-
-<body>
-  <div id="app">Your Template</div>
-  <script src="%PUBLIC_URL%/js/main.js"></script>
-</body>
-
+  <body>
+    <div id="app">Your Template</div>
+    <script src="%PUBLIC_URL%/js/main.js"></script>
+  </body>
 </html>
 ```
 
