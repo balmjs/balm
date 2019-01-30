@@ -33,6 +33,9 @@ balm.config = balmConfig;
 // balm.beforeTask = 'beforeTask';
 // balm.afterTask = 'afterTask';
 
+// FTP test
+// balm.config.useDefault = false;
+
 // Test build
 balm.go(mix => {
   if (balm.config.production) {
@@ -43,4 +46,5 @@ balm.go(mix => {
       extname: '.php'
     });
   }
+  // mix.ftp('dist/**/*');
 });
