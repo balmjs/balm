@@ -3,7 +3,12 @@
     "@babel/register"
   ],
   "include": [
-    "lib/**/*.js"
+    "lib/**/*.js",
+    "!lib/middlewares/*.js",
+    "!lib/plugins/sftp.js",
+    "!lib/tasks/private/server.js",
+    "!lib/tasks/public/remove.js",
+    "!lib/api.js"
   ],
   "reporter": [
     "lcov",
