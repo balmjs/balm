@@ -15,7 +15,7 @@ global.balm = balm;
 global.balmConfig = balmConfig;
 global.workspace = balmConfig.workspace;
 
-const DELAY = 3000;
+const DELAY = 4000;
 
 const shouldExist = (file, contents) => {
   let path = `${workspace}/${file}`;
