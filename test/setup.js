@@ -15,6 +15,8 @@ global.balm = balm;
 global.balmConfig = balmConfig;
 global.workspace = balmConfig.workspace;
 
+const DELAY = 3000;
+
 const shouldExist = (file, contents) => {
   let path = `${workspace}/${file}`;
   let result;
@@ -53,6 +55,6 @@ global.runTask = ({ task, test, done }, result = true) => {
         done();
       }
     },
-    task === 'default' ? 5000 : 2500
+    task === 'default' ? DELAY * 2 : DELAY
   );
 };
