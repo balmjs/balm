@@ -17,7 +17,7 @@ balmConfig.scripts.plugins.push(new VueSSRClientPlugin());
 balm.config = balmConfig;
 
 balm.go(function(mix) {
-  if (balm.config.production) {
+  if (balm.config.isProd) {
     mix.copy('src/data/*', 'dist/data');
   }
 });

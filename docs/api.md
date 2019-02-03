@@ -47,7 +47,7 @@ balm.afterTask = () => {
 };
 
 balm.go(function(mix) {
-  if (balm.config.production) {
+  if (balm.config.isProd) {
     mix.sass(); // compile all sass files
     mix.buildStyle(); // rename 'images,fonts' to 'img,font' in compiled css files
 

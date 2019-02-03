@@ -1,5 +1,7 @@
 # BalmJS Configuration Docs
 
+> ⚠️ The documentation was migrated to [here](https://balmjs.com/docs/en/configuration/toc.html)
+
 ## :ghost: The simplest structure for webapp ([Full version](https://github.com/balmjs/balm#structure))
 
 ```
@@ -719,7 +721,7 @@ Replace modules by other modules or paths. Defaults to `{}`.
 ```js
 scripts: {
   alias: {
-    'vue$': balm.config.production ? 'vue/dist/vue.min.js' : 'vue/dist/vue.esm.js'
+    'vue$': balm.config.isProd ? 'vue/dist/vue.min.js' : 'vue/dist/vue.esm.js'
   }
 }
 ```

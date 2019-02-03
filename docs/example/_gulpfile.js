@@ -60,7 +60,7 @@ balm.config = {
 
 // 3. Run balm
 balm.go(function(mix) {
-  if (balm.config.production) {
+  if (balm.config.isProd) {
     // Publish assets(styles,scripts,images,fonts,media)
     // from local `${roots.target}/{css,js,img,font,media}`
     // to `${assets.root}/${assets.publicPath}/${assets.subDir}`

@@ -38,7 +38,7 @@ balm.config = balmConfig;
 
 // Test build
 balm.go(mix => {
-  if (balm.config.production) {
+  if (balm.config.isProd) {
     mix.publish();
     mix.publish('index.html', 'views', {
       basename: 'home',
