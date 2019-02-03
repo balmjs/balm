@@ -1,25 +1,25 @@
-const gulp = require('gulp');
+import { task, series, parallel } from 'gulp';
 
-gulp.task('task:before:css', function() {
-  console.log('task:before:css');
-});
+const beforeCssTask = cb => {
+  console.log('before:task:css');
+  cb();
+};
 
-gulp.task('task:before:js', function() {
-  console.log('task:before:js');
-});
+const beforeJsTask = cb => {
+  console.log('before:task:js');
+  cb();
+};
 
-gulp.task('task:before', ['task:before:css', 'task:before:js'], function() {
-  console.log('task:before');
-});
+task('beforeTask', series(beforeCssTask, beforeJsTask));
 
-gulp.task('task:after:css', function() {
-  console.log('task:after:css');
-});
+const afterCssTask = cb => {
+  console.log('after:task:css');
+  cb();
+};
 
-gulp.task('task:after:js', function() {
-  console.log('task:after:js');
-});
+const afterJsTask = cb => {
+  console.log('after:task:js');
+  cb();
+};
 
-gulp.task('task:after', ['task:after:css', 'task:after:js'], function() {
-  console.log('task:after');
-});
+task('afterTask', parallel(afterCssTask, afterJsTask));

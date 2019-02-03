@@ -1,5 +1,6 @@
-module.exports = {
+export default {
   entry: {
-    main: './src/scripts/main-sync.js'
+    // lib: ['jquery'], // for test
+    main: './src/scripts/spa/main-sync.js'
   }
 };

@@ -3,12 +3,13 @@
     "@babel/register"
   ],
   "include": [
-    "lib/**/*.js"
-  ],
-  "exclude": [
-    "node_modules",
-    "coverage",
-    "test/**/*"
+    "lib/**/*.js",
+    "!lib/bundler/webpack.dev.js",
+    "!lib/middlewares/*.js",
+    "!lib/plugins/sftp.js",
+    "!lib/tasks/private/server.js",
+    "!lib/tasks/public/remove.js",
+    "!lib/api.js"
   ],
   "reporter": [
     "lcov",

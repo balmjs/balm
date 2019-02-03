@@ -1,4 +1,4 @@
-# BalmJS Changelog
+# [BalmJS](https://balmjs.com/) Changelog
 
 > **Tags:** (@since `balm@0.23`)
 >

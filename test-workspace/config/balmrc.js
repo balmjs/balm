@@ -1,4 +1,4 @@
-const path = require('path');
+import path from 'path';
 
 const root = path.resolve(__dirname, '..', '..');
 const workspace = path.join(root, 'test-workspace');
@@ -38,11 +38,10 @@ const balmConfig = {
   },
   styles: {
     ext: 'css',
-    autoprefixer: ['> 1%', 'last 2 versions', 'Firefox ESR']
+    autoprefixer: ['> 0.5%', 'last 2 versions', 'Firefox ESR', 'not dead']
   },
   sprites: {
-    image: ['img-icon'],
-    svg: ['svg-icon']
+    image: ['img-icon']
   },
   assets: {
     publicUrl: '/',
