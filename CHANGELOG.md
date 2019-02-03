@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.0.1 (2019.02.03)
+
+### :bug: [Bug Fixes]
+
+- API `mix.ftp`: fix `filename` param
+
+---
+
 ## 1.0.0 (2019.02.03)
 
 > :tada: Happy Lunar New Year

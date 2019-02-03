@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A flexible front-end workflow for webapps",
   "homepage": "https://balmjs.com/",
   "author": {
@@ -93,7 +93,7 @@
     "gulp-nsp": "^3.0.1",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
-    "prettier": "^1.16.3",
+    "prettier": "^1.16.4",
     "rimraf": "^2.6.3"
   },
   "peerDependencies": {
