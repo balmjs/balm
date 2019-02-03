@@ -1,4 +1,6 @@
-## Custom Task API
+## <del>Custom Task API</del>
+
+> ⚠️ The documentation was migrated to [here](https://balmjs.com/docs/en/api/toc.html)
 
 - server
     - `server()`

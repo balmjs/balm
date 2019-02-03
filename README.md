@@ -104,7 +104,7 @@ In your project directory, create a file named `gulpfile.js` in your project roo
 
 ```js
 // 1. import balm
-var balm = require('balm');
+const balm = require('balm');
 
 // 2. config balm
 balm.config = {
