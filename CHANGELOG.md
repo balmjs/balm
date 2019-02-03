@@ -12,6 +12,39 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.0.0 (2019.02.03)
+
+> :tada: Happy Lunar New Year
+
+### :rocket: New Features
+
+- New balm tasks for `gulp@4`
+- Optimize partial APIs
+- Update all demos for new version
+
+### :bug: [Bug Fixes]
+
+- Fix hot reload bug
+
+### :boom: [Breaking Change]
+
+- Config
+  - update `production` to `isProd`
+  - add `isTest` and `isDev`
+  - remove `zip`
+  - update `assets.publicPath` to `assets.mainDir`
+  - add `ftp.logging`
+  - update default value for `server.devOptions` and `server.hotOptions`
+  - remove `sprites.mode` and `sprites.svg`
+- Remove SVG sprites task
+
+### :house: [Code Refactoring]
+
+- Refactor balm tasks
+- Refactor unit testing
+
+---
+
 ## 0.24.10 (2018.12.26)
 
 ### :package: Update Dependencies
