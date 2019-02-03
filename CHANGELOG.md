@@ -12,12 +12,15 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
-## 1.0.0 (Coming Soon)
+## 1.0.0 (2019.02.03)
+
+> :tada: Happy Lunar New Year
 
 ### :rocket: New Features
 
 - New balm tasks for `gulp@4`
 - Optimize partial APIs
+- Update all demos for new version
 
 ### :bug: [Bug Fixes]
 

@@ -4,6 +4,7 @@
   ],
   "include": [
     "lib/**/*.js",
+    "!lib/bundler/webpack.dev.js",
     "!lib/middlewares/*.js",
     "!lib/plugins/sftp.js",
     "!lib/tasks/private/server.js",
