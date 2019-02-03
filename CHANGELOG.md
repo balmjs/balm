@@ -113,7 +113,7 @@
 
 ## 0.24.2 (2018.09.16)
 
-### ### :rocket: New Features
+### :rocket: New Features
 
 - `mix.jsmin`: restore `mix.jsmin(input, output, uglifyOptions, renameOptions)`
 
