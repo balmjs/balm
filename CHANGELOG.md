@@ -12,6 +12,16 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.0.2 (2019.02.04)
+
+> :tada: Happy Lunar New Year
+
+### :eyeglasses: [Spec Compliancy]
+
+- add compatibility hint
+
+---
+
 ## 1.0.1 (2019.02.03)
 
 ### :bug: [Bug Fixes]
@@ -21,8 +31,6 @@
 ---
 
 ## 1.0.0 (2019.02.03)
-
-> :tada: Happy Lunar New Year
 
 ### :rocket: New Features
 

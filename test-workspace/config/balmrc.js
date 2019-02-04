@@ -46,7 +46,7 @@ const balmConfig = {
   assets: {
     publicUrl: '/',
     root: testConfig.assets,
-    publicPath: 'public',
+    mainDir: 'public',
     // NOTE: Extra cache files
     // includes: [
     //   'dist/web/css/vendor.css',
