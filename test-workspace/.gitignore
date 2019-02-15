@@ -8,3 +8,4 @@ copy-dest
 dist
 assets
 *.zip
+!src/scripts/assets
