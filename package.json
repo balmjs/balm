@@ -21,7 +21,7 @@
     "workflow"
   ],
   "dependencies": {
-    "@babel/core": "^7.2.2",
+    "@babel/core": "^7.3.3",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
@@ -74,7 +74,7 @@
     "terser-webpack-plugin": "^1.2.2",
     "through2": "^3.0.0",
     "url-loader": "^1.1.2",
-    "webpack": "^4.29.3",
+    "webpack": "^4.29.4",
     "webpack-dev-middleware": "^3.5.2",
     "webpack-hot-middleware": "^2.24.3",
     "webpack-merge": "^4.2.1",
@@ -86,7 +86,7 @@
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
-    "eslint": "^5.13.0",
+    "eslint": "^5.14.0",
     "eslint-config-prettier": "^4.0.0",
     "eslint-config-xo": "^0.26.0",
     "eslint-plugin-prettier": "^3.0.1",
