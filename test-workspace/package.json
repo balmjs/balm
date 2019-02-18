@@ -1,25 +1,33 @@
 {
   "name": "balm-test",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "dependencies": {
     "axios": "^0.18.0",
+    "express": "^4.16.4",
     "jquery": "^3.0.0",
     "normalize.css": "^8.0.0",
-    "vue": "^2.5.22"
+    "vue": "^2.6.6",
+    "vue-meta": "^1.5.8",
+    "vue-router": "^3.0.2",
+    "vue-server-renderer": "^2.6.6"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.3.0",
-    "@babel/plugin-proposal-decorators": "^7.3.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
-    "@babel/plugin-proposal-function-sent": "^7.2.0",
-    "@babel/plugin-proposal-json-strings": "^7.2.0",
-    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-syntax-import-meta": "^7.2.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "cross-env": "^5.2.0",
     "vue-loader": "^15.6.0",
-    "vue-template-compiler": "^2.5.22"
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.6",
+    "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
     "preinstall": "bower install",
@@ -27,8 +35,8 @@
     "prod": "gulp --production",
     "start": "cross-env NODE_ENV=production node server",
     "build": "npm run build:client && npm run build:server",
-    "build:client": "gulp -p --gulpfile config/ssr/client.js",
-    "build:server": "gulp -p -ssr --gulpfile config/ssr/server.js"
+    "build:client": "gulp -p -f config/ssr/client.js",
+    "build:server": "gulp -p -ssr -f config/ssr/server.js"
   },
   "private": true
 }

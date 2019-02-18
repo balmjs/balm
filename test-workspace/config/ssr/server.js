@@ -1,14 +1,14 @@
-var balm = require('../../../dist/main'); // from local
-// var balm = require('balm'); // from node_modules
-var nodeExternals = require('webpack-node-externals');
-var VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
-var balmConfig = require('../balmrc');
-var base = require('./base');
+const balm = require('../../../dist'); // from local
+// const balm = require('balm'); // from node_modules
+const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
+const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
+const base = require('./base');
+let balmConfig = require('../balmrc');
 
-balmConfig.ssr = true;
 balmConfig.scripts = Object.assign(base, {
   entry: {
-    'server-bundle': './src/scripts/entry-server.js'
+    server: './src/scripts/entry-server.js'
   },
   // This allows webpack to handle dynamic imports in a Node-appropriate
   // fashion, and also tells `vue-loader` to emit server-oriented code when
@@ -26,7 +26,12 @@ balmConfig.scripts = Object.assign(base, {
 // This is the plugin that turns the entire output of the server build
 // into a single JSON file. The default file name will be
 // `vue-ssr-server-bundle.json`
-balmConfig.scripts.plugins.push(new VueSSRServerPlugin());
+balmConfig.scripts.plugins.concat([
+  new webpack.DefinePlugin({
+    'process.env.VUE_ENV': '"server"'
+  }),
+  new VueSSRServerPlugin()
+]);
 
 balm.config = balmConfig;
 

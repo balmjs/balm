@@ -1,16 +1,13 @@
-// var { VueLoaderPlugin } = require('vue-loader');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-  // entry: {
-  //   lib: ['vue', 'vue-router', 'vuex', 'axios']
-  // },
   loaders: [
     {
       test: /\.vue$/,
       loader: 'vue-loader'
     }
   ],
-  plugins: [], // new VueLoaderPlugin()
+  plugins: [new VueLoaderPlugin()],
   eslint: false,
   options: {
     compress: {
