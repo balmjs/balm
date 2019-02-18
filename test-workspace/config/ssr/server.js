@@ -26,7 +26,7 @@ balmConfig.scripts = Object.assign(base, {
 // This is the plugin that turns the entire output of the server build
 // into a single JSON file. The default file name will be
 // `vue-ssr-server-bundle.json`
-balmConfig.scripts.plugins.concat([
+balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
   new webpack.DefinePlugin({
     'process.env.VUE_ENV': '"server"'
   }),

@@ -14,7 +14,7 @@ balmConfig.scripts = Object.assign(base, {
 });
 // This plugins generates `vue-ssr-client-manifest.json` in the
 // output directory.
-balmConfig.scripts.plugins.concat([
+balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
   new webpack.DefinePlugin({
     'process.env.VUE_ENV': '"client"'
   }),
