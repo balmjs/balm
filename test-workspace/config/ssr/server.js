@@ -8,7 +8,7 @@ let balmConfig = require('../balmrc');
 
 balmConfig.scripts = Object.assign(base, {
   entry: {
-    server: './src/scripts/entry-server.js'
+    server: './ssr/entry-server.js'
   },
   // This allows webpack to handle dynamic imports in a Node-appropriate
   // fashion, and also tells `vue-loader` to emit server-oriented code when
@@ -32,6 +32,7 @@ balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
   }),
   new VueSSRServerPlugin()
 ]);
+balmConfig.scripts.alias['create-api'] = './create-api-server.js';
 
 balm.config = balmConfig;
 

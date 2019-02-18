@@ -9,7 +9,7 @@ balmConfig.server.historyOptions = true;
 balmConfig.scripts = Object.assign(base, {
   entry: {
     lib: ['vue', 'vue-router', 'axios'],
-    client: './src/scripts/entry-client.js'
+    client: './ssr/entry-client.js'
   }
 });
 // This plugins generates `vue-ssr-client-manifest.json` in the
@@ -20,8 +20,10 @@ balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
   }),
   new VueSSRClientPlugin()
 ]);
+balmConfig.scripts.alias['create-api'] = './create-api-client.js';
 
 balm.config = balmConfig;
+balm.config.html.options.removeComments = false;
 
 balm.go(mix => {
   if (balm.config.isProd) {
