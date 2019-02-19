@@ -5,7 +5,14 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const base = require('./base');
 let balmConfig = require('../balmrc');
 
-balmConfig.server.historyOptions = true;
+balmConfig.server = {
+  historyOptions: true,
+  proxyContext: '/api',
+  proxyOptions: {
+    target: 'http://localhost:8088',
+    changeOrigin: true
+  }
+};
 balmConfig.scripts = Object.assign(base, {
   entry: {
     lib: ['vue', 'vue-router', 'vuex', 'axios'],
