@@ -1,7 +1,9 @@
-const balm = require('../../../dist');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
+function resolve(dir) {
+  return path.join(__dirname, '..', '..', dir);
+}
 
 module.exports = {
   cssLoader: false,
@@ -11,34 +13,19 @@ module.exports = {
       loader: 'vue-loader'
     },
     {
-      test: /\.styl(us)?$/,
-      use: balm.isProd
-        ? ExtractTextPlugin.extract({
-            use: [
-              {
-                loader: 'css-loader',
-                options: { minimize: true }
-              },
-              'stylus-loader'
-            ],
-            fallback: 'vue-style-loader'
-          })
-        : ['vue-style-loader', 'css-loader', 'stylus-loader']
+      test: /\.less$/,
+      loader: ['vue-style-loader', 'css-loader', 'less-loader']
     }
   ],
   alias: {
-    public: path.resolve(__dirname, '../../public')
+    vue$: 'vue/dist/vue.esm.js',
+    '@': resolve('src')
   },
   plugins: [new VueLoaderPlugin()],
   eslint: false,
   options: {
     compress: {
       drop_console: false
-    }
-  },
-  webpack: {
-    module: {
-      noParse: /es6-promise\.js$/
     }
   }
 };

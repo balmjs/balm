@@ -32,7 +32,6 @@ balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
   }),
   new VueSSRServerPlugin()
 ]);
-balmConfig.scripts.alias['create-api'] = './create-api-server.js';
 
 balm.config = balmConfig;
 

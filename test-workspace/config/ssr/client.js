@@ -8,7 +8,7 @@ let balmConfig = require('../balmrc');
 balmConfig.server.historyOptions = true;
 balmConfig.scripts = Object.assign(base, {
   entry: {
-    lib: ['vue', 'vue-router', 'axios'],
+    lib: ['vue', 'vue-router', 'vuex', 'axios'],
     client: './ssr/entry-client.js'
   }
 });
@@ -20,7 +20,6 @@ balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
   }),
   new VueSSRClientPlugin()
 ]);
-balmConfig.scripts.alias['create-api'] = './create-api-client.js';
 
 balm.config = balmConfig;
 balm.config.html.options.removeComments = false;

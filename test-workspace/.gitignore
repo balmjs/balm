@@ -9,3 +9,4 @@ dist
 assets
 *.zip
 !src/scripts/assets
+!ssr/assets
