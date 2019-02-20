@@ -12,7 +12,9 @@ balmConfig.server = {
     target: 'http://localhost:8088',
     changeOrigin: true
   },
-  historyOptions: true
+  historyOptions: {
+    index: '/server.html'
+  }
 };
 
 balmConfig.scripts = Object.assign(base, {
