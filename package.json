@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "1.1.0-beta",
+  "version": "1.1.0",
   "description": "A flexible front-end workflow for webapps",
   "homepage": "https://balmjs.com/",
   "author": {

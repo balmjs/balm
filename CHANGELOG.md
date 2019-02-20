@@ -12,6 +12,16 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.1.0 (Coming up)
+
+### :rocket: New Features
+
+- change `uglifyjs-webpack-plugin` to `terser-webpack-plugin`
+- add `--report` or `-r` for bundle analyzer
+- Vue SSR Support
+
+---
+
 ## 1.0.2 (2019.02.04)
 
 > :tada: Happy Lunar New Year
