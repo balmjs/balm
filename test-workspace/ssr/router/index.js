@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Main from '../components/main.vue';
+import Main from '../components/main';
+import Test from '../components/test';
 
 Vue.use(Router);
 
@@ -9,9 +10,15 @@ export function createRouter() {
     mode: 'history',
     routes: [
       {
-        path: '/',
+        path: '/home',
         name: 'main',
-        component: Main
+        component: Main,
+        alias: '/'
+      },
+      {
+        path: '/test',
+        name: 'test',
+        component: Test
       }
     ]
   });

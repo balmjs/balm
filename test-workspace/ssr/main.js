@@ -6,6 +6,8 @@ import { createRouter } from './router';
 import { createStore } from './store';
 import { sync } from 'vuex-router-sync';
 
+const isProd = process.env.NODE_ENV === 'production';
+
 Vue.config.productionTip = false;
 Vue.config.devtools = true;
 // console.log(createRouter())
@@ -15,12 +17,19 @@ export function createApp() {
   const router = createRouter();
   const store = createStore();
   sync(store, router);
-  const app = new Vue({
+
+  let options = {
     // 注入 router 到根 Vue 实例
     router,
     store,
     render: h => h(App)
-  });
+  };
+
+  if (!isProd) {
+    options.el = '#dev';
+  }
+
+  const app = new Vue(options);
   // 返回 app 和 router
   return { app, router, store };
 }

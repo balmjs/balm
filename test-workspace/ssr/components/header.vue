@@ -1,6 +1,6 @@
 <template>
 <header class="header">
-  <ul class="header-list">
+  <ul v-if="nav.length" class="header-list">
     <!-- <li class="header-list-item-active">SSR</li>
       <li class="header-list-item">Vue</li>
       <li class="header-list-item">React</li>
@@ -10,6 +10,7 @@
       <li class="header-list-item">Less</li> -->
     <li class="header-list-item" v-for="item in nav" :key="item">{{item}}</li>
   </ul>
+  <p v-else>No Header</p>
 </header>
 </template>
 

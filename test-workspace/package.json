@@ -28,11 +28,11 @@
     "preinstall": "bower install",
     "dev": "gulp",
     "prod": "gulp --production",
-    "start-dev": "gulp -f config/ssr/client.js",
+    "ssr:dev": "gulp -f config/ssr/client.js",
     "build:client": "gulp -p -f config/ssr/client.js",
     "build:server": "gulp -p -ssr -f config/ssr/server.js",
     "build": "npm run build:client && npm run build:server",
-    "start-prod": "cross-env NODE_ENV=production node server"
+    "ssr:prod": "cross-env NODE_ENV=production node server"
   },
   "private": true
 }

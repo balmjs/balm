@@ -1,16 +1,17 @@
 <template>
 <div class="main">
-  <div class="main-wrapper">
+  <div v-if="list.length" class="main-wrapper">
     <v-list v-for="item in list" :key="item.id" :item="item"></v-list>
   </div>
+  <p v-else>No Body</p>
 </div>
 </template>
 
 <script>
-import List from './list.vue'
+import List from './list.vue';
 import {
   mapActions
-} from 'vuex'
+} from 'vuex';
 
 export default {
   name: 'App',
@@ -20,28 +21,29 @@ export default {
   data() {
     return {
       list: []
-    }
+    };
   },
   beforeMount() {
-    this.getList().then((res) => {
+    this.getList().then(res => {
       this.list = res
-    })
+    });
   },
   mounted() {
-    console.log(this.$store.state)
+    // this.$store.dispatch('getNav'); // NOTE: for SPA
+    console.log(this.$store.state);
   },
   asyncData({
     store
   }) {
-    console.log('fetch data')
-    return store.dispatch('getNav')
+    console.log('fetch data');
+    return store.dispatch('getNav'); // NOTE: for SSR
   },
   methods: {
     ...mapActions([
       'getList'
     ])
   }
-}
+};
 </script>
 
 <style lang="less">
