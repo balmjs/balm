@@ -54,7 +54,7 @@ if (isProd) {
     };
 
     const context = {
-      title: 'Vue SSR demo', // default title
+      title: 'Hello BalmJS - Vue SSR', // default title
       url: req.url
     };
     renderer.renderToString(context, (err, html) => {
