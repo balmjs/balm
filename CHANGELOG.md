@@ -12,7 +12,7 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
-## 1.1.0 (Coming up)
+## 1.1.0 (2019.02.21)
 
 ### :rocket: New Features
 
