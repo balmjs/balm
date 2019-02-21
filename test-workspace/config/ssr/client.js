@@ -13,7 +13,7 @@ balmConfig.server = {
     changeOrigin: true
   },
   historyOptions: {
-    index: '/server.html'
+    index: '/server.html' // NOTE: entry template
   }
 };
 
