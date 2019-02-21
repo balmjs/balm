@@ -17,7 +17,7 @@
 ### :rocket: New Features
 
 - change `uglifyjs-webpack-plugin` to `terser-webpack-plugin`
-- add `--report` or `-r` for bundle analyzer
+- run the build command with an extra argument (`--report`) to view the bundle analyzer
 - Vue SSR Support
 
 ---
