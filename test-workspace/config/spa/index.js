@@ -40,7 +40,7 @@ balm.config = balmConfig;
 balm.go(mix => {
   if (balm.config.isProd) {
     mix.publish();
-    mix.publish('index.html', 'views', {
+    mix.publish('index.template.html', 'views', {
       basename: 'home',
       suffix: '.blade',
       extname: '.php'

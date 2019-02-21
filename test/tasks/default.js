@@ -2,7 +2,7 @@ describe('Default Task', () => {
   it('run balm task', done => {
     if (balm.config.isProd) {
       balm.go(mix => {
-        let input = 'index.html';
+        let input = 'index.template.html';
         let output = 'views';
         let options = {
           basename: 'home',
@@ -25,15 +25,15 @@ describe('Default Task', () => {
     const task = 'default';
     const test = balm.config.isProd
       ? [
-          'dist/index.html',
+          'dist/main-sync.html',
           'dist/manifest.json'
-          // 'dist/web/a/main.9d09600c.css',
+          // 'dist/web/a/main.41255e24.css',
           // 'dist/web/b/main.a15f834f.js',
           // 'dist/web/c/logo.bae9298c.svg',
           // 'dist/web/d/roboto-regular.f94d5e51.woff'
         ]
       : [
-          '.tmp/index.html',
+          '.tmp/main-sync.html',
           '.tmp/a/main.css',
           '.tmp/a/main.css.map',
           '.tmp/b/main.js',
