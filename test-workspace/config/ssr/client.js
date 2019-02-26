@@ -36,7 +36,11 @@ if (balm.config.isProd) {
 }
 
 balm.config = balmConfig;
-balm.config.html.options.removeComments = false;
+
+if (balm.config.isProd) {
+  balm.config.html.options.removeComments = false;
+  balm.config.cache = true;
+}
 
 balm.go(mix => {
   if (balm.config.isProd) {
