@@ -62,5 +62,5 @@ typings/
 
 # BalmJS build output (custom)
 dist
-test-workspace/package-lock.json
-test-workspace/yarn.lock
+test-*/package-lock.json
+test-*/yarn.lock
