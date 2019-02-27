@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.1.1 (2019.02.27)
+
+### :bug: [Bug Fixes]
+
+- fix server task's watch bug in windows
+
+---
+
 ## 1.1.0 (2019.02.21)
 
 ### :rocket: New Features
