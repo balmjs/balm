@@ -33,6 +33,7 @@ if (balm.config.isProd) {
     }),
     new VueSSRClientPlugin()
   ]);
+  balmConfig.scripts.inject = true;
 }
 
 balm.config = balmConfig;

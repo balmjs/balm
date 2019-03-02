@@ -12,6 +12,20 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.1.2 (2019.03.02)
+
+### :bug: [Bug Fixes]
+
+- fix inject template scripts bug in SSR production
+
+### :boom: [Breaking Change]
+
+- Config
+  - remove `scripts.filename`
+  - add `scripts.inject` for SSR
+
+---
+
 ## 1.1.1 (2019.02.27)
 
 ### :bug: [Bug Fixes]
