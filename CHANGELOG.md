@@ -12,6 +12,18 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.1.3 (2019.03.04)
+
+### :nail_care: [Polish]
+
+- clean code for style tasks
+
+### :package: Update Dependencies
+
+- `del`: 3.0.0 -> 4.0.0
+
+---
+
 ## 1.1.2 (2019.03.02)
 
 ### :bug: [Bug Fixes]
