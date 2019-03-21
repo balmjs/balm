@@ -143,7 +143,7 @@ $ gulp --production
 
 © 2016-present, [Elf-mousE](http://elf-mouse.me/)
 
-## Thanks to
+## Special Thanks to
 
 In chronological order
 
