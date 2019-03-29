@@ -1,4 +1,5 @@
 import VueLoaderPlugin from 'vue-loader/lib/plugin';
+import path from 'path';
 
 export default {
   entry: {
@@ -12,6 +13,7 @@ export default {
   ],
   plugins: [new VueLoaderPlugin()],
   alias: {
-    vue$: 'vue/dist/vue.esm.js'
+    vue$: 'vue/dist/vue.esm.js',
+    '@': path.resolve(__dirname, '..', '..', 'src', 'scripts')
   }
 };
