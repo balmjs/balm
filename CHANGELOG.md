@@ -12,6 +12,16 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.1.4 (2019.04.01)
+
+### :nail_care: [Polish]
+
+- update hot reload
+- update babel rules for default
+- update multiple proxies
+
+---
+
 ## 1.1.3 (2019.03.04)
 
 ### :nail_care: [Polish]

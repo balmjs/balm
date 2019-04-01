@@ -87,7 +87,7 @@
     "chai": "^4.2.0",
     "coveralls": "^3.0.3",
     "cross-env": "^5.2.0",
-    "eslint": "^5.15.3",
+    "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-config-xo": "^0.26.0",
     "eslint-plugin-prettier": "^3.0.1",
