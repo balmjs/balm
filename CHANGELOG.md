@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.1.5 (2019.04.02)
+
+### :bug: [Bug Fixes]
+
+- bugfix for babel rules
+
+---
+
 ## 1.1.4 (2019.04.01)
 
 ### :nail_care: [Polish]
