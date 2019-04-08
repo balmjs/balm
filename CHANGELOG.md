@@ -12,6 +12,18 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.2.0 (2019.04.08)
+
+### :bug: [Bug Fixes]
+
+- fix extra task bug
+
+### :nail_care: [Polish]
+
+- adjust lint task
+
+---
+
 ## 1.1.5 (2019.04.02)
 
 ### :bug: [Bug Fixes]

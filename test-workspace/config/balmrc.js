@@ -43,6 +43,9 @@ const balmConfig = {
   sprites: {
     image: ['img-icon']
   },
+  extras: {
+    excludes: ['empty.txt']
+  },
   assets: {
     publicUrl: '/',
     root: testConfig.assets,
