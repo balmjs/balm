@@ -9,6 +9,7 @@ function doAppStuff(cb) {
   console.log('app file changed');
   cb();
 }
+
 function doLibStuff(cb) {
   console.log('lib file changed');
   cb();

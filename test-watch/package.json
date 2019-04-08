@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Test gulp@4 watch bug in Windows",
   "dependencies": {
-    "chokidar": "^2.1.2",
+    "chokidar": "^2.0.0",
     "gulp": "^4.0.0"
   },
   "private": true
