@@ -12,6 +12,18 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.3.0 (2019.04.10)
+
+### :nail_care: [Polish]
+
+- `webpack.DefinePlugin`: clear code for webpack@4 defaults
+
+### :package: Update Dependencies
+
+- `mini-css-extract-plugin`: 0.5.0 -> 0.6.0
+
+---
+
 ## 1.2.0 (2019.04.08)
 
 ### :bug: [Bug Fixes]
