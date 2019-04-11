@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.3.1 (2019.04.11)
+
+### :bug: [Bug Fixes]
+
+- `assets.publicUrl`: bugfix for dev mode
+
+---
+
 ## 1.3.0 (2019.04.10)
 
 ### :nail_care: [Polish]
