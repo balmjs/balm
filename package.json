@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "A flexible front-end workflow for webapps",
   "homepage": "https://balmjs.com/",
   "author": {
@@ -75,7 +75,7 @@
     "through2": "^3.0.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
-    "webpack-bundle-analyzer": "^3.3.0",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-dev-middleware": "^3.6.2",
     "webpack-hot-middleware": "^2.24.3",
     "webpack-merge": "^4.2.1",
@@ -95,7 +95,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-exclude-gitignore": "^1.2.0",
     "gulp-nsp": "^3.0.1",
-    "mocha": "^6.1.2",
+    "mocha": "^6.1.3",
     "nyc": "^13.3.0",
     "prettier": "^1.16.4",
     "rimraf": "^2.6.3"

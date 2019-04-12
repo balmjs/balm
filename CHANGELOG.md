@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.3.2 (2019.04.12)
+
+### :bug: [Bug Fixes]
+
+- `mix.remove` bugfix
+
+---
+
 ## 1.3.1 (2019.04.11)
 
 ### :bug: [Bug Fixes]
