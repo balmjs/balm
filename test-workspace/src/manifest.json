@@ -1,13 +1,16 @@
 {
   "name": "BalmJS",
   "short_name": "Balm",
+  "start_url": ".",
+  "display": "standalone",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
-  "display": "standalone",
-  "orientation": "portrait",
-  "Scope": "/",
-  "start_url": "./",
   "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
     {
       "src": "images/icons/icon-72x72.png",
       "sizes": "72x72",
@@ -48,6 +51,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "splash_pages": null
+  ]
 }
