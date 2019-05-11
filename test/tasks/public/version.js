@@ -28,8 +28,8 @@ describe('Version Task', () => {
 
     const task = new VersionTask(input, output);
     const test = balm.config.isProd
-      ? `${output}/main.a15f834f.js`
-      : `${output}/main.60f1d5e1.js`;
+      ? `${output}/main.3ea35a34.js`
+      : `${output}/main.967cd757.js`;
 
     runTask({
       task: new JsTask('./src/scripts/spa/main-sync.js', output),
