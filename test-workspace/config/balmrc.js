@@ -14,6 +14,9 @@ const balmConfig = {
   // debug: true,
   server: {
     open: false
+    // historyOptions: {
+    //   index: '/main-sync.html'
+    // }
   },
   workspace: testConfig.workspace,
   roots: {
@@ -44,7 +47,7 @@ const balmConfig = {
     image: ['img-icon']
   },
   extras: {
-    excludes: ['empty.txt']
+    excludes: ['empty.txt', 'service-worker.js']
   },
   assets: {
     publicUrl: '/',
@@ -57,9 +60,6 @@ const balmConfig = {
     //   'dist/web/js/vendors/lodash.js'
     // ],
     excludes: ['dist/web/img/icons/icon-*.png']
-  },
-  pwa: {
-    enabled: true
   }
 };
 

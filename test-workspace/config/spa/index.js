@@ -38,6 +38,11 @@ balm.config = balmConfig;
 
 // Test build
 balm.go(mix => {
+  mix.copy(
+    'node_modules/workbox-sw/build/workbox-sw.js',
+    balm.config.isProd ? balm.config.roots.target : balm.config.roots.tmp
+  );
+
   if (balm.config.isProd) {
     mix.publish();
     mix.publish('index.template.html', 'views', {
@@ -46,5 +51,11 @@ balm.go(mix => {
       extname: '.php'
     });
   }
+
+  // PWA test
+  // mix.generateSW();
+  // mix.injectManifest();
+
+  // FTP test
   // mix.ftp('dist/**/*');
 });

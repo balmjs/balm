@@ -1,29 +1,31 @@
 {
   "name": "balm-test",
-  "version": "2019.2.26",
+  "version": "2019.5.12",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "dependencies": {
     "axios": "^0.18.0",
     "cors": "^2.8.5",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
-    "jquery": "^3.4.0",
+    "jquery": "^3.4.1",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.0",
     "vue-server-renderer": "^2.6.10",
-    "vuex": "^3.1.0",
+    "vuex": "^3.1.1",
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "vue-loader": "^15.7.0",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "workbox-build": "^4.3.1",
+    "workbox-sw": "^4.3.1"
   },
   "scripts": {
     "preinstall": "bower install",
