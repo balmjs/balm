@@ -13,6 +13,7 @@ const reset = () => {
 
 beforeEach(() => {
   balm.config = balmConfig;
+  // balm.config.isProd = false;
 });
 
 afterEach(() => {

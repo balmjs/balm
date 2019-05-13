@@ -12,6 +12,28 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.4.0 (2019.05.13)
+
+### :rocket: New Features
+
+- PWA supported
+  - `mix.generateSW`
+  - `mix.injectManifest`
+- Update config
+  - `assets.options.fileNameManifest`: update defaults to `asset-manifest.json`
+
+### :nail_care: [Polish]
+
+- some performance optimization
+
+### :boom: [Breaking Change]
+
+- Update config
+  - `ftp.username`: `ftp.user` rename to `ftp.username`
+  - `ftp.password`: `ftp.pass` rename to `ftp.password`
+
+---
+
 ## 1.3.2 (2019.04.12)
 
 ### :bug: [Bug Fixes]
