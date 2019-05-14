@@ -35,7 +35,6 @@ describe('Default Task', () => {
       : [
           '.tmp/main-sync.html',
           '.tmp/a/main.css',
-          '.tmp/a/main.css.map',
           '.tmp/b/main.js',
           '.tmp/c/img-icon-sprite.png',
           '.tmp/fonts/roboto-regular.woff'

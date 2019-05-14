@@ -22,3 +22,6 @@ import './public/version';
 import './public/zip';
 // import './public/remove'; // NOTE: ok for manual
 // import './public/publish';
+
+import './next/workbox-sw';
+import './next/pwa';
