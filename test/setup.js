@@ -39,22 +39,19 @@ const shouldNoExist = file => {
 global.runTask = ({ task, test, done }, result = true) => {
   gulp.series(isObject(task) ? task.fn : task)();
 
-  setTimeout(
-    () => {
-      if (isFunction(test)) {
-        test();
+  setTimeout(() => {
+    if (isFunction(test)) {
+      test();
+    } else {
+      if (isArray(test)) {
+        test.forEach(file => {
+          result ? shouldExist(file) : shouldNoExist(file);
+        });
       } else {
-        if (isArray(test)) {
-          test.forEach(file => {
-            result ? shouldExist(file) : shouldNoExist(file);
-          });
-        } else {
-          result ? shouldExist(test) : shouldNoExist(test);
-        }
-
-        done();
+        result ? shouldExist(test) : shouldNoExist(test);
       }
-    },
-    task === 'default' ? DELAY * 2 : DELAY
-  );
+
+      done();
+    }
+  }, task === 'default' ? DELAY * 2 : DELAY);
 };

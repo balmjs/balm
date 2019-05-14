@@ -9,6 +9,7 @@
     "!lib/plugins/sftp.js",
     "!lib/tasks/private/server.js",
     "!lib/tasks/public/remove.js",
+    "!lib/tasks/next/workbox-sw.js",
     "!lib/api.js"
   ],
   "reporter": [
