@@ -12,6 +12,20 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.4.1 (2019.05.14)
+
+### :rocket: New Features
+
+- Update config
+  - `pwa.enabled`: new config for automatic build PWA
+
+### :nail_care: [Polish]
+
+- clean code & some performance optimization
+- update PWA task
+
+---
+
 ## 1.4.0 (2019.05.13)
 
 ### :rocket: New Features
