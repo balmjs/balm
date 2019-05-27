@@ -12,6 +12,15 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.4.2 (2019.05.27)
+
+### :package: [Update Dependencies]
+
+- `async`: 2.6.2 -> 3.0.1
+- `merge-stream`: 1.0.1 -> 2.0.0
+
+---
+
 ## 1.4.1 (2019.05.14)
 
 ### :rocket: New Features
