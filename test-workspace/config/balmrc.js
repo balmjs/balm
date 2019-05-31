@@ -59,7 +59,7 @@ const balmConfig = {
     //   'dist/web/js/vendors/jquery.js',
     //   'dist/web/js/vendors/lodash.js'
     // ],
-    excludes: ['dist/web/img/icons/icon-*.png']
+    excludes: ['dist/web/img/icons/icon-*.png', 'dist/web/c/icons/icon-*.png']
   }
   // pwa: {
   //   enabled: true

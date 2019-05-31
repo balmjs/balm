@@ -12,6 +12,31 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## :tada: 1.5.0 (2019.05.31)
+
+> `balm@1.5.0` for three years old and keep pioneering
+
+### :rocket: [New Features]
+
+- optimize code for dynamic language project (e.g. PHP)
+- update config
+  - `assets.buildDir`: new config for building dynamic language project
+  - `assets.options.fileNameManifest`: restore defaults to `'rev-manifest.json'`
+
+### :house: [Code Refactoring]
+
+- refactor partial code for dynamic language project
+- add test demo for dynamic language project
+
+### :package: [Update Dependencies]
+
+- `gulp-rev-all`: 1.x -> 2.x
+- `gulp-zip`: 4.x -> 5.x
+- `mini-css-extract-plugin`: 0.6.x -> 0.7.x
+- `gulp-imagemin`: 5.x -> 6.x
+
+---
+
 ## 1.4.2 (2019.05.27)
 
 ### :package: [Update Dependencies]
