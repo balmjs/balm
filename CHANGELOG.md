@@ -12,6 +12,27 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.5.1 (2019.06.04)
+
+### :bug: [Bug Fixes]
+
+- fix PostCSS autoprefixer bug
+
+### :eyeglasses: [Spec Compliancy]
+
+- clean code for deprecated config tips
+
+### :boom: [Breaking Change]
+
+- Config
+  - `config.styles.autoprefixer` was removed in balm@1.5.1, use a `.browserslistrc` config file in current or parent directories instead.
+
+### :package: [Update Dependencies]
+
+- `autoprefixer`: 9.5.x -> 9.6.x
+
+---
+
 ## :tada: 1.5.0 (2019.05.31)
 
 > `balm@1.5.0` for three years old and keep pioneering

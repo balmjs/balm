@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -38,7 +38,7 @@
     "@babel/runtime": "^7.4.5",
     "ansi-colors": "^3.2.4",
     "async": "^3.0.1",
-    "autoprefixer": "^9.5.1",
+    "autoprefixer": "^9.6.0",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.5",
     "connect-history-api-fallback": "^1.6.0",

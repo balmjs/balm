@@ -40,8 +40,7 @@ const balmConfig = {
     }
   },
   styles: {
-    ext: 'css',
-    autoprefixer: ['> 0.5%', 'last 2 versions', 'Firefox ESR', 'not dead']
+    ext: 'css'
   },
   sprites: {
     image: ['img-icon']
