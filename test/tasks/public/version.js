@@ -8,7 +8,7 @@ describe('Version Task', () => {
     let output = '.compile/cache';
 
     const task = new VersionTask(input, output);
-    const test = `${output}/main.d0093e89.css`;
+    const test = `${output}/main.b3d80b2e.css`;
 
     runTask({
       task: new CopyTask('./src/styles/main.css', output),
