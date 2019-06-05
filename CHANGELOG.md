@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.5.2 (2019.06.05)
+
+### :nail_care: [Polish]
+
+- update clean task for building dynamic project
+
+---
+
 ## 1.5.1 (2019.06.04)
 
 ### :bug: [Bug Fixes]
