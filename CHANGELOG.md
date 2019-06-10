@@ -12,6 +12,19 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.5.3 (2019.06.10)
+
+### :boom: [Breaking Change]
+
+- `deps`: minimum required nodejs version is `8.9.0`
+
+### :package: [Update Dependencies]
+
+- `file-loader`: 3.x -> 4.x
+- `url-loader`: 1.x -> 2.x
+
+---
+
 ## 1.5.2 (2019.06.05)
 
 ### :nail_care: [Polish]

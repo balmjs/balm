@@ -6,10 +6,11 @@
   <br>
 
 [![NPM version][npm-image]][npm-url]
+[![node][node-image]][node-url]
+[![Dependency Status][deps-image]][deps-url]
 [![Build Status][travis-image]][travis-url]
 [![Build Status][appveyor-image]][appveyor-url]
-[![Dependency Status][daviddm-image]][daviddm-url]
-[![Coverage percentage][coveralls-image]][coveralls-url]
+[![Coverage Percentage][cover-image]][cover-url]
 <br>
 
   <h1>BalmJS</h1>
@@ -153,14 +154,16 @@ In chronological order
 
 [npm-image]: https://badge.fury.io/js/balm.svg
 [npm-url]: https://npmjs.org/package/balm
+[node-image]: https://img.shields.io/node/v/balm.svg
+[node-url]: https://nodejs.org
+[deps-image]: https://david-dm.org/balmjs/balm.svg?theme=shields.io
+[deps-url]: https://david-dm.org/balmjs/balm
 [travis-image]: https://travis-ci.org/balmjs/balm.svg?branch=master
 [travis-url]: https://travis-ci.org/balmjs/balm
 [appveyor-image]: https://ci.appveyor.com/api/projects/status/github/balmjs/balm?svg=true
 [appveyor-url]: https://ci.appveyor.com/project/balmjs/balm
-[daviddm-image]: https://david-dm.org/balmjs/balm.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/balmjs/balm
-[coveralls-image]: https://coveralls.io/repos/balmjs/balm/badge.svg
-[coveralls-url]: https://coveralls.io/r/balmjs/balm
+[cover-image]: https://coveralls.io/repos/balmjs/balm/badge.svg
+[cover-url]: https://coveralls.io/r/balmjs/balm
 [balm-cli-image]: https://badge.fury.io/js/balm-cli.svg
 [balm-cli-url]: https://npmjs.org/package/balm-cli
 [balm-ui-lite-image]: https://badge.fury.io/js/balm-ui-lite.svg
