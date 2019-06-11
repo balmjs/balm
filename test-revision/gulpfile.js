@@ -1,11 +1,11 @@
 const gulp = require('gulp');
 const revAll = require('gulp-rev-all');
 
-gulp.task('default', function() {
-  gulp
-    .src('dist/**')
+gulp.task('default', () => {
+  return gulp
+    .src('app/**')
     .pipe(revAll.revision())
-    .pipe(dest('dist'))
+    .pipe(gulp.dest('dist'))
     .pipe(revAll.manifestFile())
-    .pipe(dest('dist'));
+    .pipe(gulp.dest('dist'));
 });
