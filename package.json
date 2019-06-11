@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -57,7 +57,7 @@
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
-    "gulp-rev-all": "^2.0.1",
+    "gulp-rev-all": "^2.0.2",
     "gulp-rev-delete-original": "^0.2.3",
     "gulp-sass": "^4.0.2",
     "gulp-size": "^3.0.0",

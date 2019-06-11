@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.5.4 (2019.06.11)
+
+### :bug: [Bug Fixes]
+
+- update `gulp-rev-all` and fix replacement on Windows
+
+---
+
 ## 1.5.3 (2019.06.10)
 
 ### :boom: [Breaking Change]
