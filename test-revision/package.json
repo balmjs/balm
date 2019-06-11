@@ -1,0 +1,10 @@
+{
+  "name": "test-revision",
+  "version": "2019.6.11",
+  "description": "Test gulp-rev-all@2 bug in Windows",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-rev-all": "^2.0.0"
+  },
+  "private": true
+}

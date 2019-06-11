@@ -1,6 +1,6 @@
 {
-  "name": "chokidar-gulp-test",
-  "version": "1.0.0",
+  "name": "test-watch",
+  "version": "2019.2.27",
   "description": "Test gulp@4 watch bug in Windows",
   "dependencies": {
     "chokidar": "^2.0.0",
