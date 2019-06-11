@@ -10,3 +10,4 @@ assets
 *.zip
 !src/scripts/assets
 !ssr/assets
+!resources/assets
