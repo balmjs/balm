@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.5.6 (2019.06.22)
+
+### :package: [Update Dependencies]
+
+- `ansi-colors`: 3.x -> 4.x
+
+---
+
 ## 1.5.5 (2019.06.14)
 
 ### :rocket: [New Features]
