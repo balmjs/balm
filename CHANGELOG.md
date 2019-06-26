@@ -305,6 +305,6 @@
 
 ---
 
-## [0.6.x - 0.24.x](CHANGELOG-0.24.x.md)
+## [0.6.x - 0.24.x](https://github.com/balmjs/balm/blob/master/CHANGELOG-0.24.x.md)
 
-## [0.1.x - 0.5.x](CHANGELOG-0.5.x.md)
+## [0.1.x - 0.5.x](https://github.com/balmjs/balm/blob/master/CHANGELOG-0.5.x.md)
