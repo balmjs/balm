@@ -12,6 +12,15 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.5.7 (2019.07.01)
+
+### :package: [Update Dependencies]
+
+- `eslint`: 5.x -> 6.x
+- `gulp-eslint`: 5.x -> 6.x
+
+---
+
 ## 1.5.6 (2019.06.22)
 
 ### :package: [Update Dependencies]
