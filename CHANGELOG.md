@@ -12,6 +12,15 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.5.8 (2019.07.04)
+
+### :package: [Update Dependencies]
+
+- `del`: 4.x -> 5.x
+- `gulp-load-plugins`: 1.x -> 2.x
+
+---
+
 ## 1.5.7 (2019.07.01)
 
 ### :package: [Update Dependencies]
