@@ -12,6 +12,23 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.6.0 (2019.07.10)
+
+### :rocket: [New Features]
+
+- New Config
+  - `ftp.watchFiles`
+
+### :bug: [Bug Fixes]
+
+- API `mix.ftp`: upload bugfix, since balm@1.4.2+
+
+### :boom: [Breaking Change]
+
+- old FTP options wat upgraded: `config.ftp` -> `config.ftp.options`
+
+---
+
 ## 1.5.8 (2019.07.04)
 
 ### :package: [Update Dependencies]

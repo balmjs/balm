@@ -41,7 +41,20 @@ balm.config = {
     mainDir: 'public',
     subDir: 'mobile'
   },
-  cache: true
+  cache: true,
+  ftp: {
+    options: {
+      host: '',
+      username: '',
+      password: '',
+      remotePath: '/web/balm-ftp-test',
+      logging: true
+    },
+    watchFiles: ['./resources/**/*']
+  },
+  useDefault: false
 };
 
-balm.go();
+balm.go(mix => {
+  mix.ftp('./resources/assets/**/*');
+});
