@@ -12,6 +12,18 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.6.1 (2019.07.12)
+
+## :nail_care: [Polish]
+
+- clean code
+
+## :package: [Update Dependencies]
+
+- `gulp-nsp`: removed for high severity (`gulp-nsp > nsp > cli-table2 > lodash`), because `nsp` and `cli-table2` repositories has been archived
+
+---
+
 ## 1.6.0 (2019.07.10)
 
 ### :rocket: [New Features]

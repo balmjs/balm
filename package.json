@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -97,7 +97,7 @@
     "babel-eslint": "^10.0.2",
     "babel-plugin-istanbul": "^5.1.4",
     "chai": "^4.2.0",
-    "coveralls": "^3.0.4",
+    "coveralls": "^3.0.5",
     "cross-env": "^5.2.0",
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
@@ -106,7 +106,6 @@
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-exclude-gitignore": "^1.2.0",
-    "gulp-nsp": "^3.0.1",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
     "prettier": "^1.18.2",
