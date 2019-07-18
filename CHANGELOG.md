@@ -12,6 +12,15 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.6.2 (2019.07.18)
+
+### :package: [Update Dependencies]
+
+- `@babel/*`: update to 7.5.5
+- `mini-css-extract-plugin`: 0.7.x -> 0.8.x
+
+---
+
 ## 1.6.1 (2019.07.12)
 
 ## :nail_care: [Polish]
