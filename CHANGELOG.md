@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.6.3 (2019.07.22)
+
+### :package: [Update Dependencies]
+
+- `gulp-if`: 2.x -> 3.x
+
+---
+
 ## 1.6.2 (2019.07.18)
 
 ### :package: [Update Dependencies]
