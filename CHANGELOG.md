@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.7.0 (2019.07.25)
+
+### :bug: [Bug Fixes]
+
+- `clean`, `remove` tasks: compatible bugfix on windows (since `balm@1.5.8`)
+
+---
+
 ## 1.6.3 (2019.07.22)
 
 ### :package: [Update Dependencies]
