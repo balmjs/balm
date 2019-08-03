@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.7.1 (2019.08.03)
+
+### :package: [Update Dependencies]
+
+- Forced upgrade of all direct dependencies
+
+---
+
 ## 1.7.0 (2019.07.25)
 
 ### :bug: [Bug Fixes]

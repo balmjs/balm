@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -81,11 +81,11 @@
     "require-dir": "^1.2.0",
     "ssh2": "^0.8.5",
     "style-loader": "^0.23.1",
-    "terser-webpack-plugin": "^1.3.0",
+    "terser-webpack-plugin": "^1.4.1",
     "through2": "^3.0.1",
     "url-loader": "^2.1.0",
-    "webpack": "^4.37.0",
-    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack": "^4.39.1",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-dev-middleware": "^3.7.0",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.1",

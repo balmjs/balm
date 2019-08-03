@@ -36,12 +36,6 @@ module.exports = {
   rules: {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    camelcase: [2, { properties: 'never' }],
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true
-      }
-    ]
+    camelcase: [2, { properties: 'never' }]
   }
 };
