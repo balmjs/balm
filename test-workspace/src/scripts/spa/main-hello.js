@@ -6,5 +6,5 @@ const hello = {
   }
 };
 
-// export default hello;
-module.exports = hello;
+// module.exports = hello;
+export default hello;
