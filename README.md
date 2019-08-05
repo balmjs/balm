@@ -11,6 +11,7 @@
 [![Build Status][travis-image]][travis-url]
 [![Build Status][appveyor-image]][appveyor-url]
 [![Coverage Percentage][cover-image]][cover-url]
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbalmjs%2Fbalm.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbalmjs%2Fbalm?ref=badge_shield)
 <br>
 
   <h1>BalmJS</h1>
@@ -143,6 +144,9 @@ $ gulp --production
 [MIT](https://opensource.org/licenses/MIT)
 
 © 2016-present, [Elf-mousE](http://elf-mouse.me/)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbalmjs%2Fbalm.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbalmjs%2Fbalm?ref=badge_large)
 
 ## Special Thanks to
 
