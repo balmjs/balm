@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.7.2 (2019.08.05)
+
+### :rocket: [New Features]
+
+- API mix.js: add new args `customWebpackOptions`, upgrade to `mix.js(input, output, customWebpackOptions)`
+
+---
+
 ## 1.7.1 (2019.08.03)
 
 ### :package: [Update Dependencies]

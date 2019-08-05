@@ -45,6 +45,12 @@ balm.go(mix => {
       suffix: '.blade',
       extname: '.php'
     });
+    // mix.js([`./src/scripts/spa/main-hello.js`], 'dist', {
+    //   output: {
+    //     library: 'MyLibrary',
+    //     libraryTarget: 'umd'
+    //   }
+    // });
   } else {
     // mix.copy(
     //   'node_modules/workbox-sw/build/workbox-sw.js',
