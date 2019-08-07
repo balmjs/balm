@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.8.0 (2019.08.07)
+
+### :package: [Update Dependencies]
+
+- `style-loader`: 0.23.x -> 1.x
+
+---
+
 ## 1.7.2 (2019.08.05)
 
 ### :rocket: [New Features]
