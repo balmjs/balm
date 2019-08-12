@@ -1,7 +1,7 @@
 import balm from '../../../dist'; // from local
 // import balm from 'balm'; // from node_modules
 
-import jsConfig from './test';
+import jsConfig, { isCDN } from './test';
 let balmConfig = require('../balmrc'); // Note: Imported Variables Are Read-only
 
 let scripts = Object.assign(jsConfig, {
@@ -13,7 +13,14 @@ let scripts = Object.assign(jsConfig, {
   }
 });
 
-balmConfig.assets.subDir = 'web';
+if (isCDN) {
+  balmConfig.assets.publicUrl = '/';
+  balmConfig.assets.mainDir = '/';
+  balmConfig.assets.subDir = 'public/web';
+} else {
+  balmConfig.assets.subDir = 'web';
+}
+
 balmConfig = Object.assign(balmConfig, {
   scripts,
   cache: true

@@ -8,4 +8,7 @@ import jsConfig from './main-sync';
 // import jsConfig from './extract-css';
 // import jsConfig from './vue';
 
+const isCDN = false;
+
 export default jsConfig;
+export { isCDN };
