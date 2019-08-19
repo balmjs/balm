@@ -12,6 +12,14 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.8.1 (2019.08.19)
+
+### :nail_care: [Polish]
+
+- optimize for `NODE_ENV`
+
+---
+
 ## 1.8.0 (2019.08.07)
 
 ### :package: [Update Dependencies]
