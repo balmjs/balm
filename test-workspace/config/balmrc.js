@@ -6,7 +6,7 @@ const workspace = path.join(projectRoot, 'test-workspace');
 const remoteRoot = path.join(workspace, 'assets');
 
 const balmConfig = {
-  debug: true,
+  // debug: true,
   server: {
     open: false
   },

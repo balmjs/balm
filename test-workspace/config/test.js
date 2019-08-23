@@ -1,6 +1,7 @@
 import jsConfig from './spa/main-sync';
+import balmrc from './balmrc';
 
-let balmConfig = require('./balmrc');
+let balmConfig = balmrc.balmConfig;
 
 const scripts = Object.assign(jsConfig, {
   eslint: true,
@@ -14,6 +15,9 @@ const scripts = Object.assign(jsConfig, {
 balmConfig.assets.subDir = 'web';
 balmConfig = Object.assign(balmConfig, {
   isProd: true,
+  roots: {
+    source: 'spa'
+  },
   scripts,
   cache: true
 });

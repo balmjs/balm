@@ -2,7 +2,7 @@ import JsMinTask from '../../../lib/tasks/public/jsmin';
 
 describe('JsMin Task', () => {
   it('minify js file to a custom directory', done => {
-    let input = ['./src/scripts/cmd/*.js'];
+    let input = ['./cmd/scripts/*.js'];
     let output = '.compile/cmd';
     let options = {
       mangle: false

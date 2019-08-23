@@ -11,7 +11,7 @@ describe('Version Task', () => {
     const test = `${output}/main.b3d80b2e.css`;
 
     runTask({
-      task: new CopyTask('./src/styles/main.css', output),
+      task: new CopyTask('./spa/styles/main.css', output),
       test: () => {
         runTask({
           task,
@@ -28,11 +28,11 @@ describe('Version Task', () => {
 
     const task = new VersionTask(input, output);
     const test = balm.config.isProd
-      ? `${output}/main.d2c55522.js`
-      : `${output}/main.a10b7042.js`;
+      ? `${output}/main.5a7fb36d.js`
+      : `${output}/main.0d979d32.js`;
 
     runTask({
-      task: new JsTask('./src/scripts/spa/main-sync.js', output),
+      task: new JsTask('./spa/scripts/main-sync.js', output),
       test: () => {
         runTask({
           task,
