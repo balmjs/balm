@@ -1,6 +1,6 @@
 export default {
   entry: {
     // lib: ['jquery'], // for test
-    main: './src/scripts/spa/main-sync.js'
+    main: './spa/scripts/main-sync.js'
   }
 };

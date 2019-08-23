@@ -34,7 +34,6 @@ module.exports = {
   plugins: ['prettier'],
   extends: ['xo', 'plugin:prettier/recommended'],
   rules: {
-    'prettier/prettier': 'error',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     camelcase: [2, { allow: ['child_process', 'drop_console', 'ascii_only'] }]

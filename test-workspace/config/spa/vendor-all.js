@@ -1,6 +1,6 @@
 export default {
   entry: {
-    main: './src/scripts/spa/vendor-main.js'
+    main: './spa/scripts/vendor-main.js'
   },
   extractAllVendors: true
 };

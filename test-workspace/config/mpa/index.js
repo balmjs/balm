@@ -1,17 +1,17 @@
-import balm from '../../../dist'; // from local
-// import balm from 'balm'; // from node_modules
+const balmrc = require('../balmrc');
 
-let balmConfig = require('../balmrc');
+const balm = balmrc.balm;
+let balmConfig = balmrc.balmConfig;
 
-balmConfig.scripts = {
+const scripts = {
   entry: {
     // lib: ['jquery', 'lodash', 'moment'],
     lib1: ['jquery'],
     lib2: ['lodash'],
     lib3: ['moment'],
-    'page-a': './src/scripts/mpa/page-a.js',
-    'page-b': './src/scripts/mpa/page-b.js',
-    'page-c': './src/scripts/mpa/page-c.js'
+    'page-a': './mpa/scripts/page-1.js',
+    'page-b': './mpa/scripts/page-2.js',
+    'page-c': './mpa/scripts/page-3.js'
   },
   // extractAllVendors: true,
   options: {
@@ -20,6 +20,14 @@ balmConfig.scripts = {
     }
   }
 };
+
+balmConfig = Object.assign(balmConfig, {
+  roots: {
+    source: 'mpa'
+  },
+  scripts,
+  cache: true
+});
 
 balm.config = balmConfig;
 

@@ -1,20 +1,16 @@
-import balm from '../../../dist'; // from local
-// import balm from 'balm'; // from node_modules
+const balmrc = require('../balmrc');
 
-const path = require('path');
-const root = path.resolve(__dirname, '..', '..', '..');
-const workspace = path.join(root, 'test-workspace');
+const balm = balmrc.balm;
+let balmConfig = balmrc.balmConfig;
 
-balm.config = {
-  debug: true,
+balmConfig = Object.assign(balmConfig, {
   static: false, // for PHP framework
   server: {
     open: false,
     proxy: 'your.project.local'
   },
-  workspace,
   roots: {
-    source: 'resources'
+    source: 'php/resources'
   },
   paths: {
     source: {
@@ -32,7 +28,7 @@ balm.config = {
   },
   scripts: {
     entry: {
-      app: './resources/assets/js/app.js'
+      app: './php/resources/assets/js/app.js'
     }
   },
   assets: {
@@ -53,8 +49,10 @@ balm.config = {
     watchFiles: ['./resources/**/*']
   },
   useDefault: false
-};
+});
+
+balm.config = balmConfig;
 
 balm.go(mix => {
-  mix.ftp('./resources/assets/**/*');
+  mix.ftp('./php/resources/assets/**/*');
 });

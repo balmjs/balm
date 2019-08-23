@@ -1,10 +1,10 @@
-import balm from '../../../dist'; // from local
-// import balm from 'balm'; // from node_modules
+import jsConfig, { isCDN } from './_test';
+import balmrc from '../balmrc';
 
-import jsConfig, { isCDN } from './test';
-let balmConfig = require('../balmrc'); // Note: Imported Variables Are Read-only
+const balm = balmrc.balm;
+let balmConfig = balmrc.balmConfig; // Note: Imported Variables Are Read-only
 
-let scripts = Object.assign(jsConfig, {
+const scripts = Object.assign(jsConfig, {
   eslint: true,
   options: {
     compress: {
@@ -22,6 +22,9 @@ if (isCDN) {
 }
 
 balmConfig = Object.assign(balmConfig, {
+  roots: {
+    source: 'spa'
+  },
   scripts,
   cache: true
 });

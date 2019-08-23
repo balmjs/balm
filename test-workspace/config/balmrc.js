@@ -1,28 +1,16 @@
 const path = require('path');
+const balm = require('../../dist'); // `balm` from local
 
-const root = path.resolve(__dirname, '..', '..');
-const workspace = path.join(root, 'test-workspace');
-const assets = path.join(workspace, 'assets');
-
-const testConfig = {
-  root,
-  workspace,
-  assets
-};
+const projectRoot = path.resolve(__dirname, '..', '..');
+const workspace = path.join(projectRoot, 'test-workspace');
+const remoteRoot = path.join(workspace, 'assets');
 
 const balmConfig = {
-  // debug: true,
+  debug: true,
   server: {
     open: false
-    // historyOptions: {
-    //   index: '/main-sync.html'
-    // }
   },
-  workspace: testConfig.workspace,
-  roots: {
-    source: 'src',
-    target: 'dist'
-  },
+  workspace,
   paths: {
     source: {
       css: 'styles',
@@ -50,7 +38,7 @@ const balmConfig = {
   },
   assets: {
     publicUrl: '/',
-    root: testConfig.assets,
+    root: remoteRoot,
     mainDir: 'public',
     // NOTE: Extra cache files
     // includes: [
@@ -60,9 +48,9 @@ const balmConfig = {
     // ],
     excludes: ['dist/web/img/icons/icon-*.png', 'dist/web/c/icons/icon-*.png']
   }
-  // pwa: {
-  //   enabled: true
-  // }
 };
 
-module.exports = balmConfig;
+module.exports = {
+  balm,
+  balmConfig
+};
