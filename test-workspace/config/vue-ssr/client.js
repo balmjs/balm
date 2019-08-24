@@ -1,10 +1,8 @@
 const webpack = require('webpack');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const base = require('./base');
-const balmrc = require('../balmrc');
-
-const balm = balmrc.balm;
-let balmConfig = balmrc.balmConfig;
+const balm = require('../balm');
+let balmConfig = require('../balmrc');
 
 const scripts = Object.assign(base, {
   entry: {

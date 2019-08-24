@@ -1,5 +1,4 @@
 const path = require('path');
-const balm = require('../../dist'); // `balm` from local
 
 const projectRoot = path.resolve(__dirname, '..', '..');
 const workspace = path.join(projectRoot, 'test-workspace');
@@ -50,7 +49,4 @@ const balmConfig = {
   }
 };
 
-module.exports = {
-  balm,
-  balmConfig
-};
+module.exports = balmConfig;

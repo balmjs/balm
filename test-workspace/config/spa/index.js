@@ -1,8 +1,6 @@
 import jsConfig, { isCDN } from './_test';
-import balmrc from '../balmrc';
-
-const balm = balmrc.balm;
-let balmConfig = balmrc.balmConfig; // Note: Imported Variables Are Read-only
+import balm from '../balm';
+let balmConfig = require('../balmrc'); // Note: Imported Variables Are Read-only
 
 const scripts = Object.assign(jsConfig, {
   eslint: true,

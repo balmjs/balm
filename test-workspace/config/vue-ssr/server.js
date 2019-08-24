@@ -2,10 +2,8 @@ const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const base = require('./base');
-const balmrc = require('../balmrc');
-
-const balm = balmrc.balm;
-let balmConfig = balmrc.balmConfig;
+const balm = require('../balm');
+let balmConfig = require('../balmrc');
 
 const scripts = Object.assign(base, {
   entry: {

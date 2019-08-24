@@ -1,9 +1,7 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const path = require('path');
-const balmrc = require('../balmrc');
-
-const balm = balmrc.balm;
-let balmConfig = balmrc.balmConfig;
+const balm = require('../balm');
+let balmConfig = require('../balmrc');
 
 balmConfig = Object.assign(balmConfig, {
   roots: {
