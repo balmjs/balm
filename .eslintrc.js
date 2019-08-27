@@ -2,10 +2,11 @@
 
 module.exports = {
   root: true,
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    parser: 'babel-eslint',
     ecmaVersion: 2019,
-    sourceType: 'module'
+    sourceType: 'module',
+    project: './tsconfig.json'
   },
   env: {
     node: true,
@@ -31,11 +32,16 @@ module.exports = {
     BalmFile: true,
     BalmTask: true
   },
-  plugins: ['prettier'],
-  extends: ['xo', 'plugin:prettier/recommended'],
+  plugins: ['@typescript-eslint', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended'
+  ],
   rules: {
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    camelcase: [2, { allow: ['child_process', 'drop_console', 'ascii_only'] }]
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }
 };

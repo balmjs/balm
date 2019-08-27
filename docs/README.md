@@ -1,2 +1,0 @@
-- [Documentation](https://balmjs.com/docs/en/)
-- [中文文档](https://balmjs.com/docs/zh-cn/)
