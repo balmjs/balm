@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2019.8.23",
+  "version": "2019.8.27",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -16,7 +16,9 @@
     "build:client": "gulp -p -f config/vue-ssr/client.js",
     "build:server": "gulp -p -ssr -f config/vue-ssr/server.js",
     "ssr:prod": "npm run build:client && npm run build:server",
-    "ssr:start": "cross-env NODE_ENV=production node vue-ssr/server.js"
+    "ssr:start": "cross-env NODE_ENV=production node vue-ssr/server.js",
+    "ts:dev": "gulp -f config/ts/index.js",
+    "ts:prod": "gulp -p -f config/ts/index.js"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -32,10 +34,14 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-typescript": "^7.3.3",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
+    "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "vue-loader": "^15.7.1",
     "vue-style-loader": "^4.1.2",
