@@ -2,3 +2,5 @@ coverage
 dist
 test
 test-workspace
+babel.config.js
+gulpfile.esm.js

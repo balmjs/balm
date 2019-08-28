@@ -13,25 +13,7 @@ module.exports = {
     es6: true,
     mocha: true
   },
-  globals: {
-    path: true,
-    task: true,
-    series: true,
-    parallel: true,
-    src: true,
-    dest: true,
-    $: true,
-    server: true,
-    del: true,
-    cssnano: true,
-    webpack: true,
-    BalmJS: true,
-    config: true,
-    logger: true,
-    toNamespace: true,
-    BalmFile: true,
-    BalmTask: true
-  },
+  globals: {},
   plugins: ['@typescript-eslint', 'prettier'],
   extends: [
     'eslint:recommended',
