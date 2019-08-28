@@ -28,9 +28,7 @@
   "scripts": {
     "prepublishOnly": "gulp prepublish",
     "lint": "eslint --fix src --ext .ts",
-    "clean": "rm -rf dist",
-    "build:babel": "npm run clean && babel src/**/*.ts -d dist",
-    "build:tsc": "npm run clean && tsc",
+    "build": "rm -rf dist && tsc",
     "test": "cross-env NODE_ENV=test nyc mocha -A -r ./test/setup.js -t 16000",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
