@@ -1,4 +1,4 @@
-import colors from 'ansi-styles';
+import ansiColors from 'ansi-colors';
 
 const COLOR = {
   PREFIX: 'bg',
@@ -10,42 +10,46 @@ interface ColorStyle {
   color: string;
   background?: boolean;
   bright?: boolean;
+  symbol?: string;
 }
 
-function style(style: ColorStyle): string {
-  const color: string = style.color.toLowerCase();
-  let api: string = style.background
+function style(
+  colorStyle: ColorStyle = {
+    color: 'white'
+  }
+): {
+  icon: string;
+  render: ansiColors.StyleFunction;
+} {
+  const color: string = colorStyle.color.toLowerCase();
+  let fn: string = colorStyle.background
     ? COLOR.PREFIX + color.replace(/^[a-z]/, str => str.toUpperCase())
     : color;
 
-  if (style.bright) {
-    api += COLOR.SUFFIX;
+  if (colorStyle.bright) {
+    fn += COLOR.SUFFIX;
   }
 
-  return colors[api].open + 'Hello Woold' + colors[api].close;
+  let colors = ansiColors as any;
+  let render = colorStyle.modifier
+    ? colors[colorStyle.modifier][fn]
+    : colors[fn];
+
+  let symbols = ansiColors.symbols as any;
+  let icon =
+    colorStyle.symbol && symbols[colorStyle.symbol]
+      ? symbols[colorStyle.symbol]
+      : '';
+
+  return {
+    icon,
+    render
+  };
 }
 
-console.log(
-  style({
-    color: 'white'
-  })
-);
-console.log(
-  style({
-    color: 'red',
-    bright: true
-  })
-);
-console.log(
-  style({
-    color: 'green',
-    background: true
-  })
-);
-console.log(
-  style({
-    color: 'blue',
-    bright: true,
-    background: true
-  })
-);
+function color(str: string, colorStyle?: ColorStyle) {
+  let result = style(colorStyle);
+  return result.render(`${result.icon} ${str}`);
+}
+
+export default color;

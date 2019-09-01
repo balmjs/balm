@@ -1,27 +1,50 @@
-// import fancyLog from 'fancy-log';
-// import { Color } from './color';
+import fancyLog from 'fancy-log';
+import color from './color';
 
-// enum LogLevel {
-//   DEBUG = 0,
-//   SUCCESS = 1,
-//   INFO = 2,
-//   WARNING = 3,
-//   ERROR = 4
-// }
+class Logger {
+  static debug(str: string): void {
+    fancyLog(str);
+  }
 
-// abstract class Log {
-//   abstract makeSound(): void;
-//   move(): void {
-//     console.log('roaming the earth...');
-//   }
-// }
+  static success(str: string): void {
+    fancyLog(
+      color(str, {
+        color: 'green',
+        symbol: 'check'
+      })
+    );
+  }
 
-// class Logger {
-//   static debug(): void {
+  static info(str: string): void {
+    fancyLog.info(
+      color(str, {
+        color: 'blue',
+        symbol: 'info'
+      })
+    );
+  }
 
-//   }
-//   static success(): void {}
-//   static info(): void {}
-//   static warning(): void {}
-//   static error(): void {}
-// }
+  static dir(str: string): void {
+    fancyLog(str);
+  }
+
+  static warn(str: string): void {
+    fancyLog.warn(
+      color(str, {
+        color: 'yellow',
+        symbol: 'warning'
+      })
+    );
+  }
+
+  static error(str: string): void {
+    fancyLog.error(
+      color(str, {
+        color: 'red',
+        symbol: 'cross'
+      })
+    );
+  }
+}
+
+export default Logger;
