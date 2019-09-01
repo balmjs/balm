@@ -30,13 +30,13 @@ function style(
     fn += COLOR.SUFFIX;
   }
 
-  let colors = ansiColors as any;
-  let render = colorStyle.modifier
+  const colors = ansiColors as any;
+  const render = colorStyle.modifier
     ? colors[colorStyle.modifier][fn]
     : colors[fn];
 
-  let symbols = ansiColors.symbols as any;
-  let icon =
+  const symbols = ansiColors.symbols as any;
+  const icon =
     colorStyle.symbol && symbols[colorStyle.symbol]
       ? symbols[colorStyle.symbol]
       : '';
@@ -48,7 +48,7 @@ function style(
 }
 
 function color(str: string, colorStyle?: ColorStyle) {
-  let result = style(colorStyle);
+  const result = style(colorStyle);
   return result.render(`${result.icon} ${str}`);
 }
 
