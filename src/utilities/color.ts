@@ -47,7 +47,7 @@ function style(
   };
 }
 
-function color(str: string, colorStyle?: ColorStyle) {
+function color(str: string, colorStyle?: ColorStyle): string {
   const result = style(colorStyle);
   return result.render(`${result.icon} ${str}`);
 }
