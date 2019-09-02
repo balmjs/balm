@@ -53,6 +53,4 @@ function color(label: string, colorStyle?: ColorStyle): string {
   return result.render(`${result.icon}${label}`);
 }
 
-color('Hello BalmJS');
-
 export default color;

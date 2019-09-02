@@ -1,48 +1,63 @@
+import util from 'util';
 import fancyLog from 'fancy-log';
 import color from './color';
 
 const LOG = {
+  PREFIX: color('BalmJS', {
+    color: 'blue',
+    background: true,
+    bright: true
+  }),
   OK: {
     color: 'green',
+    bright: true,
     symbol: 'check'
   },
   INFO: {
-    color: 'blue',
+    color: 'cyan',
+    bright: true,
     symbol: 'info'
   },
   WARN: {
     color: 'yellow',
+    bright: true,
     symbol: 'warning'
   },
   ERROR: {
     color: 'red',
+    bright: true,
     symbol: 'cross'
   }
 };
 
 class Logger {
-  static debug(msg: string): void {
-    fancyLog(msg);
+  static debug(obj: any, format: boolean = false): void {
+    fancyLog(
+      '%s %s',
+      LOG.PREFIX,
+      format
+        ? util.inspect(obj, {
+            depth: 4,
+            colors: true
+          })
+        : obj
+    );
   }
 
-  static success(msg: string): void {
-    fancyLog(color(msg, LOG.OK));
+  static success(label: string, message: string): void {
+    fancyLog('%s %s %s', LOG.PREFIX, color(label, LOG.OK), message);
   }
 
-  static info(msg: string): void {
-    fancyLog.info(color(msg, LOG.INFO));
+  static info(label: string, message: string): void {
+    fancyLog.info('%s %s %s', LOG.PREFIX, color(label, LOG.INFO), message);
   }
 
-  static dir(obj: object): void {
-    fancyLog.dir(obj);
+  static warn(label: string, message: string): void {
+    fancyLog.warn('%s %s %s', LOG.PREFIX, color(label, LOG.WARN), message);
   }
 
-  static warn(msg: string): void {
-    fancyLog.warn(color(msg, LOG.WARN));
-  }
-
-  static error(msg: string): void {
-    fancyLog.error(color(msg, LOG.ERROR));
+  static error(label: string, message: string): void {
+    fancyLog.error('%s %s %s', LOG.PREFIX, color(label, LOG.ERROR), message);
   }
 }
 
