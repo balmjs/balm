@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-explicit-any: [0, { "ignoreRestArgs": true }] */
 import util from 'util';
 import fancyLog from 'fancy-log';
 import color from './color';
@@ -31,7 +32,7 @@ const LOG = {
 };
 
 class Logger {
-  static debug(obj: any, format: boolean = false): void {
+  static debug(obj: any, format = false): void {
     fancyLog(
       '%s %s',
       LOG.PREFIX,
