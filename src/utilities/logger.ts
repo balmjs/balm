@@ -1,49 +1,48 @@
 import fancyLog from 'fancy-log';
 import color from './color';
 
+const LOG = {
+  OK: {
+    color: 'green',
+    symbol: 'check'
+  },
+  INFO: {
+    color: 'blue',
+    symbol: 'info'
+  },
+  WARN: {
+    color: 'yellow',
+    symbol: 'warning'
+  },
+  ERROR: {
+    color: 'red',
+    symbol: 'cross'
+  }
+};
+
 class Logger {
-  static debug(str: string): void {
-    fancyLog(str);
+  static debug(msg: string): void {
+    fancyLog(msg);
   }
 
-  static success(str: string): void {
-    fancyLog(
-      color(str, {
-        color: 'green',
-        symbol: 'check'
-      })
-    );
+  static success(msg: string): void {
+    fancyLog(color(msg, LOG.OK));
   }
 
-  static info(str: string): void {
-    fancyLog.info(
-      color(str, {
-        color: 'blue',
-        symbol: 'info'
-      })
-    );
+  static info(msg: string): void {
+    fancyLog.info(color(msg, LOG.INFO));
   }
 
-  static dir(str: string): void {
-    fancyLog(str);
+  static dir(obj: object): void {
+    fancyLog.dir(obj);
   }
 
-  static warn(str: string): void {
-    fancyLog.warn(
-      color(str, {
-        color: 'yellow',
-        symbol: 'warning'
-      })
-    );
+  static warn(msg: string): void {
+    fancyLog.warn(color(msg, LOG.WARN));
   }
 
-  static error(str: string): void {
-    fancyLog.error(
-      color(str, {
-        color: 'red',
-        symbol: 'cross'
-      })
-    );
+  static error(msg: string): void {
+    fancyLog.error(color(msg, LOG.ERROR));
   }
 }
 

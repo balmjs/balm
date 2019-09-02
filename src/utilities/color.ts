@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-explicit-any: [0, { "ignoreRestArgs": true }] */
 import ansiColors from 'ansi-colors';
 
 const COLOR = {
@@ -30,15 +31,15 @@ function style(
     fn += COLOR.SUFFIX;
   }
 
-  const colors = ansiColors as any;
-  const render = colorStyle.modifier
+  const colors: any = ansiColors;
+  const render: ansiColors.StyleFunction = colorStyle.modifier
     ? colors[colorStyle.modifier][fn]
     : colors[fn];
 
-  const symbols = ansiColors.symbols as any;
-  const icon =
+  const symbols: any = ansiColors.symbols;
+  const icon: string =
     colorStyle.symbol && symbols[colorStyle.symbol]
-      ? symbols[colorStyle.symbol]
+      ? symbols[colorStyle.symbol] + ' '
       : '';
 
   return {
@@ -47,9 +48,11 @@ function style(
   };
 }
 
-function color(str: string, colorStyle?: ColorStyle): string {
+function color(label: string, colorStyle?: ColorStyle): string {
   const result = style(colorStyle);
-  return result.render(`${result.icon} ${str}`);
+  return result.render(`${result.icon}${label}`);
 }
+
+color('Hello BalmJS');
 
 export default color;
