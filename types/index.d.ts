@@ -1,4 +1,4 @@
 declare module 'fancy-log' {
-  let fancyLog: any;
+  var fancyLog: any;
   export default fancyLog;
 }

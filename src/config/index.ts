@@ -1,8 +1,7 @@
-export enum LogLevel {
-  Trace = 0,
-  Debug = 1,
-  Info = 2,
-  Warn = 3,
-  Error = 4,
-  Fatal = 5
-}
+import log from './log';
+
+const CONFIG: object = {
+  log
+};
+
+global.BalmJS.config = CONFIG;

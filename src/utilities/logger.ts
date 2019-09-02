@@ -4,6 +4,7 @@ import fancyLog from 'fancy-log';
 import color from './color';
 
 const LOG = {
+  FORMAT: '%s %s %s',
   PREFIX: color('BalmJS', {
     color: 'blue',
     background: true,
@@ -37,29 +38,38 @@ class Logger {
       '%s %s',
       LOG.PREFIX,
       format
-        ? util.inspect(obj, {
-            depth: 4,
-            colors: true
-          })
+        ? util.inspect(
+            obj,
+            Object.assign(
+              {
+                showHidden: false,
+                depth: 4,
+                colors: true
+              },
+              global.BalmJS.config.log.formatOptions
+            )
+          )
         : obj
     );
   }
 
   static success(label: string, message: string): void {
-    fancyLog('%s %s %s', LOG.PREFIX, color(label, LOG.OK), message);
+    fancyLog(LOG.FORMAT, LOG.PREFIX, color(label, LOG.OK), message);
   }
 
   static info(label: string, message: string): void {
-    fancyLog.info('%s %s %s', LOG.PREFIX, color(label, LOG.INFO), message);
+    fancyLog.info(LOG.FORMAT, LOG.PREFIX, color(label, LOG.INFO), message);
   }
 
   static warn(label: string, message: string): void {
-    fancyLog.warn('%s %s %s', LOG.PREFIX, color(label, LOG.WARN), message);
+    fancyLog.warn(LOG.FORMAT, LOG.PREFIX, color(label, LOG.WARN), message);
   }
 
   static error(label: string, message: string): void {
-    fancyLog.error('%s %s %s', LOG.PREFIX, color(label, LOG.ERROR), message);
+    fancyLog.error(LOG.FORMAT, LOG.PREFIX, color(label, LOG.ERROR), message);
   }
 }
+
+global.BalmJS.logger = Logger;
 
 export default Logger;
