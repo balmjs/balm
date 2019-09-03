@@ -1,4 +1,3 @@
-/* eslint @typescript-eslint/no-explicit-any: [0, { "ignoreRestArgs": true }] */
 import ansiColors from 'ansi-colors';
 
 const COLOR = {

@@ -1,4 +1,3 @@
-/* eslint @typescript-eslint/no-explicit-any: [0, { "ignoreRestArgs": true }] */
 import util from 'util';
 import fancyLog from 'fancy-log';
 import color from './color';
@@ -43,10 +42,10 @@ class Logger {
             Object.assign(
               {
                 showHidden: false,
-                depth: 4,
+                depth: 2,
                 colors: true
               },
-              global.BalmJS.config.log.formatOptions
+              BalmJS.config.log.formatOptions
             )
           )
         : obj
@@ -70,6 +69,6 @@ class Logger {
   }
 }
 
-global.BalmJS.logger = Logger;
+BalmJS.logger = Logger;
 
 export default Logger;

@@ -1,5 +1,7 @@
-import Balm from './balm';
+import './balm';
+import './config';
+import './utilities/logger';
 
-const balm = new Balm('Hello BalmJS');
+BalmJS.logger.debug(BalmJS.config, true);
 
-module.exports = balm;
+// module.exports = balm;

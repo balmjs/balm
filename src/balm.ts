@@ -1,20 +1,21 @@
-import './config';
-import './utilities/logger';
-
 class Balm {
-  private name: string;
+  private _config: any;
+  private _logger: any;
 
-  constructor(name: string) {
-    this.name = name;
-    global.BalmJS.config.log.formatOptions = {
-      depth: 8
-    };
+  get config() {
+    return this._config;
+  }
+  set config(value: any) {
+    this._config = value;
   }
 
-  public getName(): string {
-    global.BalmJS.logger.debug(global.BalmJS.config);
-    return this.name;
+  get logger() {
+    return this._logger;
+  }
+  set logger(value: any) {
+    this._logger = value;
   }
 }
 
-export default Balm;
+const balm = new Balm();
+global.BalmJS = balm;

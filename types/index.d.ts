@@ -1,4 +1,2 @@
-declare module 'fancy-log' {
-  var fancyLog: any;
-  export default fancyLog;
-}
+/// <reference path="balm.d.ts" />
+/// <reference path="vendors.d.ts" />

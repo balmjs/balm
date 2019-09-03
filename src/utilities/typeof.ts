@@ -1,9 +1,8 @@
-/* eslint @typescript-eslint/no-explicit-any: [0, { "ignoreRestArgs": true }] */
 const reTypeOf = /(?:^\[object\s(.*?)\]$)/;
 
-function getType(anyVariable: any): string {
+function getType(obj: any): string {
   return Object.prototype.toString
-    .call(anyVariable)
+    .call(obj)
     .replace(reTypeOf, '$1')
     .toLowerCase();
 }
