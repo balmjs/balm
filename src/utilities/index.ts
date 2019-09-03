@@ -1,22 +1,30 @@
 import getType from './typeof';
 
-namespace Utils {
-  export function isString(str: any): boolean {
-    return getType(str) === 'string';
-  }
-
-  export function isObject(obj: any): boolean {
-    return getType(obj) === 'object';
-  }
-
-  export function isArray(arr: any): boolean {
-    return Array.isArray(arr);
-  }
-
-  export function isFunction(fn: any): boolean {
-    const type = getType(fn);
-    return type === 'function' || type === 'generatorfunction';
-  }
+function isString(str: any): boolean {
+  return getType(str) === 'string';
 }
 
-export = Utils;
+function isObject(obj: any): boolean {
+  return getType(obj) === 'object';
+}
+
+function isArray(arr: any): boolean {
+  return Array.isArray(arr);
+}
+
+function isFunction(fn: any): boolean {
+  const type = getType(fn);
+  return type === 'function' || type === 'generatorfunction';
+}
+
+const Utils = {
+  getType,
+  isString,
+  isObject,
+  isArray,
+  isFunction
+};
+
+BalmJS.utils = Utils;
+
+export default Utils;

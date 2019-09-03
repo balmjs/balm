@@ -3,6 +3,7 @@ declare namespace NodeJS {
     BalmJS: any;
     config: any;
     logger: any;
+    utils: any;
   }
 }
 

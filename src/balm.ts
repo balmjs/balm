@@ -2,14 +2,14 @@ class Balm {
   private _config: any;
   private _logger: any;
 
-  get config() {
+  get config(): any {
     return this._config;
   }
   set config(value: any) {
     this._config = value;
   }
 
-  get logger() {
+  get logger(): any {
     return this._logger;
   }
   set logger(value: any) {
