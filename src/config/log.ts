@@ -1,4 +1,4 @@
-enum LEVEL {
+enum LogLevel {
   Trace = 0,
   Debug = 1,
   Info = 2,
@@ -10,6 +10,5 @@ enum LEVEL {
 const formatOptions: object = {};
 
 export default {
-  LEVEL,
   formatOptions
 };
