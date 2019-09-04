@@ -32,43 +32,61 @@ const LOG = {
 };
 
 class Logger {
-  static debug(obj: any, format = false): void {
-    fancyLog(
-      '%s %s',
-      LOG.PREFIX,
-      format
-        ? util.inspect(
-            obj,
-            Object.assign(
-              {
-                showHidden: false,
-                depth: 2,
-                colors: true
-              },
-              BalmJS.config.log.formatOptions
-            )
+  private _log(obj: any, format = false): any {
+    return format
+      ? util.inspect(
+          obj,
+          Object.assign(
+            {
+              showHidden: false,
+              depth: 2,
+              colors: true
+            },
+            BalmJS.config.logs.formatOptions
           )
-        : obj
+        )
+      : obj;
+  }
+
+  debug(obj: any, format = false): void {
+    fancyLog('%s %s', LOG.PREFIX, this._log(obj, format));
+  }
+
+  success(label: string, message: string, format = false): void {
+    fancyLog(
+      LOG.FORMAT,
+      LOG.PREFIX,
+      color(label, LOG.OK),
+      this._log(message, format)
     );
   }
 
-  static success(label: string, message: string): void {
-    fancyLog(LOG.FORMAT, LOG.PREFIX, color(label, LOG.OK), message);
+  info(label: string, message: string, format = false): void {
+    fancyLog.info(
+      LOG.FORMAT,
+      LOG.PREFIX,
+      color(label, LOG.INFO),
+      this._log(message, format)
+    );
   }
 
-  static info(label: string, message: string): void {
-    fancyLog.info(LOG.FORMAT, LOG.PREFIX, color(label, LOG.INFO), message);
+  warn(label: string, message: string, format = false): void {
+    fancyLog.warn(
+      LOG.FORMAT,
+      LOG.PREFIX,
+      color(label, LOG.WARN),
+      this._log(message, format)
+    );
   }
 
-  static warn(label: string, message: string): void {
-    fancyLog.warn(LOG.FORMAT, LOG.PREFIX, color(label, LOG.WARN), message);
-  }
-
-  static error(label: string, message: string): void {
-    fancyLog.error(LOG.FORMAT, LOG.PREFIX, color(label, LOG.ERROR), message);
+  error(label: string, message: string, format = false): void {
+    fancyLog.error(
+      LOG.FORMAT,
+      LOG.PREFIX,
+      color(label, LOG.ERROR),
+      this._log(message, format)
+    );
   }
 }
 
-BalmJS.logger = Logger;
-
-export default Logger;
+export default new Logger();

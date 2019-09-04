@@ -1,33 +1,34 @@
-import log from './log';
+import env from './env';
+import roots from './roots';
+import paths from './paths';
+import styles from './styles';
+import assets from './assets';
+import logs from './logs';
 
-// const isProd =
-//   process.env.NODE_ENV === 'production' ||
-//   process.argv.includes('--production') ||
-//   process.argv.includes('-p');
-// const isTest =
-//   process.env.NODE_ENV === 'test' ||
-//   process.argv.includes('--test') ||
-//   process.argv.includes('-t');
-// const isDev = !isProd && !isTest;
-// const inSSR =
-//   process.env.NODE_ENV === 'server' ||
-//   process.argv.includes('--server') ||
-//   process.argv.includes('-ssr');
-
-// if (!process.env.NODE_ENV) {
-//   if (isProd) {
-//     process.env.NODE_ENV = 'production';
-//   } else if (isTest) {
-//     process.env.NODE_ENV = 'test';
-//   } else {
-//     process.env.NODE_ENV = 'development';
-//   }
-// }
+/**
+ * Project type
+ * @type {Boolean}
+ *
+ * set `true` for a static HTML project
+ * set `false` for a dynamic language project (e.g. PHP framework)
+ */
+const inFrontend = true;
+const workspace: string = process.cwd();
+const useDefaults = true; // Use balm default task
 
 const config: any = {
-  log
+  inFrontend,
+  workspace,
+  env,
+  roots,
+  paths,
+  styles,
+  assets,
+  logs,
+  useDefaults
 };
 
+global.BalmJS = {};
 BalmJS.config = config;
 
 export default config;

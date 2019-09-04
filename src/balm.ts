@@ -1,21 +1,37 @@
+import './config';
+import './utilities';
+import { setConfig, checkGulpTask } from './bootstrap';
+
 class Balm {
   private _config: any;
-  private _logger: any;
+
+  constructor() {
+    this._config = BalmJS.config;
+  }
 
   get config(): any {
     return this._config;
   }
   set config(value: any) {
-    this._config = value;
+    this._config = setConfig(value);
   }
 
-  get logger(): any {
-    return this._logger;
+  set beforeTask(name: string) {
+    const _task = checkGulpTask(name);
+    if (_task) {
+      BalmJS.BeforeTask = _task;
+    }
   }
-  set logger(value: any) {
-    this._logger = value;
+  set afterTask(name: string) {
+    const _task = checkGulpTask(name);
+    if (_task) {
+      BalmJS.AfterTask = _task;
+    }
+  }
+
+  go(): void {
+    console.log('gg');
   }
 }
 
-const balm = new Balm();
-global.BalmJS = balm;
+export default Balm;
