@@ -15,6 +15,14 @@ declare namespace NodeJS {
     BeforeTask: any;
     AfterTask: any;
     tasks: [];
+    LogLevel: {
+      Trace: number;
+      Debug: number;
+      Info: number;
+      Warn: number;
+      Error: number;
+      Fatal: number;
+    };
     logger: {
       debug: (obj: any, format?: boolean) => void;
       success: (label: string, message: string, format?: boolean) => void;

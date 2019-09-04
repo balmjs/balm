@@ -1,9 +1,19 @@
+import './globals';
 import env from './env';
 import roots from './roots';
 import paths from './paths';
 import styles from './styles';
 import assets from './assets';
 import logs from './logs';
+
+enum LogLevel {
+  Trace = 0,
+  Debug = 1,
+  Info = 2,
+  Warn = 3,
+  Error = 4,
+  Fatal = 5
+}
 
 /**
  * Project type
@@ -30,5 +40,6 @@ const config: any = {
 
 global.BalmJS = {};
 BalmJS.config = config;
+BalmJS.LogLevel = LogLevel;
 
 export default config;

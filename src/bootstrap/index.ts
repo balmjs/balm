@@ -1,4 +1,3 @@
-import path from 'path';
 import { tree } from 'gulp';
 import { ASSETS_KEYS } from '../config/constants';
 
@@ -96,7 +95,9 @@ function setConfig(customConfig: any = {}): any {
 
   // 4. Before created
   config = _ready(config);
-  BalmJS.logger.success('Configuration', config, true);
+  if (BalmJS.config.logs.level <= BalmJS.LogLevel.Info) {
+    BalmJS.logger.success('Configuration', config, true);
+  }
 
   return config;
 }

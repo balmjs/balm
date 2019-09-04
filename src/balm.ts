@@ -1,5 +1,6 @@
 import './config';
 import './utilities';
+import './tasks';
 import { setConfig, checkGulpTask } from './bootstrap';
 
 class Balm {
@@ -33,5 +34,7 @@ class Balm {
     console.log('gg');
   }
 }
+
+console.log(gulp);
 
 export default Balm;

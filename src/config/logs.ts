@@ -1,4 +1,4 @@
-const level = 0;
+const level = 3;
 const formatOptions: object = {};
 
 export default {
