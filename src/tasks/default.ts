@@ -18,7 +18,7 @@ class DefaultTask extends BalmJS.BalmTask {
   }
 
   get deps(): string[] {
-    let tasks = ['start', 'end'];
+    const tasks = ['start', 'end'];
 
     return BalmJS.config.inSSR ? ['scripts'] : tasks;
   }

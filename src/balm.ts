@@ -14,20 +14,20 @@ class Balm {
     return this._config;
   }
   set config(value: any) {
-    BalmJS.config = setConfig(value);
-    this._config = BalmJS.config;
+    this._config = setConfig(value);
+    BalmJS.config = this._config;
   }
 
   set beforeTask(name: string) {
-    const _task = checkGulpTask(name);
-    if (_task) {
-      BalmJS.beforeTask = _task;
+    const task = checkGulpTask(name);
+    if (task) {
+      BalmJS.beforeTask = task;
     }
   }
   set afterTask(name: string) {
-    const _task = checkGulpTask(name);
-    if (_task) {
-      BalmJS.afterTask = _task;
+    const task = checkGulpTask(name);
+    if (task) {
+      BalmJS.afterTask = task;
     }
   }
 
