@@ -1,6 +1,6 @@
 class BalmTask {
-  private _name: string;
-  private _taskName: string;
+  protected _name: string;
+  protected _taskName: string;
 
   constructor(name: string) {
     this._name = name;
