@@ -3,6 +3,8 @@ import env from './env';
 import roots from './roots';
 import paths from './paths';
 import styles from './styles';
+import scripts from './scripts';
+import images from './images';
 import assets from './assets';
 import logs from './logs';
 
@@ -14,6 +16,8 @@ enum LogLevel {
   Error = 4,
   Fatal = 5
 }
+
+const noop: Function = () => {};
 
 /**
  * Project type
@@ -33,12 +37,15 @@ const config: any = {
   roots,
   paths,
   styles,
+  scripts,
+  images,
   assets,
   logs,
   useDefaults
 };
 
 global.BalmJS = {};
+BalmJS.noop = noop;
 BalmJS.config = config;
 BalmJS.LogLevel = LogLevel;
 

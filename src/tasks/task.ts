@@ -1,3 +1,5 @@
+import cssnano from 'cssnano';
+
 const TIME_FLAG = 'BalmJS Time';
 
 class BalmTask {
@@ -24,13 +26,37 @@ class StyleTask extends BalmTask {
     super(name);
   }
 
-  // handleStyle() {}
+  show(name: string): void {
+    console.log(`${name} task`);
+  }
 
-  // handleError() {}
+  handleStyle(stream: any, output: any): void {
+    return stream
+      .pipe(
+        $.postcss(
+          BalmJS.plugins.getPostcssPlugins(),
+          BalmJS.config.styles.postcssOptions
+        )
+      )
+      .pipe($.if(BalmJS.config.isDev, $.sourcemaps.write('.')))
+      .pipe(
+        $.if(
+          BalmJS.config.isProd,
+          $.postcss([cssnano(BalmJS.config.styles.options)])
+        )
+      )
+      .pipe(gulp.dest(BalmJS.file.absPaths(output)))
+      .pipe(BalmJS.server.reload({ stream: true }));
+  }
+
+  // handleError(): void {}
 }
 
 BalmJS.TIME_FLAG = TIME_FLAG;
 BalmJS.BalmTask = BalmTask;
 BalmJS.StyleTask = StyleTask;
+BalmJS.mixins = [];
+BalmJS.recipes = [];
+BalmJS.recipeIndex = 0;
 
 export { BalmTask, StyleTask };

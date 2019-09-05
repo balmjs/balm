@@ -1,3 +1,7 @@
-class File {}
+// class File {
+//   absPaths(_path: string): string {
+//     return '';
+//   }
+// }
 
-export default File;
+// export default new File();

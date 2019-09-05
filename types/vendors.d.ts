@@ -8,6 +8,21 @@ declare module 'require-dir' {
   export default requireDir;
 }
 
+declare module 'gulp-load-plugins' {
+  var $: any;
+  export default $;
+}
+
+declare module 'browser-sync' {
+  var browserSync: any;
+  export default browserSync;
+}
+
+declare module 'cssnano' {
+  var cssnano: any;
+  export default cssnano;
+}
+
 declare module 'gulp' {
   var gulp: any;
   export default gulp;
@@ -25,7 +40,11 @@ interface Igulp {
 declare namespace NodeJS {
   interface Global {
     gulp: Igulp;
+    $: any;
+    server: any;
   }
 }
 
 declare var gulp: Igulp;
+declare var $: any;
+declare var server: any;

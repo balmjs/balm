@@ -1,5 +1,6 @@
 import './config';
 import './utilities';
+import './plugins';
 import registerTasks from './tasks';
 import { setConfig, checkGulpTask } from './bootstrap';
 
@@ -31,8 +32,12 @@ class Balm {
     }
   }
 
-  go(): void {
-    registerTasks();
+  go(recipe: Function = BalmJS.noop): void {
+    if (BalmJS.utils.isFunction(recipe)) {
+      registerTasks(recipe);
+    } else {
+      BalmJS.logger.error('Init', 'BalmJS API: `balm.go(function(mix) {});`');
+    }
 
     console.log('gg');
   }

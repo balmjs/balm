@@ -17,10 +17,34 @@ class DefaultTask extends BalmJS.BalmTask {
     }
   }
 
-  get deps(): string[] {
-    const tasks = ['start', 'end'];
+  mainTasks(): string[] {
+    const tasks: string[] = ['clean', 'sass'];
 
-    return BalmJS.config.inSSR ? ['scripts'] : tasks;
+    // if (BalmJS.config.inFrontend) {
+    //   tasks.push('wiredep');
+    // }
+
+    // if (BalmJS.config.images.sprites.length) {
+    //   tasks.push('sprites');
+    // }
+
+    // if (BalmJS.config.scripts.eslint) {
+    //   tasks.push('lint');
+    // }
+
+    tasks.push('less');
+
+    return BalmJS.config.useDefaults ? tasks : [];
+  }
+
+  subTasks(): string[] {
+    return BalmJS.recipes.length ? BalmJS.recipes : [];
+  }
+
+  get deps(): string[] {
+    const tasks = ['start', ...this.mainTasks(), ...this.subTasks(), 'end'];
+
+    return tasks;
   }
 }
 

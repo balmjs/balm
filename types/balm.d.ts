@@ -1,6 +1,7 @@
 declare namespace NodeJS {
   interface Global {
     BalmJS: any;
+    noop: Function;
     config: any;
     utils: {
       getType: (obj: any) => string;
@@ -17,6 +18,11 @@ declare namespace NodeJS {
     beforeTask: any;
     afterTask: any;
     tasks: any[];
+    mixins: any;
+    recipes: any[];
+    recipeIndex: number;
+    plugins: any;
+    file: any;
     LogLevel: {
       Trace: number;
       Debug: number;

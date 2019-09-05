@@ -3,8 +3,14 @@ class SassTask extends BalmJS.StyleTask {
     super('sass');
   }
 
+  recipe(input: string, output: string): void {
+    BalmJS.logger.info('input', input);
+    super.show('sass');
+    BalmJS.logger.info('output', output);
+  }
+
   fn(cb: Function): void {
-    console.log('sass task');
+    super.show('sass');
     cb();
   }
 }
