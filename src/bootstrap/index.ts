@@ -102,8 +102,8 @@ function setConfig(customConfig: any = {}): any {
   return config;
 }
 
-function checkGulpTask(name: any): boolean | string | Function {
-  let result: boolean | string | Function = false;
+function checkGulpTask(name: any): string | boolean | Function {
+  let result: string | boolean | Function = false;
 
   if (BalmJS.utils.isFunction(name)) {
     result = name as Function;

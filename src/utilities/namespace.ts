@@ -1,6 +1,6 @@
 const NAMESPACE = 'balm';
 
-function toNamespace(taskName: any): string | [] {
+function toNamespace(taskName: any): string | string[] {
   let result: string | [] = 'unknown';
 
   if (BalmJS.utils.isString(taskName)) {

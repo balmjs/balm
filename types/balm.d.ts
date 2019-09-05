@@ -10,11 +10,13 @@ declare namespace NodeJS {
       isFunction: (fn: any) => boolean;
       mergeDeep: (target: any, source: any) => object;
     };
-    toNamespace: (taskName: any) => string | [];
+    toNamespace: (taskName: any) => string | string[];
+    TIME_FLAG: string;
     BalmTask: any;
-    BeforeTask: any;
-    AfterTask: any;
-    tasks: [];
+    StyleTask: any;
+    beforeTask: any;
+    afterTask: any;
+    tasks: any[];
     LogLevel: {
       Trace: number;
       Debug: number;

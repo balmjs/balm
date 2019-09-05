@@ -1,3 +1,5 @@
+const TIME_FLAG = 'BalmJS Time';
+
 class BalmTask {
   protected _name: string;
   protected _taskName: string;
@@ -17,6 +19,18 @@ class BalmTask {
   }
 }
 
-BalmJS.BalmTask = BalmTask;
+class StyleTask extends BalmTask {
+  constructor(name: string) {
+    super(name);
+  }
 
-export default BalmTask;
+  // handleStyle() {}
+
+  // handleError() {}
+}
+
+BalmJS.TIME_FLAG = TIME_FLAG;
+BalmJS.BalmTask = BalmTask;
+BalmJS.StyleTask = StyleTask;
+
+export { BalmTask, StyleTask };

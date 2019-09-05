@@ -1,4 +1,4 @@
-class SassTask extends BalmJS.BalmTask {
+class SassTask extends BalmJS.StyleTask {
   constructor() {
     super('sass');
   }

@@ -1,6 +1,6 @@
 import './config';
 import './utilities';
-import './tasks';
+import registerTasks from './tasks';
 import { setConfig, checkGulpTask } from './bootstrap';
 
 class Balm {
@@ -14,27 +14,28 @@ class Balm {
     return this._config;
   }
   set config(value: any) {
-    this._config = setConfig(value);
+    BalmJS.config = setConfig(value);
+    this._config = BalmJS.config;
   }
 
   set beforeTask(name: string) {
     const _task = checkGulpTask(name);
     if (_task) {
-      BalmJS.BeforeTask = _task;
+      BalmJS.beforeTask = _task;
     }
   }
   set afterTask(name: string) {
     const _task = checkGulpTask(name);
     if (_task) {
-      BalmJS.AfterTask = _task;
+      BalmJS.afterTask = _task;
     }
   }
 
   go(): void {
+    registerTasks();
+
     console.log('gg');
   }
 }
-
-console.log(gulp);
 
 export default Balm;
