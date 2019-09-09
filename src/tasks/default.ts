@@ -4,13 +4,13 @@ class DefaultTask extends BalmJS.BalmTask {
   }
 
   get startTask(): string[] {
-    const tasks = ['start'];
+    const tasks = BalmJS.toNamespace(['start']) as string[];
 
     if (BalmJS.utils.isString(BalmJS.beforeTask)) {
       tasks.unshift(BalmJS.beforeTask);
     }
 
-    return BalmJS.toNamespace(tasks) as string[];
+    return tasks;
   }
 
   get mainTasks(): string[] {
@@ -42,13 +42,13 @@ class DefaultTask extends BalmJS.BalmTask {
   }
 
   get endTask(): string[] {
-    const tasks = ['end'];
+    const tasks = BalmJS.toNamespace(['end']) as string[];
 
     if (BalmJS.utils.isString(BalmJS.afterTask)) {
-      BalmJS.tasks.push(BalmJS.afterTask);
+      tasks.push(BalmJS.afterTask);
     }
 
-    return BalmJS.toNamespace(tasks) as string[];
+    return tasks;
   }
 }
 
