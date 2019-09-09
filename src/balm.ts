@@ -38,13 +38,6 @@ class Balm {
     } else {
       BalmJS.logger.error('Init', 'BalmJS API: `balm.go(function(mix) {});`');
     }
-
-    console.log('gg');
-  }
-
-  // TODO: trigger hook
-  run(taskName: string): void {
-    console.log(taskName);
   }
 }
 

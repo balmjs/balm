@@ -21,6 +21,7 @@ declare namespace NodeJS {
     mixins: any;
     recipes: any[];
     recipeIndex: number;
+    run: Function;
     plugins: any;
     file: any;
     watchFile: string;

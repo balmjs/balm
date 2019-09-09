@@ -50,6 +50,11 @@ class DefaultTask extends BalmJS.BalmTask {
 
     return tasks;
   }
+
+  // fn(cb: Function): void {
+  //   BalmJS.run(['balm:sass:6', 'balm:less:7']);
+  //   cb();
+  // }
 }
 
 export default DefaultTask;

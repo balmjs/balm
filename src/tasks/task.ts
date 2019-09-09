@@ -69,11 +69,16 @@ class StyleTask extends BalmTask {
   // handleError(): void {}
 }
 
+function run(tasks: any): void {
+  gulp.parallel(...tasks)();
+}
+
 BalmJS.TIME_FLAG = TIME_FLAG;
 BalmJS.BalmTask = BalmTask;
 BalmJS.StyleTask = StyleTask;
 BalmJS.mixins = [];
 BalmJS.recipes = [];
 BalmJS.recipeIndex = 0;
+BalmJS.run = run;
 
 export { BalmTask, StyleTask };
