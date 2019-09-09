@@ -6,6 +6,9 @@ class BalmTask {
   protected _name: string;
   protected _taskName: string;
 
+  protected _input: string | string[] = '';
+  protected _output = '';
+
   constructor(name: string) {
     this._name = name;
     this._taskName =
@@ -18,6 +21,20 @@ class BalmTask {
 
   get taskName(): string {
     return this._taskName;
+  }
+
+  get input(): string | string[] {
+    return this._input;
+  }
+  set input(input: string | string[]) {
+    this._input = input;
+  }
+
+  get output(): string {
+    return this._output;
+  }
+  set output(output: string) {
+    this._output = output;
   }
 }
 

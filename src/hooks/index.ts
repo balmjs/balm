@@ -1,6 +1,6 @@
 import Maker from './maker';
 
-class Hooks {
+class BaseHooks {
   sass(input: string, output: string): void {
     Maker.generate('sass', [input, output]);
   }
@@ -11,6 +11,12 @@ class Hooks {
 
   postcss(input: string, output: string): void {
     Maker.generate('postcss', [input, output]);
+  }
+}
+
+class Hooks extends BaseHooks {
+  watch(handler: Function): void {
+    Maker.generate('watch', [handler]);
   }
 }
 

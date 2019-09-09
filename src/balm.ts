@@ -41,6 +41,11 @@ class Balm {
 
     console.log('gg');
   }
+
+  // TODO: trigger hook
+  run(taskName: string): void {
+    console.log(taskName);
+  }
 }
 
 export default Balm;

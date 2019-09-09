@@ -11,14 +11,23 @@ function registerTasks(recipe: Function): void {
 
   Object.values(AwesomeTasks).forEach((AwesomeTask: any) => {
     const awesomeTask = new AwesomeTask();
-    BalmJS.mixins.push(awesomeTask);
     gulp.task(awesomeTask.taskName, awesomeTask.fn);
+
+    BalmJS.mixins.push(awesomeTask);
   });
 
   recipe(new Hooks());
 
   const defaultTask = new DefaultTask();
-  gulp.task(defaultTask.taskName, gulp.series(BalmJS.tasks));
+  gulp.task(
+    defaultTask.taskName,
+    gulp.series(
+      ...defaultTask.startTask,
+      ...defaultTask.mainTasks,
+      ...defaultTask.subTasks,
+      ...defaultTask.endTask
+    )
+  );
 }
 
 export default registerTasks;

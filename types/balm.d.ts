@@ -23,6 +23,7 @@ declare namespace NodeJS {
     recipeIndex: number;
     plugins: any;
     file: any;
+    watchFile: string;
     LogLevel: {
       Trace: number;
       Debug: number;

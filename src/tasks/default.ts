@@ -1,23 +1,19 @@
 class DefaultTask extends BalmJS.BalmTask {
   constructor() {
     super('default');
-
-    BalmJS.tasks = BalmJS.toNamespace(this.deps) as string[];
-
-    if (BalmJS.utils.isString(BalmJS.beforeTask)) {
-      BalmJS.tasks.unshift(BalmJS.beforeTask);
-    }
-
-    if (BalmJS.utils.isString(BalmJS.afterTask)) {
-      BalmJS.tasks.push(BalmJS.afterTask);
-    }
-
-    if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
-      BalmJS.logger.debug(BalmJS.tasks, true);
-    }
   }
 
-  mainTasks(): string[] {
+  get startTask(): string[] {
+    const tasks = ['start'];
+
+    if (BalmJS.utils.isString(BalmJS.beforeTask)) {
+      tasks.unshift(BalmJS.beforeTask);
+    }
+
+    return BalmJS.toNamespace(tasks) as string[];
+  }
+
+  get mainTasks(): string[] {
     const tasks: string[] = ['clean', 'sass'];
 
     // if (BalmJS.config.inFrontend) {
@@ -34,17 +30,25 @@ class DefaultTask extends BalmJS.BalmTask {
 
     tasks.push('less');
 
-    return BalmJS.config.useDefaults ? tasks : [];
+    return BalmJS.config.useDefaults
+      ? (BalmJS.toNamespace(tasks) as string[])
+      : [];
   }
 
-  subTasks(): string[] {
-    return BalmJS.recipes.length ? BalmJS.recipes : [];
+  get subTasks(): string[] {
+    return BalmJS.recipes.length
+      ? (BalmJS.toNamespace(BalmJS.recipes) as string[])
+      : [];
   }
 
-  get deps(): string[] {
-    const tasks = ['start', ...this.mainTasks(), ...this.subTasks(), 'end'];
+  get endTask(): string[] {
+    const tasks = ['end'];
 
-    return tasks;
+    if (BalmJS.utils.isString(BalmJS.afterTask)) {
+      BalmJS.tasks.push(BalmJS.afterTask);
+    }
+
+    return BalmJS.toNamespace(tasks) as string[];
   }
 }
 

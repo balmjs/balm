@@ -3,16 +3,20 @@ class LessTask extends BalmJS.StyleTask {
     super('less');
   }
 
-  recipe(input?: string, output?: string): void {
-    BalmJS.logger.info('input', input as string);
-    super.show('less');
-    BalmJS.logger.info('output', output as string);
-  }
+  recipe = (input?: string, output?: string): void => {
+    console.log(input, output);
+    this.input = input || 'default input';
+    this.output = output || 'default output';
 
-  fn(cb: Function): void {
+    BalmJS.logger.info('input:', this.input);
     super.show('less');
+    BalmJS.logger.info('output:', this.output);
+  };
+
+  fn = (cb: Function): void => {
+    this.recipe();
     cb();
-  }
+  };
 }
 
 export = LessTask;
