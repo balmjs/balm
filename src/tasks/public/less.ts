@@ -1,16 +1,45 @@
 class LessTask extends BalmJS.StyleTask {
   constructor() {
     super('less');
+
+    this.defaultInput = path.join(
+      BalmJS.config.roots.source,
+      BalmJS.config.paths.source.css,
+      '**',
+      '!(_*).less'
+    );
   }
 
-  recipe = (input?: string, output?: string): void => {
-    console.log(input, output);
-    this.input = input || 'default input';
-    this.output = output || 'default output';
+  get options(): object {
+    return Object.assign(
+      {
+        paths: BalmJS.file.stylePaths
+      },
+      BalmJS.config.styles.lessOptions
+    );
+  }
 
-    BalmJS.logger.info('input:', this.input);
-    super.show('less');
-    BalmJS.logger.info('output:', this.output);
+  recipe = (input?: string | string[], output?: string): void => {
+    this.init(input, output);
+
+    if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
+      BalmJS.logger.info(
+        'Less Task',
+        {
+          input: this.input,
+          output: this.output
+        },
+        true
+      );
+    }
+
+    const stream = gulp
+      .src(BalmJS.file.absPaths(this.input))
+      .pipe($.plumber(this.handleError))
+      .pipe($.if(BalmJS.config.isDev, $.sourcemaps.init()))
+      .pipe($.less(this.options));
+
+    this.handleStyle(stream, this.output);
   };
 
   fn = (cb: Function): void => {

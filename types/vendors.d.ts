@@ -18,6 +18,21 @@ declare module 'browser-sync' {
   export default browserSync;
 }
 
+declare module 'postcss-import' {
+  var atImport: any;
+  export default atImport;
+}
+
+declare module 'postcss-preset-env' {
+  var postcssPresetEnv: any;
+  export default postcssPresetEnv;
+}
+
+declare module 'autoprefixer' {
+  var autoprefixer: any;
+  export default autoprefixer;
+}
+
 declare module 'cssnano' {
   var cssnano: any;
   export default cssnano;
@@ -35,6 +50,7 @@ interface Igulp {
   dest: any;
   series: any;
   parallel: any;
+  watch: any;
 }
 
 declare namespace NodeJS {

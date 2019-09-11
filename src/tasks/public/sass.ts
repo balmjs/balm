@@ -3,16 +3,18 @@ class SassTask extends BalmJS.StyleTask {
     super('sass');
   }
 
-  recipe(input: string, output: string): void {
-    BalmJS.logger.info('input', input);
-    super.show('sass');
-    BalmJS.logger.info('output', output);
+  recipe(input?: string | string[], output?: string): void {
+    super.init(input, output);
+
+    BalmJS.logger.info('input:', this.input);
+    console.log('sass task');
+    BalmJS.logger.info('output:', this.output);
   }
 
-  fn(cb: Function): void {
-    super.show('sass');
+  fn = (cb: Function): void => {
+    this.recipe();
     cb();
-  }
+  };
 }
 
 export = SassTask;

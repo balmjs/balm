@@ -1,5 +1,7 @@
+import getPostcssPlugins from './postcss';
+
 const Plugins: object = {
-  getPostcssPlugins: () => {}
+  getPostcssPlugins
 };
 
 BalmJS.plugins = Plugins;

@@ -1,5 +1,6 @@
 interface Ipath {
   join: any;
+  isAbsolute: any;
 }
 
 declare namespace NodeJS {

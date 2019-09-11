@@ -13,7 +13,7 @@ function registerTasks(recipe: Function): void {
     const awesomeTask = new AwesomeTask();
     gulp.task(awesomeTask.taskName, awesomeTask.fn);
 
-    BalmJS.mixins.push(awesomeTask);
+    BalmJS.tasks.push(awesomeTask);
   });
 
   recipe(new Hooks());

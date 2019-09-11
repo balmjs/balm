@@ -52,7 +52,7 @@ class Logger {
     fancyLog('%s %s', LOG.PREFIX, this._log(obj, format));
   }
 
-  success(label: string, message: string, format = false): void {
+  success(label: string, message: any, format = false): void {
     fancyLog(
       LOG.FORMAT,
       LOG.PREFIX,
@@ -61,7 +61,7 @@ class Logger {
     );
   }
 
-  info(label: string, message: string, format = false): void {
+  info(label: string, message: any, format = false): void {
     fancyLog.info(
       LOG.FORMAT,
       LOG.PREFIX,
@@ -70,7 +70,7 @@ class Logger {
     );
   }
 
-  warn(label: string, message: string, format = false): void {
+  warn(label: string, message: any, format = false): void {
     fancyLog.warn(
       LOG.FORMAT,
       LOG.PREFIX,
@@ -79,7 +79,7 @@ class Logger {
     );
   }
 
-  error(label: string, message: string, format = false): void {
+  error(label: string, message: any, format = false): void {
     fancyLog.error(
       LOG.FORMAT,
       LOG.PREFIX,

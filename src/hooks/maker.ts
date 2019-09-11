@@ -2,7 +2,7 @@ class Maker {
   static generate(name: string, args: any): void {
     BalmJS.recipeIndex++;
 
-    const customTask = BalmJS.mixins.find((task: any) => task.name === name);
+    const customTask = BalmJS.tasks.find((task: any) => task.name === name);
     // console.log('customTask', customTask); // NOTE: debug
 
     // Register custom task

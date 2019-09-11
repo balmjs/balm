@@ -45,8 +45,8 @@ const config: any = {
 };
 
 global.BalmJS = {};
-BalmJS.noop = noop;
 BalmJS.config = config;
+BalmJS.noop = noop;
 BalmJS.LogLevel = LogLevel;
 
 export default config;

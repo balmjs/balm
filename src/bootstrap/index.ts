@@ -79,7 +79,7 @@ function setConfig(customConfig: any = {}): any {
   });
 
   // 3. For the dynamic project
-  if (config.static) {
+  if (config.inFrontend) {
     config.assets.buildDir = '';
   } else {
     config.paths.tmp.font =

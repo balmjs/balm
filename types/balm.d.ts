@@ -1,8 +1,8 @@
 declare namespace NodeJS {
   interface Global {
     BalmJS: any;
-    noop: Function;
     config: any;
+    noop: Function;
     utils: {
       getType: (obj: any) => string;
       isString: (str: any) => boolean;
@@ -18,13 +18,12 @@ declare namespace NodeJS {
     beforeTask: any;
     afterTask: any;
     tasks: any[];
-    mixins: any;
     recipes: any[];
     recipeIndex: number;
     run: Function;
+    watchFile: string;
     plugins: any;
     file: any;
-    watchFile: string;
     LogLevel: {
       Trace: number;
       Debug: number;
@@ -35,10 +34,10 @@ declare namespace NodeJS {
     };
     logger: {
       debug: (obj: any, format?: boolean) => void;
-      success: (label: string, message: string, format?: boolean) => void;
-      info: (label: string, message: string, format?: boolean) => void;
-      warn: (label: string, message: string, format?: boolean) => void;
-      error: (label: string, message: string, format?: boolean) => void;
+      success: (label: string, message: any, format?: boolean) => void;
+      info: (label: string, message: any, format?: boolean) => void;
+      warn: (label: string, message: any, format?: boolean) => void;
+      error: (label: string, message: any, format?: boolean) => void;
     };
   }
 }
