@@ -32,7 +32,7 @@ class LessTask extends BalmJS.StyleTask {
     const stream = gulp
       .src(BalmJS.file.absPaths(this.input))
       .pipe($.plumber(this.handleError))
-      .pipe($.if(BalmJS.config.isDev, $.sourcemaps.init()))
+      .pipe($.if(BalmJS.config.env.isDev, $.sourcemaps.init()))
       .pipe($.less(this.options));
 
     this.handleStyle(stream, this.output);

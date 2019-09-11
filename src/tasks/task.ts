@@ -70,7 +70,7 @@ class StyleTask extends BalmTask {
     super(name);
 
     this.defaultOutput =
-      BalmJS.config.isProd || !BalmJS.config.inFrontend
+      BalmJS.config.env.isProd || !BalmJS.config.inFrontend
         ? path.join(
             BalmJS.config.roots.target,
             BalmJS.config.assets.subDir,
@@ -88,10 +88,10 @@ class StyleTask extends BalmTask {
           BalmJS.config.styles.postcssOptions
         )
       )
-      .pipe($.if(BalmJS.config.isDev, $.sourcemaps.write('.')))
+      .pipe($.if(BalmJS.config.env.isDev, $.sourcemaps.write('.')))
       .pipe(
         $.if(
-          BalmJS.config.isProd,
+          BalmJS.config.env.isProd,
           $.postcss([cssnano(BalmJS.config.styles.options)])
         )
       )

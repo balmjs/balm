@@ -4,7 +4,7 @@ class StartTask extends BalmJS.BalmTask {
   }
 
   fn(cb: Function): void {
-    if (!BalmJS.config.isTest) {
+    if (!BalmJS.config.env.isTest) {
       console.time(BalmJS.TIME_FLAG);
     }
 

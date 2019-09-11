@@ -88,7 +88,7 @@ function setConfig(customConfig: any = {}): any {
     config.roots.target = config.assets.mainDir; // NOTE: `config.roots.target = 'public'`
     config.roots.tmp = config.roots.target;
 
-    if (config.isDev) {
+    if (config.env.isDev) {
       config.assets.buildDir = '';
     }
   }
