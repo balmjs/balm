@@ -99,7 +99,7 @@ class StyleTask extends BalmTask {
     // .pipe(BalmJS.server.reload({ stream: true }));
   }
 
-  handleError = function(this: any, error: any): void {
+  handleError(this: any, error: any): void {
     // https://github.com/floatdrop/gulp-plumber/issues/30
     BalmJS.logger.error('Style Task', error.message);
     // Must emit end event for any dependent streams to pick up on this. Destroying the stream
@@ -108,7 +108,7 @@ class StyleTask extends BalmTask {
     // ending it first will not notify depending streams, tasks like `watch` will hang up.
     this.emit('end');
     this.destroy();
-  };
+  }
 }
 
 // function run(tasks: any): void {
