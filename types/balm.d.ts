@@ -33,11 +33,11 @@ declare namespace NodeJS {
       Fatal: number;
     };
     logger: {
-      debug: (obj: any, format?: boolean) => void;
-      success: (label: string, message: any, format?: boolean) => void;
-      info: (label: string, message: any, format?: boolean) => void;
-      warn: (label: string, message: any, format?: boolean) => void;
-      error: (label: string, message: any, format?: boolean) => void;
+      debug: (obj: any) => void;
+      success: (label: string, message: any) => void;
+      info: (label: string, message: any) => void;
+      warn: (label: string, message: any) => void;
+      error: (label: string, message: any) => void;
     };
   }
 }

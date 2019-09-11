@@ -32,59 +32,52 @@ const LOG = {
 };
 
 class Logger {
-  private _log(obj: any, format = false): any {
-    return format
-      ? util.inspect(
-          obj,
-          Object.assign(
-            {
-              showHidden: false,
-              depth: 2,
-              colors: true
-            },
-            BalmJS.config.logs.formatOptions
-          )
-        )
-      : obj;
-  }
-
-  debug(obj: any, format = false): void {
-    fancyLog('%s %s', LOG.PREFIX, this._log(obj, format));
-  }
-
-  success(label: string, message: any, format = false): void {
-    fancyLog(
-      LOG.FORMAT,
-      LOG.PREFIX,
-      color(label, LOG.OK),
-      this._log(message, format)
+  private _log(obj: any): any {
+    return util.inspect(
+      obj,
+      Object.assign(
+        {
+          showHidden: false,
+          depth: 2,
+          colors: true
+        },
+        BalmJS.config.logs.formatOptions
+      )
     );
   }
 
-  info(label: string, message: any, format = false): void {
+  debug(obj: any): void {
+    fancyLog('%s %s', LOG.PREFIX, this._log(obj));
+  }
+
+  success(label: string, message: any): void {
+    fancyLog(LOG.FORMAT, LOG.PREFIX, color(label, LOG.OK), this._log(message));
+  }
+
+  info(label: string, message: any): void {
     fancyLog.info(
       LOG.FORMAT,
       LOG.PREFIX,
       color(label, LOG.INFO),
-      this._log(message, format)
+      this._log(message)
     );
   }
 
-  warn(label: string, message: any, format = false): void {
+  warn(label: string, message: any): void {
     fancyLog.warn(
       LOG.FORMAT,
       LOG.PREFIX,
       color(label, LOG.WARN),
-      this._log(message, format)
+      this._log(message)
     );
   }
 
-  error(label: string, message: any, format = false): void {
+  error(label: string, message: any): void {
     fancyLog.error(
       LOG.FORMAT,
       LOG.PREFIX,
       color(label, LOG.ERROR),
-      this._log(message, format)
+      this._log(message)
     );
   }
 }

@@ -101,7 +101,7 @@ class StyleTask extends BalmTask {
 
   handleError = function(this: any, error: any): void {
     // https://github.com/floatdrop/gulp-plumber/issues/30
-    BalmJS.logger.error('Style Task', error.message, true);
+    BalmJS.logger.error('Style Task', error.message);
     // Must emit end event for any dependent streams to pick up on this. Destroying the stream
     // ensures nothing else in that stream gets done, for example, if we're dealing with five
     // files, after an error in one of them, any other won't carry on. Doing destroy without

@@ -23,14 +23,10 @@ class LessTask extends BalmJS.StyleTask {
     this.init(input, output);
 
     if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
-      BalmJS.logger.info(
-        'Less Task',
-        {
-          input: this.input,
-          output: this.output
-        },
-        true
-      );
+      BalmJS.logger.info('Less Task', {
+        input: this.input,
+        output: this.output
+      });
     }
 
     const stream = gulp
