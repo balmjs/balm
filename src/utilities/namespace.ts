@@ -9,7 +9,7 @@ function toNamespace(taskName: any): string | string[] {
     result = taskName.map((name: string) => `${NAMESPACE}:${name}`);
   } else {
     BalmJS.logger.error(
-      'Task Namespace',
+      '<task namespace>',
       `The task '${taskName}' must be a string or array`
     );
   }

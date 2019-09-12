@@ -22,20 +22,7 @@ class LessTask extends BalmJS.StyleTask {
   recipe = (input?: string | string[], output?: string): void => {
     this.init(input, output);
 
-    if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
-      BalmJS.logger.info('Less Task', {
-        input: this.input,
-        output: this.output
-      });
-    }
-
-    const stream = gulp
-      .src(BalmJS.file.absPaths(this.input))
-      .pipe($.plumber(this.handleError))
-      .pipe($.if(BalmJS.config.env.isDev, $.sourcemaps.init()))
-      .pipe($.less(this.options));
-
-    this.handleStyle(stream, this.output);
+    this.handleStyle(this.name, this.output, this.options);
   };
 
   fn = (cb: Function): void => {

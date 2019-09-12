@@ -1,14 +1,19 @@
 class PostcssTask extends BalmJS.StyleTask {
   constructor() {
     super('postcss');
+
+    this.defaultInput = path.join(
+      BalmJS.config.roots.source,
+      BalmJS.config.paths.source.css,
+      '**',
+      '!(_*).css'
+    );
   }
 
   recipe(input?: string | string[], output?: string): void {
-    super.init(input, output);
+    this.init(input, output);
 
-    BalmJS.logger.info('input:', this.input);
-    console.log('postcss task');
-    BalmJS.logger.info('output:', this.output);
+    this.handleStyle(this.name, this.output);
   }
 
   fn = (cb: Function): void => {

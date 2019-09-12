@@ -62,6 +62,13 @@ class BalmTask {
     this.input = input || this.defaultInput;
     this.output = output || this.defaultOutput;
     // }
+
+    if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
+      BalmJS.logger.info(`<${this.name} task>`, {
+        input: this.input,
+        output: this.output
+      });
+    }
   }
 }
 
@@ -80,8 +87,34 @@ class StyleTask extends BalmTask {
         : path.join(BalmJS.config.roots.tmp, BalmJS.config.paths.tmp.css);
   }
 
-  handleStyle(stream: any, output: any): void {
-    return stream
+  handleStyle(style: string, output: string, options?: object): void {
+    let stream: any = gulp
+      .src(BalmJS.file.absPaths(this.input))
+      .pipe(
+        $.plumber(function(this: any, error: any): void {
+          // https://github.com/floatdrop/gulp-plumber/issues/30
+          BalmJS.logger.error('<style task>', error.message);
+          // Must emit end event for any dependent streams to pick up on this. Destroying the stream
+          // ensures nothing else in that stream gets done, for example, if we're dealing with five
+          // files, after an error in one of them, any other won't carry on. Doing destroy without
+          // ending it first will not notify depending streams, tasks like `watch` will hang up.
+          this.emit('end');
+          this.destroy();
+        })
+      )
+      .pipe($.if(BalmJS.config.env.isDev, $.sourcemaps.init()));
+
+    switch (style) {
+      case 'sass':
+        stream = stream.pipe($.sass.sync(options));
+        break;
+      case 'less':
+        stream = stream.pipe($.less(options));
+        break;
+      default:
+    }
+
+    stream
       .pipe(
         $.postcss(
           BalmJS.plugins.getPostcssPlugins(),
@@ -97,17 +130,6 @@ class StyleTask extends BalmTask {
       )
       .pipe(gulp.dest(BalmJS.file.absPaths(output)));
     // .pipe(BalmJS.server.reload({ stream: true }));
-  }
-
-  handleError(this: any, error: any): void {
-    // https://github.com/floatdrop/gulp-plumber/issues/30
-    BalmJS.logger.error('Style Task', error.message);
-    // Must emit end event for any dependent streams to pick up on this. Destroying the stream
-    // ensures nothing else in that stream gets done, for example, if we're dealing with five
-    // files, after an error in one of them, any other won't carry on. Doing destroy without
-    // ending it first will not notify depending streams, tasks like `watch` will hang up.
-    this.emit('end');
-    this.destroy();
   }
 }
 

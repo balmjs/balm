@@ -36,7 +36,10 @@ class Balm {
     if (BalmJS.utils.isFunction(recipe)) {
       registerTasks(recipe);
     } else {
-      BalmJS.logger.error('Init', 'BalmJS API: `balm.go(function(mix) {});`');
+      BalmJS.logger.error(
+        '<initialization>',
+        'BalmJS API: `balm.go(function(mix) {});`'
+      );
     }
   }
 }
