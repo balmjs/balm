@@ -23,10 +23,7 @@ class BalmStyleTask extends BalmTask {
       '**',
       `!(_*).${extname}`
     );
-    this.defaultOutput =
-      BalmJS.config.env.isProd || !BalmJS.config.inFrontend
-        ? BalmJS.config.target.css
-        : BalmJS.config.tmp.css;
+    this.defaultOutput = BalmJS.config.to.css;
   }
 
   handleStyle(style: string, output: string, options?: object): void {

@@ -2,8 +2,8 @@ class UrlTask extends BalmJS.BalmTask {
   constructor() {
     super('url');
 
-    this.defaultInput = `${BalmJS.config.target.css}/**/*.css`;
-    this.defaultOutput = BalmJS.config.target.css;
+    this.defaultInput = `${BalmJS.config.to.css}/**/*.css`;
+    this.defaultOutput = BalmJS.config.to.css;
   }
 
   urlProcessing(type: string): any {

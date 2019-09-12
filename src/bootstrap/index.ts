@@ -1,31 +1,41 @@
 import { tree } from 'gulp';
 import { ASSETS_KEYS } from '../config/constants';
 
-function _ready(config: any): any {
-  // Create local quick directories
-  for (const rootKey of Object.keys(config.roots)) {
-    const rootValue = config.roots[rootKey];
+function _createQuickPath(config: any, rootKey: string): any {
+  const result: any = {};
 
-    config[rootKey] = {};
-    if (config.paths[rootKey]) {
-      for (const pathKey of Object.keys(config.paths[rootKey])) {
-        const pathValue = config.paths[rootKey][pathKey];
-        config[rootKey][pathKey] =
-          rootKey === 'target' && ASSETS_KEYS.includes(pathKey)
-            ? path.join(
-                config.workspace,
-                rootValue,
-                config.assets.subDir,
-                config.assets.buildDir,
-                pathValue
-              )
-            : path.join(config.workspace, rootValue, pathValue);
-      }
-    }
+  const rootValue = config.roots[rootKey];
+  for (const pathKey of Object.keys(config.paths[rootKey])) {
+    const pathValue = config.paths[rootKey][pathKey];
+    result[pathKey] =
+      rootKey === 'target' && ASSETS_KEYS.includes(pathKey)
+        ? path.join(
+            rootValue,
+            config.assets.subDir,
+            config.assets.buildDir,
+            pathValue
+          )
+        : path.join(rootValue, pathValue);
   }
 
-  config.target.static = path.join(
-    config.target.base,
+  return result;
+}
+
+function _ready(config: any): any {
+  // Create local quick directories
+  config.from = _createQuickPath(config, 'source');
+  config.to = _createQuickPath(
+    config,
+    config.env.isProd || !config.inFrontend ? 'target' : 'tmp'
+  );
+
+  // Note: fix for dev in non-static mode
+  if (!config.inFrontend && config.env.isDev) {
+    config.to.font = path.join(config.roots.target, config.paths.tmp.font);
+  }
+
+  config.to.static = path.join(
+    config.to.base,
     config.assets.subDir,
     config.assets.buildDir
   );

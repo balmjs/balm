@@ -1,4 +1,4 @@
-class WatchTask extends BalmJS.StyleTask {
+class WatchTask extends BalmJS.BalmTask {
   constructor() {
     super('watch');
   }

@@ -11,7 +11,7 @@ class SpriteTask extends BalmJS.BalmImageTask {
   }
 
   getOption(name: string): any {
-    const spriteName = `${name}-${this.name}.png`;
+    const spriteName = `${name}-${this.name}s.png`;
 
     return {
       imgName: spriteName, // E.g. "icon-sprite.png"
@@ -34,7 +34,7 @@ class SpriteTask extends BalmJS.BalmImageTask {
       const spriteList = [];
       for (const spriteName of BalmJS.config.images.sprites) {
         spriteList.push({
-          src: `${BalmJS.config.source.img}/${spriteName}/*.png`,
+          src: `${BalmJS.config.from.img}/${spriteName}/*.png`,
           name: spriteName
         });
       }
@@ -48,7 +48,7 @@ class SpriteTask extends BalmJS.BalmImageTask {
           src: value.src,
           opt: this.getOption(value.name),
           img: this.output,
-          css: `${BalmJS.config.source.css}/${this.name}` // Don't modify
+          css: `${BalmJS.config.from.css}/${this.name}` // Don't modify
         };
 
         gulp.task(spriteTaskName, function() {

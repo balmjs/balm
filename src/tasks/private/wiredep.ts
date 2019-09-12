@@ -4,11 +4,11 @@ class WiredepTask extends BalmJS.BalmTask {
   constructor() {
     super('wiredep');
 
-    this.defaultInput = `${BalmJS.config.source.base}/*.html`;
-    this.defaultOutput = BalmJS.config.source.base;
+    this.defaultInput = `${BalmJS.config.from.base}/*.html`;
+    this.defaultOutput = BalmJS.config.from.base;
   }
 
-  fn(cb: Function): void {
+  fn = (cb: Function): void => {
     this.init();
 
     gulp
@@ -30,7 +30,7 @@ class WiredepTask extends BalmJS.BalmTask {
       .pipe(gulp.dest(this.output));
 
     cb();
-  }
+  };
 }
 
 export = WiredepTask;

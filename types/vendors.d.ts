@@ -56,6 +56,7 @@ interface Igulp {
   series: any;
   parallel: any;
   watch: any;
+  tree: any;
 }
 
 declare namespace NodeJS {
