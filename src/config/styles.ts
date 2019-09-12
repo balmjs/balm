@@ -1,4 +1,4 @@
-const ext = 'css';
+const extname = 'css';
 /**
  * Optimisations
  * @type {Object}
@@ -25,7 +25,7 @@ const postcssPlugins: any[] = [];
 const postcssOptions: object = {};
 
 export default {
-  ext,
+  extname,
   options,
   includePaths,
   sassOptions,

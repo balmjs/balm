@@ -1,13 +1,6 @@
 class LessTask extends BalmJS.StyleTask {
   constructor() {
     super('less');
-
-    this.defaultInput = path.join(
-      BalmJS.config.roots.source,
-      BalmJS.config.paths.source.css,
-      '**',
-      '!(_*).less'
-    );
   }
 
   get options(): object {

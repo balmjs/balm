@@ -76,6 +76,24 @@ class StyleTask extends BalmTask {
   constructor(name: string) {
     super(name);
 
+    let extname: string;
+    switch (name) {
+      case 'sass':
+        extname = BalmJS.config.styles.extname === name ? name : 'scss';
+        break;
+      case 'less':
+        extname = 'less';
+        break;
+      default:
+        extname = 'css';
+    }
+
+    this.defaultInput = path.join(
+      BalmJS.config.roots.source,
+      BalmJS.config.paths.source.css,
+      '**',
+      `!(_*).${extname}`
+    );
     this.defaultOutput =
       BalmJS.config.env.isProd || !BalmJS.config.inFrontend
         ? path.join(

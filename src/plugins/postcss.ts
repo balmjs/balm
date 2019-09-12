@@ -4,7 +4,7 @@ import autoprefixer from 'autoprefixer';
 
 function getPostcssPlugins(): any[] {
   const postcssDefaultPlugins =
-    BalmJS.config.styles.ext === 'css'
+    BalmJS.config.styles.extname === 'css'
       ? [
           atImport({ path: BalmJS.file.stylePaths() }),
           postcssPresetEnv(BalmJS.config.styles.postcssEnvOptions),

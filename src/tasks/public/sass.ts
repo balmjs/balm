@@ -1,13 +1,6 @@
 class SassTask extends BalmJS.StyleTask {
   constructor() {
     super('sass');
-
-    this.defaultInput = path.join(
-      BalmJS.config.roots.source,
-      BalmJS.config.paths.source.css,
-      '**',
-      '!(_*).scss'
-    );
   }
 
   get options(): object {

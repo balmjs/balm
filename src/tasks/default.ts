@@ -29,6 +29,7 @@ class DefaultTask extends BalmJS.BalmTask {
     // }
 
     tasks.push('less');
+    tasks.push('postcss');
 
     return BalmJS.config.useDefaults
       ? (BalmJS.toNamespace(tasks) as string[])
