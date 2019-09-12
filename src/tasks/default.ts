@@ -14,22 +14,12 @@ class DefaultTask extends BalmJS.BalmTask {
   }
 
   get mainTasks(): string[] {
-    const tasks: string[] = ['clean', 'sass'];
-
-    // if (BalmJS.config.inFrontend) {
-    //   tasks.push('wiredep');
-    // }
-
-    // if (BalmJS.config.images.sprites.length) {
-    //   tasks.push('sprites');
-    // }
-
-    // if (BalmJS.config.scripts.eslint) {
-    //   tasks.push('lint');
-    // }
-
-    tasks.push('less');
-    tasks.push('postcss');
+    const tasks: string[] = [
+      'clean',
+      ...(BalmJS.config.inFrontend ? ['wiredep'] : []),
+      ...(BalmJS.config.images.sprites.length ? ['sprites'] : []),
+      ...(BalmJS.config.scripts.eslint ? ['lint'] : [])
+    ];
 
     return BalmJS.config.useDefaults
       ? (BalmJS.toNamespace(tasks) as string[])

@@ -14,7 +14,8 @@ declare namespace NodeJS {
     toNamespace: (taskName: any) => string | string[];
     TIME_FLAG: string;
     BalmTask: any;
-    StyleTask: any;
+    BalmStyleTask: any;
+    BalmImageTask: any;
     beforeTask: any;
     afterTask: any;
     tasks: any[];

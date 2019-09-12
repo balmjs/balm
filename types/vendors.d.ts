@@ -38,6 +38,11 @@ declare module 'cssnano' {
   export default cssnano;
 }
 
+declare module 'merge-stream' {
+  var mergeStream: any;
+  export default mergeStream;
+}
+
 declare module 'gulp' {
   var gulp: any;
   export default gulp;

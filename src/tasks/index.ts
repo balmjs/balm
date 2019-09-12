@@ -1,4 +1,4 @@
-import './task';
+import './foundation';
 import requireDir from 'require-dir';
 import DefaultTask from './default';
 import Hooks from '../hooks';
@@ -11,8 +11,13 @@ function registerTasks(recipe: Function): void {
 
   Object.values(AwesomeTasks).forEach((AwesomeTask: any) => {
     const awesomeTask = new AwesomeTask();
-    gulp.task(awesomeTask.taskName, awesomeTask.fn);
 
+    const taskFn =
+      awesomeTask.name === 'sprite' && BalmJS.config.images.sprites.length
+        ? gulp.series(awesomeTask.deps)
+        : awesomeTask.fn;
+
+    gulp.task(awesomeTask.taskName, taskFn);
     BalmJS.tasks.push(awesomeTask);
   });
 

@@ -1,4 +1,4 @@
-class LessTask extends BalmJS.StyleTask {
+class LessTask extends BalmJS.BalmStyleTask {
   constructor() {
     super('less');
   }

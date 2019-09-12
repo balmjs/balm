@@ -1,4 +1,4 @@
-class PostcssTask extends BalmJS.StyleTask {
+class PostcssTask extends BalmJS.BalmStyleTask {
   constructor() {
     super('postcss');
   }

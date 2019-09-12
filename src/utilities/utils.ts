@@ -36,4 +36,11 @@ const mergeDeep = (target: any, source: any): object => {
   return target;
 };
 
-export default { getType, isString, isObject, isArray, isFunction, mergeDeep };
+export default {
+  getType,
+  isString,
+  isObject,
+  isArray,
+  isFunction,
+  mergeDeep
+};
