@@ -34,7 +34,7 @@ class SpriteTask extends BalmJS.BalmImageTask {
       const spriteList = [];
       for (const spriteName of BalmJS.config.images.sprites) {
         spriteList.push({
-          src: `${BalmJS.config.from.img}/${spriteName}/*.png`,
+          src: `${BalmJS.config.src.img}/${spriteName}/*.png`,
           name: spriteName
         });
       }
@@ -48,7 +48,7 @@ class SpriteTask extends BalmJS.BalmImageTask {
           src: value.src,
           opt: this.getOption(value.name),
           img: this.output,
-          css: `${BalmJS.config.from.css}/${this.name}` // Don't modify
+          css: `${BalmJS.config.src.css}/${this.name}` // Don't modify
         };
 
         gulp.task(spriteTaskName, function() {

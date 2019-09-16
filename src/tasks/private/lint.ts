@@ -2,8 +2,8 @@ class LintTask extends BalmJS.BalmTask {
   constructor() {
     super('lint');
 
-    this.defaultInput = `${BalmJS.config.from.js}/**/*.js`; // TODO: ext
-    this.defaultOutput = BalmJS.config.from.js;
+    this.defaultInput = `${BalmJS.config.src.js}/**/*.js`; // TODO: ext
+    this.defaultOutput = BalmJS.config.src.js;
   }
 
   fn = (cb: Function): void => {

@@ -4,8 +4,8 @@ class WiredepTask extends BalmJS.BalmTask {
   constructor() {
     super('wiredep');
 
-    this.defaultInput = `${BalmJS.config.from.base}/*.html`;
-    this.defaultOutput = BalmJS.config.from.base;
+    this.defaultInput = `${BalmJS.config.src.base}/*.html`;
+    this.defaultOutput = BalmJS.config.src.base;
   }
 
   fn = (cb: Function): void => {

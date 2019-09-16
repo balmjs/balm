@@ -4,7 +4,7 @@ class BalmImageTask extends BalmTask {
   constructor(name: string) {
     super(name);
 
-    this.defaultOutput = BalmJS.config.to.img;
+    this.defaultOutput = BalmJS.config.dest.img;
   }
 }
 

@@ -23,19 +23,19 @@ function _createQuickPath(config: any, rootKey: string): any {
 
 function _ready(config: any): any {
   // Create local quick directories
-  config.from = _createQuickPath(config, 'source');
-  config.to = _createQuickPath(
+  config.src = _createQuickPath(config, 'source');
+  config.dest = _createQuickPath(
     config,
     config.env.isProd || !config.inFrontend ? 'target' : 'tmp'
   );
 
-  // Note: fix for dev in non-static mode
+  // Note: fix for dev in backend mode
   if (!config.inFrontend && config.env.isDev) {
-    config.to.font = path.join(config.roots.target, config.paths.tmp.font);
+    config.dest.font = path.join(config.roots.target, config.paths.tmp.font);
   }
 
-  config.to.static = path.join(
-    config.to.base,
+  config.dest.static = path.join(
+    config.dest.base,
     config.assets.subDir,
     config.assets.buildDir
   );

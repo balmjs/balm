@@ -56,7 +56,7 @@ class CleanTask extends BalmJS.BalmTask {
 
   get dirInBackend(): string[] {
     const buildDir = BalmJS.config.assets.subDir
-      ? [BalmJS.config.to.static]
+      ? [BalmJS.config.dest.static]
       : [];
 
     return [
