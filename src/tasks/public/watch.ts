@@ -7,9 +7,8 @@ class WatchTask extends BalmJS.BalmTask {
     handler('Hello BalmJS');
   }
 
-  fn(cb: Function): void {
+  fn(): void {
     console.log('watch task');
-    cb();
   }
 }
 

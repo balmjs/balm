@@ -55,10 +55,7 @@ class BalmStyleTask extends BalmTask {
 
     stream
       .pipe(
-        $.postcss(
-          BalmJS.plugins.getPostcssPlugins(),
-          BalmJS.config.styles.postcssOptions
-        )
+        $.postcss(BalmJS.plugins.postcss(), BalmJS.config.styles.postcssOptions)
       )
       .pipe($.if(BalmJS.config.env.isDev, $.sourcemaps.write('.')))
       .pipe(

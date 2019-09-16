@@ -3,9 +3,8 @@ class ServerTask extends BalmJS.BalmTask {
     super('serve');
   }
 
-  fn(cb: Function): void {
+  fn(): void {
     console.log('server task');
-    cb();
   }
 }
 

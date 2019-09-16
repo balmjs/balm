@@ -23,7 +23,7 @@ class UrlTask extends BalmJS.BalmTask {
     return $.replace(developmentPath, productionPath);
   }
 
-  fn(cb: Function): void {
+  fn(): void {
     this.init();
 
     gulp
@@ -31,8 +31,6 @@ class UrlTask extends BalmJS.BalmTask {
       .pipe(this.urlProcessing('img'))
       .pipe(this.urlProcessing('font'))
       .pipe(gulp.dest(this.output));
-
-    cb();
   }
 }
 

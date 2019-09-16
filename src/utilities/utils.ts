@@ -17,7 +17,7 @@ function isFunction(fn: any): boolean {
   return type === 'function' || type === 'generatorfunction';
 }
 
-// Deep merge two objects.
+// Deep merge two objects
 const mergeDeep = (target: any, source: any): object => {
   if (isObject(target) && isObject(source)) {
     Object.keys(source).forEach(key => {

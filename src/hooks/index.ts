@@ -12,6 +12,10 @@ class BaseHooks {
   postcss(input: string, output: string): void {
     Maker.generate('postcss', [input, output]);
   }
+
+  js(input: string, output: string): void {
+    Maker.generate('script', [input, output]);
+  }
 }
 
 class Hooks extends BaseHooks {

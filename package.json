@@ -89,7 +89,6 @@
     "webpack-dev-middleware": "^3.7.1",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2",
-    "wiredep": "^4.0.0",
     "workbox-build": "^4.3.1",
     "workbox-sw": "^4.3.1"
   },

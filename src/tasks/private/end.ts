@@ -3,7 +3,7 @@ class EndTask extends BalmJS.BalmTask {
     super('end');
   }
 
-  fn(cb: Function): void {
+  fn(): void {
     if (BalmJS.utils.isFunction(BalmJS.afterTask)) {
       BalmJS.afterTask();
     }
@@ -11,8 +11,6 @@ class EndTask extends BalmJS.BalmTask {
     if (!BalmJS.config.env.isTest) {
       console.timeEnd(BalmJS.TIME_FLAG);
     }
-
-    cb();
   }
 }
 

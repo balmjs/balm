@@ -18,9 +18,8 @@ class LessTask extends BalmJS.BalmStyleTask {
     this.handleStyle(this.name, this.output, this.options);
   };
 
-  fn = (cb: Function): void => {
+  fn = (): void => {
     this.recipe();
-    cb();
   };
 }
 

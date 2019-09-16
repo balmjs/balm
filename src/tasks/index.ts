@@ -9,15 +9,34 @@ const PUBLIC_TASKS = requireDir('./public');
 function registerTasks(recipe: Function): void {
   const AwesomeTasks = BalmJS.utils.mergeDeep(PRIVATE_TASKS, PUBLIC_TASKS);
 
+  // Register balm task
   Object.values(AwesomeTasks).forEach((AwesomeTask: any) => {
     const awesomeTask = new AwesomeTask();
+    const taskName = awesomeTask.taskName;
+    let taskFunction: Function = function(cb: Function): void {
+      cb();
+    };
 
-    const taskFn =
-      awesomeTask.name === 'sprite' && BalmJS.config.images.sprites.length
-        ? gulp.series(awesomeTask.deps)
-        : awesomeTask.fn;
+    switch (awesomeTask.name) {
+      case 'sprite':
+        if (BalmJS.config.images.sprites.length) {
+          taskFunction = gulp.series(awesomeTask.deps);
+        }
+        break;
+      case 'clean':
+      case 'script':
+        taskFunction = function(cb: Function): void {
+          awesomeTask.fn(cb);
+        };
+        break;
+      default:
+        taskFunction = function(cb: Function): void {
+          awesomeTask.fn();
+          cb();
+        };
+    }
 
-    gulp.task(awesomeTask.taskName, taskFn);
+    gulp.task(taskName, taskFunction);
     BalmJS.tasks.push(awesomeTask);
   });
 

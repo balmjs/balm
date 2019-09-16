@@ -18,6 +18,11 @@ declare module 'browser-sync' {
   export default browserSync;
 }
 
+declare module 'webpack' {
+  var webpack: any;
+  export default webpack;
+}
+
 declare module 'postcss-import' {
   var atImport: any;
   export default atImport;
@@ -64,9 +69,11 @@ declare namespace NodeJS {
     gulp: Igulp;
     $: any;
     server: any;
+    webpack: any;
   }
 }
 
 declare var gulp: Igulp;
 declare var $: any;
 declare var server: any;
+declare var webpack: any;

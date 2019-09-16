@@ -1,9 +1,7 @@
-import getPostcssPlugins from './postcss';
+import postcss from './postcss';
 
-const Plugins: object = {
-  getPostcssPlugins
+const plugins: object = {
+  postcss
 };
 
-BalmJS.plugins = Plugins;
-
-export default Plugins;
+BalmJS.plugins = plugins;
