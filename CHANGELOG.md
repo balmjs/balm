@@ -12,6 +12,23 @@
 > - :house: [Code Refactoring]
 > - :package: [Update Dependencies]
 
+## 1.9.0 (2019.09.16)
+
+### :rocket: [New Features]
+
+- Upgraded to propagate `npm audit` fix
+
+### :bug: [Bug Fixes]
+
+- API: fix init bug
+
+### :package: [Update Dependencies]
+
+- `http-proxy-middleware`: 0.19.x -> 0.20.x
+- `terser-webpack-plugin`: 1.x -> 2.x
+
+---
+
 ## 1.8.1 (2019.08.19)
 
 ### :nail_care: [Polish]
