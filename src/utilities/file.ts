@@ -21,6 +21,22 @@ class File {
       ...BalmJS.config.styles.includePaths
     ];
   }
+
+  assetsPath(_path: string): string {
+    return BalmJS.config.env.isProd || !BalmJS.config.inFrontend
+      ? path.posix.join(
+          BalmJS.config.assets.subDir,
+          BalmJS.config.assets.buildDir,
+          _path
+        )
+      : _path;
+  }
+
+  getPublicPath(): string {
+    return BalmJS.config.env.isProd || BalmJS.config.assets.publicUrl === '/'
+      ? BalmJS.config.assets.publicUrl
+      : '';
+  }
 }
 
 export default new File();

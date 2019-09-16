@@ -10,7 +10,7 @@ function registerTasks(recipe: Function): void {
   const AwesomeTasks = BalmJS.utils.mergeDeep(PRIVATE_TASKS, PUBLIC_TASKS);
 
   // Register balm task
-  Object.values(AwesomeTasks).forEach((AwesomeTask: any) => {
+  Object.values(AwesomeTasks).forEach(function(AwesomeTask: any) {
     const awesomeTask = new AwesomeTask();
     const taskName = awesomeTask.taskName;
     let taskFunction: Function = function(cb: Function): void {

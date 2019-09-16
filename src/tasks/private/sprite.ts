@@ -6,6 +6,8 @@ class SpriteTask extends BalmJS.BalmImageTask {
   constructor() {
     super('sprite');
 
+    this.defaultInput = BalmJS.config.images.sprites;
+
     this.init();
     this.collect();
   }
@@ -30,9 +32,9 @@ class SpriteTask extends BalmJS.BalmImageTask {
   }
 
   collect(): void {
-    if (BalmJS.config.images.sprites.length) {
+    if (this.input.length) {
       const spriteList = [];
-      for (const spriteName of BalmJS.config.images.sprites) {
+      for (const spriteName of this.input) {
         spriteList.push({
           src: `${BalmJS.config.src.img}/${spriteName}/*.png`,
           name: spriteName

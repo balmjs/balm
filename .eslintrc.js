@@ -25,6 +25,7 @@ module.exports = {
   ],
   rules: {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    '@typescript-eslint/no-explicit-any': 0
+    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/camelcase': ['error', { allow: ['child_process'] }]
   }
 };

@@ -6,6 +6,7 @@ import styles from './styles';
 import scripts from './scripts';
 import images from './images';
 import assets from './assets';
+import server from './server';
 import logs from './logs';
 
 enum LogLevel {
@@ -40,6 +41,7 @@ const config: any = {
   scripts,
   images,
   assets,
+  server,
   logs,
   useDefaults
 };

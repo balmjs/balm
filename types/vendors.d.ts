@@ -48,6 +48,36 @@ declare module 'merge-stream' {
   export default mergeStream;
 }
 
+declare module 'webpack-merge' {
+  var webpackMerge: any;
+  export default webpackMerge;
+}
+
+declare module 'terser-webpack-plugin' {
+  var TerserPlugin: any;
+  export default TerserPlugin;
+}
+
+declare module 'optimize-css-assets-webpack-plugin' {
+  var OptimizeCSSAssetsPlugin: any;
+  export default OptimizeCSSAssetsPlugin;
+}
+
+declare module 'postcss-safe-parser' {
+  var safePostCssParser: any;
+  export default safePostCssParser;
+}
+
+declare module 'mini-css-extract-plugin' {
+  var MiniCssExtractPlugin: any;
+  export default MiniCssExtractPlugin;
+}
+
+declare module 'webpack-bundle-analyzer' {
+  var BundleAnalyzerPlugin: any;
+  export { BundleAnalyzerPlugin };
+}
+
 declare module 'gulp' {
   var gulp: any;
   export default gulp;

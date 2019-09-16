@@ -13,7 +13,10 @@ class BaseHooks {
     Maker.generate('postcss', [input, output]);
   }
 
-  js(input: string, output: string): void {
+  js(
+    input: string | string[] | { [entryChunkName: string]: string | string[] },
+    output: string
+  ): void {
     Maker.generate('script', [input, output]);
   }
 }

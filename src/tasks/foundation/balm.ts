@@ -2,9 +2,9 @@ class BalmTask {
   protected _name: string;
   protected _taskName: string;
 
-  protected _input: string | string[] = '';
+  protected _input: any;
   protected _output = '';
-  protected _defaultInput: string | string[] = '';
+  protected _defaultInput: any;
   protected _defaultOutput = '';
 
   constructor(name: string) {

@@ -18,9 +18,9 @@ function isFunction(fn: any): boolean {
 }
 
 // Deep merge two objects
-const mergeDeep = (target: any, source: any): object => {
+function mergeDeep(target: any, source: any): object {
   if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach(key => {
+    Object.keys(source).forEach(function(key: string) {
       if (isObject(source[key])) {
         if (!target[key]) {
           Object.assign(target, { [key]: {} });
@@ -34,7 +34,7 @@ const mergeDeep = (target: any, source: any): object => {
   }
 
   return target;
-};
+}
 
 export default {
   getType,

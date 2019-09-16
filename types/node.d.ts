@@ -1,6 +1,7 @@
 interface Ipath {
   join: any;
   isAbsolute: any;
+  posix: any;
 }
 
 declare namespace NodeJS {

@@ -7,27 +7,31 @@ class ScriptTask extends BalmJS.BalmStyleTask {
     this.defaultOutput = BalmJS.config.dest.js;
   }
 
-  recipe(cb: Function, input?: string | string[], output?: string): void {
+  recipe(
+    cb: Function,
+    input?: string | string[] | { [entryChunkName: string]: string | string[] },
+    output?: string
+  ): void {
     this.init(input, output);
 
-    webpack(
-      webpackConfig(this.input, this.output),
-      (err: any, stats: any): void => {
-        // Handle errors here
-        if (err) {
-          BalmJS.logger.error('<script task>', err.stack || err);
-          if (err.details) {
-            BalmJS.logger.error('<script task>', err.details);
-          }
-          return;
+    webpack(webpackConfig(this.input, this.output), function(
+      err: any,
+      stats: any
+    ): void {
+      // Handle errors here
+      if (err) {
+        BalmJS.logger.error('<script task>', err.stack || err);
+        if (err.details) {
+          BalmJS.logger.error('<script task>', err.details);
         }
-
-        console.log(stats.toString(BalmJS.config.scripts.stats));
-
-        // Done processing
-        cb();
+        return;
       }
-    );
+
+      console.log(stats.toString(BalmJS.config.scripts.stats));
+
+      // Done processing
+      cb();
+    });
   }
 
   fn = (cb: Function): void => {
