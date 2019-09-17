@@ -1,6 +1,6 @@
 import { STATIC_ASSETS } from '../../../config/constants';
 
-export = function(): any[] {
+function urlLoader(): object[] {
   const PATHNAME = `${BalmJS.config.paths.target.js}/${STATIC_ASSETS}/`;
   const FILENAME = '[name].[hash:8].[ext]';
   const limit = BalmJS.config.scripts.base64Limit;
@@ -34,4 +34,6 @@ export = function(): any[] {
       }
     }
   ];
-};
+}
+
+export = urlLoader;

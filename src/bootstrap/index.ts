@@ -60,23 +60,6 @@ function _ready(config: any): any {
 function setConfig(customConfig: any = {}): any {
   const defaultConfig: any = BalmJS.config;
 
-  // 0. Previously on config
-  // if (
-  //   customConfig.scripts &&
-  //   customConfig.scripts.entry &&
-  //   !customConfig.scripts.vendors
-  // ) {
-  //   for (let key of Object.keys(customConfig.scripts.entry)) {
-  //     let value = customConfig.scripts.entry[key];
-  //     if (BalmJS.utils.isArray(value)) {
-  //       defaultConfig.scripts.vendors.push({
-  //         key,
-  //         value
-  //       });
-  //     }
-  //   }
-  // }
-
   // 1. Overwrite config
   const newConfig: any = BalmJS.utils.mergeDeep(defaultConfig, customConfig);
   // checkConfig(); TODO: for compatibility

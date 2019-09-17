@@ -1,5 +1,5 @@
 const extname = 'css';
-const includePaths: string[] = [];
+const atImportPaths: string[] = [];
 /**
  * Optimisations
  * @type {Object}
@@ -21,21 +21,34 @@ const postcssEnvOptions: object = {
     flexbox: 'no-2009'
   }
 };
-const postcssPlugins: any[] = [];
+const postcssPlugins: object[] = [];
+// For `postcss-loader` options
+const postcssLoaderOptions: {
+  exec?: boolean;
+  parser?: string | object;
+  syntax?: string | object;
+  stringifier?: string | object;
+  config?: object;
+  // plugins: object[] | Function; // NOTE: The same to `styles.postcssPlugins`
+  sourceMap: string | boolean;
+} = {
+  sourceMap: false
+};
 // CSS Sprites
-const basePath = '../'; // Relative to css file
+const imageBasePath = '../'; // Relative to css file
 const sprites: string[] = []; // Image folders
 const spritePadding = 1;
 
 export default {
   extname,
+  atImportPaths,
   options,
-  includePaths,
   sassOptions,
   lessOptions,
   postcssEnvOptions,
   postcssPlugins,
-  basePath,
+  postcssLoaderOptions,
+  imageBasePath,
   sprites,
   spritePadding
 };

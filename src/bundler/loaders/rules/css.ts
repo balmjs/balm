@@ -4,12 +4,10 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 
-function getCssLoader(): any {
+function cssLoader(): object {
   let styleLoader = 'style-loader';
 
   BalmJS.config.styles.postcssLoaderOptions.plugins = BalmJS.plugins.postcss();
-  BalmJS.config.styles.postcssLoaderOptions.sourceMap =
-    BalmJS.config.scripts.sourceMap;
 
   if (BalmJS.config.env.inSSR) {
     const loadersCount = BalmJS.config.scripts.loaders.length;
@@ -55,4 +53,4 @@ function getCssLoader(): any {
   };
 }
 
-export = BalmJS.config.scripts.cssLoader ? getCssLoader : false;
+export = cssLoader;

@@ -5,7 +5,7 @@ import getDevConfig from './config/dev';
 import getProdConfig from './config/prod';
 
 function webpackConfig(
-  input?: string | string[] | { [entryChunkName: string]: string | string[] },
+  input: string | string[] | { [entryChunkName: string]: string | string[] },
   output?: string,
   customOptions: any = {}
 ): void {

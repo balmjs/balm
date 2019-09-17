@@ -19,13 +19,13 @@ class Balm {
     BalmJS.config = this._config;
   }
 
-  set beforeTask(name: string) {
+  set beforeTask(name: string | Function) {
     const task = checkGulpTask(name);
     if (task) {
       BalmJS.beforeTask = task;
     }
   }
-  set afterTask(name: string) {
+  set afterTask(name: string | Function) {
     const task = checkGulpTask(name);
     if (task) {
       BalmJS.afterTask = task;

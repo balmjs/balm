@@ -19,6 +19,10 @@ enum LogLevel {
 }
 
 const noop: Function = () => {};
+const vendors: {
+  key: string;
+  value: string[];
+}[] = [];
 
 /**
  * Project type
@@ -50,5 +54,6 @@ global.BalmJS = {};
 BalmJS.config = config;
 BalmJS.noop = noop;
 BalmJS.LogLevel = LogLevel;
+BalmJS.vendors = vendors;
 
 export default config;

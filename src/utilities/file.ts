@@ -18,7 +18,7 @@ class File {
   stylePaths(): string[] {
     return [
       path.join(BalmJS.config.workspace, '.'),
-      ...BalmJS.config.styles.includePaths
+      ...BalmJS.config.styles.atImportPaths
     ];
   }
 

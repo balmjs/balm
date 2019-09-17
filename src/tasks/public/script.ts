@@ -4,6 +4,7 @@ class ScriptTask extends BalmJS.BalmStyleTask {
   constructor() {
     super('script');
 
+    this.defaultInput = `${BalmJS.config.src.js}/main.js`;
     this.defaultOutput = BalmJS.config.dest.js;
   }
 
@@ -12,7 +13,7 @@ class ScriptTask extends BalmJS.BalmStyleTask {
     input?: string | string[] | { [entryChunkName: string]: string | string[] },
     output?: string
   ): void {
-    this.init(input, output);
+    this.init(input || BalmJS.config.scripts.entry, output);
 
     webpack(webpackConfig(this.input, this.output), function(
       err: any,

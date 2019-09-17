@@ -2,7 +2,7 @@ import atImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
 import autoprefixer from 'autoprefixer';
 
-function getDefaultPostcssPlugins(): any[] {
+function getDefaultPostcssPlugins(): object[] {
   const defaultPostcssPlugins =
     BalmJS.config.styles.extname === 'css'
       ? [

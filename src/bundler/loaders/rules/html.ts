@@ -1,4 +1,4 @@
-export = function(): any {
+function htmlLoader(): object {
   return {
     test: /\.(html|tpl)$/,
     loader: 'html-loader',
@@ -8,4 +8,6 @@ export = function(): any {
         })
       : {}
   };
-};
+}
+
+export = htmlLoader;

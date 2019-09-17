@@ -28,7 +28,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/camelcase': [
       'error',
-      { allow: ['drop_console', 'child_process'] }
+      { allow: ['drop_console', 'ascii_only', 'child_process'] }
     ]
   }
 };

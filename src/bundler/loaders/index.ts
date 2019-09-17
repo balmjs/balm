@@ -3,14 +3,22 @@ import requireDir from 'require-dir';
 
 const LOADERS = requireDir('./rules');
 
-function getLoaders(customLoaders: any[]): any[] {
-  let defaultLoaders: any[] = [];
+function getLoaders(customLoaders: object[]): object[] {
+  const enableDefaultLoaders = Object.assign(
+    {
+      html: true,
+      css: true,
+      js: true,
+      url: true
+    },
+    BalmJS.config.scripts.disableDefaultLoaders
+  );
 
-  console.log(Object.values(LOADERS));
-
+  let defaultLoaders: object[] = [];
   Object.values(LOADERS).forEach(function(Loader: any) {
-    if (Loader) {
-      const loader = Loader();
+    const key = Loader.name.replace('Loader', '');
+    if (enableDefaultLoaders[key]) {
+      const loader: object | object[] = Loader();
       if (BalmJS.utils.isArray(loader)) {
         defaultLoaders = defaultLoaders.concat(loader);
       } else {

@@ -1,12 +1,26 @@
 const FILENAME_REGEX: any = new RegExp('[^/]+$', 'i');
 const HOT_CLIENT = 'webpack-hot-middleware/client';
 
+function initVendors(entries: {
+  [entryChunkName: string]: string | string[];
+}): void {
+  for (const key of Object.keys(entries)) {
+    const value = entries[key] as string[];
+    if (BalmJS.utils.isArray(value)) {
+      BalmJS.vendors.push({
+        key,
+        value
+      });
+    }
+  }
+}
+
 // Relative path
 function getEntry(
   scripts: any,
-  input?: string | string[] | { [entryChunkName: string]: string | string[] }
+  input: string | string[] | { [entryChunkName: string]: string | string[] }
 ): any {
-  let webpackEntries: any = {};
+  let webpackEntries: any;
 
   const HMR = Object.keys(BalmJS.config.server.hotOptions).length
     ? `${HOT_CLIENT}?` +
@@ -15,24 +29,14 @@ function getEntry(
         .join('&')
     : HOT_CLIENT;
 
-  if (input) {
-    if (BalmJS.utils.isArray(input) && input.length) {
-      for (const value of input as string[]) {
-        const matchResult = FILENAME_REGEX.exec(value)[0];
-        const key = matchResult.split('.')[0];
-        webpackEntries[key] = value;
-      }
-    } else if (BalmJS.utils.isString(input)) {
-      webpackEntries = input as string;
-    } else {
-      // BalmJS.logger.warn('<webpack entry>', 'JS entry must be an object');
-    }
-  } else if (BalmJS.utils.isObject(scripts.entry)) {
-    for (const key of Object.keys(scripts.entry)) {
-      const value = scripts.entry[key];
-      const isVendor = scripts.vendors
-        .map((vendor: any) => vendor.key)
-        .includes(key);
+  if (BalmJS.utils.isObject(input)) {
+    initVendors(input as {
+      [entryChunkName: string]: string | string[];
+    });
+
+    for (const key of Object.keys(input)) {
+      const value = (input as any)[key];
+      const isVendor = BalmJS.utils.isArray(value);
 
       // Key
       const entryKey = isVendor
@@ -53,6 +57,19 @@ function getEntry(
         webpackEntries[entryKey] = entryValue;
       }
     }
+  } else if (BalmJS.utils.isArray(input) && input.length) {
+    for (const value of input as string[]) {
+      const matchResult = FILENAME_REGEX.exec(value)[0];
+      const key = matchResult.split('.')[0];
+      webpackEntries[key] = value;
+    }
+  } else if (BalmJS.utils.isString(input)) {
+    webpackEntries = input as string;
+  } else {
+    BalmJS.logger.warn(
+      '<webpack entry>',
+      'scripts entry must be a `string | array | object`'
+    );
   }
 
   if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {

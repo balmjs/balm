@@ -12,6 +12,7 @@ declare namespace NodeJS {
       mergeDeep: (target: any, source: any) => object;
     };
     toNamespace: (taskName: any) => string | string[];
+    file: any;
     TIME_FLAG: string;
     BalmTask: any;
     BalmStyleTask: any;
@@ -24,7 +25,10 @@ declare namespace NodeJS {
     run: Function;
     watchFile: string;
     plugins: any;
-    file: any;
+    vendors: {
+      key: string;
+      value: string[];
+    }[];
     LogLevel: {
       Trace: number;
       Debug: number;

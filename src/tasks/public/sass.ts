@@ -6,9 +6,8 @@ class SassTask extends BalmJS.BalmStyleTask {
   get options(): object {
     return Object.assign(
       {
-        outputStyle: 'expanded',
-        precision: 10,
-        includePaths: BalmJS.file.stylePaths()
+        includePaths: BalmJS.file.stylePaths(),
+        outputStyle: 'expanded'
       },
       BalmJS.config.styles.sassOptions
     );

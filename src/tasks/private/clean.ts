@@ -42,7 +42,7 @@ class CleanTask extends BalmJS.BalmTask {
     if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
       BalmJS.logger.info(
         `<${this.name} task>`,
-        `'${BalmJS.config.assets.root}' is local: ${isLocal}`
+        `'${BalmJS.config.assets.root}' is local directory: ${isLocal}`
       );
     }
 

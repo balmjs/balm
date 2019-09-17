@@ -2,7 +2,7 @@ import getLoaders from '../loaders';
 import { INJECT_HASHNAME } from '../../config/constants';
 
 function getCommonConfig(scripts: any): any {
-  const vendorsCount = scripts.vendors.length;
+  const vendorsCount = BalmJS.vendors.length;
 
   let cacheGroups: any = false;
   if (scripts.extractAllVendors) {
@@ -23,7 +23,7 @@ function getCommonConfig(scripts: any): any {
   } else if (vendorsCount) {
     cacheGroups = {};
     for (let i = 0; i < vendorsCount; i++) {
-      const vendor = scripts.vendors[i];
+      const vendor = BalmJS.vendors[i];
       const name = vendor.key;
       const reg = vendor.value.join('|');
       const filename = scripts.inject
@@ -62,7 +62,11 @@ function getCommonConfig(scripts: any): any {
       // relative paths are looked up in every parent folder (like node_modules)
       // absolute paths are looked up directly
       // the order is respected
-      modules: ['node_modules', 'bower_components', BalmJS.config.source.base],
+      modules: [
+        'node_modules',
+        'bower_components',
+        BalmJS.file.absPaths(BalmJS.config.src.base)
+      ],
       // These extensions are tried when resolving a file
       extensions: [
         '.wasm',

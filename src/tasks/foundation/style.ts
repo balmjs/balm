@@ -26,7 +26,7 @@ class BalmStyleTask extends BalmTask {
     this.defaultOutput = BalmJS.config.dest.css;
   }
 
-  handleStyle(style: string, output: string, options?: object): void {
+  handleStyle(style: string, output: string, options?: any): void {
     let stream: any = gulp
       .src(BalmJS.file.absPaths(this.input))
       .pipe(
