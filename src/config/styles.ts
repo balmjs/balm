@@ -1,4 +1,5 @@
 const extname = 'css';
+const includePaths: string[] = [];
 /**
  * Optimisations
  * @type {Object}
@@ -7,11 +8,11 @@ const extname = 'css';
  */
 const options: object = {
   safe: true,
+  autoprefixer: false,
   discardComments: {
     removeAll: true
   }
 };
-const includePaths: string[] = [];
 const sassOptions: object = {};
 const lessOptions: object = {};
 const postcssEnvOptions: object = {
@@ -21,8 +22,10 @@ const postcssEnvOptions: object = {
   }
 };
 const postcssPlugins: any[] = [];
-// For `gulp-postcss` options
-const postcssOptions: object = {};
+// CSS Sprites
+const basePath = '../'; // Relative to css file
+const sprites: string[] = []; // Image folders
+const spritePadding = 1;
 
 export default {
   extname,
@@ -32,5 +35,7 @@ export default {
   lessOptions,
   postcssEnvOptions,
   postcssPlugins,
-  postcssOptions
+  basePath,
+  sprites,
+  spritePadding
 };

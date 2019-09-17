@@ -34,7 +34,7 @@ class DefaultTask extends BalmJS.BalmTask {
   get mainTasks(): string[] {
     let tasks: string[] = [
       'clean',
-      ...(BalmJS.config.images.sprites.length ? ['sprite'] : [])
+      ...(BalmJS.config.styles.sprites.length ? ['sprite'] : [])
     ];
 
     if (BalmJS.config.env.isProd) {

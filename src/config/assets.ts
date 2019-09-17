@@ -4,12 +4,12 @@ const root = 'assets'; // Remote project root simulation
 const mainDir = 'public'; // The `public` directory contains the front controller and your assets (images, JavaScript, CSS, etc.)
 const subDir = ''; // Public subdirectory
 const buildDir = 'build'; // For dynamic language project
+const cache = false;
 const options: object = {
   fileNameManifest: 'rev-manifest.json',
   dontRenameFile: ['.html', '.php'],
   dontUpdateReference: ['.html', '.php']
 };
-const cache = false;
 const includes: string[] = [];
 const excludes: string[] = [];
 
@@ -20,8 +20,8 @@ export default {
   mainDir,
   subDir,
   buildDir,
-  options,
   cache,
+  options,
   includes,
   excludes
 };

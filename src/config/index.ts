@@ -2,9 +2,9 @@ import './globals';
 import env from './env';
 import roots from './roots';
 import paths from './paths';
+import html from './html';
 import styles from './styles';
 import scripts from './scripts';
-import images from './images';
 import assets from './assets';
 import server from './server';
 import logs from './logs';
@@ -37,9 +37,9 @@ const config: any = {
   env,
   roots,
   paths,
+  html,
   styles,
   scripts,
-  images,
   assets,
   server,
   logs,

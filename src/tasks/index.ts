@@ -19,7 +19,7 @@ function registerTasks(recipe: Function): void {
 
     switch (awesomeTask.name) {
       case 'sprite':
-        if (BalmJS.config.images.sprites.length) {
+        if (BalmJS.config.styles.sprites.length) {
           taskFunction = gulp.series(awesomeTask.deps);
         }
         break;

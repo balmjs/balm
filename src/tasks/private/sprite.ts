@@ -6,7 +6,7 @@ class SpriteTask extends BalmJS.BalmImageTask {
   constructor() {
     super('sprite');
 
-    this.defaultInput = BalmJS.config.images.sprites;
+    this.defaultInput = BalmJS.config.styles.sprites;
 
     this.init();
     this.collect();
@@ -17,8 +17,8 @@ class SpriteTask extends BalmJS.BalmImageTask {
 
     return {
       imgName: spriteName, // E.g. "icon-sprite.png"
-      imgPath: `${BalmJS.config.images.basePath}${BalmJS.config.paths.target.img}/${spriteName}`, // E.g. "path/to/icon-sprite.png"
-      padding: BalmJS.config.images.spritePadding,
+      imgPath: `${BalmJS.config.styles.basePath}${BalmJS.config.paths.target.img}/${spriteName}`, // E.g. "path/to/icon-sprite.png"
+      padding: BalmJS.config.styles.spritePadding,
       cssName: `_${name}.${BalmJS.config.styles.extname}`, // E.g. "_icon.scss"
       cssFormat: BalmJS.config.styles.extname, // E.g. "scss"
       cssVarMap: function(sprite: any): void {

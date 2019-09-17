@@ -8,11 +8,12 @@ function getDefaultPostcssPlugins(): any[] {
       ? [
           atImport({ path: BalmJS.file.stylePaths() }),
           postcssPresetEnv(BalmJS.config.styles.postcssEnvOptions),
-          autoprefixer()
+          autoprefixer(),
+          ...BalmJS.config.styles.postcssPlugins
         ]
       : [autoprefixer()];
 
-  return defaultPostcssPlugins.concat(BalmJS.config.styles.postcssPlugins);
+  return defaultPostcssPlugins;
 }
 
 export default getDefaultPostcssPlugins;

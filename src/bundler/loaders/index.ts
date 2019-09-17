@@ -28,6 +28,10 @@ function getLoaders(customLoaders: any[]): any[] {
     }
   );
 
+  if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
+    BalmJS.logger.info('<webpack loaders>', result.rules);
+  }
+
   return result.rules;
 }
 
