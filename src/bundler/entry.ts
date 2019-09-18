@@ -72,7 +72,7 @@ function getEntry(
     );
   }
 
-  if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
+  if (BalmJS.config.logs.level <= BalmJS.LogLevel.Info) {
     BalmJS.logger.info('<webpack entry>', webpackEntries);
   }
 

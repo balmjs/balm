@@ -13,7 +13,7 @@ class UrlTask extends BalmJS.BalmTask {
     );
     const productionPath = `../${BalmJS.config.paths.target[type]}/`;
 
-    if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
+    if (BalmJS.config.logs.level <= BalmJS.LogLevel.Debug) {
       BalmJS.logger.info(
         `<${this.name} task>`,
         `from '${developmentPath}' to '${productionPath}'`

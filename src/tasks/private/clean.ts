@@ -39,7 +39,7 @@ class CleanTask extends BalmJS.BalmTask {
   get dirInFrontend(): string[] {
     const isLocal = !path.isAbsolute(BalmJS.config.assets.root);
 
-    if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
+    if (BalmJS.config.logs.level <= BalmJS.LogLevel.Debug) {
       BalmJS.logger.info(
         `<${this.name} task>`,
         `'${BalmJS.config.assets.root}' is local directory: ${isLocal}`
@@ -72,7 +72,7 @@ class CleanTask extends BalmJS.BalmTask {
       : this.dirInBackend;
     directories = unique(directories);
 
-    if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
+    if (BalmJS.config.logs.level <= BalmJS.LogLevel.Debug) {
       BalmJS.logger.info(`<${this.name} task>`, {
         directories
       });

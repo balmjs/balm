@@ -2,14 +2,6 @@ import { ASYNC_SCRIPTS, INJECT_HASHNAME } from '../config/constants';
 
 function getOutput(output: string, scripts: any, isHook = false): any {
   const outputPath = output || BalmJS.config.dest.base; // Absolute path
-
-  if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
-    BalmJS.logger.info(
-      '<webpack output path>',
-      BalmJS.file.absPaths(outputPath)
-    );
-  }
-
   const jsFolder = BalmJS.config.paths.target.js;
   const jsFilename = scripts.inject
     ? `[name].${INJECT_HASHNAME}.js`
@@ -25,6 +17,13 @@ function getOutput(output: string, scripts: any, isHook = false): any {
     }
   }
   const jsChunkFilename = `${chunkFilename}.js`;
+
+  if (BalmJS.config.logs.level <= BalmJS.LogLevel.Info) {
+    BalmJS.logger.info(
+      '<webpack output path>',
+      BalmJS.file.absPaths(outputPath)
+    );
+  }
 
   return {
     path: BalmJS.file.absPaths(outputPath),
