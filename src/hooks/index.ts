@@ -15,9 +15,10 @@ class BaseHooks {
 
   js(
     input: string | string[] | { [entryChunkName: string]: string | string[] },
-    output: string
+    output: string,
+    options?: any
   ): void {
-    Maker.generate('script', [input, output]);
+    Maker.generate('script', [input, output, options]);
   }
 }
 
