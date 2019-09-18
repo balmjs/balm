@@ -52,6 +52,7 @@ function getCommonConfig(scripts: any): any {
 
   return {
     context: BalmJS.config.workspace,
+    mode: 'none',
     module: {
       rules: getLoaders(scripts.loaders),
       strictExportPresence: true
