@@ -5,7 +5,12 @@ class File {
     if (BalmJS.utils.isArray(_paths)) {
       paths = [];
       for (const _path of _paths) {
-        paths.push(path.join(BalmJS.config.workspace, _path));
+        const result: any = /^!(.+)$/.exec(_path);
+        if (result) {
+          paths.push('!' + path.join(BalmJS.config.workspace, result[1]));
+        } else {
+          paths.push(path.join(BalmJS.config.workspace, _path));
+        }
       }
     } else {
       const _path: string = _paths as string;

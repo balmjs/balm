@@ -5,6 +5,7 @@ import paths from './paths';
 import html from './html';
 import styles from './styles';
 import scripts from './scripts';
+import extras from './extras';
 import assets from './assets';
 import server from './server';
 import logs from './logs';
@@ -44,6 +45,7 @@ const config: any = {
   html,
   styles,
   scripts,
+  extras,
   assets,
   server,
   logs,
