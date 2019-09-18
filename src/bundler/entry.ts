@@ -17,10 +17,10 @@ function initVendors(entries: {
 
 // Relative path
 function getEntry(
-  scripts: any,
-  input: string | string[] | { [entryChunkName: string]: string | string[] }
+  input: string | string[] | { [entryChunkName: string]: string | string[] },
+  scripts: any
 ): any {
-  let webpackEntries: any;
+  let webpackEntries: any = {};
 
   const HMR = Object.keys(BalmJS.config.server.hotOptions).length
     ? `${HOT_CLIENT}?` +

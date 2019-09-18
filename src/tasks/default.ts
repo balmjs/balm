@@ -43,7 +43,7 @@ class DefaultTask extends BalmJS.BalmTask {
         ...(BalmJS.config.scripts.eslint ? ['lint'] : []),
         this.styleName,
         'url',
-        'script'
+        ...(BalmJS.config.scripts.entry ? ['script'] : [])
         // 'modernizr'
         // 'html'
         // 'image',
@@ -58,7 +58,7 @@ class DefaultTask extends BalmJS.BalmTask {
         ...tasks,
         this.styleName,
         'url',
-        'script',
+        ...(BalmJS.config.scripts.entry ? ['script'] : []),
         // 'modernizr',
         // 'font',
         // ...(BalmJS.config.pwa.enabled ? ['pwa'] : [])

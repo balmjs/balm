@@ -1,11 +1,8 @@
 import webpackConfig from '../../bundler';
 
-class ScriptTask extends BalmJS.BalmStyleTask {
+class ScriptTask extends BalmJS.BalmTask {
   constructor() {
     super('script');
-
-    this.defaultInput = `${BalmJS.config.src.js}/main.js`;
-    this.defaultOutput = BalmJS.config.dest.js;
   }
 
   recipe(
@@ -13,9 +10,10 @@ class ScriptTask extends BalmJS.BalmStyleTask {
     input?: string | string[] | { [entryChunkName: string]: string | string[] },
     output?: string
   ): void {
+    const isHook = !!input;
     this.init(input || BalmJS.config.scripts.entry, output);
 
-    webpack(webpackConfig(this.input, this.output), function(
+    webpack(webpackConfig(this.input, this.output, isHook), function(
       err: any,
       stats: any
     ): void {

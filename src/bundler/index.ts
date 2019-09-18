@@ -5,14 +5,15 @@ import getDefaultConfig from './config';
 
 function webpackConfig(
   input: string | string[] | { [entryChunkName: string]: string | string[] },
-  output?: string,
-  customOptions: any = {}
+  output: string,
+  customOptions: any = {},
+  isHook = false
 ): void {
   const scripts = BalmJS.config.scripts;
 
   const baseConfig: any = {
-    entry: getEntry(scripts, input),
-    output: getOutput(scripts, input, output)
+    entry: getEntry(input, scripts),
+    output: getOutput(output, scripts, isHook)
   };
 
   if (scripts.externals) {
