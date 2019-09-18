@@ -101,6 +101,7 @@ interface Igulp {
   series: any;
   parallel: any;
   watch: any;
+  lastRun: any;
   tree: any;
 }
 

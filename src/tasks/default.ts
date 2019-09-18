@@ -34,31 +34,30 @@ class DefaultTask extends BalmJS.BalmTask {
   get mainTasks(): string[] {
     let tasks: string[] = [
       'clean',
-      ...(BalmJS.config.styles.sprites.length ? ['sprite'] : [])
+      // Stylesheets
+      ...(BalmJS.config.styles.sprites.length ? ['sprite'] : []),
+      this.styleName,
+      'url',
+      // Scripts
+      ...(BalmJS.config.scripts.eslint ? ['lint'] : []),
+      ...(BalmJS.config.scripts.entry ? ['script'] : [])
     ];
 
     if (BalmJS.config.env.isProd) {
       tasks = [
         ...tasks,
-        ...(BalmJS.config.scripts.eslint ? ['lint'] : []),
-        this.styleName,
-        'url',
-        ...(BalmJS.config.scripts.entry ? ['script'] : []),
-        'modernizr',
         // 'html'
-        // 'image',
-        'font'
-        // 'extra',
-        // 'measureSize'
+        'image',
+        'font',
+        'media',
+        'extra',
+        'build' // Measure size
         // ...(BalmJS.config.assets.cache ? ['cache'] : []),
         // ...(BalmJS.config.pwa.enabled ? ['pwa'] : [])
       ];
     } else {
       tasks = [
         ...tasks,
-        this.styleName,
-        'url',
-        ...(BalmJS.config.scripts.entry ? ['script'] : []),
         'modernizr',
         'font',
         // ...(BalmJS.config.pwa.enabled ? ['pwa'] : [])

@@ -7,7 +7,7 @@ class FontTask extends BalmJS.BalmTask {
 
     if (BalmJS.config.env.isDev && !BalmJS.config.inFrontend) {
       this.defaultOutput = path.join(
-        BalmJS.config.target.static,
+        BalmJS.config.dest.static,
         BalmJS.config.paths.tmp.font
       );
     }
