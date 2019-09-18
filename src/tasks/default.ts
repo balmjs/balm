@@ -40,13 +40,13 @@ class DefaultTask extends BalmJS.BalmTask {
       'url',
       // Scripts
       ...(BalmJS.config.scripts.eslint ? ['lint'] : []),
-      ...(BalmJS.config.scripts.entry ? ['script'] : [])
+      ...(BalmJS.config.scripts.entry ? ['script'] : []),
+      'html'
     ];
 
     if (BalmJS.config.env.isProd) {
       tasks = [
         ...tasks,
-        // 'html'
         'image',
         'font',
         'media',

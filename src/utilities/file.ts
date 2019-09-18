@@ -42,6 +42,13 @@ class File {
       ? BalmJS.config.assets.publicUrl
       : '';
   }
+
+  setPublicPath(): any {
+    return $.replace(
+      `${BalmJS.config.assets.publicUrlPlaceholder}/`,
+      this.getPublicPath()
+    );
+  }
 }
 
 export default new File();
