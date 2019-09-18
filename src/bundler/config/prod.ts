@@ -9,37 +9,30 @@ import getCommonConfig from './common';
 function getProdConfig(scripts: any): any {
   const shouldUseSourceMap = scripts.sourceMap;
 
-  const optimization = {
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: scripts.options,
-        // Use multi-process parallel running to improve the build speed
-        // Default number of concurrent runs: os.cpus().length - 1
-        parallel: true,
-        // Enable file caching
-        cache: true,
-        sourceMap: shouldUseSourceMap
-      }),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          parser: safePostCssParser,
-          map: shouldUseSourceMap
-            ? {
-                // `inline: false` forces the sourcemap to be output into a
-                // separate file
-                inline: false,
-                // `annotation: true` appends the sourceMappingURL to the end of
-                // the css file, helping the browser find the sourcemap
-                annotation: true
-              }
-            : false
-        }
-      })
-    ]
-  };
-
   return merge(getCommonConfig(scripts), {
     mode: 'production',
+    optimization: {
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: scripts.options
+        }),
+        new OptimizeCSSAssetsPlugin({
+          cssProcessorOptions: {
+            parser: safePostCssParser,
+            map: shouldUseSourceMap
+              ? {
+                  // `inline: false` forces the sourcemap to be output into a
+                  // separate file
+                  inline: false,
+                  // `annotation: true` appends the sourceMappingURL to the end of
+                  // the css file, helping the browser find the sourcemap
+                  annotation: true
+                }
+              : false
+          }
+        })
+      ]
+    },
     plugins: [
       // Keep module.id stable when vendor modules does not change
       new webpack.HashedModuleIdsPlugin(),
@@ -61,8 +54,7 @@ function getProdConfig(scripts: any): any {
         ? [new BundleAnalyzerPlugin()]
         : [])
     ],
-    devtool: shouldUseSourceMap ? 'source-map' : false,
-    optimization
+    devtool: shouldUseSourceMap ? 'source-map' : false
   });
 }
 

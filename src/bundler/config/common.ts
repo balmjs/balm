@@ -86,6 +86,7 @@ function getCommonConfig(scripts: any): any {
       // These fields in the description files are looked up when trying to resolve the package directory
       mainFields: ['main', 'browser', 'module']
     },
+    optimization,
     plugins: [
       // Moment.js is an extremely popular library that bundles large locale files
       // by default due to how Webpack interprets its code. This is a practical
@@ -95,8 +96,8 @@ function getCommonConfig(scripts: any): any {
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       ...scripts.plugins
     ],
-    stats: scripts.stats,
-    optimization
+    target: scripts.target,
+    stats: scripts.stats
   };
 }
 

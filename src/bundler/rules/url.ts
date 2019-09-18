@@ -1,4 +1,4 @@
-import { STATIC_ASSETS } from '../../../config/constants';
+import { STATIC_ASSETS } from '../../config/constants';
 
 function urlLoader(): object[] {
   const PATHNAME = `${BalmJS.config.paths.target.js}/${STATIC_ASSETS}/`;

@@ -1,8 +1,7 @@
 import merge from 'webpack-merge';
 import getEntry from './entry';
 import getOutput from './output';
-import getDevConfig from './config/dev';
-import getProdConfig from './config/prod';
+import getDefaultConfig from './config';
 
 function webpackConfig(
   input: string | string[] | { [entryChunkName: string]: string | string[] },
@@ -13,8 +12,7 @@ function webpackConfig(
 
   const baseConfig: any = {
     entry: getEntry(scripts, input),
-    output: getOutput(scripts, input, output),
-    target: scripts.target
+    output: getOutput(scripts, input, output)
   };
 
   if (scripts.externals) {
@@ -39,9 +37,7 @@ function webpackConfig(
     };
   }
 
-  const defaultConfig = BalmJS.config.env.isProd
-    ? getProdConfig(scripts)
-    : getDevConfig(scripts);
+  const defaultConfig = getDefaultConfig(scripts);
 
   const configuration = merge(
     baseConfig,
