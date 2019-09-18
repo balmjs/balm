@@ -4,13 +4,6 @@ class FontTask extends BalmJS.BalmTask {
 
     this.defaultInput = `${BalmJS.config.src.font}/**/*.{eot,svg,ttf,woff,woff2}`;
     this.defaultOutput = BalmJS.config.dest.font;
-
-    if (BalmJS.config.env.isDev && !BalmJS.config.inFrontend) {
-      this.defaultOutput = path.join(
-        BalmJS.config.dest.static,
-        BalmJS.config.paths.tmp.font
-      );
-    }
   }
 
   fn(): void {

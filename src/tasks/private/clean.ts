@@ -62,7 +62,7 @@ class CleanTask extends BalmJS.BalmTask {
     return [
       ...(BalmJS.config.env.isProd && BalmJS.config.assets.subDir
         ? buildDir
-        : this.getAssetsDir('to'))
+        : this.getAssetsDir('dest'))
     ];
   }
 

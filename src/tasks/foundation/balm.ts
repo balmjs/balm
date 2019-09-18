@@ -49,6 +49,24 @@ class BalmTask {
     this._defaultOutput = output;
   }
 
+  get styleName(): string {
+    let name: string;
+
+    switch (BalmJS.config.styles.extname) {
+      case 'sass':
+      case 'scss':
+        name = 'sass';
+        break;
+      case 'less':
+        name = 'less';
+        break;
+      default:
+        name = 'postcss';
+    }
+
+    return name;
+  }
+
   init(input?: string | string[], output?: string): void {
     // const customTask = BalmJS.customTasksIterator.next().value;
     // if (!customTask.done) {

@@ -3,24 +3,6 @@ class DefaultTask extends BalmJS.BalmTask {
     super('default');
   }
 
-  get styleName(): string {
-    let name: string;
-
-    switch (BalmJS.config.styles.extname) {
-      case 'sass':
-      case 'scss':
-        name = 'sass';
-        break;
-      case 'less':
-        name = 'less';
-        break;
-      default:
-        name = 'postcss';
-    }
-
-    return name;
-  }
-
   get startTask(): string[] {
     const tasks = BalmJS.toNamespace(['start']) as string[];
 
@@ -51,8 +33,8 @@ class DefaultTask extends BalmJS.BalmTask {
         'font',
         'media',
         'extra',
-        'build' // Measure size
-        // ...(BalmJS.config.assets.cache ? ['cache'] : []),
+        'build', // Measure size
+        ...(BalmJS.config.assets.cache ? ['cache'] : [])
         // ...(BalmJS.config.pwa.enabled ? ['pwa'] : [])
       ];
     } else {

@@ -91,18 +91,20 @@ declare module 'modernizr' {
 declare module 'gulp' {
   var gulp: any;
   export default gulp;
+  export var series: any;
+  export var parallel: any;
+  export var watch: any;
   export var tree: any;
 }
 
 interface Igulp {
-  task: any;
   src: any;
   dest: any;
+  lastRun: any;
   series: any;
   parallel: any;
   watch: any;
-  lastRun: any;
-  tree: any;
+  task: any;
 }
 
 declare namespace NodeJS {
