@@ -30,6 +30,10 @@ function registerTasks(recipe: Function): void {
           awesomeTask.fn(cb);
         };
         break;
+      case 'copy':
+      case 'remove':
+        taskFunction = awesomeTask.fn;
+        break;
       default:
         taskFunction = function(cb: Function): void {
           awesomeTask.fn();

@@ -11,6 +11,7 @@ class Maker {
 
     switch (customTask.name) {
       case 'script':
+      case 'remove':
         taskFunction = function(cb: Function): void {
           args.unshift(cb);
           customTask.recipe(...args);
