@@ -15,15 +15,15 @@ class LessTask extends BalmJS.BalmStyleTask {
     );
   }
 
-  recipe = (input?: string | string[], output?: string): void => {
+  recipe(input?: string | string[], output?: string): void {
     this.init(input, output);
 
     this.handleStyle(this.name, this.output, this.options);
-  };
+  }
 
-  fn = (): void => {
+  fn(): void {
     this.recipe();
-  };
+  }
 }
 
 export = LessTask;

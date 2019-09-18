@@ -6,7 +6,7 @@ class LintTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.src.js;
   }
 
-  fn = (): void => {
+  fn(): void {
     this.init();
 
     gulp
@@ -16,7 +16,7 @@ class LintTask extends BalmJS.BalmTask {
       .pipe($.eslint.format())
       .pipe($.if(!server.active, $.eslint.failAfterError()))
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
-  };
+  }
 }
 
 export = LintTask;

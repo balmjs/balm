@@ -71,6 +71,8 @@
     "http-proxy-middleware": "^0.20.0",
     "merge-stream": "^2.0.0",
     "mini-css-extract-plugin": "^0.8.0",
+    "mkdirp": "^0.5.1",
+    "modernizr": "^3.7.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "parents": "^1.0.1",
     "plugin-error": "^1.0.1",

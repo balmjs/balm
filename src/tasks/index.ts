@@ -25,6 +25,7 @@ function registerTasks(recipe: Function): void {
         break;
       case 'clean':
       case 'script':
+      case 'modernizr':
         taskFunction = function(cb: Function): void {
           awesomeTask.fn(cb);
         };

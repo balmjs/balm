@@ -78,6 +78,16 @@ declare module 'webpack-bundle-analyzer' {
   export { BundleAnalyzerPlugin };
 }
 
+declare module 'mkdirp' {
+  var mkdirp: any;
+  export default mkdirp;
+}
+
+declare module 'modernizr' {
+  var Modernizr: any;
+  export default Modernizr;
+}
+
 declare module 'gulp' {
   var gulp: any;
   export default gulp;

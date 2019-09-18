@@ -66,7 +66,7 @@ class CleanTask extends BalmJS.BalmTask {
     ];
   }
 
-  fn = (cb: Function): void => {
+  fn(cb: Function): void {
     let directories = BalmJS.config.inFrontend
       ? this.dirInFrontend
       : this.dirInBackend;
@@ -86,7 +86,7 @@ class CleanTask extends BalmJS.BalmTask {
       });
       cb();
     })();
-  };
+  }
 }
 
 export = CleanTask;

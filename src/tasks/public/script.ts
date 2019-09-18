@@ -34,9 +34,9 @@ class ScriptTask extends BalmJS.BalmTask {
     });
   }
 
-  fn = (cb: Function): void => {
+  fn(cb: Function): void {
     this.recipe(cb);
-  };
+  }
 }
 
 export = ScriptTask;
