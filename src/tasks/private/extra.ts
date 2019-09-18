@@ -34,10 +34,7 @@ class ExtraTask extends BalmJS.BalmTask {
     this.init();
 
     gulp
-      .src(BalmJS.file.absPaths(this.input), {
-        dot: true,
-        allowEmpty: true
-      })
+      .src(BalmJS.file.absPaths(this.input), { dot: true })
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
   }
 }
