@@ -57,8 +57,12 @@ class SpriteTask extends BalmJS.BalmImageTask {
           const spriteData = gulp
             .src(spriteConfig.src)
             .pipe($.spritesmith(spriteConfig.opt));
-          const imgStream = spriteData.img.pipe(gulp.dest(spriteConfig.img));
-          const cssStream = spriteData.css.pipe(gulp.dest(spriteConfig.css));
+          const imgStream = spriteData.img.pipe(
+            gulp.dest(BalmJS.file.absPaths(spriteConfig.img))
+          );
+          const cssStream = spriteData.css.pipe(
+            gulp.dest(BalmJS.file.absPaths(spriteConfig.css))
+          );
 
           return mergeStream(imgStream, cssStream);
         });
