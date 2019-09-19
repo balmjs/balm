@@ -28,7 +28,9 @@ const LOG = {
     color: 'red',
     bright: true,
     symbol: 'cross'
-  }
+  },
+  beginning: '$'.padStart(36, '*'),
+  end: '^'.padEnd(36, '.')
 };
 
 class Logger {
@@ -56,12 +58,14 @@ class Logger {
     logLevel: number = BalmJS.LogLevel.Debug
   ): void {
     if (BalmJS.config.logs.level <= logLevel) {
+      console.log(LOG.beginning);
       fancyLog(
         LOG.FORMAT,
         LOG.PREFIX,
         color(label, LOG.OK),
         this._log(message)
       );
+      console.log(LOG.end);
     }
   }
 
