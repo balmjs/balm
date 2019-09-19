@@ -1,5 +1,5 @@
-import { tree } from 'gulp';
 import { ASSETS_KEYS } from '../config/constants';
+import checkConfig from './check-config';
 
 function _createQuickPath(config: any, rootKey: string): any {
   const result: any = {};
@@ -62,7 +62,7 @@ function setConfig(customConfig: any = {}): any {
 
   // 1. Overwrite config
   const newConfig: any = BalmJS.utils.mergeDeep(defaultConfig, customConfig);
-  // checkConfig(); TODO: for compatibility
+  checkConfig();
 
   // 2. Copy `config.paths.target` to `config.paths.tmp`
   let config: any = BalmJS.utils.mergeDeep(newConfig, {
@@ -101,7 +101,7 @@ function checkGulpTask(name: any): string | boolean | Function {
   if (BalmJS.utils.isFunction(name)) {
     result = name as Function;
   } else if (BalmJS.utils.isString(name)) {
-    if (tree().nodes.includes(name)) {
+    if (gulp.tree().nodes.includes(name)) {
       result = name as string;
     } else {
       BalmJS.logger.error('<gulp task>', 'Invalid task name');

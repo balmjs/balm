@@ -1,3 +1,5 @@
+/* eslint @typescript-eslint/no-var-requires: 0 */
+const { version } = require('../package.json');
 import './config';
 import './utilities';
 import './plugins';
@@ -8,6 +10,7 @@ class Balm {
   private _config: any;
 
   constructor() {
+    console.log(`BalmJS version: ${version}`);
     this._config = BalmJS.config;
   }
 
