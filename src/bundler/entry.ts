@@ -1,9 +1,9 @@
+import { ObjectEntry } from '../config/types';
+
 const FILENAME_REGEX: any = new RegExp('[^/]+$', 'i');
 const HOT_CLIENT = 'webpack-hot-middleware/client';
 
-function initVendors(entries: {
-  [entryChunkName: string]: string | string[];
-}): void {
+function initVendors(entries: ObjectEntry): void {
   for (const key of Object.keys(entries)) {
     const value = entries[key] as string[];
     if (BalmJS.utils.isArray(value)) {
@@ -16,10 +16,7 @@ function initVendors(entries: {
 }
 
 // Relative path
-function getEntry(
-  input: string | string[] | { [entryChunkName: string]: string | string[] },
-  scripts: any
-): any {
+function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
   let webpackEntries: any = {};
 
   const HMR = Object.keys(BalmJS.config.server.hotOptions).length
@@ -30,9 +27,7 @@ function getEntry(
     : HOT_CLIENT;
 
   if (BalmJS.utils.isObject(input)) {
-    initVendors(input as {
-      [entryChunkName: string]: string | string[];
-    });
+    initVendors(input as ObjectEntry);
 
     for (const key of Object.keys(input)) {
       const value = (input as any)[key];

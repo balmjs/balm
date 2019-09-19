@@ -22,7 +22,7 @@ const hotOptions: any = {
   reload: true,
   noInfo: true
 };
-const proxyConfig: ProxyConfig | ProxyConfig[] = [];
+const proxyConfig: boolean | ProxyConfig | ProxyConfig[] = false;
 // Single proxy example
 // {
 //   context: '/api',

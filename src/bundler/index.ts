@@ -2,9 +2,10 @@ import merge from 'webpack-merge';
 import getEntry from './entry';
 import getOutput from './output';
 import getDefaultConfig from './config';
+import { ObjectEntry } from '../config/types';
 
 function webpackConfig(
-  input: string | string[] | { [entryChunkName: string]: string | string[] },
+  input: string | string[] | ObjectEntry,
   output: string,
   customOptions: any = {},
   isHook = false

@@ -4,7 +4,7 @@
  *
  * https://github.com/kangax/html-minifier#options-quick-reference
  */
-const options = {
+const options: object = {
   collapseWhitespace: true,
   minifyCSS: true,
   minifyJS: {

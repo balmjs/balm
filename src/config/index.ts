@@ -1,5 +1,5 @@
 import './globals';
-import * as types from './types';
+import { Vendor } from './types';
 import env from './env';
 import roots from './roots';
 import paths from './paths';
@@ -21,10 +21,7 @@ enum LogLevel {
 }
 
 const noop: Function = () => {};
-const vendors: {
-  key: string;
-  value: string[];
-}[] = [];
+const vendors: Vendor[] = [];
 
 /**
  * Project type
@@ -54,7 +51,6 @@ const config: any = {
 };
 
 global.BalmJS = {};
-BalmJS.types = types;
 BalmJS.config = config;
 BalmJS.noop = noop;
 BalmJS.LogLevel = LogLevel;

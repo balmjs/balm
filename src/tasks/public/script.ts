@@ -1,4 +1,5 @@
 import webpackConfig from '../../bundler';
+import { ObjectEntry } from '../../config/types';
 
 class ScriptTask extends BalmJS.BalmTask {
   constructor() {
@@ -7,7 +8,7 @@ class ScriptTask extends BalmJS.BalmTask {
 
   recipe(
     cb: Function,
-    input?: string | string[] | { [entryChunkName: string]: string | string[] },
+    input?: string | string[] | ObjectEntry,
     output?: string,
     options?: any
   ): void {

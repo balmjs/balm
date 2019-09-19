@@ -1,3 +1,5 @@
+import { PostcssLoaderOptions } from './types';
+
 const extname = 'css';
 const atImportPaths: string[] = [];
 /**
@@ -23,15 +25,7 @@ const postcssEnvOptions: object = {
 };
 const postcssPlugins: object[] = [];
 // For `postcss-loader` options
-const postcssLoaderOptions: {
-  exec?: boolean;
-  parser?: string | object;
-  syntax?: string | object;
-  stringifier?: string | object;
-  config?: object;
-  // plugins: object[] | Function; // NOTE: The same to `styles.postcssPlugins`
-  sourceMap: string | boolean;
-} = {
+const postcssLoaderOptions: PostcssLoaderOptions = {
   sourceMap: false
 };
 // CSS Sprites

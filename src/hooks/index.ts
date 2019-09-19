@@ -1,4 +1,5 @@
 import Maker from './maker';
+import { ObjectEntry } from '../config/types';
 
 class BaseHooks {
   sass(input: string, output: string): void {
@@ -16,7 +17,7 @@ class BaseHooks {
   // styles(input: string[], output: string): void {}
 
   js(
-    input: string | string[] | { [entryChunkName: string]: string | string[] },
+    input: string | string[] | ObjectEntry,
     output: string,
     options?: any
   ): void {

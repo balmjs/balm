@@ -1,8 +1,7 @@
+import { ObjectEntry } from './types';
+
 // Entry and Context
-const entry:
-  | string
-  | string[]
-  | { [entryChunkName: string]: string | string[] } = '';
+const entry: string | string[] | ObjectEntry = '';
 // Output
 const library: string | object = '';
 const libraryTarget = 'var'; // ['var', 'this', 'window', 'global', 'commonjs', 'commonjs2', 'amd', 'umd']
