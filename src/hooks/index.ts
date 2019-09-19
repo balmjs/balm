@@ -37,6 +37,26 @@ class BaseHooks {
   remove(input: string | string[]): void {
     Maker.generate('remove', [input]);
   }
+
+  zip(
+    input: string | string[] = '',
+    output = '',
+    filename = 'archive.zip'
+  ): void {
+    Maker.generate('zip', [input, output, filename]);
+  }
+
+  ftp(localFiles: string, options = {}): void {
+    Maker.generate('ftp', [localFiles, options]);
+  }
+
+  publish(
+    input: string | string[],
+    output: string,
+    renameOptions: object = {}
+  ): void {
+    Maker.generate('publish', [input, output, renameOptions]);
+  }
 }
 
 class Hooks extends BaseHooks {

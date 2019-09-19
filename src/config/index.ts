@@ -9,6 +9,7 @@ import scripts from './scripts';
 import extras from './extras';
 import assets from './assets';
 import server from './server';
+import ftp from './ftp';
 import logs from './logs';
 
 enum LogLevel {
@@ -46,6 +47,7 @@ const config: any = {
   extras,
   assets,
   server,
+  ftp,
   logs,
   useDefaults
 };

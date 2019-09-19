@@ -1,9 +1,7 @@
-const options: object = {
-  host: undefined, // Required
-  port: 22,
-  username: 'anonymous',
-  password: null,
-  remotePath: '/'
+import { FtpConfig } from './types';
+
+const options: FtpConfig = {
+  host: undefined
 };
 const watchFiles: string[] = [];
 

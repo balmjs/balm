@@ -34,4 +34,20 @@ interface ProxyConfig {
   options: object;
 }
 
-export { ColorStyle, PostcssLoaderOptions, ObjectEntry, Vendor, ProxyConfig };
+// Ftp
+interface FtpConfig {
+  host: string | undefined;
+  port?: number;
+  username?: string;
+  password?: string | null;
+  remotePath?: string;
+}
+
+export {
+  ColorStyle,
+  PostcssLoaderOptions,
+  ObjectEntry,
+  Vendor,
+  ProxyConfig,
+  FtpConfig
+};

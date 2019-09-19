@@ -120,7 +120,7 @@ function gulpSftp(options: any): any {
   }
 
   // Option aliases
-  const password = options.password;
+  const password = options.password || null;
   const username = options.username || 'anonymous';
 
   /*

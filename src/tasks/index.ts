@@ -32,6 +32,9 @@ function registerTasks(recipe: Function): void {
         break;
       case 'copy':
       case 'remove':
+      case 'zip':
+      case 'ftp':
+      case 'publish':
         taskFunction = awesomeTask.fn;
         break;
       default:
