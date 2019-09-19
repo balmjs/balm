@@ -88,6 +88,11 @@ declare module 'modernizr' {
   export default Modernizr;
 }
 
+declare module 'http-proxy-middleware' {
+  var proxy: any;
+  export default proxy;
+}
+
 declare module 'gulp' {
   var gulp: any;
   export default gulp;
@@ -97,7 +102,7 @@ declare module 'gulp' {
   export var tree: any;
 }
 
-interface Igulp {
+interface Gulp {
   src: any;
   dest: any;
   lastRun: any;
@@ -109,14 +114,14 @@ interface Igulp {
 
 declare namespace NodeJS {
   interface Global {
-    gulp: Igulp;
+    gulp: Gulp;
     $: any;
     server: any;
     webpack: any;
   }
 }
 
-declare var gulp: Igulp;
+declare var gulp: Gulp;
 declare var $: any;
 declare var server: any;
 declare var webpack: any;

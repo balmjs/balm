@@ -1,5 +1,7 @@
-function getMiddlewares(): any {
-  const middlewares: any = [];
+import httpProxyMiddleware from './proxy';
+
+function getMiddlewares(): object[] {
+  const middlewares: object[] = [...httpProxyMiddleware()];
 
   return middlewares;
 }

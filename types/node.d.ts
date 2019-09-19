@@ -1,4 +1,4 @@
-interface Ipath {
+interface Path {
   join: any;
   isAbsolute: any;
   posix: any;
@@ -6,8 +6,8 @@ interface Ipath {
 
 declare namespace NodeJS {
   interface Global {
-    path: Ipath;
+    path: Path;
   }
 }
 
-declare var path: Ipath;
+declare var path: Path;

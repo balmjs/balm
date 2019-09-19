@@ -1,3 +1,5 @@
+import { ProxyConfig } from './types';
+
 const port = 3000;
 const host: string | null = null;
 const https: boolean | undefined = undefined;
@@ -20,23 +22,15 @@ const hotOptions: any = {
   reload: true,
   noInfo: true
 };
-const proxyContext = false;
-const proxyOptions = false;
-// Single proxy options example
+const proxyConfig: ProxyConfig | ProxyConfig[] = [];
+// Single proxy example
 // {
-//   target: 'http://www.example.org', // Target host
-//   changeOrigin: true, // Needed for virtual hosted sites
-//   pathRewrite: {
-//     '^/api/old-path': '/api/new-path', // Rewrite path
-//     '^/api/remove/path': '/path' // Remove base path
-//   },
-//   router: {
-//     // When request.headers.host == 'dev.localhost:3000',
-//     // override target 'http://www.example.org' to 'http://localhost:8000'
-//     'dev.localhost:3000': 'http://localhost:8000'
+//   context: '/api',
+//   options: {
+//     target: 'http://www.example.org',
+//     changeOrigin: true
 //   }
 // }
-const proxyConfig: object[] = [];
 // Multiple proxies example
 // [{
 //    context: '/api',
@@ -65,8 +59,6 @@ export default {
   options,
   devOptions,
   hotOptions,
-  proxyContext,
-  proxyOptions,
   proxyConfig,
   historyOptions,
   middlewares

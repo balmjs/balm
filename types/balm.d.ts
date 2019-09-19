@@ -1,6 +1,7 @@
 declare namespace NodeJS {
   interface Global {
     BalmJS: any;
+    types: any;
     config: any;
     noop: Function;
     utils: {

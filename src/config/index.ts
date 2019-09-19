@@ -1,4 +1,5 @@
 import './globals';
+import * as types from './types';
 import env from './env';
 import roots from './roots';
 import paths from './paths';
@@ -53,6 +54,7 @@ const config: any = {
 };
 
 global.BalmJS = {};
+BalmJS.types = types;
 BalmJS.config = config;
 BalmJS.noop = noop;
 BalmJS.LogLevel = LogLevel;
