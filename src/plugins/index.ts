@@ -1,7 +1,9 @@
 import postcss from './postcss';
+import sftp from './sftp';
 
 const plugins: object = {
-  postcss
+  postcss,
+  sftp
 };
 
 BalmJS.plugins = plugins;

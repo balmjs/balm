@@ -18,12 +18,7 @@ function getOutput(output: string, scripts: any, isHook = false): any {
   }
   const jsChunkFilename = `${chunkFilename}.js`;
 
-  if (BalmJS.config.logs.level <= BalmJS.LogLevel.Info) {
-    BalmJS.logger.info(
-      '<webpack output path>',
-      BalmJS.file.absPaths(outputPath)
-    );
-  }
+  BalmJS.logger.info('<webpack output path>', BalmJS.file.absPaths(outputPath));
 
   return {
     path: BalmJS.file.absPaths(outputPath),

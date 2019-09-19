@@ -39,12 +39,11 @@ class CleanTask extends BalmJS.BalmTask {
   get dirInFrontend(): string[] {
     const isLocal = !path.isAbsolute(BalmJS.config.assets.root);
 
-    if (BalmJS.config.logs.level <= BalmJS.LogLevel.Debug) {
-      BalmJS.logger.info(
-        `<${this.name} task>`,
-        `'${BalmJS.config.assets.root}' is local directory: ${isLocal}`
-      );
-    }
+    BalmJS.logger.info(
+      `<${this.name} task>`,
+      `'${BalmJS.config.assets.root}' is local directory: ${isLocal}`,
+      BalmJS.LogLevel.Debug
+    );
 
     return BalmJS.config.env.isProd
       ? [
@@ -72,11 +71,13 @@ class CleanTask extends BalmJS.BalmTask {
       : this.dirInBackend;
     directories = unique(directories);
 
-    if (BalmJS.config.logs.level <= BalmJS.LogLevel.Debug) {
-      BalmJS.logger.info(`<${this.name} task>`, {
+    BalmJS.logger.info(
+      `<${this.name} task>`,
+      {
         directories
-      });
-    }
+      },
+      BalmJS.LogLevel.Debug
+    );
 
     (async (): Promise<any> => {
       const deletedPaths: string[] = await del(directories, { force: true });

@@ -17,9 +17,7 @@ function getMiddlewares(): object[] {
     ...BalmJS.config.server.middlewares
   ];
 
-  if (BalmJS.config.logs.level <= BalmJS.LogLevel.Debug) {
-    BalmJS.logger.info('middlewares', middlewares);
-  }
+  BalmJS.logger.success('middlewares', middlewares);
 
   return middlewares;
 }

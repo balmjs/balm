@@ -77,12 +77,10 @@ class BalmTask {
     this.output = output || this.defaultOutput;
     // }
 
-    if (BalmJS.config.logs.level <= BalmJS.LogLevel.Info) {
-      BalmJS.logger.info(`<${this.name} task>`, {
-        input: this.input,
-        output: this.output
-      });
-    }
+    BalmJS.logger.info(`<${this.name} task>`, {
+      input: this.input,
+      output: this.output
+    });
   }
 }
 

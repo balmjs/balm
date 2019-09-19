@@ -67,9 +67,7 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
     );
   }
 
-  if (BalmJS.config.logs.level <= BalmJS.LogLevel.Info) {
-    BalmJS.logger.info('<webpack entry>', webpackEntries);
-  }
+  BalmJS.logger.info('<webpack entry>', webpackEntries);
 
   return webpackEntries;
 }

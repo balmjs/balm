@@ -3,8 +3,7 @@ const options: object = {
   port: 22,
   username: 'anonymous',
   password: null,
-  remotePath: '/',
-  logging: false
+  remotePath: '/'
 };
 const watchFiles: string[] = [];
 

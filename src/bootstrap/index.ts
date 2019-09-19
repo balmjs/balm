@@ -88,9 +88,7 @@ function setConfig(customConfig: any = {}): any {
 
   // 4. Before created
   config = _ready(config);
-  if (BalmJS.config.logs.level <= BalmJS.LogLevel.Debug) {
-    BalmJS.logger.success('<configuration>', config);
-  }
+  BalmJS.logger.success('<balm configuration>', config);
 
   return config;
 }

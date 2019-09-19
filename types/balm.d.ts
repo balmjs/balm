@@ -43,10 +43,10 @@ declare namespace NodeJS {
     };
     logger: {
       debug: (obj: any) => void;
-      success: (label: string, message: any) => void;
-      info: (label: string, message: any) => void;
-      warn: (label: string, message: any) => void;
-      error: (label: string, message: any) => void;
+      success: (label: string, message: any, logLevel?: number) => void;
+      info: (label: string, message: any, logLevel?: number) => void;
+      warn: (label: string, message: any, logLevel?: number) => void;
+      error: (label: string, message: any, logLevel?: number) => void;
     };
   }
 }

@@ -36,9 +36,7 @@ function getLoaders(customLoaders: object[]): object[] {
     }
   );
 
-  if (BalmJS.config.logs.level <= BalmJS.LogLevel.Debug) {
-    BalmJS.logger.info('<webpack loaders>', result.rules);
-  }
+  BalmJS.logger.info('<webpack loaders>', result.rules, BalmJS.LogLevel.Debug);
 
   return result.rules;
 }

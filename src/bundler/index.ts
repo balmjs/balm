@@ -48,9 +48,7 @@ function webpackConfig(
     customOptions
   );
 
-  if (BalmJS.config.logs.level <= BalmJS.LogLevel.Debug) {
-    BalmJS.logger.info('<webpack configuration>', configuration);
-  }
+  BalmJS.logger.success('<webpack configuration>', configuration);
 
   return configuration;
 }

@@ -50,35 +50,64 @@ class Logger {
     fancyLog('%s %s', LOG.PREFIX, this._log(obj));
   }
 
-  success(label: string, message: any): void {
-    fancyLog(LOG.FORMAT, LOG.PREFIX, color(label, LOG.OK), this._log(message));
+  success(
+    label: string,
+    message: any,
+    logLevel: number = BalmJS.LogLevel.Debug
+  ): void {
+    if (BalmJS.config.logs.level <= logLevel) {
+      fancyLog(
+        LOG.FORMAT,
+        LOG.PREFIX,
+        color(label, LOG.OK),
+        this._log(message)
+      );
+    }
   }
 
-  info(label: string, message: any): void {
-    fancyLog.info(
-      LOG.FORMAT,
-      LOG.PREFIX,
-      color(label, LOG.INFO),
-      this._log(message)
-    );
+  info(
+    label: string,
+    message: any,
+    logLevel: number = BalmJS.LogLevel.Info
+  ): void {
+    if (BalmJS.config.logs.level <= logLevel) {
+      fancyLog.info(
+        LOG.FORMAT,
+        LOG.PREFIX,
+        color(label, LOG.INFO),
+        this._log(message)
+      );
+    }
   }
 
-  warn(label: string, message: any): void {
-    fancyLog.warn(
-      LOG.FORMAT,
-      LOG.PREFIX,
-      color(label, LOG.WARN),
-      this._log(message)
-    );
+  warn(
+    label: string,
+    message: any,
+    logLevel: number = BalmJS.LogLevel.Warn
+  ): void {
+    if (BalmJS.config.logs.level <= logLevel) {
+      fancyLog.warn(
+        LOG.FORMAT,
+        LOG.PREFIX,
+        color(label, LOG.WARN),
+        this._log(message)
+      );
+    }
   }
 
-  error(label: string, message: any): void {
-    fancyLog.error(
-      LOG.FORMAT,
-      LOG.PREFIX,
-      color(label, LOG.ERROR),
-      this._log(message)
-    );
+  error(
+    label: string,
+    message: any,
+    logLevel: number = BalmJS.LogLevel.Error
+  ): void {
+    if (BalmJS.config.logs.level <= logLevel) {
+      fancyLog.error(
+        LOG.FORMAT,
+        LOG.PREFIX,
+        color(label, LOG.ERROR),
+        this._log(message)
+      );
+    }
   }
 }
 
