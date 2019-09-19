@@ -93,6 +93,21 @@ declare module 'http-proxy-middleware' {
   export default proxy;
 }
 
+declare module 'webpack-dev-middleware' {
+  var webpackDev: any;
+  export default webpackDev;
+}
+
+declare module 'webpack-hot-middleware' {
+  var webpackHot: any;
+  export default webpackHot;
+}
+
+declare module 'connect-history-api-fallback' {
+  var history: any;
+  export default history;
+}
+
 declare module 'gulp' {
   var gulp: any;
   export default gulp;

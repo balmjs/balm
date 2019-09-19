@@ -1,3 +1,8 @@
+interface Vendor {
+  key: string;
+  value: string[];
+}
+
 declare namespace NodeJS {
   interface Global {
     BalmJS: any;
@@ -26,10 +31,8 @@ declare namespace NodeJS {
     run: Function;
     watchFile: string;
     plugins: any;
-    vendors: {
-      key: string;
-      value: string[];
-    }[];
+    webpackCompiler: any;
+    vendors: Vendor[];
     LogLevel: {
       Trace: number;
       Debug: number;

@@ -8,7 +8,7 @@ function _handleProxyConfigError(): void {
 }
 
 function httpProxyMiddleware(): object[] {
-  const middleware = [];
+  const middleware: object[] = [];
   const proxyConfig = BalmJS.config.server.proxyConfig;
 
   if (proxyConfig) {

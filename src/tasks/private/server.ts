@@ -110,7 +110,7 @@ class ServerTask extends BalmJS.BalmTask {
       };
     }
 
-    bsOptions.middleware = getMiddlewares() || false;
+    bsOptions.middleware = BalmJS.config.env.isDev ? getMiddlewares() : false;
 
     bsOptions = BalmJS.utils.mergeDeep(bsOptions, BalmJS.config.server.options);
 
