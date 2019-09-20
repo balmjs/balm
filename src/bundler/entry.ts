@@ -35,7 +35,7 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
 
       // Key
       const entryKey = isVendor
-        ? path.join(scripts.vendorName, key)
+        ? path.join(scripts.vendorsName, key)
         : path.join(key);
 
       // Value
@@ -70,7 +70,7 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
     );
   }
 
-  BalmJS.logger.info('<webpack entry>', webpackEntries);
+  BalmJS.logger.info('<webpack entry>', webpackEntries, BalmJS.LogLevel.Debug);
 
   return webpackEntries;
 }

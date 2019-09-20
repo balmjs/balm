@@ -1,50 +1,56 @@
 import getLoaders from '../loaders';
 import { INJECT_HASHNAME } from '../../config/constants';
 
-function getCommonConfig(scripts: any): any {
-  const vendorsCount = BalmJS.vendors.length;
+function getSplitChunks(): boolean | object {
+  const scripts = BalmJS.config.scripts;
+  const jsFolder = BalmJS.config.paths.target.js;
 
   let cacheGroups: any = false;
-  if (scripts.extractAllVendors) {
-    const filename = scripts.inject
-      ? `${scripts.vendorName}.${INJECT_HASHNAME}.js`
-      : `${scripts.vendorName}.js`;
+  if (BalmJS.vendors.length) {
+    // Custom venders
+    cacheGroups = {};
+    for (const vendor of BalmJS.vendors) {
+      const cacheGroupKey = vendor.key;
+      const cacheGroupModules = vendor.value.join('|');
+      const jsFilename = scripts.inject
+        ? `${cacheGroupKey}.${INJECT_HASHNAME}.js`
+        : `${cacheGroupKey}.js`;
+
+      cacheGroups[cacheGroupKey] = {
+        chunks: 'initial',
+        name: jsFilename,
+        test: new RegExp(`[\\\\/]${cacheGroupModules}[\\\\/]`),
+        filename: BalmJS.file.assetsPath(
+          path.join(jsFolder, scripts.vendorsName, jsFilename)
+        ), // Output: `js/vendors/customVendor.js`
+        enforce: true
+      };
+    }
+  } else {
+    // All venders
+    const jsFilename = scripts.inject
+      ? `${scripts.vendorsName}.${INJECT_HASHNAME}.js`
+      : `${scripts.vendorsName}.js`;
 
     cacheGroups = {
       vendors: {
-        test: /[\\/]node_modules|bower_components[\\/]/,
         chunks: 'initial',
-        name: filename,
-        filename: BalmJS.file.assetsPath(
-          `${BalmJS.config.paths.target.js}/${filename}`
-        )
+        name: jsFilename,
+        test: /[\\/]node_modules|bower_components[\\/]/,
+        filename: BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`) // Output: `js/vendors.js`
       }
     };
-  } else if (vendorsCount) {
-    cacheGroups = {};
-    for (let i = 0; i < vendorsCount; i++) {
-      const vendor = BalmJS.vendors[i];
-      const name = vendor.key;
-      const reg = vendor.value.join('|');
-      const filename = scripts.inject
-        ? `${name}.${INJECT_HASHNAME}.js`
-        : `${name}.js`;
-
-      cacheGroups[name] = {
-        test: new RegExp(`[\\\\/]${reg}[\\\\/]`),
-        chunks: 'initial',
-        name: filename,
-        filename: BalmJS.file.assetsPath(
-          path.join(BalmJS.config.paths.target.js, scripts.vendorName, filename)
-        )
-      };
-    }
   }
 
-  const optimization = cacheGroups
+  return cacheGroups ? { cacheGroups } : false;
+}
+
+function getCommonConfig(scripts: any): any {
+  const splitChunks = getSplitChunks();
+  const optimization = splitChunks
     ? BalmJS.utils.mergeDeep(
         {
-          splitChunks: { cacheGroups }
+          splitChunks
         },
         scripts.optimization
       )

@@ -72,15 +72,13 @@ const options: object = {
 const inject = false;
 // Optimization
 const optimization: object = {};
-const vendorName = 'vendor'; // AllInOne vendor filename or Vendors folder name
-const extractAllVendors = false; // Extract all vendors (all in one)
+const vendorsName = 'vendors'; // AllInOne vendor filename or Vendors folder name
 // Run the build command with an extra argument to
 // View the bundle analyzer report after build finishes:
 // `npm run prod --report`
 // Set to `true` or `false` to always turn it on or off
 const bundleAnalyzerReport: any = process.env.npm_config_report;
 // Extract CSS
-const cssLoader = true; // Use default config or custom rules for css-loader
 const extractCss: object = {
   enabled: false,
   prefix: ''
@@ -108,10 +106,8 @@ export default {
   options,
   inject,
   optimization,
-  vendorName,
-  extractAllVendors,
+  vendorsName,
   bundleAnalyzerReport,
-  cssLoader,
   extractCss,
   base64Limit
 };
