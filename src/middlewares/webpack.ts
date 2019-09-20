@@ -1,5 +1,6 @@
 import webpackDev from 'webpack-dev-middleware';
 import webpackHot from 'webpack-hot-middleware';
+import { HMR_PATH } from '../config/constants';
 
 function webpackMiddleware(): object[] {
   const middleware: object[] = [];
@@ -21,7 +22,7 @@ function webpackMiddleware(): object[] {
       middleware.push(
         webpackHot(BalmJS.webpackCompiler, {
           log: false,
-          path: BalmJS.config.server.hotOptions.path || '/__webpack_hmr'
+          path: HMR_PATH
         })
       );
     }

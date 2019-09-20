@@ -30,7 +30,7 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
     initVendors(input as ObjectEntry);
 
     for (const key of Object.keys(input)) {
-      const value = (input as any)[key];
+      const value = (input as ObjectEntry)[key];
       const isVendor = BalmJS.utils.isArray(value);
 
       // Key
@@ -40,8 +40,8 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
 
       // Value
       const hotValue = BalmJS.utils.isString(value)
-        ? [value, HMR]
-        : [...value, HMR];
+        ? [value as string, HMR]
+        : [...(value as string[]), HMR];
       const entryValue =
         scripts.hot && BalmJS.config.env.isDev && !BalmJS.config.env.inSSR
           ? hotValue
@@ -59,7 +59,10 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
       webpackEntries[key] = value;
     }
   } else if (BalmJS.utils.isString(input)) {
-    webpackEntries = input as string;
+    webpackEntries =
+      scripts.hot && BalmJS.config.env.isDev && !BalmJS.config.env.inSSR
+        ? [input, HMR]
+        : input;
   } else {
     BalmJS.logger.warn(
       '<webpack entry>',

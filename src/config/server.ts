@@ -18,7 +18,6 @@ const devOptions: any = {
   stats: false
 };
 const hotOptions: any = {
-  path: '/__balm_hmr',
   reload: true,
   noInfo: true
 };

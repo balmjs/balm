@@ -1,4 +1,4 @@
-import { ASSETS_KEYS } from '../config/constants';
+import { ASSETS_KEYS, HMR_PATH } from '../config/constants';
 import checkConfig from './check-config';
 
 function _createQuickPath(config: any, rootKey: string): any {
@@ -70,6 +70,8 @@ function setConfig(customConfig: any = {}): any {
       tmp: newConfig.paths.target
     }
   });
+  // Set hmr path for webpack
+  config.server.hotOptions.path = HMR_PATH;
 
   // 3. For the dynamic project
   if (config.inFrontend) {

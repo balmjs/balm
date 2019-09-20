@@ -62,8 +62,8 @@ class BalmStyleTask extends BalmTask {
           $.postcss([cssnano(BalmJS.config.styles.options)])
         )
       )
-      .pipe(gulp.dest(BalmJS.file.absPaths(output)));
-    // .pipe(BalmJS.server.reload({ stream: true }));
+      .pipe(gulp.dest(BalmJS.file.absPaths(output)))
+      .pipe(server.reload({ stream: true }));
   }
 }
 

@@ -8,4 +8,13 @@ const MANIFEST = 'manifest.json';
 
 const INJECT_HASHNAME = '[contenthash:8]';
 
-export { ASSETS_KEYS, ASYNC_SCRIPTS, STATIC_ASSETS, MANIFEST, INJECT_HASHNAME };
+const HMR_PATH = '/__balm_hmr';
+
+export {
+  ASSETS_KEYS,
+  ASYNC_SCRIPTS,
+  STATIC_ASSETS,
+  MANIFEST,
+  INJECT_HASHNAME,
+  HMR_PATH
+};
