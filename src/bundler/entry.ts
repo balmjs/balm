@@ -25,6 +25,8 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
         .map(option => option.join('='))
         .join('&')
     : HOT_CLIENT;
+  const useHMR: boolean =
+    scripts.hot && BalmJS.config.env.isDev && !BalmJS.config.env.inSSR;
 
   if (BalmJS.utils.isObject(input)) {
     initVendors(input as ObjectEntry);
@@ -42,10 +44,7 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
       const hotValue = BalmJS.utils.isString(value)
         ? [value as string, HMR]
         : [...(value as string[]), HMR];
-      const entryValue =
-        scripts.hot && BalmJS.config.env.isDev && !BalmJS.config.env.inSSR
-          ? hotValue
-          : value;
+      const entryValue = useHMR ? hotValue : value;
 
       // Result
       if (!isVendor) {
@@ -56,16 +55,10 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
     for (const value of input as string[]) {
       const matchResult = FILENAME_REGEX.exec(value)[0];
       const key = matchResult.split('.')[0];
-      webpackEntries[key] =
-        scripts.hot && BalmJS.config.env.isDev && !BalmJS.config.env.inSSR
-          ? [value, HMR]
-          : value;
+      webpackEntries[key] = useHMR ? [value, HMR] : value;
     }
   } else if (BalmJS.utils.isString(input)) {
-    webpackEntries =
-      scripts.hot && BalmJS.config.env.isDev && !BalmJS.config.env.inSSR
-        ? [input, HMR]
-        : input;
+    webpackEntries = useHMR ? [input, HMR] : input;
   } else {
     BalmJS.logger.warn(
       '<webpack entry>',
