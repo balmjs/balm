@@ -43,11 +43,19 @@ interface FtpConfig {
   remotePath?: string;
 }
 
+// Publish
+interface TemplateOption {
+  input: string;
+  output: string;
+  options: object;
+}
+
 export {
   ColorStyle,
   PostcssLoaderOptions,
   ObjectEntry,
   Vendor,
   ProxyConfig,
-  FtpConfig
+  FtpConfig,
+  TemplateOption
 };

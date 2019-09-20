@@ -1,4 +1,4 @@
-// From gulp-sftp
+// From `gulp-sftp`
 import path from 'path';
 import fs from 'fs';
 import { Client } from 'ssh2';

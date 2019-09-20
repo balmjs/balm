@@ -1,5 +1,5 @@
 import Maker from './maker';
-import { ObjectEntry } from '../config/types';
+import { ObjectEntry, TemplateOption } from '../config/types';
 
 class BaseHooks {
   sass(input: string, output: string): void {
@@ -51,7 +51,7 @@ class BaseHooks {
   }
 
   publish(
-    input: string | string[],
+    input: string | TemplateOption[],
     output: string,
     renameOptions: object = {}
   ): void {
