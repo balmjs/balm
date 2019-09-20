@@ -72,6 +72,7 @@ const options: object = {
 const inject = false;
 // Optimization
 const optimization: object = {};
+const splitAllVendors = false;
 const vendorsName = 'vendors'; // AllInOne vendor filename or Vendors folder name
 // Run the build command with an extra argument to
 // View the bundle analyzer report after build finishes:
@@ -106,6 +107,7 @@ export default {
   options,
   inject,
   optimization,
+  splitAllVendors,
   vendorsName,
   bundleAnalyzerReport,
   extractCss,

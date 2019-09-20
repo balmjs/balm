@@ -7,7 +7,7 @@ function getSplitChunks(): boolean | object {
 
   let cacheGroups: any = false;
   if (BalmJS.vendors.length) {
-    // Custom venders
+    // Custom vendors
     cacheGroups = {};
     for (const vendor of BalmJS.vendors) {
       const cacheGroupKey = vendor.key;
@@ -26,8 +26,8 @@ function getSplitChunks(): boolean | object {
         enforce: true
       };
     }
-  } else {
-    // All venders
+  } else if (scripts.splitAllVendors) {
+    // All vendors
     const jsFilename = scripts.inject
       ? `${scripts.vendorsName}.${INJECT_HASHNAME}.js`
       : `${scripts.vendorsName}.js`;
