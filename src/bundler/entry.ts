@@ -56,7 +56,10 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
     for (const value of input as string[]) {
       const matchResult = FILENAME_REGEX.exec(value)[0];
       const key = matchResult.split('.')[0];
-      webpackEntries[key] = value;
+      webpackEntries[key] =
+        scripts.hot && BalmJS.config.env.isDev && !BalmJS.config.env.inSSR
+          ? [value, HMR]
+          : value;
     }
   } else if (BalmJS.utils.isString(input)) {
     webpackEntries =
