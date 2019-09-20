@@ -22,13 +22,19 @@ class RemoveTask extends BalmJS.BalmTask {
       (async (): Promise<any> => {
         const deletedPaths: string[] = await del(files, { force: true });
 
-        BalmJS.logger.warn('<remove task>', {
-          deletedPaths
-        });
+        BalmJS.logger.warn(
+          'remove task',
+          {
+            deletedPaths
+          },
+          {
+            pre: true
+          }
+        );
         cb();
       })();
     } else {
-      BalmJS.logger.error('<remove task>', 'Invalid input');
+      BalmJS.logger.error('remove task', 'Invalid input');
       cb();
     }
   }

@@ -94,7 +94,7 @@ class ServerTask extends BalmJS.BalmTask {
         bsOptions.proxy = BalmJS.config.server.proxy;
       } else {
         BalmJS.logger.error(
-          '<server task>',
+          'server task',
           '`server.proxy` must be a string or object'
         );
       }

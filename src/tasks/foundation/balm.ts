@@ -77,10 +77,16 @@ class BalmTask {
     this.output = output || this.defaultOutput;
     // }
 
-    BalmJS.logger.info(`<${this.name} task>`, {
-      input: this.input,
-      output: this.output
-    });
+    BalmJS.logger.info(
+      `${this.name} task`,
+      {
+        input: this.input,
+        output: this.output
+      },
+      {
+        pre: true
+      }
+    );
   }
 }
 

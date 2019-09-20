@@ -69,7 +69,7 @@ function gulpRename(obj: any): any {
       file = undefined;
 
       BalmJS.logger.error(
-        '<rename>',
+        'rename',
         'Unsupported renaming parameter type supplied'
       );
     }

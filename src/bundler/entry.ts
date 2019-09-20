@@ -61,12 +61,15 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
     webpackEntries = useHMR ? [input, HMR] : input;
   } else {
     BalmJS.logger.warn(
-      '<webpack entry>',
+      'webpack entry',
       'scripts entry must be a `string | array | object`'
     );
   }
 
-  BalmJS.logger.info('<webpack entry>', webpackEntries, BalmJS.LogLevel.Debug);
+  BalmJS.logger.info('webpack entry', webpackEntries, {
+    logLevel: BalmJS.LogLevel.Debug,
+    pre: true
+  });
 
   return webpackEntries;
 }

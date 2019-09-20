@@ -2,7 +2,7 @@ import proxy from 'http-proxy-middleware';
 
 function _handleProxyConfigError(): void {
   BalmJS.logger.error(
-    '<proxy middleware>',
+    'proxy middleware',
     'Proxy config must be an object (`{ context: string | array, options: object }`) or array'
   );
 }

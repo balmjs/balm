@@ -7,6 +7,11 @@ interface ColorStyle {
   symbol?: string;
 }
 
+interface LogOptions {
+  logLevel: number;
+  pre?: boolean;
+}
+
 // Styles
 interface PostcssLoaderOptions {
   exec?: boolean;
@@ -52,6 +57,7 @@ interface TemplateOption {
 
 export {
   ColorStyle,
+  LogOptions,
   PostcssLoaderOptions,
   ObjectEntry,
   Vendor,

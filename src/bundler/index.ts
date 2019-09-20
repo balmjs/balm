@@ -48,7 +48,9 @@ function webpackConfig(
     customOptions
   );
 
-  BalmJS.logger.success('<webpack configuration>', configuration);
+  BalmJS.logger.success('webpack configuration', configuration, {
+    pre: true
+  });
 
   return configuration;
 }

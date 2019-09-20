@@ -14,9 +14,11 @@ class UrlTask extends BalmJS.BalmTask {
     const productionPath = `../${BalmJS.config.paths.target[type]}/`;
 
     BalmJS.logger.info(
-      `<${this.name} task>`,
-      `from '${developmentPath}' to '${productionPath}'`,
-      BalmJS.LogLevel.Debug
+      `${this.name} task`,
+      `'${developmentPath}' => '${productionPath}'`,
+      {
+        logLevel: BalmJS.LogLevel.Debug
+      }
     );
 
     return $.replace(developmentPath, productionPath);

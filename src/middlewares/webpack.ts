@@ -27,7 +27,7 @@ function webpackMiddleware(): object[] {
       );
     }
   } else {
-    BalmJS.logger.warn('<webpack middleware>', 'webpack compiler is not ready');
+    BalmJS.logger.warn('webpack middleware', 'webpack compiler is not ready');
   }
 
   return middleware;

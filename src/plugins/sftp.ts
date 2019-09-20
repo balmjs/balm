@@ -7,7 +7,7 @@ import async from 'async';
 import parents from 'parents';
 import PluginError from 'plugin-error';
 
-const PLUGIN_NAME = '<sftp>';
+const PLUGIN_NAME = 'sftp';
 
 const normalizePath = (_path: string): string => _path.replace(/\\/g, '/');
 

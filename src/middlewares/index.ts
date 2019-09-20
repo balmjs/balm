@@ -17,8 +17,6 @@ function getMiddlewares(): object[] {
     ...BalmJS.config.server.middlewares
   ];
 
-  BalmJS.logger.success('middlewares', middlewares);
-
   return middlewares;
 }
 

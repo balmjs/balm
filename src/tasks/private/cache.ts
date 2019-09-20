@@ -49,7 +49,7 @@ class CacheTask extends BalmJS.BalmTask {
       .src(this.input)
       .pipe(
         $.plumber(function(error: any): void {
-          BalmJS.logger.error('<cache task>', error.message);
+          BalmJS.logger.error('cache task', error.message);
         })
       )
       .pipe($.revAll.revision(BalmJS.config.assets.options))

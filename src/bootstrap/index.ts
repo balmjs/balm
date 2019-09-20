@@ -90,7 +90,9 @@ function setConfig(customConfig: any = {}): any {
 
   // 4. Before created
   config = _ready(config);
-  BalmJS.logger.success('<balm configuration>', config);
+  BalmJS.logger.success('balm configuration', config, {
+    pre: true
+  });
 
   return config;
 }
@@ -104,10 +106,10 @@ function checkGulpTask(name: any): string | boolean | Function {
     if (gulp.tree().nodes.includes(name)) {
       result = name as string;
     } else {
-      BalmJS.logger.error('<gulp task>', 'Invalid task name');
+      BalmJS.logger.error('gulp task', 'Invalid task name');
     }
   } else {
-    BalmJS.logger.error('<gulp task>', 'Task must be a string or function');
+    BalmJS.logger.error('gulp task', 'Task must be a string or function');
   }
 
   return result;

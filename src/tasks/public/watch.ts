@@ -4,11 +4,19 @@ class WatchTask extends BalmJS.BalmTask {
   }
 
   recipe(handler: Function): void {
-    handler('Hello BalmJS');
+    if (BalmJS.config.env.isDev) {
+      gulp
+        .watch(`${BalmJS.config.src.base}/**/*`)
+        .on('change', function(path: string) {
+          BalmJS.logger.info('watch task', `File '${path}' was changed`);
+          console.log(handler);
+          handler(path);
+        });
+    }
   }
 
-  fn(): void {
-    console.log('watch task');
+  fn(cb: Function): void {
+    cb();
   }
 }
 

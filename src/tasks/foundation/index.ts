@@ -4,8 +4,12 @@ import BalmImageTask from './image';
 
 const TIME_FLAG = 'BalmJS Time';
 
-// function run(tasks: any): void {
-//   gulp.parallel(...tasks)();
+// function done(cb: Function): void {
+//   cb();
+// }
+
+// function run(tasks: string[]): void {
+//   gulp.parallel(...tasks, done)();
 // }
 
 BalmJS.TIME_FLAG = TIME_FLAG;

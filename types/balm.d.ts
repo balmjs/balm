@@ -3,20 +3,30 @@ interface Vendor {
   value: string[];
 }
 
+interface Utils {
+  getType: (obj: any) => string;
+  isString: (str: any) => boolean;
+  isObject: (obj: any) => boolean;
+  isArray: (arr: any) => boolean;
+  isFunction: (fn: any) => boolean;
+  mergeDeep: (target: any, source: any) => object;
+}
+
+interface Logger {
+  debug: (obj: any, pre?: boolean) => void;
+  success: (label: string, message: any, options?: object) => void;
+  info: (label: string, message: any, options?: object) => void;
+  warn: (label: string, message: any, options?: object) => void;
+  error: (label: string, message: any, options?: object) => void;
+}
+
 declare namespace NodeJS {
   interface Global {
     BalmJS: any;
     types: any;
     config: any;
     noop: Function;
-    utils: {
-      getType: (obj: any) => string;
-      isString: (str: any) => boolean;
-      isObject: (obj: any) => boolean;
-      isArray: (arr: any) => boolean;
-      isFunction: (fn: any) => boolean;
-      mergeDeep: (target: any, source: any) => object;
-    };
+    utils: Utils;
     toNamespace: (taskName: any) => string | string[];
     file: any;
     TIME_FLAG: string;
@@ -41,13 +51,7 @@ declare namespace NodeJS {
       Error: number;
       Fatal: number;
     };
-    logger: {
-      debug: (obj: any) => void;
-      success: (label: string, message: any, logLevel?: number) => void;
-      info: (label: string, message: any, logLevel?: number) => void;
-      warn: (label: string, message: any, logLevel?: number) => void;
-      error: (label: string, message: any, logLevel?: number) => void;
-    };
+    logger: Logger;
   }
 }
 

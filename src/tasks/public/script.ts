@@ -20,9 +20,9 @@ class ScriptTask extends BalmJS.BalmTask {
       function(err: any, stats: any): void {
         // Handle errors here
         if (err) {
-          BalmJS.logger.error('<script task>', err.stack || err);
+          BalmJS.logger.error('script task', err.stack || err);
           if (err.details) {
-            BalmJS.logger.error('<script task>', err.details);
+            BalmJS.logger.error('script task', err.details);
           }
           return;
         }

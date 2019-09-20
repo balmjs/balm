@@ -39,7 +39,7 @@ class Balm {
       registerTasks(recipe);
     } else {
       BalmJS.logger.error(
-        '<initialization>',
+        'initialization',
         'BalmJS API: `balm.go(function(mix) {});`'
       );
     }
