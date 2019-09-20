@@ -1,6 +1,6 @@
 interface Path {
-  join: any;
   isAbsolute: any;
+  join: any;
   posix: any;
 }
 
@@ -11,3 +11,8 @@ declare namespace NodeJS {
 }
 
 declare var path: Path;
+
+declare module '*.json' {
+  const file: any;
+  export = file;
+}

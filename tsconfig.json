@@ -10,7 +10,6 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "dist",
-    // "resolveJsonModule": true,
     // "sourceMap": true,
     "strict": true,
     "target": "es5",
