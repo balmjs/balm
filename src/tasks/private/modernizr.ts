@@ -5,18 +5,16 @@ import Modernizr from 'modernizr';
 class ModernizrTask extends BalmJS.BalmTask {
   constructor() {
     super('modernizr');
+
+    this.defaultInput = BalmJS.file.absPaths(`${this.name}.json`);
   }
 
   readConfig(): Promise<any> {
     return new Promise((resolve, reject): void => {
-      fs.readFile(
-        BalmJS.file.absPaths(`${this.name}.json`),
-        'utf8',
-        (err, data) => {
-          if (err) reject(err);
-          resolve(JSON.parse(data));
-        }
-      );
+      fs.readFile(this.input, 'utf8', (err, data) => {
+        if (err) reject(err);
+        resolve(JSON.parse(data));
+      });
     });
   }
 
@@ -47,11 +45,26 @@ class ModernizrTask extends BalmJS.BalmTask {
   }
 
   fn(cb: Function): void {
-    (async (): Promise<any> => {
-      const [config] = await Promise.all([this.readConfig(), this.createDir()]);
-      await this.generateScript(config);
-      cb();
-    })();
+    this.init();
+
+    fs.access(this.input, fs.constants.F_OK, (err: any) => {
+      if (err) {
+        BalmJS.logger.warn(
+          'modernizr task',
+          `The '${this.input}' does not exist`
+        );
+        cb();
+      } else {
+        (async (): Promise<any> => {
+          const [config] = await Promise.all([
+            this.readConfig(),
+            this.createDir()
+          ]);
+          await this.generateScript(config);
+          cb();
+        })();
+      }
+    });
   }
 }
 

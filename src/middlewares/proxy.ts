@@ -12,8 +12,6 @@ function httpProxyMiddleware(): object[] {
   const proxyConfig = BalmJS.config.server.proxyConfig;
 
   if (proxyConfig) {
-    console.log('httpProxyMiddleware', proxyConfig);
-
     if (BalmJS.utils.isObject(proxyConfig)) {
       // Single proxy
       if (proxyConfig.context && proxyConfig.options) {
