@@ -81,15 +81,16 @@ class BalmTask {
   }
 
   init(input?: string | string[], output?: string, customOptions?: any): void {
-    // const customTask = BalmJS.customTasksIterator.next().value;
-    // if (!customTask.done) {
-    //   this.input = customTask.input || this.defaultInput;
-    //   this.output = customTask.output || this.defaultOutput;
-    // } else {
     this.input = input || this.defaultInput;
     this.output = output || this.defaultOutput;
     this.customOptions = customOptions || this.defaultCustomOptions;
-    // }
+
+    if (BalmJS.input && BalmJS.output) {
+      this.input = BalmJS.input;
+      this.output = BalmJS.output;
+      BalmJS.input = '';
+      BalmJS.output = '';
+    }
 
     const obj: {
       input: string | string[];

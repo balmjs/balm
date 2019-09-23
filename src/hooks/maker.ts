@@ -2,7 +2,10 @@ class Maker {
   // Register custom task
   static generate(name: string, args: any): void {
     const customTask = BalmJS.tasks.find((task: any) => task.name === name);
-    const taskName = `${customTask.name}:${BalmJS.recipeIndex}`;
+    const taskName =
+      customTask.name === 'watch'
+        ? customTask.name
+        : `${customTask.name}:${BalmJS.recipeIndex}`;
     let taskFunction: Function = function(cb: Function): void {
       cb();
     };

@@ -38,8 +38,8 @@ declare namespace NodeJS {
     tasks: any[];
     recipes: any[];
     recipeIndex: number;
-    run: Function;
-    watchFile: string;
+    input: string | string[];
+    output: string;
     plugins: any;
     webpackCompiler: any;
     vendors: Vendor[];
