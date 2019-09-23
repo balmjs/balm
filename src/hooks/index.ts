@@ -2,12 +2,12 @@ import Maker from './maker';
 import { ObjectEntry, TemplateOption } from '../config/types';
 
 class BaseHooks {
-  sass(input: string, output: string): void {
-    Maker.generate('sass', [input, output]);
+  sass(input: string, output: string, customOptions?: object): void {
+    Maker.generate('sass', [input, output, customOptions]);
   }
 
-  less(input: string, output: string): void {
-    Maker.generate('less', [input, output]);
+  less(input: string, output: string, customOptions?: object): void {
+    Maker.generate('less', [input, output, customOptions]);
   }
 
   postcss(input: string, output: string): void {
@@ -19,18 +19,14 @@ class BaseHooks {
   js(
     input: string | string[] | ObjectEntry,
     output: string,
-    options?: any
+    customOptions?: any
   ): void {
-    Maker.generate('script', [input, output, options]);
+    Maker.generate('script', [input, output, customOptions]);
   }
 
   // scripts(input: string[], output: string): void {}
 
-  copy(
-    input: string | string[],
-    output: string,
-    renameOptions: object = {}
-  ): void {
+  copy(input: string | string[], output: string, renameOptions?: object): void {
     Maker.generate('copy', [input, output, renameOptions]);
   }
 
@@ -53,7 +49,7 @@ class BaseHooks {
   publish(
     input: string | TemplateOption[],
     output: string,
-    renameOptions: object = {}
+    renameOptions?: object
   ): void {
     Maker.generate('publish', [input, output, renameOptions]);
   }

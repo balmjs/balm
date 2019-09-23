@@ -9,12 +9,17 @@ class SassTask extends BalmJS.BalmStyleTask {
         includePaths: BalmJS.file.stylePaths(),
         outputStyle: 'expanded'
       },
-      BalmJS.config.styles.sassOptions
+      BalmJS.config.styles.sassOptions,
+      this.customOptions
     );
   }
 
-  recipe(input?: string | string[], output?: string): void {
-    this.init(input, output);
+  recipe(
+    input?: string | string[],
+    output?: string,
+    customOptions?: object
+  ): void {
+    this.init(input, output, customOptions);
 
     this.handleStyle(this.name, this.output, this.options);
   }

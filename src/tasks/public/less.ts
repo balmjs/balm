@@ -11,12 +11,17 @@ class LessTask extends BalmJS.BalmStyleTask {
       {
         paths: BalmJS.file.stylePaths
       },
-      BalmJS.config.styles.lessOptions
+      BalmJS.config.styles.lessOptions,
+      this.customOptions
     );
   }
 
-  recipe(input?: string | string[], output?: string): void {
-    this.init(input, output);
+  recipe(
+    input?: string | string[],
+    output?: string,
+    customOptions?: object
+  ): void {
+    this.init(input, output, customOptions);
 
     this.handleStyle(this.name, this.output, this.options);
   }

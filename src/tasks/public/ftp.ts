@@ -5,14 +5,16 @@ class FtpTask extends BalmJS.BalmTask {
     this.defaultInput = BalmJS.config.ftp.watchFiles;
   }
 
-  recipe(localFiles: string | string[], customOptions: object = {}): void {
-    this.init(localFiles);
+  get options(): object {
+    return Object.assign({}, BalmJS.config.ftp.options, this.customOptions);
+  }
 
-    const options = Object.assign(BalmJS.config.ftp.options, customOptions);
+  recipe(localFiles: string | string[], customOptions?: object): void {
+    this.init(localFiles, null, customOptions);
 
     gulp
       .src(BalmJS.file.absPaths(this.input), { allowEmpty: true })
-      .pipe(BalmJS.plugins.sftp(options));
+      .pipe(BalmJS.plugins.sftp(this.options));
   }
 
   fn(cb: Function): void {

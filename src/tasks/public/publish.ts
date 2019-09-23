@@ -11,22 +11,23 @@ class PublishTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.assets.static;
   }
 
-  _release(input: string, output: string, options: object): void {
+  _release(input: string, output: string, customOptions: object): void {
     this.init(
       path.join(BalmJS.config.dest.base, input),
-      path.join(BalmJS.config.assets.root, output)
+      path.join(BalmJS.config.assets.root, output),
+      customOptions
     );
 
     gulp
       .src(this.input, { allowEmpty: true })
-      .pipe(BalmJS.plugins.rename(options))
+      .pipe(BalmJS.plugins.rename(this.customOptions))
       .pipe(gulp.dest(this.output));
   }
 
   recipe(
     input: string | TemplateOption[],
     output: string,
-    renameOptions: object = {}
+    renameOptions: object
   ): void {
     if (BalmJS.config.env.isProd) {
       if (BalmJS.utils.isArray(input)) {
