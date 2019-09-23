@@ -3,9 +3,9 @@ import { FtpConfig } from './types';
 const options: FtpConfig = {
   host: undefined
 };
-const watchFiles: string[] = [];
+const files: string[] = [];
 
 export default {
   options,
-  watchFiles
+  files
 };

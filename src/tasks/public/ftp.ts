@@ -2,7 +2,7 @@ class FtpTask extends BalmJS.BalmTask {
   constructor() {
     super('ftp');
 
-    this.defaultInput = BalmJS.config.ftp.watchFiles;
+    this.defaultInput = BalmJS.config.ftp.files;
   }
 
   get options(): object {

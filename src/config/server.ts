@@ -46,6 +46,7 @@ const proxyConfig: boolean | ProxyConfig | ProxyConfig[] = false;
 // }]
 const historyOptions: boolean | object = false;
 const middlewares: object[] = [];
+const watchFiles: string[] = [];
 
 export default {
   port,
@@ -60,5 +61,6 @@ export default {
   hotOptions,
   proxyConfig,
   historyOptions,
-  middlewares
+  middlewares,
+  watchFiles
 };

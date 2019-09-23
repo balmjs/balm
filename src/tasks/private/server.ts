@@ -59,9 +59,9 @@ class ServerTask extends BalmJS.BalmTask {
     );
 
     // For FTP
-    if (BalmJS.config.ftp.watchFiles.length) {
+    if (BalmJS.config.ftp.files.length) {
       watch(
-        BalmJS.config.ftp.watchFiles,
+        BalmJS.config.ftp.files,
         watchOptions,
         series(BalmJS.toNamespace('ftp'), reload)
       );
