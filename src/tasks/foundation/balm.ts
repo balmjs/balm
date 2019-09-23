@@ -91,17 +91,21 @@ class BalmTask {
     this.customOptions = customOptions || this.defaultCustomOptions;
     // }
 
-    BalmJS.logger.info(
-      `${this.name} task`,
-      {
-        input: this.input,
-        output: this.output,
-        customOptions: this.customOptions
-      },
-      {
-        pre: true
-      }
-    );
+    const obj: {
+      input: string | string[];
+      output: string;
+      customOptions?: any;
+    } = {
+      input: this.input,
+      output: this.output
+    };
+    if (customOptions) {
+      obj.customOptions = this.customOptions;
+    }
+
+    BalmJS.logger.info(`${this.name} task`, obj, {
+      pre: true
+    });
   }
 }
 
