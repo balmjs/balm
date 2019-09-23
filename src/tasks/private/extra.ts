@@ -19,7 +19,7 @@ class ExtraTask extends BalmJS.BalmTask {
     }
 
     const defaultGlobs = [
-      `${BalmJS.config.src.base}/*`, // All files in the app root directory
+      `${BalmJS.config.src.base}/*.*`, // All files but ignore all folders in the app root directory
       `!${BalmJS.config.src.base}/*.html`,
       `!${BalmJS.config.src.base}/${MANIFEST}`,
       ...includeGlobs,

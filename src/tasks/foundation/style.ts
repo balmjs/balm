@@ -8,7 +8,7 @@ class BalmStyleTask extends BalmTask {
     let extname: string;
     switch (name) {
       case 'sass':
-        extname = BalmJS.config.styles.extname === name ? name : 'scss';
+        extname = '{scss,sass}';
         break;
       case 'less':
         extname = 'less';

@@ -46,18 +46,17 @@ class CacheTask extends BalmJS.BalmTask {
     this.init();
 
     gulp
-      .src(this.input)
+      .src(BalmJS.file.absPaths(this.input))
       .pipe(
         $.plumber(function(error: any): void {
           BalmJS.logger.error('cache task', error.message);
         })
       )
       .pipe($.revAll.revision(BalmJS.config.assets.options))
-      // .pipe($.if(/\.html$/, BalmJS.file.setPublicPath()))
       .pipe(gulp.dest(this.output))
       .pipe($.revDeleteOriginal())
       .pipe($.revAll.manifestFile())
-      .pipe(gulp.dest(this.output));
+      .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
   }
 }
 
