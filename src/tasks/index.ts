@@ -50,40 +50,7 @@ function registerTasks(recipe: Function): void {
   });
 
   // Register balm hooks
-  const hooks: any = new Hooks();
-  recipe(hooks);
-
-  // Register balm watch tasks
-  // for (const key in hooks) {
-  //   if (
-  //     BalmJS.utils.isFunction(hooks[key]) &&
-  //     key !== 'constructor' &&
-  //     key !== 'watch'
-  //   ) {
-  //     const customTask = BalmJS.tasks.find((task: any) =>
-  //       key === 'js' ? task.name === 'script' : task.name === key
-  //     );
-  //     let taskFunction: Function = function(cb: Function): void {
-  //       cb();
-  //     };
-
-  //     switch (customTask.name) {
-  //       case 'script':
-  //       case 'remove':
-  //         taskFunction = function(cb: Function): void {
-  //           customTask.recipe(cb);
-  //         };
-  //         break;
-  //       default:
-  //         taskFunction = function(cb: Function): void {
-  //           customTask.recipe();
-  //           cb();
-  //         };
-  //     }
-
-  //     gulp.task(BalmJS.toNamespace(`watch:${customTask.name}`), taskFunction);
-  //   }
-  // }
+  recipe(new Hooks());
 
   // Register balm default task
   const defaultTask = new DefaultTask();
