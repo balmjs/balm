@@ -31,4 +31,4 @@ class LessTask extends BalmJS.BalmStyleTask {
   }
 }
 
-export = LessTask;
+export default LessTask;

@@ -19,4 +19,4 @@ class LintTask extends BalmJS.BalmTask {
   }
 }
 
-export = LintTask;
+export default LintTask;

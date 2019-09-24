@@ -24,4 +24,4 @@ class ZipTask extends BalmJS.BalmTask {
   }
 }
 
-export = ZipTask;
+export default ZipTask;

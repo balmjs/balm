@@ -45,4 +45,4 @@ class PublishTask extends BalmJS.BalmTask {
   }
 }
 
-export = PublishTask;
+export default PublishTask;

@@ -11,7 +11,7 @@ function registerTasks(recipe: Function): void {
 
   // Register balm tasks
   Object.values(AwesomeTasks).forEach(function(AwesomeTask: any) {
-    const awesomeTask = new AwesomeTask();
+    const awesomeTask = new AwesomeTask.default();
     const taskName = awesomeTask.taskName;
     let taskFunction: Function = function(cb: Function): void {
       cb();

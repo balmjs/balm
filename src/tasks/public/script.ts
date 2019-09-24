@@ -40,4 +40,4 @@ class ScriptTask extends BalmJS.BalmTask {
   }
 }
 
-export = ScriptTask;
+export default ScriptTask;

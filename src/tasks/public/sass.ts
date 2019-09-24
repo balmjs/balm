@@ -29,4 +29,4 @@ class SassTask extends BalmJS.BalmStyleTask {
   }
 }
 
-export = SassTask;
+export default SassTask;

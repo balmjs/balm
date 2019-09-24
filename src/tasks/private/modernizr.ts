@@ -68,4 +68,4 @@ class ModernizrTask extends BalmJS.BalmTask {
   }
 }
 
-export = ModernizrTask;
+export default ModernizrTask;

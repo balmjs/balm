@@ -17,4 +17,4 @@ class BuildTask extends BalmJS.BalmTask {
   }
 }
 
-export = BuildTask;
+export default BuildTask;

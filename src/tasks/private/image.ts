@@ -23,4 +23,4 @@ class ImageTask extends BalmJS.BalmImageTask {
   }
 }
 
-export = ImageTask;
+export default ImageTask;

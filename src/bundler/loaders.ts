@@ -16,9 +16,10 @@ function getLoaders(customLoaders: object[]): object[] {
 
   let defaultLoaders: object[] = [];
   Object.values(LOADERS).forEach(function(Loader: any) {
-    const key = Loader.name.replace('Loader', '');
+    const DefaultLoader = Loader.default;
+    const key = DefaultLoader.name.replace('Loader', '');
     if (enableDefaultLoaders[key]) {
-      const loader: object | object[] = Loader();
+      const loader: object | object[] = DefaultLoader();
       if (BalmJS.utils.isArray(loader)) {
         defaultLoaders = defaultLoaders.concat(loader);
       } else {

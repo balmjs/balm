@@ -39,4 +39,4 @@ class ExtraTask extends BalmJS.BalmTask {
   }
 }
 
-export = ExtraTask;
+export default ExtraTask;

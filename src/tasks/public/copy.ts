@@ -21,4 +21,4 @@ class CopyTask extends BalmJS.BalmTask {
   }
 }
 
-export = CopyTask;
+export default CopyTask;

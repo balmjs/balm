@@ -15,4 +15,4 @@ class MediaTask extends BalmJS.BalmTask {
   }
 }
 
-export = MediaTask;
+export default MediaTask;

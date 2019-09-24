@@ -14,4 +14,4 @@ class EndTask extends BalmJS.BalmTask {
   }
 }
 
-export = EndTask;
+export default EndTask;

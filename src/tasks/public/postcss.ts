@@ -14,4 +14,4 @@ class PostcssTask extends BalmJS.BalmStyleTask {
   }
 }
 
-export = PostcssTask;
+export default PostcssTask;

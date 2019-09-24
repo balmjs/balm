@@ -53,4 +53,4 @@ function cssLoader(): object {
   };
 }
 
-export = cssLoader;
+export default cssLoader;

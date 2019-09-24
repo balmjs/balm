@@ -77,4 +77,4 @@ class SpriteTask extends BalmJS.BalmImageTask {
   }
 }
 
-export = SpriteTask;
+export default SpriteTask;

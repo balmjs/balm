@@ -79,4 +79,4 @@ class HtmlTask extends BalmJS.BalmTask {
   }
 }
 
-export = HtmlTask;
+export default HtmlTask;

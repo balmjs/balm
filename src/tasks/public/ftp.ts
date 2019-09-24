@@ -22,4 +22,4 @@ class FtpTask extends BalmJS.BalmTask {
   }
 }
 
-export = FtpTask;
+export default FtpTask;

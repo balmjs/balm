@@ -11,4 +11,4 @@ function jsLoader(): object {
   };
 }
 
-export = jsLoader;
+export default jsLoader;

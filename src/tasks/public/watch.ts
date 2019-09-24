@@ -26,4 +26,4 @@ class WatchTask extends BalmJS.BalmTask {
   }
 }
 
-export = WatchTask;
+export default WatchTask;

@@ -36,4 +36,4 @@ function urlLoader(): object[] {
   ];
 }
 
-export = urlLoader;
+export default urlLoader;

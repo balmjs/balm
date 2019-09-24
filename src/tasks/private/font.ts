@@ -15,4 +15,4 @@ class FontTask extends BalmJS.BalmTask {
   }
 }
 
-export = FontTask;
+export default FontTask;

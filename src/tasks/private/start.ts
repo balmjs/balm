@@ -14,4 +14,4 @@ class StartTask extends BalmJS.BalmTask {
   }
 }
 
-export = StartTask;
+export default StartTask;

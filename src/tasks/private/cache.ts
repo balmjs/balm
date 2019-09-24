@@ -60,4 +60,4 @@ class CacheTask extends BalmJS.BalmTask {
   }
 }
 
-export = CacheTask;
+export default CacheTask;

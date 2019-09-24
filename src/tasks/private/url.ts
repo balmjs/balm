@@ -35,4 +35,4 @@ class UrlTask extends BalmJS.BalmTask {
   }
 }
 
-export = UrlTask;
+export default UrlTask;

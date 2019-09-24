@@ -44,4 +44,4 @@ class RemoveTask extends BalmJS.BalmTask {
   }
 }
 
-export = RemoveTask;
+export default RemoveTask;

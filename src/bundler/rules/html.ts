@@ -10,4 +10,4 @@ function htmlLoader(): object {
   };
 }
 
-export = htmlLoader;
+export default htmlLoader;

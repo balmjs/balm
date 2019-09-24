@@ -122,4 +122,4 @@ class ServerTask extends BalmJS.BalmTask {
   }
 }
 
-export = ServerTask;
+export default ServerTask;

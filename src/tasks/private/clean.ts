@@ -101,4 +101,4 @@ class CleanTask extends BalmJS.BalmTask {
   }
 }
 
-export = CleanTask;
+export default CleanTask;
