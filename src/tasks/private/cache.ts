@@ -53,7 +53,7 @@ class CacheTask extends BalmJS.BalmTask {
         })
       )
       .pipe($.revAll.revision(BalmJS.config.assets.options))
-      .pipe(gulp.dest(this.output))
+      .pipe(gulp.dest(BalmJS.file.absPaths(this.output)))
       .pipe($.revDeleteOriginal())
       .pipe($.revAll.manifestFile())
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));

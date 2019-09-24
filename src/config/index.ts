@@ -10,6 +10,7 @@ import extras from './extras';
 import assets from './assets';
 import server from './server';
 import ftp from './ftp';
+import pwa from './pwa';
 import logs from './logs';
 
 enum LogLevel {
@@ -48,6 +49,7 @@ const config: any = {
   assets,
   server,
   ftp,
+  pwa,
   logs,
   useDefaults
 };

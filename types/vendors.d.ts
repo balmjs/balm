@@ -25,6 +25,7 @@ declare module 'webpack-bundle-analyzer';
 declare module 'webpack-dev-middleware';
 declare module 'webpack-hot-middleware';
 declare module 'webpack-merge';
+declare module 'workbox-build';
 
 interface Gulp {
   src: any;

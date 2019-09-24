@@ -34,15 +34,15 @@ class DefaultTask extends BalmJS.BalmTask {
         'media',
         'extra',
         'build', // Measure size
-        ...(BalmJS.config.assets.cache ? ['cache'] : [])
-        // ...(BalmJS.config.pwa.enabled ? ['pwa'] : [])
+        ...(BalmJS.config.assets.cache ? ['cache'] : []),
+        ...(BalmJS.config.pwa.enabled ? ['workbox-sw', 'pwa'] : [])
       ];
     } else {
       tasks = [
         ...tasks,
         'modernizr',
         'font',
-        // ...(BalmJS.config.pwa.enabled ? ['pwa'] : [])
+        ...(BalmJS.config.pwa.enabled ? ['workbox-sw', 'pwa'] : []),
         'serve'
       ];
     }
