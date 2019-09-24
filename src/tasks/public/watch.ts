@@ -7,6 +7,8 @@ class WatchTask extends BalmJS.BalmTask {
 
   recipe(handler: Function): void {
     if (BalmJS.config.env.isDev) {
+      BalmJS.watching = true;
+
       gulp
         .watch([
           `${BalmJS.config.src.base}/**/*`,
@@ -14,13 +16,7 @@ class WatchTask extends BalmJS.BalmTask {
         ])
         .on('change', function(path: string) {
           BalmJS.logger.info('watch task', `File '${path}' was changed`);
-          console.log(handler.toString());
           handler(path);
-
-          // BalmJS.input = 'aaa';
-          // BalmJS.output = 'bbb';
-
-          // gulp.parallel('balm:sass')();
         });
     }
   }

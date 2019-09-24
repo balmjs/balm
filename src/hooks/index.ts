@@ -10,7 +10,7 @@ class BaseHooks {
     Maker.generate('less', [input, output, customOptions]);
   }
 
-  postcss(input: string, output: string): void {
+  css(input: string, output: string): void {
     Maker.generate('postcss', [input, output]);
   }
 

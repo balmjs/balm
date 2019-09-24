@@ -11,5 +11,4 @@ BalmJS.BalmImageTask = BalmImageTask;
 BalmJS.tasks = []; // Maintasks
 BalmJS.recipes = []; // Subtasks
 BalmJS.recipeIndex = 0;
-BalmJS.input = '';
-BalmJS.output = '';
+BalmJS.watching = false;

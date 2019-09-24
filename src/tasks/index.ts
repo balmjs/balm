@@ -50,20 +50,24 @@ function registerTasks(recipe: Function): void {
   });
 
   // Register balm hooks
-  recipe(new Hooks());
+  try {
+    recipe(new Hooks());
 
-  // Register balm default task
-  const defaultTask = new DefaultTask();
-  gulp.task(
-    defaultTask.taskName,
-    gulp.series(
-      ...defaultTask.startTask,
-      ...defaultTask.mainTasks,
-      ...defaultTask.subTasks,
-      ...defaultTask.endTask
-      // defaultTask.fn
-    )
-  );
+    // Register balm default task
+    const defaultTask = new DefaultTask();
+    gulp.task(
+      defaultTask.taskName,
+      gulp.series(
+        ...defaultTask.startTask,
+        ...defaultTask.mainTasks,
+        ...defaultTask.subTasks,
+        ...defaultTask.endTask
+        // defaultTask.fn
+      )
+    );
+  } catch (error) {
+    BalmJS.logger.error('balm task', error.message);
+  }
 }
 
 export default registerTasks;

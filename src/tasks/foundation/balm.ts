@@ -85,13 +85,6 @@ class BalmTask {
     this.output = output || this.defaultOutput;
     this.customOptions = customOptions || this.defaultCustomOptions;
 
-    if (BalmJS.input && BalmJS.output) {
-      this.input = BalmJS.input;
-      this.output = BalmJS.output;
-      BalmJS.input = '';
-      BalmJS.output = '';
-    }
-
     const obj: {
       input: string | string[];
       output: string;

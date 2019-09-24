@@ -6,29 +6,33 @@ class Maker {
       customTask.name === 'watch'
         ? customTask.name
         : `${customTask.name}:${BalmJS.recipeIndex}`;
-    let taskFunction: Function = function(cb: Function): void {
+    let balmTask: Function = function(cb: Function): void {
       cb();
-    };
+    }; // NOTE: `balmTask` function name for `gulp.parallel`
 
     switch (customTask.name) {
       case 'script':
       case 'remove':
-        taskFunction = function(cb: Function): void {
+        balmTask = function(cb: Function): void {
           args.unshift(cb);
           customTask.recipe(...args);
         };
         break;
       default:
-        taskFunction = function(cb: Function): void {
+        balmTask = function(cb: Function): void {
           customTask.recipe(...args);
           cb();
         };
     }
 
-    gulp.task(BalmJS.toNamespace(taskName), taskFunction);
+    if (BalmJS.watching) {
+      gulp.parallel(balmTask)();
+    } else {
+      gulp.task(BalmJS.toNamespace(taskName), balmTask);
 
-    BalmJS.recipes.push(taskName);
-    BalmJS.recipeIndex++;
+      BalmJS.recipes.push(taskName);
+      BalmJS.recipeIndex++;
+    }
   }
 }
 
