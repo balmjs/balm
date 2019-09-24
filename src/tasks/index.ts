@@ -9,7 +9,7 @@ const PUBLIC_TASKS = requireDir('./public');
 function registerTasks(recipe: Function): void {
   const AwesomeTasks = BalmJS.utils.mergeDeep(PRIVATE_TASKS, PUBLIC_TASKS);
 
-  // Register balm tasks
+  // 1. Register balm tasks
   Object.values(AwesomeTasks).forEach(function(AwesomeTask: any) {
     const awesomeTask = new AwesomeTask.default();
     const taskName = awesomeTask.taskName;
@@ -49,25 +49,25 @@ function registerTasks(recipe: Function): void {
     BalmJS.tasks.push(awesomeTask);
   });
 
-  // Register balm hooks
+  // 2. Register balm hooks
   try {
     recipe(new Hooks());
-
-    // Register balm default task
-    const defaultTask = new DefaultTask();
-    gulp.task(
-      defaultTask.taskName,
-      gulp.series(
-        ...defaultTask.startTask,
-        ...defaultTask.mainTasks,
-        ...defaultTask.subTasks,
-        ...defaultTask.endTask
-        // defaultTask.fn
-      )
-    );
   } catch (error) {
-    BalmJS.logger.error('balm task', error.message);
+    BalmJS.logger.error('balm hook', error.message);
   }
+
+  // 3. Register balm default task
+  const defaultTask = new DefaultTask();
+  gulp.task(
+    defaultTask.taskName,
+    gulp.series(
+      ...defaultTask.startTask,
+      ...defaultTask.mainTasks,
+      ...defaultTask.subTasks,
+      ...defaultTask.endTask
+      // defaultTask.fn
+    )
+  );
 }
 
 export default registerTasks;
