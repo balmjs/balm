@@ -14,7 +14,8 @@ function getProdConfig(scripts: any): any {
     optimization: {
       minimizer: [
         new TerserPlugin({
-          terserOptions: scripts.options
+          terserOptions: scripts.options,
+          extractComments: false
         }),
         new OptimizeCSSAssetsPlugin({
           cssProcessorOptions: {
