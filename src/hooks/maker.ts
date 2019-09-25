@@ -6,15 +6,19 @@ class Maker {
     }
 
     const customTask = BalmJS.tasks.find((task: any) => task.name === name);
-    const taskName =
-      customTask.name === 'watch'
-        ? customTask.name
-        : `${customTask.name}:${BalmJS.recipeIndex}`;
+    const taskName = ['sprite', 'watch'].includes(customTask.name)
+      ? customTask.name
+      : `${customTask.name}:${BalmJS.recipeIndex}`;
     let balmTask: Function = function(cb: Function): void {
       cb();
     }; // NOTE: `balmTask` function name for `gulp.parallel`
 
     switch (customTask.name) {
+      case 'sprite':
+        if (BalmJS.config.styles.sprites.length) {
+          balmTask = gulp.series(customTask.deps);
+        }
+        break;
       case 'script':
       case 'remove':
         balmTask = function(cb: Function): void {
