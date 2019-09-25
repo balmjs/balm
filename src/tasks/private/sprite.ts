@@ -50,7 +50,7 @@ class SpriteTask extends BalmJS.BalmImageTask {
           src: value.src,
           opt: this._getOption(value.name),
           img: this.output,
-          css: `${BalmJS.config.src.css}/${this.name}` // Don't modify
+          css: `${BalmJS.config.src.css}/${this.name}s` // Don't modify
         };
 
         gulp.task(spriteTaskName, function() {

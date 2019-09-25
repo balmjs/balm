@@ -19,7 +19,7 @@ class DefaultTask extends BalmJS.BalmTask {
       // Stylesheets
       ...(BalmJS.config.styles.sprites.length ? ['sprite'] : []),
       this.styleName,
-      'url',
+      ...(BalmJS.config.env.isProd ? ['url'] : []),
       // Scripts
       ...(BalmJS.config.scripts.eslint ? ['lint'] : []),
       ...(BalmJS.config.scripts.entry ? ['script'] : []),

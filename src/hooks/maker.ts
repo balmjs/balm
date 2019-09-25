@@ -1,7 +1,18 @@
+const BLACKLIST_IN_DEV = ['publish'];
+const BLACKLIST_IN_PROD = ['serve', 'watch'];
+
+function ban(name: string): boolean {
+  const banInDev = BalmJS.config.env.isDev && BLACKLIST_IN_DEV.includes(name);
+  const banInProd =
+    BalmJS.config.env.isProd && BLACKLIST_IN_PROD.includes(name);
+
+  return banInDev || banInProd;
+}
+
 class Maker {
   // Register custom task
   static generate(name: string, args: any = []): void {
-    if (BalmJS.config.env.isProd && ['serve', 'watch'].includes(name)) {
+    if (ban(name)) {
       return;
     }
 
