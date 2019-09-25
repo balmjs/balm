@@ -13,9 +13,17 @@ class UrlTask extends BalmJS.BalmTask {
     );
     const pathDest = `../${BalmJS.config.paths.target[type]}/`;
 
-    BalmJS.logger.info(`${this.name} task`, `'${pathSrc}' => '${pathDest}'`, {
-      logLevel: BalmJS.LogLevel.Debug
-    });
+    BalmJS.logger.info(
+      `${this.name} task`,
+      {
+        regex: pathSrc,
+        replacement: pathDest
+      },
+      {
+        logLevel: BalmJS.LogLevel.Debug,
+        pre: true
+      }
+    );
 
     return $.replace(pathSrc, pathDest);
   }
