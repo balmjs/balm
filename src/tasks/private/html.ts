@@ -4,12 +4,10 @@ class HtmlTask extends BalmJS.BalmTask {
   constructor() {
     super('html');
 
-    this.defaultInput = BalmJS.config.env.isProd
-      ? [
-          `${BalmJS.config.src.base}/*.html`,
-          `${BalmJS.config.src.base}/${MANIFEST}`
-        ]
-      : `${BalmJS.config.src.base}/*.html`;
+    this.defaultInput = [
+      `${BalmJS.config.src.base}/*.html`,
+      `${BalmJS.config.src.base}/${MANIFEST}`
+    ];
     this.defaultOutput = BalmJS.config.dest.base;
   }
 

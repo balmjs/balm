@@ -38,13 +38,7 @@ class DefaultTask extends BalmJS.BalmTask {
         ...(BalmJS.config.pwa.enabled ? ['workbox-sw', 'pwa'] : [])
       ];
     } else {
-      tasks = [
-        ...tasks,
-        'modernizr',
-        'font',
-        ...(BalmJS.config.pwa.enabled ? ['workbox-sw', 'pwa'] : []),
-        'serve'
-      ];
+      tasks = [...tasks, 'modernizr', 'font', 'serve'];
     }
 
     return BalmJS.config.useDefaults

@@ -3,56 +3,48 @@ import workboxBuild from 'workbox-build';
 class PwaTask extends BalmJS.BalmTask {
   constructor() {
     super('pwa');
-
-    this.defaultInput = BalmJS.config.roots.source;
-    this.defaultOutput = BalmJS.config.dest.base;
   }
 
-  get options(): any {
-    const swSrc = `${this.input}/service-worker.js`;
-    const swDest = `${this.output}/sw.js`;
-    let swOptions = {};
+  recipe(customMode?: string, customOptions: object = {}): void {
+    const mode = customMode || BalmJS.config.pwa.mode;
+    const globDirectory = BalmJS.config.dest.base;
+    const swSrc = `${BalmJS.config.roots.source}/${BalmJS.config.pwa.swSrcFilename}`;
+    const swDest = `${globDirectory}/${BalmJS.config.pwa.swDestFilename}`;
+    let options = {};
 
-    switch (BalmJS.config.pwa.mode) {
+    switch (mode) {
       // For basic
       case 'generateSW':
-        swOptions = Object.assign(
+        options = Object.assign(
           {
             swDest,
             importWorkboxFrom: 'disabled',
             importScripts: ['workbox-sw.js'],
-            globDirectory: this.output
+            globDirectory
           },
-          BalmJS.config.pwa.options
+          BalmJS.config.pwa.options,
+          customOptions
         );
         break;
       // For advanced
       case 'injectManifest':
-        swOptions = Object.assign(
+        options = Object.assign(
           {
             swSrc,
             swDest,
-            globDirectory: this.output
+            globDirectory
           },
-          BalmJS.config.pwa.options
+          BalmJS.config.pwa.options,
+          customOptions
         );
         break;
       default:
     }
 
-    return swOptions;
-  }
+    BalmJS.logger.info(`pwa - ${mode}`, options);
 
-  fn(): void {
-    this.init();
-
-    const mode = BalmJS.config.pwa.mode;
-    const swDest = `${this.output}/sw.js`;
-
-    BalmJS.logger.info('pwa', this.options);
-
-    return workboxBuild[mode](this.options)
-      .then((result: any) => {
+    return workboxBuild[mode](options)
+      .then(function(result: any) {
         BalmJS.logger.success(
           `pwa - ${mode}`,
           `Generated '${swDest}', which will precache ${result.count} files, totaling ${result.size} bytes`
@@ -64,6 +56,10 @@ class PwaTask extends BalmJS.BalmTask {
           `Service worker generation failed: ${error}`
         );
       });
+  }
+
+  fn(): void {
+    this.recipe();
   }
 }
 

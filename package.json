@@ -90,8 +90,7 @@
     "webpack-dev-middleware": "^3.7.1",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2",
-    "workbox-build": "^4.3.1",
-    "workbox-sw": "^4.3.1"
+    "workbox-build": "^4.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",

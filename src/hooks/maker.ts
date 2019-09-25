@@ -1,6 +1,6 @@
 class Maker {
   // Register custom task
-  static generate(name: string, args: any): void {
+  static generate(name: string, args: any = []): void {
     const customTask = BalmJS.tasks.find((task: any) => task.name === name);
     const taskName =
       customTask.name === 'watch'
@@ -16,6 +16,15 @@ class Maker {
         balmTask = function(cb: Function): void {
           args.unshift(cb);
           customTask.recipe(...args);
+        };
+        break;
+      case 'url':
+      case 'modernizr':
+      case 'html':
+      case 'serve':
+        balmTask = function(cb: Function): void {
+          customTask.fn();
+          cb();
         };
         break;
       default:
