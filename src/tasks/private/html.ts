@@ -34,6 +34,13 @@ class HtmlTask extends BalmJS.BalmTask {
     return $.replace(publicPathSrc, publicPathDest);
   }
 
+  private _setPublicPath(): any {
+    return $.replace(
+      `${BalmJS.config.assets.publicUrlPlaceholder}/`,
+      BalmJS.file.getPublicPath()
+    );
+  }
+
   fn(): void {
     this.init();
 
@@ -60,10 +67,7 @@ class HtmlTask extends BalmJS.BalmTask {
         .pipe(this._getAssetsPath('media'))
         .pipe($.if(MANIFEST, this._getManifestPath()))
         .pipe(
-          $.if(
-            MANIFEST && BalmJS.config.assets.cache,
-            BalmJS.file.setPublicPath()
-          )
+          $.if(MANIFEST && BalmJS.config.assets.cache, this._setPublicPath())
         );
     } else {
       stream = stream
@@ -72,7 +76,7 @@ class HtmlTask extends BalmJS.BalmTask {
     }
 
     stream
-      .pipe(BalmJS.file.setPublicPath())
+      .pipe(this._setPublicPath())
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
   }
 }

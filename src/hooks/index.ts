@@ -2,6 +2,10 @@ import Maker from './maker';
 import { ObjectEntry, TemplateOption } from '../config/types';
 
 class BaseHooks {
+  get env(): boolean {
+    return BalmJS.config.env;
+  }
+
   // Stylesheets
   sass(input: string, output: string, options?: object): void {
     Maker.generate('sass', [input, output, options]);
