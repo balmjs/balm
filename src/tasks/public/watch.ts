@@ -25,6 +25,10 @@ class WatchTask extends BalmJS.BalmTask {
         });
     }
   }
+
+  fn(cb: Function): void {
+    cb();
+  }
 }
 
 export default WatchTask;

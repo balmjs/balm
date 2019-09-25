@@ -23,8 +23,8 @@ class VersionTask extends BalmJS.BalmTask {
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
   }
 
-  fn(): void {
-    this.recipe();
+  fn(cb: Function): void {
+    cb();
   }
 }
 

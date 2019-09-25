@@ -30,9 +30,10 @@ function registerTasks(recipe: Function): void {
           awesomeTask.fn(cb);
         };
         break;
-      case 'watch':
       case 'copy':
       case 'remove':
+      case 'version':
+      case 'watch':
       case 'zip':
       case 'ftp':
       case 'publish':

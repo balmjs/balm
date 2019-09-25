@@ -1,6 +1,10 @@
 class Maker {
   // Register custom task
   static generate(name: string, args: any = []): void {
+    if (BalmJS.config.env.isProd && ['serve', 'watch'].includes(name)) {
+      return;
+    }
+
     const customTask = BalmJS.tasks.find((task: any) => task.name === name);
     const taskName =
       customTask.name === 'watch'
