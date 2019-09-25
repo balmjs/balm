@@ -5,9 +5,8 @@ const workspace = path.join(projectRoot, 'test-workspace');
 const remoteRoot = path.join(workspace, 'assets');
 
 const balmConfig = {
-  // debug: true,
-  server: {
-    open: false
+  logs: {
+    level: 1
   },
   workspace,
   paths: {
@@ -17,20 +16,18 @@ const balmConfig = {
       img: 'images',
       font: 'fonts',
       media: 'media'
-    },
-    target: {
-      css: 'a',
-      js: 'b',
-      img: 'c',
-      font: 'd',
-      media: 'e'
     }
+    // target: {
+    //   css: 'a',
+    //   js: 'b',
+    //   img: 'c',
+    //   font: 'd',
+    //   media: 'e'
+    // }
   },
   styles: {
-    ext: 'css'
-  },
-  sprites: {
-    image: ['img-icon']
+    extname: 'css',
+    sprites: ['img-icon']
   },
   extras: {
     excludes: ['empty.txt', 'service-worker.js']
