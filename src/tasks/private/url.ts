@@ -7,21 +7,17 @@ class UrlTask extends BalmJS.BalmTask {
   }
 
   private _urlProcessing(type: string): any {
-    const developmentPath = new RegExp(
+    const pathSrc = new RegExp(
       `\\.{2}/${BalmJS.config.paths.source[type].split('/').pop()}/`,
       'g'
     );
-    const productionPath = `../${BalmJS.config.paths.target[type]}/`;
+    const pathDest = `../${BalmJS.config.paths.target[type]}/`;
 
-    BalmJS.logger.info(
-      `${this.name} task`,
-      `'${developmentPath}' => '${productionPath}'`,
-      {
-        logLevel: BalmJS.LogLevel.Debug
-      }
-    );
+    BalmJS.logger.info(`${this.name} task`, `'${pathSrc}' => '${pathDest}'`, {
+      logLevel: BalmJS.LogLevel.Debug
+    });
 
-    return $.replace(developmentPath, productionPath);
+    return $.replace(pathSrc, pathDest);
   }
 
   fn(): void {

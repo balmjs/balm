@@ -15,23 +15,23 @@ class HtmlTask extends BalmJS.BalmTask {
     const from = BalmJS.config.paths.source[type].split('/').pop();
     const to = BalmJS.file.assetsPath(BalmJS.config.paths.target[type]);
 
-    const developmentPublicPath = new RegExp(
+    const publicPathSrc = new RegExp(
       `${BalmJS.config.assets.publicUrlPlaceholder}/${from}`,
       'g'
     );
-    const productionPublicPath = `${BalmJS.config.assets.publicUrlPlaceholder}/${to}`;
+    const publicPathDest = `${BalmJS.config.assets.publicUrlPlaceholder}/${to}`;
 
-    return $.replace(developmentPublicPath, productionPublicPath);
+    return $.replace(publicPathSrc, publicPathDest);
   }
 
   private _getManifestPath(): any {
     const from = BalmJS.config.paths.source.img.split('/').pop();
     const to = BalmJS.file.assetsPath(BalmJS.config.paths.target.img);
 
-    const developmentPublicPath = new RegExp(`/?${from}`, 'g');
-    const productionPublicPath = `${BalmJS.config.assets.publicUrlPlaceholder}/${to}`;
+    const publicPathSrc = new RegExp(`/?${from}`, 'g');
+    const publicPathDest = `${BalmJS.config.assets.publicUrlPlaceholder}/${to}`;
 
-    return $.replace(developmentPublicPath, productionPublicPath);
+    return $.replace(publicPathSrc, publicPathDest);
   }
 
   fn(): void {
