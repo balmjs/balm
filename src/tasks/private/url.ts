@@ -6,7 +6,7 @@ class UrlTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.dest.css;
   }
 
-  urlProcessing(type: string): any {
+  private _urlProcessing(type: string): any {
     const developmentPath = new RegExp(
       `\\.{2}/${BalmJS.config.paths.source[type].split('/').pop()}/`,
       'g'
@@ -29,8 +29,8 @@ class UrlTask extends BalmJS.BalmTask {
 
     gulp
       .src(BalmJS.file.absPaths(this.input))
-      .pipe(this.urlProcessing('img'))
-      .pipe(this.urlProcessing('font'))
+      .pipe(this._urlProcessing('img'))
+      .pipe(this._urlProcessing('font'))
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
   }
 }

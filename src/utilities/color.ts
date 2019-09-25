@@ -6,7 +6,7 @@ const COLOR = {
   SUFFIX: 'Bright'
 };
 
-function style(
+function _style(
   colorStyle: ColorStyle = {
     color: 'white'
   }
@@ -41,7 +41,7 @@ function style(
 }
 
 function color(label: string, colorStyle?: ColorStyle): string {
-  const result = style(colorStyle);
+  const result = _style(colorStyle);
   return result.render(`${result.icon}${label}`);
 }
 

@@ -13,7 +13,7 @@ class HtmlTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.dest.base;
   }
 
-  getAssetsPath(type: any): any {
+  private _getAssetsPath(type: any): any {
     const from = BalmJS.config.paths.source[type].split('/').pop();
     const to = BalmJS.file.assetsPath(BalmJS.config.paths.target[type]);
 
@@ -26,7 +26,7 @@ class HtmlTask extends BalmJS.BalmTask {
     return $.replace(developmentPublicPath, productionPublicPath);
   }
 
-  getManifestPath(): any {
+  private _getManifestPath(): any {
     const from = BalmJS.config.paths.source.img.split('/').pop();
     const to = BalmJS.file.assetsPath(BalmJS.config.paths.target.img);
 
@@ -56,11 +56,11 @@ class HtmlTask extends BalmJS.BalmTask {
           })
         )
         .pipe($.if(/\.html$/, $.htmlmin(BalmJS.config.html.options)))
-        .pipe(this.getAssetsPath('css'))
-        .pipe(this.getAssetsPath('js'))
-        .pipe(this.getAssetsPath('img'))
-        .pipe(this.getAssetsPath('media'))
-        .pipe($.if(MANIFEST, this.getManifestPath()))
+        .pipe(this._getAssetsPath('css'))
+        .pipe(this._getAssetsPath('js'))
+        .pipe(this._getAssetsPath('img'))
+        .pipe(this._getAssetsPath('media'))
+        .pipe($.if(MANIFEST, this._getManifestPath()))
         .pipe(
           $.if(
             MANIFEST && BalmJS.config.assets.cache,
@@ -69,8 +69,8 @@ class HtmlTask extends BalmJS.BalmTask {
         );
     } else {
       stream = stream
-        .pipe(this.getAssetsPath('css'))
-        .pipe(this.getAssetsPath('js'));
+        .pipe(this._getAssetsPath('css'))
+        .pipe(this._getAssetsPath('js'));
     }
 
     stream

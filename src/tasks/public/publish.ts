@@ -8,20 +8,24 @@ class PublishTask extends BalmJS.BalmTask {
       `${BalmJS.config.dest.static}/**/*`, // Assets
       `!${BalmJS.config.dest.base}/*.*` // HTML
     ];
-    this.defaultOutput = BalmJS.config.assets.static;
+    this.defaultOutput = BalmJS.config.assets.static; // Remote dir
   }
 
-  _release(input: string, output: string, customOptions: object): void {
-    this.init(
-      path.join(BalmJS.config.dest.base, input),
-      path.join(BalmJS.config.assets.root, output),
-      customOptions
-    );
+  private _release(input: string, output: string, customOptions: object): void {
+    if (input && output) {
+      this.init(
+        path.join(BalmJS.config.dest.base, input),
+        path.join(BalmJS.config.assets.root, output), // Remote dir
+        customOptions
+      );
+    } else {
+      this.init();
+    }
 
     gulp
-      .src(this.input, { allowEmpty: true })
+      .src(BalmJS.file.absPaths(this.input), { allowEmpty: true })
       .pipe(BalmJS.plugins.rename(this.customOptions))
-      .pipe(gulp.dest(this.output));
+      .pipe(gulp.dest(this.output)); // Absolute path
   }
 
   recipe(

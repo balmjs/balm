@@ -11,7 +11,7 @@ class ServerTask extends BalmJS.BalmTask {
     super('serve');
   }
 
-  onWatch(): void {
+  private _onWatch(): void {
     // NOTE: bugfix for windows - chokidar.cwd has not default
     const watchOptions = {
       cwd: BalmJS.config.workspace
@@ -117,7 +117,7 @@ class ServerTask extends BalmJS.BalmTask {
     if (BalmJS.config.env.isDev) {
       server.init(bsOptions);
 
-      this.onWatch();
+      this._onWatch();
     }
   }
 }

@@ -12,7 +12,7 @@ class SpriteTask extends BalmJS.BalmImageTask {
     this.collect();
   }
 
-  getOption(name: string): any {
+  private _getOption(name: string): any {
     const spriteName = `${name}-${this.name}s.png`;
 
     return {
@@ -48,7 +48,7 @@ class SpriteTask extends BalmJS.BalmImageTask {
         ) as string; // "balm:sprite:name"
         const spriteConfig: any = {
           src: value.src,
-          opt: this.getOption(value.name),
+          opt: this._getOption(value.name),
           img: this.output,
           css: `${BalmJS.config.src.css}/${this.name}` // Don't modify
         };

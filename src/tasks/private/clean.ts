@@ -20,7 +20,7 @@ class CleanTask extends BalmJS.BalmTask {
     super('clean');
   }
 
-  getAssetsDir(rootKey = 'assets'): string[] {
+  private _getAssetsDir(rootKey = 'assets'): string[] {
     return ASSETS_KEYS.map(assetKey => BalmJS.config[rootKey][assetKey]);
   }
 
@@ -33,7 +33,7 @@ class CleanTask extends BalmJS.BalmTask {
   get remoteAppDir(): string[] {
     return BalmJS.config.assets.subDir
       ? [BalmJS.config.assets.static]
-      : this.getAssetsDir();
+      : this._getAssetsDir();
   }
 
   get dirInFrontend(): string[] {
@@ -63,7 +63,7 @@ class CleanTask extends BalmJS.BalmTask {
     return [
       ...(BalmJS.config.env.isProd && BalmJS.config.assets.subDir
         ? buildDir
-        : this.getAssetsDir('dest'))
+        : this._getAssetsDir('dest'))
     ];
   }
 

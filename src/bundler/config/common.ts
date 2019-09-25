@@ -1,7 +1,7 @@
 import getLoaders from '../loaders';
 import { INJECT_HASHNAME } from '../../config/constants';
 
-function getSplitChunks(): boolean | object {
+function _getSplitChunks(): boolean | object {
   const scripts = BalmJS.config.scripts;
   const jsFolder = BalmJS.config.paths.target.js;
 
@@ -46,7 +46,7 @@ function getSplitChunks(): boolean | object {
 }
 
 function getCommonConfig(scripts: any): any {
-  const splitChunks = getSplitChunks();
+  const splitChunks = _getSplitChunks();
   const optimization = splitChunks
     ? BalmJS.utils.mergeDeep(
         {

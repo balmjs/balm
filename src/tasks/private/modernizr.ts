@@ -9,7 +9,7 @@ class ModernizrTask extends BalmJS.BalmTask {
     this.defaultInput = BalmJS.file.absPaths(`${this.name}.json`);
   }
 
-  readConfig(): Promise<any> {
+  private _readConfig(): Promise<any> {
     return new Promise((resolve, reject): void => {
       fs.readFile(this.input, 'utf8', (err, data) => {
         if (err) reject(err);
@@ -18,7 +18,7 @@ class ModernizrTask extends BalmJS.BalmTask {
     });
   }
 
-  createDir(): Promise<any> {
+  private _createDir(): Promise<any> {
     return new Promise((resolve, reject): void => {
       mkdirp(BalmJS.file.absPaths(BalmJS.config.dest.js), (err: any) => {
         if (err) reject(err);
@@ -27,7 +27,7 @@ class ModernizrTask extends BalmJS.BalmTask {
     });
   }
 
-  generateScript(config: object): Promise<any> {
+  private _generateScript(config: object): Promise<any> {
     return new Promise((resolve, reject): void => {
       Modernizr.build(config, (content: any) => {
         fs.writeFile(
@@ -57,10 +57,10 @@ class ModernizrTask extends BalmJS.BalmTask {
       } else {
         (async (): Promise<any> => {
           const [config] = await Promise.all([
-            this.readConfig(),
-            this.createDir()
+            this._readConfig(),
+            this._createDir()
           ]);
-          await this.generateScript(config);
+          await this._generateScript(config);
           cb();
         })();
       }

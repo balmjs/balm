@@ -11,7 +11,7 @@ const PLUGIN_NAME = 'sftp';
 
 const normalizePath = (_path: string): string => _path.replace(/\\/g, '/');
 
-function resolveHomePath(key: any): object {
+function _resolveHomePath(key: any): object {
   if (key.location) {
     const HOME: string = process.env.HOME || process.env.USERPROFILE || '';
 
@@ -43,7 +43,7 @@ function resolveHomePath(key: any): object {
 /*
  * Lots of ways to present key info
  */
-function getKey(options: any): object {
+function _getKey(options: any): object {
   let key = options.key || options.keyLocation || null;
 
   if (key && BalmJS.utils.isString(key)) {
@@ -79,7 +79,7 @@ function getKey(options: any): object {
     }
 
     // Resolve all home paths
-    key = resolveHomePath(key);
+    key = _resolveHomePath(key);
   }
 
   return key;
@@ -126,7 +126,7 @@ function gulpSftp(options: any): any {
   /*
    * Key info
    */
-  const key: any = getKey(options);
+  const key: any = _getKey(options);
 
   /*
    * End Key normalization, key should now be of form:
@@ -140,7 +140,7 @@ function gulpSftp(options: any): any {
   let sftpCache: any = null; // Sftp connection cache
   let connCache: any = null; // Ssh connection cache
 
-  function pool(uploader: any): void {
+  function _pool(uploader: any): void {
     // Method to get cache or create connection
     if (sftpCache) {
       return uploader(sftpCache);
@@ -242,7 +242,7 @@ function gulpSftp(options: any): any {
     const finalRemotePath = normalizePath(path.join(remotePath, file.relative));
 
     // Connection pulled from pool
-    pool.call(this, function(sftp: any) {
+    _pool.call(this, function(sftp: any) {
       /*
        * Create Directories
        */
@@ -341,7 +341,7 @@ function gulpSftp(options: any): any {
     this.push(file);
   };
 
-  function flush(cb: Function): void {
+  function _flush(cb: Function): void {
     if (fileCount > 0) {
       const unit = fileCount === 1 ? 'file' : 'files';
       BalmJS.logger.success(
@@ -365,7 +365,7 @@ function gulpSftp(options: any): any {
     cb();
   }
 
-  return through.obj(transform, flush);
+  return through.obj(transform, _flush);
 }
 
 export default gulpSftp;
