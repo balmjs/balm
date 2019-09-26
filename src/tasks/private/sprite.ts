@@ -8,8 +8,10 @@ class SpriteTask extends BalmJS.BalmImageTask {
 
     this.defaultInput = BalmJS.config.styles.sprites;
 
-    this.init();
-    this.collect();
+    if (this.defaultInput.length) {
+      this.init();
+      this.collect();
+    }
   }
 
   private _getOption(name: string): any {
@@ -32,43 +34,39 @@ class SpriteTask extends BalmJS.BalmImageTask {
   }
 
   collect(): void {
-    if (this.input.length) {
-      const spriteList = [];
-      for (const spriteName of this.input) {
-        spriteList.push({
-          src: `${BalmJS.config.src.img}/${spriteName}/*.png`,
-          name: spriteName
-        });
-      }
+    const spriteList = [];
+    for (const spriteName of this.input) {
+      spriteList.push({
+        src: `${BalmJS.config.src.img}/${spriteName}/*.png`,
+        name: spriteName
+      });
+    }
 
-      for (let key = 0, len = spriteList.length; key < len; key++) {
-        const value: any = spriteList[key];
-        const spriteTaskName: string = BalmJS.toNamespace(
-          `${this.name}:${value.name}`
-        ) as string; // "balm:sprite:name"
-        const spriteConfig: any = {
-          src: value.src,
-          opt: this._getOption(value.name),
-          img: this.output,
-          css: `${BalmJS.config.src.css}/${this.name}s` // Don't modify
-        };
+    for (let key = 0, len = spriteList.length; key < len; key++) {
+      const value: any = spriteList[key];
+      const spriteTaskName = `${this.name}:${value.name}`; // E.g. "sprite:name"
+      const spriteConfig: any = {
+        src: value.src,
+        opt: this._getOption(value.name),
+        img: this.output,
+        css: `${BalmJS.config.src.css}/${this.name}s` // Don't modify
+      };
 
-        gulp.task(spriteTaskName, function() {
-          const spriteData = gulp
-            .src(spriteConfig.src)
-            .pipe($.spritesmith(spriteConfig.opt));
-          const imgStream = spriteData.img.pipe(
-            gulp.dest(BalmJS.file.absPaths(spriteConfig.img))
-          );
-          const cssStream = spriteData.css.pipe(
-            gulp.dest(BalmJS.file.absPaths(spriteConfig.css))
-          );
+      gulp.task(BalmJS.toNamespace(spriteTaskName), function() {
+        const spriteData = gulp
+          .src(spriteConfig.src)
+          .pipe($.spritesmith(spriteConfig.opt));
+        const imgStream = spriteData.img.pipe(
+          gulp.dest(BalmJS.file.absPaths(spriteConfig.img))
+        );
+        const cssStream = spriteData.css.pipe(
+          gulp.dest(BalmJS.file.absPaths(spriteConfig.css))
+        );
 
-          return mergeStream(imgStream, cssStream);
-        });
+        return mergeStream(imgStream, cssStream);
+      });
 
-        this.tasks.push(spriteTaskName);
-      }
+      this.tasks.push(spriteTaskName);
     }
   }
 

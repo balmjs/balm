@@ -10,26 +10,32 @@ function registerTasks(recipe: Function): void {
   const AwesomeTasks = BalmJS.utils.mergeDeep(PRIVATE_TASKS, PUBLIC_TASKS);
 
   // 1. Register balm tasks
+  const depsTasks: any[] = [];
+  const nonDepsTasks: any[] = [];
   Object.values(AwesomeTasks).forEach(function(AwesomeTask: any) {
     const awesomeTask = new AwesomeTask.default();
-    const taskName = awesomeTask.taskName;
+    awesomeTask.deps
+      ? depsTasks.push(awesomeTask)
+      : nonDepsTasks.push(awesomeTask);
+  });
+
+  nonDepsTasks.forEach(function(task: any) {
+    const taskName = task.taskName;
     let taskFunction: Function = function(cb: Function): void {
       cb();
     };
 
-    switch (awesomeTask.name) {
-      case 'sprite':
-        if (BalmJS.config.styles.sprites.length) {
-          taskFunction = gulp.series(awesomeTask.deps);
-        }
-        break;
+    switch (task.name) {
       case 'clean':
       case 'script':
       case 'modernizr':
         taskFunction = function(cb: Function): void {
-          awesomeTask.fn(cb);
+          task.fn(cb);
         };
         break;
+      case 'sass':
+      case 'less':
+      case 'postcss':
       case 'copy':
       case 'remove':
       case 'version':
@@ -37,17 +43,27 @@ function registerTasks(recipe: Function): void {
       case 'zip':
       case 'ftp':
       case 'publish':
-        taskFunction = awesomeTask.fn;
+        taskFunction = task.fn;
         break;
       default:
         taskFunction = function(cb: Function): void {
-          awesomeTask.fn();
+          task.fn();
           cb();
         };
     }
 
     gulp.task(taskName, taskFunction);
-    BalmJS.tasks.push(awesomeTask);
+    BalmJS.tasks.push(task);
+  });
+
+  depsTasks.forEach(function(task: any) {
+    if (task.deps.length) {
+      const taskName = task.taskName;
+      const taskFunction: Function = gulp.series(BalmJS.toNamespace(task.deps));
+
+      gulp.task(taskName, taskFunction);
+      BalmJS.tasks.push(task);
+    }
   });
 
   // 2. Register balm hooks

@@ -11,34 +11,56 @@ class HtmlTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.dest.base;
   }
 
-  private _getAssetsPath(type: any): any {
-    const from = BalmJS.config.paths.source[type].split('/').pop();
-    const to = BalmJS.file.assetsPath(BalmJS.config.paths.target[type]);
+  private _updateAssetsPath(type: any): any {
+    const isManifest: boolean = type === 'manifest';
+    const assetsType: string = isManifest ? 'img' : type;
+    const from: string = BalmJS.config.paths.source[assetsType]
+      .split('/')
+      .pop();
+    const to: string = BalmJS.file.assetsPath(
+      BalmJS.config.paths.target[assetsType]
+    );
 
-    const publicPathSrc = new RegExp(
-      `${BalmJS.config.assets.publicUrlPlaceholder}/${from}`,
+    const assetsPathSrc = new RegExp(
+      isManifest
+        ? `/?${from}`
+        : `${BalmJS.config.assets.publicUrlPlaceholder}/${from}`,
       'g'
     );
-    const publicPathDest = `${BalmJS.config.assets.publicUrlPlaceholder}/${to}`;
+    const assetsPathDest = `${BalmJS.config.assets.publicUrlPlaceholder}/${to}`;
 
-    return $.replace(publicPathSrc, publicPathDest);
-  }
+    BalmJS.logger.info(
+      `${this.name} task - assets path`,
+      {
+        regex: assetsPathSrc,
+        replacement: assetsPathDest
+      },
+      {
+        logLevel: BalmJS.LogLevel.Debug,
+        pre: true
+      }
+    );
 
-  private _getManifestPath(): any {
-    const from = BalmJS.config.paths.source.img.split('/').pop();
-    const to = BalmJS.file.assetsPath(BalmJS.config.paths.target.img);
-
-    const publicPathSrc = new RegExp(`/?${from}`, 'g');
-    const publicPathDest = `${BalmJS.config.assets.publicUrlPlaceholder}/${to}`;
-
-    return $.replace(publicPathSrc, publicPathDest);
+    return $.replace(assetsPathSrc, assetsPathDest);
   }
 
   private _setPublicPath(): any {
-    return $.replace(
-      `${BalmJS.config.assets.publicUrlPlaceholder}/`,
-      BalmJS.file.getPublicPath()
+    const publicPathSrc = `${BalmJS.config.assets.publicUrlPlaceholder}/`;
+    const publicPathDest = BalmJS.file.getPublicPath();
+
+    BalmJS.logger.info(
+      `${this.name} task - public path`,
+      {
+        regex: publicPathSrc,
+        replacement: publicPathDest
+      },
+      {
+        logLevel: BalmJS.LogLevel.Debug,
+        pre: true
+      }
     );
+
+    return $.replace(publicPathSrc, publicPathDest);
   }
 
   fn(): void {
@@ -61,18 +83,15 @@ class HtmlTask extends BalmJS.BalmTask {
           })
         )
         .pipe($.if(/\.html$/, $.htmlmin(BalmJS.config.html.options)))
-        .pipe(this._getAssetsPath('css'))
-        .pipe(this._getAssetsPath('js'))
-        .pipe(this._getAssetsPath('img'))
-        .pipe(this._getAssetsPath('media'))
-        .pipe($.if(MANIFEST, this._getManifestPath()))
-        .pipe(
-          $.if(MANIFEST && BalmJS.config.assets.cache, this._setPublicPath())
-        );
+        .pipe(this._updateAssetsPath('css'))
+        .pipe(this._updateAssetsPath('js'))
+        .pipe(this._updateAssetsPath('img'))
+        .pipe(this._updateAssetsPath('media'))
+        .pipe($.if(MANIFEST, this._updateAssetsPath('manifest')));
     } else {
       stream = stream
-        .pipe(this._getAssetsPath('css'))
-        .pipe(this._getAssetsPath('js'));
+        .pipe(this._updateAssetsPath('css'))
+        .pipe(this._updateAssetsPath('js'));
     }
 
     stream

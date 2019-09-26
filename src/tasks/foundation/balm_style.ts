@@ -26,7 +26,7 @@ class BalmStyleTask extends BalmTask {
     this.defaultOutput = BalmJS.config.dest.css;
   }
 
-  handleStyle(style: string, output: string, options?: any): void {
+  handleStyle(style: string, output: string, options?: any): any {
     let stream: any = gulp
       .src(BalmJS.file.absPaths(this.input), { allowEmpty: true })
       .pipe(
@@ -53,7 +53,7 @@ class BalmStyleTask extends BalmTask {
       default:
     }
 
-    stream
+    return stream
       .pipe($.postcss(BalmJS.plugins.postcss()))
       .pipe($.if(BalmJS.config.env.isDev, $.sourcemaps.write('.')))
       .pipe(

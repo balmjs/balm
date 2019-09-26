@@ -1,5 +1,5 @@
 import { ASSETS_KEYS, HMR_PATH } from '../config/constants';
-import checkConfig from './check-config';
+import checkConfig from './check_config';
 
 function _createQuickPath(config: any, rootKey: string): any {
   const result: any = {};

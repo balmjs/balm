@@ -1,6 +1,6 @@
 import BalmTask from './balm';
-import BalmStyleTask from './style';
-import BalmImageTask from './image';
+import BalmStyleTask from './balm_style';
+import BalmImageTask from './balm_image';
 
 const TIME_FLAG = 'BalmJS Time';
 
