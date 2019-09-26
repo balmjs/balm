@@ -118,6 +118,11 @@ class ServerTask extends BalmJS.BalmTask {
 
       if (BalmJS.webpackCompiler) {
         this._onWatch();
+      } else {
+        BalmJS.watcher = gulp.watch([
+          `${BalmJS.config.src.base}/**/*`,
+          ...BalmJS.config.server.watchFiles
+        ]);
       }
     }
   }

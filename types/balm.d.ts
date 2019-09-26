@@ -38,6 +38,7 @@ declare namespace NodeJS {
     tasks: any[];
     recipes: any[];
     recipeIndex: number;
+    watcher: any;
     watching: boolean;
     plugins: any;
     webpackCompiler: any;

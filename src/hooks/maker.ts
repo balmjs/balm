@@ -1,12 +1,41 @@
-const BLACKLIST_IN_DEV = ['publish'];
 const BLACKLIST_IN_PROD = ['serve', 'watch'];
+const BLACKLIST_IN_DEV = [
+  'publish',
+  ...(BalmJS.config.useDefaults ? BLACKLIST_IN_PROD : [])
+];
 
 function ban(name: string): boolean {
-  const banInDev = BalmJS.config.env.isDev && BLACKLIST_IN_DEV.includes(name);
   const banInProd =
     BalmJS.config.env.isProd && BLACKLIST_IN_PROD.includes(name);
+  const banInDev = BalmJS.config.env.isDev && BLACKLIST_IN_DEV.includes(name);
+  const isBan = banInProd || banInDev;
 
-  return banInDev || banInProd;
+  let api: string;
+  switch (name) {
+    case 'postcss':
+      api = 'css';
+      break;
+    case 'script':
+      api = 'js';
+      break;
+    default:
+      api = name;
+  }
+
+  if (isBan) {
+    let message =
+      BalmJS.config.useDefaults &&
+      BalmJS.config.env.isDev &&
+      BLACKLIST_IN_PROD.includes(name)
+        ? `'mix.${api}()' can only be used for 'balm.config.useDefaults = false'`
+        : `There is no 'mix.${api}()' hook in ${
+            banInProd ? 'production' : 'development'
+          } mode`;
+
+    BalmJS.logger.warn('balm hook', message);
+  }
+
+  return isBan;
 }
 
 class Maker {
@@ -17,7 +46,7 @@ class Maker {
     }
 
     const customTask = BalmJS.tasks.find((task: any) => task.name === name);
-    const taskName = ['sprite', 'serve', 'watch'].includes(customTask.name)
+    const taskName = ['sprite', ...BLACKLIST_IN_PROD].includes(customTask.name)
       ? customTask.name
       : `${customTask.name}:${BalmJS.recipeIndex}`;
     let balmTask: Function = function(cb: Function): void {
