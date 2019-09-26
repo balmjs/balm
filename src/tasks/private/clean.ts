@@ -41,10 +41,7 @@ class CleanTask extends BalmJS.BalmTask {
 
     BalmJS.logger.info(
       `${this.name} task`,
-      `'${BalmJS.config.assets.root}' is local directory: ${isLocal}`,
-      {
-        logLevel: BalmJS.LogLevel.Debug
-      }
+      `'${BalmJS.config.assets.root}' is local directory: ${isLocal}`
     );
 
     return BalmJS.config.env.isProd
@@ -73,13 +70,12 @@ class CleanTask extends BalmJS.BalmTask {
       : this.dirInBackend;
     directories = unique(directories);
 
-    BalmJS.logger.info(
+    BalmJS.logger.debug(
       `${this.name} task`,
       {
         directories
       },
       {
-        logLevel: BalmJS.LogLevel.Debug,
         pre: true
       }
     );

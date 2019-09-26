@@ -29,14 +29,13 @@ class HtmlTask extends BalmJS.BalmTask {
     );
     const assetsPathDest = `${BalmJS.config.assets.publicUrlPlaceholder}/${to}`;
 
-    BalmJS.logger.info(
+    BalmJS.logger.debug(
       `${this.name} task - assets path`,
       {
         regex: assetsPathSrc,
         replacement: assetsPathDest
       },
       {
-        logLevel: BalmJS.LogLevel.Debug,
         pre: true
       }
     );
@@ -48,14 +47,13 @@ class HtmlTask extends BalmJS.BalmTask {
     const publicPathSrc = `${BalmJS.config.assets.publicUrlPlaceholder}/`;
     const publicPathDest = BalmJS.file.getPublicPath();
 
-    BalmJS.logger.info(
+    BalmJS.logger.debug(
       `${this.name} task - public path`,
       {
         regex: publicPathSrc,
         replacement: publicPathDest
       },
       {
-        logLevel: BalmJS.LogLevel.Debug,
         pre: true
       }
     );

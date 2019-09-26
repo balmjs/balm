@@ -11,14 +11,13 @@ class UrlTask extends BalmJS.BalmTask {
     const pathSrc = new RegExp(`\\.{2}/${pattern}/`, 'g');
     const pathDest = `../${BalmJS.config.paths.target[type]}/`;
 
-    BalmJS.logger.info(
+    BalmJS.logger.debug(
       `${this.name} task`,
       {
         regex: pathSrc,
         replacement: pathDest
       },
       {
-        logLevel: BalmJS.LogLevel.Debug,
         pre: true
       }
     );

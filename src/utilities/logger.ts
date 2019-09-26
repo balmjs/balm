@@ -15,6 +15,11 @@ const LOG = {
     bright: true,
     symbol: 'check'
   },
+  DEBUG: {
+    color: 'blue',
+    bright: true,
+    symbol: 'mark'
+  },
   INFO: {
     color: 'cyan',
     bright: true,
@@ -51,14 +56,10 @@ class Logger {
       : obj;
   }
 
-  debug(obj: any, pre?: boolean): void {
-    fancyLog('%s %s', LOG.PREFIX, this._log(obj, pre));
-  }
-
   success(label: string, message: any, options: object = {}): void {
     const logOptions: LogOptions = Object.assign(
       {
-        logLevel: BalmJS.LogLevel.Debug
+        logLevel: BalmJS.LogLevel.Trace
       },
       options
     );
@@ -72,6 +73,24 @@ class Logger {
         this._log(message, logOptions.pre)
       );
       console.log(LOG.end);
+    }
+  }
+
+  debug(label: string, message: any, options: object = {}): void {
+    const logOptions: LogOptions = Object.assign(
+      {
+        logLevel: BalmJS.LogLevel.Debug
+      },
+      options
+    );
+
+    if (BalmJS.config.logs.level <= logOptions.logLevel) {
+      fancyLog.info(
+        LOG.FORMAT,
+        LOG.PREFIX,
+        color(`<${label}>`, LOG.DEBUG),
+        this._log(message, logOptions.pre)
+      );
     }
   }
 

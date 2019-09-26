@@ -15,7 +15,7 @@ class WatchTask extends BalmJS.BalmTask {
           ...BalmJS.config.server.watchFiles
         ])
         .on('change', function(path: string) {
-          BalmJS.logger.info('watch task', `File '${path}' was changed`);
+          BalmJS.logger.debug('watch task', `File '${path}' was changed`);
 
           try {
             handler(path);

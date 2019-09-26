@@ -23,7 +23,7 @@ const target = 'web';
 // Externals
 const externals: string | object | Function | RegExp = '';
 // Stats
-const stats: object = {
+const stats: string | object = {
   colors: true,
   modules: false,
   children: false,

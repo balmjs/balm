@@ -41,11 +41,11 @@ class PwaTask extends BalmJS.BalmTask {
       default:
     }
 
-    BalmJS.logger.info(`pwa - ${mode}`, options);
+    BalmJS.logger.debug(`pwa - ${mode}`, options);
 
     return workboxBuild[mode](options)
       .then(function(result: any) {
-        BalmJS.logger.success(
+        BalmJS.logger.info(
           `pwa - ${mode}`,
           `Generated '${swDest}', which will precache ${result.count} files, totaling ${result.size} bytes`
         );

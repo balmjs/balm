@@ -18,8 +18,7 @@ enum LogLevel {
   Debug = 1,
   Info = 2,
   Warn = 3,
-  Error = 4,
-  Fatal = 5
+  Error = 4
 }
 
 const noop: Function = () => {};

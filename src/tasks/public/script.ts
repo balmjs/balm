@@ -27,7 +27,9 @@ class ScriptTask extends BalmJS.BalmTask {
           return;
         }
 
-        console.log(stats.toString(BalmJS.config.scripts.stats));
+        if (BalmJS.config.logs.level <= BalmJS.LogLevel.Info) {
+          console.log(stats.toString(BalmJS.config.scripts.stats));
+        }
 
         // Done processing
         cb();

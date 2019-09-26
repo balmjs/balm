@@ -147,9 +147,9 @@ function gulpSftp(options: any): any {
     }
 
     if (password) {
-      BalmJS.logger.info(PLUGIN_NAME, 'Authenticating with password');
+      BalmJS.logger.debug(PLUGIN_NAME, 'Authenticating with password');
     } else if (key) {
-      BalmJS.logger.info(PLUGIN_NAME, 'Authenticating with private key');
+      BalmJS.logger.debug(PLUGIN_NAME, 'Authenticating with private key');
     }
 
     const conn = new Client();
@@ -295,7 +295,7 @@ function gulpSftp(options: any): any {
                     `Error or directory exists: ${err} ${d}`
                   );
                 } else {
-                  BalmJS.logger.success(PLUGIN_NAME, `Created: ${d}`);
+                  BalmJS.logger.info(PLUGIN_NAME, `Created: ${d}`);
                 }
 
                 callback();
@@ -324,7 +324,7 @@ function gulpSftp(options: any): any {
             if (err) {
               this.emit('error', new PluginError(PLUGIN_NAME, err));
             } else {
-              BalmJS.logger.success(
+              BalmJS.logger.info(
                 PLUGIN_NAME,
                 `Uploaded: ${file.relative} => ${finalRemotePath}`
               );
@@ -344,7 +344,7 @@ function gulpSftp(options: any): any {
   function _flush(cb: Function): void {
     if (fileCount > 0) {
       const unit = fileCount === 1 ? 'file' : 'files';
-      BalmJS.logger.success(
+      BalmJS.logger.info(
         PLUGIN_NAME,
         `${fileCount} ${unit} uploaded successfully`
       );

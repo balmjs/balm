@@ -13,8 +13,8 @@ interface Utils {
 }
 
 interface Logger {
-  debug: (obj: any, pre?: boolean) => void;
   success: (label: string, message: any, options?: object) => void;
+  debug: (label: string, message: any, options?: object) => void;
   info: (label: string, message: any, options?: object) => void;
   warn: (label: string, message: any, options?: object) => void;
   error: (label: string, message: any, options?: object) => void;
@@ -48,7 +48,6 @@ declare namespace NodeJS {
       Info: number;
       Warn: number;
       Error: number;
-      Fatal: number;
     };
     logger: Logger;
   }

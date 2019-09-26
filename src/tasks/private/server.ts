@@ -67,7 +67,7 @@ class ServerTask extends BalmJS.BalmTask {
       );
       // Watch single file - TODO: ftp task
       // .on('change', path => {
-      //   logger.info('[Server Task]', `File ${path} was changed`);
+      //   logger.debug(`${this.name} task`, `File ${path} was changed`);
       // });
     }
   }

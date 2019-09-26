@@ -66,8 +66,7 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
     );
   }
 
-  BalmJS.logger.info('webpack entry', webpackEntries, {
-    logLevel: BalmJS.LogLevel.Debug,
+  BalmJS.logger.debug('webpack entry', webpackEntries, {
     pre: true
   });
 

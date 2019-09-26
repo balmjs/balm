@@ -107,7 +107,7 @@ class BalmTask {
       obj.customOptions = this.customOptions;
     }
 
-    BalmJS.logger.info(`${this.name} task`, obj, {
+    BalmJS.logger.debug(`${this.name} task`, obj, {
       pre: true
     });
   }
