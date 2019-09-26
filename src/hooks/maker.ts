@@ -17,7 +17,7 @@ class Maker {
     }
 
     const customTask = BalmJS.tasks.find((task: any) => task.name === name);
-    const taskName = ['sprite', 'watch'].includes(customTask.name)
+    const taskName = ['sprite', 'serve', 'watch'].includes(customTask.name)
       ? customTask.name
       : `${customTask.name}:${BalmJS.recipeIndex}`;
     let balmTask: Function = function(cb: Function): void {
@@ -27,7 +27,7 @@ class Maker {
     switch (customTask.name) {
       case 'sprite':
         if (BalmJS.config.styles.sprites.length) {
-          balmTask = gulp.series(customTask.deps);
+          balmTask = gulp.series(BalmJS.toNamespace(customTask.deps));
         }
         break;
       case 'script':

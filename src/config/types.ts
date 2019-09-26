@@ -55,6 +55,15 @@ interface TemplateOption {
   options: object;
 }
 
+// Plugins
+interface RenameOptions {
+  dirname?: string;
+  prefix?: string;
+  basename?: string;
+  suffix?: string;
+  extname?: string;
+}
+
 export {
   ColorStyle,
   LogOptions,
@@ -63,5 +72,6 @@ export {
   Vendor,
   ProxyConfig,
   FtpConfig,
-  TemplateOption
+  TemplateOption,
+  RenameOptions
 };

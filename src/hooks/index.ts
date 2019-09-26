@@ -1,5 +1,5 @@
 import Maker from './maker';
-import { ObjectEntry, TemplateOption } from '../config/types';
+import { ObjectEntry, TemplateOption, RenameOptions } from '../config/types';
 
 class BaseHooks {
   get env(): boolean {
@@ -33,7 +33,11 @@ class BaseHooks {
   // scripts(input: string[], output: string): void {}
 
   // Files & Directories
-  copy(input: string | string[], output: string, renameOptions?: object): void {
+  copy(
+    input: string | string[],
+    output: string,
+    renameOptions?: string | Function | RenameOptions
+  ): void {
     Maker.generate('copy', [input, output, renameOptions]);
   }
 
@@ -97,7 +101,7 @@ class Hooks extends BaseHooks {
   publish(
     input: string | TemplateOption[],
     output: string,
-    renameOptions?: object
+    renameOptions?: string | Function | RenameOptions
   ): void {
     Maker.generate('publish', [input, output, renameOptions]);
   }

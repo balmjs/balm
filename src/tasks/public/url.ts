@@ -2,8 +2,8 @@ class UrlTask extends BalmJS.BalmTask {
   constructor() {
     super('url');
 
-    this.defaultInput = `${BalmJS.config.dest.css}/**/*.css`;
     this.defaultOutput = BalmJS.config.dest.css;
+    this.defaultInput = `${this.defaultOutput}/**/*.css`;
   }
 
   private _urlProcessing(type: string): any {
@@ -26,13 +26,17 @@ class UrlTask extends BalmJS.BalmTask {
     return $.replace(pathSrc, pathDest);
   }
 
-  fn(): void {
-    this.init();
+  recipe(input?: string | string[], output?: string): any {
+    this.init(input, output);
 
     this.src
       .pipe(this._urlProcessing('img'))
       .pipe(this._urlProcessing('font'))
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
+  }
+
+  fn(): void {
+    this.recipe();
   }
 }
 

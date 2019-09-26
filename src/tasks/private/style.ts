@@ -4,7 +4,7 @@ class StyleTask extends BalmJS.BalmTask {
   }
 
   get deps(): string[] {
-    return [this.styleName, 'url'];
+    return [this.styleName, ...(BalmJS.config.env.isProd ? ['url'] : [])];
   }
 }
 
