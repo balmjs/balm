@@ -8,7 +8,7 @@ class BuildTask extends BalmJS.BalmTask {
   fn(): void {
     this.init();
 
-    gulp.src(BalmJS.file.absPaths(this.input)).pipe(
+    this.src.pipe(
       $.size({
         title: this.name,
         gzip: true

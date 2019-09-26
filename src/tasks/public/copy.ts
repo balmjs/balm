@@ -10,8 +10,7 @@ class CopyTask extends BalmJS.BalmTask {
   ): void {
     this.init(input, output, renameOptions);
 
-    gulp
-      .src(BalmJS.file.absPaths(this.input))
+    this.src
       .pipe(BalmJS.plugins.rename(this.customOptions))
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
   }

@@ -80,6 +80,16 @@ class BalmTask {
     return name;
   }
 
+  get src(): any {
+    return gulp
+      .src(BalmJS.file.absPaths(this.input), { allowEmpty: true })
+      .pipe(
+        $.plumber((error: any): void => {
+          BalmJS.logger.error(`${this.name} task`, error.message);
+        })
+      );
+  }
+
   init(input?: string | string[], output?: string, customOptions?: any): void {
     this.input = input || this.defaultInput;
     this.output = output || this.defaultOutput;

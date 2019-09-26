@@ -22,8 +22,7 @@ class PublishTask extends BalmJS.BalmTask {
       this.init();
     }
 
-    gulp
-      .src(BalmJS.file.absPaths(this.input), { allowEmpty: true })
+    this.src
       .pipe(BalmJS.plugins.rename(this.customOptions))
       .pipe(gulp.dest(this.output)); // Absolute path
   }

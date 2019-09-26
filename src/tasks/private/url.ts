@@ -29,8 +29,7 @@ class UrlTask extends BalmJS.BalmTask {
   fn(): void {
     this.init();
 
-    gulp
-      .src(BalmJS.file.absPaths(this.input))
+    this.src
       .pipe(this._urlProcessing('img'))
       .pipe(this._urlProcessing('font'))
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));

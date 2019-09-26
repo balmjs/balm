@@ -12,9 +12,7 @@ class FtpTask extends BalmJS.BalmTask {
   recipe(localFiles: string | string[], customOptions?: object): void {
     this.init(localFiles, null, customOptions);
 
-    gulp
-      .src(BalmJS.file.absPaths(this.input), { allowEmpty: true })
-      .pipe(BalmJS.plugins.sftp(this.options));
+    this.src.pipe(BalmJS.plugins.sftp(this.options));
   }
 
   fn(cb: Function): void {

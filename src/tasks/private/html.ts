@@ -66,9 +66,7 @@ class HtmlTask extends BalmJS.BalmTask {
   fn(): void {
     this.init();
 
-    let stream: any = gulp.src(BalmJS.file.absPaths(this.input), {
-      allowEmpty: true
-    });
+    let stream: any = this.src;
 
     if (BalmJS.config.env.isProd) {
       stream = stream

@@ -10,13 +10,7 @@ class VersionTask extends BalmJS.BalmTask {
   ): void {
     this.init(input, output, customOptions);
 
-    gulp
-      .src(BalmJS.file.absPaths(this.input))
-      .pipe(
-        $.plumber(function(error: any): void {
-          BalmJS.logger.error('version task', error.message);
-        })
-      )
+    this.src
       .pipe($.revAll.revision(this.customOptions))
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)))
       .pipe($.revAll.versionFile())

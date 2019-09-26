@@ -9,8 +9,7 @@ class LintTask extends BalmJS.BalmTask {
   fn(): void {
     this.init();
 
-    gulp
-      .src(BalmJS.file.absPaths(this.input))
+    this.src
       .pipe($.eslint({ fix: true }))
       .pipe(server.reload({ stream: true, once: true }))
       .pipe($.eslint.format())
