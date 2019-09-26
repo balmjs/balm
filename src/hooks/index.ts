@@ -67,8 +67,8 @@ class Hooks extends BaseHooks {
     Maker.generate('sprite');
   }
 
-  url(): void {
-    Maker.generate('url');
+  url(input: string | string[], output: string): void {
+    Maker.generate('url', [input, output]);
   }
 
   // Server

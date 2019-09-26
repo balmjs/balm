@@ -37,7 +37,6 @@ class Maker {
           customTask.recipe(...args);
         };
         break;
-      case 'url':
       case 'modernizr':
       case 'html':
       case 'serve':
