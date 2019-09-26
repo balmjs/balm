@@ -5,16 +5,16 @@ class BuildTask extends BalmJS.BalmTask {
     this.defaultInput = `${BalmJS.config.dest.base}/**/*`;
   }
 
-  fn(): void {
+  fn = (): any => {
     this.init();
 
-    this.src.pipe(
+    return this.src.pipe(
       $.size({
         title: this.name,
         gzip: true
       })
     );
-  }
+  };
 }
 
 export default BuildTask;

@@ -63,7 +63,7 @@ class HtmlTask extends BalmJS.BalmTask {
     return $.replace(publicPathSrc, publicPathDest);
   }
 
-  fn(): void {
+  fn = (): any => {
     this.init();
 
     let stream: any = this.src;
@@ -92,10 +92,10 @@ class HtmlTask extends BalmJS.BalmTask {
         .pipe(this._updateAssetsPath('js'));
     }
 
-    stream
+    return stream
       .pipe(this._setPublicPath())
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
-  }
+  };
 }
 
 export default HtmlTask;

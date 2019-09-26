@@ -33,23 +33,16 @@ function registerTasks(recipe: Function): void {
           task.fn(cb);
         };
         break;
-      case 'sass':
-      case 'less':
-      case 'postcss':
-      case 'copy':
-      case 'remove':
-      case 'version':
-      case 'watch':
-      case 'zip':
-      case 'ftp':
-      case 'publish':
-        taskFunction = task.fn;
-        break;
-      default:
+      case 'start':
+      case 'end':
+      case 'serve':
         taskFunction = function(cb: Function): void {
           task.fn();
           cb();
         };
+        break;
+      default:
+        taskFunction = task.fn;
     }
 
     gulp.task(taskName, taskFunction);

@@ -26,18 +26,18 @@ class UrlTask extends BalmJS.BalmTask {
     return $.replace(pathSrc, pathDest);
   }
 
-  recipe(input?: string | string[], output?: string): void {
+  recipe(input?: string | string[], output?: string): any {
     this.init(input, output);
 
-    this.src
+    return this.src
       .pipe(this._urlProcessing('img'))
       .pipe(this._urlProcessing('font'))
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
   }
 
-  fn(): void {
-    this.recipe();
-  }
+  fn = (): void => {
+    return this.recipe();
+  };
 }
 
 export default UrlTask;

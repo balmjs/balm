@@ -6,16 +6,16 @@ class LintTask extends BalmJS.BalmTask {
     this.defaultInput = `${this.defaultOutput}/**/*.js`; // TODO: more ext
   }
 
-  fn(): void {
+  fn = (): any => {
     this.init();
 
-    this.src
+    return this.src
       .pipe($.eslint({ fix: true }))
       .pipe(server.reload({ stream: true, once: true }))
       .pipe($.eslint.format())
       .pipe($.if(!server.active, $.eslint.failAfterError()))
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
-  }
+  };
 }
 
 export default LintTask;

@@ -30,11 +30,11 @@ class ExtraTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.dest.base;
   }
 
-  fn(): void {
+  fn = (): any => {
     this.init();
 
-    this.src.pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
-  }
+    return this.src.pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
+  };
 }
 
 export default ExtraTask;

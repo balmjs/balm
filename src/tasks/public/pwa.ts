@@ -5,7 +5,7 @@ class PwaTask extends BalmJS.BalmTask {
     super('pwa');
   }
 
-  recipe(customMode?: string, customOptions: object = {}): void {
+  recipe(customMode?: string, customOptions: object = {}): any {
     const mode = customMode || BalmJS.config.pwa.mode;
     const globDirectory = BalmJS.config.dest.base;
     const swSrc = `${BalmJS.config.roots.source}/${BalmJS.config.pwa.swSrcFilename}`;
@@ -58,9 +58,9 @@ class PwaTask extends BalmJS.BalmTask {
       });
   }
 
-  fn(): void {
-    this.recipe();
-  }
+  fn = (): any => {
+    return this.recipe();
+  };
 }
 
 export default PwaTask;

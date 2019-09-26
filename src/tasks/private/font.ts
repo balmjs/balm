@@ -6,11 +6,11 @@ class FontTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.dest.font;
   }
 
-  fn(): void {
+  fn = (): any => {
     this.init();
 
-    this.src.pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
-  }
+    return this.src.pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
+  };
 }
 
 export default FontTask;

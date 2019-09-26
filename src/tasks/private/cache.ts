@@ -42,16 +42,16 @@ class CacheTask extends BalmJS.BalmTask {
       : BalmJS.config.dest.static;
   }
 
-  fn(): void {
+  fn = (): any => {
     this.init();
 
-    this.src
+    return this.src
       .pipe($.revAll.revision(BalmJS.config.assets.options))
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)))
       .pipe($.revDeleteOriginal())
       .pipe($.revAll.manifestFile())
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
-  }
+  };
 }
 
 export default CacheTask;

@@ -11,16 +11,16 @@ class ImageTask extends BalmJS.BalmImageTask {
     this.defaultInput = [`${BalmJS.config.src.img}/**/*`, ...excludeGlobs];
   }
 
-  fn(): void {
+  fn = (): any => {
     this.init();
 
-    gulp
+    return gulp
       .src(BalmJS.file.absPaths(this.input), {
         since: gulp.lastRun(BalmJS.toNamespace('image'))
       })
       .pipe($.imagemin())
       .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
-  }
+  };
 }
 
 export default ImageTask;

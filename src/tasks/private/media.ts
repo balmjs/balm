@@ -6,11 +6,11 @@ class MediaTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.dest.media;
   }
 
-  fn(): void {
+  fn = (): any => {
     this.init();
 
-    this.src.pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
-  }
+    return this.src.pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
+  };
 }
 
 export default MediaTask;
