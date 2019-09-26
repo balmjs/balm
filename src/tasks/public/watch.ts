@@ -18,7 +18,7 @@ class WatchTask extends BalmJS.BalmTask {
           BalmJS.logger.debug('watch task', `File '${path}' was changed`);
 
           try {
-            handler(path);
+            handler(path, server.reload);
           } catch (error) {
             BalmJS.logger.error('balm hook', error.message);
           }

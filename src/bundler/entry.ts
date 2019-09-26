@@ -26,7 +26,10 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
         .join('&')
     : HOT_CLIENT;
   const useHMR: boolean =
-    scripts.hot && BalmJS.config.env.isDev && !BalmJS.config.env.inSSR;
+    scripts.hot &&
+    BalmJS.config.userDefaults &&
+    BalmJS.config.env.isDev &&
+    !BalmJS.config.env.inSSR;
 
   if (BalmJS.utils.isObject(input)) {
     initVendors(input as ObjectEntry);

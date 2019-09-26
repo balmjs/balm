@@ -116,7 +116,9 @@ class ServerTask extends BalmJS.BalmTask {
     if (BalmJS.config.env.isDev) {
       server.init(bsOptions);
 
-      this._onWatch();
+      if (BalmJS.webpackCompiler) {
+        this._onWatch();
+      }
     }
   }
 }

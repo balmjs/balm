@@ -27,7 +27,11 @@ function webpackMiddleware(): object[] {
       );
     }
   } else {
-    BalmJS.logger.warn('webpack middleware', 'webpack compiler is not ready');
+    BalmJS.logger.warn(
+      'webpack middleware',
+      'Webpack compiler is not ready, `HMR` is disabled'
+    );
+    BalmJS.config.scripts.hot = false;
   }
 
   return middleware;
