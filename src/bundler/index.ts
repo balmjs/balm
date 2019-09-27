@@ -1,4 +1,4 @@
-import merge from 'webpack-merge';
+import webpackMerge from 'webpack-merge';
 import getEntry from './entry';
 import getOutput from './output';
 import getDefaultConfig from './config';
@@ -41,7 +41,7 @@ function webpackConfig(
 
   const defaultConfig = getDefaultConfig(scripts);
 
-  const configuration = merge(
+  const configuration = webpackMerge(
     baseConfig,
     defaultConfig,
     scripts.webpackOptions,

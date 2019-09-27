@@ -1,4 +1,4 @@
-import merge from 'webpack-merge';
+import webpackMerge from 'webpack-merge';
 import requireDir from 'require-dir';
 
 const LOADERS = requireDir('./rules');
@@ -28,7 +28,7 @@ function getLoaders(customLoaders: object[]): object[] {
     }
   });
 
-  const result = merge.smart(
+  const result = webpackMerge.smart(
     {
       rules: defaultLoaders
     },

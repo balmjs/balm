@@ -1,8 +1,8 @@
-import merge from 'webpack-merge';
+import webpackMerge from 'webpack-merge';
 import getCommonConfig from './common';
 
 function getDevConfig(scripts: any): any {
-  return merge(getCommonConfig(scripts), {
+  return webpackMerge(getCommonConfig(scripts), {
     mode: 'development',
     plugins: [
       // This is necessary to emit hot updates
