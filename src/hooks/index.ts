@@ -27,8 +27,6 @@ class BaseHooks {
     Maker.generate('postcss', [input, output]);
   }
 
-  // styles(input: string[], output: string): void {}
-
   // JavaScript
   js(
     input: string | string[] | ObjectEntry,
@@ -37,8 +35,6 @@ class BaseHooks {
   ): void {
     Maker.generate('script', [input, output, options]);
   }
-
-  // scripts(input: string[], output: string): void {}
 
   // Files & Directories
   copy(
