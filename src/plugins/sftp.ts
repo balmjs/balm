@@ -1,4 +1,4 @@
-// Reference `gulp-sftp`
+// Reference `gulp-sftp@0.1.5`
 import path from 'path';
 import fs from 'fs';
 import { Client } from 'ssh2';

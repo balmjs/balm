@@ -1,4 +1,4 @@
-// Reference `gulp-rename`
+// Reference `gulp-rename@1.4.0`
 import stream from 'stream';
 
 function _parsePath(

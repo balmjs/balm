@@ -1,4 +1,4 @@
-// Reference `gulp-htmlmin`
+// Reference `gulp-htmlmin@5.0.1`
 import htmlmin from 'html-minifier';
 
 const PLUGIN_NAME = 'htmlmin';
