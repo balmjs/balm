@@ -12,6 +12,13 @@ class File {
       : '';
   }
 
+  get assetsSuffixPath(): string {
+    return path.join(
+      BalmJS.config.assets.subDir,
+      BalmJS.config.assets.buildDir
+    );
+  }
+
   absPath(_path: string): string {
     return path.join(BalmJS.config.workspace, _path);
   }
@@ -38,11 +45,7 @@ class File {
 
   assetsPath(_path: string): string {
     return BalmJS.config.env.isProd || !BalmJS.config.inFrontend
-      ? path.posix.join(
-          BalmJS.config.assets.subDir,
-          BalmJS.config.assets.buildDir,
-          _path
-        )
+      ? path.posix.join(this.assetsSuffixPath, _path)
       : _path;
   }
 }

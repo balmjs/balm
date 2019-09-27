@@ -9,12 +9,7 @@ function _createQuickPath(config: any, rootKey: string): any {
     const pathValue = config.paths[rootKey][pathKey];
     result[pathKey] =
       rootKey === 'target' && ASSETS_KEYS.includes(pathKey)
-        ? path.join(
-            rootValue,
-            config.assets.subDir,
-            config.assets.buildDir,
-            pathValue
-          )
+        ? path.join(rootValue, BalmJS.file.assetsSuffixPath, pathValue)
         : path.join(rootValue, pathValue);
   }
 
@@ -36,16 +31,14 @@ function _ready(config: any): any {
 
   config.dest.static = path.join(
     config.dest.base,
-    config.assets.subDir,
-    config.assets.buildDir
+    BalmJS.file.assetsSuffixPath
   );
 
   // Create remote quick directories
   config.assets.static = path.join(
     config.assets.root,
     config.assets.mainDir,
-    config.assets.subDir,
-    config.assets.buildDir
+    BalmJS.file.assetsSuffixPath
   );
   for (const assetKey of ASSETS_KEYS) {
     config.assets[assetKey] = path.join(

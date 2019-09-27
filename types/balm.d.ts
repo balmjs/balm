@@ -23,6 +23,7 @@ interface BalmLogger {
 interface BalmFile {
   stylePaths: string[];
   publicPath: string;
+  assetsSuffixPath: string;
   absPath: (path: string) => string;
   absPaths: (paths: string | string[]) => string | string[];
   assetsPath: (path: string) => string;
