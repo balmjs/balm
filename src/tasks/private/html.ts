@@ -78,7 +78,9 @@ class HtmlTask extends BalmJS.BalmTask {
             ]
           })
         )
-        .pipe($.if(/\.html$/, $.htmlmin(BalmJS.config.html.options)))
+        .pipe(
+          $.if(/\.html$/, BalmJS.plugins.htmlmin(BalmJS.config.html.options))
+        )
         .pipe(this._updateAssetsPath('css'))
         .pipe(this._updateAssetsPath('js'))
         .pipe(this._updateAssetsPath('img'))

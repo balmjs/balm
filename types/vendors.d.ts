@@ -6,6 +6,7 @@ declare module 'cssnano';
 declare module 'fancy-log';
 declare module 'gulp';
 declare module 'gulp-load-plugins';
+declare module 'html-minifier';
 declare module 'http-proxy-middleware';
 declare module 'optimize-css-assets-webpack-plugin';
 declare module 'merge-stream';
@@ -48,6 +49,8 @@ declare namespace NodeJS {
     $: any;
     server: any;
     webpack: any;
+    through2: any;
+    PluginError: any;
   }
 }
 
@@ -55,3 +58,5 @@ declare var gulp: Gulp;
 declare var $: any;
 declare var server: any;
 declare var webpack: any;
+declare var through2: any;
+declare var PluginError: any;

@@ -2,10 +2,8 @@
 import path from 'path';
 import fs from 'fs';
 import { Client } from 'ssh2';
-import through from 'through2';
 import async from 'async';
 import parents from 'parents';
-import PluginError from 'plugin-error';
 
 const PLUGIN_NAME = 'sftp';
 
@@ -227,15 +225,15 @@ function gulpSftp(options: any): any {
     conn.connect(connectionOptions);
   }
 
-  const transform = function(
+  function _transform(
     this: any,
     file: any,
     encoding: string,
-    cb: Function
+    transformCallback: Function
   ): any {
     if (file.isNull()) {
       this.push(file);
-      return cb();
+      return transformCallback();
     }
 
     // Have to create a new connection for each file otherwise they conflict, pulled from sindresorhus
@@ -332,16 +330,16 @@ function gulpSftp(options: any): any {
               fileCount++;
             }
 
-            return cb(err);
+            return transformCallback(err);
           });
         }
       );
     });
 
     this.push(file);
-  };
+  }
 
-  function _flush(cb: Function): void {
+  function _flush(flushCallback: Function): void {
     if (fileCount > 0) {
       const unit = fileCount === 1 ? 'file' : 'files';
       BalmJS.logger.info(
@@ -362,10 +360,10 @@ function gulpSftp(options: any): any {
       connCache.end();
     }
 
-    cb();
+    flushCallback();
   }
 
-  return through.obj(transform, _flush);
+  return through2.obj(_transform, _flush);
 }
 
 export default gulpSftp;
