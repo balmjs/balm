@@ -3,9 +3,8 @@ import plumber from './plumber';
 import htmlmin from './htmlmin';
 import rename from './rename';
 import sftp from './sftp';
-import { BalmPlugins } from '../config/types';
 
-const plugins: BalmPlugins = {
+const plugins: any = {
   postcss,
   plumber,
   htmlmin,

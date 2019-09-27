@@ -1,5 +1,12 @@
 import ansiColors from 'ansi-colors';
-import { ColorStyle } from '../config/types';
+
+interface ColorStyle {
+  modifier?: string;
+  color: string;
+  background?: boolean;
+  bright?: boolean;
+  symbol?: string;
+}
 
 const COLOR = {
   PREFIX: 'bg',

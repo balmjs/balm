@@ -1,5 +1,13 @@
 import Maker from './maker';
-import { ObjectEntry, TemplateOption, RenameOptions } from '../config/types';
+import { ObjectEntry, TemplateOption } from '../config/types';
+
+interface RenameOptions {
+  dirname?: string;
+  prefix?: string;
+  basename?: string;
+  suffix?: string;
+  extname?: string;
+}
 
 class BaseHooks {
   get env(): boolean {

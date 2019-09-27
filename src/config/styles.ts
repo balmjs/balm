@@ -1,4 +1,12 @@
-import { PostcssLoaderOptions } from './types';
+interface PostcssLoaderOptions {
+  exec?: boolean;
+  parser?: string | object;
+  syntax?: string | object;
+  stringifier?: string | object;
+  config?: object;
+  // plugins: object[] | Function; // NOTE: The same to `styles.postcssPlugins`
+  sourceMap: string | boolean;
+}
 
 const extname = 'css';
 const atImportPaths: string[] = [];

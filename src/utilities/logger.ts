@@ -1,7 +1,11 @@
 import util from 'util';
 import fancyLog from 'fancy-log';
 import color from './color';
-import { LogOptions } from '../config/types';
+
+interface LogOptions {
+  logLevel: number;
+  pre?: boolean;
+}
 
 const LOG = {
   FORMAT: '%s %s %s',

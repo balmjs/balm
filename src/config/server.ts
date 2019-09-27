@@ -1,4 +1,7 @@
-import { ProxyConfig } from './types';
+interface ProxyConfig {
+  context: string | string[];
+  options: object;
+}
 
 const port = 3000;
 const host: string | null = null;
