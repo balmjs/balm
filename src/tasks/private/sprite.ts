@@ -52,15 +52,15 @@ class SpriteTask extends BalmJS.BalmImageTask {
         css: `${BalmJS.config.src.css}/${this.name}s` // Don't modify
       };
 
-      gulp.task(BalmJS.toNamespace(spriteTaskName), function() {
+      gulp.task(BalmJS.toNamespace(spriteTaskName) as string, function() {
         const spriteData = gulp
           .src(spriteConfig.src)
           .pipe($.spritesmith(spriteConfig.opt));
         const imgStream = spriteData.img.pipe(
-          gulp.dest(BalmJS.file.absPaths(spriteConfig.img))
+          gulp.dest(BalmJS.file.absPath(spriteConfig.img))
         );
         const cssStream = spriteData.css.pipe(
-          gulp.dest(BalmJS.file.absPaths(spriteConfig.css))
+          gulp.dest(BalmJS.file.absPath(spriteConfig.css))
         );
 
         return mergeStream(imgStream, cssStream);

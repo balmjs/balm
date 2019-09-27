@@ -60,10 +60,6 @@ class DefaultTask extends BalmJS.BalmTask {
 
     return tasks;
   }
-
-  fn(cb: Function): void {
-    cb();
-  }
 }
 
 export default DefaultTask;

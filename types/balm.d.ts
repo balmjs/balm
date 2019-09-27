@@ -1,9 +1,9 @@
-interface Vendor {
+interface BalmVendor {
   key: string;
   value: string[];
 }
 
-interface Utils {
+interface BalmUtils {
   getType: (obj: any) => string;
   isString: (str: any) => boolean;
   isObject: (obj: any) => boolean;
@@ -12,7 +12,7 @@ interface Utils {
   mergeDeep: (target: any, source: any) => object;
 }
 
-interface Logger {
+interface BalmLogger {
   success: (label: string, message: any, options?: object) => void;
   debug: (label: string, message: any, options?: object) => void;
   info: (label: string, message: any, options?: object) => void;
@@ -20,29 +20,25 @@ interface Logger {
   error: (label: string, message: any, options?: object) => void;
 }
 
+interface BalmFile {
+  stylePaths: string[];
+  publicPath: string;
+  absPath: (path: string) => string;
+  absPaths: (paths: string | string[]) => string | string[];
+  assetsPath: (path: string) => string;
+}
+
+interface BalmPlugins {
+  postcss: () => object[];
+  rename: (options: any) => any;
+  sftp: (options: any) => any;
+}
+
 declare namespace NodeJS {
   interface Global {
     BalmJS: any;
-    types: any;
     config: any;
     noop: Function;
-    utils: Utils;
-    toNamespace: (taskName: any) => string | string[];
-    file: any;
-    TIME_FLAG: string;
-    BalmTask: any;
-    BalmStyleTask: any;
-    BalmImageTask: any;
-    beforeTask: any;
-    afterTask: any;
-    tasks: any[];
-    recipes: any[];
-    recipeIndex: number;
-    watcher: any;
-    watching: boolean;
-    plugins: any;
-    webpackCompiler: any;
-    vendors: Vendor[];
     LogLevel: {
       Trace: number;
       Debug: number;
@@ -50,7 +46,23 @@ declare namespace NodeJS {
       Warn: number;
       Error: number;
     };
-    logger: Logger;
+    vendors: BalmVendor[];
+    utils: BalmUtils;
+    logger: BalmLogger;
+    file: BalmFile;
+    toNamespace: (taskName: any) => string | string[];
+    plugins: BalmPlugins;
+    TIME_FLAG: string;
+    BalmTask: any;
+    BalmStyleTask: any;
+    BalmImageTask: any;
+    tasks: any[];
+    beforeTask: any;
+    afterTask: any;
+    recipes: any[];
+    recipeIndex: number;
+    watching: boolean;
+    webpackCompiler: any;
   }
 }
 

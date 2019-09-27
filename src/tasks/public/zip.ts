@@ -15,7 +15,7 @@ class ZipTask extends BalmJS.BalmTask {
 
     this.src
       .pipe($.zip(filename))
-      .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
+      .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
   }
 
   fn(cb: Function): void {

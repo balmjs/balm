@@ -12,7 +12,7 @@ class CopyTask extends BalmJS.BalmTask {
 
     this.src
       .pipe(BalmJS.plugins.rename(this.customOptions))
-      .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
+      .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
   }
 
   fn(cb: Function): void {

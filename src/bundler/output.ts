@@ -20,15 +20,15 @@ function getOutput(output: string, scripts: any, isHook = false): any {
 
   BalmJS.logger.debug(
     'webpack output',
-    `Path: ${BalmJS.file.absPaths(outputPath)}`
+    `Path: ${BalmJS.file.absPath(outputPath)}`
   );
 
   return {
-    path: BalmJS.file.absPaths(outputPath),
+    path: BalmJS.file.absPath(outputPath),
     filename: isHook
       ? jsFilename
       : BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`),
-    publicPath: BalmJS.file.getPublicPath(),
+    publicPath: BalmJS.file.publicPath,
     library: scripts.library,
     libraryTarget: scripts.libraryTarget,
     chunkFilename: isHook

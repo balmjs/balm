@@ -17,4 +17,4 @@ function toNamespace(taskName: any): string | string[] {
   return result;
 }
 
-export { toNamespace };
+export default toNamespace;

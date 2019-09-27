@@ -72,7 +72,7 @@ function getCommonConfig(scripts: any): any {
       modules: [
         'node_modules',
         'bower_components',
-        BalmJS.file.absPaths(BalmJS.config.src.base)
+        BalmJS.file.absPath(BalmJS.config.src.base)
       ],
       // These extensions are tried when resolving a file
       extensions: [

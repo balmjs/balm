@@ -1,4 +1,4 @@
-const BLACKLIST_IN_PROD = ['serve', 'watch'];
+const BLACKLIST_IN_PROD = ['serve'];
 const BLACKLIST_IN_DEV = [
   'publish',
   ...(BalmJS.config.useDefaults ? BLACKLIST_IN_PROD : [])
@@ -23,7 +23,7 @@ function ban(name: string): boolean {
   }
 
   if (isBan) {
-    let message =
+    const message =
       BalmJS.config.useDefaults &&
       BalmJS.config.env.isDev &&
       BLACKLIST_IN_PROD.includes(name)
@@ -68,7 +68,6 @@ class Maker {
         break;
       case 'modernizr':
       case 'html':
-      case 'serve':
         balmTask = function(cb: Function): void {
           customTask.fn();
           cb();
@@ -84,7 +83,7 @@ class Maker {
     if (BalmJS.watching) {
       gulp.parallel(balmTask)();
     } else {
-      gulp.task(BalmJS.toNamespace(taskName), balmTask);
+      gulp.task(BalmJS.toNamespace(taskName) as string, balmTask);
 
       BalmJS.recipes.push(taskName);
       BalmJS.recipeIndex++;

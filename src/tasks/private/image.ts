@@ -16,10 +16,10 @@ class ImageTask extends BalmJS.BalmImageTask {
 
     return gulp
       .src(BalmJS.file.absPaths(this.input), {
-        since: gulp.lastRun(BalmJS.toNamespace('image'))
+        since: gulp.lastRun(BalmJS.toNamespace('image') as string)
       })
       .pipe($.imagemin())
-      .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
+      .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
   };
 }
 

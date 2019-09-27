@@ -1,4 +1,21 @@
 class File {
+  get stylePaths(): string[] {
+    return [
+      path.join(BalmJS.config.workspace, '.'),
+      ...BalmJS.config.styles.atImportPaths
+    ];
+  }
+
+  get publicPath(): string {
+    return BalmJS.config.env.isProd || BalmJS.config.assets.publicUrl === '/'
+      ? BalmJS.config.assets.publicUrl
+      : '';
+  }
+
+  absPath(_path: string): string {
+    return path.join(BalmJS.config.workspace, _path);
+  }
+
   absPaths(_paths: string | string[]): string | string[] {
     let paths: string | string[];
 
@@ -7,24 +24,16 @@ class File {
       for (const _path of _paths) {
         const result: any = /^!(.+)$/.exec(_path);
         if (result) {
-          paths.push('!' + path.join(BalmJS.config.workspace, result[1]));
+          paths.push('!' + this.absPath(result[1]));
         } else {
-          paths.push(path.join(BalmJS.config.workspace, _path));
+          paths.push(this.absPath(_path));
         }
       }
     } else {
-      const _path: string = _paths as string;
-      paths = path.join(BalmJS.config.workspace, _path);
+      paths = this.absPath(_paths as string);
     }
 
     return paths;
-  }
-
-  stylePaths(): string[] {
-    return [
-      path.join(BalmJS.config.workspace, '.'),
-      ...BalmJS.config.styles.atImportPaths
-    ];
   }
 
   assetsPath(_path: string): string {
@@ -35,12 +44,6 @@ class File {
           _path
         )
       : _path;
-  }
-
-  getPublicPath(): string {
-    return BalmJS.config.env.isProd || BalmJS.config.assets.publicUrl === '/'
-      ? BalmJS.config.assets.publicUrl
-      : '';
   }
 }
 

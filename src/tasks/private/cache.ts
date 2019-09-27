@@ -20,12 +20,14 @@ class CacheTask extends BalmJS.BalmTask {
       `!${BalmJS.config.dest.js}/${STATIC_ASSETS}/*`
     ];
 
-    const customIncludes = BalmJS.file.absPaths(BalmJS.config.assets.includes);
-    const customExcludes = BalmJS.file
-      .absPaths(BalmJS.config.assets.excludes)
-      .map((filename: string) => {
-        return `!${filename}`;
-      });
+    const customIncludes: string[] = BalmJS.file.absPaths(
+      BalmJS.config.assets.includes
+    ) as string[];
+    const customExcludes: string[] = (BalmJS.file.absPaths(
+      BalmJS.config.assets.excludes
+    ) as string[]).map((filename: string) => {
+      return `!${filename}`;
+    });
 
     this.defaultInput = [
       ...defaultIncludes,
@@ -47,10 +49,10 @@ class CacheTask extends BalmJS.BalmTask {
 
     return this.src
       .pipe($.revAll.revision(BalmJS.config.assets.options))
-      .pipe(gulp.dest(BalmJS.file.absPaths(this.output)))
+      .pipe(gulp.dest(BalmJS.file.absPath(this.output)))
       .pipe($.revDeleteOriginal())
       .pipe($.revAll.manifestFile())
-      .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
+      .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
   };
 }
 

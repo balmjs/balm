@@ -14,7 +14,7 @@ class LintTask extends BalmJS.BalmTask {
       .pipe(server.reload({ stream: true, once: true }))
       .pipe($.eslint.format())
       .pipe($.if(!server.active, $.eslint.failAfterError()))
-      .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
+      .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
   };
 }
 

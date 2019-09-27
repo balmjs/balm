@@ -1,8 +1,9 @@
 import postcss from './postcss';
 import rename from './rename';
 import sftp from './sftp';
+import { BalmPlugins } from '../config/types';
 
-const plugins: object = {
+const plugins: BalmPlugins = {
   postcss,
   rename,
   sftp

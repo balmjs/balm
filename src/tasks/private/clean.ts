@@ -46,10 +46,10 @@ class CleanTask extends BalmJS.BalmTask {
 
     return BalmJS.config.env.isProd
       ? [
-          BalmJS.file.absPaths(BalmJS.config.roots.target),
+          BalmJS.file.absPath(BalmJS.config.roots.target),
           ...(isLocal ? this.remoteRootDir : this.remoteAppDir)
         ]
-      : [BalmJS.file.absPaths(BalmJS.config.roots.tmp)];
+      : [BalmJS.file.absPath(BalmJS.config.roots.tmp)];
   }
 
   get dirInBackend(): string[] {

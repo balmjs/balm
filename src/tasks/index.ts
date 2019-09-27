@@ -75,7 +75,6 @@ function registerTasks(recipe: Function): void {
       ...defaultTask.mainTasks,
       ...defaultTask.subTasks,
       ...defaultTask.endTask
-      // defaultTask.fn
     )
   );
 }

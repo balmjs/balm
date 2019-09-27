@@ -28,14 +28,18 @@ declare module 'webpack-merge';
 declare module 'workbox-build';
 
 interface Gulp {
-  src: any;
-  dest: any;
-  lastRun: any;
+  src: (globs: string | string[], options?: object) => any;
+  dest: (directory: string | Function, options?: object) => any;
+  lastRun: (task: string | Function, precision?: number) => any;
   series: any;
   parallel: any;
-  watch: any;
-  task: any;
-  tree: any;
+  watch: (
+    globs: string | string[],
+    options?: object,
+    task?: string | Function
+  ) => any;
+  task: (taskName: string, taskFunction: Function) => any;
+  tree: (options?: object) => any;
 }
 
 declare namespace NodeJS {

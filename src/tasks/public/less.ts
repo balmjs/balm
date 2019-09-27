@@ -9,7 +9,7 @@ class LessTask extends BalmJS.BalmStyleTask {
   } {
     return Object.assign(
       {
-        paths: BalmJS.file.stylePaths()
+        paths: BalmJS.file.stylePaths
       },
       BalmJS.config.styles.lessOptions,
       this.customOptions

@@ -1,5 +1,5 @@
 import './globals';
-import { Vendor } from './types';
+import { BalmVendor } from './types';
 import env from './env';
 import roots from './roots';
 import paths from './paths';
@@ -22,7 +22,7 @@ enum LogLevel {
 }
 
 const noop: Function = () => {};
-const vendors: Vendor[] = [];
+const vendors: BalmVendor[] = [];
 
 /**
  * Project type

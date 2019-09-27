@@ -45,7 +45,7 @@ class HtmlTask extends BalmJS.BalmTask {
 
   private _setPublicPath(): any {
     const publicPathSrc = `${BalmJS.config.assets.publicUrlPlaceholder}/`;
-    const publicPathDest = BalmJS.file.getPublicPath();
+    const publicPathDest = BalmJS.file.publicPath;
 
     BalmJS.logger.debug(
       `${this.name} task - public path`,
@@ -92,7 +92,7 @@ class HtmlTask extends BalmJS.BalmTask {
 
     return stream
       .pipe(this._setPublicPath())
-      .pipe(gulp.dest(BalmJS.file.absPaths(this.output)));
+      .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
   };
 }
 

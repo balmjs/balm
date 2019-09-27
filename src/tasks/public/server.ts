@@ -72,7 +72,7 @@ class ServerTask extends BalmJS.BalmTask {
     }
   }
 
-  fn(): void {
+  recipe(customHandler?: Function): void {
     let bsOptions: any = {
       logPrefix: 'BalmJS',
       notify: false,
@@ -103,8 +103,8 @@ class ServerTask extends BalmJS.BalmTask {
       bsOptions.server = {
         baseDir: [BalmJS.config.dest.base, BalmJS.config.src.base],
         routes: {
-          '/bower_components': BalmJS.file.absPaths('bower_components'),
-          '/node_modules': BalmJS.file.absPaths('node_modules')
+          '/bower_components': BalmJS.file.absPath('bower_components'),
+          '/node_modules': BalmJS.file.absPath('node_modules')
         }
       };
     }
@@ -116,15 +116,26 @@ class ServerTask extends BalmJS.BalmTask {
     if (BalmJS.config.env.isDev) {
       server.init(bsOptions);
 
-      if (BalmJS.webpackCompiler) {
+      if (BalmJS.config.useDefaults) {
         this._onWatch();
       } else {
-        BalmJS.watcher = gulp.watch([
+        BalmJS.watching = true;
+        const watcher = gulp.watch([
           `${BalmJS.config.src.base}/**/*`,
           ...BalmJS.config.server.watchFiles
         ]);
+
+        try {
+          customHandler && customHandler(watcher, server.reload);
+        } catch (error) {
+          BalmJS.logger.error('balm hook', error.message);
+        }
       }
     }
+  }
+
+  fn(): void {
+    this.recipe();
   }
 }
 

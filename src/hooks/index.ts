@@ -51,8 +51,8 @@ class BaseHooks {
   }
 
   // Server
-  serve(): void {
-    Maker.generate('serve');
+  serve(handler: Function): void {
+    Maker.generate('serve', [handler]);
   }
 }
 
@@ -69,11 +69,6 @@ class Hooks extends BaseHooks {
 
   url(input: string | string[], output: string): void {
     Maker.generate('url', [input, output]);
-  }
-
-  // Server
-  watch(handler: Function): void {
-    Maker.generate('watch', [handler]);
   }
 
   // PWA

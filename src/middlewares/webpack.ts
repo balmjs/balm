@@ -11,7 +11,7 @@ function webpackMiddleware(): object[] {
         BalmJS.webpackCompiler,
         Object.assign(
           {
-            publicPath: BalmJS.file.getPublicPath()
+            publicPath: BalmJS.file.publicPath
           },
           BalmJS.config.server.devOptions
         )

@@ -28,7 +28,7 @@ interface ObjectEntry {
   [entryChunkName: string]: string | string[];
 }
 
-interface Vendor {
+interface BalmVendor {
   key: string;
   value: string[];
 }
@@ -56,6 +56,12 @@ interface TemplateOption {
 }
 
 // Plugins
+interface BalmPlugins {
+  postcss: () => object[];
+  rename: (options: any) => any;
+  sftp: (options: any) => any;
+}
+
 interface RenameOptions {
   dirname?: string;
   prefix?: string;
@@ -69,9 +75,10 @@ export {
   LogOptions,
   PostcssLoaderOptions,
   ObjectEntry,
-  Vendor,
+  BalmVendor,
   ProxyConfig,
   FtpConfig,
   TemplateOption,
+  BalmPlugins,
   RenameOptions
 };
