@@ -30,7 +30,7 @@ class BalmStyleTask extends BalmTask {
     let stream: any = gulp
       .src(BalmJS.file.absPaths(this.input), { allowEmpty: true })
       .pipe(
-        $.plumber(function(this: any, error: any): void {
+        BalmJS.plugins.plumber(function(this: any, error: any): void {
           // https://github.com/floatdrop/gulp-plumber/issues/30
           BalmJS.logger.error('style task', error.message);
           // Must emit end event for any dependent streams to pick up on this. Destroying the stream

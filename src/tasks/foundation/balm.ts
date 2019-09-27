@@ -84,7 +84,7 @@ class BalmTask {
     return gulp
       .src(BalmJS.file.absPaths(this.input), { allowEmpty: true })
       .pipe(
-        $.plumber((error: any): void => {
+        BalmJS.plugins.plumber((error: any): void => {
           BalmJS.logger.error(`${this.name} task`, error.message);
         })
       );

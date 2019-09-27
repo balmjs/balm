@@ -58,6 +58,7 @@ interface TemplateOption {
 // Plugins
 interface BalmPlugins {
   postcss: () => object[];
+  plumber: (options: any) => any;
   htmlmin: (options: any) => any;
   rename: (options: any) => any;
   sftp: (options: any) => any;
