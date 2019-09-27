@@ -120,6 +120,7 @@ class ServerTask extends BalmJS.BalmTask {
         this._onWatch();
       } else {
         BalmJS.watching = true;
+
         const watcher = gulp.watch([
           `${BalmJS.config.src.base}/**/*`,
           ...BalmJS.config.server.watchFiles
