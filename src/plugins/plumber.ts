@@ -1,6 +1,8 @@
 // Reference `gulp-plumber@1.2.1`
 import events from 'events';
 
+const PLUGIN_NAME = 'plumber';
+
 const EE = events.EventEmitter;
 
 function removeDefaultHandler(stream: any, event: string): boolean | Function {
@@ -32,7 +34,10 @@ function wrapPanicOnErrorHandler(stream: any): void {
 function defaultErrorHandler(this: any, error: any): any {
   // onerror2 and this handler
   if (EE.listenerCount(this, 'error') < 3) {
-    BalmJS.logger.error('plumber - found unhandled error', error.toString());
+    BalmJS.logger.error(
+      `${PLUGIN_NAME} - found unhandled error`,
+      error.toString()
+    );
   }
 }
 
@@ -63,7 +68,7 @@ function gulpPlumber(opts: any): any {
 
   through.pipe2 = function pipe2(this: any, dest: any): any {
     if (!dest) {
-      throw new PluginError('plumber', "Can't pipe to undefined");
+      throw new PluginError(PLUGIN_NAME, "Can't pipe to undefined");
     }
 
     // this._pipe.apply(this, arguments);

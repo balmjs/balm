@@ -27,8 +27,7 @@ class BalmStyleTask extends BalmTask {
   }
 
   handleStyle(style: string, output: string, options?: any): any {
-    let stream: any = gulp
-      .src(BalmJS.file.absPaths(this.input), { allowEmpty: true })
+    let stream: any = this.src
       .pipe(
         BalmJS.plugins.plumber(function(this: any, error: any): void {
           // https://github.com/floatdrop/gulp-plumber/issues/30
