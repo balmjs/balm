@@ -90,7 +90,7 @@ function setConfig(customConfig: any = {}): any {
   return config;
 }
 
-function checkGulpTask(name: any): string | boolean | Function {
+function checkTask(name: any): string | boolean | Function {
   let result: string | boolean | Function = false;
 
   if (BalmJS.utils.isFunction(name)) {
@@ -108,4 +108,4 @@ function checkGulpTask(name: any): string | boolean | Function {
   return result;
 }
 
-export { setConfig, checkGulpTask };
+export { setConfig, checkTask };

@@ -80,7 +80,6 @@ class ServerTask extends BalmJS.BalmTask {
       host: BalmJS.config.server.host,
       https: BalmJS.config.server.https,
       open: BalmJS.config.server.open,
-      browser: BalmJS.config.server.browser,
       localOnly: BalmJS.config.server.localOnly
     };
 

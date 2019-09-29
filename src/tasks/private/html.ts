@@ -14,11 +14,11 @@ class HtmlTask extends BalmJS.BalmTask {
   private _updateAssetsPath(type: any): any {
     const isManifest: boolean = type === 'manifest';
     const assetsType: string = isManifest ? 'img' : type;
-    const from: string = BalmJS.config.paths.source[assetsType]
+    const from: string = (BalmJS.config.paths.source as any)[assetsType]
       .split('/')
       .pop();
     const to: string = BalmJS.file.assetsPath(
-      BalmJS.config.paths.target[assetsType]
+      (BalmJS.config.paths.target as any)[assetsType]
     );
 
     const assetsPathSrc = new RegExp(

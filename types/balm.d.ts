@@ -1,3 +1,162 @@
+interface BalmPath {
+  base: string;
+  css: string;
+  js: string;
+  img: string;
+  font: string;
+  media: string;
+}
+
+interface BalmStyles {
+  extname: string;
+  atImportPaths: string[];
+  options: object;
+  sassOptions: object;
+  lessOptions: object;
+  postcssEnvOptions: object;
+  postcssPlugins: object[];
+  postcssLoaderOptions: {
+    exec?: boolean;
+    parser?: string | object;
+    syntax?: string | object;
+    stringifier?: string | object;
+    config?: object;
+    plugins?: object[] | Function;
+    sourceMap: string | boolean;
+  };
+  imageBasePath: string;
+  sprites: string[];
+  spritePadding: number;
+}
+
+interface BalmScripts {
+  entry: string | string[] | { [entryChunkName: string]: string | string[] };
+  library: string | object;
+  libraryTarget: string;
+  loaders: any[];
+  includeJsResource: string[];
+  disableDefaultLoaders: {
+    html?: boolean;
+    css?: boolean;
+    js?: boolean;
+    url?: boolean;
+  };
+  extensions: string[];
+  alias: object;
+  plugins: object[];
+  hot: boolean;
+  sourceMap: string | boolean;
+  target: string;
+  externals: string | object | Function | RegExp;
+  stats: string | object;
+  webpackOptions: object;
+  eslint: boolean;
+  options: object;
+  inject: boolean;
+  optimization: object;
+  splitAllVendors: boolean;
+  vendorsName: string;
+  bundleAnalyzerReport: any;
+  extractCss: {
+    enabled: boolean;
+    prefix: string;
+  };
+  base64Limit: number;
+}
+
+interface BalmAssets {
+  publicUrlPlaceholder: string;
+  publicUrl: string;
+  root: string;
+  mainDir: string;
+  subDir: string;
+  buildDir: string;
+  cache: boolean;
+  options: object;
+  includes: string[];
+  excludes: string[];
+  static: string; // Custom
+}
+
+interface ProxyConfig {
+  context: string | string[];
+  options: object;
+}
+
+interface BalmServer {
+  port: number;
+  host: string | null;
+  https: boolean | undefined;
+  open: string | boolean;
+  localOnly: boolean;
+  proxy: string | boolean | object;
+  serveStatic: string[];
+  options: any;
+  devOptions: object;
+  hotOptions: object;
+  proxyConfig: boolean | ProxyConfig | ProxyConfig[];
+  historyOptions: boolean | object;
+  middlewares: object[];
+  watchFiles: string[];
+}
+
+interface BalmConfig {
+  inFrontend: boolean;
+  workspace: string;
+  env: {
+    isProd: boolean;
+    isTest: boolean;
+    isDev: boolean;
+    inSSR: boolean;
+  };
+  roots: {
+    source: string;
+    tmp: string;
+    target: string;
+  };
+  paths: {
+    source: BalmPath;
+    tmp: BalmPath;
+    target: BalmPath;
+  };
+  html: {
+    options: object;
+  };
+  styles: BalmStyles;
+  scripts: BalmScripts;
+  extras: {
+    excludes: string[];
+    includes: string[];
+  };
+  assets: BalmAssets;
+  server: BalmServer;
+  ftp: {
+    options: {
+      host: string | undefined;
+      port?: number;
+      username?: string;
+      password?: string | null;
+      remotePath?: string;
+    };
+    files: string[];
+  };
+  pwa: {
+    enabled: boolean;
+    workboxSw: string;
+    mode: string;
+    options: object;
+    swSrcFilename: string;
+    swDestFilename: string;
+  };
+  logs: {
+    level: number;
+    formatOptions: object;
+  };
+  useDefaults: boolean;
+  src?: any;
+  dest?: any;
+}
+
 interface BalmVendor {
   key: string;
   value: string[];
@@ -40,7 +199,7 @@ interface BalmPlugins {
 declare namespace NodeJS {
   interface Global {
     BalmJS: any;
-    config: any;
+    config: BalmConfig;
     noop: Function;
     LogLevel: {
       Trace: number;

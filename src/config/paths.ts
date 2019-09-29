@@ -1,4 +1,13 @@
-const source: object = {
+interface BalmPath {
+  base: string;
+  css: string;
+  js: string;
+  img: string;
+  font: string;
+  media: string;
+}
+
+const source: BalmPath = {
   base: '', // Project directory
   css: 'styles', // Stylesheet directory: `src/styles`
   js: 'scripts', // Javascript directory: `src/scripts`
@@ -7,7 +16,7 @@ const source: object = {
   media: 'media' // Media directory: `src/media`
 };
 
-const tmp: object = {
+const tmp: BalmPath = {
   base: '',
   css: 'css', // `.tmp/css`
   js: 'js', // `.tmp/js`
@@ -16,7 +25,7 @@ const tmp: object = {
   media: 'media' // `.tmp/media`
 };
 
-const target: object = {
+const target: BalmPath = {
   base: '',
   css: 'css', // `dist/css`
   js: 'js', // `dist/js`

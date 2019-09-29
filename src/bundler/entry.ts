@@ -27,7 +27,7 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
     : HOT_CLIENT;
   const useHMR: boolean =
     scripts.hot &&
-    BalmJS.config.userDefaults &&
+    BalmJS.config.useDefaults &&
     BalmJS.config.env.isDev &&
     !BalmJS.config.env.inSSR;
 

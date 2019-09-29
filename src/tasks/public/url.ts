@@ -7,9 +7,9 @@ class UrlTask extends BalmJS.BalmTask {
   }
 
   private _urlProcessing(type: string): any {
-    const pattern = BalmJS.config.paths.source[type].split('/').pop();
+    const pattern = (BalmJS.config.paths.source as any)[type].split('/').pop();
     const pathSrc = new RegExp(`\\.{2}/${pattern}/`, 'g');
-    const pathDest = `../${BalmJS.config.paths.target[type]}/`;
+    const pathDest = `../${(BalmJS.config.paths.target as any)[type]}/`;
 
     BalmJS.logger.debug(
       `${this.name} task`,

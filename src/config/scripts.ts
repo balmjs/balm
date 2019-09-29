@@ -1,4 +1,4 @@
-import { ObjectEntry } from './types';
+import { ObjectEntry, BalmDefaultLoaders } from './types';
 
 // Entry and Context
 const entry: string | string[] | ObjectEntry = '';
@@ -6,9 +6,9 @@ const entry: string | string[] | ObjectEntry = '';
 const library: string | object = '';
 const libraryTarget = 'var'; // ['var', 'this', 'window', 'global', 'commonjs', 'commonjs2', 'amd', 'umd']
 // Module
-const loaders: object[] = [];
+const loaders: any[] = [];
 const includeJsResource: string[] = [];
-const disableDefaultLoaders: object = {};
+const disableDefaultLoaders: BalmDefaultLoaders = {};
 // Resolve
 const extensions: string[] = [];
 const alias: object = {};
@@ -80,7 +80,10 @@ const vendorsName = 'vendors'; // AllInOne vendor filename or Vendors folder nam
 // Set to `true` or `false` to always turn it on or off
 const bundleAnalyzerReport: any = process.env.npm_config_report;
 // Extract CSS
-const extractCss: object = {
+const extractCss: {
+  enabled: boolean;
+  prefix: string;
+} = {
   enabled: false,
   prefix: ''
 };

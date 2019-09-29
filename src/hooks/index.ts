@@ -1,5 +1,5 @@
 import Maker from './maker';
-import { ObjectEntry, TemplateOption } from '../config/types';
+import { BalmEnv, ObjectEntry, TemplateOption } from '../config/types';
 
 interface RenameOptions {
   dirname?: string;
@@ -10,7 +10,7 @@ interface RenameOptions {
 }
 
 class BaseHooks {
-  get env(): boolean {
+  get env(): BalmEnv {
     return BalmJS.config.env;
   }
 

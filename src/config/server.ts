@@ -1,7 +1,4 @@
-interface ProxyConfig {
-  context: string | string[];
-  options: object;
-}
+import { ProxyConfig } from './types';
 
 const port = 3000;
 const host: string | null = null;
@@ -17,10 +14,10 @@ const serveStatic: string[] = [
 ];
 const options: any = {};
 // Middleware
-const devOptions: any = {
+const devOptions: object = {
   stats: false
 };
-const hotOptions: any = {
+const hotOptions: object = {
   reload: true,
   noInfo: true
 };

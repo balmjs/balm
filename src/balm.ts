@@ -3,7 +3,7 @@ import './config';
 import './utilities';
 import './plugins';
 import registerTasks from './tasks';
-import { setConfig, checkGulpTask } from './bootstrap';
+import { setConfig, checkTask } from './bootstrap';
 
 class Balm {
   private _config: any;
@@ -22,13 +22,13 @@ class Balm {
   }
 
   set beforeTask(name: string | Function) {
-    const task = checkGulpTask(name);
+    const task = checkTask(name);
     if (task) {
       BalmJS.beforeTask = task;
     }
   }
   set afterTask(name: string | Function) {
-    const task = checkGulpTask(name);
+    const task = checkTask(name);
     if (task) {
       BalmJS.afterTask = task;
     }

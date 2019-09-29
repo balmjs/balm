@@ -1,4 +1,5 @@
 import proxy from 'http-proxy-middleware';
+import { ProxyConfig } from '../config/types';
 
 function _handleProxyConfigError(): void {
   BalmJS.logger.error(
@@ -14,14 +15,15 @@ function httpProxyMiddleware(): object[] {
   if (proxyConfig) {
     if (BalmJS.utils.isObject(proxyConfig)) {
       // Single proxy
-      if (proxyConfig.context && proxyConfig.options) {
-        middleware.push(proxy(proxyConfig.context, proxyConfig.options));
+      const config = proxyConfig as ProxyConfig;
+      if (config.context && config.options) {
+        middleware.push(proxy(config.context, config.options));
       } else {
         _handleProxyConfigError();
       }
     } else if (BalmJS.utils.isArray(proxyConfig)) {
       // Multiple proxies
-      for (const config of proxyConfig) {
+      for (const config of proxyConfig as ProxyConfig[]) {
         if (config.context && config.options) {
           middleware.push(proxy(config.context, config.options));
         } else {

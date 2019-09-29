@@ -21,7 +21,9 @@ class CleanTask extends BalmJS.BalmTask {
   }
 
   private _getAssetsDir(rootKey = 'assets'): string[] {
-    return ASSETS_KEYS.map(assetKey => BalmJS.config[rootKey][assetKey]);
+    return ASSETS_KEYS.map(
+      assetKey => (BalmJS.config as any)[rootKey][assetKey]
+    );
   }
 
   get remoteRootDir(): string[] {
