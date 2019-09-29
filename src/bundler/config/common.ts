@@ -47,7 +47,7 @@ function _getSplitChunks(): boolean | object {
 
 function getCommonConfig(scripts: any): any {
   const splitChunks = _getSplitChunks();
-  const optimization = splitChunks
+  const optimization: any = splitChunks
     ? BalmJS.utils.mergeDeep(
         {
           splitChunks

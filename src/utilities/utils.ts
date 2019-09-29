@@ -18,7 +18,7 @@ function isFunction(fn: any): boolean {
 }
 
 // Deep merge two objects
-function mergeDeep(target: any, source: any): object {
+function mergeDeep(target: any, source: any): any {
   if (isObject(target) && isObject(source)) {
     Object.keys(source).forEach(function(key: string) {
       if (isObject(source[key])) {
