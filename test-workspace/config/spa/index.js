@@ -23,8 +23,8 @@ balmConfig = Object.assign(balmConfig, {
   roots: {
     source: 'spa'
   },
-  scripts,
-  cache: true
+  scripts
+  // useDefaults: false
 });
 
 balm.config = balmConfig;
@@ -46,13 +46,36 @@ balm.config = balmConfig;
 
 // Test build
 balm.go(mix => {
+  // mix.url('.output/**/*.css', '.output/url');
+  // mix.sass('spa/styles/main.scss', '.output/sass');
+  // mix.less('spa/styles/main.less', '.output/less');
+  // mix.css('spa/styles/main.css', '.output/css');
+  // mix.styles(['spa/styles/main.css'], '.output/css/all.css');
+  // mix.js('./spa/scripts/main-sync.js', '.output/js');
+  // mix.scripts(['spa/script/main-sync.js'], '.output/js/all.js');
+  // mix.copy(
+  //   '../node_modules/workbox-sw/build/workbox-sw.js',
+  //   balm.config.dest.base,
+  //   {
+  //     basename: 'abc',
+  //     suffix: '.min'
+  //   }
+  // );
+  // mix.version('.output/**/*.css', '.output/version');
+  // mix.zip();
+
+  // mix.html();
+  // mix.css('spa/styles/main.css', '.tmp/css');
+  // mix.js('./spa/scripts/main-sync.js', '.tmp/js');
+
   if (mix.env.isProd) {
-    mix.publish();
-    mix.publish('index.template.html', 'views', {
-      basename: 'home',
-      suffix: '.blade',
-      extname: '.php'
-    });
+    // mix.publish();
+    // mix.publish();
+    // mix.publish('index.html', 'views', {
+    //   basename: 'home',
+    //   suffix: '.blade',
+    //   extname: '.php'
+    // });
     // mix.js([`./src/scripts/spa/main-hello.js`], 'dist', {
     //   output: {
     //     library: 'MyLibrary',
@@ -60,10 +83,25 @@ balm.go(mix => {
     //   }
     // });
   } else {
-    // mix.copy(
-    //   'node_modules/workbox-sw/build/workbox-sw.js',
-    //   balm.config.isProd ? balm.config.roots.target : balm.config.roots.tmp
-    // );
+    // mix.serve((watcher, reload) => {
+    //   watcher.on('add', file => {
+    //     console.log('add', file);
+    //   });
+    //   watcher.on('unlink', file => {
+    //     console.log('unlink', file);
+    //   });
+    //   watcher.on('change', file => {
+    //     console.log('change', file);
+    //     let exname = file.split('.')[1];
+    //     if (exname === 'css') {
+    //       mix.css('spa/styles/main.css', '.tmp/css');
+    //     }
+    //     if (exname === 'js') {
+    //       mix.js('./spa/scripts/main-sync.js', '.tmp/js');
+    //       reload();
+    //     }
+    //   });
+    // });
     // PWA API test
     // mix.generateSW();
     // mix.injectManifest();

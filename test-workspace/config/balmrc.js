@@ -6,7 +6,7 @@ const remoteRoot = path.join(workspace, 'assets');
 
 const balmConfig = {
   logs: {
-    level: 1
+    level: 3
   },
   workspace,
   paths: {
