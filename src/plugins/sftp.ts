@@ -189,7 +189,7 @@ function gulpSftp(options: any): any {
     connCache = conn;
 
     conn.on('ready', function() {
-      BalmJS.logger.info(PLUGIN_NAME, 'Connection :: ready');
+      BalmJS.logger.debug(PLUGIN_NAME, 'Connection :: ready');
 
       conn.sftp(function(err: any, sftp: any) {
         if (err) {
@@ -197,7 +197,7 @@ function gulpSftp(options: any): any {
         }
 
         sftp.on('end', function(this: any) {
-          BalmJS.logger.info(PLUGIN_NAME, 'SFTP session closed');
+          BalmJS.logger.debug(PLUGIN_NAME, 'SFTP session closed');
           sftpCache = null;
           if (!finished) {
             this.emit(
@@ -217,7 +217,7 @@ function gulpSftp(options: any): any {
     });
 
     conn.on('end', function() {
-      BalmJS.logger.info(PLUGIN_NAME, 'Connection :: end');
+      BalmJS.logger.debug(PLUGIN_NAME, 'Connection :: end');
     });
 
     conn.on('close', () => {
@@ -240,7 +240,6 @@ function gulpSftp(options: any): any {
     transformCallback: Function
   ): any {
     if (file.isNull()) {
-      this.push(file);
       return transformCallback();
     }
 
@@ -290,7 +289,6 @@ function gulpSftp(options: any): any {
           }
 
           sftp.exists(d, function(exist: boolean) {
-            // eslint-disable-next-line no-negated-condition
             if (!exist) {
               sftp.mkdir(d, { mode: '0755' }, function(err: any) {
                 // REMOTE PATH
@@ -301,7 +299,7 @@ function gulpSftp(options: any): any {
                     `Error or directory exists: ${err} ${d}`
                   );
                 } else {
-                  BalmJS.logger.info(PLUGIN_NAME, `Created: ${d}`);
+                  BalmJS.logger.debug(PLUGIN_NAME, `Created: ${d}`);
                 }
 
                 callback();
@@ -343,8 +341,6 @@ function gulpSftp(options: any): any {
         }
       );
     });
-
-    this.push(file);
   }
 
   function _flush(flushCallback: Function): void {

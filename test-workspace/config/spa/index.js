@@ -50,9 +50,7 @@ balm.go(mix => {
   // mix.sass('spa/styles/main.scss', '.output/sass');
   // mix.less('spa/styles/main.less', '.output/less');
   // mix.css('spa/styles/main.css', '.output/css');
-  // mix.styles(['spa/styles/main.css'], '.output/css/all.css');
   // mix.js('./spa/scripts/main-sync.js', '.output/js');
-  // mix.scripts(['spa/script/main-sync.js'], '.output/js/all.js');
   // mix.copy(
   //   '../node_modules/workbox-sw/build/workbox-sw.js',
   //   balm.config.dest.base,
@@ -70,12 +68,31 @@ balm.go(mix => {
 
   if (mix.env.isProd) {
     // mix.publish();
-    // mix.publish();
     // mix.publish('index.html', 'views', {
     //   basename: 'home',
     //   suffix: '.blade',
     //   extname: '.php'
     // });
+    // mix.publish([
+    //   {
+    //     input: 'index.html',
+    //     output: 'views/home',
+    //     options: {
+    //       basename: 'index',
+    //       suffix: '.blade',
+    //       extname: '.php'
+    //     }
+    //   },
+    //   {
+    //     input: 'main-sync.html',
+    //     output: 'views/hello',
+    //     options: {
+    //       basename: 'main',
+    //       suffix: '.blade',
+    //       extname: '.php'
+    //     }
+    //   }
+    // ]);
     // mix.js([`./src/scripts/spa/main-hello.js`], 'dist', {
     //   output: {
     //     library: 'MyLibrary',
