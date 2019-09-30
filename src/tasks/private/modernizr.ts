@@ -50,7 +50,7 @@ class ModernizrTask extends BalmJS.BalmTask {
     fs.access(this.input, fs.constants.F_OK, (err: any) => {
       if (err) {
         BalmJS.logger.warn(
-          'modernizr task',
+          `${this.name} task`,
           `The '${this.input}' does not exist`
         );
         cb();

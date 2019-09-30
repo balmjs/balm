@@ -17,12 +17,12 @@ class ScriptTask extends BalmJS.BalmTask {
 
     BalmJS.webpackCompiler = webpack(
       webpackConfig(this.input, this.output, this.customOptions, isHook),
-      function(err: any, stats: any): void {
+      (err: any, stats: any): void => {
         // Handle errors here
         if (err) {
-          BalmJS.logger.error('script task', err.stack || err);
+          BalmJS.logger.error(`${this.name} task`, err.stack || err);
           if (err.details) {
-            BalmJS.logger.error('script task', err.details);
+            BalmJS.logger.error(`${this.name} task`, err.details);
           }
           return;
         }

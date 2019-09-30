@@ -27,12 +27,14 @@ class BalmStyleTask extends BalmTask {
   }
 
   handleStyle(style: string, output: string, options?: any): any {
+    const taskName = `${this.name} task`;
+
     let stream: any = gulp
       .src(BalmJS.file.absPaths(this.input), { allowEmpty: true })
       .pipe(
         BalmJS.plugins.plumber(function(this: any, error: any): void {
           // https://github.com/floatdrop/gulp-plumber/issues/30
-          BalmJS.logger.error('style task', error.message);
+          BalmJS.logger.error(taskName, error.message);
           // Must emit end event for any dependent streams to pick up on this. Destroying the stream
           // ensures nothing else in that stream gets done, for example, if we're dealing with five
           // files, after an error in one of them, any other won't carry on. Doing destroy without

@@ -66,7 +66,7 @@ class CleanTask extends BalmJS.BalmTask {
     ];
   }
 
-  fn(cb: Function): void {
+  fn = async (cb: Function): Promise<any> => {
     let directories = BalmJS.config.inFrontend
       ? this.dirInFrontend
       : this.dirInBackend;
@@ -82,21 +82,20 @@ class CleanTask extends BalmJS.BalmTask {
       }
     );
 
-    (async (): Promise<any> => {
-      const deletedPaths: string[] = await del(directories, { force: true });
+    const deletedPaths: string[] = await del(directories, { force: true });
 
-      BalmJS.logger.warn(
-        'clean task',
-        {
-          deletedPaths
-        },
-        {
-          pre: true
-        }
-      );
-      cb();
-    })();
-  }
+    BalmJS.logger.warn(
+      `${this.name} task`,
+      {
+        deletedPaths
+      },
+      {
+        pre: true
+      }
+    );
+
+    cb();
+  };
 }
 
 export default CleanTask;

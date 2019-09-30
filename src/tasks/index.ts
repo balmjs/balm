@@ -26,7 +26,6 @@ function registerTasks(recipe: Function): void {
     };
 
     switch (task.name) {
-      case 'clean':
       case 'script':
       case 'modernizr':
         taskFunction = function(cb: Function): void {
