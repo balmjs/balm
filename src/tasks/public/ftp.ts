@@ -15,6 +15,7 @@ class FtpTask extends BalmJS.BalmTask {
     try {
       this.src.pipe(BalmJS.plugins.sftp(this.options));
     } catch (error) {
+      // Catch "throw"
       BalmJS.logger.error(`${this.name} task`, error.message);
     }
   }

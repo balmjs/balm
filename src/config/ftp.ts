@@ -1,14 +1,12 @@
 interface FtpConfig {
-  host: string | undefined;
+  host?: string;
   port?: number;
   username?: string;
-  password?: string | null;
+  password?: string;
   remotePath?: string;
 }
 
-const options: FtpConfig = {
-  host: undefined
-};
+const options: FtpConfig = {};
 const files: string[] = [];
 
 export default {

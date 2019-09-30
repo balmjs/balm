@@ -132,10 +132,10 @@ interface BalmConfig {
   server: BalmServer;
   ftp: {
     options: {
-      host: string | undefined;
+      host?: string;
       port?: number;
       username?: string;
-      password?: string | null;
+      password?: string;
       remotePath?: string;
     };
     files: string[];

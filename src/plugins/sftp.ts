@@ -5,6 +5,18 @@ import { Client } from 'ssh2';
 import async from 'async';
 import parents from 'parents';
 
+interface SshConfig {
+  host: string;
+  port: number;
+  username: string;
+  password?: string;
+  agent?: string;
+  agentForward?: boolean;
+  privateKey?: string | Buffer;
+  passphrase?: string;
+  readyTimeout?: number;
+}
+
 const PLUGIN_NAME = 'sftp';
 
 const normalizePath = (_path: string): string => _path.replace(/\\/g, '/');
@@ -118,7 +130,7 @@ function gulpSftp(options: any): any {
   }
 
   // Option aliases
-  const password = options.password || null;
+  const password = options.password;
   const username = options.username || 'anonymous';
 
   /*
@@ -135,10 +147,10 @@ function gulpSftp(options: any): any {
   const mkDirCache: any = {};
 
   let finished = false;
-  let sftpCache: any = null; // Sftp connection cache
-  let connCache: any = null; // Ssh connection cache
+  let sftpCache: any = null; // SFTP connection cache
+  let connCache: any = null; // SSH connection cache
 
-  function _pool(uploader: any): void {
+  function _pool(this: any, uploader: any): any {
     // Method to get cache or create connection
     if (sftpCache) {
       return uploader(sftpCache);
@@ -150,10 +162,35 @@ function gulpSftp(options: any): any {
       BalmJS.logger.debug(PLUGIN_NAME, 'Authenticating with private key');
     }
 
+    /*
+     * Connection options, may be a key
+     */
+    const connectionOptions: SshConfig = {
+      host: options.host,
+      port: options.port || 22,
+      username
+    };
+
+    if (password) {
+      connectionOptions.password = password;
+    } else if (options.agent) {
+      connectionOptions.agent = options.agent;
+      connectionOptions.agentForward = options.agentForward || false;
+    } else if (key) {
+      connectionOptions.privateKey = key.contents;
+      connectionOptions.passphrase = key.passphrase;
+    }
+
+    if (options.timeout) {
+      connectionOptions.readyTimeout = options.timeout;
+    }
+
     const conn = new Client();
     connCache = conn;
 
     conn.on('ready', function() {
+      BalmJS.logger.info(PLUGIN_NAME, 'Connection :: ready');
+
       conn.sftp(function(err: any, sftp: any) {
         if (err) {
           throw err;
@@ -175,7 +212,7 @@ function gulpSftp(options: any): any {
       });
     });
 
-    conn.on('error', function(this: any, err: any) {
+    conn.on('error', (err: any) => {
       this.emit('error', new PluginError(PLUGIN_NAME, err));
     });
 
@@ -183,44 +220,15 @@ function gulpSftp(options: any): any {
       BalmJS.logger.info(PLUGIN_NAME, 'Connection :: end');
     });
 
-    conn.on('close', function(this: any, hadError: any) {
+    conn.on('close', () => {
       if (!finished) {
-        BalmJS.logger.error(PLUGIN_NAME, 'SFTP abrupt closure');
         this.emit('error', new PluginError(PLUGIN_NAME, 'SFTP abrupt closure'));
       }
-
-      BalmJS.logger.info(
-        PLUGIN_NAME,
-        'Connection :: close' + (hadError ? ' with error' : '')
-      );
 
       if (options.callback) {
         options.callback();
       }
     });
-
-    /*
-     * Connection options, may be a key
-     */
-    const connectionOptions: any = {
-      host: options.host,
-      port: options.port || 22,
-      username
-    };
-
-    if (password) {
-      connectionOptions.password = password;
-    } else if (options.agent) {
-      connectionOptions.agent = options.agent;
-      connectionOptions.agentForward = options.agentForward || false;
-    } else if (key) {
-      connectionOptions.privateKey = key.contents;
-      connectionOptions.passphrase = key.passphrase;
-    }
-
-    if (options.timeout) {
-      connectionOptions.readyTimeout = options.timeout;
-    }
 
     conn.connect(connectionOptions);
   }
