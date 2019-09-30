@@ -6,7 +6,7 @@ import excludeGitignore from 'gulp-exclude-gitignore';
 
 const BALM = {
   source: 'src/**/*.ts',
-  target: 'dist'
+  target: 'lib'
 };
 
 function clean() {
