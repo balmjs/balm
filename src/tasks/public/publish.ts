@@ -31,16 +31,20 @@ class PublishTask extends BalmJS.BalmTask {
     input: string | TemplateOption[],
     output: string,
     renameOptions: object
-  ): void {
-    if (BalmJS.config.env.isProd) {
-      if (BalmJS.utils.isArray(input)) {
-        (input as TemplateOption[]).forEach((template: TemplateOption) => {
-          this._release(template.input, template.output, template.options);
-        });
-      } else {
-        this._release(input as string, output, renameOptions);
+  ): any {
+    return (cb: Function): void => {
+      if (BalmJS.config.env.isProd) {
+        if (BalmJS.utils.isArray(input)) {
+          (input as TemplateOption[]).forEach((template: TemplateOption) => {
+            this._release(template.input, template.output, template.options);
+          });
+        } else {
+          this._release(input as string, output, renameOptions);
+        }
       }
-    }
+
+      cb();
+    };
   }
 
   fn(cb: Function): void {

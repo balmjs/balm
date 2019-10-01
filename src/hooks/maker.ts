@@ -53,30 +53,19 @@ class Maker {
     }; // NOTE: `balmTask` function name for `gulp.parallel`
 
     switch (customTask.name) {
+      // private
       case 'sprite':
         if (BalmJS.config.styles.sprites.length) {
           balmTask = gulp.series(BalmJS.toNamespace(customTask.deps));
         }
         break;
-      case 'script':
-      case 'remove':
-        balmTask = function(cb: Function): void {
-          args.unshift(cb);
-          customTask.recipe(...args);
-        };
-        break;
       case 'modernizr':
       case 'html':
-        balmTask = function(cb: Function): void {
-          customTask.fn();
-          cb();
-        };
+        balmTask = customTask.fn;
         break;
+      // public
       default:
-        balmTask = function(cb: Function): void {
-          customTask.recipe(...args);
-          cb();
-        };
+        balmTask = customTask.recipe(...args);
     }
 
     if (BalmJS.watching) {

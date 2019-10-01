@@ -20,29 +20,8 @@ function registerTasks(recipe: Function): void {
   });
 
   nonDepsTasks.forEach(function(task: any) {
-    const taskName = task.taskName;
-    let taskFunction: Function = function(cb: Function): void {
-      cb();
-    };
-
-    switch (task.name) {
-      case 'script':
-      case 'modernizr':
-        taskFunction = function(cb: Function): void {
-          task.fn(cb);
-        };
-        break;
-      case 'start':
-      case 'end':
-      case 'serve':
-        taskFunction = function(cb: Function): void {
-          task.fn();
-          cb();
-        };
-        break;
-      default:
-        taskFunction = task.fn;
-    }
+    const taskName: string = task.taskName;
+    const taskFunction: Function = task.fn;
 
     gulp.task(taskName, taskFunction);
     BalmJS.tasks.push(task);
@@ -50,7 +29,7 @@ function registerTasks(recipe: Function): void {
 
   depsTasks.forEach(function(task: any) {
     if (task.deps.length) {
-      const taskName = task.taskName;
+      const taskName: string = task.taskName;
       const taskFunction: Function = gulp.series(BalmJS.toNamespace(task.deps));
 
       gulp.task(taskName, taskFunction);

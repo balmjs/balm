@@ -24,7 +24,6 @@ balmConfig = Object.assign(balmConfig, {
     source: 'spa'
   },
   scripts
-  // useDefaults: false
 });
 
 balm.config = balmConfig;
@@ -42,7 +41,7 @@ balm.config = balmConfig;
 // balm.afterTask = 'afterTask';
 
 // FTP test
-// balm.config.useDefault = false;
+// balm.config.useDefaults = false;
 
 // Test build
 balm.go(mix => {
@@ -59,6 +58,9 @@ balm.go(mix => {
   //     suffix: '.min'
   //   }
   // );
+  // mix.remove('.tmp/images');
+  // mix.copy('spa/images/**/*', '.tmp/images');
+  // mix.remove(['.tmp/images']);
   // mix.version('.output/**/*.css', '.output/version');
   // mix.zip();
 

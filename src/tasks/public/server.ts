@@ -72,70 +72,77 @@ class ServerTask extends BalmJS.BalmTask {
     }
   }
 
-  recipe(customHandler?: Function): void {
-    let bsOptions: any = {
-      logPrefix: 'BalmJS',
-      notify: false,
-      port: BalmJS.config.server.port,
-      host: BalmJS.config.server.host,
-      https: BalmJS.config.server.https,
-      open: BalmJS.config.server.open,
-      localOnly: BalmJS.config.server.localOnly
-    };
-
-    if (BalmJS.config.server.proxy) {
-      if (BalmJS.utils.isString(BalmJS.config.server.proxy)) {
-        bsOptions.proxy = {
-          target: BalmJS.config.server.proxy
-        };
-      } else if (BalmJS.utils.isObject(BalmJS.config.server.proxy)) {
-        bsOptions.proxy = BalmJS.config.server.proxy;
-      } else {
-        BalmJS.logger.error(
-          `${this.name} task`,
-          '`server.proxy` must be a string or object'
-        );
-      }
-
-      bsOptions.serveStatic = BalmJS.config.server.serveStatic;
-    } else {
-      bsOptions.server = {
-        baseDir: [BalmJS.config.dest.base, BalmJS.config.src.base],
-        routes: {
-          '/bower_components': BalmJS.file.absPath('bower_components'),
-          '/node_modules': BalmJS.file.absPath('node_modules')
-        }
+  recipe(customHandler?: Function): any {
+    return (cb: Function): void => {
+      let bsOptions: any = {
+        logPrefix: 'BalmJS',
+        notify: false,
+        port: BalmJS.config.server.port,
+        host: BalmJS.config.server.host,
+        https: BalmJS.config.server.https,
+        open: BalmJS.config.server.open,
+        localOnly: BalmJS.config.server.localOnly
       };
-    }
 
-    bsOptions.middleware = BalmJS.config.env.isDev ? getMiddlewares() : false;
+      if (BalmJS.config.server.proxy) {
+        if (BalmJS.utils.isString(BalmJS.config.server.proxy)) {
+          bsOptions.proxy = {
+            target: BalmJS.config.server.proxy
+          };
+        } else if (BalmJS.utils.isObject(BalmJS.config.server.proxy)) {
+          bsOptions.proxy = BalmJS.config.server.proxy;
+        } else {
+          BalmJS.logger.error(
+            `${this.name} task`,
+            '`server.proxy` must be a string or object'
+          );
+        }
 
-    bsOptions = BalmJS.utils.mergeDeep(bsOptions, BalmJS.config.server.options);
-
-    if (BalmJS.config.env.isDev) {
-      server.init(bsOptions);
-
-      if (BalmJS.config.useDefaults) {
-        this._onWatch();
+        bsOptions.serveStatic = BalmJS.config.server.serveStatic;
       } else {
-        BalmJS.watching = true;
+        bsOptions.server = {
+          baseDir: [BalmJS.config.dest.base, BalmJS.config.src.base],
+          routes: {
+            '/bower_components': BalmJS.file.absPath('bower_components'),
+            '/node_modules': BalmJS.file.absPath('node_modules')
+          }
+        };
+      }
 
-        const watcher = gulp.watch([
-          `${BalmJS.config.src.base}/**/*`,
-          ...BalmJS.config.server.watchFiles
-        ]);
+      bsOptions.middleware = BalmJS.config.env.isDev ? getMiddlewares() : false;
 
-        try {
-          customHandler && customHandler(watcher, server.reload);
-        } catch (error) {
-          BalmJS.logger.error('balm hook', error.message);
+      bsOptions = BalmJS.utils.mergeDeep(
+        bsOptions,
+        BalmJS.config.server.options
+      );
+
+      if (BalmJS.config.env.isDev) {
+        server.init(bsOptions);
+
+        if (BalmJS.config.useDefaults) {
+          this._onWatch();
+        } else {
+          BalmJS.watching = true;
+
+          const watcher = gulp.watch([
+            `${BalmJS.config.src.base}/**/*`,
+            ...BalmJS.config.server.watchFiles
+          ]);
+
+          try {
+            customHandler && customHandler(watcher, server.reload);
+          } catch (error) {
+            BalmJS.logger.error('balm hook', error.message);
+          }
         }
       }
-    }
+
+      cb();
+    };
   }
 
-  fn(): void {
-    this.recipe();
+  get fn(): any {
+    return this.recipe();
   }
 }
 

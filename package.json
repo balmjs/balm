@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "2.0.0-beta",
+  "version": "2.0.0-beta.1",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -96,8 +96,8 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/preset-typescript": "^7.6.0",
     "@babel/register": "^7.6.2",
-    "@typescript-eslint/eslint-plugin": "^2.3.1",
-    "@typescript-eslint/parser": "^2.3.1",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
     "babel-plugin-istanbul": "^5.2.0",
     "chai": "^4.2.0",
     "coveralls": "^3.0.6",
@@ -110,7 +110,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-exclude-gitignore": "^1.2.0",
     "husky": "^3.0.7",
-    "mocha": "^6.2.0",
+    "mocha": "^6.2.1",
     "nyc": "^14.1.1",
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0",

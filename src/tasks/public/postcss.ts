@@ -4,14 +4,16 @@ class PostcssTask extends BalmJS.BalmStyleTask {
   }
 
   recipe(input?: string | string[], output?: string): any {
-    this.init(input, output);
+    return (): any => {
+      this.init(input, output);
 
-    return this.handleStyle(this.name, this.output);
+      return this.handleStyle(this.name, this.output);
+    };
   }
 
-  fn = (): any => {
+  get fn(): any {
     return this.recipe();
-  };
+  }
 }
 
 export default PostcssTask;

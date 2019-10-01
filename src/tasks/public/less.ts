@@ -21,14 +21,16 @@ class LessTask extends BalmJS.BalmStyleTask {
     output?: string,
     customOptions?: object
   ): any {
-    this.init(input, output, customOptions);
+    return (): any => {
+      this.init(input, output, customOptions);
 
-    return this.handleStyle(this.name, this.output, this.options);
+      return this.handleStyle(this.name, this.output, this.options);
+    };
   }
 
-  fn = (): any => {
+  get fn(): any {
     return this.recipe();
-  };
+  }
 }
 
 export default LessTask;
