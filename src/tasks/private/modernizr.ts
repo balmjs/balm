@@ -45,7 +45,7 @@ class ModernizrTask extends BalmJS.BalmTask {
   }
 
   get fn(): any {
-    return (cb: Function) => {
+    return (cb: Function): void => {
       this.init();
 
       fs.access(this.input, fs.constants.F_OK, (err: any) => {
