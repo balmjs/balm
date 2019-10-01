@@ -54,6 +54,7 @@ class ModernizrTask extends BalmJS.BalmTask {
             `${this.name} task`,
             `The '${this.input}' does not exist`
           );
+
           cb();
         } else {
           (async (): Promise<any> => {
@@ -62,6 +63,7 @@ class ModernizrTask extends BalmJS.BalmTask {
               this._createDir()
             ]);
             await this._generateScript(config);
+
             cb();
           })();
         }
