@@ -1,3 +1,5 @@
+import { HookOptions } from '../../config/types';
+
 class VersionTask extends BalmJS.BalmTask {
   constructor() {
     super('version');
@@ -12,10 +14,10 @@ class VersionTask extends BalmJS.BalmTask {
   recipe(
     input?: string | string[],
     output?: string,
-    customOptions?: object
+    options: HookOptions = {}
   ): any {
     return (): any => {
-      this.init(input, output, customOptions);
+      this.init(input, output, options);
 
       return this.src
         .pipe($.revAll.revision(this.options))

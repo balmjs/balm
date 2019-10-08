@@ -9,6 +9,8 @@ class BalmTask {
   protected _defaultOutput = '';
   protected _defaultCustomOptions: any = {};
 
+  protected _gulpSrcOptions: object = {}; // NOTE: gulp.src options
+
   constructor(name: string) {
     this._name = name;
     this._taskName =
@@ -62,6 +64,13 @@ class BalmTask {
     this._defaultCustomOptions = options;
   }
 
+  get gulpSrcOptions(): object {
+    return this._gulpSrcOptions;
+  }
+  set gulpSrcOptions(output: object) {
+    this._gulpSrcOptions = output;
+  }
+
   get styleName(): string {
     let name: string;
 
@@ -82,7 +91,10 @@ class BalmTask {
 
   get src(): any {
     return gulp
-      .src(BalmJS.file.absPaths(this.input), { allowEmpty: true })
+      .src(
+        BalmJS.file.absPaths(this.input),
+        Object.assign({ allowEmpty: true }, this.gulpSrcOptions)
+      )
       .pipe(
         BalmJS.plugins.plumber((error: any): void => {
           BalmJS.logger.error(`${this.name} task`, error.message);
@@ -90,10 +102,12 @@ class BalmTask {
       );
   }
 
-  init(input?: string | string[], output?: string, customOptions?: any): void {
+  init(input?: string | string[], output?: string, options?: any): void {
+    const customOptionsKey = `${this.name}Options`;
+
     this.input = input || this.defaultInput;
     this.output = output || this.defaultOutput;
-    this.customOptions = customOptions || this.defaultCustomOptions;
+    this.customOptions = options[customOptionsKey] || this.defaultCustomOptions;
 
     const obj: {
       input: string | string[];
@@ -103,13 +117,17 @@ class BalmTask {
       input: this.input,
       output: this.output
     };
-    if (customOptions) {
+    if (options[customOptionsKey]) {
       obj.customOptions = this.customOptions;
     }
 
     BalmJS.logger.debug(`${this.name} task`, obj, {
       pre: true
     });
+
+    if (options.gulpSrcOptions) {
+      this.gulpSrcOptions = options.gulpSrcOptions;
+    }
   }
 }
 

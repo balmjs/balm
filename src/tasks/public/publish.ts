@@ -1,4 +1,4 @@
-import { TemplateOption } from '../../config/types';
+import { TemplateOption, RenameOptions } from '../../config/types';
 
 class PublishTask extends BalmJS.BalmTask {
   constructor() {
@@ -11,26 +11,29 @@ class PublishTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.assets.static; // Remote dir
   }
 
-  private _release(input: string, output: string, customOptions: object): void {
+  private _release(
+    input: string,
+    output: string,
+    renameOptions: string | Function | RenameOptions = {}
+  ): void {
     if (input && output) {
       this.init(
         path.join(BalmJS.config.dest.base, input),
-        path.join(BalmJS.config.assets.root, output), // Remote dir
-        customOptions
+        path.join(BalmJS.config.assets.root, output) // Remote dir
       );
     } else {
       this.init();
     }
 
     this.src
-      .pipe(BalmJS.plugins.rename(this.customOptions))
+      .pipe(BalmJS.plugins.rename(renameOptions))
       .pipe(gulp.dest(this.output)); // Absolute path
   }
 
   recipe(
     input: string | TemplateOption[],
     output: string,
-    renameOptions: object
+    renameOptions: string | Function | RenameOptions
   ): any {
     return (cb: Function): void => {
       if (BalmJS.config.env.isProd) {

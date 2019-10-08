@@ -30,7 +30,10 @@ class BalmStyleTask extends BalmTask {
     const taskName = `${this.name} task`;
 
     let stream: any = gulp
-      .src(BalmJS.file.absPaths(this.input), { allowEmpty: true })
+      .src(
+        BalmJS.file.absPaths(this.input),
+        Object.assign({ allowEmpty: true }, this.gulpSrcOptions)
+      )
       .pipe(
         BalmJS.plugins.plumber(function(this: any, error: any): void {
           // https://github.com/floatdrop/gulp-plumber/issues/30
@@ -60,7 +63,7 @@ class BalmStyleTask extends BalmTask {
       .pipe($.if(BalmJS.config.env.isDev, $.sourcemaps.write('.')))
       .pipe(
         $.if(
-          BalmJS.config.env.isProd,
+          BalmJS.config.env.isProd || BalmJS.config.styles.minified,
           $.postcss([cssnano(BalmJS.config.styles.options)])
         )
       )

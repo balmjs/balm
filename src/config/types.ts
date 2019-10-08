@@ -31,10 +31,30 @@ interface TemplateOption {
   options: object;
 }
 
+// Hook
+interface RenameOptions {
+  dirname?: string;
+  prefix?: string;
+  basename?: string;
+  suffix?: string;
+  extname?: string;
+}
+
+interface HookOptions {
+  sassOptions?: object;
+  lessOptions?: object;
+  copyOptions?: string | Function | RenameOptions;
+  versionOptions?: object;
+  ftpOptions?: object;
+  gulpSrcOptions?: object;
+}
+
 export {
   BalmEnv,
   ObjectEntry,
   BalmDefaultLoaders,
   ProxyConfig,
-  TemplateOption
+  TemplateOption,
+  RenameOptions,
+  HookOptions
 };

@@ -9,6 +9,7 @@ interface BalmPath {
 
 interface BalmStyles {
   extname: string;
+  minified: boolean;
   atImportPaths: string[];
   options: object;
   sassOptions: object;

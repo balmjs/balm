@@ -9,14 +9,14 @@ class ScriptTask extends BalmJS.BalmTask {
   recipe(
     input?: string | string[] | ObjectEntry,
     output?: string,
-    customOptions?: any
+    customOptions: any = {}
   ): any {
     return (cb: Function): void => {
       const isHook = !!input;
-      this.init(input || BalmJS.config.scripts.entry, output, customOptions);
+      this.init(input || BalmJS.config.scripts.entry, output);
 
       BalmJS.webpackCompiler = webpack(
-        webpackConfig(this.input, this.output, this.customOptions, isHook),
+        webpackConfig(this.input, this.output, customOptions, isHook),
         (err: any, stats: any): void => {
           // Handle errors here
           if (err) {

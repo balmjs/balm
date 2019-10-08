@@ -9,6 +9,7 @@ interface PostcssLoaderOptions {
 }
 
 const extname = 'css';
+const minified = false;
 const atImportPaths: string[] = [];
 /**
  * Optimisations
@@ -43,6 +44,7 @@ const spritePadding = 1;
 
 export default {
   extname,
+  minified,
   atImportPaths,
   options,
   sassOptions,

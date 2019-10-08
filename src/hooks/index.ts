@@ -1,13 +1,11 @@
 import Maker from './maker';
-import { BalmEnv, ObjectEntry, TemplateOption } from '../config/types';
-
-interface RenameOptions {
-  dirname?: string;
-  prefix?: string;
-  basename?: string;
-  suffix?: string;
-  extname?: string;
-}
+import {
+  BalmEnv,
+  ObjectEntry,
+  TemplateOption,
+  RenameOptions,
+  HookOptions
+} from '../config/types';
 
 class BaseHooks {
   get env(): BalmEnv {
@@ -15,11 +13,11 @@ class BaseHooks {
   }
 
   // Stylesheets
-  sass(input: string, output: string, options?: object): void {
+  sass(input: string, output: string, options?: HookOptions): void {
     Maker.generate('sass', [input, output, options]);
   }
 
-  less(input: string, output: string, options?: object): void {
+  less(input: string, output: string, options?: HookOptions): void {
     Maker.generate('less', [input, output, options]);
   }
 
@@ -37,12 +35,8 @@ class BaseHooks {
   }
 
   // Files & Directories
-  copy(
-    input: string | string[],
-    output: string,
-    renameOptions?: string | Function | RenameOptions
-  ): void {
-    Maker.generate('copy', [input, output, renameOptions]);
+  copy(input: string | string[], output: string, options?: HookOptions): void {
+    Maker.generate('copy', [input, output, options]);
   }
 
   remove(input: string | string[]): void {
@@ -50,7 +44,11 @@ class BaseHooks {
   }
 
   // Cache
-  version(input: string | string[], output: string, options?: object): void {
+  version(
+    input: string | string[],
+    output: string,
+    options?: HookOptions
+  ): void {
     Maker.generate('version', [input, output, options]);
   }
 
@@ -71,8 +69,12 @@ class Hooks extends BaseHooks {
     Maker.generate('sprite');
   }
 
-  url(input: string | string[], output: string): void {
-    Maker.generate('url', [input, output]);
+  url(
+    input: string | string[],
+    output: string,
+    gulpSrcOptions: object = {}
+  ): void {
+    Maker.generate('url', [input, output, gulpSrcOptions]);
   }
 
   // PWA
@@ -93,7 +95,7 @@ class Hooks extends BaseHooks {
     Maker.generate('zip', [input, output, filename]);
   }
 
-  ftp(localFiles: string, options = {}): void {
+  ftp(localFiles: string, options?: HookOptions): void {
     Maker.generate('ftp', [localFiles, options]);
   }
 
