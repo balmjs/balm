@@ -21,7 +21,7 @@ class DefaultTask extends BalmJS.BalmTask {
       'style',
       // Scripts
       ...(BalmJS.config.scripts.eslint ? ['lint'] : []),
-      ...(BalmJS.config.scripts.entry ? ['script'] : []),
+      'script',
       'html'
     ];
 

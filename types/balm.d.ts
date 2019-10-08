@@ -223,6 +223,7 @@ declare namespace NodeJS {
     afterTask: any;
     recipes: any[];
     recipeIndex: number;
+    server: any;
     watching: boolean;
     webpackCompiler: any;
   }

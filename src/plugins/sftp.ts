@@ -289,7 +289,9 @@ function gulpSftp(options: any): any {
           }
 
           sftp.exists(d, function(exist: boolean) {
-            if (!exist) {
+            if (exist) {
+              callback();
+            } else {
               sftp.mkdir(d, { mode: '0755' }, function(err: any) {
                 // REMOTE PATH
                 if (err) {
@@ -304,8 +306,6 @@ function gulpSftp(options: any): any {
 
                 callback();
               });
-            } else {
-              callback();
             }
           });
         },
