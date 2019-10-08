@@ -46,7 +46,12 @@ class BalmStyleTask extends BalmTask {
           this.destroy();
         })
       )
-      .pipe($.if(BalmJS.config.env.isDev, $.sourcemaps.init()));
+      .pipe(
+        $.if(
+          BalmJS.config.env.isDev && !BalmJS.config.styles.minified,
+          $.sourcemaps.init()
+        )
+      );
 
     switch (style) {
       case 'sass':
@@ -60,7 +65,12 @@ class BalmStyleTask extends BalmTask {
 
     return stream
       .pipe($.postcss(BalmJS.plugins.postcss()))
-      .pipe($.if(BalmJS.config.env.isDev, $.sourcemaps.write('.')))
+      .pipe(
+        $.if(
+          BalmJS.config.env.isDev && !BalmJS.config.styles.minified,
+          $.sourcemaps.write('.')
+        )
+      )
       .pipe(
         $.if(
           BalmJS.config.env.isProd || BalmJS.config.styles.minified,
