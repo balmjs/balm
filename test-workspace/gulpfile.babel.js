@@ -1,1 +1,2 @@
-import './config/spa';
+import './config/zero';
+// import './config/spa';

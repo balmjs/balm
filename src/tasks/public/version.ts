@@ -1,6 +1,12 @@
 class VersionTask extends BalmJS.BalmTask {
   constructor() {
     super('version');
+
+    this.defaultOutput = BalmJS.config.dest.base;
+  }
+
+  get options(): object {
+    return Object.assign({}, BalmJS.config.assets.options, this.customOptions);
   }
 
   recipe(
@@ -12,7 +18,7 @@ class VersionTask extends BalmJS.BalmTask {
       this.init(input, output, customOptions);
 
       return this.src
-        .pipe($.revAll.revision(this.customOptions))
+        .pipe($.revAll.revision(this.options))
         .pipe(gulp.dest(BalmJS.file.absPath(this.output)))
         .pipe($.revAll.versionFile())
         .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
