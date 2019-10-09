@@ -29,9 +29,9 @@ class BaseHooks {
   js(
     input: string | string[] | ObjectEntry,
     output: string,
-    options?: any
+    webpackOptions?: any
   ): void {
-    Maker.generate('script', [input, output, options]);
+    Maker.generate('script', [input, output, webpackOptions]);
   }
 
   jsmin(input: string | string[], output: string, options?: HookOptions): void {
@@ -43,8 +43,8 @@ class BaseHooks {
     Maker.generate('copy', [input, output, options]);
   }
 
-  remove(input: string | string[]): void {
-    Maker.generate('remove', [input]);
+  remove(paths: string | string[]): void {
+    Maker.generate('remove', [paths]);
   }
 
   // Cache
@@ -73,21 +73,17 @@ class Hooks extends BaseHooks {
     Maker.generate('sprite');
   }
 
-  url(
-    input: string | string[],
-    output: string,
-    gulpSrcOptions: object = {}
-  ): void {
-    Maker.generate('url', [input, output, gulpSrcOptions]);
+  url(input: string | string[], output: string): void {
+    Maker.generate('url', [input, output]);
   }
 
   // PWA
-  generateSW(options: object = {}): void {
-    Maker.generate('pwa', ['generateSW', options]);
+  generateSW(pwaOptions: object = {}): void {
+    Maker.generate('pwa', ['generateSW', pwaOptions]);
   }
 
-  injectManifest(options: object = {}): void {
-    Maker.generate('pwa', ['injectManifest', options]);
+  injectManifest(pwaOptions: object = {}): void {
+    Maker.generate('pwa', ['injectManifest', pwaOptions]);
   }
 
   // Assets

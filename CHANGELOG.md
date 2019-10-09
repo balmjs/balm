@@ -82,17 +82,17 @@ balm.go(mix => {
 - `mix.sass(input, output, options)`
 - `mix.less(input, output, options)`
 - `mix.css(input, output)`
-- `mix.js(input, output, options)`
+- `mix.js(input, output, webpackOptions)`
 - `mix.jsmin(input, output, options)`
 - `mix.copy(input, output, options)`
-- `mix.remove(input)`
+- `mix.remove(paths)`
 - `mix.version(input, output, options)`
 - `mix.serve(handler)`
 - `mix.html()`
 - `mix.sprite()`
-- `mix.url(input, output, gulpSrcOptions)`
-- `mix.generateSW(options)`
-- `mix.injectManifest(options)`
+- `mix.url(input, output)`
+- `mix.generateSW(pwaOptions)`
+- `mix.injectManifest(pwaOptions)`
 - `mix.zip(input, output, filename)`
 - `mix.ftp(localFiles, options)`
 - `mix.publish(input, output, renameOptions)`

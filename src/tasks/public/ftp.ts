@@ -12,9 +12,12 @@ class FtpTask extends BalmJS.BalmTask {
   recipe(localFiles?: string | string[], options: HookOptions = {}): any {
     return (): any => {
       this.init(localFiles || BalmJS.watchFtpFile, null, options);
-      this.gulpSrcOptions = {
-        base: '.'
-      };
+
+      if (!options.gulpSrcOptions) {
+        this.gulpSrcOptions = {
+          base: '.'
+        };
+      }
 
       let stream: any = this.src;
 

@@ -25,14 +25,9 @@ class UrlTask extends BalmJS.BalmTask {
     return $.replace(pathSrc, pathDest);
   }
 
-  recipe(
-    input?: string | string[],
-    output?: string,
-    gulpSrcOptions: object = {}
-  ): any {
+  recipe(input?: string | string[], output?: string): any {
     return (): any => {
       this.init(input, output);
-      this.gulpSrcOptions = gulpSrcOptions;
 
       return this.src
         .pipe(this._urlProcessing('img'))
