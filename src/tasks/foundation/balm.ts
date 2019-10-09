@@ -103,7 +103,19 @@ class BalmTask {
   }
 
   init(input?: string | string[], output?: string, options: any = {}): void {
-    const customOptionsKey = `${this.name}Options`;
+    let customOptionsKey = `${this.name}Options`;
+    switch (this.name) {
+      case 'copy':
+        customOptionsKey = 'renameOptions';
+        break;
+      case 'jsmin':
+        customOptionsKey = 'terserOptions';
+        break;
+      case 'version':
+        customOptionsKey = 'assetsOptions';
+        break;
+      default:
+    }
 
     this.input = input || this.defaultInput;
     this.output = output || this.defaultOutput;

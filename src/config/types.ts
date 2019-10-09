@@ -43,10 +43,9 @@ interface RenameOptions {
 interface HookOptions {
   sassOptions?: object;
   lessOptions?: object;
-  jsminOptions?: object;
-  renameOptions?: object;
-  copyOptions?: string | Function | RenameOptions;
-  versionOptions?: object;
+  terserOptions?: object;
+  renameOptions?: string | Function | RenameOptions;
+  assetsOptions?: object;
   ftpOptions?: object;
   gulpSrcOptions?: object;
 }
