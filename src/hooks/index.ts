@@ -34,6 +34,10 @@ class BaseHooks {
     Maker.generate('script', [input, output, options]);
   }
 
+  jsmin(input: string | string[], output: string, options?: HookOptions): void {
+    Maker.generate('jsmin', [input, output, options]);
+  }
+
   // Files & Directories
   copy(input: string | string[], output: string, options?: HookOptions): void {
     Maker.generate('copy', [input, output, options]);

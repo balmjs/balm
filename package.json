@@ -80,6 +80,7 @@
     "require-dir": "^1.2.0",
     "ssh2": "^0.8.5",
     "style-loader": "^1.0.0",
+    "terser": "^4.3.8",
     "terser-webpack-plugin": "^2.1.2",
     "through2": "^3.0.1",
     "url-loader": "^2.2.0",

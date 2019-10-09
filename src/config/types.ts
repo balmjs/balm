@@ -43,6 +43,8 @@ interface RenameOptions {
 interface HookOptions {
   sassOptions?: object;
   lessOptions?: object;
+  jsminOptions?: object;
+  renameOptions?: object;
   copyOptions?: string | Function | RenameOptions;
   versionOptions?: object;
   ftpOptions?: object;
