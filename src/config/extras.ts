@@ -1,7 +1,7 @@
-const excludes: string[] = [];
 const includes: string[] = [];
+const excludes: string[] = [];
 
 export default {
-  excludes,
-  includes
+  includes,
+  excludes
 };

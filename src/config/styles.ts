@@ -12,9 +12,9 @@ const extname = 'css';
 const minified = false;
 const atImportPaths: string[] = [];
 /**
- * Optimisations
+ * Cssnano optimisations
  *
- * https://cssnano.co/guides/optimisations/
+ * @reference https://cssnano.co/guides/optimisations/
  */
 const options: object = {
   safe: true,
@@ -23,16 +23,40 @@ const options: object = {
     removeAll: true
   }
 };
+/**
+ * LibSass options
+ *
+ * @reference https://github.com/sass/node-sass#options
+ */
 const sassOptions: object = {};
+/**
+ * Less plugin for Gulp
+ *
+ * @reference https://github.com/gulp-community/gulp-less#options
+ */
 const lessOptions: object = {};
+/**
+ * PostCSS Preset Env
+ *
+ * @reference https://github.com/csstools/postcss-preset-env#options
+ */
 const postcssEnvOptions: object = {
   stage: 0,
   autoprefixer: {
     flexbox: 'no-2009'
   }
 };
+/**
+ * PostCSS plugins
+ *
+ * @reference https://www.postcss.parts/
+ */
 const postcssPlugins: object[] = [];
-// For `postcss-loader` options
+/**
+ * PostCSS loader for webpack
+ *
+ * @reference https://github.com/postcss/postcss-loader#options
+ */
 const postcssLoaderOptions: PostcssLoaderOptions = {
   sourceMap: false
 };

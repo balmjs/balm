@@ -30,10 +30,19 @@ const stats: string | object = {
   chunks: false,
   chunkModules: false
 };
-// Full custom configuration
+/**
+ * Full custom webpack configuration
+ *
+ * @reference https://webpack.js.org/configuration/
+ */
 const webpackOptions: object = {};
 // Other advanced options
 const eslint = false;
+/**
+ * Terser minify options
+ *
+ * @reference https://github.com/terser/terser#minify-options
+ */
 const options: object = {
   parse: {
     // We want terser to parse ecma 8 code. However, we don't want it
@@ -71,6 +80,11 @@ const options: object = {
 // SSR support
 const inject = false;
 // Optimization
+/**
+ * Webpack optimizations for manual configuration and overrides
+ *
+ * @reference https://webpack.js.org/configuration/optimization/
+ */
 const optimization: object = {};
 const splitAllVendors = false;
 const vendorsName = 'vendors'; // AllInOne vendor filename or Vendors folder name

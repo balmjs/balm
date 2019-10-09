@@ -1,7 +1,7 @@
 /**
  * HTMLMinifier options
  *
- * https://github.com/kangax/html-minifier#options-quick-reference
+ * @reference https://github.com/kangax/html-minifier#options-quick-reference
  */
 const options: object = {
   collapseWhitespace: true,
