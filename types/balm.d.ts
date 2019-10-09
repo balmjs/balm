@@ -226,6 +226,7 @@ declare namespace NodeJS {
     recipes: any[];
     recipeIndex: number;
     server: any;
+    watchFtpFile: string;
     watching: boolean;
     webpackCompiler: any;
   }

@@ -102,7 +102,7 @@ class BalmTask {
       );
   }
 
-  init(input?: string | string[], output?: string, options?: any): void {
+  init(input?: string | string[], output?: string, options: any = {}): void {
     const customOptionsKey = `${this.name}Options`;
 
     this.input = input || this.defaultInput;

@@ -60,15 +60,14 @@ class ServerTask extends BalmJS.BalmTask {
 
     // For FTP
     if (BalmJS.config.ftp.files.length) {
-      watch(
-        BalmJS.config.ftp.files,
-        watchOptions,
-        series(BalmJS.toNamespace('ftp'), reload)
+      watch(BalmJS.config.ftp.files, watchOptions).on(
+        'change',
+        (path: string) => {
+          BalmJS.logger.debug(`${this.name} task`, `File ${path} was changed`);
+          BalmJS.watchFtpFile = path;
+          series(BalmJS.toNamespace('ftp'), reload)();
+        }
       );
-      // Watch single file - TODO: ftp task
-      // .on('change', path => {
-      //   logger.debug(`${this.name} task`, `File ${path} was changed`);
-      // });
     }
   }
 

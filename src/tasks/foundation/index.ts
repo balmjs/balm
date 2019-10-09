@@ -12,4 +12,5 @@ BalmJS.tasks = []; // Maintasks
 BalmJS.recipes = []; // Subtasks
 BalmJS.recipeIndex = 0;
 BalmJS.server = null;
+BalmJS.watchFtpFile = '';
 BalmJS.watching = false;
