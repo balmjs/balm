@@ -5,6 +5,10 @@ class JsminTask extends BalmJS.BalmTask {
     super('jsmin');
   }
 
+  get options(): object {
+    return Object.assign({}, BalmJS.config.scripts.options, this.customOptions);
+  }
+
   recipe(
     input: string | string[],
     output: string,
@@ -16,7 +20,7 @@ class JsminTask extends BalmJS.BalmTask {
       const renameOptions = options.renameOptions || { suffix: '.min' };
 
       return this.src
-        .pipe(BalmJS.plugins.jsmin(this.customOptions))
+        .pipe(BalmJS.plugins.jsmin(this.options))
         .pipe(BalmJS.plugins.rename(renameOptions))
         .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
     };
