@@ -1,6 +1,5 @@
 /**
  * HTMLMinifier options
- * @type {Object}
  *
  * https://github.com/kangax/html-minifier#options-quick-reference
  */

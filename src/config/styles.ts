@@ -13,7 +13,6 @@ const minified = false;
 const atImportPaths: string[] = [];
 /**
  * Optimisations
- * @type {Object}
  *
  * https://cssnano.co/guides/optimisations/
  */

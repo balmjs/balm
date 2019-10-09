@@ -30,7 +30,6 @@ const vendors: BalmVendor[] = [];
 
 /**
  * Project type
- * @type {Boolean}
  *
  * set `true` for a static HTML project
  * set `false` for a dynamic language project (e.g. PHP framework)
