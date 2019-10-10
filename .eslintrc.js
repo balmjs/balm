@@ -10,10 +10,8 @@ module.exports = {
   },
   env: {
     node: true,
-    es6: true,
-    mocha: true
+    es6: true
   },
-  globals: {},
   plugins: ['@typescript-eslint', 'prettier'],
   extends: [
     'eslint:recommended',
@@ -24,10 +22,10 @@ module.exports = {
     'plugin:prettier/recommended'
   ],
   rules: {
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/camelcase': [
-      'error',
+      2,
       { allow: ['drop_console', 'ascii_only', 'child_process'] }
     ]
   }

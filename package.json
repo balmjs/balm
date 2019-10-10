@@ -29,7 +29,7 @@
     "prepublishOnly": "gulp prepublish",
     "lint": "eslint --fix src --ext .ts",
     "build": "rm -rf lib && tsc",
-    "test": "cross-env NODE_ENV=test nyc mocha -A -r ./test/setup.js -t 16000",
+    "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json TS_NODE_FILES=true nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
@@ -97,6 +97,9 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/preset-typescript": "^7.6.0",
     "@babel/register": "^7.6.2",
+    "@types/chai": "^4.2.3",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.7.12",
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
     "babel-plugin-istanbul": "^5.2.0",

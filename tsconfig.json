@@ -16,6 +16,6 @@
     "typeRoots": ["node_modules/@types"]
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "lib"],
+  "exclude": ["node_modules", "lib", "coverage"],
   "files": ["types/index.d.ts"]
 }

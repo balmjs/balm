@@ -1,14 +1,19 @@
 {
-  "require": [
-    "@babel/register"
+  "extension": [
+    ".ts"
   ],
-  "include": [],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "coverage/**",
+    "node_modules/**",
+    "types/**/*.d.ts",
+    "test/**/*.spec.ts"
+  ],
   "reporter": [
     "lcov",
-    "json",
     "text",
     "text-summary"
-  ],
-  "sourceMap": false,
-  "instrument": false
+  ]
 }
