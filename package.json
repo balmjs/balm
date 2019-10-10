@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "2.0.0-beta.3",
+  "version": "2.0.0-beta.4",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -116,7 +116,7 @@
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0",
     "ts-node": "^8.4.1",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.4"
   },
   "peerDependencies": {
     "gulp": ">=4"

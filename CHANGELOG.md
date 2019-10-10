@@ -97,3 +97,16 @@ balm.go(mix => {
 - `mix.ftp(localFiles, options)`
 - `mix.publish(input, output, renameOptions)`
 - `mix.modernizr()`
+
+```ts
+// For param `options`
+interface HookOptions {
+  sassOptions?: object; // sass
+  lessOptions?: object; // less
+  terserOptions?: object; // jsmin
+  renameOptions?: string | Function | RenameOptions; // jsmin|copy
+  assetsOptions?: object; // version
+  ftpOptions?: object; // ftp
+  gulpSrcOptions?: object; // all
+}
+```
