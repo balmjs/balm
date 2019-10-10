@@ -4,21 +4,21 @@ class ExtraTask extends BalmJS.BalmTask {
   constructor() {
     super('extra');
 
-    const includeGlobs = [];
+    const includeGlobs: string[] = [];
     if (BalmJS.config.extras.includes.length) {
       for (const filename of BalmJS.config.extras.includes) {
         includeGlobs.push(`${BalmJS.config.src.base}/${filename}`);
       }
     }
 
-    const excludeGlobs = [];
+    const excludeGlobs: string[] = [];
     if (BalmJS.config.extras.excludes.length) {
       for (const filename of BalmJS.config.extras.excludes) {
         excludeGlobs.push(`!${BalmJS.config.src.base}/${filename}`);
       }
     }
 
-    const defaultGlobs = [
+    const defaultGlobs: string[] = [
       `${BalmJS.config.src.base}/*.*`, // All files but ignore all folders in the app root directory
       `!${BalmJS.config.src.base}/*.html`,
       `!${BalmJS.config.src.base}/${MANIFEST}`,

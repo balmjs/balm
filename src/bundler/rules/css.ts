@@ -10,7 +10,7 @@ function cssLoader(): object {
   BalmJS.config.styles.postcssLoaderOptions.plugins = BalmJS.plugins.postcss();
 
   if (BalmJS.config.env.inSSR) {
-    const loadersCount = BalmJS.config.scripts.loaders.length;
+    const loadersCount: number = BalmJS.config.scripts.loaders.length;
     for (let i = 0; i < loadersCount; i++) {
       if (BalmJS.config.scripts.loaders[i].loader === 'vue-loader') {
         styleLoader = 'vue-style-loader';

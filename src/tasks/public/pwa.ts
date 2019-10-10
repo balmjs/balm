@@ -7,11 +7,11 @@ class PwaTask extends BalmJS.BalmTask {
 
   recipe(customMode?: string, customOptions: object = {}): any {
     return async (cb: Function): Promise<any> => {
-      const mode = customMode || BalmJS.config.pwa.mode;
-      const globDirectory = BalmJS.config.dest.base;
+      const mode: string = customMode || BalmJS.config.pwa.mode;
+      const globDirectory: string = BalmJS.config.dest.base;
       const swSrc = `${BalmJS.config.roots.source}/${BalmJS.config.pwa.swSrcFilename}`;
       const swDest = `${globDirectory}/${BalmJS.config.pwa.swDestFilename}`;
-      let options = {};
+      let options: object = {};
 
       switch (mode) {
         // For basic

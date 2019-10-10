@@ -1,9 +1,9 @@
 import { ASYNC_SCRIPTS, INJECT_HASHNAME } from '../config/constants';
 
 function getOutput(output: string, scripts: any, isHook = false): any {
-  const outputPath = output || BalmJS.config.dest.base; // Absolute path
-  const jsFolder = BalmJS.config.paths.target.js;
-  const jsFilename = scripts.inject
+  const outputPath: string = output || BalmJS.config.dest.base; // Absolute path
+  const jsFolder: string = BalmJS.config.paths.target.js;
+  const jsFilename: string = scripts.inject
     ? `[name].${INJECT_HASHNAME}.js`
     : '[name].js';
   let chunkFilename = '[id]';

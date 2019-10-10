@@ -1,5 +1,17 @@
 import mergeStream from 'merge-stream';
 
+interface SpriteItem {
+  src: string;
+  name: string;
+}
+
+interface SpriteConfig {
+  src: string;
+  opt: object;
+  img: string;
+  css: string;
+}
+
 class SpriteTask extends BalmJS.BalmImageTask {
   private tasks: string[] = [];
 
@@ -14,7 +26,7 @@ class SpriteTask extends BalmJS.BalmImageTask {
     }
   }
 
-  private _getOption(name: string): any {
+  private _getOption(name: string): object {
     const spriteName = `${name}-${this.name}s.png`;
 
     return {
@@ -34,7 +46,7 @@ class SpriteTask extends BalmJS.BalmImageTask {
   }
 
   collect(): void {
-    const spriteList = [];
+    const spriteList: SpriteItem[] = [];
     for (const spriteName of this.input) {
       spriteList.push({
         src: `${BalmJS.config.src.img}/${spriteName}/*.png`,
@@ -43,9 +55,9 @@ class SpriteTask extends BalmJS.BalmImageTask {
     }
 
     for (let key = 0, len = spriteList.length; key < len; key++) {
-      const value: any = spriteList[key];
+      const value: SpriteItem = spriteList[key];
       const spriteTaskName = `${this.name}:${value.name}`; // E.g. "sprite:name"
-      const spriteConfig: any = {
+      const spriteConfig: SpriteConfig = {
         src: value.src,
         opt: this._getOption(value.name),
         img: this.output,

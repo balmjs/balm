@@ -13,7 +13,7 @@ function registerTasks(recipe: Function): void {
   const depsTasks: any[] = [];
   const nonDepsTasks: any[] = [];
   Object.values(AwesomeTasks).forEach(function(AwesomeTask: any) {
-    const awesomeTask = new AwesomeTask.default();
+    const awesomeTask: any = new AwesomeTask.default();
     awesomeTask.deps
       ? depsTasks.push(awesomeTask)
       : nonDepsTasks.push(awesomeTask);
@@ -45,7 +45,7 @@ function registerTasks(recipe: Function): void {
   }
 
   // 3. Register balm default task
-  const defaultTask = new DefaultTask();
+  const defaultTask: any = new DefaultTask();
   gulp.task(
     defaultTask.taskName,
     gulp.series(

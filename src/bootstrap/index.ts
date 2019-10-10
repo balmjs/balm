@@ -4,9 +4,9 @@ import checkConfig from './check_config';
 function _createQuickPath(config: any, rootKey: string): any {
   const result: any = {};
 
-  const rootValue = config.roots[rootKey];
+  const rootValue: string = config.roots[rootKey];
   for (const pathKey of Object.keys(config.paths[rootKey])) {
-    const pathValue = config.paths[rootKey][pathKey];
+    const pathValue: string = config.paths[rootKey][pathKey];
     result[pathKey] =
       rootKey === 'target' && ASSETS_KEYS.includes(pathKey)
         ? path.join(rootValue, BalmJS.file.assetsSuffixPath, pathValue)

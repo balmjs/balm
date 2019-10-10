@@ -1,11 +1,11 @@
 import { ObjectEntry } from '../config/types';
 
-const FILENAME_REGEX: any = new RegExp('[^/]+$', 'i');
+const FILENAME_REGEX = new RegExp('[^/]+$', 'i');
 const HOT_CLIENT = 'webpack-hot-middleware/client';
 
 function initVendors(entries: ObjectEntry): void {
   for (const key of Object.keys(entries)) {
-    const value = entries[key] as string[];
+    const value: string[] = entries[key] as string[];
     if (BalmJS.utils.isArray(value)) {
       BalmJS.vendors.push({
         key,
@@ -19,7 +19,7 @@ function initVendors(entries: ObjectEntry): void {
 function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
   let webpackEntries: any = {};
 
-  const HMR = Object.keys(BalmJS.config.server.hotOptions).length
+  const HMR: string = Object.keys(BalmJS.config.server.hotOptions).length
     ? `${HOT_CLIENT}?` +
       Object.entries(BalmJS.config.server.hotOptions)
         .map(option => option.join('='))
@@ -35,19 +35,19 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
     initVendors(input as ObjectEntry);
 
     for (const key of Object.keys(input)) {
-      const value = (input as ObjectEntry)[key];
-      const isVendor = BalmJS.utils.isArray(value);
+      const value: string | string[] = (input as ObjectEntry)[key];
+      const isVendor: boolean = BalmJS.utils.isArray(value);
 
       // Key
-      const entryKey = isVendor
+      const entryKey: string = isVendor
         ? path.join(scripts.vendorsName, key)
         : path.join(key);
 
       // Value
-      const hotValue = BalmJS.utils.isString(value)
+      const hotValue: string[] = BalmJS.utils.isString(value)
         ? [value as string, HMR]
         : [...(value as string[]), HMR];
-      const entryValue = useHMR ? hotValue : value;
+      const entryValue: string | string[] = useHMR ? hotValue : value;
 
       // Result
       if (!isVendor) {
@@ -56,8 +56,8 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
     }
   } else if (BalmJS.utils.isArray(input) && input.length) {
     for (const value of input as string[]) {
-      const matchResult = FILENAME_REGEX.exec(value)[0];
-      const key = matchResult.split('.')[0];
+      const matchResult: string = (FILENAME_REGEX as any).exec(value)[0];
+      const key: string = matchResult.split('.')[0];
       webpackEntries[key] = useHMR ? [value, HMR] : value;
     }
   } else if (BalmJS.utils.isString(input)) {

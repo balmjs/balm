@@ -5,9 +5,11 @@ const BLACKLIST_IN_DEV = [
 ];
 
 function ban(name: string): boolean {
-  const banInProd = BalmJS.config.env.isProd && BLACKLIST_IN_PROD === name;
-  const banInDev = BalmJS.config.env.isDev && BLACKLIST_IN_DEV.includes(name);
-  const isBan = banInProd || banInDev;
+  const banInProd: boolean =
+    BalmJS.config.env.isProd && BLACKLIST_IN_PROD === name;
+  const banInDev: boolean =
+    BalmJS.config.env.isDev && BLACKLIST_IN_DEV.includes(name);
+  const isBan: boolean = banInProd || banInDev;
 
   let api: string;
   switch (name) {
@@ -22,7 +24,7 @@ function ban(name: string): boolean {
   }
 
   if (isBan) {
-    const message =
+    const message: string =
       BalmJS.config.useDefaults &&
       BalmJS.config.env.isDev &&
       BLACKLIST_IN_PROD === name

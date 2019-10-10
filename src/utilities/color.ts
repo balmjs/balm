@@ -8,6 +8,11 @@ interface ColorStyle {
   symbol?: string;
 }
 
+interface Style {
+  icon: string;
+  render: ansiColors.StyleFunction;
+}
+
 const COLOR = {
   PREFIX: 'bg',
   SUFFIX: 'Bright'
@@ -17,10 +22,7 @@ function _style(
   colorStyle: ColorStyle = {
     color: 'white'
   }
-): {
-  icon: string;
-  render: ansiColors.StyleFunction;
-} {
+): Style {
   const color: string = colorStyle.color.toLowerCase();
   let fn: string = colorStyle.background
     ? COLOR.PREFIX + color.replace(/^[a-z]/, str => str.toUpperCase())
@@ -48,7 +50,7 @@ function _style(
 }
 
 function color(label: string, colorStyle?: ColorStyle): string {
-  const result = _style(colorStyle);
+  const result: Style = _style(colorStyle);
   return result.render(`${result.icon}${label}`);
 }
 

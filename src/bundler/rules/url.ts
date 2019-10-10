@@ -3,7 +3,7 @@ import { STATIC_ASSETS } from '../../config/constants';
 function urlLoader(): object[] {
   const PATHNAME = `${BalmJS.config.paths.target.js}/${STATIC_ASSETS}/`;
   const FILENAME = '[name].[hash:8].[ext]';
-  const limit = BalmJS.config.scripts.base64Limit;
+  const limit: number = BalmJS.config.scripts.base64Limit;
 
   return [
     // "url" loader works like "file" loader except that it embeds assets

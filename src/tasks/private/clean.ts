@@ -55,7 +55,7 @@ class CleanTask extends BalmJS.BalmTask {
   }
 
   get dirInBackend(): string[] {
-    const buildDir = BalmJS.config.assets.subDir
+    const buildDir: string[] = BalmJS.config.assets.subDir
       ? [BalmJS.config.dest.static]
       : [];
 
@@ -67,10 +67,9 @@ class CleanTask extends BalmJS.BalmTask {
   }
 
   fn = async (cb: Function): Promise<any> => {
-    let directories = BalmJS.config.inFrontend
-      ? this.dirInFrontend
-      : this.dirInBackend;
-    directories = unique(directories);
+    const directories: string[] = BalmJS.config.inFrontend
+      ? unique(this.dirInFrontend)
+      : unique(this.dirInBackend);
 
     BalmJS.logger.debug(
       `${this.name} task`,

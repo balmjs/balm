@@ -45,7 +45,7 @@ class HtmlTask extends BalmJS.BalmTask {
 
   private _setPublicPath(): any {
     const publicPathSrc = `${BalmJS.config.assets.publicUrlPlaceholder}/`;
-    const publicPathDest = BalmJS.file.publicPath;
+    const publicPathDest: string = BalmJS.file.publicPath;
 
     BalmJS.logger.debug(
       `${this.name} task - public path`,

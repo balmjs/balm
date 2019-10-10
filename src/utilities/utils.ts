@@ -13,7 +13,7 @@ function isArray(arr: any): boolean {
 }
 
 function isFunction(fn: any): boolean {
-  const type = getType(fn);
+  const type: string = getType(fn);
   return type === 'function' || type === 'generatorfunction';
 }
 

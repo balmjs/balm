@@ -9,7 +9,7 @@ class RemoveTask extends BalmJS.BalmTask {
     return async (cb: Function): Promise<any> => {
       this.init(input);
 
-      const canDel =
+      const canDel: boolean =
         (BalmJS.utils.isString(this.input) && this.input.trim()) ||
         (BalmJS.utils.isArray(this.input) && this.input.length);
 

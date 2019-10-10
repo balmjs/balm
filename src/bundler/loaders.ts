@@ -29,7 +29,7 @@ function getLoaders(customLoaders: object[]): object[] {
     }
   });
 
-  const result = webpackMerge.smart(
+  const result: any = webpackMerge.smart(
     {
       rules: defaultLoaders
     },

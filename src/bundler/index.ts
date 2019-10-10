@@ -10,7 +10,7 @@ function webpackConfig(
   customOptions: any = {},
   isHook = false
 ): void {
-  const scripts = BalmJS.config.scripts;
+  const scripts: any = BalmJS.config.scripts;
   const defaultEntry = `./${BalmJS.config.roots.source}/${BalmJS.config.paths.source.js}/index.js`;
 
   const baseConfig: any = {
@@ -40,9 +40,9 @@ function webpackConfig(
     };
   }
 
-  const defaultConfig = getDefaultConfig(scripts);
+  const defaultConfig: any = getDefaultConfig(scripts);
 
-  const configuration = webpackMerge(
+  const configuration: any = webpackMerge(
     baseConfig,
     defaultConfig,
     scripts.webpackOptions,

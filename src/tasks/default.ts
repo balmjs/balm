@@ -4,7 +4,7 @@ class DefaultTask extends BalmJS.BalmTask {
   }
 
   get startTask(): string[] {
-    const tasks = BalmJS.toNamespace(['start']) as string[];
+    const tasks: string[] = BalmJS.toNamespace(['start']) as string[];
 
     if (BalmJS.utils.isString(BalmJS.beforeTask)) {
       tasks.unshift(BalmJS.beforeTask);
@@ -52,7 +52,7 @@ class DefaultTask extends BalmJS.BalmTask {
   }
 
   get endTask(): string[] {
-    const tasks = BalmJS.toNamespace(['end']) as string[];
+    const tasks: string[] = BalmJS.toNamespace(['end']) as string[];
 
     if (BalmJS.utils.isString(BalmJS.afterTask)) {
       tasks.push(BalmJS.afterTask);

@@ -20,7 +20,6 @@ class BalmTask {
   get name(): string {
     return this._name;
   }
-
   get taskName(): string {
     return this._taskName;
   }
@@ -103,23 +102,24 @@ class BalmTask {
   }
 
   init(input?: string | string[], output?: string, options: any = {}): void {
-    let customOptionsKey = `${this.name}Options`;
-    switch (this.name) {
+    let name: string = this.name;
+    switch (name) {
       case 'copy':
-        customOptionsKey = 'renameOptions';
+        name = 'rename';
         break;
       case 'jsmin':
-        customOptionsKey = 'terserOptions';
+        name = 'terser';
         break;
       case 'version':
-        customOptionsKey = 'assetsOptions';
+        name = 'assets';
         break;
       default:
     }
+    const key = `${name}Options`;
 
     this.input = input || this.defaultInput;
     this.output = output || this.defaultOutput;
-    this.customOptions = options[customOptionsKey] || this.defaultCustomOptions;
+    this.customOptions = options[key] || this.defaultCustomOptions;
 
     const obj: {
       input: string | string[];
@@ -129,7 +129,7 @@ class BalmTask {
       input: this.input,
       output: this.output
     };
-    if (options[customOptionsKey]) {
+    if (options[key]) {
       obj.customOptions = this.customOptions;
     }
 

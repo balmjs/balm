@@ -7,7 +7,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import getCommonConfig from './common';
 
 function getProdConfig(scripts: any): any {
-  const shouldUseSourceMap = scripts.sourceMap;
+  const shouldUseSourceMap: string | boolean = scripts.sourceMap;
 
   return webpackMerge(getCommonConfig(scripts), {
     mode: 'production',
