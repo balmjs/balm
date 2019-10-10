@@ -1,5 +1,5 @@
 module.exports = {
   asyncOnly: true,
-  extension: ['ts'],
-  require: ['ts-node/register']
+  extension: ['js', 'ts'],
+  require: ['ts-node/register', 'test/setup.js']
 };
