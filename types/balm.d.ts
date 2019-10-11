@@ -177,7 +177,7 @@ interface BalmLogger {
   debug: (label: string, message: any, options?: object) => void;
   info: (label: string, message: any, options?: object) => void;
   warn: (label: string, message: any, options?: object) => void;
-  error: (label: string, message: any, options?: object) => void;
+  error: (label: string, message: any, pre?: boolean) => void;
 }
 
 interface BalmFile {

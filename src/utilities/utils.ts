@@ -13,8 +13,7 @@ function isArray(arr: any): boolean {
 }
 
 function isFunction(fn: any): boolean {
-  const type: string = getType(fn);
-  return type === 'function' || type === 'generatorfunction';
+  return getType(fn) === 'function';
 }
 
 // Deep merge two objects

@@ -3,7 +3,8 @@
     ".ts"
   ],
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "!src/config/env.ts"
   ],
   "exclude": [
     "coverage/**",
