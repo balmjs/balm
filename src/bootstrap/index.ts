@@ -24,11 +24,6 @@ function _ready(config: any): any {
     config.env.isProd || !config.inFrontend ? 'target' : 'tmp'
   );
 
-  // Note: fix for dev in backend mode
-  if (!config.inFrontend && config.env.isDev) {
-    config.dest.font = path.join(config.roots.target, config.paths.tmp.font);
-  }
-
   config.dest.static = path.join(
     config.dest.base,
     BalmJS.file.assetsSuffixPath
@@ -67,18 +62,9 @@ function setConfig(customConfig: any = {}): any {
   config.server.hotOptions.path = HMR_PATH;
 
   // 3. For the dynamic project
-  if (config.inFrontend) {
-    config.assets.buildDir = '';
-  } else {
-    config.paths.tmp.font =
-      config.paths.source.font.split('/').pop() || 'fonts'; // NOTE: fix for dev in non-static mode
-
+  if (!config.inFrontend) {
     config.roots.target = config.assets.mainDir; // NOTE: `config.roots.target = 'public'`
     config.roots.tmp = config.roots.target;
-
-    if (config.env.isDev) {
-      config.assets.buildDir = '';
-    }
   }
 
   // 4. Before created

@@ -6,10 +6,10 @@ describe('build task', function() {
   before(function() {
     balm.config = {
       env: {
-        isProd: true,
-        isDev: false
+        isProd: true
       }
     };
+
     buildTask = new BuildTask();
     buildTask.fn();
   });

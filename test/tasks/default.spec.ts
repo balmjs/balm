@@ -41,7 +41,7 @@ describe('default task', function() {
   });
 
   describe('main tasks', function() {
-    describe('in Prod', function() {
+    describe('in production', function() {
       const mainTasks = [
         'balm:clean',
         'balm:style',
@@ -57,8 +57,7 @@ describe('default task', function() {
       before(function() {
         balm.config = {
           env: {
-            isProd: true,
-            isDev: false
+            isProd: true
           }
         };
       });
@@ -73,7 +72,7 @@ describe('default task', function() {
       );
     });
 
-    describe('with sprites, eslint, cache and pwa in Prod ', function() {
+    describe('with sprites, eslint, cache and pwa in production ', function() {
       const mainTasks = [
         'balm:clean',
         'balm:sprite',
@@ -94,8 +93,7 @@ describe('default task', function() {
       before(function() {
         balm.config = {
           env: {
-            isProd: true,
-            isDev: false
+            isProd: true
           },
           styles: {
             sprites: ['img-icon']
@@ -122,7 +120,7 @@ describe('default task', function() {
       );
     });
 
-    describe('use defaults in Dev', function() {
+    describe('use defaults in development', function() {
       const mainTasks = [
         'balm:clean',
         'balm:sprite',
@@ -138,7 +136,6 @@ describe('default task', function() {
       before(function() {
         balm.config = {
           env: {
-            isProd: false,
             isDev: true
           }
         };
@@ -154,11 +151,10 @@ describe('default task', function() {
       );
     });
 
-    describe('do not use defaults in Dev', function() {
+    describe('do not use defaults in development', function() {
       before(function() {
         balm.config = {
           env: {
-            isProd: false,
             isDev: true
           },
           useDefaults: false

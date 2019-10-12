@@ -13,7 +13,7 @@ describe('Balm File', function() {
   });
 
   describe('#publicPath', function() {
-    describe('in Dev', function() {
+    describe('in development', function() {
       it(
         'public path expected output: ""',
         asyncCase(function() {
@@ -22,7 +22,7 @@ describe('Balm File', function() {
       );
     });
 
-    describe('in Prod', function() {
+    describe('in production', function() {
       before(function() {
         balm.config = {
           assets: {
@@ -41,17 +41,94 @@ describe('Balm File', function() {
   });
 
   describe('#assetsSuffixPath', function() {
-    it(
-      'assets suffix path',
-      asyncCase(function() {
-        const assetsSuffixPath = path.join(
-          balm.config.assets.subDir,
-          balm.config.assets.buildDir
-        );
+    describe('in frontend', function() {
+      before(function() {
+        balm.config = {
+          inFrontend: true
+        };
+      });
 
-        expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
-      })
-    );
+      it(
+        'assets suffix path',
+        asyncCase(function() {
+          const assetsSuffixPath = '';
+
+          expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
+        })
+      );
+    });
+
+    describe('in backend and production with cache', function() {
+      before(function() {
+        balm.config = {
+          inFrontend: false,
+          env: {
+            isProd: true
+          },
+          assets: {
+            subDir: '',
+            cache: true
+          }
+        };
+      });
+
+      it(
+        'assets suffix path',
+        asyncCase(function() {
+          const assetsSuffixPath = 'build';
+
+          expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
+        })
+      );
+    });
+
+    describe('in backend and production with subDir', function() {
+      before(function() {
+        balm.config = {
+          inFrontend: false,
+          env: {
+            isProd: true
+          },
+          assets: {
+            subDir: 'web',
+            cache: false
+          }
+        };
+      });
+
+      it(
+        'assets suffix path',
+        asyncCase(function() {
+          const assetsSuffixPath = 'web';
+
+          expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
+        })
+      );
+    });
+
+    describe('in backend and production with subDir and cache', function() {
+      before(function() {
+        balm.config = {
+          inFrontend: false,
+          env: {
+            isProd: true
+          },
+          assets: {
+            subDir: 'web',
+            cache: true
+          }
+        };
+      });
+
+      it(
+        'assets suffix path',
+        asyncCase(function() {
+          const assetsSuffixPath = 'web/build';
+
+          expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
+        })
+      );
+    });
   });
 
   describe('#absPaths()', function() {
@@ -81,11 +158,10 @@ describe('Balm File', function() {
   });
 
   describe('#assetsPath()', function() {
-    describe('in Dev', function() {
+    describe('in development', function() {
       before(function() {
         balm.config = {
           env: {
-            isProd: false,
             isDev: true
           },
           inFrontend: true
@@ -93,7 +169,7 @@ describe('Balm File', function() {
       });
 
       it(
-        'assets path in Dev',
+        'assets path in development',
         asyncCase(function() {
           const result = file.assetsPath('foo');
 
@@ -102,12 +178,11 @@ describe('Balm File', function() {
       );
     });
 
-    describe('in Prod', function() {
+    describe('in production', function() {
       before(function() {
         balm.config = {
           env: {
-            isProd: true,
-            isDev: false
+            isProd: true
           },
           inFrontend: false,
           assets: {
@@ -117,7 +192,7 @@ describe('Balm File', function() {
       });
 
       it(
-        'assets path in Dev',
+        'assets path in development',
         asyncCase(function() {
           const result = file.assetsPath('foo');
           const assetsPath = path.join(file.assetsSuffixPath, 'foo');

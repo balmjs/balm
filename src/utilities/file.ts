@@ -13,10 +13,11 @@ class File {
   }
 
   get assetsSuffixPath(): string {
-    return path.join(
-      BalmJS.config.assets.subDir,
-      BalmJS.config.assets.buildDir
-    );
+    return !BalmJS.config.inFrontend &&
+      BalmJS.config.env.isProd &&
+      BalmJS.config.assets.cache // Back-end project in production with cache
+      ? path.join(BalmJS.config.assets.subDir, BalmJS.config.assets.buildDir)
+      : BalmJS.config.assets.subDir;
   }
 
   absPath(_path: string): string {

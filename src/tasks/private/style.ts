@@ -4,7 +4,10 @@ class StyleTask extends BalmJS.BalmTask {
   }
 
   get deps(): string[] {
-    return [this.styleName, ...(BalmJS.config.env.isProd ? ['url'] : [])];
+    return [
+      this.styleName,
+      ...(BalmJS.config.env.isProd || !BalmJS.config.inFrontend ? ['url'] : [])
+    ];
   }
 }
 
