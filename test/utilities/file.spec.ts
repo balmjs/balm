@@ -92,7 +92,6 @@ describe('Balm File', function() {
       before(function() {
         balm.config.inFrontend = false;
         balm.config.assets.subDir = 'web';
-        balm.config.assets.buildDir = 'build';
       });
 
       it(

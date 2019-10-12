@@ -1,12 +1,13 @@
+import './custom-tasks';
 // import remove from 'rimraf';
-// import './tasks';
+import balmConfig from './balmrc';
+import './tasks';
 import './utilities';
-// import { before, describe, it } from 'mocha';
-// import { assert } from 'chai';
+
+const balmConfigDefaults = balm.config;
 
 const reset = () => {
   balm.config = balmConfigDefaults;
-  // balm.reset();
   // remove.sync(`${workspace}/copy-dest`);
   // remove.sync(`${workspace}/.tmp`);
   // remove.sync(`${workspace}/.compile`);
@@ -15,32 +16,10 @@ const reset = () => {
   // remove.sync(`${workspace}/archive.zip`);
 };
 
-// before(function() {
-//   // runs before all tests in this block
-//   console.log('+++++_____++++');
-// });
-
-// beforeEach(() => {
-
-// balm.config = balmConfig;
-// balm.config.isProd = false;
-// });
+beforeEach(() => {
+  balm.config = balmConfig;
+});
 
 afterEach(() => {
   reset();
 });
-
-// before(function() {
-//   console.log('+++++_____++++');
-// });
-
-// describe('Array', function() {
-//   describe('#indexOf()', function() {
-//     it(
-//       'should return -1 when not present',
-//       asyncCase(() => {
-//         assert.equal([1, 2, 3].indexOf(4), -1);
-//       })
-//     );
-//   });
-// });

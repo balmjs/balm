@@ -1,14 +1,14 @@
+import fs from 'fs';
+import gulp from 'gulp';
 import balm from '../src';
+import balmConfig from './balmrc';
 import { expect } from 'chai';
-
-// import balmConfig from '../test-workspace/config/test';
-// import { isObject, isArray, isFunction } from '../lib/utilities';
+import utils from '../src/utilities/utils';
 
 global.balm = balm;
-global.balmConfigDefaults = balm.config;
+global.gulp = gulp;
 global.expect = expect;
-// global.balmConfig = balmConfig;
-// global.workspace = balmConfig.workspace;
+global.workspace = balmConfig.workspace;
 
 function asyncCase(fn: Function) {
   return function(done: Function) {
@@ -23,46 +23,50 @@ function asyncCase(fn: Function) {
 
 global.asyncCase = asyncCase;
 
-// const DELAY = 4000;
+const DELAY = 4000;
 
-// const shouldExist = (file, contents) => {
-//   let path = `${workspace}/${file}`;
-//   let result;
+function shouldExist(file: string, contents?: string) {
+  let path = `${workspace}/${file}`;
+  let result;
 
-//   if (contents) {
-//     result = fs.readFileSync(file, { encoding: 'utf8' });
-//     result.should.eql(contents);
-//   } else {
-//     result = fs.existsSync(path);
-//     result.should.be.true;
-//   }
-// };
+  if (contents) {
+    result = fs.readFileSync(file, { encoding: 'utf8' });
+    result.should.eql(contents);
+  } else {
+    result = fs.existsSync(path);
+    result.should.be.true;
+  }
+}
 
-// const shouldNoExist = file => {
-//   let path = `${workspace}/${file}`;
-//   let result = fs.existsSync(path);
-//   result.should.be.false;
-// };
+function shouldNoExist(file: string) {
+  let path = `${workspace}/${file}`;
+  let result = fs.existsSync(path);
+  result.should.be.false;
+}
 
-// global.runTask = ({ task, test, done }, result = true) => {
-//   gulp.series(isObject(task) ? task.fn : task)();
+global.runTask = (
+  obj: { task: any; test: any; done: Function },
+  result: boolean = true
+) => {
+  console.log(gulp.tree().nodes);
+  gulp.series(utils.isObject(obj.task) ? obj.task.fn : obj.task)();
 
-//   setTimeout(
-//     () => {
-//       if (isFunction(test)) {
-//         test();
-//       } else {
-//         if (isArray(test)) {
-//           test.forEach(file => {
-//             result ? shouldExist(file) : shouldNoExist(file);
-//           });
-//         } else {
-//           result ? shouldExist(test) : shouldNoExist(test);
-//         }
+  setTimeout(
+    () => {
+      if (utils.isFunction(test)) {
+        obj.test();
+      } else {
+        if (utils.isArray(test)) {
+          obj.test.forEach((file: string) => {
+            result ? shouldExist(file) : shouldNoExist(file);
+          });
+        } else {
+          result ? shouldExist(obj.test) : shouldNoExist(obj.test);
+        }
 
-//         done();
-//       }
-//     },
-//     task === 'default' ? DELAY * 2 : DELAY
-//   );
-// };
+        obj.done();
+      }
+    },
+    obj.task === 'default' ? DELAY * 2 : DELAY
+  );
+};
