@@ -1,9 +1,13 @@
 import DefaultTask from '../../src/tasks/default';
 import balm from '../../src';
 
-const defaultTask = new DefaultTask();
-
 describe('default task', function() {
+  let defaultTask: any;
+
+  beforeEach(function() {
+    defaultTask = new DefaultTask();
+  });
+
   describe('start task', function() {
     const beforeTask = 'beforeTask';
     const startTask = 'balm:start';
@@ -51,8 +55,12 @@ describe('default task', function() {
       ];
 
       before(function() {
-        balm.config.env.isProd = true;
-        balm.config.env.isDev = false;
+        balm.config = {
+          env: {
+            isProd: true,
+            isDev: false
+          }
+        };
       });
 
       it(
@@ -84,12 +92,24 @@ describe('default task', function() {
       ];
 
       before(function() {
-        balm.config.env.isProd = true;
-        balm.config.env.isDev = false;
-        balm.config.styles.sprites = ['img-icon'];
-        balm.config.scripts.eslint = true;
-        balm.config.assets.cache = true;
-        balm.config.pwa.enabled = true;
+        balm.config = {
+          env: {
+            isProd: true,
+            isDev: false
+          },
+          styles: {
+            sprites: ['img-icon']
+          },
+          scripts: {
+            eslint: true
+          },
+          assets: {
+            cache: true
+          },
+          pwa: {
+            enabled: true
+          }
+        };
       });
 
       it(
@@ -116,8 +136,12 @@ describe('default task', function() {
       ];
 
       before(function() {
-        balm.config.env.isProd = false;
-        balm.config.env.isDev = true;
+        balm.config = {
+          env: {
+            isProd: false,
+            isDev: true
+          }
+        };
       });
 
       it(
@@ -132,9 +156,13 @@ describe('default task', function() {
 
     describe('do not use defaults in Dev', function() {
       before(function() {
-        balm.config.env.isProd = false;
-        balm.config.env.isDev = true;
-        balm.config.useDefaults = false;
+        balm.config = {
+          env: {
+            isProd: false,
+            isDev: true
+          },
+          useDefaults: false
+        };
       });
 
       it(

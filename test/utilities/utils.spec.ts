@@ -3,7 +3,7 @@ import utils from '../../src/utilities/utils';
 describe('Balm Utils', function() {
   describe('#isString()', function() {
     it(
-      'A String expected output: "true"',
+      'A String expected output: true',
       asyncCase(function() {
         const result = utils.isString('blubber');
 
@@ -14,7 +14,7 @@ describe('Balm Utils', function() {
 
   describe('#isObject()', function() {
     it(
-      'An Object expected output: "true"',
+      'An Object expected output: true',
       asyncCase(function() {
         const result = utils.isObject({});
 
@@ -25,7 +25,7 @@ describe('Balm Utils', function() {
 
   describe('#isArray()', function() {
     it(
-      'An Array expected output: "true"',
+      'An Array expected output: true',
       asyncCase(function() {
         const result = utils.isArray([]);
 
@@ -36,7 +36,7 @@ describe('Balm Utils', function() {
 
   describe('#isFunction()', function() {
     it(
-      'A Function expected output: "true"',
+      'A Function expected output: true',
       asyncCase(function() {
         const result = utils.isFunction(function foo() {});
 
@@ -45,7 +45,7 @@ describe('Balm Utils', function() {
     );
 
     it(
-      'A GeneratorFunction expected output: "true"',
+      'A GeneratorFunction expected output: true',
       asyncCase(function() {
         const result = utils.isFunction(function* foo() {});
 

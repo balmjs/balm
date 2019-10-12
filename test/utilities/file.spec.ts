@@ -24,7 +24,11 @@ describe('Balm File', function() {
 
     describe('in Prod', function() {
       before(function() {
-        balm.config.assets.publicUrl = '/';
+        balm.config = {
+          assets: {
+            publicUrl: '/'
+          }
+        };
       });
 
       it(
@@ -90,8 +94,12 @@ describe('Balm File', function() {
 
     describe('in Prod', function() {
       before(function() {
-        balm.config.inFrontend = false;
-        balm.config.assets.subDir = 'web';
+        balm.config = {
+          inFrontend: false,
+          assets: {
+            subDir: 'web'
+          }
+        };
       });
 
       it(

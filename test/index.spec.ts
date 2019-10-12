@@ -1,6 +1,5 @@
 import './custom-tasks';
 // import remove from 'rimraf';
-import balmConfig from './balmrc';
 import './tasks';
 import './utilities';
 
@@ -15,10 +14,6 @@ const reset = () => {
   // remove.sync(`${workspace}/assets`);
   // remove.sync(`${workspace}/archive.zip`);
 };
-
-beforeEach(() => {
-  balm.config = balmConfig;
-});
 
 afterEach(() => {
   reset();
