@@ -3,7 +3,7 @@ import './custom-tasks';
 import './tasks';
 import './utilities';
 
-const balmConfigDefaults = balm.config;
+const balmConfigDefaults = Object.assign({}, balm.config);
 
 const reset = () => {
   balm.config = balmConfigDefaults;

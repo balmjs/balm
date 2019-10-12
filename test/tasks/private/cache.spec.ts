@@ -46,45 +46,45 @@ describe('cache task', function() {
   });
 
   // TODO: WTF?
-  // describe('in backend', function() {
-  //   before(function() {
-  //     balm.config = {
-  //       inFrontend: false,
-  //       env: {
-  //         isProd: true
-  //       },
-  //       scripts: {
-  //         inject: true
-  //       },
-  //       assets: {
-  //         cache: true,
-  //         includes: ['dist/foo.txt'],
-  //         excludes: ['dist/bar.txt']
-  //       }
-  //     };
-  //   });
+  describe('in backend', function() {
+    before(function() {
+      balm.config = {
+        inFrontend: false,
+        env: {
+          isProd: true
+        },
+        scripts: {
+          inject: true
+        },
+        assets: {
+          cache: true,
+          includes: ['dist/foo.txt'],
+          excludes: ['dist/bar.txt']
+        }
+      };
+    });
 
-  //   const defaultInput = [
-  //     'public/build/css/**/*',
-  //     'public/build/img/**/*',
-  //     'public/build/font/**/*',
-  //     'public/build/media/**/*',
-  //     '!public/manifest.json',
-  //     '!public/build/js/async/*',
-  //     '!public/build/js/assets/*',
-  //     `${balm.config.workspace}/dist/foo.txt`,
-  //     `!${balm.config.workspace}/dist/bar.txt`
-  //   ];
-  //   const defaultOutput = 'public/build';
+    const defaultInput = [
+      'public/build/css/**/*',
+      'public/build/img/**/*',
+      'public/build/font/**/*',
+      'public/build/media/**/*',
+      '!public/manifest.json',
+      '!public/build/js/async/*',
+      '!public/build/js/assets/*',
+      `${balm.config.workspace}/dist/foo.txt`,
+      `!${balm.config.workspace}/dist/bar.txt`
+    ];
+    const defaultOutput = 'public/build';
 
-  //   it(
-  //     `expected output: "${defaultOutput}"`,
-  //     asyncCase(function() {
-  //       expect(JSON.stringify(cacheTask.input)).to.equal(
-  //         JSON.stringify(defaultInput)
-  //       );
-  //       expect(cacheTask.output).to.equal(defaultOutput);
-  //     })
-  //   );
-  // });
+    it(
+      `expected output: "${defaultOutput}"`,
+      asyncCase(function() {
+        expect(JSON.stringify(cacheTask.input)).to.equal(
+          JSON.stringify(defaultInput)
+        );
+        expect(cacheTask.output).to.equal(defaultOutput);
+      })
+    );
+  });
 });

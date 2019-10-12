@@ -4,7 +4,6 @@ describe('clean task', function() {
   let cleanTask: any;
 
   beforeEach(function() {
-    // console.log(balm.config.inFrontend);
     cleanTask = new CleanTask();
     cleanTask.fn(function() {});
   });
@@ -24,7 +23,6 @@ describe('clean task', function() {
       it(
         `expected output: ${dirInFrontend}`,
         asyncCase(function() {
-          // console.log(balm.config);
           expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
             JSON.stringify(dirInFrontend)
           );

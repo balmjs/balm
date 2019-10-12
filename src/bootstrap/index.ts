@@ -45,8 +45,17 @@ function _ready(config: any): any {
   return config;
 }
 
+function _resetConfig(): any {
+  if (BalmJS.config.inFrontend) {
+    BalmJS.config.roots.target = 'dist';
+    BalmJS.config.roots.tmp = '.tmp';
+  }
+
+  return BalmJS.config;
+}
+
 function setConfig(customConfig: any = {}): any {
-  const defaultConfig: any = BalmJS.config;
+  const defaultConfig: any = _resetConfig();
 
   // 1. Overwrite config
   const newConfig: any = BalmJS.utils.mergeDeep(defaultConfig, customConfig);
