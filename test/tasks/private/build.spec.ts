@@ -3,7 +3,7 @@ import BuildTask from '../../../src/tasks/private/build';
 describe('build task', function() {
   let buildTask: any;
 
-  beforeEach(function() {
+  before(function() {
     balm.config = {
       env: {
         isProd: true,
@@ -11,26 +11,15 @@ describe('build task', function() {
       }
     };
     buildTask = new BuildTask();
+    buildTask.fn();
   });
 
-  describe('input without init', function() {
-    it(
-      'expected output: undefined',
-      asyncCase(function() {
-        expect(buildTask.input).to.equal(undefined);
-      })
-    );
-  });
+  const defaultInput = `${balm.config.roots.target}/**/*`;
 
-  describe('input with init', function() {
-    const defaultInput = 'dist/**/*';
-
-    it(
-      `expected output: "${defaultInput}"`,
-      asyncCase(function() {
-        buildTask.fn();
-        expect(buildTask.input).to.equal(defaultInput);
-      })
-    );
-  });
+  it(
+    `expected output: "${defaultInput}"`,
+    asyncCase(function() {
+      expect(buildTask.input).to.equal(defaultInput);
+    })
+  );
 });

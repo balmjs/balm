@@ -82,6 +82,16 @@ describe('Balm File', function() {
 
   describe('#assetsPath()', function() {
     describe('in Dev', function() {
+      before(function() {
+        balm.config = {
+          env: {
+            isProd: false,
+            isDev: true
+          },
+          inFrontend: true
+        };
+      });
+
       it(
         'assets path in Dev',
         asyncCase(function() {
@@ -95,6 +105,10 @@ describe('Balm File', function() {
     describe('in Prod', function() {
       before(function() {
         balm.config = {
+          env: {
+            isProd: true,
+            isDev: false
+          },
           inFrontend: false,
           assets: {
             subDir: 'web'
