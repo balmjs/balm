@@ -1,6 +1,8 @@
 import color from '../../src/utilities/color';
 import logger from '../../src/utilities/logger';
 
+const isWindows = process.platform === 'win32';
+
 describe('Balm Logger', function() {
   describe('#color()', function() {
     it(
@@ -22,15 +24,16 @@ describe('Balm Logger', function() {
           bright: true,
           symbol: 'check'
         });
+        const symbol = isWindows ? '√' : '✔';
 
         expect(result).to.equal(
-          '\u001b[1m\u001b[104m✔ <label>\u001b[49m\u001b[22m'
+          `\u001b[1m\u001b[104m${symbol} <label>\u001b[49m\u001b[22m`
         );
       })
     );
   });
 
-  describe('#success/debug/info/warn/error', function() {
+  describe('#success/debug/info/warn/error()', function() {
     it(
       'success',
       asyncCase(function() {

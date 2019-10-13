@@ -2,11 +2,11 @@ import file from '../../src/utilities/file';
 
 describe('Balm File', function() {
   describe('#stylePaths', function() {
-    it(
-      'style paths',
-      asyncCase(function() {
-        const stylePath = path.join(balm.config.workspace, '.');
+    const stylePath = path.join(balm.config.workspace, '.');
 
+    it(
+      `expected output: "${stylePath}"`,
+      asyncCase(function() {
         expect(file.stylePaths[0]).to.equal(stylePath);
       })
     );
@@ -14,10 +14,19 @@ describe('Balm File', function() {
 
   describe('#publicPath', function() {
     describe('in development', function() {
+      before(function() {
+        balm.config = {
+          env: {
+            isDev: true
+          }
+        };
+      });
+      const publicUrl = '';
+
       it(
-        'public path expected output: ""',
+        `expected output: "${publicUrl}"`,
         asyncCase(function() {
-          expect(file.publicPath).to.equal('');
+          expect(file.publicPath).to.equal(publicUrl);
         })
       );
     });
@@ -25,16 +34,38 @@ describe('Balm File', function() {
     describe('in production', function() {
       before(function() {
         balm.config = {
+          env: {
+            isProd: true
+          },
+          assets: {
+            publicUrl: 'https://balmjs.com/'
+          }
+        };
+      });
+      const publicUrl = 'https://balmjs.com/';
+
+      it(
+        `expected output: "${publicUrl}"`,
+        asyncCase(function() {
+          expect(file.publicPath).to.equal(publicUrl);
+        })
+      );
+    });
+
+    describe('has public url', function() {
+      before(function() {
+        balm.config = {
           assets: {
             publicUrl: '/'
           }
         };
       });
+      const publicUrl = '/';
 
       it(
-        'public path expected output: "/"',
+        `expected output: "${publicUrl}"`,
         asyncCase(function() {
-          expect(file.publicPath).to.equal('/');
+          expect(file.publicPath).to.equal(publicUrl);
         })
       );
     });
@@ -42,114 +73,119 @@ describe('Balm File', function() {
 
   describe('#assetsSuffixPath', function() {
     describe('in frontend', function() {
-      before(function() {
-        balm.config = {
-          inFrontend: true
-        };
+      describe('without subDir', function() {
+        before(function() {
+          balm.config = {
+            inFrontend: true,
+            assets: {
+              subDir: ''
+            }
+          };
+        });
+
+        const assetsSuffixPath = '';
+
+        it(
+          `expected output: "${assetsSuffixPath}"`,
+          asyncCase(function() {
+            expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
+          })
+        );
       });
 
-      it(
-        'assets suffix path',
-        asyncCase(function() {
-          const assetsSuffixPath = '';
+      describe('with subDir', function() {
+        before(function() {
+          balm.config = {
+            inFrontend: true,
+            assets: {
+              subDir: 'web'
+            }
+          };
+        });
 
-          expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
-        })
-      );
+        const assetsSuffixPath = 'web';
+
+        it(
+          `expected output: "${assetsSuffixPath}"`,
+          asyncCase(function() {
+            expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
+          })
+        );
+      });
     });
 
-    describe('in backend and production with cache', function() {
-      before(function() {
-        balm.config = {
-          inFrontend: false,
-          env: {
-            isProd: true
-          },
-          assets: {
-            subDir: '',
-            cache: true
-          }
-        };
+    describe('production with cache in backend', function() {
+      describe('without subDir', function() {
+        before(function() {
+          balm.config = {
+            inFrontend: false,
+            env: {
+              isProd: true
+            },
+            assets: {
+              subDir: '',
+              cache: true
+            }
+          };
+        });
+
+        const assetsSuffixPath = 'build';
+
+        it(
+          `expected output: "${assetsSuffixPath}"`,
+          asyncCase(function() {
+            expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
+          })
+        );
       });
 
-      it(
-        'assets suffix path',
-        asyncCase(function() {
-          const assetsSuffixPath = 'build';
+      describe('with subDir', function() {
+        before(function() {
+          balm.config = {
+            inFrontend: false,
+            env: {
+              isProd: true
+            },
+            assets: {
+              subDir: 'web',
+              cache: true
+            }
+          };
+        });
 
-          expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
-        })
-      );
-    });
+        const assetsSuffixPath = path.join('web', 'build');
 
-    describe('in backend and production with subDir', function() {
-      before(function() {
-        balm.config = {
-          inFrontend: false,
-          env: {
-            isProd: true
-          },
-          assets: {
-            subDir: 'web',
-            cache: false
-          }
-        };
+        it(
+          `expected output: "${assetsSuffixPath}"`,
+          asyncCase(function() {
+            expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
+          })
+        );
       });
-
-      it(
-        'assets suffix path',
-        asyncCase(function() {
-          const assetsSuffixPath = 'web';
-
-          expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
-        })
-      );
-    });
-
-    describe('in backend and production with subDir and cache', function() {
-      before(function() {
-        balm.config = {
-          inFrontend: false,
-          env: {
-            isProd: true
-          },
-          assets: {
-            subDir: 'web',
-            cache: true
-          }
-        };
-      });
-
-      it(
-        'assets suffix path',
-        asyncCase(function() {
-          const assetsSuffixPath = 'web/build';
-
-          expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
-        })
-      );
     });
   });
 
   describe('#absPaths()', function() {
+    const absPath = path.join(balm.config.workspace, 'foo');
+
     it(
-      'absolute path',
+      `expected output: "${absPath}"`,
       asyncCase(function() {
         const result = file.absPaths('foo');
-        const absPath = path.join(balm.config.workspace, 'foo');
 
         expect(result).to.equal(absPath);
       })
     );
 
+    const absPaths = [
+      path.join(balm.config.workspace, 'foo'),
+      '!' + path.join(balm.config.workspace, 'bar')
+    ];
+
     it(
-      'absolute paths',
+      `expected output: "${absPaths}"`,
       asyncCase(function() {
         const result = file.absPaths(['foo', '!bar']);
-        const absPaths = [
-          path.join(balm.config.workspace, 'foo'),
-          '!' + path.join(balm.config.workspace, 'bar')
-        ];
 
         expect(result[0]).to.equal(absPaths[0]);
         expect(result[1]).to.equal(absPaths[1]);
@@ -161,19 +197,21 @@ describe('Balm File', function() {
     describe('in development', function() {
       before(function() {
         balm.config = {
+          inFrontend: true,
           env: {
             isDev: true
-          },
-          inFrontend: true
+          }
         };
       });
 
+      const assetsPath = 'foo';
+
       it(
-        'assets path in development',
+        `expected output: "${assetsPath}"`,
         asyncCase(function() {
           const result = file.assetsPath('foo');
 
-          expect(result).to.equal('foo');
+          expect(result).to.equal(assetsPath);
         })
       );
     });
@@ -181,10 +219,10 @@ describe('Balm File', function() {
     describe('in production', function() {
       before(function() {
         balm.config = {
+          inFrontend: false,
           env: {
             isProd: true
           },
-          inFrontend: false,
           assets: {
             subDir: 'web'
           }
@@ -192,10 +230,10 @@ describe('Balm File', function() {
       });
 
       it(
-        'assets path in development',
+        `expected output: "${path.posix.join('web', 'foo')}"`,
         asyncCase(function() {
           const result = file.assetsPath('foo');
-          const assetsPath = path.join(file.assetsSuffixPath, 'foo');
+          const assetsPath = path.posix.join(file.assetsSuffixPath, 'foo');
 
           expect(result).to.equal(assetsPath);
         })
