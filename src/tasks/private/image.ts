@@ -18,6 +18,11 @@ class ImageTask extends BalmJS.BalmImageTask {
       .src(BalmJS.file.absPaths(this.input), {
         since: gulp.lastRun(BalmJS.toNamespace('image') as string)
       })
+      .pipe(
+        BalmJS.plugins.plumber((error: any): void => {
+          BalmJS.logger.error(`${this.name} task`, error.message);
+        })
+      )
       .pipe($.imagemin())
       .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
   };
