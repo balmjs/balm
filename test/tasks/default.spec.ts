@@ -41,134 +41,136 @@ describe('default task', function() {
   });
 
   describe('main tasks', function() {
+    describe('in development', function() {
+      describe('use defaults', function() {
+        const mainTasks = [
+          'balm:clean',
+          'balm:style',
+          'balm:script',
+          'balm:html',
+          'balm:modernizr',
+          'balm:font',
+          'balm:serve'
+        ];
+
+        before(function() {
+          balm.config = {
+            env: {
+              isDev: true
+            }
+          };
+        });
+
+        it(
+          `tasks length expected output: ${mainTasks.length}`,
+          asyncCase(function() {
+            const tasks = defaultTask.mainTasks;
+
+            expect(JSON.stringify(tasks)).to.equal(JSON.stringify(mainTasks));
+          })
+        );
+      });
+
+      describe('do not use defaults', function() {
+        before(function() {
+          balm.config = {
+            env: {
+              isDev: true
+            },
+            useDefaults: false
+          };
+        });
+
+        it(
+          'tasks length expected output: 0',
+          asyncCase(function() {
+            const tasks = defaultTask.mainTasks;
+
+            expect(tasks.length).to.equal(0);
+          })
+        );
+      });
+    });
+
     describe('in production', function() {
-      const mainTasks = [
-        'balm:clean',
-        'balm:style',
-        'balm:script',
-        'balm:html',
-        'balm:image',
-        'balm:font',
-        'balm:media',
-        'balm:extra',
-        'balm:build'
-      ];
+      describe('default', function() {
+        const mainTasks = [
+          'balm:clean',
+          'balm:style',
+          'balm:script',
+          'balm:html',
+          'balm:image',
+          'balm:font',
+          'balm:media',
+          'balm:extra',
+          'balm:build'
+        ];
 
-      before(function() {
-        balm.config = {
-          env: {
-            isProd: true
-          }
-        };
+        before(function() {
+          balm.config = {
+            env: {
+              isProd: true
+            }
+          };
+        });
+
+        it(
+          `tasks length expected output: ${mainTasks.length}`,
+          asyncCase(function() {
+            const tasks = defaultTask.mainTasks;
+
+            expect(JSON.stringify(tasks)).to.equal(JSON.stringify(mainTasks));
+          })
+        );
       });
 
-      it(
-        `tasks length expected output: ${mainTasks.length}`,
-        asyncCase(function() {
-          const tasks = defaultTask.mainTasks;
+      describe('with sprites, eslint, cache and pwa', function() {
+        const mainTasks = [
+          'balm:clean',
+          'balm:sprite',
+          'balm:style',
+          'balm:lint',
+          'balm:script',
+          'balm:html',
+          'balm:image',
+          'balm:font',
+          'balm:media',
+          'balm:extra',
+          'balm:build',
+          'balm:cache',
+          'balm:workbox-sw',
+          'balm:pwa'
+        ];
 
-          expect(JSON.stringify(tasks)).to.equal(JSON.stringify(mainTasks));
-        })
-      );
-    });
+        before(function() {
+          balm.config = {
+            env: {
+              isProd: true
+            },
+            styles: {
+              sprites: ['img-icon']
+            },
+            scripts: {
+              eslint: true
+            },
+            assets: {
+              cache: true
+            },
+            pwa: {
+              enabled: true
+            }
+          };
+        });
 
-    describe('with sprites, eslint, cache and pwa in production ', function() {
-      const mainTasks = [
-        'balm:clean',
-        'balm:sprite',
-        'balm:style',
-        'balm:lint',
-        'balm:script',
-        'balm:html',
-        'balm:image',
-        'balm:font',
-        'balm:media',
-        'balm:extra',
-        'balm:build',
-        'balm:cache',
-        'balm:workbox-sw',
-        'balm:pwa'
-      ];
+        it(
+          `tasks length expected output: ${mainTasks.length}`,
+          asyncCase(function() {
+            const tasks = defaultTask.mainTasks;
 
-      before(function() {
-        balm.config = {
-          env: {
-            isProd: true
-          },
-          styles: {
-            sprites: ['img-icon']
-          },
-          scripts: {
-            eslint: true
-          },
-          assets: {
-            cache: true
-          },
-          pwa: {
-            enabled: true
-          }
-        };
+            expect(JSON.stringify(tasks)).to.equal(JSON.stringify(mainTasks));
+          })
+        );
       });
-
-      it(
-        `tasks length expected output: ${mainTasks.length}`,
-        asyncCase(function() {
-          const tasks = defaultTask.mainTasks;
-
-          expect(JSON.stringify(tasks)).to.equal(JSON.stringify(mainTasks));
-        })
-      );
-    });
-
-    describe('use defaults in development', function() {
-      const mainTasks = [
-        'balm:clean',
-        'balm:sprite',
-        'balm:style',
-        'balm:lint',
-        'balm:script',
-        'balm:html',
-        'balm:modernizr',
-        'balm:font',
-        'balm:serve'
-      ];
-
-      before(function() {
-        balm.config = {
-          env: {
-            isDev: true
-          }
-        };
-      });
-
-      it(
-        `tasks length expected output: ${mainTasks.length}`,
-        asyncCase(function() {
-          const tasks = defaultTask.mainTasks;
-
-          expect(JSON.stringify(tasks)).to.equal(JSON.stringify(mainTasks));
-        })
-      );
-    });
-
-    describe('do not use defaults in development', function() {
-      before(function() {
-        balm.config = {
-          env: {
-            isDev: true
-          },
-          useDefaults: false
-        };
-      });
-
-      it(
-        'tasks length expected output: 0',
-        asyncCase(function() {
-          const tasks = defaultTask.mainTasks;
-
-          expect(tasks.length).to.equal(0);
-        })
-      );
     });
   });
 
