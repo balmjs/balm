@@ -187,6 +187,7 @@ interface BalmFile {
   absPath: (path: string) => string;
   absPaths: (paths: string | string[]) => string | string[];
   assetsPath: (path: string) => string;
+  setPublicPath: () => any;
 }
 
 interface BalmPlugins {

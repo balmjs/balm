@@ -49,6 +49,7 @@ class CacheTask extends BalmJS.BalmTask {
 
     return this.src
       .pipe($.revAll.revision(BalmJS.config.assets.options))
+      .pipe($.if(/\.html$/, BalmJS.file.setPublicPath()))
       .pipe(gulp.dest(BalmJS.file.absPath(this.output)))
       .pipe($.revDeleteOriginal())
       .pipe($.revAll.manifestFile())

@@ -86,15 +86,18 @@ class HtmlTask extends BalmJS.BalmTask {
         .pipe(this._updateAssetsPath('img'))
         .pipe(this._updateAssetsPath('media'))
         .pipe($.if(MANIFEST, this._updateAssetsPath('manifest')));
+
+      stream = BalmJS.config.assets.cache
+        ? stream.pipe($.if(MANIFEST, BalmJS.file.setPublicPath()))
+        : stream.pipe(BalmJS.file.setPublicPath());
     } else {
       stream = stream
         .pipe(this._updateAssetsPath('css'))
-        .pipe(this._updateAssetsPath('js'));
+        .pipe(this._updateAssetsPath('js'))
+        .pipe(BalmJS.file.setPublicPath());
     }
 
-    return stream
-      .pipe(this._setPublicPath())
-      .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+    return stream.pipe(gulp.dest(BalmJS.file.absPath(this.output)));
   };
 }
 

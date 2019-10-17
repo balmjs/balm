@@ -49,6 +49,24 @@ class File {
       ? path.posix.join(this.assetsSuffixPath, _path)
       : _path;
   }
+
+  setPublicPath(): any {
+    const publicPathSrc = `${BalmJS.config.assets.publicUrlPlaceholder}/`;
+    const publicPathDest: string = this.publicPath;
+
+    BalmJS.logger.debug(
+      `set public path`,
+      {
+        regex: publicPathSrc,
+        replacement: publicPathDest
+      },
+      {
+        pre: true
+      }
+    );
+
+    return $.replace(publicPathSrc, publicPathDest);
+  }
 }
 
 export default new File();
