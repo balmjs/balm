@@ -5,6 +5,8 @@ import balmConfig from './balmrc';
 import { expect } from 'chai';
 import utils from '../src/utilities/utils';
 
+balm.config = balmConfig;
+
 global.balm = balm;
 global.gulp = gulp;
 global.expect = expect;

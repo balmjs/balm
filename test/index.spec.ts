@@ -3,14 +3,20 @@ import './custom-tasks';
 import './tasks';
 import './utilities';
 
-const balmConfigDefaults = Object.assign({}, balm.config);
+const balmConfigDefaults = Object.assign({}, balm.config, {
+  env: {
+    isProd: false,
+    isDev: false
+  },
+  assets: {
+    root: 'assets',
+    subDir: '',
+    cache: false
+  }
+});
 
 const reset = () => {
   balm.config = balmConfigDefaults;
-  balm.config.env.isProd = false;
-  balm.config.env.isDev = false;
-  balm.config.assets.subDir = '';
-  balm.config.assets.cache = false;
 
   // remove.sync(`${workspace}/copy-dest`);
   // remove.sync(`${workspace}/.tmp`);
@@ -19,6 +25,8 @@ const reset = () => {
   // remove.sync(`${workspace}/assets`);
   // remove.sync(`${workspace}/archive.zip`);
 };
+
+// beforeEach(() => {});
 
 afterEach(() => {
   reset();
