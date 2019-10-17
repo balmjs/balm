@@ -45,7 +45,6 @@ describe('cache task', function() {
     );
   });
 
-  // TODO: WTF?
   describe('in backend', function() {
     before(function() {
       balm.config = {
