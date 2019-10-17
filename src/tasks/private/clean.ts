@@ -67,12 +67,17 @@ class CleanTask extends BalmJS.BalmTask {
   }
 
   fn = async (cb: Function): Promise<any> => {
+    const taskName = `${this.name} task`;
     const directories: string[] = BalmJS.config.inFrontend
       ? unique(this.dirInFrontend)
       : unique(this.dirInBackend);
 
+    if (BalmJS.config.env.isProd && !BalmJS.config.assets.root) {
+      BalmJS.logger.warn(taskName, 'remote root path is empty');
+    }
+
     BalmJS.logger.debug(
-      `${this.name} task`,
+      taskName,
       {
         directories
       },
@@ -84,7 +89,7 @@ class CleanTask extends BalmJS.BalmTask {
     const deletedPaths: string[] = await del(directories, { force: true });
 
     BalmJS.logger.warn(
-      `${this.name} task`,
+      taskName,
       {
         deletedPaths
       },

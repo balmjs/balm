@@ -31,31 +31,62 @@ describe('clean task', function() {
     });
 
     describe('production', function() {
-      describe('without remote', function() {
-        before(function() {
-          balm.config = {
-            env: {
-              isProd: true
-            },
-            assets: {
-              root: 'assets'
-            }
-          };
+      describe('with local', function() {
+        describe('!subDir', function() {
+          before(function() {
+            balm.config = {
+              env: {
+                isProd: true
+              },
+              assets: {
+                root: 'assets',
+                subDir: ''
+              }
+            };
+          });
+
+          const dirInFrontend = [
+            `${balm.config.workspace}/dist`,
+            balm.config.assets.root
+          ];
+
+          it(
+            `expected output: ${dirInFrontend}`,
+            asyncCase(function() {
+              expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
+                JSON.stringify(dirInFrontend)
+              );
+            })
+          );
         });
 
-        const dirInFrontend = [
-          `${balm.config.workspace}/dist`,
-          balm.config.assets.root
-        ];
+        describe('subDir', function() {
+          before(function() {
+            balm.config = {
+              env: {
+                isProd: true
+              },
+              assets: {
+                root: 'assets',
+                subDir: 'web'
+              }
+            };
+          });
 
-        it(
-          `expected output: ${dirInFrontend}`,
-          asyncCase(function() {
-            expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
-              JSON.stringify(dirInFrontend)
-            );
-          })
-        );
+          const dirInFrontend = [
+            `${balm.config.workspace}/dist`,
+            balm.config.assets.root
+          ];
+
+          it(
+            `expected output: ${dirInFrontend}`,
+            asyncCase(function() {
+              expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
+                JSON.stringify(dirInFrontend)
+              );
+            })
+          );
+        });
       });
 
       describe('with empty remote', function() {
@@ -83,69 +114,72 @@ describe('clean task', function() {
       });
 
       describe('with remote', function() {
-        before(function() {
-          balm.config = {
-            env: {
-              isProd: true
-            },
-            assets: {
-              root: '/assets'
-            }
-          };
+        describe('!subDir', function() {
+          before(function() {
+            balm.config = {
+              env: {
+                isProd: true
+              },
+              assets: {
+                root: '/assets',
+                subDir: ''
+              }
+            };
+          });
+
+          const dirInFrontend = [
+            `${balm.config.workspace}/dist`,
+            '/assets/public/css',
+            '/assets/public/js',
+            '/assets/public/img',
+            '/assets/public/font',
+            '/assets/public/media'
+          ];
+
+          it(
+            `expected output: ${dirInFrontend}`,
+            asyncCase(function() {
+              expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
+                JSON.stringify(dirInFrontend)
+              );
+            })
+          );
         });
 
-        const dirInFrontend = [
-          `${balm.config.workspace}/dist`,
-          '/assets/public/css',
-          '/assets/public/js',
-          '/assets/public/img',
-          '/assets/public/font',
-          '/assets/public/media'
-        ];
+        describe('subDir', function() {
+          before(function() {
+            balm.config = {
+              env: {
+                isProd: true
+              },
+              assets: {
+                root: '/assets',
+                subDir: 'web'
+              }
+            };
+          });
 
-        it(
-          `expected output: ${dirInFrontend}`,
-          asyncCase(function() {
-            expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
-              JSON.stringify(dirInFrontend)
-            );
-          })
-        );
-      });
+          const dirInFrontend = [
+            `${balm.config.workspace}/dist`,
+            '/assets/public/web'
+          ];
 
-      describe('with subDir', function() {
-        before(function() {
-          balm.config = {
-            env: {
-              isProd: true
-            },
-            assets: {
-              root: '/assets',
-              subDir: 'web'
-            }
-          };
+          it(
+            `expected output: ${dirInFrontend}`,
+            asyncCase(function() {
+              expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
+                JSON.stringify(dirInFrontend)
+              );
+            })
+          );
         });
-
-        const dirInFrontend = [
-          `${balm.config.workspace}/dist`,
-          '/assets/public/web'
-        ];
-
-        it(
-          `expected output: ${dirInFrontend}`,
-          asyncCase(function() {
-            expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
-              JSON.stringify(dirInFrontend)
-            );
-          })
-        );
       });
     });
   });
 
   describe('in backend', function() {
     describe('development', function() {
-      describe('without subDir', function() {
+      describe('!subDir', function() {
         before(function() {
           balm.config = {
             inFrontend: false,
@@ -173,7 +207,7 @@ describe('clean task', function() {
           })
         );
       });
-      describe('with subDir', function() {
+      describe('subDir', function() {
         before(function() {
           balm.config = {
             inFrontend: false,
@@ -205,7 +239,7 @@ describe('clean task', function() {
 
     describe('production', function() {
       describe('non-cache', function() {
-        describe('without subDir', function() {
+        describe('!subDir', function() {
           before(function() {
             balm.config = {
               inFrontend: false,
@@ -236,7 +270,7 @@ describe('clean task', function() {
           );
         });
 
-        describe('with subDir', function() {
+        describe('subDir', function() {
           before(function() {
             balm.config = {
               inFrontend: false,
@@ -263,7 +297,7 @@ describe('clean task', function() {
       });
 
       describe('cache', function() {
-        describe('without subDir', function() {
+        describe('!subDir', function() {
           before(function() {
             balm.config = {
               inFrontend: false,
@@ -289,7 +323,7 @@ describe('clean task', function() {
           );
         });
 
-        describe('with subDir', function() {
+        describe('subDir', function() {
           before(function() {
             balm.config = {
               inFrontend: false,

@@ -12,7 +12,7 @@ describe('default task', function() {
     const beforeTask = 'beforeTask';
     const startTask = 'balm:start';
 
-    describe('without before task', function() {
+    describe('!before task', function() {
       it(
         `tasks[0] expected output: "${startTask}"`,
         asyncCase(function() {
@@ -23,7 +23,7 @@ describe('default task', function() {
       );
     });
 
-    describe('with before task', function() {
+    describe('before task', function() {
       before(function() {
         balm.beforeTask = beforeTask;
       });
@@ -42,7 +42,7 @@ describe('default task', function() {
 
   describe('main tasks', function() {
     describe('in development', function() {
-      describe('use defaults', function() {
+      describe('defaults', function() {
         const mainTasks = [
           'balm:clean',
           'balm:style',
@@ -71,7 +71,7 @@ describe('default task', function() {
         );
       });
 
-      describe('do not use defaults', function() {
+      describe('!defaults', function() {
         before(function() {
           balm.config = {
             env: {
@@ -93,7 +93,7 @@ describe('default task', function() {
     });
 
     describe('in production', function() {
-      describe('default', function() {
+      describe('default tasks', function() {
         const mainTasks = [
           'balm:clean',
           'balm:style',
@@ -175,7 +175,7 @@ describe('default task', function() {
   });
 
   describe('sub tasks', function() {
-    describe('without mix', function() {
+    describe('!mix', function() {
       it(
         'tasks length expected output: 0',
         asyncCase(function() {
@@ -186,7 +186,7 @@ describe('default task', function() {
       );
     });
 
-    describe('with mix', function() {
+    describe('mix', function() {
       const subTasks = ['balm:postcss:0', 'balm:script:1'];
 
       before(function() {
@@ -211,7 +211,7 @@ describe('default task', function() {
     const afterTask = 'afterTask';
     const endTask = 'balm:end';
 
-    describe('without after task', function() {
+    describe('!after task', function() {
       it(
         `tasks[0] expected output: "${endTask}"`,
         asyncCase(function() {
@@ -222,7 +222,7 @@ describe('default task', function() {
       );
     });
 
-    describe('with after task', function() {
+    describe('after task', function() {
       before(function() {
         balm.afterTask = afterTask;
       });

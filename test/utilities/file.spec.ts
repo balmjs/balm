@@ -73,7 +73,7 @@ describe('Balm File', function() {
 
   describe('#assetsSuffixPath', function() {
     describe('in frontend', function() {
-      describe('without subDir', function() {
+      describe('!subDir', function() {
         before(function() {
           balm.config = {
             inFrontend: true,
@@ -93,7 +93,7 @@ describe('Balm File', function() {
         );
       });
 
-      describe('with subDir', function() {
+      describe('subDir', function() {
         before(function() {
           balm.config = {
             inFrontend: true,
@@ -115,7 +115,7 @@ describe('Balm File', function() {
     });
 
     describe('production with cache in backend', function() {
-      describe('without subDir', function() {
+      describe('!subDir', function() {
         before(function() {
           balm.config = {
             inFrontend: false,
@@ -139,7 +139,7 @@ describe('Balm File', function() {
         );
       });
 
-      describe('with subDir', function() {
+      describe('subDir', function() {
         before(function() {
           balm.config = {
             inFrontend: false,
