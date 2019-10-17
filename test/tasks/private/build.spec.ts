@@ -3,23 +3,27 @@ import BuildTask from '../../../src/tasks/private/build';
 describe('build task', function() {
   let buildTask: any;
 
-  before(function() {
-    balm.config = {
-      env: {
-        isProd: true
-      }
-    };
-
+  beforeEach(function() {
     buildTask = new BuildTask();
     buildTask.fn();
   });
 
-  const defaultInput = `${balm.config.roots.target}/**/*`;
+  describe('measure size', function() {
+    before(function() {
+      balm.config = {
+        env: {
+          isProd: true
+        }
+      };
+    });
 
-  it(
-    `expected output: "${defaultInput}"`,
-    asyncCase(function() {
-      expect(buildTask.input).to.equal(defaultInput);
-    })
-  );
+    const defaultInput = 'dist/**/*';
+
+    it(
+      `expected output: "${defaultInput}"`,
+      asyncCase(function() {
+        expect(buildTask.input).to.equal(defaultInput);
+      })
+    );
+  });
 });

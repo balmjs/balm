@@ -45,10 +45,7 @@ describe('clean task', function() {
             };
           });
 
-          const dirInFrontend = [
-            `${balm.config.workspace}/dist`,
-            balm.config.assets.root
-          ];
+          const dirInFrontend = [`${balm.config.workspace}/dist`, 'assets'];
 
           it(
             `expected output: ${dirInFrontend}`,
@@ -73,10 +70,7 @@ describe('clean task', function() {
             };
           });
 
-          const dirInFrontend = [
-            `${balm.config.workspace}/dist`,
-            balm.config.assets.root
-          ];
+          const dirInFrontend = [`${balm.config.workspace}/dist`, 'assets'];
 
           it(
             `expected output: ${dirInFrontend}`,

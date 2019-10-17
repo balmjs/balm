@@ -3,6 +3,8 @@ import ExtraTask from '../../../src/tasks/private/extra';
 describe('extra task', function() {
   let extraTask: any;
 
+  const srcBase = 'src';
+
   describe('without extra input', function() {
     before(function() {
       balm.config = {
@@ -15,10 +17,6 @@ describe('extra task', function() {
       extraTask.fn();
     });
 
-    const srcBase = path.join(
-      balm.config.roots.source,
-      balm.config.paths.source.base
-    );
     const defaultInput = [
       path.join(srcBase, '*.*'),
       '!' + path.join(srcBase, '*.html'),
@@ -51,10 +49,6 @@ describe('extra task', function() {
       extraTask.fn();
     });
 
-    const srcBase = path.join(
-      balm.config.roots.source,
-      balm.config.paths.source.base
-    );
     const defaultInput = [
       path.join(srcBase, '*.*'),
       '!' + path.join(srcBase, '*.html'),
