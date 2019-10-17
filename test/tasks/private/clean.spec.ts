@@ -207,6 +207,7 @@ describe('clean task', function() {
           })
         );
       });
+
       describe('subDir', function() {
         before(function() {
           balm.config = {
@@ -348,6 +349,41 @@ describe('clean task', function() {
             })
           );
         });
+      });
+
+      describe('duplicated paths', function() {
+        before(function() {
+          balm.config = {
+            inFrontend: false,
+            env: {
+              isProd: true
+            },
+            paths: {
+              target: {
+                media: 'img'
+              }
+            },
+            assets: {
+              subDir: ''
+            }
+          };
+        });
+
+        const dirInBackend = [
+          'public/css',
+          'public/js',
+          'public/img',
+          'public/font'
+        ];
+
+        it(
+          `expected output: ${dirInBackend}`,
+          asyncCase(function() {
+            expect(JSON.stringify(cleanTask.dirInBackend)).to.equal(
+              JSON.stringify(dirInBackend)
+            );
+          })
+        );
       });
     });
   });

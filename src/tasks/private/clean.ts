@@ -21,8 +21,8 @@ class CleanTask extends BalmJS.BalmTask {
   }
 
   private _getAssetsDir(rootKey = 'assets'): string[] {
-    return ASSETS_KEYS.map(
-      assetKey => (BalmJS.config as any)[rootKey][assetKey]
+    return unique(
+      ASSETS_KEYS.map(assetKey => (BalmJS.config as any)[rootKey][assetKey])
     );
   }
 
@@ -69,8 +69,8 @@ class CleanTask extends BalmJS.BalmTask {
   fn = async (cb: Function): Promise<any> => {
     const taskName = `${this.name} task`;
     const directories: string[] = BalmJS.config.inFrontend
-      ? unique(this.dirInFrontend)
-      : unique(this.dirInBackend);
+      ? this.dirInFrontend
+      : this.dirInBackend;
 
     if (BalmJS.config.env.isProd && !BalmJS.config.assets.root) {
       BalmJS.logger.warn(taskName, 'remote root path is empty');
