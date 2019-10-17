@@ -8,9 +8,7 @@ class EndTask extends BalmJS.BalmTask {
       BalmJS.afterTask();
     }
 
-    if (!BalmJS.config.env.isTest) {
-      console.timeEnd(BalmJS.TIME_FLAG);
-    }
+    console.timeEnd(BalmJS.TIME_FLAG);
 
     cb();
   }
