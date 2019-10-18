@@ -1,6 +1,10 @@
 import './private/start.spec';
 import './private/clean.spec'; // top
+import './private/sprite.spec';
 import './private/style.spec';
+import './private/lint.spec';
+// import './public/script.spec'; // TODO
+import './private/html.spec';
 import './private/image.spec';
 import './private/font.spec';
 import './private/media.spec';

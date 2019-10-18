@@ -4,6 +4,8 @@ import htmlmin from 'html-minifier';
 const PLUGIN_NAME = 'htmlmin';
 
 function gulpHtmlmin(options: object): any {
+  options = BalmJS.utils.mergeDeep({}, options);
+
   function _transform(file: any, encoding: string, callback: Function): any {
     if (file.isNull()) {
       callback(null, file);
@@ -13,21 +15,17 @@ function gulpHtmlmin(options: object): any {
     function minify(buf: any, enc: string | null, cb: Function): any {
       try {
         const contents = Buffer.from(htmlmin.minify(buf.toString(), options));
-        if (callback === cb) {
+        if (cb === callback) {
           file.contents = contents;
           cb(null, file);
-          return;
+        } else {
+          cb(null, contents);
+          callback(null, file);
         }
-        cb(null, contents);
-        callback(null, file);
       } catch (err) {
-        const opts = Object.assign({}, options, { fileName: file.path });
+        const opts = Object.assign(options, { fileName: file.path });
         const error = new PluginError(PLUGIN_NAME, err, opts);
-        if (callback !== cb) {
-          callback(error);
-          return;
-        }
-        cb(error);
+        cb === callback ? cb(error) : callback(error);
       }
     }
 

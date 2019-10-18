@@ -2,7 +2,9 @@ import Terser from 'terser';
 
 const PLUGIN_NAME = 'jsmin';
 
-function gulpJsmin(opt: object): any {
+function gulpJsmin(options: object): any {
+  options = BalmJS.utils.mergeDeep({}, options);
+
   function _transform(
     this: any,
     file: any,
@@ -21,12 +23,12 @@ function gulpJsmin(opt: object): any {
       return;
     }
 
-    function minify(file: any, opt: object, cb: Function): any {
+    function minify(file: any, opts: object, cb: Function): any {
       const extname = path.extname(file.path);
 
       if (extname === '.js') {
         const code: any = {};
-        const options = Object.assign({}, opt);
+        const options = Object.assign({}, opts);
 
         let content = file.contents.toString();
         code[path.basename(file.path)] = content;
@@ -51,7 +53,7 @@ function gulpJsmin(opt: object): any {
       return file;
     }
 
-    minify(file, opt, callback);
+    minify(file, options, callback);
   }
 
   return through2.obj(_transform);

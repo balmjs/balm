@@ -50,7 +50,6 @@ global.runTask = (
   obj: { task: any; test: any; done: Function },
   result: boolean = true
 ) => {
-  console.log(gulp.tree().nodes);
   gulp.series(utils.isObject(obj.task) ? obj.task.fn : obj.task)();
 
   setTimeout(

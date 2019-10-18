@@ -43,24 +43,6 @@ class HtmlTask extends BalmJS.BalmTask {
     return $.replace(assetsPathSrc, assetsPathDest);
   }
 
-  private _setPublicPath(): any {
-    const publicPathSrc = `${BalmJS.config.assets.publicUrlPlaceholder}/`;
-    const publicPathDest: string = BalmJS.file.publicPath;
-
-    BalmJS.logger.debug(
-      `${this.name} task - public path`,
-      {
-        regex: publicPathSrc,
-        replacement: publicPathDest
-      },
-      {
-        pre: true
-      }
-    );
-
-    return $.replace(publicPathSrc, publicPathDest);
-  }
-
   fn = (): any => {
     this.init();
 
