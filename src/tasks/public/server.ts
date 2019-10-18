@@ -115,7 +115,7 @@ class ServerTask extends BalmJS.BalmTask {
           ? getMiddlewares()
           : false;
 
-        bsOptions = BalmJS.utils.mergeDeep(
+        bsOptions = BalmJS.utils.deepMerge(
           bsOptions,
           BalmJS.config.server.options
         );

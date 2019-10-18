@@ -58,11 +58,11 @@ function setConfig(customConfig: any = {}): any {
   const defaultConfig: any = _resetConfig();
 
   // 1. Overwrite config
-  const newConfig: any = BalmJS.utils.mergeDeep(defaultConfig, customConfig);
+  const newConfig: any = BalmJS.utils.deepMerge(defaultConfig, customConfig);
   checkConfig();
 
   // 2. Copy `config.paths.target` to `config.paths.tmp`
-  let config: any = BalmJS.utils.mergeDeep(newConfig, {
+  let config: any = BalmJS.utils.deepMerge(newConfig, {
     paths: {
       tmp: newConfig.paths.target
     }

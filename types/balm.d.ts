@@ -169,7 +169,7 @@ interface BalmUtils {
   isObject: (obj: any) => boolean;
   isArray: (arr: any) => boolean;
   isFunction: (fn: any) => boolean;
-  mergeDeep: (target: any, source: any) => object;
+  deepMerge: (target: any, source: any) => object;
 }
 
 interface BalmLogger {

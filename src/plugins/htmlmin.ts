@@ -4,7 +4,7 @@ import htmlmin from 'html-minifier';
 const PLUGIN_NAME = 'htmlmin';
 
 function gulpHtmlmin(options: object): any {
-  options = BalmJS.utils.mergeDeep({}, options);
+  options = BalmJS.utils.deepMerge({}, options);
 
   function _transform(file: any, encoding: string, callback: Function): any {
     if (file.isNull()) {
