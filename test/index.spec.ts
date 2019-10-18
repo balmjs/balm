@@ -13,6 +13,9 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
       media: 'media'
     }
   },
+  styles: {
+    sprites: []
+  },
   assets: {
     cache: false
   }
