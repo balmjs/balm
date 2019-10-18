@@ -220,7 +220,6 @@ declare namespace NodeJS {
     TIME_FLAG: string;
     BalmTask: any;
     BalmStyleTask: any;
-    BalmImageTask: any;
     tasks: any[];
     beforeTask: any;
     afterTask: any;

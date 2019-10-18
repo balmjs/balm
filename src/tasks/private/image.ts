@@ -1,4 +1,4 @@
-class ImageTask extends BalmJS.BalmImageTask {
+class ImageTask extends BalmJS.BalmTask {
   constructor() {
     super('image');
 
@@ -9,6 +9,7 @@ class ImageTask extends BalmJS.BalmImageTask {
     }
 
     this.defaultInput = [`${BalmJS.config.src.img}/**/*`, ...excludeGlobs];
+    this.defaultOutput = BalmJS.config.dest.img;
   }
 
   fn = (): any => {

@@ -12,13 +12,14 @@ interface SpriteConfig {
   css: string;
 }
 
-class SpriteTask extends BalmJS.BalmImageTask {
+class SpriteTask extends BalmJS.BalmTask {
   private tasks: string[] = [];
 
   constructor() {
     super('sprite');
 
     this.defaultInput = BalmJS.config.styles.sprites;
+    this.defaultOutput = BalmJS.config.dest.img;
 
     if (this.defaultInput.length) {
       this.init();
