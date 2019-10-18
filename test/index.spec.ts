@@ -8,9 +8,12 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
     isProd: false,
     isDev: false
   },
+  paths: {
+    target: {
+      media: 'media'
+    }
+  },
   assets: {
-    root: 'assets',
-    subDir: '',
     cache: false
   }
 });
