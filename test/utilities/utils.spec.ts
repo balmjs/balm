@@ -54,11 +54,11 @@ describe('Balm Utils', function() {
     );
   });
 
-  describe('#mergeDeep()', function() {
+  describe('#deepMerge()', function() {
     it(
       'merge non-object',
       asyncCase(function() {
-        const result = utils.mergeDeep(0, 1);
+        const result = utils.deepMerge(0, 1);
 
         expect(result).to.equal(0);
       })
@@ -67,7 +67,7 @@ describe('Balm Utils', function() {
     it(
       'merge object',
       asyncCase(function() {
-        const result = utils.mergeDeep(
+        const result = utils.deepMerge(
           {
             balm: {}
           },
