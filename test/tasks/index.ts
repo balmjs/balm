@@ -11,5 +11,7 @@ import './private/media.spec';
 import './private/extra.spec';
 import './private/build.spec';
 import './private/cache.spec';
+import './private/workbox.spec';
+// import './public/pwa.spec'; // TODO
 import './private/end.spec';
 import './default.spec';
