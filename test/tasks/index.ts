@@ -1,5 +1,6 @@
 import './private/start.spec';
 import './private/clean.spec'; // top
+import './private/style.spec';
 import './private/image.spec';
 import './private/font.spec';
 import './private/media.spec';

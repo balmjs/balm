@@ -1,6 +1,6 @@
 import ImageTask from '../../../src/tasks/private/image';
 
-describe('font task', function() {
+describe('image task', function() {
   let imageTask: any;
 
   beforeEach(function() {
