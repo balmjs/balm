@@ -4,10 +4,10 @@ describe('end task', function() {
   let endTask: any;
 
   describe('!after task', function() {
-    before(function() {
+    before(function(done) {
       endTask = new EndTask();
       console.time('BalmJS Time');
-      endTask.fn(function() {});
+      endTask.fn(done);
     });
 
     it(
@@ -19,14 +19,14 @@ describe('end task', function() {
   });
 
   describe('after task', function() {
-    before(function() {
+    before(function(done) {
       balm.afterTask = function() {
         console.log('gg');
       };
 
       endTask = new EndTask();
       console.time('BalmJS Time');
-      endTask.fn(function() {});
+      endTask.fn(done);
     });
 
     it(

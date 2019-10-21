@@ -3,7 +3,7 @@ import './private/clean.spec'; // top
 import './private/sprite.spec';
 import './private/style.spec';
 import './private/lint.spec';
-// import './public/script.spec'; // TODO
+import './public/script.spec';
 import './private/html.spec';
 import './private/image.spec';
 import './private/font.spec';

@@ -18,6 +18,9 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   },
   assets: {
     cache: false
+  },
+  logs: {
+    level: 3
   }
 });
 

@@ -4,10 +4,11 @@ describe('start task', function() {
   let startTask: any;
 
   describe('!before task', function() {
-    before(function() {
+    before(function(done) {
       startTask = new StartTask();
       startTask.fn(function() {
         console.timeEnd('BalmJS Time');
+        done();
       });
     });
 
@@ -20,9 +21,10 @@ describe('start task', function() {
   });
 
   describe('before task', function() {
-    before(function() {
+    before(function(done) {
       balm.beforeTask = function() {
         console.log('Hello BalmJS');
+        done();
       };
 
       startTask = new StartTask();

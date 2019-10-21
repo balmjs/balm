@@ -3,9 +3,9 @@ import CleanTask from '../../../src/tasks/private/clean';
 describe('clean task', function() {
   let cleanTask: any;
 
-  beforeEach(function() {
+  beforeEach(function(done) {
     cleanTask = new CleanTask();
-    cleanTask.fn(function() {});
+    cleanTask.fn(done);
   });
 
   describe('in frontend', function() {
