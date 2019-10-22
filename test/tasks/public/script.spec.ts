@@ -1,6 +1,6 @@
 import ScriptTask from '../../../src/tasks/public/script';
 
-describe('build task', function() {
+describe('script task', function() {
   let scriptTask: any;
 
   beforeEach(function() {
