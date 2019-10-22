@@ -1,6 +1,10 @@
 import './private/start.spec';
 import './private/clean.spec'; // top
 import './private/sprite.spec';
+import './public/sass.spec';
+import './public/less.spec';
+import './public/postcss.spec';
+import './public/url.spec';
 import './private/style.spec';
 import './private/lint.spec';
 import './public/script.spec';
