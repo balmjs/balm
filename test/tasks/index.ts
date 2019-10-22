@@ -1,4 +1,6 @@
+// start task
 import './private/start.spec';
+// main tasks
 import './private/clean.spec'; // top
 import './private/sprite.spec';
 import './public/sass.spec';
@@ -17,5 +19,9 @@ import './private/build.spec';
 import './private/cache.spec';
 import './private/workbox.spec';
 import './public/pwa.spec';
+// sub tasks
+import './public/copy.spec';
+// end task
 import './private/end.spec';
+// default task
 import './default.spec';

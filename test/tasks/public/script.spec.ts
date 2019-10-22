@@ -25,7 +25,7 @@ describe('script task', function() {
     });
   });
 
-  describe('hook', function() {
+  describe('#mix.js()', function() {
     before(function() {
       balm.config = {
         logs: {

@@ -28,7 +28,7 @@ describe('sass task', function() {
     );
   });
 
-  describe('hook', function() {
+  describe('#mix.sass()', function() {
     before(function() {
       balm.config = {
         styles: {

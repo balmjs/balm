@@ -28,7 +28,7 @@ describe('less task', function() {
     );
   });
 
-  describe('hook', function() {
+  describe('#mix.less()', function() {
     before(function() {
       balm.config = {
         styles: {

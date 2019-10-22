@@ -28,7 +28,7 @@ describe('postcss task', function() {
     );
   });
 
-  describe('hook', function() {
+  describe('#mix.css()', function() {
     before(function() {
       balm.config = {
         styles: {

@@ -6,7 +6,8 @@
     "src/**/*.ts",
     "!src/config/env.ts",
     "!src/tasks/index.ts",
-    "!src/tasks/private/modernizr.ts"
+    "!src/tasks/private/modernizr.ts",
+    "!src/tasks/public/server.ts"
   ],
   "exclude": [
     "coverage/**",

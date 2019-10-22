@@ -59,7 +59,7 @@ describe('postcss task', function() {
     );
   });
 
-  describe('hook', function() {
+  describe('#mix.url()', function() {
     before(function() {
       balm.config = {
         styles: {
