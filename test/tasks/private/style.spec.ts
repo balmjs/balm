@@ -25,20 +25,31 @@ describe('style task', function() {
   });
 
   describe('production', function() {
-    before(function() {
-      balm.config = {
-        env: {
-          isProd: true
-        }
-      };
-    });
+    const extnames = ['postcss', 'scss', 'sass', 'less'];
 
-    it(
-      `deps length expected output: 2`,
-      asyncCase(function() {
-        expect(styleTask.deps.length).to.equal(2);
-      })
-    );
+    extnames.forEach(function(extname) {
+      describe(extname, function() {
+        before(function() {
+          balm.config = {
+            env: {
+              isProd: true
+            },
+            styles: {
+              extname: extname === 'postcss' ? 'css' : extname
+            }
+          };
+        });
+
+        it(
+          `expected output: "${extname}"`,
+          asyncCase(function() {
+            expect(styleTask.deps[0]).to.equal(
+              extname === 'scss' ? 'sass' : extname
+            );
+          })
+        );
+      });
+    });
   });
 
   describe('in backend', function() {
