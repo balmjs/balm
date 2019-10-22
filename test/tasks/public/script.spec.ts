@@ -8,15 +8,13 @@ describe('script task', function() {
   });
 
   describe('default', function() {
-    before(
-      asyncCase(function() {
-        balm.config = {
-          scripts: {
-            entry: './src/scripts/main.js'
-          }
-        };
-      })
-    );
+    before(function() {
+      balm.config = {
+        scripts: {
+          entry: './src/scripts/main.js'
+        }
+      };
+    });
 
     const defaultInput = './src/scripts/main.js';
 
@@ -28,15 +26,13 @@ describe('script task', function() {
   });
 
   describe('hook', function() {
-    before(
-      asyncCase(function() {
-        balm.config = {
-          logs: {
-            level: 2
-          }
-        };
-      })
-    );
+    before(function() {
+      balm.config = {
+        logs: {
+          level: 2
+        }
+      };
+    });
 
     const defaultInput = './src/scripts/index.js';
     const defaultOutput = 'dist/js';

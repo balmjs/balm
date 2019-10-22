@@ -12,6 +12,7 @@ class PwaTask extends BalmJS.BalmTask {
       const swSrc = `${BalmJS.config.roots.source}/${BalmJS.config.pwa.swSrcFilename}`;
       const swDest = `${globDirectory}/${BalmJS.config.pwa.swDestFilename}`;
       let options: object = {};
+      let valid = true;
 
       switch (mode) {
         // For basic
@@ -40,25 +41,32 @@ class PwaTask extends BalmJS.BalmTask {
           );
           break;
         default:
+          valid = false;
       }
 
-      BalmJS.logger.debug(`pwa - ${mode}`, options);
+      if (valid) {
+        BalmJS.logger.debug(`pwa - ${mode}`, options);
 
-      await workboxBuild[mode](options)
-        .then(function(result: any) {
-          BalmJS.logger.info(
-            `pwa - ${mode}`,
-            `Generated '${swDest}', which will precache ${result.count} files, totaling ${result.size} bytes`
-          );
-        })
-        .catch(function(error: any) {
-          BalmJS.logger.warn(
-            `pwa - ${mode}`,
-            `Service worker generation failed: ${error}`
-          );
-        });
+        await workboxBuild[mode](options)
+          .then(function(result: any) {
+            BalmJS.logger.info(
+              `pwa - ${mode}`,
+              `Generated '${swDest}', which will precache ${result.count} files, totaling ${result.size} bytes`
+            );
+          })
+          .catch(function(error: any) {
+            BalmJS.logger.warn(
+              `pwa - ${mode}`,
+              `Service worker generation failed: ${error}`
+            );
+          });
 
-      cb();
+        cb();
+      } else {
+        BalmJS.logger.warn('pwa task', 'Invalid PWA mode');
+
+        cb();
+      }
     };
   }
 

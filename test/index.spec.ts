@@ -19,6 +19,9 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   assets: {
     cache: false
   },
+  pwa: {
+    enabled: false
+  },
   logs: {
     level: 3
   }
