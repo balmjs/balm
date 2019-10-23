@@ -1,7 +1,7 @@
 import './custom-tasks';
 // import remove from 'rimraf';
 import './tasks';
-// import './utilities';
+import './utilities';
 
 const balmConfigDefaults = Object.assign({}, balm.config, {
   env: {

@@ -1,13 +1,13 @@
 // start task
-// import './private/start.spec';
+import './private/start.spec';
 // main tasks
-// import './private/clean.spec'; // top
-// import './private/sprite.spec';
-// import './public/sass.spec';
-// import './public/less.spec';
-// import './public/postcss.spec';
-// import './public/url.spec';
-// import './private/style.spec';
+import './private/clean.spec'; // top
+import './private/sprite.spec';
+import './public/sass.spec';
+import './public/less.spec';
+import './public/postcss.spec';
+import './public/url.spec';
+import './private/style.spec';
 import './private/lint.spec';
 import './public/script.spec';
 import './private/html.spec';
@@ -20,8 +20,8 @@ import './private/cache.spec';
 import './private/workbox.spec';
 import './public/pwa.spec';
 // sub tasks
-// import './public/copy.spec';
+import './public/copy.spec';
 // end task
-// import './private/end.spec';
+import './private/end.spec';
 // default task
-// import './default.spec';
+import './default.spec';

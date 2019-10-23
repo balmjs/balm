@@ -17,9 +17,9 @@ class CacheTask extends BalmJS.BalmTask {
           BalmJS.file.matchAllFiles(BalmJS.config.dest[assetKey])
         );
     const defaultExcludes: string[] = [
-      `!${BalmJS.config.dest.base}/${MANIFEST}`,
-      `!${BalmJS.config.dest.js}/${ASYNC_SCRIPTS}/*`,
-      `!${BalmJS.config.dest.js}/${STATIC_ASSETS}/*`
+      path.join(`!${BalmJS.config.dest.base}`, MANIFEST),
+      path.join(`!${BalmJS.config.dest.js}`, ASYNC_SCRIPTS, '*'),
+      path.join(`!${BalmJS.config.dest.js}`, STATIC_ASSETS, '*')
     ];
 
     const customIncludes: string[] = BalmJS.file.absPaths(
@@ -35,7 +35,7 @@ class CacheTask extends BalmJS.BalmTask {
       ...defaultIncludes,
       ...defaultExcludes,
       ...(BalmJS.config.inFrontend
-        ? [`${BalmJS.config.dest.base}/*.html`]
+        ? [path.join(BalmJS.config.dest.base, '*.html')]
         : []),
       ...customIncludes,
       ...customExcludes
