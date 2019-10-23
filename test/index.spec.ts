@@ -1,7 +1,8 @@
 import './custom-tasks';
 // import remove from 'rimraf';
-import './tasks';
 import './utilities';
+import './tasks';
+import './middlewares';
 
 const balmConfigDefaults = Object.assign({}, balm.config, {
   env: {
@@ -24,6 +25,10 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   },
   logs: {
     level: 3
+  },
+  server: {
+    proxyConfig: false,
+    historyOptions: false
   }
 });
 
