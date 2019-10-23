@@ -2,7 +2,7 @@ class BuildTask extends BalmJS.BalmTask {
   constructor() {
     super('build');
 
-    this.defaultInput = `${BalmJS.config.dest.base}/**/*`;
+    this.defaultInput = BalmJS.file.matchAllFiles(BalmJS.config.dest.base);
   }
 
   fn = (): any => {

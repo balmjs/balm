@@ -1,8 +1,6 @@
 import color from '../../src/utilities/color';
 import logger from '../../src/utilities/logger';
 
-const isWindows = process.platform === 'win32';
-
 describe('Balm Logger', function() {
   describe('#color()', function() {
     it(

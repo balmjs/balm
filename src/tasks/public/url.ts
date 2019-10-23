@@ -3,7 +3,7 @@ class UrlTask extends BalmJS.BalmTask {
     super('url');
 
     this.defaultOutput = BalmJS.config.dest.css;
-    this.defaultInput = `${this.defaultOutput}/**/*.css`;
+    this.defaultInput = BalmJS.file.matchAllFiles(this.defaultOutput, '*.css');
   }
 
   private _urlProcessing(type: string): any {

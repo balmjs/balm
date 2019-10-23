@@ -2,6 +2,7 @@
 
 declare namespace NodeJS {
   interface Global {
+    isWindows: boolean;
     balm: any;
     workspace: string;
     runTask: Function;
@@ -10,6 +11,7 @@ declare namespace NodeJS {
   }
 }
 
+declare var isWindows: boolean;
 declare var balm: any;
 declare var workspace: string;
 declare var runTask: Function;

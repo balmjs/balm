@@ -9,7 +9,7 @@ describe('lint task', function() {
   });
 
   describe('JS lint', function() {
-    const defaultOutput = 'src/scripts';
+    const defaultOutput = path.join('src', 'scripts');
 
     it(
       `expected output: "${defaultOutput}"`,

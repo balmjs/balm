@@ -10,10 +10,12 @@ class CacheTask extends BalmJS.BalmTask {
     super('cache');
 
     const defaultIncludes: string[] = BalmJS.config.scripts.inject
-      ? ASSETS_KEYS.filter(assetKey => assetKey !== 'js').map(
-          assetKey => `${BalmJS.config.dest[assetKey]}/**/*`
+      ? ASSETS_KEYS.filter(assetKey => assetKey !== 'js').map(assetKey =>
+          BalmJS.file.matchAllFiles(BalmJS.config.dest[assetKey])
         )
-      : ASSETS_KEYS.map(assetKey => `${BalmJS.config.dest[assetKey]}/**/*`);
+      : ASSETS_KEYS.map(assetKey =>
+          BalmJS.file.matchAllFiles(BalmJS.config.dest[assetKey])
+        );
     const defaultExcludes: string[] = [
       `!${BalmJS.config.dest.base}/${MANIFEST}`,
       `!${BalmJS.config.dest.js}/${ASYNC_SCRIPTS}/*`,

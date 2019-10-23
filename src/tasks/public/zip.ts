@@ -2,7 +2,7 @@ class ZipTask extends BalmJS.BalmTask {
   constructor() {
     super('zip');
 
-    this.defaultInput = `${BalmJS.config.dest.base}/**/*`;
+    this.defaultInput = BalmJS.file.matchAllFiles(BalmJS.config.dest.base);
     this.defaultOutput = '.';
   }
 

@@ -13,11 +13,12 @@ describe('image task', function() {
       balm.go();
     });
 
-    const defaultInput = ['src/images/**/*'];
+    const defaultInput = [path.join('src', 'images', '**', '*')];
 
     it(
       `expected output: "${defaultInput}"`,
       asyncCase(function() {
+        console.log(imageTask.input);
         expect(JSON.stringify(imageTask.input)).to.equal(
           JSON.stringify(defaultInput)
         );
@@ -36,9 +37,9 @@ describe('image task', function() {
     });
 
     const defaultInput = [
-      'src/images/**/*',
-      '!src/images/icons',
-      '!src/images/icons/*.png'
+      path.join('src', 'images', '**', '*'),
+      path.join('!src', 'images', 'icons'),
+      path.join('!src', 'images', 'icons', '*.png')
     ];
 
     it(

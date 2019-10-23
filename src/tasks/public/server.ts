@@ -20,21 +20,24 @@ class ServerTask extends BalmJS.BalmTask {
     watch(
       [
         `${BalmJS.config.src.base}/*.php`,
-        `${BalmJS.config.src.img}/**/*`,
-        `${BalmJS.config.dest.font}/**/*`
+        BalmJS.file.matchAllFiles(BalmJS.config.src.img),
+        BalmJS.file.matchAllFiles(BalmJS.config.dest.font)
       ],
       watchOptions
     ).on('change', server.reload);
 
     watch(
-      `${BalmJS.config.src.css}/**/*.${BalmJS.config.styles.extname}`,
+      BalmJS.file.matchAllFiles(
+        BalmJS.config.src.css,
+        `*.${BalmJS.config.styles.extname}`
+      ),
       watchOptions,
       parallel(BalmJS.toNamespace(this.styleName))
     );
 
     if (BalmJS.config.scripts.entry && !BalmJS.config.scripts.hot) {
       watch(
-        `${BalmJS.config.src.js}/**/*`,
+        BalmJS.file.matchAllFiles(BalmJS.config.src.js),
         watchOptions,
         series(BalmJS.toNamespace('script'), reload)
       );
@@ -53,7 +56,7 @@ class ServerTask extends BalmJS.BalmTask {
     );
 
     watch(
-      `${BalmJS.config.src.font}/**/*`,
+      BalmJS.file.matchAllFiles(BalmJS.config.src.font),
       watchOptions,
       parallel(BalmJS.toNamespace('font'))
     );
@@ -129,7 +132,7 @@ class ServerTask extends BalmJS.BalmTask {
             BalmJS.watching = true;
 
             const watcher = gulp.watch([
-              `${BalmJS.config.src.base}/**/*`,
+              BalmJS.file.matchAllFiles(BalmJS.config.src.base),
               ...BalmJS.config.server.watchFiles
             ]);
 

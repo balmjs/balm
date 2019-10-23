@@ -16,7 +16,7 @@ describe('postcss task', function() {
       };
     });
 
-    const defaultInput = 'src/styles/**/!(_*).css';
+    const defaultInput = path.join('src', 'styles', '**', '!(_*).css');
 
     it(
       `expected output: "${defaultInput}"`,

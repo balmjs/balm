@@ -16,7 +16,7 @@ describe('sass task', function() {
       };
     });
 
-    const defaultInput = 'src/styles/**/!(_*).{scss,sass}';
+    const defaultInput = path.join('src', 'styles', '**', '!(_*).{scss,sass}');
 
     it(
       `expected output: "${defaultInput}"`,

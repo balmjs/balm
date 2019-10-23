@@ -5,8 +5,11 @@ import balmConfig from './balmrc';
 import { expect } from 'chai';
 import utils from '../src/utilities/utils';
 
+const isWindows = process.platform === 'win32';
+
 balm.config = balmConfig;
 
+global.isWindows = isWindows;
 global.balm = balm;
 global.gulp = gulp;
 global.expect = expect;

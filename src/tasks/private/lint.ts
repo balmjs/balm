@@ -3,7 +3,7 @@ class LintTask extends BalmJS.BalmTask {
     super('lint');
 
     this.defaultOutput = BalmJS.config.src.js;
-    this.defaultInput = `${this.defaultOutput}/**/*.js`;
+    this.defaultInput = BalmJS.file.matchAllFiles(this.defaultOutput, '*.js');
   }
 
   fn = (): any => {

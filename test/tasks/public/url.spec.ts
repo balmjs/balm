@@ -1,6 +1,6 @@
 import UrlTask from '../../../src/tasks/public/url';
 
-describe('postcss task', function() {
+describe('url task', function() {
   let urlTask: any;
 
   beforeEach(function() {
@@ -19,7 +19,7 @@ describe('postcss task', function() {
       };
     });
 
-    const defaultOutput = '.tmp/css';
+    const defaultOutput = path.join('.tmp', 'css');
     const defaultInput = `${defaultOutput}/**/*.css`;
 
     it(
@@ -45,7 +45,7 @@ describe('postcss task', function() {
       };
     });
 
-    const defaultOutput = 'dist/css';
+    const defaultOutput = path.join('dist', 'css');
     const defaultInput = `${defaultOutput}/**/*.css`;
 
     it(

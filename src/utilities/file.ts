@@ -44,6 +44,10 @@ class File {
     return paths;
   }
 
+  matchAllFiles(_path: string, _file?: string): string {
+    return path.join(_path, '**', _file || '*');
+  }
+
   assetsPath(_path: string): string {
     return BalmJS.config.env.isProd || !BalmJS.config.inFrontend
       ? path.posix.join(this.assetsSuffixPath, _path)

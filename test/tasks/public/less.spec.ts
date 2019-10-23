@@ -16,7 +16,7 @@ describe('less task', function() {
       };
     });
 
-    const defaultInput = 'src/styles/**/!(_*).less';
+    const defaultInput = path.join('src', 'styles', '**', '!(_*).less');
 
     it(
       `expected output: "${defaultInput}"`,

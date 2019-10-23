@@ -17,7 +17,7 @@ describe('build task', function() {
       };
     });
 
-    const defaultInput = 'dist/**/*';
+    const defaultInput = path.join('dist', '**', '*');
 
     it(
       `expected output: "${defaultInput}"`,

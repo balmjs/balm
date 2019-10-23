@@ -186,6 +186,7 @@ interface BalmFile {
   assetsSuffixPath: string;
   absPath: (path: string) => string;
   absPaths: (paths: string | string[]) => string | string[];
+  matchAllFiles: (path: string, file?: string) => string;
   assetsPath: (path: string) => string;
   setPublicPath: () => any;
 }
