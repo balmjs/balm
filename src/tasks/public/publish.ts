@@ -6,7 +6,7 @@ class PublishTask extends BalmJS.BalmTask {
 
     this.defaultInput = [
       BalmJS.file.matchAllFiles(BalmJS.config.dest.static), // Assets
-      `!${BalmJS.config.dest.base}/*.*` // HTML
+      path.join(`!${BalmJS.config.dest.base}`, '*.*') // HTML
     ];
     this.defaultOutput = BalmJS.config.assets.static; // Remote dir
   }

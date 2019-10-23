@@ -5,8 +5,8 @@ class HtmlTask extends BalmJS.BalmTask {
     super('html');
 
     this.defaultInput = [
-      `${BalmJS.config.src.base}/*.html`,
-      `${BalmJS.config.src.base}/${MANIFEST}`
+      path.join(BalmJS.config.src.base, '*.html'),
+      path.join(BalmJS.config.src.base, MANIFEST)
     ];
     this.defaultOutput = BalmJS.config.dest.base;
   }
