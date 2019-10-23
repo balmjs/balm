@@ -7,7 +7,6 @@ class BalmTask {
   protected _customOptions: any = {};
   protected _defaultInput: any;
   protected _defaultOutput = '';
-  protected _defaultCustomOptions: any = {};
 
   protected _gulpSrcOptions: object = {}; // NOTE: gulp.src options
 
@@ -55,12 +54,6 @@ class BalmTask {
   }
   set customOptions(options: any) {
     this._customOptions = options;
-  }
-  get defaultCustomOptions(): any {
-    return this._defaultCustomOptions;
-  }
-  set defaultCustomOptions(options: any) {
-    this._defaultCustomOptions = options;
   }
 
   get gulpSrcOptions(): object {
@@ -119,7 +112,7 @@ class BalmTask {
 
     this.input = input || this.defaultInput;
     this.output = output || this.defaultOutput;
-    this.customOptions = options[key] || this.defaultCustomOptions;
+    this.customOptions = options[key] || {};
 
     const obj: {
       input: string | string[];
