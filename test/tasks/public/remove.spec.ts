@@ -13,45 +13,35 @@ describe('remove task', function() {
     });
   });
 
-  describe('#mix.copy()', function() {
-    const defaultInput = ['src/foo.txt', 'src/bar.txt'];
-    const defaultOutput = 'dist';
+  describe('#mix.remove()', function() {
+    describe('input is a string', function() {
+      const defaultInput = 'src/foo.txt';
 
-    describe('!options', function() {
-      it(
-        `expected output: "${defaultInput}"`,
-        asyncCase(function() {
-          removeTask.recipe(defaultInput, defaultOutput)();
+      it(`expected output: "${defaultInput}"`, function(done) {
+        removeTask.recipe(defaultInput)(done);
 
-          expect(JSON.stringify(removeTask.input)).to.equal(
-            JSON.stringify(defaultInput)
-          );
-          expect(removeTask.output).to.equal(defaultOutput);
-        })
-      );
+        expect(removeTask.input).to.equal(defaultInput);
+      });
     });
 
-    describe('options', function() {
-      const customOptions = {
-        dirname: 'a',
-        prefix: 'b',
-        basename: 'c',
-        suffix: 'd',
-        extname: 'e'
-      };
+    describe('input is an array', function() {
+      const defaultInput = ['src/foo.txt', 'src/bar.txt'];
 
-      it(
-        `expected output: "${JSON.stringify(customOptions)}"`,
-        asyncCase(function() {
-          removeTask.recipe(defaultInput, defaultOutput, {
-            renameOptions: customOptions
-          })();
+      it(`expected output: "${defaultInput}"`, function(done) {
+        removeTask.recipe(defaultInput)(done);
 
-          expect(JSON.stringify(removeTask.customOptions)).to.equal(
-            JSON.stringify(customOptions)
-          );
-        })
-      );
+        expect(JSON.stringify(removeTask.input)).to.equal(
+          JSON.stringify(defaultInput)
+        );
+      });
+    });
+
+    describe('input is an object', function() {
+      const defaultInput = {};
+
+      it(`expected output: "Invalid input"`, function(done) {
+        removeTask.recipe(defaultInput)(done);
+      });
     });
   });
 });

@@ -44,6 +44,11 @@ class PublishTask extends BalmJS.BalmTask {
         } else {
           this._release(input as string, output, renameOptions);
         }
+      } else {
+        BalmJS.logger.warn(
+          `${this.name} task`,
+          '`mix.publish()` is only supported for production'
+        );
       }
 
       cb();
