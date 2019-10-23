@@ -31,8 +31,12 @@ describe('postcss task', function() {
   describe('#mix.css()', function() {
     before(function() {
       balm.config = {
+        env: {
+          isDev: true
+        },
         styles: {
-          extname: 'css'
+          extname: 'css',
+          minified: true
         }
       };
     });
@@ -49,6 +53,16 @@ describe('postcss task', function() {
           JSON.stringify(defaultInput)
         );
         expect(postcssTask.output).to.equal(defaultOutput);
+      })
+    );
+
+    it(
+      'error handler',
+      asyncCase(function() {
+        postcssTask.recipe(
+          path.join(balm.config.workspace, 'src/styles/error.css'),
+          defaultOutput
+        )();
       })
     );
   });
