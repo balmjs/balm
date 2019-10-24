@@ -1,4 +1,5 @@
 import { ObjectEntry } from '../config/types';
+import { HMR_PATH } from '../config/constants';
 
 const FILENAME_REGEX = new RegExp('[^/]+$', 'i');
 const HOT_CLIENT = 'webpack-hot-middleware/client';
@@ -19,12 +20,18 @@ function initVendors(entries: ObjectEntry): void {
 function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
   let webpackEntries: any = {};
 
-  const HMR: string = Object.keys(BalmJS.config.server.hotOptions).length
-    ? `${HOT_CLIENT}?` +
-      Object.entries(BalmJS.config.server.hotOptions)
-        .map(option => option.join('='))
-        .join('&')
-    : HOT_CLIENT;
+  const hotOptions: object = Object.assign(
+    {},
+    BalmJS.config.server.hotOptions,
+    {
+      path: HMR_PATH
+    }
+  );
+  const HMR: string =
+    `${HOT_CLIENT}?` +
+    Object.entries(hotOptions)
+      .map(option => option.join('='))
+      .join('&');
   const useHMR: boolean =
     scripts.hot &&
     BalmJS.config.useDefaults &&
@@ -54,13 +61,13 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
         webpackEntries[entryKey] = entryValue;
       }
     }
-  } else if (BalmJS.utils.isArray(input) && input.length) {
+  } else if (BalmJS.utils.isArray(input) && (input as string[]).length) {
     for (const value of input as string[]) {
       const matchResult: string = (FILENAME_REGEX as any).exec(value)[0];
       const key: string = matchResult.split('.')[0];
       webpackEntries[key] = useHMR ? [value, HMR] : value;
     }
-  } else if (BalmJS.utils.isString(input)) {
+  } else if (BalmJS.utils.isString(input) && (input as string).trim().length) {
     webpackEntries = useHMR ? [input, HMR] : input;
   } else {
     BalmJS.logger.warn(

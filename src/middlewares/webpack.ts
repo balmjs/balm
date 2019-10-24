@@ -9,12 +9,9 @@ function webpackMiddleware(): object[] {
     middleware.push(
       webpackDev(
         BalmJS.webpackCompiler,
-        Object.assign(
-          {
-            publicPath: BalmJS.file.publicPath
-          },
-          BalmJS.config.server.devOptions
-        )
+        Object.assign({}, BalmJS.config.server.devOptions, {
+          publicPath: BalmJS.file.publicPath
+        })
       )
     );
 
