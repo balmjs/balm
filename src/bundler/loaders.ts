@@ -14,20 +14,25 @@ function getLoaders(customLoaders: object[]): object[] {
     },
     BalmJS.config.scripts.disableDefaultLoaders
   );
+  const useDefaultLoaders: boolean = Object.values(enableDefaultLoaders).some(
+    value => value
+  );
 
   let defaultLoaders: object[] = [];
-  Object.values(LOADERS).forEach(function(Loader: any) {
-    const DefaultLoader = Loader.default;
-    const key = DefaultLoader.name.replace('Loader', '');
-    if ((enableDefaultLoaders as any)[key]) {
-      const loader: object | object[] = DefaultLoader();
-      if (BalmJS.utils.isArray(loader)) {
-        defaultLoaders = defaultLoaders.concat(loader);
-      } else {
-        defaultLoaders.push(loader);
+  if (useDefaultLoaders) {
+    Object.values(LOADERS).forEach(function(Loader: any) {
+      const DefaultLoader = Loader.default;
+      const key = DefaultLoader.name.replace('Loader', '');
+      if ((enableDefaultLoaders as any)[key]) {
+        const loader: object | object[] = DefaultLoader();
+        if (BalmJS.utils.isArray(loader)) {
+          defaultLoaders = defaultLoaders.concat(loader);
+        } else {
+          defaultLoaders.push(loader);
+        }
       }
-    }
-  });
+    });
+  }
 
   const result: any = webpackMerge.smart(
     {

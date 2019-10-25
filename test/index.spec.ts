@@ -18,6 +18,9 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   styles: {
     sprites: []
   },
+  scripts: {
+    inject: false
+  },
   assets: {
     cache: false
   },
