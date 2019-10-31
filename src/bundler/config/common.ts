@@ -6,7 +6,21 @@ function _getSplitChunks(): boolean | object {
   const jsFolder: string = BalmJS.config.paths.target.js;
 
   let cacheGroups: any = false;
-  if (BalmJS.vendors.length) {
+  if (scripts.splitAllVendors) {
+    // All vendors
+    const jsFilename = scripts.inject
+      ? `${scripts.vendorsName}.${INJECT_HASHNAME}.js`
+      : `${scripts.vendorsName}.js`;
+
+    cacheGroups = {
+      vendors: {
+        chunks: 'initial',
+        name: jsFilename,
+        test: /[\\/]node_modules|bower_components[\\/]/,
+        filename: BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`) // Output: `js/vendors.js`
+      }
+    };
+  } else if (BalmJS.vendors.length) {
     // Custom vendors
     cacheGroups = {};
     for (const vendor of BalmJS.vendors) {
@@ -26,20 +40,6 @@ function _getSplitChunks(): boolean | object {
         enforce: true
       };
     }
-  } else if (scripts.splitAllVendors) {
-    // All vendors
-    const jsFilename = scripts.inject
-      ? `${scripts.vendorsName}.${INJECT_HASHNAME}.js`
-      : `${scripts.vendorsName}.js`;
-
-    cacheGroups = {
-      vendors: {
-        chunks: 'initial',
-        name: jsFilename,
-        test: /[\\/]node_modules|bower_components[\\/]/,
-        filename: BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`) // Output: `js/vendors.js`
-      }
-    };
   }
 
   return cacheGroups ? { cacheGroups } : false;

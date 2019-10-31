@@ -1,4 +1,5 @@
 import './globals';
+import { BalmVendor } from './types';
 import env from './env';
 import roots from './roots';
 import paths from './paths';
@@ -11,11 +12,6 @@ import server from './server';
 import ftp from './ftp';
 import pwa from './pwa';
 import logs from './logs';
-
-interface BalmVendor {
-  key: string;
-  value: string[];
-}
 
 enum LogLevel {
   Trace = 0,

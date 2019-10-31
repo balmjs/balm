@@ -11,6 +11,11 @@ interface ObjectEntry {
   [entryChunkName: string]: string | string[];
 }
 
+interface BalmVendor {
+  key: string;
+  value: string[];
+}
+
 interface BalmDefaultLoaders {
   html?: boolean;
   css?: boolean;
@@ -53,6 +58,7 @@ interface HookOptions {
 export {
   BalmEnv,
   ObjectEntry,
+  BalmVendor,
   BalmDefaultLoaders,
   ProxyConfig,
   TemplateOption,

@@ -1,19 +1,35 @@
-import { ObjectEntry } from '../config/types';
+import { ObjectEntry, BalmVendor } from '../config/types';
 import { HMR_PATH } from '../config/constants';
 
 const FILENAME_REGEX = new RegExp('[^/]+$', 'i');
 const HOT_CLIENT = 'webpack-hot-middleware/client';
 
 function initVendors(entries: ObjectEntry): void {
+  let vendors: BalmVendor[] = [];
+
   for (const key of Object.keys(entries)) {
     const value: string[] = entries[key] as string[];
     if (BalmJS.utils.isArray(value)) {
-      BalmJS.vendors.push({
+      vendors.push({
         key,
         value
       });
     }
   }
+
+  // if (vendors.length) {
+  //   const vendorKeys: string[] = Array.from(
+  //     new Set(vendors.map(vendor => vendor.key))
+  //   );
+
+  //   if (vendorKeys.length === vendors.length) {
+  //     BalmJS.vendors = vendors;
+  //   } else {
+  //     BalmJS.logger.warn('webpack entry', 'conflicting vendors key');
+  //   }
+  // }
+
+  BalmJS.vendors = vendors.length ? vendors : [];
 }
 
 // Relative path
