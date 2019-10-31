@@ -1,5 +1,5 @@
-import './custom-tasks';
 // import remove from 'rimraf';
+import './custom-tasks';
 import './utilities';
 import './tasks';
 import './middlewares';
@@ -24,15 +24,15 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   assets: {
     cache: false
   },
+  server: {
+    proxyConfig: false,
+    historyOptions: false
+  },
   pwa: {
     enabled: false
   },
   logs: {
     level: 3
-  },
-  server: {
-    proxyConfig: false,
-    historyOptions: false
   }
 });
 
