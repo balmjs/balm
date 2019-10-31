@@ -5,7 +5,7 @@ const FILENAME_REGEX = new RegExp('[^/]+$', 'i');
 const HOT_CLIENT = 'webpack-hot-middleware/client';
 
 function initVendors(entries: ObjectEntry): void {
-  let vendors: BalmVendor[] = [];
+  const vendors: BalmVendor[] = [];
 
   for (const key of Object.keys(entries)) {
     const value: string[] = entries[key] as string[];

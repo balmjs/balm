@@ -4,6 +4,7 @@ import './utilities';
 import './tasks';
 import './middlewares';
 import './bundler';
+import './bootstrap.spec';
 
 const balmConfigDefaults = Object.assign({}, balm.config, {
   env: {

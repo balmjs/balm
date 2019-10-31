@@ -54,7 +54,7 @@ function _resetConfig(): any {
   return BalmJS.config;
 }
 
-function setConfig(customConfig: any = {}): any {
+function setConfig(customConfig: any): any {
   const defaultConfig: any = _resetConfig();
 
   // 1. Overwrite config
