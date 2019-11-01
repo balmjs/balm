@@ -1,0 +1,202 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$ic-add-a-photo-black-18dp-name: 'ic_add_a_photo_black_18dp';
+$ic-add-a-photo-black-18dp-x: 0px;
+$ic-add-a-photo-black-18dp-y: 0px;
+$ic-add-a-photo-black-18dp-offset-x: 0px;
+$ic-add-a-photo-black-18dp-offset-y: 0px;
+$ic-add-a-photo-black-18dp-width: 18px;
+$ic-add-a-photo-black-18dp-height: 18px;
+$ic-add-a-photo-black-18dp-total-width: 37px;
+$ic-add-a-photo-black-18dp-total-height: 37px;
+$ic-add-a-photo-black-18dp-image: '../img/icons2-sprites.png';
+$ic-add-a-photo-black-18dp: (0px, 0px, 0px, 0px, 18px, 18px, 37px, 37px, '../img/icons2-sprites.png', 'ic_add_a_photo_black_18dp', );
+$ic-add-to-photos-black-18dp-name: 'ic_add_to_photos_black_18dp';
+$ic-add-to-photos-black-18dp-x: 19px;
+$ic-add-to-photos-black-18dp-y: 0px;
+$ic-add-to-photos-black-18dp-offset-x: -19px;
+$ic-add-to-photos-black-18dp-offset-y: 0px;
+$ic-add-to-photos-black-18dp-width: 18px;
+$ic-add-to-photos-black-18dp-height: 18px;
+$ic-add-to-photos-black-18dp-total-width: 37px;
+$ic-add-to-photos-black-18dp-total-height: 37px;
+$ic-add-to-photos-black-18dp-image: '../img/icons2-sprites.png';
+$ic-add-to-photos-black-18dp: (19px, 0px, -19px, 0px, 18px, 18px, 37px, 37px, '../img/icons2-sprites.png', 'ic_add_to_photos_black_18dp', );
+$ic-edit-black-18dp-name: 'ic_edit_black_18dp';
+$ic-edit-black-18dp-x: 0px;
+$ic-edit-black-18dp-y: 19px;
+$ic-edit-black-18dp-offset-x: 0px;
+$ic-edit-black-18dp-offset-y: -19px;
+$ic-edit-black-18dp-width: 18px;
+$ic-edit-black-18dp-height: 18px;
+$ic-edit-black-18dp-total-width: 37px;
+$ic-edit-black-18dp-total-height: 37px;
+$ic-edit-black-18dp-image: '../img/icons2-sprites.png';
+$ic-edit-black-18dp: (0px, 19px, 0px, -19px, 18px, 18px, 37px, 37px, '../img/icons2-sprites.png', 'ic_edit_black_18dp', );
+$ic-add-a-photo-black-18dp-2x-name: 'ic_add_a_photo_black_18dp@2x';
+$ic-add-a-photo-black-18dp-2x-x: 0px;
+$ic-add-a-photo-black-18dp-2x-y: 0px;
+$ic-add-a-photo-black-18dp-2x-offset-x: 0px;
+$ic-add-a-photo-black-18dp-2x-offset-y: 0px;
+$ic-add-a-photo-black-18dp-2x-width: 36px;
+$ic-add-a-photo-black-18dp-2x-height: 36px;
+$ic-add-a-photo-black-18dp-2x-total-width: 74px;
+$ic-add-a-photo-black-18dp-2x-total-height: 74px;
+$ic-add-a-photo-black-18dp-2x-image: '../img/icons2-sprites@2x.png';
+$ic-add-a-photo-black-18dp-2x: (0px, 0px, 0px, 0px, 36px, 36px, 74px, 74px, '../img/icons2-sprites@2x.png', 'ic_add_a_photo_black_18dp@2x', );
+$ic-add-to-photos-black-18dp-2x-name: 'ic_add_to_photos_black_18dp@2x';
+$ic-add-to-photos-black-18dp-2x-x: 38px;
+$ic-add-to-photos-black-18dp-2x-y: 0px;
+$ic-add-to-photos-black-18dp-2x-offset-x: -38px;
+$ic-add-to-photos-black-18dp-2x-offset-y: 0px;
+$ic-add-to-photos-black-18dp-2x-width: 36px;
+$ic-add-to-photos-black-18dp-2x-height: 36px;
+$ic-add-to-photos-black-18dp-2x-total-width: 74px;
+$ic-add-to-photos-black-18dp-2x-total-height: 74px;
+$ic-add-to-photos-black-18dp-2x-image: '../img/icons2-sprites@2x.png';
+$ic-add-to-photos-black-18dp-2x: (38px, 0px, -38px, 0px, 36px, 36px, 74px, 74px, '../img/icons2-sprites@2x.png', 'ic_add_to_photos_black_18dp@2x', );
+$ic-edit-black-18dp-2x-name: 'ic_edit_black_18dp@2x';
+$ic-edit-black-18dp-2x-x: 0px;
+$ic-edit-black-18dp-2x-y: 38px;
+$ic-edit-black-18dp-2x-offset-x: 0px;
+$ic-edit-black-18dp-2x-offset-y: -38px;
+$ic-edit-black-18dp-2x-width: 36px;
+$ic-edit-black-18dp-2x-height: 36px;
+$ic-edit-black-18dp-2x-total-width: 74px;
+$ic-edit-black-18dp-2x-total-height: 74px;
+$ic-edit-black-18dp-2x-image: '../img/icons2-sprites@2x.png';
+$ic-edit-black-18dp-2x: (0px, 38px, 0px, -38px, 36px, 36px, 74px, 74px, '../img/icons2-sprites@2x.png', 'ic_edit_black_18dp@2x', );
+$icons2-spritesheet-width: 37px;
+$icons2-spritesheet-height: 37px;
+$icons2-spritesheet-image: '../img/icons2-sprites.png';
+$icons2-spritesheet-sprites: ($ic-add-a-photo-black-18dp, $ic-add-to-photos-black-18dp, $ic-edit-black-18dp, );
+$icons2-spritesheet: (37px, 37px, '../img/icons2-sprites.png', $icons2-spritesheet-sprites, );
+$icons2-spritesheet-2x-width: 74px;
+$icons2-spritesheet-2x-height: 74px;
+$icons2-spritesheet-2x-image: '../img/icons2-sprites@2x.png';
+$icons2-spritesheet-2x-sprites: ($ic-add-a-photo-black-18dp-2x, $ic-add-to-photos-black-18dp-2x, $ic-edit-black-18dp-2x, );
+$icons2-spritesheet-2x: (74px, 74px, '../img/icons2-sprites@2x.png', $icons2-spritesheet-2x-sprites, );
+
+// These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+//
+// The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
+$ic-add-a-photo-black-18dp-group-name: 'ic_add_a_photo_black_18dp';
+$ic-add-a-photo-black-18dp-group: ('ic_add_a_photo_black_18dp', $ic-add-a-photo-black-18dp, $ic-add-a-photo-black-18dp-2x, );
+$ic-add-to-photos-black-18dp-group-name: 'ic_add_to_photos_black_18dp';
+$ic-add-to-photos-black-18dp-group: ('ic_add_to_photos_black_18dp', $ic-add-to-photos-black-18dp, $ic-add-to-photos-black-18dp-2x, );
+$ic-edit-black-18dp-group-name: 'ic_edit_black_18dp';
+$ic-edit-black-18dp-group: ('ic_edit_black_18dp', $ic-edit-black-18dp, $ic-edit-black-18dp-2x, );
+$icons2-retina-groups: ($ic-add-a-photo-black-18dp-group, $ic-add-to-photos-black-18dp-group, $ic-edit-black-18dp-group, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
+//   It should be used with a "retina group" variable.
+//
+// The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+//
+// $icon-home-group: ('icon-home', $icon-home, $icon-home-2x, );
+//
+// .icon-home {
+//   @include retina-sprite($icon-home-group);
+// }
+@mixin sprite-background-size($sprite) {
+  $sprite-total-width: nth($sprite, 7);
+  $sprite-total-height: nth($sprite, 8);
+  background-size: $sprite-total-width $sprite-total-height;
+}
+
+@mixin retina-sprite($retina-group) {
+  $normal-sprite: nth($retina-group, 2);
+  $retina-sprite: nth($retina-group, 3);
+  @include sprite($normal-sprite);
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
+  }
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
+
+// The `retina-sprites` mixin generates a CSS rule and media query for retina groups
+//   This yields the same output as CSS retina template but can be overridden in SCSS
+//
+// @include retina-sprites($retina-groups);
+@mixin retina-sprites($retina-groups) {
+  @each $retina-group in $retina-groups {
+    $sprite-name: nth($retina-group, 1);
+    .#{$sprite-name} {
+      @include retina-sprite($retina-group);
+    }
+  }
+}
