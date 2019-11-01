@@ -26,4 +26,14 @@ describe('bootstrap', function() {
       );
     });
   });
+
+  describe('#go()', function() {
+    describe('!function', function() {
+      before(function() {
+        balm.go('gg');
+      });
+
+      it('expected output: "initialization error"', asyncCase(function() {}));
+    });
+  });
 });

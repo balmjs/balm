@@ -36,10 +36,6 @@ class Balm {
 
   go(recipe: Function = BalmJS.noop): void {
     if (BalmJS.utils.isFunction(recipe)) {
-      if (!(BalmJS.config.src && BalmJS.config.dest)) {
-        this.config = {};
-      }
-
       registerTasks(recipe);
     } else {
       BalmJS.logger.error(
