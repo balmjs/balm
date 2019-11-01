@@ -9,8 +9,12 @@ class PwaTask extends BalmJS.BalmTask {
     return async (cb: Function): Promise<any> => {
       const mode: string = customMode || BalmJS.config.pwa.mode;
       const globDirectory: string = BalmJS.config.dest.base;
-      const swSrc = `${BalmJS.config.roots.source}/${BalmJS.config.pwa.swSrcFilename}`;
-      const swDest = `${globDirectory}/${BalmJS.config.pwa.swDestFilename}`;
+      const swSrc = BalmJS.file.absPath(
+        `${BalmJS.config.roots.source}/${BalmJS.config.pwa.swSrcFilename}`
+      );
+      const swDest = BalmJS.file.absPath(
+        `${globDirectory}/${BalmJS.config.pwa.swDestFilename}`
+      );
       let options: object = {};
       let valid = true;
 
