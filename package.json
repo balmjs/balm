@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "2.0.0-beta.7",
+  "version": "2.0.0-beta.8",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -39,7 +39,7 @@
     "@babel/runtime": "^7.6.3",
     "ansi-colors": "^4.1.1",
     "async": "^3.1.0",
-    "autoprefixer": "^9.7.0",
+    "autoprefixer": "^9.7.1",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
     "connect-history-api-fallback": "^1.6.0",
@@ -99,7 +99,7 @@
     "@babel/register": "^7.6.2",
     "@types/chai": "^4.2.4",
     "@types/mocha": "^5.2.7",
-    "@types/node": "^12.12.0",
+    "@types/node": "^12.12.3",
     "@typescript-eslint/eslint-plugin": "^2.6.0",
     "@typescript-eslint/parser": "^2.6.0",
     "babel-plugin-istanbul": "^5.2.0",

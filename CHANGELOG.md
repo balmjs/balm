@@ -46,10 +46,12 @@ balm.config = {
 - config.styles.**minified**
 - config.styles.<del>includePaths</del> => config.styles.atImportPaths
 - config.styles.<del>postcssOptions</del>
+- config.styles.<del>spritePadding</del>
 - config.<del>sprites</del>
   - .<del>basePath</del> => config.**styles.imageBasePath**
   - .<del>image</del> => config.**styles.sprites**
-  - .<del>padding</del> => config.**styles.spritePadding**
+- config.styles.**spriteRetina**
+- config.styles.**spriteParams**
 
 ---
 
