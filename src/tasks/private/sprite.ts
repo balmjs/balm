@@ -2,14 +2,15 @@ import mergeStream from 'merge-stream';
 
 interface SpriteItem {
   src: string;
-  name: string;
+  retinaSrc: string;
+  folderName: string;
 }
 
 interface SpriteConfig {
-  src: string;
-  opt: object;
-  img: string;
-  css: string;
+  input: string;
+  params: object;
+  imgOutput: string;
+  cssOutput: string;
 }
 
 class SpriteTask extends BalmJS.BalmTask {
@@ -27,23 +28,36 @@ class SpriteTask extends BalmJS.BalmTask {
     }
   }
 
-  private _getOption(name: string): object {
-    const spriteName = `${name}-${this.name}s.png`;
+  private _getParams(spriteItem: SpriteItem): object {
+    const spriteName = `${spriteItem.folderName}-${this.name}s`;
 
-    return {
-      imgName: spriteName, // E.g. "icon-sprite.png"
-      imgPath: `${BalmJS.config.styles.imageBasePath}${BalmJS.config.paths.target.img}/${spriteName}`, // E.g. "path/to/icon-sprite.png"
-      padding: BalmJS.config.styles.spritePadding,
-      cssName: `_${name}.${BalmJS.config.styles.extname}`, // E.g. "_icon.scss"
-      cssFormat: BalmJS.config.styles.extname, // E.g. "scss"
-      cssVarMap: function(sprite: any): void {
-        sprite.name = `${name}-${sprite.name}`; // E.g. "icon-name"
+    let defaultParams: object = Object.assign(
+      {
+        padding: 1
       },
-      cssSpritesheetName: `${name}-spritesheet`, // E.g. "icon-spritesheet"
-      cssOpts: {
-        cssSelector: (sprite: any): string => `.${sprite.name}` // Classname in css file: '.icon-name'
+      {
+        imgName: `${spriteName}.png`, // E.g. 'awesome-sprites.png'
+        cssName: `_${spriteItem.folderName}.${BalmJS.config.styles.extname}`, // E.g. "_awesome.scss"
+        imgPath: `${BalmJS.config.styles.imageBasePath}${BalmJS.config.paths.target.img}/${spriteName}.png`, // E.g. "path/to/img/awesome-sprites.png"
+        cssSpritesheetName: `${spriteItem.folderName}-spritesheet`, // E.g. "awesome-spritesheet"
+        cssOpts: {
+          cssSelector: (sprite: any): string =>
+            `.${spriteItem.folderName}-${sprite.name}` // Classname in css file: '.icon-awesome'
+        }
       }
-    };
+    );
+
+    if (BalmJS.config.styles.spriteRetina) {
+      defaultParams = Object.assign(defaultParams, {
+        retinaSrcFilter: `${spriteItem.retinaSrc}`,
+        retinaImgName: `${spriteName}@2x.png`, // E.g. 'awesome-sprites@2x.png'
+        retinaImgPath: `${BalmJS.config.styles.imageBasePath}${BalmJS.config.paths.target.img}/${spriteName}@2x.png`, // E.g. "path/to/img/awesome-sprites@2x.png"
+        cssRetinaSpritesheetName: `${spriteItem.folderName}-spritesheet-2x`, // E.g. "awesome-spritesheet-2x"
+        cssRetinaGroupsName: `${spriteItem.folderName}-retina-groups` // E.g. "awesome-retina-groups"
+      });
+    }
+
+    return Object.assign(defaultParams, BalmJS.config.styles.spriteParams);
   }
 
   collect(): void {
@@ -51,29 +65,36 @@ class SpriteTask extends BalmJS.BalmTask {
     for (const spriteName of this.input) {
       spriteList.push({
         src: `${BalmJS.config.src.img}/${spriteName}/*.png`,
-        name: spriteName
+        retinaSrc: `${BalmJS.config.src.img}/${spriteName}/*@2x.png`,
+        folderName: spriteName
       });
     }
 
     for (let key = 0, len = spriteList.length; key < len; key++) {
-      const value: SpriteItem = spriteList[key];
-      const spriteTaskName = `${this.name}:${value.name}`; // E.g. "sprite:name"
+      const spriteItem: SpriteItem = spriteList[key];
+      const spriteTaskName = `${this.name}:${spriteItem.folderName}`; // E.g. 'sprite:awesome'
       const spriteConfig: SpriteConfig = {
-        src: value.src,
-        opt: this._getOption(value.name),
-        img: this.output,
-        css: `${BalmJS.config.src.css}/${this.name}s` // Don't modify
+        input: spriteItem.src,
+        params: this._getParams(spriteItem),
+        imgOutput: this.output,
+        cssOutput: `${BalmJS.config.src.css}/${this.name}s` // E.g. 'path/to/css/sprites'
       };
 
-      gulp.task(BalmJS.toNamespace(spriteTaskName) as string, function() {
+      gulp.task(BalmJS.toNamespace(spriteTaskName) as string, () => {
         const spriteData = gulp
-          .src(spriteConfig.src)
-          .pipe($.spritesmith(spriteConfig.opt));
+          .src(spriteConfig.input)
+          .pipe(
+            BalmJS.plugins.plumber((error: any): void => {
+              BalmJS.logger.error(`${this.name} task`, error.message);
+            })
+          )
+          .pipe($.spritesmith(spriteConfig.params));
+
         const imgStream = spriteData.img.pipe(
-          gulp.dest(BalmJS.file.absPath(spriteConfig.img))
+          gulp.dest(BalmJS.file.absPath(spriteConfig.imgOutput))
         );
         const cssStream = spriteData.css.pipe(
-          gulp.dest(BalmJS.file.absPath(spriteConfig.css))
+          gulp.dest(BalmJS.file.absPath(spriteConfig.cssOutput))
         );
 
         return mergeStream(imgStream, cssStream);

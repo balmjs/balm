@@ -63,7 +63,8 @@ const postcssLoaderOptions: PostcssLoaderOptions = {
 // CSS Sprites
 const imageBasePath = '../'; // Relative to css file
 const sprites: string[] = []; // Image folders
-const spritePadding = 1;
+const spriteParams: object = {};
+const spriteRetina = false;
 
 export default {
   extname,
@@ -77,5 +78,6 @@ export default {
   postcssLoaderOptions,
   imageBasePath,
   sprites,
-  spritePadding
+  spriteParams,
+  spriteRetina
 };

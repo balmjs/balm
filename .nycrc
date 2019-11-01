@@ -6,6 +6,7 @@
     "src/**/*.ts",
     "!src/config/env.ts",
     "!src/tasks/index.ts",
+    "!src/tasks/private/sprite.ts",
     "!src/tasks/private/modernizr.ts",
     "!src/tasks/public/server.ts",
     "!src/middlewares/index.ts",

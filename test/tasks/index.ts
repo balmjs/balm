@@ -2,7 +2,6 @@
 import './private/start.spec';
 // main tasks
 import './private/clean.spec'; // top
-import './private/sprite.spec';
 import './public/sass.spec';
 import './public/less.spec';
 import './public/postcss.spec';

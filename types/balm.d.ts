@@ -28,6 +28,8 @@ interface BalmStyles {
   imageBasePath: string;
   sprites: string[];
   spritePadding: number;
+  spriteParams: object;
+  spriteRetina: boolean;
 }
 
 interface BalmScripts {
