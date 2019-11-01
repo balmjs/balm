@@ -6,10 +6,9 @@ const workspace = path.join(projectRoot, 'test-workspace');
 
 balm.config = {
   workspace,
-  assets: {
-    cache: true
-  },
-  useDefaults: true
+  styles: {
+    extname: 'scss'
+  }
 };
 
 balm.go(mix => {
@@ -31,21 +30,37 @@ balm.go(mix => {
     // mix.remove('.tmp');
     // mix.css();
     // mix.js();
+    // mix.jsmin(['.tmp/js/main.js', '.tmp/js/modernizr.js'], '.test/js');
     // mix.html();
     // mix.modernizr();
     // mix.serve((watcher, reload) => {
-    //   watcher.on('change', file => {
-    //     console.log('changed', file);
-
-    //     let exname = file.split('.')[1];
-    //     if (exname === 'css') {
-    //       mix.css(file, '.tmp/css');
-    //     }
-    //     if (exname === 'js') {
-    //       mix.js(`./${file}`, '.tmp/js');
-    //       reload();
-    //     }
-    //   });
+    // watcher.on('change', file => {
+    // console.log('changed', file);
+    // mix.ftp(file, {
+    //   ftpOptions: {
+    //     host: '',
+    //     username: '',
+    //     password: '',
+    //     remotePath: '/var/www/ftp-test'
+    //   },
+    //   gulpSrcOptions: {
+    //     base: '.'
+    //   }
+    // });
+    // mix.sass(file, '.test/css', {
+    //   gulpSrcOptions: {
+    //     base: 'src/www/sass'
+    //   }
+    // });
+    // let exname = file.split('.')[1];
+    // if (exname === 'css') {
+    //   mix.css(file, '.tmp/css');
+    // }
+    // if (exname === 'js') {
+    //   mix.js(`./${file}`, '.tmp/js');
+    //   reload();
+    // }
+    // });
     // });
   }
 });
