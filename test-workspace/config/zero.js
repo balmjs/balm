@@ -5,10 +5,7 @@ const projectRoot = path.resolve(__dirname, '..', '..');
 const workspace = path.join(projectRoot, 'test-workspace');
 
 balm.config = {
-  workspace,
-  styles: {
-    extname: 'scss'
-  }
+  workspace
 };
 
 balm.go(mix => {

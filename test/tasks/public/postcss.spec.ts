@@ -55,15 +55,5 @@ describe('postcss task', function() {
         expect(postcssTask.output).to.equal(defaultOutput);
       })
     );
-
-    it(
-      'error handler',
-      asyncCase(function() {
-        postcssTask.recipe(
-          path.join(balm.config.workspace, 'src/styles/error.css'),
-          defaultOutput
-        )();
-      })
-    );
   });
 });

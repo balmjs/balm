@@ -52,4 +52,24 @@ describe('less task', function() {
       })
     );
   });
+
+  describe('ERROR', function() {
+    before(function() {
+      balm.config = {
+        styles: {
+          extname: 'less'
+        }
+      };
+    });
+
+    it(
+      'error handler',
+      asyncCase(function() {
+        lessTask.recipe(
+          path.join(balm.config.workspace, 'src/styles/error.less'),
+          'dist'
+        )();
+      })
+    );
+  });
 });
