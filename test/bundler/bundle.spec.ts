@@ -98,7 +98,8 @@ describe('bundler#webpackConfig()', function() {
             entry: {
               main: './src/scripts/main.js'
             },
-            inject: true
+            inject: true,
+            splitAllVendors: true
           }
         };
       });

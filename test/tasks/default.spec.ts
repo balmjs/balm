@@ -49,7 +49,6 @@ describe('default task', function() {
           'balm:script',
           'balm:html',
           'balm:modernizr',
-          'balm:font',
           'balm:serve'
         ];
 

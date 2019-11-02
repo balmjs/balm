@@ -9,7 +9,8 @@ import './app';
 const balmConfigDefaults = Object.assign({}, balm.config, {
   env: {
     isProd: false,
-    isDev: false
+    isDev: false,
+    inSSR: false
   },
   paths: {
     target: {
@@ -17,16 +18,31 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
     }
   },
   styles: {
+    extname: 'css',
     sprites: []
   },
   scripts: {
+    loaders: [],
+    target: 'web',
+    externals: false,
     inject: false,
+    splitAllVendors: false,
+    bundleAnalyzerReport: false,
     extractCss: {
       enabled: false
     }
   },
+  extras: {
+    includes: [],
+    excludes: []
+  },
   assets: {
-    cache: false
+    publicUrl: '',
+    root: 'assets',
+    subDir: '',
+    cache: false,
+    includes: [],
+    excludes: []
   },
   server: {
     proxyConfig: false,

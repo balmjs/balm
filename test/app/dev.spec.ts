@@ -1,13 +1,35 @@
-// describe('app test', function() {
-//   before(function() {
-//     balm.config = {
-//       env: {
-//         isDev: true
-//       }
-//     };
+import { cleanup, shouldExist } from './test';
 
-//     balm.go();
-//   });
+describe('app test', function() {
+  before(function() {
+    balm.config = {
+      env: {
+        isDev: true
+      }
+    };
+  });
 
-//   it('production', asyncCase(function() {}));
-// });
+  after(function() {
+    cleanup();
+  });
+
+  const testCase = [
+    '.tmp/index.html',
+    '.tmp/css/main.css',
+    '.tmp/js/main.js',
+    '.tmp/js/modernizr.js'
+  ];
+
+  it('development', function(done) {
+    balm.afterTask = function() {
+      testCase.forEach((file: string) => {
+        shouldExist(file);
+      });
+    };
+    balm.go();
+
+    gulp.series('default')();
+
+    setTimeout(done, 4000);
+  });
+});
