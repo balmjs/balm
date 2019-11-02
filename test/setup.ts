@@ -13,7 +13,6 @@ global.isWindows = isWindows;
 global.balm = balm;
 global.gulp = gulp;
 global.expect = expect;
-global.workspace = balmConfig.workspace;
 
 function asyncCase(fn: Function) {
   return function(done: Function) {
@@ -31,7 +30,7 @@ global.asyncCase = asyncCase;
 const DELAY = 4000;
 
 function shouldExist(file: string, contents?: string) {
-  let path = `${workspace}/${file}`;
+  let path = `${balm.config.workspace}/${file}`;
   let result;
 
   if (contents) {
@@ -44,7 +43,7 @@ function shouldExist(file: string, contents?: string) {
 }
 
 function shouldNoExist(file: string) {
-  let path = `${workspace}/${file}`;
+  let path = `${balm.config.workspace}/${file}`;
   let result = fs.existsSync(path);
   result.should.be.false;
 }

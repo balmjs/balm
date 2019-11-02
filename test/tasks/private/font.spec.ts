@@ -22,9 +22,7 @@ describe('font task', function() {
     it(
       `expected output: "${defaultOutput}"`,
       asyncCase(function() {
-        expect(JSON.stringify(fontTask.output)).to.equal(
-          JSON.stringify(defaultOutput)
-        );
+        expect(fontTask.output).to.equal(defaultOutput);
       })
     );
   });
@@ -43,9 +41,7 @@ describe('font task', function() {
     it(
       `expected output: "${defaultOutput}"`,
       asyncCase(function() {
-        expect(JSON.stringify(fontTask.output)).to.equal(
-          JSON.stringify(defaultOutput)
-        );
+        expect(fontTask.output).to.equal(defaultOutput);
       })
     );
   });

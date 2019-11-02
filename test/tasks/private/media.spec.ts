@@ -22,9 +22,7 @@ describe('media task', function() {
     it(
       `expected output: "${defaultOutput}"`,
       asyncCase(function() {
-        expect(JSON.stringify(mediaTask.output)).to.equal(
-          JSON.stringify(defaultOutput)
-        );
+        expect(mediaTask.output).to.equal(defaultOutput);
       })
     );
   });
@@ -43,9 +41,7 @@ describe('media task', function() {
     it(
       `expected output: "${defaultOutput}"`,
       asyncCase(function() {
-        expect(JSON.stringify(mediaTask.output)).to.equal(
-          JSON.stringify(defaultOutput)
-        );
+        expect(mediaTask.output).to.equal(defaultOutput);
       })
     );
   });

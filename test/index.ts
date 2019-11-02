@@ -1,4 +1,3 @@
-// import remove from 'rimraf';
 import './custom-tasks';
 import './utilities';
 import './tasks';
@@ -41,19 +40,6 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   }
 });
 
-const reset = () => {
+afterEach(function() {
   balm.config = balmConfigDefaults;
-
-  // remove.sync(`${workspace}/copy-dest`);
-  // remove.sync(`${workspace}/.tmp`);
-  // remove.sync(`${workspace}/.compile`);
-  // remove.sync(`${workspace}/dist`);
-  // remove.sync(`${workspace}/assets`);
-  // remove.sync(`${workspace}/archive.zip`);
-};
-
-// beforeEach(() => {});
-
-afterEach(() => {
-  reset();
 });

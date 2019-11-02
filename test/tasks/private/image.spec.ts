@@ -33,6 +33,7 @@ describe('image task', function() {
           sprites: ['icons']
         }
       };
+
       balm.go();
     });
 
