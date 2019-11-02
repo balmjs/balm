@@ -1,6 +1,6 @@
-import { cleanup, shouldExist } from './test';
+import { cleanup, runTest } from './test';
 
-describe('app test', function() {
+describe('app test in development', function() {
   before(function() {
     balm.config = {
       env: {
@@ -20,16 +20,15 @@ describe('app test', function() {
     '.tmp/js/modernizr.js'
   ];
 
-  it('development', function(done) {
-    balm.afterTask = function() {
-      testCase.forEach((file: string) => {
-        shouldExist(file);
-      });
-    };
-    balm.go();
-
-    gulp.series('default')();
-
-    setTimeout(done, 4000);
+  it('expected output: ".tmp"', function(done) {
+    runTest(
+      {
+        testCase
+      },
+      {
+        done,
+        delay: 4000
+      }
+    );
   });
 });
