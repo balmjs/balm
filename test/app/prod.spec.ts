@@ -15,9 +15,6 @@ describe('App Test in production', function() {
           media: 'e'
         }
       },
-      styles: {
-        sprites: ['icons']
-      },
       assets: {
         cache: true
       }

@@ -19,7 +19,9 @@ describe('Balm Hooks', function() {
       const input = `src/styles/main.${extname === 'sass' ? 'scss' : extname}`;
       const output = `${targetDir}/${extname}`;
 
-      it(api, function(done) {
+      it(`compiles ${
+        extname === 'css' ? 'postcss' : extname
+      } files to the "${output}" directory`, function(done) {
         runTest(
           {
             testCase: `${output}/main.css`,
@@ -33,22 +35,91 @@ describe('Balm Hooks', function() {
     });
   });
 
-  // describe('javascript', function() {
-  //   it('js', function(done) {
-  //     runTest(
-  //       {
-  //         testCase: false,
-  //         hook: function(mix: any) {
-  //           mix.js('./src/scripts/main.js', `${targetDir}/js`);
-  //         }
-  //       },
-  //       {
-  //         done,
-  //         delay: 4000
-  //       }
-  //     );
-  //   });
-  // });
+  describe('javascript', function() {
+    const output = `${targetDir}/js`;
+
+    it(`bundles js file to the "${output}" directory`, function(done) {
+      runTest(
+        {
+          testCase: `${output}/main.js`,
+          hook: function(mix: any) {
+            mix.js('./src/scripts/index.js', output);
+          }
+        },
+        done
+      );
+    });
+
+    it(`bundles js files to the "${output}" directory`, function(done) {
+      runTest(
+        {
+          testCase: [`${output}/page-a.js`, `${output}/page-b.js`],
+          hook: function(mix: any) {
+            mix.js(
+              ['./src/scripts/page-a.js', './src/scripts/page-b.js'],
+              output
+            );
+          }
+        },
+        done
+      );
+    });
+
+    it(`bundles js object to the "${output}" directory`, function(done) {
+      runTest(
+        {
+          testCase: `${output}/app.js`,
+          hook: function(mix: any) {
+            mix.js(
+              {
+                app: './src/scripts/index.js'
+              },
+              output
+            );
+          }
+        },
+        done
+      );
+    });
+
+    it('minify amd scripts', function(done) {
+      runTest(
+        {
+          testCase: false,
+          hook: function(mix: any) {
+            mix.jsmin(['./amd/scripts/*.js'], `${targetDir}/amd/scripts`, {
+              terserOptions: {
+                mangle: false
+              },
+              renameOptions: {
+                suffix: ''
+              }
+            });
+          }
+        },
+        done
+      );
+    });
+
+    it('minify cmd scripts', function(done) {
+      runTest(
+        {
+          testCase: false,
+          hook: function(mix: any) {
+            mix.jsmin(['./cmd/scripts/*.js'], `${targetDir}/cmd/scripts`, {
+              terserOptions: {
+                mangle: false
+              },
+              renameOptions: {
+                suffix: ''
+              }
+            });
+          }
+        },
+        done
+      );
+    });
+  });
 
   describe('files & directories', function() {
     it('copies a file to a new location', function(done) {
