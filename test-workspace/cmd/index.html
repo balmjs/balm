@@ -1,1 +1,36 @@
-TODO
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello Sea.js</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div id="container">
+      <img src="images/1cqKb32QfE.png" width="44" height="44" alt="H" />
+      <img src="images/1cqKb2rJHI.png" width="44" height="44" alt="e" />
+      <img src="images/1cqKeZrUpg.png" width="44" height="44" alt="l" />
+      <img src="images/1cqM4u3Ejk.png" width="44" height="44" alt="l" />
+      <img src="images/1cqKoKV2Sa.png" width="44" height="44" alt="o" />
+      <img src="images/1cqKb4JU4K.png" width="44" height="44" alt="," />
+      <img src="images/1cqKojFDLY.png" width="44" height="44" alt="S" />
+      <img src="images/1cqKb2sBO8.png" width="44" height="44" alt="e" />
+      <img src="images/1cqKb2LmXk.png" width="44" height="44" alt="a" />
+      <img src="images/1cqKb1jcWC.png" width="44" height="44" alt="J" />
+      <img src="images/1cqKojb72y.png" width="44" height="44" alt="S" />
+    </div>
+
+    <script src="sea-modules/seajs/seajs/2.2.0/sea.js"></script>
+    <script>
+      // Set configuration
+      seajs.config({
+        base: './sea-modules/',
+        alias: {
+          jquery: 'jquery/jquery/1.10.1/jquery.js'
+        }
+      });
+      // Run
+      seajs.use('./scripts/main.js');
+    </script>
+  </body>
+</html>

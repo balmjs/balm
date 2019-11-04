@@ -1,0 +1,43 @@
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+p,
+img,
+strong,
+ol,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  background: #f4f4f4;
+}
+
+#container {
+  position: relative;
+  margin: 40px 120px;
+  /* background: url(https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-32.gif)
+    no-repeat; */
+  min-height: 32px;
+}
+
+#container img {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0.6;
+  display: none;
+
+  transition-property: transform;
+  transition-duration: 0.8s;
+}
