@@ -1,15 +1,12 @@
 import fs from 'fs';
 import { sync as del } from 'rimraf';
 
-function cleanup(dir = '') {
-  if (dir) {
-    del(`${balm.config.workspace}/${dir}`);
-  } else {
-    del(`${balm.config.workspace}/.tmp`);
-    del(`${balm.config.workspace}/dist`);
-    del(`${balm.config.workspace}/archive.zip`);
-    del(`${balm.config.workspace}/new-archive.zip`);
-  }
+function cleanup() {
+  del(`${balm.config.workspace}/.output`);
+  del(`${balm.config.workspace}/.tmp`);
+  del(`${balm.config.workspace}/dist`);
+  del(`${balm.config.workspace}/archive.zip`);
+  del(`${balm.config.workspace}/new-archive.zip`);
 }
 
 function shouldExist(file: string, contents?: string) {
@@ -25,6 +22,12 @@ function shouldExist(file: string, contents?: string) {
   }
 }
 
+function shouldNotExist(file: string) {
+  const filePath = `${balm.config.workspace}/${file}`;
+  const result = fs.existsSync(filePath);
+  expect(result).to.equal(false);
+}
+
 function runTest(
   obj: {
     testCase: string | false | string[];
@@ -35,16 +38,17 @@ function runTest(
     | {
         done: Function;
         delay?: number;
-      }
+      },
+  checkExist: boolean = true
 ) {
   balm.afterTask = function() {
     if (obj.testCase) {
       if (Array.isArray(obj.testCase)) {
         (obj.testCase as string[]).forEach((file: string) => {
-          shouldExist(file);
+          checkExist ? shouldExist(file) : shouldNotExist(file);
         });
       } else {
-        shouldExist(obj.testCase);
+        checkExist ? shouldExist(obj.testCase) : shouldNotExist(obj.testCase);
       }
     }
   };
