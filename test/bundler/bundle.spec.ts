@@ -1,6 +1,6 @@
 import webpackConfig from '../../src/bundler';
 
-describe('bundler#webpackConfig()', function() {
+describe('Bundler#webpackConfig()', function() {
   describe('web', function() {
     describe('with externals', function() {
       before(function() {

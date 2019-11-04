@@ -1,6 +1,6 @@
 import UrlTask from '../../../src/tasks/public/url';
 
-describe('url task', function() {
+describe('Url Task', function() {
   let urlTask: any;
 
   beforeEach(function() {

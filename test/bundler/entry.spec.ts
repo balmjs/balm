@@ -3,7 +3,7 @@ import getEntry from '../../src/bundler/entry';
 const HOT_CLIENT = 'webpack-hot-middleware/client';
 const HMR = `${HOT_CLIENT}?reload=true&noInfo=true&path=/__balm_hmr`;
 
-describe('bundler#getEntry()', function() {
+describe('Bundler#getEntry()', function() {
   let entries: any = {};
 
   describe('entry is an empty array', function() {

@@ -1,6 +1,6 @@
 import VersionTask from '../../../src/tasks/public/version';
 
-describe('version task', function() {
+describe('Version Task', function() {
   let versionTask: any;
 
   beforeEach(function() {

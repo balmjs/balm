@@ -1,6 +1,6 @@
 import MediaTask from '../../../src/tasks/private/media';
 
-describe('media task', function() {
+describe('Media Task', function() {
   let mediaTask: any;
 
   beforeEach(function() {

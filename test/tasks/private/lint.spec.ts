@@ -1,6 +1,6 @@
 import LintTask from '../../../src/tasks/private/lint';
 
-describe('lint task', function() {
+describe('Lint Task', function() {
   let lintTask: any;
 
   beforeEach(function() {

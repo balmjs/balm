@@ -1,6 +1,6 @@
 import httpProxyMiddleware from '../../src/middlewares/proxy';
 
-describe('http proxy middleware', function() {
+describe('Http Proxy Middleware', function() {
   let middlewares: object[];
 
   beforeEach(function() {

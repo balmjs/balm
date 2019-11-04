@@ -1,6 +1,6 @@
 import LessTask from '../../../src/tasks/public/less';
 
-describe('less task', function() {
+describe('Less Task', function() {
   let lessTask: any;
 
   beforeEach(function() {

@@ -1,6 +1,6 @@
 import HtmlTask from '../../../src/tasks/private/html';
 
-describe('html task', function() {
+describe('Html Task', function() {
   let htmlTask: any;
 
   beforeEach(function() {

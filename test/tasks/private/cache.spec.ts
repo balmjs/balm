@@ -1,6 +1,6 @@
 import CacheTask from '../../../src/tasks/private/cache';
 
-describe('cache task', function() {
+describe('Cache Task', function() {
   let cacheTask: any;
 
   beforeEach(function() {

@@ -1,6 +1,6 @@
 import FtpTask from '../../../src/tasks/public/ftp';
 
-describe('ftp task', function() {
+describe('Ftp Task', function() {
   let ftpTask: any;
 
   beforeEach(function() {

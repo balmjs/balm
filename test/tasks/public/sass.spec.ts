@@ -1,6 +1,6 @@
 import SassTask from '../../../src/tasks/public/sass';
 
-describe('sass task', function() {
+describe('Sass Task', function() {
   let sassTask: any;
 
   beforeEach(function() {

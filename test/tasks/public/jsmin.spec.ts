@@ -1,6 +1,6 @@
 import JsminTask from '../../../src/tasks/public/jsmin';
 
-describe('jsmin task', function() {
+describe('Jsmin Task', function() {
   let jsminTask: any;
 
   beforeEach(function() {

@@ -1,6 +1,6 @@
 import PostcssTask from '../../../src/tasks/public/postcss';
 
-describe('postcss task', function() {
+describe('Postcss Task', function() {
   let postcssTask: any;
 
   beforeEach(function() {

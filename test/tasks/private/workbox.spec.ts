@@ -1,6 +1,6 @@
 import WorkboxTask from '../../../src/tasks/private/workbox-sw';
 
-describe('workbox task', function() {
+describe('Workbox Task', function() {
   let workboxTask: any;
 
   beforeEach(function() {

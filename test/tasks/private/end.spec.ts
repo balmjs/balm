@@ -1,6 +1,6 @@
 import EndTask from '../../../src/tasks/private/end';
 
-describe('end task', function() {
+describe('End Task', function() {
   let endTask: any;
 
   describe('!after task', function() {

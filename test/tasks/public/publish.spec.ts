@@ -1,6 +1,6 @@
 import PublishTask from '../../../src/tasks/public/publish';
 
-describe('publish task', function() {
+describe('Publish Task', function() {
   let publishTask: any;
 
   beforeEach(function() {

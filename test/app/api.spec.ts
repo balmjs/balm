@@ -2,7 +2,7 @@ import { cleanup, runTest } from './test';
 
 const targetDir = '.output';
 
-describe('balm hooks', function() {
+describe('Balm Hooks', function() {
   beforeEach(function() {
     balm.config = {
       useDefaults: false

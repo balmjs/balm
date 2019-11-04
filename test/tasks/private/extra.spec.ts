@@ -1,6 +1,6 @@
 import ExtraTask from '../../../src/tasks/private/extra';
 
-describe('extra task', function() {
+describe('Extra Task', function() {
   let extraTask: any;
 
   const srcBase = 'src';

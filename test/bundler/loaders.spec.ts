@@ -1,6 +1,6 @@
 import getLoaders from '../../src/bundler/loaders';
 
-describe('bundler#getLoaders()', function() {
+describe('Bundler#getLoaders()', function() {
   let rules: any = [];
 
   describe('use defaults', function() {

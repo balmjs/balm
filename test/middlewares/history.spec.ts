@@ -1,6 +1,6 @@
 import historyMiddleware from '../../src/middlewares/history';
 
-describe('history middleware', function() {
+describe('History Middleware', function() {
   let middlewares: object[];
 
   beforeEach(function() {

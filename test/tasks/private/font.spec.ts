@@ -1,6 +1,6 @@
 import FontTask from '../../../src/tasks/private/font';
 
-describe('font task', function() {
+describe('Font Task', function() {
   let fontTask: any;
 
   beforeEach(function() {

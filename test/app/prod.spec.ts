@@ -1,6 +1,6 @@
 import { cleanup, runTest } from './test';
 
-describe('app test in production', function() {
+describe('App Test in production', function() {
   before(function() {
     balm.config = {
       env: {

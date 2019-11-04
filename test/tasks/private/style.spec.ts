@@ -1,6 +1,6 @@
 import StyleTask from '../../../src/tasks/private/style';
 
-describe('style task', function() {
+describe('Style Task', function() {
   let styleTask: any;
 
   beforeEach(function() {

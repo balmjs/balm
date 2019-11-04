@@ -1,14 +1,12 @@
 .DS_Store
 bower_components
 node_modules
-spa/styles/sprites
-spa/styles/svg
 .tmp
-.compile
-copy-dest
+.output
 dist
 assets
 *.zip
+*/styles/sprites
 !vue-spa/scripts/assets
 !vue-ssr/app/scripts/assets
 !php/resources/assets

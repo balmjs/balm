@@ -1,6 +1,6 @@
 import getOutput from '../../src/bundler/output';
 
-describe('bundler#getOutput()', function() {
+describe('Bundler#getOutput()', function() {
   let result: any = {};
 
   describe('development', function() {

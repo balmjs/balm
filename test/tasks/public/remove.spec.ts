@@ -1,6 +1,6 @@
 import RemoveTask from '../../../src/tasks/public/remove';
 
-describe('remove task', function() {
+describe('Remove Task', function() {
   let removeTask: any;
 
   beforeEach(function() {

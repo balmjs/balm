@@ -1,7 +1,7 @@
 import DefaultTask from '../../src/tasks/default';
 import balm from '../../src';
 
-describe('default task', function() {
+describe('Default Task', function() {
   let defaultTask: any;
 
   beforeEach(function() {

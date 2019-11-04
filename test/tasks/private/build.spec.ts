@@ -1,6 +1,6 @@
 import BuildTask from '../../../src/tasks/private/build';
 
-describe('build task', function() {
+describe('Build Task', function() {
   let buildTask: any;
 
   beforeEach(function() {

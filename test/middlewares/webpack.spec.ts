@@ -1,6 +1,6 @@
 import webpackMiddleware from '../../src/middlewares/webpack';
 
-describe('webpack middleware', function() {
+describe('Webpack Middleware', function() {
   let middlewares: object[];
 
   beforeEach(function() {

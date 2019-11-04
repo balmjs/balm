@@ -1,6 +1,6 @@
 import StartTask from '../../../src/tasks/private/start';
 
-describe('start task', function() {
+describe('Start Task', function() {
   let startTask: any;
 
   describe('!before task', function() {

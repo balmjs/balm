@@ -1,6 +1,6 @@
 import CleanTask from '../../../src/tasks/private/clean';
 
-describe('clean task', function() {
+describe('Clean Task', function() {
   let cleanTask: any;
 
   beforeEach(function(done) {

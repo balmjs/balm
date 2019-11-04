@@ -1,6 +1,6 @@
 import ZipTask from '../../../src/tasks/public/zip';
 
-describe('zip task', function() {
+describe('Zip Task', function() {
   let zipTask: any;
 
   beforeEach(function() {

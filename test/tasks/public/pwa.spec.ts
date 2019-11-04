@@ -1,6 +1,6 @@
 import PwaTask from '../../../src/tasks/public/pwa';
 
-describe('pwa task', function() {
+describe('Pwa Task', function() {
   let pwaTask: any;
 
   beforeEach(function() {

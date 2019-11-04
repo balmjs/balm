@@ -1,6 +1,6 @@
 import ImageTask from '../../../src/tasks/private/image';
 
-describe('image task', function() {
+describe('Image Task', function() {
   let imageTask: any;
 
   beforeEach(function() {

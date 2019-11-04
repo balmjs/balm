@@ -1,4 +1,4 @@
-describe('bootstrap', function() {
+describe('Bootstrap', function() {
   describe('#checkTask()', function() {
     describe('before task', function() {
       before(function() {

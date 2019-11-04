@@ -1,6 +1,6 @@
 import CopyTask from '../../../src/tasks/public/copy';
 
-describe('copy task', function() {
+describe('Copy Task', function() {
   let copyTask: any;
 
   beforeEach(function() {
