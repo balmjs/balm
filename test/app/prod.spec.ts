@@ -53,6 +53,22 @@ describe('App Test in production', function() {
           mix.publish();
           // publish templates
           mix.publish(input, output, options);
+          mix.publish([
+            {
+              input: 'page-a.html',
+              output: 'views/a',
+              options: {
+                extname: '.phtml'
+              }
+            },
+            {
+              input: 'page-b.html',
+              output: 'views/b',
+              options: {
+                extname: '.phtml'
+              }
+            }
+          ]);
         }
       },
       {
@@ -79,8 +95,22 @@ describe('App Test in production', function() {
     );
   });
 
-  it('publish templates to remote', function(done) {
+  it('publish one template to remote', function(done) {
     const testCase = 'assets/views/home.blade.php';
+
+    runTest(
+      {
+        testCase
+      },
+      done
+    );
+  });
+
+  it('publish multiple templates to remote', function(done) {
+    const testCase = [
+      'assets/views/a/page-a.phtml',
+      'assets/views/b/page-b.phtml'
+    ];
 
     runTest(
       {
