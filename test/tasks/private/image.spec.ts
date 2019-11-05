@@ -18,7 +18,6 @@ describe('Image Task', function() {
     it(
       `expected output: "${defaultInput}"`,
       asyncCase(function() {
-        console.log(imageTask.input);
         expect(JSON.stringify(imageTask.input)).to.equal(
           JSON.stringify(defaultInput)
         );

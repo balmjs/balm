@@ -44,6 +44,17 @@ class Balm {
       );
     }
   }
+
+  reset() {
+    BalmJS.tasks = [];
+    BalmJS.recipes = [];
+    BalmJS.recipeIndex = 0;
+
+    BalmJS.beforeTask = undefined;
+    BalmJS.afterTask = undefined;
+
+    BalmJS.config.useDefaults = true;
+  }
 }
 
 export default Balm;

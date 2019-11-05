@@ -9,7 +9,7 @@ import './public/url.spec';
 import './private/style.spec';
 import './private/lint.spec';
 import './public/script.spec';
-import './private/html.spec';
+import './public/html.spec';
 import './private/image.spec';
 import './private/font.spec';
 import './private/media.spec';

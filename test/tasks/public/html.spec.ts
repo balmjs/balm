@@ -1,4 +1,4 @@
-import HtmlTask from '../../../src/tasks/private/html';
+import HtmlTask from '../../../src/tasks/public/html';
 
 describe('Html Task', function() {
   let htmlTask: any;

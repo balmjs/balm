@@ -62,7 +62,6 @@ class Maker {
         }
         break;
       case 'modernizr':
-      case 'html':
         balmTask = customTask.fn;
         break;
       // public

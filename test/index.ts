@@ -58,4 +58,5 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
 
 afterEach(function() {
   balm.config = balmConfigDefaults;
+  balm.reset();
 });

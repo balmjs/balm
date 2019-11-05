@@ -12,17 +12,22 @@ class BaseHooks {
     return BalmJS.config.env;
   }
 
+  // HTML
+  html(input: string, output: string): void {
+    Maker.generate('html', [input, output]);
+  }
+
   // Stylesheets
+  css(input: string, output: string): void {
+    Maker.generate('postcss', [input, output]);
+  }
+
   sass(input: string, output: string, options?: HookOptions): void {
     Maker.generate('sass', [input, output, options]);
   }
 
   less(input: string, output: string, options?: HookOptions): void {
     Maker.generate('less', [input, output, options]);
-  }
-
-  css(input: string, output: string): void {
-    Maker.generate('postcss', [input, output]);
   }
 
   // JavaScript
@@ -63,11 +68,6 @@ class BaseHooks {
 }
 
 class Hooks extends BaseHooks {
-  // HTML
-  html(): void {
-    Maker.generate('html');
-  }
-
   // Stylesheets
   sprite(): void {
     Maker.generate('sprite');
