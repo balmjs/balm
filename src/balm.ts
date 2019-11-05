@@ -45,7 +45,7 @@ class Balm {
     }
   }
 
-  reset() {
+  reset(): void {
     BalmJS.tasks = [];
     BalmJS.recipes = [];
     BalmJS.recipeIndex = 0;
