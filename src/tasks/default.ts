@@ -14,35 +14,42 @@ class DefaultTask extends BalmJS.BalmTask {
   }
 
   get mainTasks(): string[] {
-    let tasks: string[] = [
-      'clean',
-      // Stylesheets
-      'sprite',
-      'style',
-      // Scripts
-      ...(BalmJS.config.scripts.eslint ? ['lint'] : []),
-      'script',
-      'html'
-    ];
+    const preTasks: string[] = BalmJS.config.styles.sprites.length
+      ? ['sprite']
+      : [];
+    let tasks: string[] = [];
 
-    if (BalmJS.config.env.isProd) {
+    if (BalmJS.config.useDefaults) {
       tasks = [
-        ...tasks,
-        'image',
-        'font',
-        'media',
-        'extra',
-        'build', // Measure size
-        ...(BalmJS.config.assets.cache ? ['cache'] : []),
-        ...(BalmJS.config.pwa.enabled ? ['workbox-sw', 'pwa'] : [])
+        'clean',
+        // Stylesheets
+        ...preTasks,
+        'style',
+        // Scripts
+        ...(BalmJS.config.scripts.eslint ? ['lint'] : []),
+        'script',
+        'html'
       ];
+
+      if (BalmJS.config.env.isProd) {
+        tasks = [
+          ...tasks,
+          'image',
+          'font',
+          'media',
+          'extra',
+          'build', // Measure size
+          ...(BalmJS.config.assets.cache ? ['cache'] : []),
+          ...(BalmJS.config.pwa.enabled ? ['workbox-sw', 'pwa'] : [])
+        ];
+      } else {
+        tasks = [...tasks, 'modernizr', 'serve'];
+      }
     } else {
-      tasks = [...tasks, 'modernizr', 'serve'];
+      tasks = preTasks;
     }
 
-    return BalmJS.config.useDefaults
-      ? (BalmJS.toNamespace(tasks) as string[])
-      : [];
+    return BalmJS.toNamespace(tasks) as string[];
   }
 
   get subTasks(): string[] {

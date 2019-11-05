@@ -45,7 +45,6 @@ describe('Default Task', function() {
       describe('defaults', function() {
         const mainTasks = [
           'balm:clean',
-          'balm:sprite',
           'balm:style',
           'balm:script',
           'balm:html',
@@ -96,7 +95,6 @@ describe('Default Task', function() {
       describe('default tasks', function() {
         const mainTasks = [
           'balm:clean',
-          'balm:sprite',
           'balm:style',
           'balm:script',
           'balm:html',

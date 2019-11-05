@@ -69,8 +69,8 @@ class BaseHooks {
 
 class Hooks extends BaseHooks {
   // Stylesheets
-  sprite(sprites: string[]): void {
-    Maker.generate('sprite', [sprites]);
+  sprite(): void {
+    Maker.generate('sprite');
   }
 
   url(input: string | string[], output: string): void {

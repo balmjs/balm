@@ -38,6 +38,7 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   },
   assets: {
     publicUrl: '',
+    root: path.join(balm.config.workspace, 'assets'),
     subDir: '',
     cache: false,
     includes: [],
