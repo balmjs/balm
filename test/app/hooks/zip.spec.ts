@@ -20,7 +20,7 @@ describe('Balm Hooks - zip', function() {
     runTest(
       {
         testCase: `${output}/archive.zip`,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.zip(input, output);
         }
       },

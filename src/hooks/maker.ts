@@ -57,9 +57,8 @@ class Maker {
     switch (customTask.name) {
       // private
       case 'sprite':
-        if (BalmJS.config.styles.sprites.length) {
-          balmTask = gulp.series(BalmJS.toNamespace(customTask.deps));
-        }
+        customTask.recipe(...args);
+        balmTask = gulp.series(BalmJS.toNamespace(customTask.deps));
         break;
       case 'modernizr':
         balmTask = customTask.fn;

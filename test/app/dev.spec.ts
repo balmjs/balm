@@ -23,7 +23,8 @@ describe('App Test in development', function() {
   it('expected output: ".tmp"', function(done) {
     runTest(
       {
-        testCase
+        testCase,
+        testHook: () => {}
       },
       {
         done,

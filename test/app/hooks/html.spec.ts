@@ -20,7 +20,7 @@ describe('Balm Hooks - html', function() {
     runTest(
       {
         testCase: `${output}/index.html`,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.html(input, output);
         }
       },

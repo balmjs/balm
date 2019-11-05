@@ -22,10 +22,7 @@ class SpriteTask extends BalmJS.BalmTask {
     this.defaultInput = BalmJS.config.styles.sprites;
     this.defaultOutput = BalmJS.config.dest.img;
 
-    if (this.defaultInput.length) {
-      this.init();
-      this.collect();
-    }
+    this.recipe(this.defaultInput);
   }
 
   private _getParams(spriteItem: SpriteItem): object {
@@ -101,6 +98,15 @@ class SpriteTask extends BalmJS.BalmTask {
       });
 
       this.tasks.push(spriteTaskName);
+    }
+  }
+
+  recipe(sprites: string[]): void {
+    if (sprites.length) {
+      this.tasks = []; // Reset
+
+      this.init(sprites);
+      this.collect();
     }
   }
 

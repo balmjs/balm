@@ -38,7 +38,6 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   },
   assets: {
     publicUrl: '',
-    root: 'assets',
     subDir: '',
     cache: false,
     includes: [],

@@ -5,6 +5,9 @@ const targetDir = '.output';
 describe('Balm Hooks - stylesheets', function() {
   beforeEach(function() {
     balm.config = {
+      env: {
+        isDev: true
+      },
       useDefaults: false
     };
   });
@@ -13,7 +16,7 @@ describe('Balm Hooks - stylesheets', function() {
     cleanup();
   });
 
-  ['sass', 'less', 'css'].forEach(extname => {
+  ['css', 'sass', 'less'].forEach(extname => {
     const api = extname;
     const input = `src/styles/main.${extname === 'sass' ? 'scss' : extname}`;
     const output = `${targetDir}/${extname}`;
@@ -24,7 +27,7 @@ describe('Balm Hooks - stylesheets', function() {
       runTest(
         {
           testCase: `${output}/main.css`,
-          hook: (mix: any) => {
+          testHook: (mix: any) => {
             mix[api](input, output);
           }
         },
@@ -32,4 +35,26 @@ describe('Balm Hooks - stylesheets', function() {
       );
     });
   });
+
+  // describe('css sprites', function() {
+  //   it('expected output: xxx', function(done) {
+  //     const input = ['icons', 'mdi'];
+  //     const output = [
+  //       '.tmp/img/icons-sprites.png',
+  //       '.tmp/img/mdi-sprites.png',
+  //       'src/styles/sprites/_icons.css',
+  //       'src/styles/sprites/_mdi.css'
+  //     ];
+
+  //     runTest(
+  //       {
+  //         testCase: output,
+  //         testHook: (mix: any) => {
+  //           mix.sprite(input);
+  //         }
+  //       },
+  //       done
+  //     );
+  //   });
+  // });
 });

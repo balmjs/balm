@@ -17,7 +17,7 @@ class DefaultTask extends BalmJS.BalmTask {
     let tasks: string[] = [
       'clean',
       // Stylesheets
-      ...(BalmJS.config.styles.sprites.length ? ['sprite'] : []),
+      'sprite',
       'style',
       // Scripts
       ...(BalmJS.config.scripts.eslint ? ['lint'] : []),

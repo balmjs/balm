@@ -20,7 +20,7 @@ describe('Balm Hooks - files & directories', function() {
     runTest(
       {
         testCase: `${output}/foo.txt`,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.copy(input, output);
         }
       },
@@ -38,7 +38,7 @@ describe('Balm Hooks - files & directories', function() {
     runTest(
       {
         testCase: `${output}/changed.txt`,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.copy(input, output, {
             renameOptions
           });
@@ -55,7 +55,7 @@ describe('Balm Hooks - files & directories', function() {
     runTest(
       {
         testCase: [`${output}/foo.txt`, `${output}/bar.txt`],
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.copy(input, output);
         }
       },
@@ -70,7 +70,7 @@ describe('Balm Hooks - files & directories', function() {
     runTest(
       {
         testCase: `${output}/baz.txt`,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.copy(input, output);
         }
       },
@@ -86,7 +86,7 @@ describe('Balm Hooks - files & directories', function() {
     runTest(
       {
         testCase: `${output}/remove-file.txt`,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.copy(source, output);
           mix.remove(input);
         }
@@ -104,7 +104,7 @@ describe('Balm Hooks - files & directories', function() {
     runTest(
       {
         testCase: [`${output}/a.txt`, `${output}/b.txt`],
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.copy(source, output);
           mix.remove(input);
         }
@@ -122,7 +122,7 @@ describe('Balm Hooks - files & directories', function() {
     runTest(
       {
         testCase: output,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.copy(source, output);
           mix.remove(input);
         }

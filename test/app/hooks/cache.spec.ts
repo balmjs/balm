@@ -20,7 +20,7 @@ describe('Balm Hooks - versioning / cache busting', function() {
     runTest(
       {
         testCase: `${output}/file.769b3767.css`,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.version(input, output);
         }
       },
@@ -35,7 +35,7 @@ describe('Balm Hooks - versioning / cache busting', function() {
     runTest(
       {
         testCase: `${output}/file.2dd0a806.js`,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.version(input, output);
         }
       },

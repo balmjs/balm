@@ -26,7 +26,12 @@ class PublishTask extends BalmJS.BalmTask {
     }
 
     this.src
-      .pipe(BalmJS.plugins.rename(renameOptions))
+      .pipe(
+        $.if(
+          !BalmJS.utils.isArray(this.input),
+          BalmJS.plugins.rename(renameOptions)
+        )
+      )
       .pipe(gulp.dest(this.output)); // Absolute path
   }
 

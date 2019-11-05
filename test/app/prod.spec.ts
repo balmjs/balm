@@ -26,7 +26,7 @@ describe('App Test in production', function() {
   });
 
   it('expected output: "dist"', function(done) {
-    const testCase = [
+    let testCase = [
       'dist/index.html',
       'dist/favicon.ico',
       'dist/rev-manifest.json'
@@ -48,7 +48,7 @@ describe('App Test in production', function() {
     runTest(
       {
         testCase,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           // publish assets
           mix.publish();
           // publish templates
@@ -87,23 +87,13 @@ describe('App Test in production', function() {
       // 'assets/public/e/big_buck_bunny.f13004ee.mp4'
     ];
 
-    runTest(
-      {
-        testCase
-      },
-      done
-    );
+    runTest(testCase, done);
   });
 
   it('publish one template to remote', function(done) {
     const testCase = 'assets/views/home.blade.php';
 
-    runTest(
-      {
-        testCase
-      },
-      done
-    );
+    runTest(testCase, done);
   });
 
   it('publish multiple templates to remote', function(done) {
@@ -112,11 +102,6 @@ describe('App Test in production', function() {
       'assets/views/b/page-b.phtml'
     ];
 
-    runTest(
-      {
-        testCase
-      },
-      done
-    );
+    runTest(testCase, done);
   });
 });

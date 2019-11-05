@@ -19,7 +19,7 @@ describe('Balm Hooks - javascript', function() {
     runTest(
       {
         testCase: `${output}/main.js`,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.js('./src/scripts/index.js', output);
         }
       },
@@ -31,7 +31,7 @@ describe('Balm Hooks - javascript', function() {
     runTest(
       {
         testCase: [`${output}/page-a.js`, `${output}/page-b.js`],
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.js(
             ['./src/scripts/page-a.js', './src/scripts/page-b.js'],
             output
@@ -46,7 +46,7 @@ describe('Balm Hooks - javascript', function() {
     runTest(
       {
         testCase: `${output}/app.js`,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.js(
             {
               app: './src/scripts/index.js'
@@ -63,7 +63,7 @@ describe('Balm Hooks - javascript', function() {
     runTest(
       {
         testCase: false,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.jsmin(['./amd/scripts/*.js'], `${targetDir}/amd/scripts`, {
             terserOptions: {
               mangle: false
@@ -82,7 +82,7 @@ describe('Balm Hooks - javascript', function() {
     runTest(
       {
         testCase: false,
-        hook: (mix: any) => {
+        testHook: (mix: any) => {
           mix.jsmin(['./cmd/scripts/*.js'], `${targetDir}/cmd/scripts`, {
             terserOptions: {
               mangle: false
