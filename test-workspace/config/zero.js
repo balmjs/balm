@@ -6,6 +6,7 @@ const workspace = path.join(projectRoot, 'test-workspace');
 
 balm.config = {
   workspace
+  // useDefaults: false
 };
 
 balm.go(mix => {
@@ -15,33 +16,18 @@ balm.go(mix => {
     console.log('dev');
 
     // mix.serve((watcher, reload) => {
-    // watcher.on('change', file => {
-    // console.log('changed', file);
-    // mix.ftp(file, {
-    //   ftpOptions: {
-    //     host: '',
-    //     username: '',
-    //     password: '',
-    //     remotePath: '/var/www/ftp-test'
-    //   },
-    //   gulpSrcOptions: {
-    //     base: '.'
-    //   }
-    // });
-    // mix.sass(file, '.test/css', {
-    //   gulpSrcOptions: {
-    //     base: 'src/www/sass'
-    //   }
-    // });
-    // let exname = file.split('.')[1];
-    // if (exname === 'css') {
-    //   mix.css(file, '.tmp/css');
-    // }
-    // if (exname === 'js') {
-    //   mix.js(`./${file}`, '.tmp/js');
-    //   reload();
-    // }
-    // });
+    //   watcher.on('change', file => {
+    //     console.log('changed', file);
+
+    //     let extname = file.split('.')[1];
+    //     if (extname === 'css') {
+    //       mix.css(file, '.test/css');
+    //     }
+    //     if (extname === 'js') {
+    //       mix.js(`./${file}`, '.test/js');
+    //       reload();
+    //     }
+    //   });
     // });
   }
 });
