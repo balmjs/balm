@@ -1,7 +1,7 @@
 import { cleanup, runTest } from './test';
 
 describe('App Test in production', function() {
-  beforeEach(function() {
+  before(function() {
     balm.config = {
       env: {
         isProd: true
@@ -14,6 +14,9 @@ describe('App Test in production', function() {
           font: 'd',
           media: 'e'
         }
+      },
+      styles: {
+        sprites: ['icons', 'mdi']
       },
       assets: {
         cache: true
@@ -78,26 +81,11 @@ describe('App Test in production', function() {
     );
   });
 
-  it('publish assets to remote', function(done) {
+  it('publish assets & templates to remote', function(done) {
     const testCase = [
       'assets/public/a/main.41255e24.css',
-      'assets/public/b/main.9af584a0.js'
-      // 'assets/public/c/logo.bae9298c.svg',
-      // 'assets/public/d/roboto-regular.f94d5e51.woff',
-      // 'assets/public/e/big_buck_bunny.f13004ee.mp4'
-    ];
-
-    runTest(testCase, done);
-  });
-
-  it('publish one template to remote', function(done) {
-    const testCase = 'assets/views/home.blade.php';
-
-    runTest(testCase, done);
-  });
-
-  it('publish multiple templates to remote', function(done) {
-    const testCase = [
+      'assets/public/b/main.9af584a0.js',
+      'assets/views/home.blade.php',
       'assets/views/a/page-a.phtml',
       'assets/views/b/page-b.phtml'
     ];

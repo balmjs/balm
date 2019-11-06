@@ -10,6 +10,7 @@ function cleanup() {
   del(`${balm.config.workspace}/.output`);
   del(`${balm.config.workspace}/.tmp`);
   del(`${balm.config.workspace}/dist`);
+  del(`${balm.config.workspace}/assets`);
   del(`${balm.config.workspace}/src/styles/sprites`);
   del(`${balm.config.workspace}/archive.zip`);
   del(`${balm.config.workspace}/new-archive.zip`);
@@ -35,18 +36,23 @@ function shouldNotExist(file: string) {
 }
 
 function assertCase(
-  checkExist: boolean,
-  testCase: string | boolean | string[]
+  testCase: string | boolean | string[],
+  checkExist: string | boolean
 ) {
   if (testCase as boolean) {
-    if (Array.isArray(testCase)) {
-      (testCase as string[]).forEach((file: string) => {
-        checkExist ? shouldExist(file) : shouldNotExist(file);
-      });
+    if (typeof checkExist === 'string') {
+      const contents: string = checkExist;
+      shouldExist(testCase as string, contents);
     } else {
-      checkExist
-        ? shouldExist(testCase as string)
-        : shouldNotExist(testCase as string);
+      if (Array.isArray(testCase)) {
+        (testCase as string[]).forEach((file: string) => {
+          checkExist ? shouldExist(file) : shouldNotExist(file);
+        });
+      } else {
+        checkExist
+          ? shouldExist(testCase as string)
+          : shouldNotExist(testCase as string);
+      }
     }
   }
 }
@@ -59,18 +65,18 @@ function runTest(
         done: Function;
         delay?: number;
       },
-  checkExist: boolean = true
+  checkExist: string | boolean = true
 ) {
   if (typeof testObj === 'object') {
     balm.afterTask = function() {
-      assertCase(checkExist, (testObj as TestObj).testCase);
+      assertCase((testObj as TestObj).testCase, checkExist);
     };
 
     balm.go((testObj as TestObj).testHook || function() {});
 
     gulp.series('default')();
   } else {
-    assertCase(checkExist, testObj);
+    assertCase(testObj, checkExist);
   }
 
   if (typeof timeout === 'object') {

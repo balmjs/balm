@@ -3,4 +3,7 @@ import './stylesheets.spec';
 import './javascript.spec';
 import './files-and-directories.spec';
 import './cache.spec';
+import './pwa.spec';
 import './zip.spec';
+import './others.spec';
+import './ftp.spec';

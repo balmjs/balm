@@ -78,11 +78,11 @@ class Hooks extends BaseHooks {
   }
 
   // PWA
-  generateSW(pwaOptions: object = {}): void {
+  generateSW(pwaOptions: object): void {
     Maker.generate('pwa', ['generateSW', pwaOptions]);
   }
 
-  injectManifest(pwaOptions: object = {}): void {
+  injectManifest(pwaOptions: object): void {
     Maker.generate('pwa', ['injectManifest', pwaOptions]);
   }
 

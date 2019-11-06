@@ -14,6 +14,10 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   },
   paths: {
     target: {
+      css: 'css',
+      js: 'js',
+      img: 'img',
+      font: 'font',
       media: 'media'
     }
   },
