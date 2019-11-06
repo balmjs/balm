@@ -6,10 +6,15 @@ const workspace = path.join(projectRoot, 'test-workspace');
 
 balm.config = {
   workspace
-  // useDefaults: false
+  // useDefaults: false,
+  // styles: {
+  //   sprites: ['icons', 'mdi']
+  // }
 };
 
 balm.go(mix => {
+  // mix.sprite();
+
   if (mix.env.isProd) {
     console.log('prod');
   } else {
