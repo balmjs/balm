@@ -1,10 +1,11 @@
 const BLACKLIST_IN_PROD = ['serve'];
-const BLACKLIST_IN_DEV = [
-  'publish',
-  ...(BalmJS.config.useDefaults ? [] : BLACKLIST_IN_PROD)
-];
 
 function ban(name: string): boolean {
+  const BLACKLIST_IN_DEV = [
+    'publish',
+    ...(BalmJS.config.useDefaults ? BLACKLIST_IN_PROD : [])
+  ];
+
   const banInProd: boolean =
     BalmJS.config.env.isProd && BLACKLIST_IN_PROD.includes(name);
   const banInDev: boolean =
