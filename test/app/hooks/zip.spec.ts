@@ -3,7 +3,7 @@ import { cleanup, runTest } from '../test';
 const targetDir = '.output';
 
 describe('Balm Hooks - zip', function() {
-  beforeEach(function() {
+  before(function() {
     balm.config = {
       useDefaults: false
     };
@@ -19,9 +19,21 @@ describe('Balm Hooks - zip', function() {
 
     runTest(
       {
-        testCase: `${output}/archive.zip`,
+        testCase: `${output}/new-archive.zip`,
         testHook: (mix: any) => {
-          mix.zip(input, output);
+          mix.zip(input, output, 'new-archive.zip');
+        }
+      },
+      done
+    );
+  });
+
+  it('#mix.zip() with default', function(done) {
+    runTest(
+      {
+        testCase: 'archive.zip',
+        testHook: (mix: any) => {
+          mix.zip();
         }
       },
       done

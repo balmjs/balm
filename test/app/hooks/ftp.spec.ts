@@ -3,7 +3,7 @@ import { runTest } from '../test';
 const targetDir = '.output';
 
 describe('Balm Hooks - ftp', function() {
-  beforeEach(function() {
+  before(function() {
     balm.config = {
       useDefaults: false
     };
