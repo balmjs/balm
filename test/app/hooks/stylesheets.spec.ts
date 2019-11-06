@@ -62,39 +62,45 @@ describe('Balm Hooks - css & sprites', function() {
   });
 
   describe('css sprites', function() {
-    // TODO: has bug
-    // describe('has sprites', function() {
-    //   before(function() {
-    //     balm.config = {
-    //       env: {
-    //         isDev: true
-    //       },
-    //       styles: {
-    //         sprites: ['icons', 'mdi']
-    //       },
-    //       useDefaults: false
-    //     };
-    //   });
+    describe('has sprites', function() {
+      before(function() {
+        balm.config = {
+          env: {
+            isDev: true
+          },
+          styles: {
+            sprites: ['icons', 'mdi']
+          },
+          useDefaults: false
+        };
+      });
 
-    //   it('expected output: true', function(done) {
-    //     const output = [
-    //       '.tmp/img/icons-sprites.png',
-    //       '.tmp/img/mdi-sprites.png',
-    //       'src/styles/sprites/_icons.css',
-    //       'src/styles/sprites/_mdi.css'
-    //     ];
+      it('#mix.sprite()', function(done) {
+        runTest(
+          {
+            testCase: false,
+            testHook: (mix: any) => {
+              mix.sprite();
+            }
+          },
+          {
+            done,
+            delay: 4000
+          }
+        );
+      });
 
-    //     runTest(
-    //       {
-    //         testCase: output,
-    //         testHook: (mix: any) => {
-    //           mix.sprite();
-    //         }
-    //       },
-    //       done
-    //     );
-    //   });
-    // });
+      it('expected output: true', function(done) {
+        const testCase = [
+          '.tmp/img/icons-sprites.png',
+          '.tmp/img/mdi-sprites.png',
+          'src/styles/sprites/_icons.css',
+          'src/styles/sprites/_mdi.css'
+        ];
+
+        runTest(testCase, done);
+      });
+    });
 
     describe('no sprites', function() {
       before(function() {
