@@ -94,25 +94,16 @@ class BalmTask {
       );
   }
 
-  init(input?: string | string[], output?: string, options: any = {}): void {
-    let name: string = this.name;
-    switch (name) {
-      case 'copy':
-        name = 'rename';
-        break;
-      case 'jsmin':
-        name = 'terser';
-        break;
-      case 'version':
-        name = 'assets';
-        break;
-      default:
-    }
-    const key = `${name}Options`;
-
+  init(
+    input?: string | string[],
+    output?: string,
+    customOptions?: object,
+    gulpSrcOptions?: object
+  ): void {
     this.input = input || this.defaultInput;
     this.output = output || this.defaultOutput;
-    this.customOptions = options[key] || {};
+    this.customOptions = customOptions || {};
+    this.gulpSrcOptions = gulpSrcOptions || {};
 
     const obj: {
       input: string | string[];
@@ -122,17 +113,13 @@ class BalmTask {
       input: this.input,
       output: this.output
     };
-    if (options[key]) {
+    if (customOptions) {
       obj.customOptions = this.customOptions;
     }
 
     BalmJS.logger.debug(`${this.name} task`, obj, {
       pre: true
     });
-
-    if (options.gulpSrcOptions) {
-      this.gulpSrcOptions = options.gulpSrcOptions;
-    }
   }
 }
 

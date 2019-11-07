@@ -1,5 +1,3 @@
-import { HookOptions } from '../../config/types';
-
 class SassTask extends BalmJS.BalmStyleTask {
   constructor() {
     super('sass');
@@ -19,10 +17,11 @@ class SassTask extends BalmJS.BalmStyleTask {
   recipe(
     input?: string | string[],
     output?: string,
-    options: HookOptions = {}
+    sassOptions?: object,
+    gulpSrcOptions?: object
   ): any {
     return (): any => {
-      this.init(input, output, options);
+      this.init(input, output, sassOptions, gulpSrcOptions);
 
       return this.handleStyle(this.name, this.output, this.options);
     };

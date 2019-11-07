@@ -29,13 +29,6 @@ interface ProxyConfig {
   options: object;
 }
 
-// Publish
-interface TemplateOption {
-  input: string;
-  output: string;
-  options: object;
-}
-
 // Hook
 interface RenameOptions {
   dirname?: string;
@@ -45,14 +38,11 @@ interface RenameOptions {
   extname?: string;
 }
 
-interface HookOptions {
-  sassOptions?: object;
-  lessOptions?: object;
-  terserOptions?: object;
-  renameOptions?: string | Function | RenameOptions;
-  assetsOptions?: object;
-  ftpOptions?: object;
-  gulpSrcOptions?: object;
+// Publish
+interface TemplateOption {
+  input: string;
+  output: string;
+  renameOptions: string | Function | RenameOptions;
 }
 
 export {
@@ -61,7 +51,6 @@ export {
   BalmVendor,
   BalmDefaultLoaders,
   ProxyConfig,
-  TemplateOption,
   RenameOptions,
-  HookOptions
+  TemplateOption
 };

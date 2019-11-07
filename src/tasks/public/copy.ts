@@ -1,4 +1,4 @@
-import { HookOptions } from '../../config/types';
+import { RenameOptions } from '../../config/types';
 
 class CopyTask extends BalmJS.BalmTask {
   constructor() {
@@ -8,10 +8,11 @@ class CopyTask extends BalmJS.BalmTask {
   recipe(
     input: string | string[],
     output: string,
-    options: HookOptions = {}
+    renameOptions?: string | Function | RenameOptions,
+    gulpSrcOptions?: object
   ): any {
     return (): any => {
-      this.init(input, output, options);
+      this.init(input, output, renameOptions, gulpSrcOptions);
 
       return this.src
         .pipe(BalmJS.plugins.rename(this.customOptions))

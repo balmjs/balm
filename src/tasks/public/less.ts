@@ -1,5 +1,3 @@
-import { HookOptions } from '../../config/types';
-
 class LessTask extends BalmJS.BalmStyleTask {
   constructor() {
     super('less');
@@ -21,10 +19,11 @@ class LessTask extends BalmJS.BalmStyleTask {
   recipe(
     input?: string | string[],
     output?: string,
-    options: HookOptions = {}
+    lessOptions?: object,
+    gulpSrcOptions?: object
   ): any {
     return (): any => {
-      this.init(input, output, options);
+      this.init(input, output, lessOptions, gulpSrcOptions);
 
       return this.handleStyle(this.name, this.output, this.options);
     };

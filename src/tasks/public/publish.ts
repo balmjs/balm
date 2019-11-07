@@ -1,4 +1,4 @@
-import { TemplateOption, RenameOptions } from '../../config/types';
+import { RenameOptions, TemplateOption } from '../../config/types';
 
 class PublishTask extends BalmJS.BalmTask {
   constructor() {
@@ -44,7 +44,11 @@ class PublishTask extends BalmJS.BalmTask {
       if (BalmJS.config.env.isProd) {
         if (BalmJS.utils.isArray(input)) {
           (input as TemplateOption[]).forEach((template: TemplateOption) => {
-            this._release(template.input, template.output, template.options);
+            this._release(
+              template.input,
+              template.output,
+              template.renameOptions
+            );
           });
         } else {
           this._release(input as string, output, renameOptions);

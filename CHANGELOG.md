@@ -83,32 +83,29 @@ balm.go(mix => {
 - `mix.env`
 - `mix.html(input, output)`
 - `mix.css(input, output)`
-- `mix.sass(input, output, options)`
-- `mix.less(input, output, options)`
-- `mix.js(input, output, webpackOptions)`
-- `mix.jsmin(input, output, options)`
-- `mix.copy(input, output, options)`
+- `mix.sass(input, output, sassOptions?, gulpSrcOptions?)`
+- `mix.less(input, lessOptions?, gulpSrcOptions?)`
+- `mix.js(input, output, webpackOptions?)`
+- `mix.jsmin(input, output, terserOptions?, renameOptions?)`
+- `mix.copy(input, output, renameOptions?, gulpSrcOptions?)`
 - `mix.remove(paths)`
-- `mix.version(input, output, options)`
+- `mix.version(input, output, assetsOptions?)`
 - `mix.serve(handler)`
 - `mix.sprite()`
 - `mix.url(input, output)`
 - `mix.generateSW(pwaOptions)`
 - `mix.injectManifest(pwaOptions)`
-- `mix.zip(input, output, filename)`
-- `mix.ftp(localFiles, options)`
-- `mix.publish(input, output, renameOptions)`
+- `mix.zip(input?, output?, filename?)`
+- `mix.ftp(localFiles, ftpOptions?, gulpSrcOptions?)`
+- `mix.publish(input, output, renameOptions?)`
 - `mix.modernizr()`
 
 ```ts
-// For param `options`
-interface HookOptions {
-  sassOptions?: object; // sass
-  lessOptions?: object; // less
-  terserOptions?: object; // jsmin
-  renameOptions?: string | Function | RenameOptions; // jsmin|copy
-  assetsOptions?: object; // version
-  ftpOptions?: object; // ftp
-  gulpSrcOptions?: object; // all
+interface RenameOptions {
+  dirname?: string;
+  prefix?: string;
+  basename?: string;
+  suffix?: string;
+  extname?: string;
 }
 ```

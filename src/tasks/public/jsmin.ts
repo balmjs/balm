@@ -1,4 +1,4 @@
-import { RenameOptions, HookOptions } from '../../config/types';
+import { RenameOptions } from '../../config/types';
 
 class JsminTask extends BalmJS.BalmTask {
   constructor() {
@@ -12,15 +12,11 @@ class JsminTask extends BalmJS.BalmTask {
   recipe(
     input: string | string[],
     output: string,
-    options: HookOptions = {}
+    terserOptions?: object,
+    renameOptions: string | Function | RenameOptions = { suffix: '.min' }
   ): any {
     return (): any => {
-      this.init(input, output, options);
-
-      const renameOptions:
-        | string
-        | Function
-        | RenameOptions = options.renameOptions || { suffix: '.min' };
+      this.init(input, output, terserOptions);
 
       return this.src
         .pipe(BalmJS.plugins.jsmin(this.options))

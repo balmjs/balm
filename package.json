@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "2.0.0-rc",
+  "version": "2.0.0-rc.2",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -33,10 +33,10 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
-    "@babel/core": "^7.7.0",
+    "@babel/core": "^7.7.2",
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.7.1",
-    "@babel/runtime": "^7.7.1",
+    "@babel/runtime": "^7.7.2",
     "ansi-colors": "^4.1.1",
     "async": "^3.1.0",
     "autoprefixer": "^9.7.1",
@@ -95,7 +95,7 @@
     "@babel/cli": "^7.7.0",
     "@babel/plugin-proposal-class-properties": "^7.7.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
-    "@babel/preset-typescript": "^7.7.0",
+    "@babel/preset-typescript": "^7.7.2",
     "@babel/register": "^7.7.0",
     "@types/chai": "^4.2.4",
     "@types/mocha": "^5.2.7",

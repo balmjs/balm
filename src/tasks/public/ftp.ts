@@ -1,5 +1,3 @@
-import { HookOptions } from '../../config/types';
-
 class FtpTask extends BalmJS.BalmTask {
   constructor() {
     super('ftp');
@@ -9,18 +7,24 @@ class FtpTask extends BalmJS.BalmTask {
     return Object.assign({}, BalmJS.config.ftp.options, this.customOptions);
   }
 
-  recipe(localFiles?: string | string[], options: HookOptions = {}): any {
+  recipe(
+    localFiles?: string | string[],
+    ftpOptions?: object,
+    gulpSrcOptions?: object
+  ): any {
     return (): any => {
       const taskName = `${this.name} task`;
-      this.init(localFiles || BalmJS.watchFtpFile, null, options);
+
+      this.init(
+        localFiles || BalmJS.watchFtpFile,
+        null,
+        ftpOptions,
+        gulpSrcOptions || {
+          base: '.'
+        }
+      );
 
       if (this.input) {
-        if (!options.gulpSrcOptions) {
-          this.gulpSrcOptions = {
-            base: '.'
-          };
-        }
-
         let stream: any = this.src;
 
         try {

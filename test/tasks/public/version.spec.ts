@@ -35,21 +35,19 @@ describe('Version Task', function() {
         dontRenameFile: ['.html', '.php'],
         dontUpdateReference: ['.html', '.php']
       };
-      const customOptions = {
+      const assetsOptions = {
         fileNameManifest: 'new-manifest.json'
       };
 
       it(
         `expected output: "${JSON.stringify(
-          Object.assign(defaultOptions, customOptions)
+          Object.assign(defaultOptions, assetsOptions)
         )}"`,
         asyncCase(function() {
-          versionTask.recipe(defaultInput, defaultOutput, {
-            assetsOptions: customOptions
-          })();
+          versionTask.recipe(defaultInput, defaultOutput, assetsOptions)();
 
           expect(JSON.stringify(versionTask.options)).to.equal(
-            JSON.stringify(Object.assign(defaultOptions, customOptions))
+            JSON.stringify(Object.assign(defaultOptions, assetsOptions))
           );
         })
       );

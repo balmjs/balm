@@ -2,9 +2,8 @@ import Maker from './maker';
 import {
   BalmEnv,
   ObjectEntry,
-  TemplateOption,
   RenameOptions,
-  HookOptions
+  TemplateOption
 } from '../config/types';
 
 class BaseHooks {
@@ -22,12 +21,22 @@ class BaseHooks {
     Maker.generate('postcss', [input, output]);
   }
 
-  sass(input: string, output: string, options?: HookOptions): void {
-    Maker.generate('sass', [input, output, options]);
+  sass(
+    input: string,
+    output: string,
+    sassOptions?: object,
+    gulpSrcOptions?: object
+  ): void {
+    Maker.generate('sass', [input, output, sassOptions, gulpSrcOptions]);
   }
 
-  less(input: string, output: string, options?: HookOptions): void {
-    Maker.generate('less', [input, output, options]);
+  less(
+    input: string,
+    output: string,
+    lessOptions?: object,
+    gulpSrcOptions?: object
+  ): void {
+    Maker.generate('less', [input, output, lessOptions, gulpSrcOptions]);
   }
 
   // JavaScript
@@ -39,13 +48,23 @@ class BaseHooks {
     Maker.generate('script', [input, output, webpackOptions]);
   }
 
-  jsmin(input: string | string[], output: string, options?: HookOptions): void {
-    Maker.generate('jsmin', [input, output, options]);
+  jsmin(
+    input: string | string[],
+    output: string,
+    terserOptions?: object,
+    renameOptions?: string | Function | RenameOptions
+  ): void {
+    Maker.generate('jsmin', [input, output, terserOptions, renameOptions]);
   }
 
   // Files & Directories
-  copy(input: string | string[], output: string, options?: HookOptions): void {
-    Maker.generate('copy', [input, output, options]);
+  copy(
+    input: string | string[],
+    output: string,
+    renameOptions?: string | Function | RenameOptions,
+    gulpSrcOptions?: object
+  ): void {
+    Maker.generate('copy', [input, output, renameOptions, gulpSrcOptions]);
   }
 
   remove(paths: string | string[]): void {
@@ -56,9 +75,9 @@ class BaseHooks {
   version(
     input: string | string[],
     output: string,
-    options?: HookOptions
+    assetsOptions?: object
   ): void {
-    Maker.generate('version', [input, output, options]);
+    Maker.generate('version', [input, output, assetsOptions]);
   }
 
   // Server
@@ -95,8 +114,8 @@ class Hooks extends BaseHooks {
     Maker.generate('zip', [input, output, filename]);
   }
 
-  ftp(localFiles: string, options?: HookOptions): void {
-    Maker.generate('ftp', [localFiles, options]);
+  ftp(localFiles: string, ftpOptions?: object, gulpSrcOptions?: object): void {
+    Maker.generate('ftp', [localFiles, ftpOptions, gulpSrcOptions]);
   }
 
   publish(

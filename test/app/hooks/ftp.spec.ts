@@ -14,17 +14,18 @@ describe('Balm Hooks - ftp', function() {
       {
         testCase: false,
         testHook: (mix: any) => {
-          mix.ftp('ftp/**/*', {
-            ftpOptions: {
+          mix.ftp(
+            'ftp/**/*',
+            {
               host: '',
               username: '',
               password: '',
               remotePath: '/var/www/balm-ftp-test'
             },
-            gulpSrcOptions: {
+            {
               base: ''
             }
-          });
+          );
         }
       },
       done

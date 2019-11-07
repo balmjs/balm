@@ -59,19 +59,24 @@ describe('Balm Hooks - javascript', function() {
     );
   });
 
+  const terserOptions = {
+    mangle: false
+  };
+  const renameOptions = {
+    suffix: ''
+  };
+
   it('minify amd scripts', function(done) {
     runTest(
       {
         testCase: false,
         testHook: (mix: any) => {
-          mix.jsmin(['./amd/scripts/*.js'], `${targetDir}/amd/scripts`, {
-            terserOptions: {
-              mangle: false
-            },
-            renameOptions: {
-              suffix: ''
-            }
-          });
+          mix.jsmin(
+            ['./amd/scripts/*.js'],
+            `${targetDir}/amd/scripts`,
+            terserOptions,
+            renameOptions
+          );
         }
       },
       done
@@ -83,14 +88,12 @@ describe('Balm Hooks - javascript', function() {
       {
         testCase: false,
         testHook: (mix: any) => {
-          mix.jsmin(['./cmd/scripts/*.js'], `${targetDir}/cmd/scripts`, {
-            terserOptions: {
-              mangle: false
-            },
-            renameOptions: {
-              suffix: ''
-            }
-          });
+          mix.jsmin(
+            ['./cmd/scripts/*.js'],
+            `${targetDir}/cmd/scripts`,
+            terserOptions,
+            renameOptions
+          );
         }
       },
       done

@@ -39,9 +39,7 @@ describe('Balm Hooks - files & directories', function() {
       {
         testCase: `${output}/changed.txt`,
         testHook: (mix: any) => {
-          mix.copy(input, output, {
-            renameOptions
-          });
+          mix.copy(input, output, renameOptions);
         }
       },
       done
