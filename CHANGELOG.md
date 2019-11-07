@@ -81,16 +81,16 @@ balm.go(mix => {
 ```
 
 - `mix.env`
+- `mix.html(input, output)`
+- `mix.css(input, output)`
 - `mix.sass(input, output, options)`
 - `mix.less(input, output, options)`
-- `mix.css(input, output)`
 - `mix.js(input, output, webpackOptions)`
 - `mix.jsmin(input, output, options)`
 - `mix.copy(input, output, options)`
 - `mix.remove(paths)`
 - `mix.version(input, output, options)`
 - `mix.serve(handler)`
-- `mix.html()`
 - `mix.sprite()`
 - `mix.url(input, output)`
 - `mix.generateSW(pwaOptions)`
