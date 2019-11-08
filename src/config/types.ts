@@ -38,6 +38,15 @@ interface RenameOptions {
   extname?: string;
 }
 
+interface HookOptions {
+  src?: object;
+  sass?: object;
+  less?: object;
+  terser?: object;
+  rename?: string | Function | RenameOptions;
+  ftp?: object;
+}
+
 // Publish
 interface TemplateOption {
   input: string;
@@ -52,5 +61,6 @@ export {
   BalmDefaultLoaders,
   ProxyConfig,
   RenameOptions,
+  HookOptions,
   TemplateOption
 };

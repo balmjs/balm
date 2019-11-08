@@ -3,6 +3,7 @@ import {
   BalmEnv,
   ObjectEntry,
   RenameOptions,
+  HookOptions,
   TemplateOption
 } from '../config/types';
 
@@ -21,22 +22,12 @@ class BaseHooks {
     Maker.generate('postcss', [input, output]);
   }
 
-  sass(
-    input: string,
-    output: string,
-    sassOptions?: object,
-    gulpSrcOptions?: object
-  ): void {
-    Maker.generate('sass', [input, output, sassOptions, gulpSrcOptions]);
+  sass(input: string, output: string, options?: HookOptions): void {
+    Maker.generate('sass', [input, output, options]);
   }
 
-  less(
-    input: string,
-    output: string,
-    lessOptions?: object,
-    gulpSrcOptions?: object
-  ): void {
-    Maker.generate('less', [input, output, lessOptions, gulpSrcOptions]);
+  less(input: string, output: string, options?: HookOptions): void {
+    Maker.generate('less', [input, output, options]);
   }
 
   // JavaScript
@@ -48,30 +39,13 @@ class BaseHooks {
     Maker.generate('script', [input, output, webpackOptions]);
   }
 
-  jsmin(
-    input: string | string[],
-    output: string,
-    terserOptions?: object,
-    gulpSrcOptions?: object,
-    renameOptions?: string | Function | RenameOptions
-  ): void {
-    Maker.generate('jsmin', [
-      input,
-      output,
-      terserOptions,
-      gulpSrcOptions,
-      renameOptions
-    ]);
+  jsmin(input: string | string[], output: string, options?: HookOptions): void {
+    Maker.generate('jsmin', [input, output, options]);
   }
 
   // Files & Directories
-  copy(
-    input: string | string[],
-    output: string,
-    renameOptions?: string | Function | RenameOptions,
-    gulpSrcOptions?: object
-  ): void {
-    Maker.generate('copy', [input, output, renameOptions, gulpSrcOptions]);
+  copy(input: string | string[], output: string, options?: HookOptions): void {
+    Maker.generate('copy', [input, output, options]);
   }
 
   remove(paths: string | string[]): void {
@@ -121,8 +95,8 @@ class Hooks extends BaseHooks {
     Maker.generate('zip', [input, output, filename]);
   }
 
-  ftp(localFiles: string, ftpOptions?: object, gulpSrcOptions?: object): void {
-    Maker.generate('ftp', [localFiles, ftpOptions, gulpSrcOptions]);
+  ftp(localFiles: string, options?: HookOptions): void {
+    Maker.generate('ftp', [localFiles, options]);
   }
 
   publish(

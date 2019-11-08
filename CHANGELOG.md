@@ -83,11 +83,11 @@ balm.go(mix => {
 - `mix.env`
 - `mix.html(input, output)`
 - `mix.css(input, output)`
-- `mix.sass(input, output, sassOptions?, gulpSrcOptions?)`
-- `mix.less(input, lessOptions?, gulpSrcOptions?)`
+- `mix.sass(input, output, options?)`
+- `mix.less(input, output, options?)`
 - `mix.js(input, output, webpackOptions?)`
-- `mix.jsmin(input, output, terserOptions?, gulpSrcOptions?, renameOptions?)`
-- `mix.copy(input, output, renameOptions?, gulpSrcOptions?)`
+- `mix.jsmin(input, output, options?)`
+- `mix.copy(input, output, options?)`
 - `mix.remove(paths)`
 - `mix.version(input, output, assetsOptions?)`
 - `mix.serve(handler)`
@@ -96,7 +96,7 @@ balm.go(mix => {
 - `mix.generateSW(pwaOptions)`
 - `mix.injectManifest(pwaOptions)`
 - `mix.zip(input?, output?, filename?)`
-- `mix.ftp(localFiles, ftpOptions?, gulpSrcOptions?)`
+- `mix.ftp(localFiles, options?)`
 - `mix.publish(input, output, renameOptions?)`
 - `mix.modernizr()`
 
@@ -107,5 +107,14 @@ interface RenameOptions {
   basename?: string;
   suffix?: string;
   extname?: string;
+}
+
+interface HookOptions {
+  src?: object;
+  sass?: object;
+  less?: object;
+  terser?: object;
+  rename?: string | Function | RenameOptions;
+  ftp?: object;
 }
 ```
