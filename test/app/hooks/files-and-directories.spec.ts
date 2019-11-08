@@ -31,7 +31,7 @@ describe('Balm Hooks - files & directories', function() {
   it('copies and renames a file to a new location', function(done) {
     const input = 'src/copy/foo/foo.txt';
     const output = `${targetDir}/copy-dest`;
-    const renameOptions = {
+    const rename = {
       basename: 'changed'
     };
 
@@ -39,7 +39,9 @@ describe('Balm Hooks - files & directories', function() {
       {
         testCase: `${output}/changed.txt`,
         testHook: (mix: any) => {
-          mix.copy(input, output, renameOptions);
+          mix.copy(input, output, {
+            rename
+          });
         }
       },
       done

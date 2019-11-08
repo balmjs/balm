@@ -36,26 +36,29 @@ describe('Ftp Task', function() {
 
     describe('options', function() {
       const defaultOptions = {};
-      const ftpOptions = {
+      const ftp = {
         username: 'hello',
         password: 'BalmJS'
       };
-      const gulpSrcOptions = {
+      const src = {
         base: '/var/www'
       };
 
       it(
         `expected output: "${JSON.stringify(
-          Object.assign(defaultOptions, ftpOptions)
+          Object.assign(defaultOptions, ftp)
         )}"`,
         asyncCase(function() {
-          ftpTask.recipe(defaultInput, ftpOptions, gulpSrcOptions)();
+          ftpTask.recipe(defaultInput, {
+            src,
+            ftp
+          })();
 
           expect(JSON.stringify(ftpTask.options)).to.equal(
-            JSON.stringify(Object.assign(defaultOptions, ftpOptions))
+            JSON.stringify(Object.assign(defaultOptions, ftp))
           );
           expect(JSON.stringify(ftpTask.gulpSrcOptions)).to.equal(
-            JSON.stringify(gulpSrcOptions)
+            JSON.stringify(src)
           );
         })
       );

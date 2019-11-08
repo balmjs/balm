@@ -59,10 +59,10 @@ describe('Balm Hooks - javascript', function() {
     );
   });
 
-  const terserOptions = {
+  const terser = {
     mangle: false
   };
-  const renameOptions = {
+  const rename = {
     suffix: ''
   };
 
@@ -71,12 +71,10 @@ describe('Balm Hooks - javascript', function() {
       {
         testCase: false,
         testHook: (mix: any) => {
-          mix.jsmin(
-            ['./amd/scripts/*.js'],
-            `${targetDir}/amd/scripts`,
-            terserOptions,
-            renameOptions
-          );
+          mix.jsmin(['./amd/scripts/*.js'], `${targetDir}/amd/scripts`, {
+            terser,
+            rename
+          });
         }
       },
       done
@@ -88,12 +86,10 @@ describe('Balm Hooks - javascript', function() {
       {
         testCase: false,
         testHook: (mix: any) => {
-          mix.jsmin(
-            ['./cmd/scripts/*.js'],
-            `${targetDir}/cmd/scripts`,
-            terserOptions,
-            renameOptions
-          );
+          mix.jsmin(['./cmd/scripts/*.js'], `${targetDir}/cmd/scripts`, {
+            terser,
+            rename
+          });
         }
       },
       done

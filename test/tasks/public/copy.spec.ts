@@ -32,7 +32,7 @@ describe('Copy Task', function() {
     });
 
     describe('options', function() {
-      const renameOptions = {
+      const rename = {
         dirname: 'a',
         prefix: 'b',
         basename: 'c',
@@ -41,12 +41,14 @@ describe('Copy Task', function() {
       };
 
       it(
-        `expected output: "${JSON.stringify(renameOptions)}"`,
+        `expected output: "${JSON.stringify(rename)}"`,
         asyncCase(function() {
-          copyTask.recipe(defaultInput, defaultOutput, renameOptions)();
+          copyTask.recipe(defaultInput, defaultOutput, {
+            rename
+          })();
 
           expect(JSON.stringify(copyTask.customOptions)).to.equal(
-            JSON.stringify(renameOptions)
+            JSON.stringify(rename)
           );
         })
       );

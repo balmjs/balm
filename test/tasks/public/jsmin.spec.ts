@@ -36,7 +36,7 @@ describe('Jsmin Task', function() {
         mangle: { safari10: true },
         output: { ecma: 5, comments: false, ascii_only: true }
       };
-      const terserOptions = {
+      const terser = {
         compress: {
           drop_console: false
         }
@@ -44,13 +44,15 @@ describe('Jsmin Task', function() {
 
       it(
         `expected output: "${JSON.stringify(
-          Object.assign(defaultOptions, terserOptions)
+          Object.assign(defaultOptions, terser)
         )}"`,
         asyncCase(function() {
-          jsminTask.recipe(defaultInput, defaultOutput, terserOptions)();
+          jsminTask.recipe(defaultInput, defaultOutput, {
+            terser
+          })();
 
           expect(JSON.stringify(jsminTask.options)).to.equal(
-            JSON.stringify(Object.assign(defaultOptions, terserOptions))
+            JSON.stringify(Object.assign(defaultOptions, terser))
           );
         })
       );

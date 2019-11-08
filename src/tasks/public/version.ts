@@ -15,7 +15,9 @@ class VersionTask extends BalmJS.BalmTask {
     assetsOptions?: object
   ): any {
     return (): any => {
-      this.init(input, output, assetsOptions);
+      this.init(input, output, {
+        version: assetsOptions
+      });
 
       return this.src
         .pipe($.revAll.revision(this.options))

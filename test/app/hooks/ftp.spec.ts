@@ -10,22 +10,24 @@ describe('Balm Hooks - ftp', function() {
   });
 
   it('#mix.ftp()', function(done) {
+    const src = {
+      base: ''
+    };
+    const ftp = {
+      host: '',
+      username: '',
+      password: '',
+      remotePath: '/var/www/balm-ftp-test'
+    };
+
     runTest(
       {
         testCase: false,
         testHook: (mix: any) => {
-          mix.ftp(
-            'ftp/**/*',
-            {
-              host: '',
-              username: '',
-              password: '',
-              remotePath: '/var/www/balm-ftp-test'
-            },
-            {
-              base: ''
-            }
-          );
+          mix.ftp('ftp/**/*', {
+            src,
+            ftp
+          });
         }
       },
       done
