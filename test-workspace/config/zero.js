@@ -5,11 +5,14 @@ const projectRoot = path.resolve(__dirname, '..', '..');
 const workspace = path.join(projectRoot, 'test-workspace');
 
 balm.config = {
-  workspace
+  workspace,
   // useDefaults: false,
   // styles: {
   //   sprites: ['icons', 'mdi']
   // }
+  assets: {
+    cache: true
+  }
 };
 
 balm.go(mix => {
