@@ -19,7 +19,9 @@ describe('Balm Hooks - versioning / cache busting', function() {
 
     runTest(
       {
-        testCase: `${output}/file.769b3767.css`,
+        testCase: isWindows
+          ? `${output}/file.478778eb.css`
+          : `${output}/file.769b3767.css`,
         testHook: (mix: any) => {
           mix.version(input, output);
         }
@@ -34,7 +36,9 @@ describe('Balm Hooks - versioning / cache busting', function() {
 
     runTest(
       {
-        testCase: `${output}/file.2dd0a806.js`,
+        testCase: isWindows
+          ? `${output}/file.f4e86c1c.js`
+          : `${output}/file.2dd0a806.js`,
         testHook: (mix: any) => {
           mix.version(input, output);
         }

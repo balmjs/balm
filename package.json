@@ -28,7 +28,7 @@
   "scripts": {
     "prepublishOnly": "gulp prepublish",
     "lint": "eslint --fix src --ext .ts",
-    "build": "rm -rf lib && tsc",
+    "build": "rimraf lib && tsc",
     "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json TS_NODE_FILES=true nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
