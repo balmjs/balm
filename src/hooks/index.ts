@@ -52,9 +52,16 @@ class BaseHooks {
     input: string | string[],
     output: string,
     terserOptions?: object,
+    gulpSrcOptions?: object,
     renameOptions?: string | Function | RenameOptions
   ): void {
-    Maker.generate('jsmin', [input, output, terserOptions, renameOptions]);
+    Maker.generate('jsmin', [
+      input,
+      output,
+      terserOptions,
+      gulpSrcOptions,
+      renameOptions
+    ]);
   }
 
   // Files & Directories

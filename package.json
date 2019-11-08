@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "2.0.0-rc.2",
+  "version": "2.0.0-rc.3",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -78,7 +78,7 @@
     "postcss-preset-env": "^6.7.0",
     "postcss-safe-parser": "^4.0.1",
     "require-dir": "^1.2.0",
-    "ssh2": "^0.8.5",
+    "ssh2": "^0.8.6",
     "style-loader": "^1.0.0",
     "terser": "^4.3.9",
     "terser-webpack-plugin": "^2.2.1",

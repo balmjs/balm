@@ -86,7 +86,7 @@ balm.go(mix => {
 - `mix.sass(input, output, sassOptions?, gulpSrcOptions?)`
 - `mix.less(input, lessOptions?, gulpSrcOptions?)`
 - `mix.js(input, output, webpackOptions?)`
-- `mix.jsmin(input, output, terserOptions?, renameOptions?)`
+- `mix.jsmin(input, output, terserOptions?, gulpSrcOptions?, renameOptions?)`
 - `mix.copy(input, output, renameOptions?, gulpSrcOptions?)`
 - `mix.remove(paths)`
 - `mix.version(input, output, assetsOptions?)`

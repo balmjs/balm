@@ -13,10 +13,11 @@ class JsminTask extends BalmJS.BalmTask {
     input: string | string[],
     output: string,
     terserOptions?: object,
+    gulpSrcOptions?: object,
     renameOptions: string | Function | RenameOptions = { suffix: '.min' }
   ): any {
     return (): any => {
-      this.init(input, output, terserOptions);
+      this.init(input, output, terserOptions, gulpSrcOptions);
 
       return this.src
         .pipe(BalmJS.plugins.jsmin(this.options))

@@ -9,7 +9,7 @@ balm.config = {
   // useDefaults: false,
   // styles: {
   //   sprites: ['icons', 'mdi']
-  // }
+  // },
   assets: {
     cache: true
   }
