@@ -90,7 +90,7 @@ balm.go(mix => {
 - `mix.copy(input, output, options?)`
 - `mix.remove(paths)`
 - `mix.version(input, output, assetsOptions?)`
-- `mix.serve(handler)`
+- `mix.serve((watcher, reload) => {})`
 - `mix.sprite()`
 - `mix.url(input, output)`
 - `mix.generateSW(pwaOptions)`
