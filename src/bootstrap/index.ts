@@ -46,9 +46,8 @@ function _ready(config: any): any {
 }
 
 function _resetConfig(): any {
-  if (BalmJS.config.inFrontend) {
-    BalmJS.config.roots.tmp = '.tmp';
-  }
+  BalmJS.config.roots.target = 'dist';
+  BalmJS.config.roots.tmp = '.tmp';
 
   return BalmJS.config;
 }
@@ -69,6 +68,9 @@ function setConfig(customConfig: any): any {
 
   // 3. For the dynamic project
   if (!config.inFrontend) {
+    if (BalmJS.config.roots.target === 'dist') {
+      BalmJS.config.roots.target = BalmJS.config.assets.mainDir; // NOTE: `BalmJS.config.roots.target = 'public'` for back-end project
+    }
     config.roots.tmp = config.roots.target;
   }
 
