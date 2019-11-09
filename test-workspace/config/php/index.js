@@ -1,19 +1,22 @@
+const path = require('path');
 const balm = require('../balm');
-let balmConfig = require('../balmrc');
+const balmrc = require('../balmrc');
 
-balmConfig = Object.assign(balmConfig, {
-  static: false, // for PHP framework
+console.info('balm@php');
+
+const balmConfig = Object.assign(balmrc, {
+  inFrontend: false, // for PHP framework
   server: {
-    open: false,
-    proxy: 'your.project.local'
+    proxy: 'balmjs.local',
+    watchFiles: ['php/resources/views/**/*.php']
   },
   roots: {
-    source: 'php/resources'
+    source: 'php/resources',
+    target: 'php/public'
   },
   paths: {
     source: {
       base: 'assets',
-      html: 'views',
       css: 'assets/sass',
       js: 'assets/js',
       img: 'assets/images',
@@ -22,7 +25,7 @@ balmConfig = Object.assign(balmConfig, {
     }
   },
   styles: {
-    ext: 'scss'
+    extname: 'scss'
   },
   scripts: {
     entry: {
@@ -31,26 +34,13 @@ balmConfig = Object.assign(balmConfig, {
   },
   assets: {
     publicUrl: '/',
-    root: '/Users/yiban/www/elf-mouse/balm/test-workspace',
+    root: path.resolve(__dirname, '..', '..', 'php'),
     mainDir: 'public',
-    subDir: 'mobile'
-  },
-  cache: true,
-  ftp: {
-    options: {
-      host: '',
-      username: '',
-      password: '',
-      remotePath: '/web/balm-ftp-test',
-      logging: true
-    },
-    watchFiles: ['./resources/**/*']
-  },
-  useDefault: false
+    subDir: 'web',
+    cache: true
+  }
 });
 
 balm.config = balmConfig;
 
-balm.go(mix => {
-  mix.ftp('./php/resources/assets/**/*');
-});
+balm.go();

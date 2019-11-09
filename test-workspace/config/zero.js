@@ -1,8 +1,10 @@
-import balm from './balm';
 import path from 'path';
+import balm from './balm';
 
 const projectRoot = path.resolve(__dirname, '..', '..');
 const workspace = path.join(projectRoot, 'test-workspace');
+
+console.info('balm@zero');
 
 balm.config = {
   workspace,

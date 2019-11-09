@@ -19,11 +19,17 @@ class ServerTask extends BalmJS.BalmTask {
 
     watch(
       [
-        `${BalmJS.config.src.base}/*.php`,
         `${BalmJS.config.src.img}/**/*`,
-        `${BalmJS.config.dest.font}/**/*`
+        `${BalmJS.config.dest.font}/**/*`,
+        ...BalmJS.config.server.watchFiles
       ],
       watchOptions
+    ).on('change', server.reload);
+
+    watch(
+      `${BalmJS.config.src.base}/*.html`,
+      watchOptions,
+      parallel(BalmJS.toNamespace('html'))
     ).on('change', server.reload);
 
     watch(
@@ -39,12 +45,6 @@ class ServerTask extends BalmJS.BalmTask {
         series(BalmJS.toNamespace('script'), reload)
       );
     }
-
-    watch(
-      `${BalmJS.config.src.base}/*.html`,
-      watchOptions,
-      parallel(BalmJS.toNamespace('html'))
-    ).on('change', server.reload);
 
     watch(
       `${BalmJS.config.src.base}/modernizr.json`,

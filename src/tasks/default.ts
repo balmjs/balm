@@ -22,15 +22,15 @@ class DefaultTask extends BalmJS.BalmTask {
       // Scripts
       ...(BalmJS.config.scripts.eslint ? ['lint'] : []),
       'script',
-      'html'
+      'html',
+      ...(BalmJS.config.env.isProd || !BalmJS.config.inFrontend
+        ? ['image', 'font', 'media']
+        : [])
     ];
 
     if (BalmJS.config.env.isProd) {
       tasks = [
         ...tasks,
-        'image',
-        'font',
-        'media',
         'extra',
         'build', // Measure size
         ...(BalmJS.config.assets.cache ? ['cache'] : []),

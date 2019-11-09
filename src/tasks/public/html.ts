@@ -77,6 +77,10 @@ class HtmlTask extends BalmJS.BalmTask {
         stream = stream
           .pipe(this._updateAssetsPath('css'))
           .pipe(this._updateAssetsPath('js'))
+          .pipe($.if(!BalmJS.config.inFrontend, this._updateAssetsPath('img')))
+          .pipe(
+            $.if(!BalmJS.config.inFrontend, this._updateAssetsPath('media'))
+          )
           .pipe(BalmJS.file.setPublicPath());
       }
 

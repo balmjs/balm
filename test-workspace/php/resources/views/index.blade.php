@@ -15,15 +15,15 @@ use \App\Helpers as helpers;
       type="image/x-icon"
       href="/favicon.ico"
     />
-    <link rel="stylesheet" href="<?php echo helpers\balm('css/app.css', 'mobile'); ?>" />
+    <link rel="stylesheet" href="<?php echo helpers\balm('css/app.css', 'web'); ?>" />
   </head>
 
   <body>
     <div id="app">
       <span>Hello</span>
-      <img src="<?php echo helpers\balm('img/logo.svg', 'mobile'); ?>" alt="BalmJS" />
+      <img src="<?php echo helpers\balm('img/logo.svg', 'web'); ?>" alt="BalmJS" />
       <a href="//balmjs.com/">BalmJS</a>
     </div>
-    <script src="<?php echo helpers\balm('js/app.js', 'mobile'); ?>"></script>
+    <script src="<?php echo helpers\balm('js/app.js', 'web'); ?>"></script>
   </body>
 </html>

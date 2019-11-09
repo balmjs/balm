@@ -1,11 +1,13 @@
 {
   "name": "balm-test",
-  "version": "2019.9.25",
+  "version": "2019.11.9",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
     "dev": "gulp",
     "prod": "gulp -p",
+    "php:dev": "gulp -f config/php/index.js",
+    "php:prod": "gulp -p -f config/php/index.js",
     "mpa:dev": "gulp -f config/mpa/index.js",
     "mpa:prod": "gulp -p -f config/mpa/index.js",
     "pwa:dev": "gulp -f config/pwa/index.js",
@@ -23,7 +25,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "cors": "^2.8.5",
-    "cross-env": "^6.0.0",
+    "cross-env": "^6.0.3",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
     "normalize.css": "^8.0.1",
@@ -34,15 +36,15 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
     "@babel/plugin-proposal-numeric-separator": "^7.2.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
-    "ts-loader": "^6.2.0",
-    "typescript": "^3.6.3",
-    "vue-loader": "^15.7.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.2",
+    "vue-loader": "^15.7.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
     "webpack-node-externals": "^1.7.2"
