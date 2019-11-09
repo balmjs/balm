@@ -35,7 +35,9 @@ class ServerTask extends BalmJS.BalmTask {
     watch(
       `${BalmJS.config.src.css}/**/*.${BalmJS.config.styles.extname}`,
       watchOptions,
-      parallel(BalmJS.toNamespace(this.styleName))
+      parallel(
+        BalmJS.toNamespace(BalmJS.config.inFrontend ? this.styleName : 'style')
+      )
     );
 
     if (BalmJS.config.scripts.entry && !BalmJS.config.scripts.hot) {
