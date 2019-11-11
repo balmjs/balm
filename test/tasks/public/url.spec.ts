@@ -46,7 +46,7 @@ describe('Url Task', function() {
     });
 
     const defaultOutput = path.join('dist', 'css');
-    const defaultInput = `${defaultOutput}/**/*.css`;
+    const defaultInput = path.join(defaultOutput, '**', '*.css');
 
     it(
       `expected output: "${defaultOutput}"`,
