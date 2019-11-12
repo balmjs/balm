@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   entry: {
     main: './spa/scripts/cdn.js'
   },

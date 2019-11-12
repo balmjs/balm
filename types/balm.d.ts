@@ -74,6 +74,7 @@ interface BalmAssets {
   mainDir: string;
   subDir: string;
   buildDir: string;
+  virtualDir: string;
   cache: boolean;
   options: object;
   includes: string[];

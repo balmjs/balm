@@ -9,7 +9,12 @@ function _createQuickPath(config: any, rootKey: string): any {
     const pathValue: string = config.paths[rootKey][pathKey];
     result[pathKey] =
       rootKey === 'target' && ASSETS_KEYS.includes(pathKey)
-        ? path.join(rootValue, BalmJS.file.assetsSuffixPath, pathValue)
+        ? path.join(
+            rootValue,
+            BalmJS.config.assets.virtualDir,
+            BalmJS.file.assetsSuffixPath,
+            pathValue
+          )
         : path.join(rootValue, pathValue);
   }
 
@@ -26,6 +31,7 @@ function _ready(config: any): any {
 
   config.dest.static = path.join(
     config.dest.base,
+    BalmJS.config.assets.virtualDir,
     BalmJS.file.assetsSuffixPath
   );
 

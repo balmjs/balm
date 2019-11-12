@@ -1,5 +1,5 @@
-import path from 'path';
-import balm from './balm';
+const path = require('path');
+const balm = require('./balm');
 
 const projectRoot = path.resolve(__dirname, '..', '..');
 const workspace = path.join(projectRoot, 'test-workspace');

@@ -1,6 +1,6 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
-## v2.0.0-beta / 2019-09-29
+## v2.0.0-rc / 2019-11-06
 
 Coming Up...
 
@@ -36,8 +36,6 @@ balm.config = {
 ---
 
 - config.<del>static</del> => config.**inFrontend**
-- config.<del>cache</del> => config.**assets.cache**
-- config.ftp.<del>watchFiles</del> => config.ftp.**files**
 - config.<del>useDefault</del> => config.**useDefaults**
 
 ---
@@ -71,6 +69,15 @@ balm.config = {
 - config.server.<del>proxyContext</del>
 - config.server.<del>proxyOptions</del>
 - config.server.**watchFiles**
+
+---
+
+- config.<del>cache</del> => config.**assets.cache**
+- config.assets.**virtualDir**
+
+---
+
+- config.ftp.<del>watchFiles</del> => config.ftp.**files**
 
 ---
 

@@ -50,13 +50,21 @@ class File {
 
   assetsPath(_path: string): string {
     return BalmJS.config.env.isProd || !BalmJS.config.inFrontend
-      ? path.posix.join(this.assetsSuffixPath, _path)
+      ? path.posix.join(
+          BalmJS.config.assets.virtualDir,
+          this.assetsSuffixPath,
+          _path
+        )
       : _path;
   }
 
   setPublicPath(): any {
+    const publicPath: string = /.*\/$/.test(this.publicPath)
+      ? this.publicPath
+      : `${this.publicPath}/`;
+
     const publicPathSrc = `${BalmJS.config.assets.publicUrlPlaceholder}/`;
-    const publicPathDest: string = this.publicPath;
+    const publicPathDest: string = this.publicPath ? publicPath : '';
 
     BalmJS.logger.debug(
       `set public path`,

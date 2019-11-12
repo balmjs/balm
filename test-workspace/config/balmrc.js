@@ -21,8 +21,8 @@ const balmConfig = {
       media: '5e'
     }
   },
-  styles: {
-    extname: 'css'
+  assets: {
+    cache: true
   },
   logs: {
     level: 3

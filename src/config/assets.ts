@@ -3,7 +3,8 @@ const publicUrl = ''; // Replace `%PUBLIC_URL%/` in html templates (the same to 
 const root = 'assets'; // Remote project root simulation
 const mainDir = 'public'; // The `public` directory contains the front controller and your assets (images, JavaScript, CSS, etc.)
 const subDir = ''; // Public subdirectory
-const buildDir = 'build'; // For dynamic language project
+const buildDir = 'build'; // The suffix of the `subDir`: for dynamic language project
+const virtualDir = ''; //  The prefix of the `subDir`: for non-standard dynamic language project
 
 const cache = false;
 /**
@@ -26,6 +27,7 @@ export default {
   mainDir,
   subDir,
   buildDir,
+  virtualDir,
   cache,
   options,
   includes,

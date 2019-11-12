@@ -1,5 +1,5 @@
 // You need add "@babel/plugin-syntax-dynamic-import" in `.babelrc`
-export default {
+module.exports = {
   entry: {
     main: './spa/scripts/main-async.js'
   }

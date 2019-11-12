@@ -22,14 +22,12 @@ class CacheTask extends BalmJS.BalmTask {
       path.join(`!${BalmJS.config.dest.js}`, STATIC_ASSETS, '*')
     ];
 
-    const customIncludes: string[] = BalmJS.file.absPaths(
-      BalmJS.config.assets.includes
-    ) as string[];
-    const customExcludes: string[] = (BalmJS.file.absPaths(
-      BalmJS.config.assets.excludes
-    ) as string[]).map((filename: string) => {
-      return `!${filename}`;
-    });
+    const customIncludes: string[] = BalmJS.config.assets.includes;
+    const customExcludes: string[] = BalmJS.config.assets.excludes.map(
+      (filename: string) => {
+        return `!${filename}`;
+      }
+    );
 
     this.defaultInput = [
       ...defaultIncludes,

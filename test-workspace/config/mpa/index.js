@@ -1,7 +1,7 @@
 const balm = require('../balm');
-const balmConfig = require('../balmrc');
+const balmrc = require('../balmrc');
 
-balm.config = Object.assign(balmConfig, {
+const balmConfig = Object.assign(balmrc, {
   roots: {
     source: 'mpa'
   },
@@ -22,5 +22,7 @@ balm.config = Object.assign(balmConfig, {
     }
   }
 });
+
+balm.config = balmConfig;
 
 balm.go();

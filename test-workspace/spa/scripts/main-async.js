@@ -6,7 +6,7 @@ hello().then(m => {
   m.default.greet();
 });
 
-['a', 'b', 'c', 'd', 'e', 'f', 'g'].forEach(item => {
+['a', 'b', 'c', 'd'].forEach(item => {
   console.log(`Loading ${item}`);
   import(`./async/${item}`);
 });
