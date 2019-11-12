@@ -36,4 +36,23 @@ describe('Bootstrap', function() {
       it('expected output: "initialization error"', asyncCase(function() {}));
     });
   });
+
+  describe('For the dynamic project', function() {
+    const target = 'new-dist';
+    before(function() {
+      balm.config = {
+        inFrontend: false,
+        roots: {
+          target
+        }
+      };
+    });
+
+    it(
+      'expected output: "new-dist"',
+      asyncCase(function() {
+        expect(balm.config.roots.target).to.equal(target);
+      })
+    );
+  });
 });

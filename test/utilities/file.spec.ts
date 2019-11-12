@@ -240,4 +240,24 @@ describe('Balm File', function() {
       );
     });
   });
+
+  describe('#setPublicPath()', function() {
+    before(function() {
+      balm.config = {
+        env: {
+          isProd: true
+        },
+        assets: {
+          publicUrl: '/'
+        }
+      };
+    });
+
+    it(
+      `expected output: "/"`,
+      asyncCase(function() {
+        file.setPublicPath();
+      })
+    );
+  });
 });
