@@ -1,46 +1,62 @@
 {
-  "nav": ["SSR", "Vue", "Vuex", "Vue-router", "React", "Webpack", "Node.js", "Express"],
-  "list": [{
-    "id": 1,
-    "title": "vue-ssr-客服端测试1",
-    "class": "vue-ssr",
-    "img": "https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1520835680&di=edc177c7202af63eff4f3e18a37178e1&src=http://img4.duitang.com/uploads/item/201606/24/20160624173615_Ernkc.jpeg",
-    "time": "2018-3-12",
-    "content": "Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏览器中输出 Vue 组件，进行生成 DOM 和操作 DOM。然而，也可以将同一个组件渲染为服务器端的 HTML 字符串，将它们直接发送到浏览器，最后将静态标记混合为客户端上完全交互的应用程序。"
-  }, {
-    "id": 2,
-    "title": "vue-ssr-客服端测试2",
-    "class": "vue-ssr",
-    "img": "https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1520835680&di=edc177c7202af63eff4f3e18a37178e1&src=http://img4.duitang.com/uploads/item/201606/24/20160624173615_Ernkc.jpeg",
-    "time": "2018-3-12",
-    "content": "Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏览器中输出 Vue 组件，进行生成 DOM 和操作 DOM。然而，也可以将同一个组件渲染为服务器端的 HTML 字符串，将它们直接发送到浏览器，最后将静态标记混合为客户端上完全交互的应用程序。"
-  }, {
-    "id": 3,
-    "title": "vue-ssr-客服端测试3",
-    "class": "vue-ssr",
-    "img": "https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1520835680&di=edc177c7202af63eff4f3e18a37178e1&src=http://img4.duitang.com/uploads/item/201606/24/20160624173615_Ernkc.jpeg",
-    "time": "2018-3-12",
-    "content": "Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏览器中输出 Vue 组件，进行生成 DOM 和操作 DOM。然而，也可以将同一个组件渲染为服务器端的 HTML 字符串，将它们直接发送到浏览器，最后将静态标记混合为客户端上完全交互的应用程序。"
-  }, {
-    "id": 4,
-    "title": "vue-ssr-客服端测试4",
-    "class": "vue-ssr",
-    "img": "https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1520835680&di=edc177c7202af63eff4f3e18a37178e1&src=http://img4.duitang.com/uploads/item/201606/24/20160624173615_Ernkc.jpeg",
-    "time": "2018-3-12",
-    "content": "Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏览器中输出 Vue 组件，进行生成 DOM 和操作 DOM。然而，也可以将同一个组件渲染为服务器端的 HTML 字符串，将它们直接发送到浏览器，最后将静态标记混合为客户端上完全交互的应用程序。"
-  }, {
-    "id": 5,
-    "title": "vue-ssr-客服端测试5",
-    "class": "vue-ssr",
-    "img": "https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1520835680&di=edc177c7202af63eff4f3e18a37178e1&src=http://img4.duitang.com/uploads/item/201606/24/20160624173615_Ernkc.jpeg",
-    "time": "2018-3-12",
-    "content": "Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏览器中输出 Vue 组件，进行生成 DOM 和操作 DOM。然而，也可以将同一个组件渲染为服务器端的 HTML 字符串，将它们直接发送到浏览器，最后将静态标记混合为客户端上完全交互的应用程序。"
-  }, {
-    "id": 6,
-    "title": "vue-ssr-客服端测试6",
-    "class": "vue-ssr",
-    "img": "https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1520835680&di=edc177c7202af63eff4f3e18a37178e1&src=http://img4.duitang.com/uploads/item/201606/24/20160624173615_Ernkc.jpeg",
-    "time": "2018-3-12",
-    "content": "Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏览器中输出 Vue 组件，进行生成 DOM 和操作 DOM。然而，也可以将同一个组件渲染为服务器端的 HTML 字符串，将它们直接发送到浏览器，最后将静态标记混合为客户端上完全交互的应用程序。"
-  }]
+  "nav": [
+    "SSR",
+    "Vue",
+    "Vuex",
+    "Vue-router",
+    "React",
+    "Webpack",
+    "Node.js",
+    "Express"
+  ],
+  "list": [
+    {
+      "id": 1,
+      "title": "Vue.js",
+      "class": "vue",
+      "img": "https://picsum.photos/200?random=1",
+      "time": "2018-3-12",
+      "content": "Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects."
+    },
+    {
+      "id": 2,
+      "title": "Vue.js Server-Side Rendering",
+      "class": "vue-ssr",
+      "img": "https://picsum.photos/200?random=4",
+      "time": "2018-3-12",
+      "content": "Vue.js is a framework for building client-side applications. By default, Vue components produce and manipulate DOM in the browser as output. However, it is also possible to render the same components into HTML strings on the server, send them directly to the browser, and finally 'hydrate' the static markup into a fully interactive app on the client."
+    },
+    {
+      "id": 3,
+      "title": "The official router for Vue.js.",
+      "class": "vue-router",
+      "img": "https://picsum.photos/200?random=2",
+      "time": "2018-3-12",
+      "content": "Vue Router is the official router for Vue.js. It deeply integrates with Vue.js core to make building Single Page Applications with Vue.js a breeze."
+    },
+    {
+      "id": 4,
+      "title": "Vue.js Server-Side Rendering",
+      "class": "vue-ssr",
+      "img": "https://picsum.photos/200?random=5",
+      "time": "2018-3-12",
+      "content": "Vue.js is a framework for building client-side applications. By default, Vue components produce and manipulate DOM in the browser as output. However, it is also possible to render the same components into HTML strings on the server, send them directly to the browser, and finally 'hydrate' the static markup into a fully interactive app on the client."
+    },
+    {
+      "id": 5,
+      "title": "Centralized State Management for Vue.js.",
+      "class": "vuex",
+      "img": "https://picsum.photos/200?random=3",
+      "time": "2018-3-12",
+      "content": "Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion."
+    },
+    {
+      "id": 6,
+      "title": "Vue.js Server-Side Rendering",
+      "class": "vue-ssr",
+      "img": "https://picsum.photos/200?random=6",
+      "time": "2018-3-12",
+      "content": "Vue.js is a framework for building client-side applications. By default, Vue components produce and manipulate DOM in the browser as output. However, it is also possible to render the same components into HTML strings on the server, send them directly to the browser, and finally 'hydrate' the static markup into a fully interactive app on the client."
+    }
+  ]
 }

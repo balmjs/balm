@@ -1,9 +1,9 @@
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const balm = require('../balm');
-let balmConfig = require('../balmrc');
+const balmrc = require('../balmrc');
 
-balmConfig = Object.assign(balmConfig, {
+const balmConfig = Object.assign(balmrc, {
   roots: {
     source: 'vue-spa'
   },

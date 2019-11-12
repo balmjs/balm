@@ -3,7 +3,7 @@ const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const base = require('./base');
 const balm = require('../balm');
-let balmConfig = require('../balmrc');
+const balmrc = require('../balmrc');
 
 const scripts = Object.assign(base, {
   entry: {
@@ -23,11 +23,14 @@ const scripts = Object.assign(base, {
   })
 });
 
-balmConfig = Object.assign(balmConfig, {
+const balmConfig = Object.assign(balmrc, {
   roots: {
     source: 'vue-ssr/app'
   },
-  scripts
+  scripts,
+  logs: {
+    level: 2
+  }
 });
 
 // This is the plugin that turns the entire output of the server build
@@ -42,4 +45,8 @@ balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
 
 balm.config = balmConfig;
 
-balm.go();
+balm.go(mix => {
+  if (balm.config.env.isProd) {
+    console.log('build server');
+  }
+});

@@ -52,7 +52,9 @@ function registerTasks(recipe: Function): void {
     defaultTask.taskName,
     gulp.series(
       ...defaultTask.startTask,
-      ...defaultTask.mainTasks,
+      ...(BalmJS.config.env.inSSR
+        ? [BalmJS.toNamespace('script')]
+        : defaultTask.mainTasks),
       ...defaultTask.subTasks,
       ...defaultTask.endTask
     )
