@@ -71,8 +71,8 @@ describe('Cache Task', function() {
       '!' + path.join('public', 'manifest.json'),
       '!' + path.join('public', 'build', 'js', 'async', '*'),
       '!' + path.join('public', 'build', 'js', 'assets', '*'),
-      path.join('dist', 'foo.txt'),
-      '!' + path.join('dist', 'bar.txt')
+      'dist/foo.txt',
+      '!dist/bar.txt'
     ];
     const defaultOutput = path.join('public', 'build');
 
