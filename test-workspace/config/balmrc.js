@@ -22,7 +22,8 @@ const balmConfig = {
     }
   },
   assets: {
-    cache: true
+    cache: true,
+    excludes: ['dist/3c/icons/*']
   },
   logs: {
     level: 3
