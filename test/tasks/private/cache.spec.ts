@@ -71,8 +71,8 @@ describe('Cache Task', function() {
       '!' + path.join('public', 'manifest.json'),
       '!' + path.join('public', 'build', 'js', 'async', '*'),
       '!' + path.join('public', 'build', 'js', 'assets', '*'),
-      path.join(balm.config.workspace, 'dist', 'foo.txt'),
-      '!' + path.join(balm.config.workspace, 'dist', 'bar.txt')
+      path.join('dist', 'foo.txt'),
+      '!' + path.join('dist', 'bar.txt')
     ];
     const defaultOutput = path.join('public', 'build');
 
