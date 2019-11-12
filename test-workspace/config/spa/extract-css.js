@@ -4,7 +4,7 @@ module.exports = {
     'css-b': './spa/scripts/css-page-b.js'
   },
   extractCss: {
-    enabled: true,
-    prefix: ''
+    enabled: true
+    // prefix: 'prefix-'
   }
 };

@@ -1,13 +1,8 @@
-// import '../task';
+const jsConfig = require('./main-sync');
+// const jsConfig = require('./main-async');
+// const jsConfig = require('./vendor-all');
+// const jsConfig = require('./vendor-custom');
+// const jsConfig = require('./cdn');
+// const jsConfig = require('./extract-css');
 
-import jsConfig from './main-sync';
-// import jsConfig from './main-async';
-// import jsConfig from './vendor-all';
-// import jsConfig from './vendor-custom';
-// import jsConfig from './cdn';
-// import jsConfig from './extract-css';
-
-const isCDN = false;
-
-export default jsConfig;
-export { isCDN };
+module.exports = jsConfig;
