@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "2.0.0-rc.5",
+  "version": "2.0.0-rc.6",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -50,7 +50,7 @@
     "file-loader": "^4.2.0",
     "gulp-eslint": "^6.0.0",
     "gulp-if": "^3.0.0",
-    "gulp-imagemin": "^6.1.1",
+    "gulp-imagemin": "^6.2.0",
     "gulp-less": "^4.0.1",
     "gulp-load-plugins": "^2.0.1",
     "gulp-postcss": "^8.0.0",
@@ -97,7 +97,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/preset-typescript": "^7.7.2",
     "@babel/register": "^7.7.0",
-    "@types/chai": "^4.2.4",
+    "@types/chai": "^4.2.5",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.12.7",
     "@typescript-eslint/eslint-plugin": "^2.7.0",

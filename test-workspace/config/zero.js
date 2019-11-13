@@ -18,7 +18,7 @@ balm.config = {
 };
 
 balm.go(mix => {
-  // mix.sprite();
+  // mix.sprite(['icons', 'mdi'], '.output/images');
 
   if (mix.env.isProd) {
     console.log('prod');

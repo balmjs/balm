@@ -4,6 +4,7 @@ import {
   ObjectEntry,
   RenameOptions,
   HookOptions,
+  SpriteOptions,
   TemplateOption
 } from '../config/types';
 
@@ -73,8 +74,8 @@ class BaseHooks {
 
 class Hooks extends BaseHooks {
   // Stylesheets
-  sprite(): void {
-    Maker.generate('sprite');
+  sprite(input: string[], output: string, spriteOptions?: SpriteOptions): void {
+    Maker.generate('sprite', [input, output, spriteOptions]);
   }
 
   // PWA
@@ -108,8 +109,8 @@ class Hooks extends BaseHooks {
   }
 
   // Others
-  modernizr(): void {
-    Maker.generate('modernizr');
+  modernizr(output: string): void {
+    Maker.generate('modernizr', [output]);
   }
 }
 

@@ -47,6 +47,14 @@ interface HookOptions {
   ftp?: object;
 }
 
+interface SpriteOptions {
+  extname?: string;
+  imageBasePath?: string;
+  imageTarget?: string; // NOTE: overwrite `BalmJS.config.paths.target.img`
+  spriteRetina?: boolean;
+  spriteParams?: object;
+}
+
 // Publish
 interface TemplateOption {
   input: string;
@@ -62,5 +70,6 @@ export {
   ProxyConfig,
   RenameOptions,
   HookOptions,
+  SpriteOptions,
   TemplateOption
 };

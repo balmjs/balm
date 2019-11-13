@@ -99,7 +99,7 @@ balm.go(mix => {
 - `mix.remove(paths)`
 - `mix.version(input, output, assetsOptions?)`
 - `mix.serve((watcher, reload) => {})`
-- `mix.sprite()`
+- `mix.sprite(input, output, spriteOptions?)`
 - `mix.generateSW(pwaOptions)`
 - `mix.injectManifest(pwaOptions)`
 - `mix.zip(input?, output?, filename?)`

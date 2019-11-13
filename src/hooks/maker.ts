@@ -58,12 +58,13 @@ class Maker {
     switch (customTask.name) {
       // private
       case 'sprite':
+        customTask.recipe(...args);
         if (customTask.deps.length) {
           balmTask = gulp.series(BalmJS.toNamespace(customTask.deps));
         } else {
           BalmJS.logger.warn(
             'balm hook',
-            'mix.sprite() needs to setup `balm.config.styles.sprites`'
+            'mix.sprite() is missing `input` parameters'
           );
         }
         break;

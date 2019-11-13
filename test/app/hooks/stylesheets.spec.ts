@@ -69,19 +69,19 @@ describe('Balm Hooks - css & sprites', function() {
           env: {
             isDev: true
           },
-          styles: {
-            sprites: ['icons', 'mdi']
-          },
           useDefaults: false
         };
       });
+
+      const input = ['icons', 'mdi'];
+      const output = `${targetDir}/images`;
 
       it('#mix.sprite()', function(done) {
         runTest(
           {
             testCase: false,
             testHook: (mix: any) => {
-              mix.sprite();
+              mix.sprite(input, output);
             }
           },
           {
@@ -93,8 +93,8 @@ describe('Balm Hooks - css & sprites', function() {
 
       it('expected output: true', function(done) {
         const testCase = [
-          '.tmp/img/icons-sprites.png',
-          '.tmp/img/mdi-sprites.png',
+          `${output}/icons-sprites.png`,
+          `${output}/mdi-sprites.png`,
           'src/styles/sprites/_icons.css',
           'src/styles/sprites/_mdi.css'
         ];
@@ -113,12 +113,15 @@ describe('Balm Hooks - css & sprites', function() {
         };
       });
 
+      const input: string[] = [];
+      const output = `${targetDir}/images`;
+
       it('expected output: false', function(done) {
         runTest(
           {
             testCase: false,
             testHook: (mix: any) => {
-              mix.sprite();
+              mix.sprite(input, output);
             }
           },
           done,

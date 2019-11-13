@@ -1,4 +1,5 @@
 import mergeStream from 'merge-stream';
+import { SpriteOptions } from '../../config/types';
 
 interface SpriteItem {
   src: string;
@@ -28,8 +29,14 @@ class SpriteTask extends BalmJS.BalmTask {
     }
   }
 
-  private _getParams(spriteItem: SpriteItem): object {
+  private _getParams(
+    spriteItem: SpriteItem,
+    spriteOptions: SpriteOptions
+  ): object {
+    const stylesConfig = Object.assign(spriteOptions, BalmJS.config.styles);
     const spriteName = `${spriteItem.folderName}-${this.name}s`;
+    const imageTarget: string =
+      stylesConfig.imageTarget || BalmJS.config.paths.target.img;
 
     let defaultParams: object = Object.assign(
       {
@@ -37,8 +44,8 @@ class SpriteTask extends BalmJS.BalmTask {
       },
       {
         imgName: `${spriteName}.png`, // E.g. 'awesome-sprites.png'
-        cssName: `_${spriteItem.folderName}.${BalmJS.config.styles.extname}`, // E.g. "_awesome.scss"
-        imgPath: `${BalmJS.config.styles.imageBasePath}${BalmJS.config.paths.target.img}/${spriteName}.png`, // E.g. "path/to/img/awesome-sprites.png"
+        cssName: `_${spriteItem.folderName}.${stylesConfig.extname}`, // E.g. "_awesome.scss"
+        imgPath: `${stylesConfig.imageBasePath}${imageTarget}/${spriteName}.png`, // E.g. "path/to/img/awesome-sprites.png"
         cssSpritesheetName: `${spriteItem.folderName}-spritesheet`, // E.g. "awesome-spritesheet"
         cssOpts: {
           cssSelector: (sprite: any): string =>
@@ -47,20 +54,20 @@ class SpriteTask extends BalmJS.BalmTask {
       }
     );
 
-    if (BalmJS.config.styles.spriteRetina) {
+    if (stylesConfig.spriteRetina) {
       defaultParams = Object.assign(defaultParams, {
         retinaSrcFilter: `${spriteItem.retinaSrc}`,
         retinaImgName: `${spriteName}@2x.png`, // E.g. 'awesome-sprites@2x.png'
-        retinaImgPath: `${BalmJS.config.styles.imageBasePath}${BalmJS.config.paths.target.img}/${spriteName}@2x.png`, // E.g. "path/to/img/awesome-sprites@2x.png"
+        retinaImgPath: `${stylesConfig.imageBasePath}${imageTarget}/${spriteName}@2x.png`, // E.g. "path/to/img/awesome-sprites@2x.png"
         cssRetinaSpritesheetName: `${spriteItem.folderName}-spritesheet-2x`, // E.g. "awesome-spritesheet-2x"
         cssRetinaGroupsName: `${spriteItem.folderName}-retina-groups` // E.g. "awesome-retina-groups"
       });
     }
 
-    return Object.assign(defaultParams, BalmJS.config.styles.spriteParams);
+    return Object.assign(defaultParams, stylesConfig.spriteParams);
   }
 
-  collect(): void {
+  collect(spriteOptions: SpriteOptions = {}): void {
     const spriteList: SpriteItem[] = [];
     for (const spriteName of this.input) {
       spriteList.push({
@@ -75,7 +82,7 @@ class SpriteTask extends BalmJS.BalmTask {
       const spriteTaskName = `${this.name}:${spriteItem.folderName}`; // E.g. 'sprite:awesome'
       const spriteConfig: SpriteConfig = {
         input: spriteItem.src,
-        params: this._getParams(spriteItem),
+        params: this._getParams(spriteItem, spriteOptions),
         imgOutput: this.output,
         cssOutput: `${BalmJS.config.src.css}/${this.name}s` // E.g. 'path/to/css/sprites'
       };
@@ -101,6 +108,21 @@ class SpriteTask extends BalmJS.BalmTask {
       });
 
       this.tasks.push(spriteTaskName);
+    }
+  }
+
+  recipe(
+    input: string[],
+    output: string,
+    spriteOptions: SpriteOptions = {}
+  ): void {
+    if (input.length) {
+      if (output && !spriteOptions.imageTarget) {
+        spriteOptions.imageTarget = output.split('/').pop();
+      }
+
+      this.init(input, output);
+      this.collect(spriteOptions);
     }
   }
 
