@@ -42,7 +42,7 @@ describe('App Test in production', function() {
 
     const input = 'index.html';
     const output = 'views';
-    const options = {
+    const renameOptions = {
       basename: 'home',
       suffix: '.blade',
       extname: '.php'
@@ -55,19 +55,19 @@ describe('App Test in production', function() {
           // publish assets
           mix.publish();
           // publish templates
-          mix.publish(input, output, options);
+          mix.publish(input, output, renameOptions);
           mix.publish([
             {
               input: 'page-a.html',
               output: 'views/a',
-              options: {
+              renameOptions: {
                 extname: '.phtml'
               }
             },
             {
               input: 'page-b.html',
               output: 'views/b',
-              options: {
+              renameOptions: {
                 extname: '.phtml'
               }
             }
