@@ -92,6 +92,7 @@ balm.go(mix => {
 - `mix.css(input, output)`
 - `mix.sass(input, output, options?)`
 - `mix.less(input, output, options?)`
+- `mix.url(input, output)`
 - `mix.js(input, output, webpackOptions?)`
 - `mix.jsmin(input, output, options?)`
 - `mix.copy(input, output, options?)`
@@ -99,7 +100,6 @@ balm.go(mix => {
 - `mix.version(input, output, assetsOptions?)`
 - `mix.serve((watcher, reload) => {})`
 - `mix.sprite()`
-- `mix.url(input, output)`
 - `mix.generateSW(pwaOptions)`
 - `mix.injectManifest(pwaOptions)`
 - `mix.zip(input?, output?, filename?)`

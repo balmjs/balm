@@ -30,6 +30,10 @@ class BaseHooks {
     Maker.generate('less', [input, output, options]);
   }
 
+  url(input: string | string[], output: string): void {
+    Maker.generate('url', [input, output]);
+  }
+
   // JavaScript
   js(
     input: string | string[] | ObjectEntry,
@@ -73,10 +77,6 @@ class Hooks extends BaseHooks {
     Maker.generate('sprite');
   }
 
-  url(input: string | string[], output: string): void {
-    Maker.generate('url', [input, output]);
-  }
-
   // PWA
   generateSW(pwaOptions: object): void {
     Maker.generate('pwa', ['generateSW', pwaOptions]);
@@ -87,6 +87,14 @@ class Hooks extends BaseHooks {
   }
 
   // Assets
+  publish(
+    input: string | TemplateOption[],
+    output: string,
+    renameOptions?: string | Function | RenameOptions
+  ): void {
+    Maker.generate('publish', [input, output, renameOptions]);
+  }
+
   zip(
     input: string | string[] = '',
     output = '',
@@ -97,14 +105,6 @@ class Hooks extends BaseHooks {
 
   ftp(localFiles: string, options?: HookOptions): void {
     Maker.generate('ftp', [localFiles, options]);
-  }
-
-  publish(
-    input: string | TemplateOption[],
-    output: string,
-    renameOptions?: string | Function | RenameOptions
-  ): void {
-    Maker.generate('publish', [input, output, renameOptions]);
   }
 
   // Others
