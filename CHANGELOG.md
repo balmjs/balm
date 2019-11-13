@@ -100,11 +100,11 @@ balm.go(mix => {
 - `mix.version(input, output, assetsOptions?)`
 - `mix.serve((watcher, reload) => {})`
 - `mix.sprite(input, output, spriteOptions?)`
-- `mix.generateSW(pwaOptions)`
-- `mix.injectManifest(pwaOptions)`
+- `mix.publish(input, output, renameOptions?)`
 - `mix.zip(input?, output?, filename?)`
 - `mix.ftp(localFiles, options?)`
-- `mix.publish(input, output, renameOptions?)`
+- `mix.generateSW(pwaOptions)`
+- `mix.injectManifest(pwaOptions)`
 - `mix.modernizr()`
 
 ```ts

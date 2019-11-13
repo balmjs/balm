@@ -78,15 +78,6 @@ class Hooks extends BaseHooks {
     Maker.generate('sprite', [input, output, spriteOptions]);
   }
 
-  // PWA
-  generateSW(pwaOptions: object): void {
-    Maker.generate('pwa', ['generateSW', pwaOptions]);
-  }
-
-  injectManifest(pwaOptions: object): void {
-    Maker.generate('pwa', ['injectManifest', pwaOptions]);
-  }
-
   // Assets
   publish(
     input: string | TemplateOption[],
@@ -108,9 +99,18 @@ class Hooks extends BaseHooks {
     Maker.generate('ftp', [localFiles, options]);
   }
 
+  // PWA
+  generateSW(pwaOptions: object): void {
+    Maker.generate('pwa', ['generateSW', pwaOptions]);
+  }
+
+  injectManifest(pwaOptions: object): void {
+    Maker.generate('pwa', ['injectManifest', pwaOptions]);
+  }
+
   // Others
-  modernizr(output: string): void {
-    Maker.generate('modernizr', [output]);
+  modernizr(): void {
+    Maker.generate('modernizr');
   }
 }
 
