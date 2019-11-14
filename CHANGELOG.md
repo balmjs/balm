@@ -68,16 +68,12 @@ balm.config = {
 - config.server.<del>reloadDelay</del>
 - config.server.<del>proxyContext</del>
 - config.server.<del>proxyOptions</del>
-- config.server.**watchFiles**
+- config.server.**extraWatchFiles**
 
 ---
 
 - config.<del>cache</del> => config.**assets.cache**
 - config.assets.**virtualDir**
-
----
-
-- config.ftp.<del>watchFiles</del> => config.ftp.**files**
 
 ---
 

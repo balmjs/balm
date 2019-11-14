@@ -75,7 +75,7 @@ const proxyConfig: boolean | ProxyConfig | ProxyConfig[] = false;
  */
 const historyOptions: boolean | object = false;
 const middlewares: object[] = []; // Extra middlewares for server
-const watchFiles: string[] = []; // Just for `mix.serve`
+const extraWatchFiles: string[] = []; // Just for `mix.serve`
 
 export default {
   port,
@@ -91,5 +91,5 @@ export default {
   proxyConfig,
   historyOptions,
   middlewares,
-  watchFiles
+  extraWatchFiles
 };

@@ -101,7 +101,7 @@ interface BalmServer {
   proxyConfig: boolean | ProxyConfig | ProxyConfig[];
   historyOptions: boolean | object;
   middlewares: object[];
-  watchFiles: string[];
+  extraWatchFiles: string[];
 }
 
 interface BalmConfig {
@@ -142,7 +142,7 @@ interface BalmConfig {
       password?: string;
       remotePath?: string;
     };
-    files: string[];
+    watchFiles: string[];
   };
   pwa: {
     enabled: boolean;

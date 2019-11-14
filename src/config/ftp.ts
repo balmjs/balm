@@ -7,9 +7,9 @@ interface FtpConfig {
 }
 
 const options: FtpConfig = {};
-const files: string[] = [];
+const watchFiles: string[] = [];
 
 export default {
   options,
-  files
+  watchFiles
 };

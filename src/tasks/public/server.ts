@@ -21,7 +21,7 @@ class ServerTask extends BalmJS.BalmTask {
       [
         `${BalmJS.config.src.img}/**/*`,
         `${BalmJS.config.dest.font}/**/*`,
-        ...BalmJS.config.server.watchFiles
+        ...BalmJS.config.server.extraWatchFiles
       ],
       watchOptions
     ).on('change', server.reload);
@@ -61,8 +61,8 @@ class ServerTask extends BalmJS.BalmTask {
     );
 
     // For FTP
-    if (BalmJS.config.ftp.files.length) {
-      watch(BalmJS.config.ftp.files, watchOptions).on(
+    if (BalmJS.config.ftp.watchFiles.length) {
+      watch(BalmJS.config.ftp.watchFiles, watchOptions).on(
         'change',
         (path: string) => {
           BalmJS.logger.debug(`${this.name} task`, `File ${path} was changed`);
@@ -132,7 +132,7 @@ class ServerTask extends BalmJS.BalmTask {
 
             const watcher = watch([
               `${BalmJS.config.src.base}/**/*`,
-              ...BalmJS.config.server.watchFiles
+              ...BalmJS.config.server.extraWatchFiles
             ]);
 
             try {
