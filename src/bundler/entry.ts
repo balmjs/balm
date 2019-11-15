@@ -1,10 +1,10 @@
-import { ObjectEntry, BalmVendor } from '../config/types';
+import { BalmEntryObject, BalmVendor } from '../config/types';
 import { HMR_PATH } from '../config/constants';
 
 const FILENAME_REGEX = new RegExp('[^/]+$', 'i');
 const HOT_CLIENT = 'webpack-hot-middleware/client';
 
-function initVendors(entries: ObjectEntry): void {
+function initVendors(entries: BalmEntryObject): void {
   const vendors: BalmVendor[] = [];
 
   for (const key of Object.keys(entries)) {
@@ -33,7 +33,10 @@ function initVendors(entries: ObjectEntry): void {
 }
 
 // Relative path
-function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
+function getEntry(
+  input: string | string[] | BalmEntryObject,
+  scripts: any
+): any {
   let webpackEntries: any = {};
 
   const hotOptions: object = Object.assign(
@@ -55,10 +58,10 @@ function getEntry(input: string | string[] | ObjectEntry, scripts: any): any {
     !BalmJS.config.env.inSSR;
 
   if (BalmJS.utils.isObject(input)) {
-    initVendors(input as ObjectEntry);
+    initVendors(input as BalmEntryObject);
 
     for (const key of Object.keys(input)) {
-      const value: string | string[] = (input as ObjectEntry)[key];
+      const value: string | string[] = (input as BalmEntryObject)[key];
       const isVendor: boolean = BalmJS.utils.isArray(value);
 
       // Key

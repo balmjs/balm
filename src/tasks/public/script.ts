@@ -1,5 +1,5 @@
 import webpackConfig from '../../bundler';
-import { ObjectEntry } from '../../config/types';
+import { BalmEntryObject } from '../../config/types';
 
 class ScriptTask extends BalmJS.BalmTask {
   constructor() {
@@ -7,7 +7,7 @@ class ScriptTask extends BalmJS.BalmTask {
   }
 
   recipe(
-    input?: string | string[] | ObjectEntry,
+    input?: string | string[] | BalmEntryObject,
     output?: string,
     customOptions: any = {}
   ): any {

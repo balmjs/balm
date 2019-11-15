@@ -12,7 +12,10 @@ function cssLoader(): object {
   if (BalmJS.config.env.inSSR) {
     const loadersCount: number = BalmJS.config.scripts.loaders.length;
     for (let i = 0; i < loadersCount; i++) {
-      if (BalmJS.config.scripts.loaders[i].loader === 'vue-loader') {
+      if (
+        (BalmJS.config.scripts.loaders[i] as { loader?: string }).loader ===
+        'vue-loader'
+      ) {
         styleLoader = 'vue-style-loader';
         break;
       }

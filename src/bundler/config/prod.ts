@@ -6,6 +6,12 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import getCommonConfig from './common';
 
+// Run the build command with an extra argument to
+// View the bundle analyzer report after build finishes:
+// `npm run prod --report`
+// Set to `true` or `false` to always turn it on or off
+const bundleAnalyzerReport = process.env.npm_config_report || false;
+
 function getProdConfig(scripts: any): any {
   const shouldUseSourceMap: string | boolean = scripts.sourceMap;
 
@@ -51,9 +57,7 @@ function getProdConfig(scripts: any): any {
           ]
         : []),
       // View the bundle analyzer report
-      ...(BalmJS.config.scripts.bundleAnalyzerReport
-        ? [new BundleAnalyzerPlugin()]
-        : [])
+      ...(bundleAnalyzerReport ? [new BundleAnalyzerPlugin()] : [])
     ],
     devtool: shouldUseSourceMap ? 'source-map' : false
   });

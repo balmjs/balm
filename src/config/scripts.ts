@@ -1,12 +1,12 @@
-import { ObjectEntry, BalmDefaultLoaders } from './types';
+import { BalmEntryObject, BalmDefaultLoaders } from './types';
 
 // Entry and Context
-const entry: string | string[] | ObjectEntry = '';
+const entry: string | string[] | BalmEntryObject = '';
 // Output
 const library: string | object = '';
 const libraryTarget = 'var'; // ['var', 'this', 'window', 'global', 'commonjs', 'commonjs2', 'amd', 'umd']
 // Module
-const loaders: any[] = [];
+const loaders: object[] = [];
 const includeJsResource: string[] = [];
 const disableDefaultLoaders: BalmDefaultLoaders = {};
 // Resolve
@@ -88,11 +88,6 @@ const inject = false;
 const optimization: object = {};
 const splitAllVendors = false;
 const vendorsName = 'vendors'; // AllInOne vendor filename or Vendors folder name
-// Run the build command with an extra argument to
-// View the bundle analyzer report after build finishes:
-// `npm run prod --report`
-// Set to `true` or `false` to always turn it on or off
-const bundleAnalyzerReport: any = process.env.npm_config_report;
 // Extract CSS
 const extractCss: {
   enabled: boolean;
@@ -126,7 +121,6 @@ export default {
   optimization,
   splitAllVendors,
   vendorsName,
-  bundleAnalyzerReport,
   extractCss,
   base64Limit
 };

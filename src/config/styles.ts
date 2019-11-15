@@ -64,6 +64,10 @@ const postcssLoaderOptions: PostcssLoaderOptions = {
 const imageBasePath = '../'; // Relative to css file
 const sprites: string[] = []; // Image folders
 const spriteRetina = false;
+/**
+ * Spritesmith parameters
+ * @reference https://github.com/twolfson/gulp.spritesmith#spritesmithparams
+ */
 const spriteParams: object = {};
 
 export default {

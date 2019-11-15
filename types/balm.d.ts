@@ -36,7 +36,7 @@ interface BalmScripts {
   entry: string | string[] | { [entryChunkName: string]: string | string[] };
   library: string | object;
   libraryTarget: string;
-  loaders: any[];
+  loaders: object[];
   includeJsResource: string[];
   disableDefaultLoaders: {
     html?: boolean;
@@ -59,7 +59,6 @@ interface BalmScripts {
   optimization: object;
   splitAllVendors: boolean;
   vendorsName: string;
-  bundleAnalyzerReport: any;
   extractCss: {
     enabled: boolean;
     prefix: string;

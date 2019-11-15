@@ -1,5 +1,5 @@
 // Config
-interface BalmEnv {
+interface BalmEnvObject {
   isProd: boolean;
   isTest: boolean;
   isDev: boolean;
@@ -7,7 +7,7 @@ interface BalmEnv {
 }
 
 // Scripts
-interface ObjectEntry {
+interface BalmEntryObject {
   [entryChunkName: string]: string | string[];
 }
 
@@ -63,8 +63,8 @@ interface TemplateOption {
 }
 
 export {
-  BalmEnv,
-  ObjectEntry,
+  BalmEnvObject,
+  BalmEntryObject,
   BalmVendor,
   BalmDefaultLoaders,
   ProxyConfig,

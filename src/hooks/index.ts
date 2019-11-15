@@ -1,7 +1,7 @@
 import Maker from './maker';
 import {
-  BalmEnv,
-  ObjectEntry,
+  BalmEnvObject,
+  BalmEntryObject,
   RenameOptions,
   HookOptions,
   SpriteOptions,
@@ -9,7 +9,7 @@ import {
 } from '../config/types';
 
 class BaseHooks {
-  get env(): BalmEnv {
+  get env(): BalmEnvObject {
     return BalmJS.config.env;
   }
 
@@ -37,7 +37,7 @@ class BaseHooks {
 
   // JavaScript
   js(
-    input: string | string[] | ObjectEntry,
+    input: string | string[] | BalmEntryObject,
     output: string,
     webpackOptions?: any
   ): void {

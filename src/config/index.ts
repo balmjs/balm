@@ -24,6 +24,7 @@ enum LogLevel {
 const noop: Function = () => {};
 const vendors: BalmVendor[] = [];
 
+const workspace: string = process.cwd();
 /**
  * Project type
  *
@@ -31,13 +32,13 @@ const vendors: BalmVendor[] = [];
  * set `false` for a dynamic language project (e.g. PHP framework)
  */
 const inFrontend = true;
-const workspace: string = process.cwd();
 const useDefaults = true; // Use balm default task
 
 const config: any = {
-  inFrontend,
-  workspace,
   env,
+  workspace,
+  inFrontend,
+  useDefaults,
   roots,
   paths,
   html,
@@ -48,8 +49,7 @@ const config: any = {
   server,
   ftp,
   pwa,
-  logs,
-  useDefaults
+  logs
 };
 
 global.BalmJS = {};
