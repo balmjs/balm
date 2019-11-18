@@ -14,8 +14,8 @@ const cache = false;
  */
 const options: object = {
   fileNameManifest: 'rev-manifest.json',
-  dontRenameFile: ['.html', '.php'],
-  dontUpdateReference: ['.html', '.php']
+  dontRenameFile: ['.html'],
+  dontUpdateReference: ['.html']
 };
 const includes: string[] = [];
 const excludes: string[] = [];

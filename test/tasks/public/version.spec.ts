@@ -32,8 +32,8 @@ describe('Version Task', function() {
     describe('options', function() {
       const defaultOptions = {
         fileNameManifest: 'rev-manifest.json',
-        dontRenameFile: ['.html', '.php'],
-        dontUpdateReference: ['.html', '.php']
+        dontRenameFile: ['.html'],
+        dontUpdateReference: ['.html']
       };
       const assetsOptions = {
         fileNameManifest: 'new-manifest.json'
