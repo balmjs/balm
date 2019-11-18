@@ -19,15 +19,15 @@ class BaseHooks {
   }
 
   // Stylesheets
-  css(input: string, output: string): void {
+  css(input: string | string[], output: string): void {
     Maker.generate('postcss', [input, output]);
   }
 
-  sass(input: string, output: string, options?: HookOptions): void {
+  sass(input: string | string[], output: string, options?: HookOptions): void {
     Maker.generate('sass', [input, output, options]);
   }
 
-  less(input: string, output: string, options?: HookOptions): void {
+  less(input: string | string[], output: string, options?: HookOptions): void {
     Maker.generate('less', [input, output, options]);
   }
 
