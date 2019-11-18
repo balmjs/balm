@@ -77,6 +77,11 @@ balm.config = {
 
 ---
 
+- config.extras.<del>includes</del>
+- config.pwa.**manifest**
+
+---
+
 ```js
 balm.go(mix => {
   // `balm` APIs:

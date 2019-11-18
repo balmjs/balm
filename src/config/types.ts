@@ -1,4 +1,4 @@
-// Config
+// Environment
 interface BalmEnvObject {
   isProd: boolean;
   isTest: boolean;

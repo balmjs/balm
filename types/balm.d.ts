@@ -129,7 +129,6 @@ interface BalmConfig {
   scripts: BalmScripts;
   extras: {
     excludes: string[];
-    includes: string[];
   };
   assets: BalmAssets;
   server: BalmServer;
@@ -145,6 +144,7 @@ interface BalmConfig {
   };
   pwa: {
     enabled: boolean;
+    manifest: string;
     workboxSw: string;
     mode: string;
     options: object;

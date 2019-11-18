@@ -1,8 +1,7 @@
 import {
   ASSETS_KEYS,
   ASYNC_SCRIPTS,
-  STATIC_ASSETS,
-  MANIFEST
+  STATIC_ASSETS
 } from '../../config/constants';
 
 class CacheTask extends BalmJS.BalmTask {
@@ -17,7 +16,7 @@ class CacheTask extends BalmJS.BalmTask {
           BalmJS.file.matchAllFiles(BalmJS.config.dest[assetKey])
         );
     const defaultExcludes: string[] = [
-      path.join(`!${BalmJS.config.dest.base}`, MANIFEST),
+      path.join(`!${BalmJS.config.dest.base}`, BalmJS.config.pwa.manifest),
       path.join(`!${BalmJS.config.dest.js}`, ASYNC_SCRIPTS, '*'),
       path.join(`!${BalmJS.config.dest.js}`, STATIC_ASSETS, '*')
     ];

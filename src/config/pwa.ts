@@ -1,4 +1,5 @@
 const enabled = false;
+const manifest = 'manifest.json'; // 'manifest.json' or 'manifest.webmanifest'
 const workboxSw = 'node_modules/workbox-sw/build/workbox-sw.js';
 const mode = 'generateSW'; // 'generateSW' or 'injectManifest'
 /**
@@ -13,6 +14,7 @@ const swDestFilename = 'sw.js';
 
 export default {
   enabled,
+  manifest,
   workboxSw,
   mode,
   options,

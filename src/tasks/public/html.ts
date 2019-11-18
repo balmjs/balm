@@ -1,12 +1,10 @@
-import { MANIFEST } from '../../config/constants';
-
 class HtmlTask extends BalmJS.BalmTask {
   constructor() {
     super('html');
 
     this.defaultInput = [
       path.join(BalmJS.config.src.base, '*.html'),
-      path.join(BalmJS.config.src.base, MANIFEST)
+      path.join(BalmJS.config.src.base, BalmJS.config.pwa.manifest)
     ];
     this.defaultOutput = BalmJS.config.dest.base;
   }
@@ -68,10 +66,14 @@ class HtmlTask extends BalmJS.BalmTask {
           .pipe(this._updateAssetsPath('js'))
           .pipe(this._updateAssetsPath('img'))
           .pipe(this._updateAssetsPath('media'))
-          .pipe($.if(MANIFEST, this._updateAssetsPath('manifest')));
+          .pipe(
+            $.if(BalmJS.config.pwa.manifest, this._updateAssetsPath('manifest'))
+          );
 
         stream = BalmJS.config.assets.cache
-          ? stream.pipe($.if(MANIFEST, BalmJS.file.setPublicPath()))
+          ? stream.pipe(
+              $.if(BalmJS.config.pwa.manifest, BalmJS.file.setPublicPath())
+            )
           : stream.pipe(BalmJS.file.setPublicPath());
       } else {
         stream = stream

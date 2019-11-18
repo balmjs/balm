@@ -1,15 +1,6 @@
-import { MANIFEST } from '../../config/constants';
-
 class ExtraTask extends BalmJS.BalmTask {
   constructor() {
     super('extra');
-
-    const includeGlobs: string[] = [];
-    if (BalmJS.config.extras.includes.length) {
-      for (const filename of BalmJS.config.extras.includes) {
-        includeGlobs.push(path.join(BalmJS.config.src.base, filename));
-      }
-    }
 
     const excludeGlobs: string[] = [];
     if (BalmJS.config.extras.excludes.length) {
@@ -21,8 +12,7 @@ class ExtraTask extends BalmJS.BalmTask {
     const defaultGlobs: string[] = [
       path.join(BalmJS.config.src.base, '*.*'), // All files but ignore all folders in the app root directory
       path.join(`!${BalmJS.config.src.base}`, '*.html'),
-      path.join(`!${BalmJS.config.src.base}`, MANIFEST),
-      ...includeGlobs,
+      path.join(`!${BalmJS.config.src.base}`, BalmJS.config.pwa.manifest),
       ...excludeGlobs
     ];
 
@@ -32,6 +22,10 @@ class ExtraTask extends BalmJS.BalmTask {
 
   fn = (): any => {
     this.init();
+
+    this.gulpSrcOptions = {
+      dot: true
+    };
 
     return this.src.pipe(gulp.dest(BalmJS.file.absPath(this.output)));
   };
