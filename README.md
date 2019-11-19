@@ -42,13 +42,13 @@ project
 ├── .tmp         // Scaffolds out a temporary directory for development
 ├── dist         // Scaffolds out the production build
 ├─┬ src          // Source code in here (Create a directory in project)
-│ ├─┬ styles
-│ │ └── main.css // Required. A entry file for CSS.
+│ ├── fonts
+│ ├── images
+│ ├── media
 │ ├─┬ scripts
 │ │ └── main.js  // Required. A entry file for JS.
-│ ├── images
-│ ├── fonts
-│ ├── media
+│ ├─┬ styles
+│ │ └── main.css // Required. A entry file for CSS.
 │ └── index.html // Required. A entry file for HTML.
 ├─┬ config       // Optional. But recommended. Refer to BalmCLI's templates.
 │ ├── balmrc.js
