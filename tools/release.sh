@@ -1,1 +1,1 @@
-npm publish --tag next
+npm publish

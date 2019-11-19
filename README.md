@@ -21,6 +21,18 @@
 
 BalmJS prescribes best practices and tools to help you stay productive.
 
+## Features
+
+- **gulp + webpack** for _any_ Front-end projects
+- Automagically compile PostCSS/Sass/Less
+- CSS Autoprefixing
+- Automagically generation CSS sprites
+- enable ES2015+ features using Babel
+- Awesome images optimization
+- Built-in preview server with BrowserSync
+- Custom publish assets to remote (Front-end to Back-end) project
+- ZIP/FTP/PWA supported
+
 ## Structure
 
 > Returning to webapp's original nature.
@@ -41,13 +53,14 @@ project
 ├─┬ config       // Optional. But recommended. Refer to BalmCLI's templates.
 │ ├── balmrc.js
 │ └── publish.js
-├── .dotfile     // (.babelrc, .gitignore, etc...)
+├── .dotfile     // (e.g. .gitignore, .browserslistrc, etc...)
+├── babel.config.js
 ├── gulpfile.js  // Required. A configuration file for Balm.
 ├── package.json // Required.
 └── ...
 ```
 
-> :zap: We recommend using [Balm CLI](https://github.com/balmjs/balm-cli) to scaffold out a front-end web app. :ghost:
+> :rocket: We recommend using [Balm CLI](https://github.com/balmjs/balm-cli) to scaffold out a front-end web app. :ghost:
 
 ## Ecosystem
 
@@ -57,6 +70,7 @@ project
 | [balm-gui](https://github.com/balmjs/balm-gui)        | N/A                                                    | :clubs: GUI for BalmJS                            |
 | [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue               |
 | [balm-ui](https://github.com/balmjs/ui-vue)           | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Next Generation Material UI for Vue.js |
+| [balm-scroll](https://github.com/balmjs/balm-scroll)  | [![NPM version][balm-scroll-image]][balm-scroll-url]   | :scroll: Smooth scrolling for Vue.js              |
 
 ## Demo
 
@@ -74,30 +88,33 @@ You need to set up your development environment before you can do anything.
 
 Install [Node.js® and npm](https://nodejs.org/en/download/) if they are not already on your machine.
 
-> **Verify that you are running at least node `8.x.x` and npm `5.x.x`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
+> **Verify that you are running at least node `10.13.x` and npm `5.2.x`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
 
-BalmJS workflow using [gulp](https://gulpjs.com/) for the build process, so you need install `gulp-cli`.
+:bell: BalmJS workflow using [gulp](https://gulpjs.com/) for the build process, so you need install `gulp-cli` globally and `gulp` local dependency.
 
 ```sh
-$ npm install --global gulp-cli
+yarn global add gulp-cli
+yarn add -D gulp
+# OR
+npm install -g gulp-cli
+npm install -D gulp
 
 # Verify
 $ gulp -v
+# Output:
+# CLI version: 2.2.0
+# Local version: 4.0.0
 ```
 
 ### 1. Installing **`balm`**
 
-Install with npm:
-
 ```sh
-$ npm install --save-dev gulp balm
+yarn add -D balm
+# OR
+npm install -D balm
 ```
 
-Install with [yarn](https://yarnpkg.com/en/docs/install):
-
-```sh
-$ yarn add --dev gulp balm
-```
+> We currently recommend using [Yarn](https://yarnpkg.com/en/docs/install) instead of npm.
 
 ### 2. Configuration
 
@@ -109,34 +126,34 @@ const balm = require('balm');
 
 // 2. config balm
 balm.config = {
-  // your project config
+  // Your project config
 };
 
-// 3. run balm
+// 3. run & enjoy
 balm.go();
 ```
 
-:page_with_curl: Refer to [our configuration docs](https://balmjs.com/docs/en/configuration/toc.html) to learn more about config **`balm`**.
+:page_with_curl: Refer to [configuration docs](https://balmjs.com/docs/v2/config/) to learn more about config **`balm`**.
 
 ### 3. Usage
 
-Run the gulp command in your project directory:
+Run the command in your project directory:
 
 ```sh
-# for development
-$ gulp
+# For development
+gulp
 
-# for production
-$ gulp --production
+# For production
+gulp --production
+# OR
+gulp -p
 ```
 
-## [Documentation](https://balmjs.com/docs/en/) | [中文文档](https://balmjs.com/docs/zh-cn/)
+## [Documentation](https://balmjs.com/docs/v2/)
 
-- [Getting Started](https://balmjs.com/docs/en/basic/getting-started.html)
-- [Configuration](https://balmjs.com/docs/en/configuration/toc.html)
-- [Custom Task API](https://balmjs.com/docs/en/api/toc.html)
-- [Recipes](https://balmjs.com/docs/en/recipes/toc.html)
-- [FAQ](https://balmjs.com/docs/en/faq.html)
+- [Getting Started](https://balmjs.com/docs/v2/guide/getting-started.html)
+- [Configuration](https://balmjs.com/docs/v2/config/)
+- [Custom Task API](https://balmjs.com/docs/v2/api/)
 
 ## License
 
@@ -170,3 +187,5 @@ In chronological order
 [balm-ui-lite-url]: https://npmjs.org/package/balm-ui-lite
 [balm-ui-image]: https://badge.fury.io/js/balm-ui.svg
 [balm-ui-url]: https://npmjs.org/package/balm-ui
+[balm-scroll-image]: https://badge.fury.io/js/balm-scroll.svg
+[balm-scroll-url]: https://npmjs.org/package/balm-scroll
