@@ -123,7 +123,7 @@ describe('Default Task', function() {
         );
       });
 
-      describe('with sprites, eslint, cache and pwa', function() {
+      describe('with sprites, lint, cache and pwa', function() {
         const mainTasks = [
           'balm:clean',
           'balm:sprite',
@@ -150,7 +150,7 @@ describe('Default Task', function() {
               sprites: ['icons']
             },
             scripts: {
-              eslint: true
+              lint: true
             },
             assets: {
               cache: true

@@ -20,7 +20,7 @@ class DefaultTask extends BalmJS.BalmTask {
       ...(BalmJS.config.styles.sprites.length ? ['sprite'] : []),
       'style',
       // Scripts
-      ...(BalmJS.config.scripts.eslint ? ['lint'] : []),
+      ...(BalmJS.config.scripts.lint ? ['lint'] : []),
       'script',
       'html',
       ...(BalmJS.config.env.isProd || !BalmJS.config.inFrontend

@@ -37,7 +37,7 @@ const stats: string | object = {
  */
 const webpackOptions: object = {};
 // Other advanced options
-const eslint = false;
+const lint = false;
 /**
  * Terser minify options
  *
@@ -115,7 +115,7 @@ export default {
   externals,
   stats,
   webpackOptions,
-  eslint,
+  lint,
   options,
   inject,
   optimization,

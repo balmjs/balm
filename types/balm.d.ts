@@ -53,7 +53,7 @@ interface BalmScripts {
   externals: string | object | Function | RegExp;
   stats: string | object;
   webpackOptions: object;
-  eslint: boolean;
+  lint: boolean;
   options: object;
   inject: boolean;
   optimization: object;

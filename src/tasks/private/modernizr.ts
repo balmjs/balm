@@ -11,7 +11,7 @@ class ModernizrTask extends BalmJS.BalmTask {
 
   private _readConfig(): Promise<any> {
     return new Promise((resolve, reject): void => {
-      fs.readFile(this.input, 'utf8', (err, data) => {
+      fs.readFile(this.input, 'utf8', (err: any, data: any) => {
         if (err) reject(err);
         resolve(JSON.parse(data));
       });
@@ -35,7 +35,7 @@ class ModernizrTask extends BalmJS.BalmTask {
             path.join(BalmJS.config.dest.js, `${this.name}.js`)
           ),
           content,
-          err => {
+          (err: any) => {
             if (err) reject(err);
             resolve(content);
           }

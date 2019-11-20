@@ -22,7 +22,7 @@ module.exports = {
     '@': resolve('vue-ssr/app/scripts')
   },
   plugins: [new VueLoaderPlugin()],
-  eslint: false,
+  lint: false,
   options: {
     compress: {
       drop_console: false
