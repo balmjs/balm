@@ -128,6 +128,7 @@ interface BalmConfig {
   styles: BalmStyles;
   scripts: BalmScripts;
   extras: {
+    includes: string[];
     excludes: string[];
   };
   assets: BalmAssets;

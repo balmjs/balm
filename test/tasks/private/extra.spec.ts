@@ -40,6 +40,7 @@ describe('Extra Task', function() {
           isProd: true
         },
         extras: {
+          includes: ['foo.txt'],
           excludes: ['bar.txt']
         }
       };
@@ -52,6 +53,7 @@ describe('Extra Task', function() {
       path.join(srcBase, '*.*'),
       '!' + path.join(srcBase, '*.html'),
       '!' + path.join(srcBase, 'manifest.json'),
+      path.join(srcBase, 'foo.txt'),
       '!' + path.join(srcBase, 'bar.txt')
     ];
 
