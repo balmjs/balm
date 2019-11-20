@@ -1,6 +1,6 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
-## v2.0.0 / 2019-11-19
+## v2.0.0 / 2019-11-20
 
 > It is a new starting point
 
