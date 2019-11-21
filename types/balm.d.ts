@@ -57,8 +57,8 @@ interface BalmScripts {
   options: object;
   inject: boolean;
   optimization: object;
-  splitAllVendors: boolean;
-  vendorsName: string;
+  extractAllVendors: boolean;
+  vendorName: string;
   extractCss: {
     enabled: boolean;
     prefix: string;

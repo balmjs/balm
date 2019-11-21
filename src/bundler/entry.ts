@@ -66,7 +66,7 @@ function getEntry(
 
       // Key
       const entryKey: string = isVendor
-        ? path.join(scripts.vendorsName, key)
+        ? path.join(scripts.vendorName, key)
         : path.join(key);
 
       // Value

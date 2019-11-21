@@ -46,7 +46,7 @@ project
 │ ├── images
 │ ├── media
 │ ├─┬ scripts
-│ │ └── main.js  // Required. A entry file for JS.
+│ │ └── index.js  // Required. A entry file for JS.
 │ ├─┬ styles
 │ │ └── main.css // Required. A entry file for CSS.
 │ └── index.html // Required. A entry file for HTML.

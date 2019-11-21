@@ -6,11 +6,11 @@ function _getSplitChunks(): boolean | object {
   const jsFolder: string = BalmJS.config.paths.target.js;
 
   let cacheGroups: any = false;
-  if (scripts.splitAllVendors) {
+  if (scripts.extractAllVendors) {
     // All vendors
     const jsFilename = scripts.inject
-      ? `${scripts.vendorsName}.${INJECT_HASHNAME}.js`
-      : `${scripts.vendorsName}.js`;
+      ? `${scripts.vendorName}.${INJECT_HASHNAME}.js`
+      : `${scripts.vendorName}.js`;
 
     cacheGroups = {
       vendors: {
@@ -35,8 +35,8 @@ function _getSplitChunks(): boolean | object {
         name: jsFilename,
         test: new RegExp(`[\\\\/]${cacheGroupModules}[\\\\/]`),
         filename: BalmJS.file.assetsPath(
-          path.join(jsFolder, scripts.vendorsName, jsFilename)
-        ), // Output: `js/vendors/customVendor.js`
+          path.join(jsFolder, scripts.vendorName, jsFilename)
+        ), // Output: `js/vendor/customVendorName.js`
         enforce: true
       };
     }

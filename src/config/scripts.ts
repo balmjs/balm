@@ -86,8 +86,8 @@ const inject = false;
  * @reference https://webpack.js.org/configuration/optimization/
  */
 const optimization: object = {};
-const splitAllVendors = false;
-const vendorsName = 'vendors'; // AllInOne vendor filename or Vendors folder name
+const extractAllVendors = false; // Extract all vendors (all in one)
+const vendorName = 'vendor'; // AllInOne vendor filename or Vendors folder name
 // Extract CSS
 const extractCss: {
   enabled: boolean;
@@ -119,8 +119,8 @@ export default {
   options,
   inject,
   optimization,
-  splitAllVendors,
-  vendorsName,
+  extractAllVendors,
+  vendorName,
   extractCss,
   base64Limit
 };

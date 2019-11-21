@@ -67,7 +67,7 @@ describe('Bundler#webpackConfig()', function() {
     });
   });
 
-  describe('split vendors', function() {
+  describe('vendor extraction', function() {
     describe('default', function() {
       before(function() {
         balm.config = {
@@ -75,7 +75,7 @@ describe('Bundler#webpackConfig()', function() {
             isProd: true
           },
           scripts: {
-            splitAllVendors: true
+            extractAllVendors: true
           }
         };
       });
@@ -99,7 +99,7 @@ describe('Bundler#webpackConfig()', function() {
               main: './src/scripts/main.js'
             },
             inject: true,
-            splitAllVendors: true
+            extractAllVendors: true
           }
         };
       });

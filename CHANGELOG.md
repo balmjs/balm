@@ -1,10 +1,22 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.0.2 / 2019-11-21
+
+### Update `balm.config`
+
+- restore `scripts.extractAllVendors` from balm v1
+- restore `scripts.vendorName: string = 'vendor'` from balm v1
+
+### BREAKING CHANGES
+
+- deprecated scripts.<del>`splitAllVendors`</del>
+- deprecated scripts.<del>`vendorsName`</del>: string = <del>`'vendors'`</del>
+
 ## v2.0.1
 
 ### Update `balm.config`
 
-- restore `extras.includes`
+- restore `extras.includes` from balm v1
 
 ## v2.0.0 / 2019-11-20
 

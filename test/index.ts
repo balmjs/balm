@@ -30,7 +30,7 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
     target: 'web',
     externals: false,
     inject: false,
-    splitAllVendors: false,
+    extractAllVendors: false,
     bundleAnalyzerReport: false,
     extractCss: {
       enabled: false

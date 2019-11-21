@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -115,7 +115,7 @@
     "@typescript-eslint/parser": "2.7.0",
     "babel-plugin-istanbul": "^5.2.0",
     "chai": "^4.2.0",
-    "coveralls": "^3.0.7",
+    "coveralls": "^3.0.8",
     "cross-env": "^6.0.3",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.7.0",
