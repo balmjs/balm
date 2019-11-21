@@ -57,12 +57,17 @@ class CleanTask extends BalmJS.BalmTask {
   get dirInBackend(): string[] {
     const hasBuildDir: boolean =
       !!BalmJS.config.assets.subDir || BalmJS.config.assets.cache;
-    const buildDir: string[] = hasBuildDir ? [BalmJS.config.dest.static] : [];
+    const buildDirInProd: string[] = hasBuildDir
+      ? [BalmJS.config.dest.static]
+      : [];
+    const buildDirInDev: string[] = hasBuildDir
+      ? [path.join(BalmJS.config.dest.static, BalmJS.config.assets.buildDir)] // NOTE: fix for `BalmJS.file.assetsSuffixPath`
+      : [];
 
     return [
       ...(BalmJS.config.env.isProd && hasBuildDir
-        ? buildDir
-        : this._getAssetsDir('dest'))
+        ? buildDirInProd
+        : [...buildDirInDev, ...this._getAssetsDir('dest')])
     ];
   }
 
