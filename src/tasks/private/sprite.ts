@@ -44,12 +44,14 @@ class SpriteTask extends BalmJS.BalmTask {
       },
       {
         imgName: `${spriteName}.png`, // E.g. 'awesome-sprites.png'
-        cssName: `_${spriteItem.folderName}.${stylesConfig.extname}`, // E.g. "_awesome.scss"
-        imgPath: `${stylesConfig.imageBasePath}${imageTarget}/${spriteName}.png`, // E.g. "path/to/img/awesome-sprites.png"
+        cssName: `_${spriteItem.folderName}.${stylesConfig.extname}`, // E.g. "_awesome.{css,sass,scss,less}"
+        imgPath: `${stylesConfig.imageBasePath}${imageTarget}/${spriteName}.png`, // E.g. "../img/awesome-sprites.png"
+        cssVarMap: function(sprite: any) {
+          sprite.name = `${spriteItem.folderName}-${sprite.name}`; // E.g. "awesome-icon-name"
+        },
         cssSpritesheetName: `${spriteItem.folderName}-spritesheet`, // E.g. "awesome-spritesheet"
         cssOpts: {
-          cssSelector: (sprite: any): string =>
-            `.${spriteItem.folderName}-${sprite.name}` // Classname in css file: '.icon-awesome'
+          cssSelector: (sprite: any): string => `.${sprite.name}` // Classname in css file: '.icon-awesome'
         }
       }
     );
@@ -58,7 +60,10 @@ class SpriteTask extends BalmJS.BalmTask {
       defaultParams = Object.assign(defaultParams, {
         retinaSrcFilter: `${spriteItem.retinaSrc}`,
         retinaImgName: `${spriteName}@2x.png`, // E.g. 'awesome-sprites@2x.png'
-        retinaImgPath: `${stylesConfig.imageBasePath}${imageTarget}/${spriteName}@2x.png`, // E.g. "path/to/img/awesome-sprites@2x.png"
+        retinaImgPath: `${stylesConfig.imageBasePath}${imageTarget}/${spriteName}@2x.png`, // E.g. "../img/awesome-sprites@2x.png"
+        cssVarMap: function(sprite: any) {
+          sprite.name = `${spriteItem.folderName}-${sprite.name}`; // E.g. "awesome-icon-name"
+        },
         cssRetinaSpritesheetName: `${spriteItem.folderName}-spritesheet-2x`, // E.g. "awesome-spritesheet-2x"
         cssRetinaGroupsName: `${spriteItem.folderName}-retina-groups` // E.g. "awesome-retina-groups"
       });

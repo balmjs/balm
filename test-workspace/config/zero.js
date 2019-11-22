@@ -10,6 +10,7 @@ balm.config = {
   workspace,
   // useDefaults: false,
   // styles: {
+  //   extname: 'scss',
   //   sprites: ['icons', 'mdi']
   // },
   assets: {
