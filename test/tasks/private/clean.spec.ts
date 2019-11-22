@@ -279,12 +279,13 @@ describe('Clean Task', function() {
                 isProd: true
               },
               assets: {
-                subDir: 'web'
+                subDir: 'web',
+                cache: true
               }
             };
           });
 
-          const dirInBackend = [path.join('public', 'web')];
+          const dirInBackend = [path.join('public', 'web', 'build')];
 
           it(
             `expected output: ${dirInBackend}`,
