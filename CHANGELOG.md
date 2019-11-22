@@ -1,5 +1,11 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.0.3 / 2019-11-22
+
+### Bug Fixes
+
+- `balm:clean`: fix clean _buildDir_ bug in development for the Back-end mode
+
 ## v2.0.2 / 2019-11-21
 
 ### Update `balm.config`
