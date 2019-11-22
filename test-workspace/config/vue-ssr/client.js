@@ -49,7 +49,7 @@ balm.config = balmConfig;
 
 if (balm.config.env.isProd) {
   balm.config.html.options.removeComments = false;
-  balm.config.cache = true;
+  balm.config.assets.cache = true;
 }
 
 balm.go(mix => {
