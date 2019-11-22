@@ -1,5 +1,11 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.0.4
+
+### Bug Fixes
+
+- `balm:sprite`: fix CSS variable bug for Sass and Less
+
 ## v2.0.3 / 2019-11-22
 
 ### Bug Fixes
