@@ -46,7 +46,7 @@ balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
 balm.config = balmConfig;
 
 balm.go(mix => {
-  if (balm.config.env.isProd) {
+  if (mix.env.isProd) {
     console.log('build server');
   }
 });

@@ -53,7 +53,7 @@ if (balm.config.env.isProd) {
 }
 
 balm.go(mix => {
-  if (balm.config.env.isProd) {
+  if (mix.env.isProd) {
     console.log('build client');
     mix.remove('dist/server.html');
   }
