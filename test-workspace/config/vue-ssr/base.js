@@ -6,7 +6,6 @@ function resolve(dir) {
 }
 
 module.exports = {
-  cssLoader: false,
   loaders: [
     {
       test: /\.vue$/,
@@ -17,6 +16,9 @@ module.exports = {
       loader: ['vue-style-loader', 'css-loader', 'less-loader']
     }
   ],
+  disableDefaultLoaders: {
+    css: true
+  },
   alias: {
     vue$: 'vue/dist/vue.esm.js',
     '@': resolve('vue-ssr/app/scripts')
