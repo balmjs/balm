@@ -71,6 +71,6 @@ if (isProd) {
 
   app.on('error', err => console.log(err));
   app.listen(3000, () => {
-    console.log(`vue ssr started at localhost:3000`);
+    console.log(`vue ssr started at http://localhost:3000`);
   });
 }
