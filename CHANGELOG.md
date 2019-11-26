@@ -1,5 +1,11 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.0.5 / 2019-11-26
+
+### Upgrade Dependencies
+
+- dependencies: up to date
+
 ## v2.0.4
 
 ### Bug Fixes
