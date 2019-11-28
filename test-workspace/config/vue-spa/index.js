@@ -17,6 +17,9 @@ const balmConfig = Object.assign(balmrc, {
         loader: 'vue-loader'
       }
     ],
+    urlLoaderOptions: {
+      esModule: false
+    },
     plugins: [new VueLoaderPlugin()],
     alias: {
       vue$: 'vue/dist/vue.esm.js',

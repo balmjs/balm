@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "2.0.5",
+  "version": "2.1.0",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -94,7 +94,7 @@
     "terser": "^4.4.0",
     "terser-webpack-plugin": "^2.2.1",
     "through2": "^3.0.1",
-    "url-loader": "^2.3.0",
+    "url-loader": "^3.0.0",
     "webpack": "^4.41.2",
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-dev-middleware": "^3.7.2",
@@ -115,7 +115,7 @@
     "@typescript-eslint/parser": "^2.9.0",
     "babel-plugin-istanbul": "^5.2.0",
     "chai": "^4.2.0",
-    "coveralls": "^3.0.8",
+    "coveralls": "^3.0.9",
     "cross-env": "^6.0.3",
     "eslint": "^6.7.1",
     "eslint-config-prettier": "^6.7.0",

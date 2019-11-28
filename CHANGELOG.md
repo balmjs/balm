@@ -1,10 +1,55 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
-## v2.0.5 / 2019-11-26
+## v2.1.0 / 2019-11-28
 
-### Upgrade Dependencies
+### Chores
 
 - dependencies: up to date
+  - `url-loader`: 2.x -> 3.x
+
+> `url-loader` switch to ES modules by default (the option `esModule` is `true` by default)
+
+```html
+<template>
+  <img :src="require('@/assets/logo.png').default" />
+</template>
+```
+
+### Features
+
+- Improved `url-loader` default rule
+- Update `balm.config`
+  - `scripts.urlLoaderOptions: object = {}`
+
+```js
+balm.config = {
+  scripts: {
+    urlLoaderOptions: {
+      esModule: false
+    }
+  }
+};
+```
+
+```html
+<template>
+  <img :src="require('@/assets/logo.png')" />
+</template>
+```
+
+### BREAKING CHANGES
+
+- Deprecated `balm.config`
+  - scripts.<del>`base64Limit`</del>
+
+## v2.0.5 / 2019-11-26
+
+### Chores
+
+- dependencies: up to date
+  - `file-loader`: 4.x -> 5.x
+
+> `file-loader` switch to ES modules by default (the option `esModule` is `true` by default)
 
 ## v2.0.4
 
@@ -20,21 +65,24 @@
 
 ## v2.0.2 / 2019-11-21
 
-### Update `balm.config`
+### Features
 
-- restore `scripts.extractAllVendors` from balm v1
-- restore `scripts.vendorName: string = 'vendor'` from balm v1
+- Update `balm.config`
+  - restore `scripts.extractAllVendors: boolean = false` from balm v1
+  - restore `scripts.vendorName: string = 'vendor'` from balm v1
 
 ### BREAKING CHANGES
 
-- deprecated scripts.<del>`splitAllVendors`</del>
-- deprecated scripts.<del>`vendorsName`</del>: string = <del>`'vendors'`</del>
+- Deprecated `balm.config`
+  - scripts.<del>`splitAllVendors`</del>
+  - scripts.<del>`vendorsName`</del>: string = <del>`'vendors'`</del>
 
 ## v2.0.1
 
-### Update `balm.config`
+### Features
 
-- restore `extras.includes` from balm v1
+- Update `balm.config`
+  - restore `extras.includes` from balm v1
 
 ## v2.0.0 / 2019-11-20
 

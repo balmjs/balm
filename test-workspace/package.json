@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2019.11.25",
+  "version": "2019.11.28",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -38,10 +38,10 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.7.0",
-    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-numeric-separator": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "ts-loader": "^6.2.1",

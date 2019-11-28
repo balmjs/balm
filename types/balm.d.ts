@@ -44,6 +44,7 @@ interface BalmScripts {
     js?: boolean;
     url?: boolean;
   };
+  urlLoaderOptions: object;
   extensions: string[];
   alias: object;
   plugins: object[];
@@ -63,7 +64,6 @@ interface BalmScripts {
     enabled: boolean;
     prefix: string;
   };
-  base64Limit: number;
 }
 
 interface BalmAssets {

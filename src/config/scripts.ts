@@ -9,6 +9,7 @@ const libraryTarget = 'var'; // ['var', 'this', 'window', 'global', 'commonjs', 
 const loaders: object[] = [];
 const includeJsResource: string[] = [];
 const disableDefaultLoaders: BalmDefaultLoaders = {};
+const urlLoaderOptions: object = {};
 // Resolve
 const extensions: string[] = [];
 const alias: object = {};
@@ -96,8 +97,6 @@ const extractCss: {
   enabled: false,
   prefix: ''
 };
-// Loads files as `base64` encoded URL
-const base64Limit = 10000;
 
 export default {
   entry,
@@ -106,6 +105,7 @@ export default {
   loaders,
   includeJsResource,
   disableDefaultLoaders,
+  urlLoaderOptions,
   extensions,
   alias,
   plugins,
@@ -121,6 +121,5 @@ export default {
   optimization,
   extractAllVendors,
   vendorName,
-  extractCss,
-  base64Limit
+  extractCss
 };
