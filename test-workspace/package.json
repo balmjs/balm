@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2019.11.28",
+  "version": "2019.12.6",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -25,7 +25,9 @@
     "ts:prod": "gulp -p --cwd . -f config/ts/index.js"
   },
   "dependencies": {
+    "@babel/runtime-corejs3": "^7.7.4",
     "axios": "^0.19.0",
+    "core-js": "^3.4.7",
     "cors": "^2.8.5",
     "cross-env": "^6.0.3",
     "express": "^4.17.1",
@@ -45,7 +47,7 @@
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.7.2",
+    "typescript": "^3.7.3",
     "vue-loader": "^15.7.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",

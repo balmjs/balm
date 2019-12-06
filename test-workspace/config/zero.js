@@ -16,6 +16,9 @@ balm.config = {
   assets: {
     cache: true
   }
+  // logs: {
+  //   level: 2
+  // }
 };
 
 balm.go(mix => {
