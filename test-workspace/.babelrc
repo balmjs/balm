@@ -1,4 +1,23 @@
 {
-  "presets": ["@babel/env"],
-  "plugins": ["@babel/transform-runtime"]
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "modules": "commonjs",
+        // "debug": true,
+        "exclude": ["transform-typeof-symbol"],
+        "useBuiltIns": "entry",
+        "corejs": 3
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/transform-runtime",
+      {
+        "corejs": 3
+      }
+    ],
+    "@babel/syntax-dynamic-import"
+  ]
 }

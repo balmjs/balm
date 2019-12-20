@@ -26,7 +26,7 @@ const balmConfig = {
     excludes: ['dist/3c/icons/*']
   },
   logs: {
-    level: 3
+    level: 2
   }
 };
 
