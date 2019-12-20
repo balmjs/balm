@@ -20,4 +20,4 @@ import './promises';
 
 import './tail-calls';
 
-console.info('es6');
+console.info('ES6');
