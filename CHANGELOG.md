@@ -1,5 +1,16 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.1.1 / 2019-12-22
+
+### Chores
+
+- dependencies: up to date
+
+### Features
+
+- Update `balm.config`
+  - restore `scripts.includeJsResource: string[]` (absolute paths) from balm v1
+
 ## v2.1.0 / 2019-11-28
 
 ### Chores

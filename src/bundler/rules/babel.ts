@@ -4,10 +4,10 @@ function jsLoader(): object {
   return {
     test: /\.(js|mjs|jsx|ts|tsx)$/,
     loader: 'babel-loader',
-    include: BalmJS.file.absPaths([
-      BalmJS.config.src.js,
+    include: [
+      BalmJS.file.absPaths(BalmJS.config.src.js),
       ...BalmJS.config.scripts.includeJsResource
-    ])
+    ]
   };
 }
 
