@@ -24,6 +24,7 @@ module.exports = {
   rules: {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-empty-function': [2, { allow: ['arrowFunctions'] }],
     '@typescript-eslint/camelcase': [
       2,
       { allow: ['drop_console', 'ascii_only', 'child_process'] }
