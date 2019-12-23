@@ -17,7 +17,7 @@ import './subclassable-built-ins';
 import './math-number-string-object-apis';
 import './binary-and-octal-literals';
 import './promises';
-
+// import './reflect-api';
 import './tail-calls';
 
 console.info('ES6');

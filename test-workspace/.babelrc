@@ -5,7 +5,6 @@
       {
         "modules": "commonjs",
         // "debug": true,
-        "exclude": ["transform-typeof-symbol"],
         "useBuiltIns": "entry",
         "corejs": 3
       }
