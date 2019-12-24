@@ -8,32 +8,14 @@ const balmConfig = Object.assign(balmrc, {
   },
   scripts: {
     entry: {
+      // polyfill: './esnext/scripts/polyfill.js',
       main: './esnext/scripts/index.js'
     },
     alias: {
       '@': path.resolve(__dirname, '..', '..', 'esnext', 'scripts')
-    },
-    options: {
-      parse: {
-        ecma: 8
-      },
-      compress: {
-        ecma: 5,
-        warnings: false,
-        comparisons: false,
-        inline: 2
-      },
-      mangle: {
-        safari10: true
-      },
-      output: {
-        ecma: 5,
-        comments: false,
-        ascii_only: true
-      },
-      ie8: true
     }
-  }
+  },
+  ie8: true
 });
 
 balm.config = balmConfig;
