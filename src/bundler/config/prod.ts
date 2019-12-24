@@ -14,13 +14,18 @@ const bundleAnalyzerReport = process.env.npm_config_report || false;
 
 function getProdConfig(scripts: any): any {
   const shouldUseSourceMap: string | boolean = scripts.sourceMap;
+  const terserOptions: { ie8?: boolean } = scripts.options;
+
+  if (BalmJS.config.ie8) {
+    terserOptions.ie8 = true;
+  }
 
   return webpackMerge(getCommonConfig(scripts), {
     mode: 'production',
     optimization: {
       minimizer: [
         new TerserPlugin({
-          terserOptions: scripts.options,
+          terserOptions,
           extractComments: false
         }),
         new OptimizeCSSAssetsPlugin({

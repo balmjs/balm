@@ -1,5 +1,18 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.2.0 / 2019-12-24
+
+### Chores
+
+- devDependencies: up to date
+  - `babel-plugin-istanbul`: 5.x -> 6.x
+  - `nyc`: 14.x -> 15.x
+
+### Features
+
+- Update `balm.config`
+  - `ie8: boolean = false`
+
 ## v2.1.1 / 2019-12-22
 
 ### Chores

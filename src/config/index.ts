@@ -33,6 +33,7 @@ const workspace: string = process.cwd();
  */
 const inFrontend = true;
 const useDefaults = true; // Use balm default task
+const ie8 = false; // IE8 compatibility
 
 const config: any = {
   env,
@@ -49,7 +50,8 @@ const config: any = {
   server,
   ftp,
   pwa,
-  logs
+  logs,
+  ie8
 };
 
 global.BalmJS = {};

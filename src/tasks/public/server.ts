@@ -85,7 +85,8 @@ class ServerTask extends BalmJS.BalmTask {
           host: BalmJS.config.server.host,
           https: BalmJS.config.server.https,
           open: BalmJS.config.server.open,
-          localOnly: BalmJS.config.server.localOnly
+          localOnly: BalmJS.config.server.localOnly,
+          scriptPath: BalmJS.config.ie8 ? (): string => '' : undefined
         };
 
         if (BalmJS.config.server.proxy) {

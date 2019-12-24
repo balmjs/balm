@@ -104,14 +104,15 @@ interface BalmServer {
 }
 
 interface BalmConfig {
-  inFrontend: boolean;
-  workspace: string;
   env: {
     isProd: boolean;
     isTest: boolean;
     isDev: boolean;
     inSSR: boolean;
   };
+  workspace: string;
+  inFrontend: boolean;
+  useDefaults: boolean;
   roots: {
     source: string;
     tmp: string;
@@ -156,7 +157,7 @@ interface BalmConfig {
     level: number;
     formatOptions: object;
   };
-  useDefaults: boolean;
+  ie8: boolean;
   src?: any;
   dest?: any;
 }
