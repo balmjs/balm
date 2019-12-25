@@ -3,18 +3,21 @@
     [
       "@babel/env",
       {
+        // "loose": true,
         "modules": "commonjs",
-        "useBuiltIns": "entry",
+        // "debug": true,
+        "useBuiltIns": "usage",
         "corejs": 3
       }
     ]
   ],
   "plugins": [
     [
-      "@babel/plugin-transform-runtime",
+      "@babel/transform-runtime",
       {
         "corejs": 3
       }
     ]
+    // "@babel/plugin-syntax-dynamic-import"
   ]
 }

@@ -16,7 +16,7 @@ function getProdConfig(scripts: any): any {
   const shouldUseSourceMap: string | boolean = scripts.sourceMap;
   const terserOptions: { ie8?: boolean } = scripts.options;
 
-  if (BalmJS.config.ie8) {
+  if (BalmJS.config.scripts.ie8) {
     terserOptions.ie8 = true;
   }
 

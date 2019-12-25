@@ -28,11 +28,20 @@ class BalmStyleTask extends BalmTask {
 
   handleStyle(style: string, output: string, options?: any): any {
     const taskName = `${this.name} task`;
+    const shouldUseSourceMap = !(
+      BalmJS.config.env.isProd || BalmJS.config.styles.minified
+    );
 
     let stream: any = gulp
       .src(
         BalmJS.file.absPaths(this.input),
-        Object.assign({ allowEmpty: true }, this.gulpSrcOptions)
+        Object.assign(
+          {
+            sourcemaps: shouldUseSourceMap,
+            allowEmpty: true
+          },
+          this.gulpSrcOptions
+        )
       )
       .pipe(
         BalmJS.plugins.plumber(function(this: any, error: any): void {
@@ -45,12 +54,6 @@ class BalmStyleTask extends BalmTask {
           this.emit('end');
           this.destroy();
         })
-      )
-      .pipe(
-        $.if(
-          BalmJS.config.env.isDev && !BalmJS.config.styles.minified,
-          $.sourcemaps.init()
-        )
       );
 
     switch (style) {
@@ -67,17 +70,15 @@ class BalmStyleTask extends BalmTask {
       .pipe($.postcss(BalmJS.plugins.postcss()))
       .pipe(
         $.if(
-          BalmJS.config.env.isDev && !BalmJS.config.styles.minified,
-          $.sourcemaps.write('.')
-        )
-      )
-      .pipe(
-        $.if(
           BalmJS.config.env.isProd || BalmJS.config.styles.minified,
           $.postcss([cssnano(BalmJS.config.styles.options)])
         )
       )
-      .pipe(gulp.dest(BalmJS.file.absPath(output)))
+      .pipe(
+        gulp.dest(BalmJS.file.absPath(output), {
+          sourcemaps: shouldUseSourceMap
+        })
+      )
       .pipe(server.reload({ stream: true }));
   }
 }

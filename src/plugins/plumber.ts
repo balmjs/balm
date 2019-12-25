@@ -41,9 +41,7 @@ function defaultErrorHandler(this: any, error: any): any {
   }
 }
 
-function gulpPlumber(opts: any): any {
-  opts = opts || {};
-
+function gulpPlumber(opts: any = {}): any {
   if (BalmJS.utils.isFunction(opts)) {
     opts = { errorHandler: opts };
   }

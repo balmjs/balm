@@ -54,9 +54,9 @@ declare namespace NodeJS {
   }
 }
 
-declare var gulp: Gulp;
-declare var $: any;
-declare var server: any;
-declare var webpack: any;
-declare var through2: any;
-declare var PluginError: any;
+declare const gulp: Gulp;
+declare const $: any;
+declare const server: any;
+declare const webpack: any;
+declare const through2: any;
+declare const PluginError: any;

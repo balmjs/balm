@@ -11,11 +11,8 @@ const balmConfig = Object.assign(balmrc, {
       // polyfill: './esnext/scripts/polyfill.js',
       main: './esnext/scripts/index.js'
     },
-    alias: {
-      '@': path.resolve(__dirname, '..', '..', 'esnext', 'scripts')
-    }
-  },
-  ie8: true
+    ie8: true
+  }
 });
 
 balm.config = balmConfig;

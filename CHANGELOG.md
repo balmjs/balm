@@ -1,6 +1,6 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
-## v2.2.0 / 2019-12-24
+## v2.2.0 / 2019-12-25
 
 ### Chores
 
@@ -11,7 +11,7 @@
 ### Features
 
 - Update `balm.config`
-  - `ie8: boolean = false`
+  - `scripts.ie8: boolean = false`
 
 ## v2.1.1 / 2019-12-22
 

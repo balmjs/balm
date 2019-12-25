@@ -9,6 +9,10 @@ function reload(done: Function): void {
 class ServerTask extends BalmJS.BalmTask {
   constructor() {
     super('serve');
+
+    if (BalmJS.config.scripts.ie8) {
+      BalmJS.config.scripts.hot = false;
+    }
   }
 
   private _onWatch(): void {
@@ -86,7 +90,7 @@ class ServerTask extends BalmJS.BalmTask {
           https: BalmJS.config.server.https,
           open: BalmJS.config.server.open,
           localOnly: BalmJS.config.server.localOnly,
-          scriptPath: BalmJS.config.ie8 ? (): string => '' : undefined
+          scriptPath: BalmJS.config.scripts.ie8 ? (): string => '' : undefined
         };
 
         if (BalmJS.config.server.proxy) {

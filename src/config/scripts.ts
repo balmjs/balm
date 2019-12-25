@@ -97,6 +97,8 @@ const extractCss: {
   enabled: false,
   prefix: ''
 };
+// IE8 compatibility
+const ie8 = false;
 
 export default {
   entry,
@@ -121,5 +123,6 @@ export default {
   optimization,
   extractAllVendors,
   vendorName,
-  extractCss
+  extractCss,
+  ie8
 };

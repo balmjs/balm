@@ -70,7 +70,6 @@
     "gulp-rev-delete-original": "^0.2.3",
     "gulp-sass": "^4.0.2",
     "gulp-size": "^3.0.0",
-    "gulp-sourcemaps": "^2.6.5",
     "gulp-useref": "^4.0.0",
     "gulp-zip": "^5.0.1",
     "gulp.spritesmith": "^6.11.0",

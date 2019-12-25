@@ -64,6 +64,7 @@ interface BalmScripts {
     enabled: boolean;
     prefix: string;
   };
+  ie8: boolean;
 }
 
 interface BalmAssets {
@@ -157,7 +158,6 @@ interface BalmConfig {
     level: number;
     formatOptions: object;
   };
-  ie8: boolean;
   src?: any;
   dest?: any;
 }
@@ -197,7 +197,7 @@ interface BalmFile {
 
 interface BalmPlugins {
   postcss: () => object[];
-  plumber: (options: any) => any;
+  plumber: (options?: any) => any;
   htmlmin: (options: any) => any;
   jsmin: (options: any) => any;
   rename: (options: any) => any;
@@ -237,4 +237,4 @@ declare namespace NodeJS {
   }
 }
 
-declare var BalmJS: NodeJS.Global;
+declare const BalmJS: NodeJS.Global;

@@ -13,9 +13,9 @@ declare namespace NodeJS {
   }
 }
 
-declare var path: Path;
+declare const path: Path;
 
 declare module '*.json' {
-  var file: any;
+  const file: any;
   export = file;
 }
