@@ -7,17 +7,17 @@ import './default-rest-spread';
 import './let-const';
 import './iterators-forof';
 import './generators';
-// import './unicode';
+// import './unicode'; // NOTE: IE unsupported
 import './modules';
-// import './module-loaders';
+import './module-loaders';
 import './map-set-weakmap-weakset';
-// import './proxies';
+// import './proxies'; // NOTE: IE unsupported
 import './symbols';
 import './subclassable-built-ins';
 import './math-number-string-object-apis';
 import './binary-and-octal-literals';
 import './promises';
-// import './reflect-api';
+// import './reflect-api'; // NOTE: IE unsupported
 import './tail-calls';
 
 console.info('ES6');

@@ -9,7 +9,10 @@ console.log(Math.imul(Math.pow(2, 32) - 1, Math.pow(2, 32) - 2)); // 2
 console.log('abcde'.includes('cd')); // true
 console.log('abc'.repeat(3)); // "abcabcabc"
 
-console.log(Array.from(document.querySelectorAll('*'))); // Returns a real Array
+if (!window.lteIE7) {
+  // NOTE: IE7 Object doesn't support property or method `querySelectorAll`
+  console.log(Array.from(document.querySelectorAll('*'))); // Returns a real Array
+}
 console.log(Array.of(1, 2, 3)); // Similar to new Array(...), but without special one-arg behavior
 console.log([(0, 0, 0)].fill(7, 1)); // [0,7,7]
 console.log([(1, 2, 3)].find(x => x == 3)); // 3

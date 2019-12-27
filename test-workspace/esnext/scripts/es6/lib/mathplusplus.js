@@ -1,5 +1,5 @@
-// export * from './math';
-export var pi = 3.14; // NOTE: for IE8
+export * from './math'; // NOTE: lteIE8 unsupported
+// export var pi = 3.14;
 
 export var e = 2.71828182846;
 
