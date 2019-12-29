@@ -16,7 +16,7 @@ function _getSplitChunks(): boolean | object {
       vendors: {
         chunks: 'initial',
         name: jsFilename,
-        test: /[\\/]node_modules|bower_components[\\/]/,
+        test: /[\\/](node_modules|bower_components)[\\/]/,
         filename: BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`) // Output: `js/vendors.js`
       }
     };
@@ -33,7 +33,7 @@ function _getSplitChunks(): boolean | object {
       cacheGroups[cacheGroupKey] = {
         chunks: 'initial',
         name: jsFilename,
-        test: new RegExp(`[\\\\/]${cacheGroupModules}[\\\\/]`),
+        test: new RegExp(`[\\\\/](${cacheGroupModules})[\\\\/]`),
         filename: BalmJS.file.assetsPath(
           path.join(jsFolder, scripts.vendorName, jsFilename)
         ), // Output: `js/vendor/customVendorName.js`

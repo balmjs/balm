@@ -1,5 +1,11 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.2.1 / 2019-12-29
+
+### Bug Fixes
+
+- fix scripts entries for custom vendors
+
 ## v2.2.0 / 2019-12-25
 
 ### Chores
