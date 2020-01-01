@@ -28,8 +28,7 @@
     }
   ],
   "files": [
-    "lib",
-    "types/*.d.ts"
+    "lib"
   ],
   "main": "lib/index.js",
   "repository": {

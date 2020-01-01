@@ -1,5 +1,9 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.2.2 / 2020-01-01
+
+:tada: Hello, 2020!
+
 ## v2.2.1 / 2019-12-29
 
 ### Bug Fixes
