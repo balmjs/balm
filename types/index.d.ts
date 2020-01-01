@@ -1,3 +1,3 @@
-/// <reference path="node.d.ts" />
-/// <reference path="vendors.d.ts" />
-/// <reference path="balm.d.ts" />
+import './node';
+import './vendors';
+import './balm';
