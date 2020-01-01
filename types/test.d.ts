@@ -12,8 +12,8 @@ declare namespace NodeJS {
   }
 }
 
-declare var isWindows: boolean;
-declare var balm: any;
-declare var runTask: Function;
-declare var expect: any;
-declare var asyncCase: Function;
+declare const isWindows: boolean;
+declare const balm: any;
+declare const runTask: Function;
+declare const expect: any;
+declare const asyncCase: Function;

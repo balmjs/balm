@@ -43,6 +43,13 @@ interface Gulp {
   tree: (options?: object) => any;
 }
 
+declare const gulp: Gulp;
+declare const $: any;
+declare const server: any;
+declare const webpack: any;
+declare const through2: any;
+declare const PluginError: any;
+
 declare namespace NodeJS {
   interface Global {
     gulp: Gulp;
@@ -53,10 +60,3 @@ declare namespace NodeJS {
     PluginError: any;
   }
 }
-
-declare const gulp: Gulp;
-declare const $: any;
-declare const server: any;
-declare const webpack: any;
-declare const through2: any;
-declare const PluginError: any;

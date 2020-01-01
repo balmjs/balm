@@ -204,37 +204,40 @@ interface BalmPlugins {
   sftp: (options: any) => any;
 }
 
-declare namespace NodeJS {
-  interface Global {
-    BalmJS: any;
-    config: BalmConfig;
-    noop: Function;
-    LogLevel: {
-      Trace: number;
-      Debug: number;
-      Info: number;
-      Warn: number;
-      Error: number;
-    };
-    vendors: BalmVendor[];
-    utils: BalmUtils;
-    logger: BalmLogger;
-    file: BalmFile;
-    toNamespace: (taskName: any) => string | string[];
-    plugins: BalmPlugins;
-    TIME_FLAG: string;
-    BalmTask: any;
-    BalmStyleTask: any;
-    tasks: any[];
-    beforeTask: any;
-    afterTask: any;
-    recipes: any[];
-    recipeIndex: number;
-    server: any;
-    watchFtpFile: string;
-    watching: boolean;
-    webpackCompiler: any;
-  }
+interface BalmJSGlobal {
+  config: BalmConfig;
+  noop: Function;
+  LogLevel: {
+    Trace: number;
+    Debug: number;
+    Info: number;
+    Warn: number;
+    Error: number;
+  };
+  vendors: BalmVendor[];
+  utils: BalmUtils;
+  logger: BalmLogger;
+  file: BalmFile;
+  toNamespace: (taskName: any) => string | string[];
+  plugins: BalmPlugins;
+  TIME_FLAG: string;
+  BalmTask: any;
+  BalmStyleTask: any;
+  tasks: any[];
+  beforeTask: any;
+  afterTask: any;
+  recipes: any[];
+  recipeIndex: number;
+  server: any;
+  watchFtpFile: string;
+  watching: boolean;
+  webpackCompiler: any;
 }
 
-declare const BalmJS: NodeJS.Global;
+declare const BalmJS: BalmJSGlobal;
+
+declare namespace NodeJS {
+  interface Global {
+    BalmJS: BalmJSGlobal | {};
+  }
+}

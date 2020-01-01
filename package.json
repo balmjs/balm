@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -28,7 +28,8 @@
     }
   ],
   "files": [
-    "lib"
+    "lib",
+    "types/*.d.ts"
   ],
   "main": "lib/index.js",
   "repository": {
@@ -109,9 +110,9 @@
     "@babel/register": "^7.7.7",
     "@types/chai": "^4.2.7",
     "@types/mocha": "^5.2.7",
-    "@types/node": "^13.1.1",
-    "@typescript-eslint/eslint-plugin": "^2.13.0",
-    "@typescript-eslint/parser": "^2.13.0",
+    "@types/node": "^13.1.2",
+    "@typescript-eslint/eslint-plugin": "^2.14.0",
+    "@typescript-eslint/parser": "^2.14.0",
     "babel-plugin-istanbul": "^6.0.0",
     "chai": "^4.2.0",
     "coveralls": "^3.0.9",
