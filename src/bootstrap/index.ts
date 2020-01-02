@@ -89,8 +89,8 @@ function setConfig(customConfig: any): any {
   return config;
 }
 
-function checkTask(name: any): string | boolean | Function {
-  let result: string | boolean | Function = false;
+function setTask(name: string | Function): string | Function | undefined {
+  let result: string | Function | undefined = undefined;
 
   if (BalmJS.utils.isFunction(name)) {
     result = name as Function;
@@ -107,4 +107,4 @@ function checkTask(name: any): string | boolean | Function {
   return result;
 }
 
-export { setConfig, checkTask };
+export { setConfig, setTask };

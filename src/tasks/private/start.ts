@@ -7,7 +7,7 @@ class StartTask extends BalmJS.BalmTask {
     console.time(BalmJS.TIME_FLAG);
 
     if (BalmJS.utils.isFunction(BalmJS.beforeTask)) {
-      BalmJS.beforeTask();
+      (BalmJS.beforeTask as Function)();
     }
 
     cb();

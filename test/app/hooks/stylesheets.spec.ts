@@ -56,7 +56,7 @@ describe('Balm Hooks - css & sprites', function() {
           }
         },
         done,
-        isWindows ? true : contents
+        isWin ? true : contents
       );
     });
   });

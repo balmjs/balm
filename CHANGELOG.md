@@ -1,8 +1,13 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
-## v2.2.2 / 2020-01-01
+## v2.2.2 / 2020-01-02
 
 :tada: Hello, 2020!
+
+### Chores
+
+- update types
+- clean code
 
 ## v2.2.1 / 2019-12-29
 

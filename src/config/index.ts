@@ -52,7 +52,6 @@ const config: any = {
   logs
 };
 
-global.BalmJS = {};
 BalmJS.config = config;
 BalmJS.noop = noop;
 BalmJS.LogLevel = LogLevel;

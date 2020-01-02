@@ -2,13 +2,9 @@ import balm from '../src';
 import balmConfig from './balmrc';
 import { expect } from 'chai';
 
-const isWindows = process.platform === 'win32';
+const isWin = process.platform === 'win32';
 
 balm.config = balmConfig;
-
-global.isWindows = isWindows;
-global.balm = balm;
-global.expect = expect;
 
 function asyncCase(fn: Function) {
   return function(done: Function) {
@@ -21,4 +17,7 @@ function asyncCase(fn: Function) {
   };
 }
 
+global.isWin = isWin;
+global.balm = balm;
+global.expect = expect;
 global.asyncCase = asyncCase;

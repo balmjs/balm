@@ -22,7 +22,7 @@ describe('Balm Logger', function() {
           bright: true,
           symbol: 'check'
         });
-        const symbol = isWindows ? '√' : '✔';
+        const symbol = isWin ? '√' : '✔';
 
         expect(result).to.equal(
           `\u001b[1m\u001b[104m${symbol} <label>\u001b[49m\u001b[22m`

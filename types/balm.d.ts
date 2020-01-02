@@ -204,8 +204,15 @@ interface BalmPlugins {
   sftp: (options: any) => any;
 }
 
-interface BalmJSGlobal {
+export interface BalmModule {
   config: BalmConfig;
+  beforeTask: string | Function | undefined;
+  afterTask: string | Function | undefined;
+  go: (recipe?: Function) => void;
+  reset: Function;
+}
+
+export interface BalmGlobal extends BalmModule {
   noop: Function;
   LogLevel: {
     Trace: number;
@@ -224,20 +231,10 @@ interface BalmJSGlobal {
   BalmTask: any;
   BalmStyleTask: any;
   tasks: any[];
-  beforeTask: any;
-  afterTask: any;
   recipes: any[];
   recipeIndex: number;
   server: any;
   watchFtpFile: string;
   watching: boolean;
   webpackCompiler: any;
-}
-
-declare const BalmJS: BalmJSGlobal;
-
-declare namespace NodeJS {
-  interface Global {
-    BalmJS: BalmJSGlobal | {};
-  }
 }

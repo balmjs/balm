@@ -18,6 +18,7 @@ declare module 'postcss-import';
 declare module 'postcss-preset-env';
 declare module 'postcss-safe-parser';
 declare module 'require-dir';
+declare module 'rimraf'; // For test
 declare module 'ssh2';
 declare module 'terser-webpack-plugin';
 declare module 'through2';
@@ -28,35 +29,7 @@ declare module 'webpack-hot-middleware';
 declare module 'webpack-merge';
 declare module 'workbox-build';
 
-interface Gulp {
-  src: (globs: string | string[], options?: object) => any;
-  dest: (directory: string | Function, options?: object) => any;
-  lastRun: (task: string | Function, precision?: number) => any;
-  series: any;
-  parallel: any;
-  watch: (
-    globs: string | string[],
-    options?: object,
-    task?: string | Function
-  ) => any;
-  task: (taskName: string, taskFunction: Function) => any;
-  tree: (options?: object) => any;
-}
-
-declare const gulp: Gulp;
-declare const $: any;
-declare const server: any;
-declare const webpack: any;
-declare const through2: any;
-declare const PluginError: any;
-
-declare namespace NodeJS {
-  interface Global {
-    gulp: Gulp;
-    $: any;
-    server: any;
-    webpack: any;
-    through2: any;
-    PluginError: any;
-  }
+declare module '*.json' {
+  const file: any;
+  export default file;
 }

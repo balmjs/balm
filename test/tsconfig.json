@@ -1,5 +1,7 @@
 {
   "extends": "../tsconfig",
-  "types": ["node", "mocha", "chai"],
+  "compilerOptions": {
+    "types": ["node", "mocha", "chai"]
+  },
   "files": ["../types/test.d.ts"]
 }
