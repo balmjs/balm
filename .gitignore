@@ -64,6 +64,7 @@ typings/
 .next
 
 # BalmJS build output (custom)
+lib
 dist
 test-*/package-lock.json
 test-*/yarn.lock
