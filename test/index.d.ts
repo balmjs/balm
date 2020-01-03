@@ -1,4 +1,4 @@
-import '.';
+import '../types';
 
 declare global {
   namespace NodeJS {

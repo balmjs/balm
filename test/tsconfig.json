@@ -3,5 +3,6 @@
   "compilerOptions": {
     "types": ["node", "mocha", "chai"]
   },
-  "files": ["../types/test.d.ts"]
+  "include": ["./**/*.ts"],
+  "files": ["index.d.ts"]
 }
