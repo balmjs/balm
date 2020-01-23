@@ -1,5 +1,18 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.3.0 / 2020-01-23
+
+:tada: Happy Lunar New Year
+
+### Chores
+
+- dependencies: up to date
+  - `gulp-imagemin`: 6.x -> 7.x
+- devDependencies: up to date
+  - `husky`: 3.x -> 4.x
+  - `mocha`: 6.x -> 7.x
+- update test for `mocha@7`
+
 ## v2.2.2 / 2020-01-02
 
 :tada: Hello, 2020!

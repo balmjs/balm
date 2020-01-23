@@ -3,7 +3,7 @@ import { cleanup, runTest } from '../test';
 const targetDir = '.output';
 
 describe('Balm Hooks - files & directories', function() {
-  before(function() {
+  beforeEach(function() {
     balm.config = {
       useDefaults: false
     };

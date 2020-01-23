@@ -3,7 +3,7 @@ import { cleanup, runTest } from '../test';
 const targetDir = '.output';
 
 describe('Balm Hooks - others', function() {
-  before(function() {
+  beforeEach(function() {
     balm.config = {
       env: {
         isDev: true

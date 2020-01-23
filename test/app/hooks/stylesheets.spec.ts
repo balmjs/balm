@@ -8,7 +8,7 @@ describe('Balm Hooks - css & sprites', function() {
   });
 
   describe('stylesheets', function() {
-    before(function() {
+    beforeEach(function() {
       balm.config = {
         useDefaults: false
       };
@@ -62,16 +62,16 @@ describe('Balm Hooks - css & sprites', function() {
   });
 
   describe('css sprites', function() {
-    describe('has sprites', function() {
-      before(function() {
-        balm.config = {
-          env: {
-            isDev: true
-          },
-          useDefaults: false
-        };
-      });
+    beforeEach(function() {
+      balm.config = {
+        env: {
+          isDev: true
+        },
+        useDefaults: false
+      };
+    });
 
+    describe('has sprites', function() {
       const input = ['icons', 'mdi'];
       const output = `${targetDir}/images`;
 

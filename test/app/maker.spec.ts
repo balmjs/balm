@@ -10,7 +10,8 @@ describe('Maker', function() {
       balm.config = {
         env: {
           isProd: true
-        }
+        },
+        useDefaults: false
       };
     });
 

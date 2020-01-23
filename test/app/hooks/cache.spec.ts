@@ -3,7 +3,7 @@ import { cleanup, runTest } from '../test';
 const targetDir = '.output';
 
 describe('Balm Hooks - versioning / cache busting', function() {
-  before(function() {
+  beforeEach(function() {
     balm.config = {
       useDefaults: false
     };

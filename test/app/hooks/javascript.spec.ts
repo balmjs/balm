@@ -3,7 +3,7 @@ import { cleanup, runTest } from '../test';
 const targetDir = '.output';
 
 describe('Balm Hooks - javascript', function() {
-  before(function() {
+  beforeEach(function() {
     balm.config = {
       useDefaults: false
     };
