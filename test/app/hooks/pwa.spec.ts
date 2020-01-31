@@ -5,30 +5,30 @@ describe('Balm Hooks - pwa', function() {
     cleanup();
   });
 
-  describe('#mix.generateSW()', function() {
-    before(function() {
-      balm.config = {
-        env: {
-          isDev: true
-        },
-        useDefaults: false
-      };
-    });
+  // describe('#mix.generateSW()', function() {
+  //   before(function() {
+  //     balm.config = {
+  //       env: {
+  //         isDev: true
+  //       },
+  //       useDefaults: false
+  //     };
+  //   });
 
-    const output = '.tmp/sw.js';
+  //   const output = '.tmp/sw.js';
 
-    it(`expected output: "${output}"`, function(done) {
-      runTest(
-        {
-          testCase: output,
-          testHook: (mix: any) => {
-            mix.generateSW();
-          }
-        },
-        done
-      );
-    });
-  });
+  //   it(`expected output: "${output}"`, function(done) {
+  //     runTest(
+  //       {
+  //         testCase: output,
+  //         testHook: (mix: any) => {
+  //           mix.generateSW();
+  //         }
+  //       },
+  //       done
+  //     );
+  //   });
+  // });
 
   describe('#mix.injectManifest()', function() {
     before(function() {
