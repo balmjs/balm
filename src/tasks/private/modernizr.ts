@@ -1,5 +1,4 @@
 import fs from 'fs';
-import mkdirp from 'mkdirp';
 import Modernizr from 'modernizr';
 
 class ModernizrTask extends BalmJS.BalmTask {
@@ -20,10 +19,14 @@ class ModernizrTask extends BalmJS.BalmTask {
 
   private _createDir(): Promise<any> {
     return new Promise((resolve, reject): void => {
-      mkdirp(BalmJS.file.absPath(BalmJS.config.dest.js), (err: any) => {
-        if (err) reject(err);
-        resolve();
-      });
+      fs.mkdir(
+        BalmJS.file.absPath(BalmJS.config.dest.js),
+        { recursive: true },
+        (err: any) => {
+          if (err) reject(err);
+          resolve();
+        }
+      );
     });
   }
 

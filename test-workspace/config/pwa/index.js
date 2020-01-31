@@ -13,7 +13,8 @@ const balmConfig = Object.assign(balmrc, {
   },
   pwa: {
     enabled: true,
-    workboxSw
+    workboxSw,
+    mode: 'injectManifest'
   }
 });
 

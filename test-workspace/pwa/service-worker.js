@@ -6,23 +6,25 @@ if (workbox) {
   console.log(`Boo! Workbox didn't load 😬`);
 }
 
+var PROJECT_NAME = 'balm-test';
+
 // Configure Cache Names
 workbox.core.setCacheNameDetails({
-  prefix: 'balm-test',
+  prefix: PROJECT_NAME,
   suffix: 'v1',
   precache: 'app-cache',
   runtime: 'app-runtime'
 });
 
-workbox.precaching.precacheAndRoute([]);
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
 
 // Caching Images
 workbox.routing.registerRoute(
   /\.(?:png|gif|jpg|jpeg|webp|svg)$/,
   new workbox.strategies.CacheFirst({
-    cacheName: 'images',
+    cacheName: PROJECT_NAME + '-images',
     plugins: [
-      new workbox.expiration.Plugin({
+      new workbox.expiration.ExpirationPlugin({
         maxEntries: 60,
         maxAgeSeconds: 30 * 24 * 60 * 60 // 30 Days
       })
@@ -34,7 +36,7 @@ workbox.routing.registerRoute(
 workbox.routing.registerRoute(
   /\.(?:js|css)$/,
   new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'static-resources'
+    cacheName: PROJECT_NAME + '-static-resources'
   })
 );
 

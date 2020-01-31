@@ -24,7 +24,6 @@ class PwaTask extends BalmJS.BalmTask {
           options = Object.assign(
             {
               swDest,
-              importWorkboxFrom: 'disabled',
               importScripts: ['workbox-sw.js'],
               globDirectory
             },
@@ -52,10 +51,18 @@ class PwaTask extends BalmJS.BalmTask {
         BalmJS.logger.debug(`pwa - ${mode}`, options);
 
         await workboxBuild[mode](options)
-          .then(function(result: any) {
+          .then(function({
+            count,
+            size
+          }: {
+            count: number;
+            filePaths?: string[];
+            size: number;
+            warnings?: string[];
+          }) {
             BalmJS.logger.info(
               `pwa - ${mode}`,
-              `Generated '${swDest}', which will precache ${result.count} files, totaling ${result.size} bytes`
+              `Generated '${swDest}', which will precache ${count} files, totaling ${size} bytes`
             );
           })
           .catch(function(error: any) {

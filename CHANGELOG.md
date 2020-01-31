@@ -1,5 +1,20 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.4.0 / 2020-01-31
+
+### Chores
+
+- dependencies: up to date
+  - `workbox-build`: 4.x -> 5.x
+- devDependencies: up to date
+  - `@types/mocha`: 5.x -> 7.x
+  - `cross-env`: 6.x -> 7.x
+- update PWA `generateSW` mode
+
+### BREAKING CHANGES
+
+- Use native `fs.mkdir(path, { recursive: true })` instead of `mkdirp`
+
 ## v2.3.0 / 2020-01-23
 
 :tada: Happy Lunar New Year
