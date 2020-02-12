@@ -28,7 +28,7 @@ describe('Bundler#getLoaders()', function() {
     before(function() {
       balm.config = {
         scripts: {
-          disableDefaultLoaders: {
+          defaultLoaders: {
             url: false
           }
         }
@@ -51,7 +51,7 @@ describe('Bundler#getLoaders()', function() {
     before(function() {
       balm.config = {
         scripts: {
-          disableDefaultLoaders: {
+          defaultLoaders: {
             html: false,
             css: false,
             js: false,
@@ -80,7 +80,7 @@ describe('Bundler#getLoaders()', function() {
           isProd: true
         },
         scripts: {
-          disableDefaultLoaders: {
+          defaultLoaders: {
             html: true,
             css: true,
             js: true,
