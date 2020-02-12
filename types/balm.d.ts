@@ -38,7 +38,7 @@ interface BalmScripts {
   libraryTarget: string;
   loaders: object[];
   includeJsResource: string[];
-  disableDefaultLoaders: {
+  defaultLoaders: {
     html?: boolean;
     css?: boolean;
     js?: boolean;
@@ -65,6 +65,15 @@ interface BalmScripts {
     prefix: string;
   };
   ie8: boolean;
+}
+
+interface BalmImages {
+  defaultPlugins: {
+    gif?: boolean;
+    jpeg?: boolean;
+    png?: boolean;
+    svg?: boolean;
+  };
 }
 
 interface BalmAssets {
@@ -129,6 +138,7 @@ interface BalmConfig {
   };
   styles: BalmStyles;
   scripts: BalmScripts;
+  images: BalmImages;
   extras: {
     includes: string[];
     excludes: string[];

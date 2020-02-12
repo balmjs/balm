@@ -1,5 +1,17 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.5.0 / 2020-02-12
+
+### Features
+
+- Update `balm.config`
+  - `images.defaultPlugins: object = {}`
+
+### BREAKING CHANGES
+
+- Update `balm.config`
+  - rename `scripts.disableDefaultLoaders` to `scripts.defaultLoaders`
+
 ## v2.4.0 / 2020-01-31
 
 ### Chores

@@ -13,6 +13,12 @@ balm.config = {
   //   extname: 'scss',
   //   sprites: ['icons', 'mdi']
   // },
+  images: {
+    defaultPlugins: {
+      // jpeg: false,
+      // png: false
+    }
+  },
   assets: {
     cache: true
   }

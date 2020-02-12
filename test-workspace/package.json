@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2020.1.31",
+  "version": "2020.2.12",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -46,11 +46,11 @@
     "@babel/plugin-proposal-numeric-separator": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "less": "^3.10.3",
+    "less": "^3.11.1",
     "less-loader": "^5.0.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.5",
-    "vue-loader": "^15.8.3",
+    "vue-loader": "^15.9.0",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.11",
     "webpack-node-externals": "^1.7.2"

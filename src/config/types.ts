@@ -16,13 +16,6 @@ interface BalmVendor {
   value: string[];
 }
 
-interface BalmDefaultLoaders {
-  html?: boolean;
-  css?: boolean;
-  js?: boolean;
-  url?: boolean;
-}
-
 // Server
 interface ProxyConfig {
   context: string | string[];
@@ -66,7 +59,6 @@ export {
   BalmEnvObject,
   BalmEntryObject,
   BalmVendor,
-  BalmDefaultLoaders,
   ProxyConfig,
   RenameOptions,
   HookOptions,

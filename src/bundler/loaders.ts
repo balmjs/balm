@@ -1,18 +1,17 @@
 import webpackMerge from 'webpack-merge';
 import requireDir from 'require-dir';
-import { BalmDefaultLoaders } from '../config/types';
 
 const LOADERS = requireDir('./rules');
 
 function getLoaders(customLoaders: object[]): object[] {
-  const enableDefaultLoaders: BalmDefaultLoaders = Object.assign(
+  const enableDefaultLoaders: { [key: string]: boolean } = Object.assign(
     {
       html: true,
       css: true,
       js: true,
       url: true
     },
-    BalmJS.config.scripts.disableDefaultLoaders
+    BalmJS.config.scripts.defaultLoaders
   );
   const useDefaultLoaders: boolean = Object.values(enableDefaultLoaders).some(
     value => value
@@ -23,7 +22,7 @@ function getLoaders(customLoaders: object[]): object[] {
     Object.values(LOADERS).forEach(function(Loader: any) {
       const DefaultLoader = Loader.default;
       const key = DefaultLoader.name.replace('Loader', '');
-      if ((enableDefaultLoaders as any)[key]) {
+      if (enableDefaultLoaders[key]) {
         const loader: object | object[] = DefaultLoader();
         if (BalmJS.utils.isArray(loader)) {
           defaultLoaders = defaultLoaders.concat(loader);

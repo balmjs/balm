@@ -1,4 +1,4 @@
-import { BalmEntryObject, BalmDefaultLoaders } from './types';
+import { BalmEntryObject } from './types';
 
 // Entry and Context
 const entry: string | string[] | BalmEntryObject = '';
@@ -8,7 +8,12 @@ const libraryTarget = 'var'; // ['var', 'this', 'window', 'global', 'commonjs', 
 // Module
 const loaders: object[] = [];
 const includeJsResource: string[] = [];
-const disableDefaultLoaders: BalmDefaultLoaders = {};
+const defaultLoaders: {
+  html?: boolean;
+  css?: boolean;
+  js?: boolean;
+  url?: boolean;
+} = {};
 const urlLoaderOptions: object = {};
 // Resolve
 const extensions: string[] = [];
@@ -106,7 +111,7 @@ export default {
   libraryTarget,
   loaders,
   includeJsResource,
-  disableDefaultLoaders,
+  defaultLoaders,
   urlLoaderOptions,
   extensions,
   alias,

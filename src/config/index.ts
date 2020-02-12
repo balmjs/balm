@@ -6,6 +6,7 @@ import paths from './paths';
 import html from './html';
 import styles from './styles';
 import scripts from './scripts';
+import images from './images';
 import extras from './extras';
 import assets from './assets';
 import server from './server';
@@ -44,6 +45,7 @@ const config: any = {
   html,
   styles,
   scripts,
+  images,
   extras,
   assets,
   server,
