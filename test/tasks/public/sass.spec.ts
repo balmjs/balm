@@ -11,7 +11,8 @@ describe('Sass Task', function() {
     before(function() {
       balm.config = {
         styles: {
-          extname: 'scss'
+          extname: 'scss',
+          dartSass: true
         }
       };
     });
@@ -33,9 +34,7 @@ describe('Sass Task', function() {
       balm.config = {
         styles: {
           extname: 'scss',
-          styles: {
-            dartSass: true
-          }
+          dartSass: true
         }
       };
     });
