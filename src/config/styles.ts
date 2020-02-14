@@ -9,6 +9,7 @@ interface PostcssLoaderOptions {
 }
 
 const extname = 'css';
+const dartSass = false;
 const minified = false;
 const atImportPaths: string[] = [];
 /**
@@ -72,6 +73,7 @@ const spriteParams: object = {};
 
 export default {
   extname,
+  dartSass,
   minified,
   atImportPaths,
   options,

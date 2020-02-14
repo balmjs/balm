@@ -10,7 +10,10 @@ describe('Balm Hooks - css & sprites', function() {
   describe('stylesheets', function() {
     beforeEach(function() {
       balm.config = {
-        useDefaults: false
+        useDefaults: false,
+        styles: {
+          dartSass: true
+        }
       };
     });
 

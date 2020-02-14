@@ -1,4 +1,4 @@
 /*! license */
-@import 'var';
-@import 'vendor';
-@import 'mixins';
+@forward 'var';
+@forward 'vendor';
+@forward 'mixins';

@@ -1,5 +1,14 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.6.0 / 2020-02-14
+
+### Features
+
+> Dart Sass support
+
+- Update `balm.config`
+  - `styles.dartSass: boolean = false`
+
 ## v2.5.0 / 2020-02-12
 
 ### Features

@@ -9,6 +9,7 @@ interface BalmPath {
 
 interface BalmStyles {
   extname: string;
+  dartSass: boolean;
   minified: boolean;
   atImportPaths: string[];
   options: object;

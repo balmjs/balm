@@ -1,4 +1,4 @@
-@import 'global-scss/index';
+@use 'global-scss/index' as index;
 
 @font-face {
   font-family: Roboto;
@@ -16,7 +16,7 @@
 
 body {
   font-family: Roboto, Arial;
-  color: $primaryColor;
+  color: index.$primaryColor;
 }
 
 img {

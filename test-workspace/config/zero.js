@@ -9,10 +9,11 @@ console.info('balm@zero');
 balm.config = {
   workspace,
   // useDefaults: false,
-  // styles: {
-  //   extname: 'scss',
-  //   sprites: ['icons', 'mdi']
-  // },
+  styles: {
+    extname: 'scss',
+    dartSass: true
+    // sprites: ['icons', 'mdi']
+  },
   images: {
     defaultPlugins: {
       // jpeg: false,

@@ -1,5 +1,7 @@
 import BalmTask from './balm';
 import cssnano from 'cssnano';
+import sass from 'sass';
+import Fiber from 'fibers';
 
 class BalmStyleTask extends BalmTask {
   constructor(name: string) {
@@ -9,6 +11,10 @@ class BalmStyleTask extends BalmTask {
     switch (name) {
       case 'sass':
         extname = '{scss,sass}';
+
+        if (BalmJS.config.styles.dartSass) {
+          $.sass.compiler = sass;
+        }
         break;
       case 'less':
         extname = 'less';
@@ -58,6 +64,10 @@ class BalmStyleTask extends BalmTask {
 
     switch (style) {
       case 'sass':
+        if (BalmJS.config.styles.dartSass) {
+          options.fiber = Fiber;
+        }
+
         stream = stream.pipe($.sass.sync(options));
         break;
       case 'less':

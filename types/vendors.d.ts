@@ -4,6 +4,7 @@ declare module 'browser-sync';
 declare module 'connect-history-api-fallback';
 declare module 'cssnano';
 declare module 'fancy-log';
+declare module 'fibers';
 declare module 'gulp';
 declare module 'gulp-load-plugins';
 declare module 'html-minifier';
@@ -19,6 +20,7 @@ declare module 'postcss-preset-env';
 declare module 'postcss-safe-parser';
 declare module 'require-dir';
 declare module 'rimraf'; // For test
+declare module 'sass';
 declare module 'ssh2';
 declare module 'terser-webpack-plugin';
 declare module 'through2';
