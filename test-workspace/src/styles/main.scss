@@ -1,4 +1,4 @@
-@import 'global-sass/index';
+@use 'global-dart-sass/index' as index;
 
 @font-face {
   font-family: Roboto;
@@ -16,7 +16,7 @@
 
 body {
   font-family: Roboto, Arial;
-  color: $primaryColor;
+  color: index.$primaryColor;
 }
 
 img {
