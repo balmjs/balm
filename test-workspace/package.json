@@ -27,7 +27,7 @@
     "esnext:prod": "gulp -p --cwd . -f config/esnext"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.8.3",
+    "@babel/runtime-corejs3": "^7.8.4",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "cors": "^2.8.5",

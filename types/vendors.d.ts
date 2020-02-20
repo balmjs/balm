@@ -8,7 +8,6 @@ declare module 'fibers';
 declare module 'gulp';
 declare module 'gulp-load-plugins';
 declare module 'html-minifier';
-declare module 'http-proxy-middleware';
 declare module 'optimize-css-assets-webpack-plugin';
 declare module 'merge-stream';
 declare module 'mini-css-extract-plugin';

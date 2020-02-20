@@ -1,4 +1,4 @@
-import proxy from 'http-proxy-middleware';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 import { ProxyConfig } from '../config/types';
 
 function _handleProxyConfigError(): void {
@@ -19,7 +19,7 @@ function httpProxyMiddleware(): object[] {
       // Single proxy
       const config = proxyConfig as ProxyConfig;
       if (config.context && config.options) {
-        middleware.push(proxy(config.context, config.options));
+        middleware.push(createProxyMiddleware(config.context, config.options));
       } else {
         _handleProxyConfigError();
       }
@@ -27,7 +27,9 @@ function httpProxyMiddleware(): object[] {
       // Multiple proxies
       for (const config of proxyConfig as ProxyConfig[]) {
         if (config.context && config.options) {
-          middleware.push(proxy(config.context, config.options));
+          middleware.push(
+            createProxyMiddleware(config.context, config.options)
+          );
         } else {
           _handleProxyConfigError();
         }

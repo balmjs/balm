@@ -1,5 +1,12 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.7.0 / 2020-02-20
+
+### Chores
+
+- dependencies: up to date
+  - `http-proxy-middleware`: 0.x -> 1.x
+
 ## v2.6.0 / 2020-02-14
 
 ### Features
