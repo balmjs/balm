@@ -2,6 +2,7 @@ class File {
   get stylePaths(): string[] {
     return [
       path.join(BalmJS.config.workspace, '.'),
+      path.join(BalmJS.config.workspace, 'node_modules'),
       ...BalmJS.config.styles.atImportPaths
     ];
   }

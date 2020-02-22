@@ -1,5 +1,11 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.8.0 / 2020-02-22
+
+### Features
+
+- Optimized `@use`/`@import`: omitting `node_modules` support
+
 ## v2.7.0 / 2020-02-20
 
 ### Chores
