@@ -52,7 +52,10 @@ function _ready(config: any): any {
 }
 
 function _resetConfig(): any {
-  BalmJS.config.roots.target = 'dist';
+  BalmJS.config.roots.target =
+    BalmJS.config.env.isProd && BalmJS.config.env.isMiniprogram
+      ? path.join('dist', 'web')
+      : 'dist';
   BalmJS.config.roots.tmp = '.tmp';
 
   return BalmJS.config;

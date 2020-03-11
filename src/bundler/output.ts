@@ -20,23 +20,42 @@ function getOutput(output: string, scripts: any, isHook = false): any {
 
   BalmJS.logger.debug(
     'webpack output',
-    `Path: ${BalmJS.file.absPath(outputPath)}`
+    `Path: ${BalmJS.file.absPath(
+      BalmJS.config.env.isProd && BalmJS.config.env.isMiniprogram
+        ? path.join(BalmJS.config.dest.base, 'mp', 'common')
+        : outputPath
+    )}`
   );
 
-  return {
-    path: BalmJS.file.absPath(outputPath),
-    filename: isHook
-      ? jsFilename
-      : BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`),
-    publicPath: BalmJS.file.publicPath,
-    library: scripts.library,
-    libraryTarget: scripts.libraryTarget,
-    chunkFilename: isHook
-      ? jsChunkFilename
-      : BalmJS.file.assetsPath(
-          `${jsFolder}/${ASYNC_SCRIPTS}/${jsChunkFilename}`
-        )
-  };
+  const miniprogramConfig: object =
+    BalmJS.config.env.isProd && BalmJS.config.env.isMiniprogram
+      ? {
+          path: BalmJS.file.absPath(
+            path.join(BalmJS.config.dest.base, 'mp', 'common')
+          ),
+          library: 'createApp',
+          libraryExport: 'default',
+          libraryTarget: 'window'
+        }
+      : {};
+
+  return Object.assign(
+    {
+      path: BalmJS.file.absPath(outputPath),
+      filename: isHook
+        ? jsFilename
+        : BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`),
+      publicPath: BalmJS.file.publicPath,
+      library: scripts.library,
+      libraryTarget: scripts.libraryTarget,
+      chunkFilename: isHook
+        ? jsChunkFilename
+        : BalmJS.file.assetsPath(
+            `${jsFolder}/${ASYNC_SCRIPTS}/${jsChunkFilename}`
+          )
+    },
+    miniprogramConfig
+  );
 }
 
 export default getOutput;
