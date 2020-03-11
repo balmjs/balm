@@ -2,7 +2,8 @@ const ENV = {
   PROD: 'production',
   TEST: 'test',
   DEV: 'development',
-  SSR: 'server'
+  SSR: 'server',
+  MP: 'miniprogram'
 };
 
 const isProd: boolean =
@@ -30,9 +31,15 @@ const inSSR: boolean =
   process.argv.includes(`--${ENV.SSR}`) ||
   process.argv.includes('-ssr');
 
+const isMiniprogram: boolean =
+  process.env.NODE_ENV === ENV.MP ||
+  process.argv.includes(`--${ENV.MP}`) ||
+  process.argv.includes('-mp');
+
 export default {
   isProd,
   isTest,
   isDev,
-  inSSR
+  inSSR,
+  isMiniprogram
 };
