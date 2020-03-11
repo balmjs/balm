@@ -31,7 +31,7 @@ const inSSR: boolean =
   process.argv.includes(`--${ENV.SSR}`) ||
   process.argv.includes('-ssr');
 
-const isMiniprogram: boolean =
+const isMP: boolean =
   process.env.NODE_ENV === ENV.MP ||
   process.argv.includes(`--${ENV.MP}`) ||
   process.argv.includes('-mp');
@@ -41,5 +41,5 @@ export default {
   isTest,
   isDev,
   inSSR,
-  isMiniprogram
+  isMP
 };

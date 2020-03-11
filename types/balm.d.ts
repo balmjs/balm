@@ -120,7 +120,7 @@ interface BalmConfig {
     isTest: boolean;
     isDev: boolean;
     inSSR: boolean;
-    isMiniprogram: boolean;
+    isMP: boolean;
   };
   workspace: string;
   inFrontend: boolean;

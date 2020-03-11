@@ -4,6 +4,7 @@ interface BalmEnvObject {
   isTest: boolean;
   isDev: boolean;
   inSSR: boolean;
+  isMP: boolean;
 }
 
 // Scripts

@@ -56,7 +56,8 @@ function getEntry(
     BalmJS.config.useDefaults &&
     BalmJS.config.env.isDev &&
     !BalmJS.config.env.inSSR &&
-    !BalmJS.config.scripts.ie8;
+    !BalmJS.config.scripts.ie8 &&
+    !BalmJS.config.env.isMP;
 
   if (BalmJS.utils.isObject(input)) {
     initVendors(input as BalmEntryObject);

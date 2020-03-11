@@ -21,17 +21,17 @@ function getOutput(output: string, scripts: any, isHook = false): any {
   BalmJS.logger.debug(
     'webpack output',
     `Path: ${BalmJS.file.absPath(
-      BalmJS.config.env.isProd && BalmJS.config.env.isMiniprogram
-        ? path.join(BalmJS.config.dest.base, 'mp', 'common')
+      BalmJS.config.env.isProd && BalmJS.config.env.isMP
+        ? path.join(BalmJS.config.dest.base, 'common')
         : outputPath
     )}`
   );
 
   const miniprogramConfig: object =
-    BalmJS.config.env.isProd && BalmJS.config.env.isMiniprogram
+    BalmJS.config.env.isProd && BalmJS.config.env.isMP
       ? {
           path: BalmJS.file.absPath(
-            path.join(BalmJS.config.dest.base, 'mp', 'common')
+            path.join(BalmJS.config.dest.base, 'common')
           ),
           library: 'createApp',
           libraryExport: 'default',
