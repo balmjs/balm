@@ -48,6 +48,11 @@ interface SpriteOptions {
   spriteParams?: object;
 }
 
+interface ReplaceOptions {
+  substr?: string | RegExp;
+  replacement?: string | Function;
+}
+
 // Publish
 interface TemplateOption {
   input: string;
@@ -63,5 +68,6 @@ export {
   RenameOptions,
   HookOptions,
   SpriteOptions,
+  ReplaceOptions,
   TemplateOption
 };

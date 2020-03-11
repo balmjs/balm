@@ -5,6 +5,7 @@ import {
   RenameOptions,
   HookOptions,
   SpriteOptions,
+  ReplaceOptions,
   TemplateOption
 } from '../config/types';
 
@@ -79,6 +80,14 @@ class Hooks extends BaseHooks {
   }
 
   // Assets
+  replace(
+    input: string | string[],
+    output: string,
+    options?: ReplaceOptions
+  ): void {
+    Maker.generate('replace', [input, output, options]);
+  }
+
   publish(
     input: string | TemplateOption[],
     output: string,
