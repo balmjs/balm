@@ -1,5 +1,21 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.9.0 / 2020-03-11
+
+### Features
+
+> WeChat MiniProgram support
+
+- New Config: `balm.config.env.isMP: boolean` for miniprogram
+- New Api: `mix.replace(input: string | string[], output: string, options?: ReplaceOptions)`
+
+```ts
+interface ReplaceOptions {
+  substr?: string | RegExp;
+  replacement?: string | Function;
+}
+```
+
 ## v2.8.0 / 2020-02-22
 
 ### Features
