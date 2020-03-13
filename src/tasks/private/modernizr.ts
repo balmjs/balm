@@ -55,7 +55,10 @@ class ModernizrTask extends BalmJS.BalmTask {
         if (err) {
           BalmJS.logger.warn(
             `${this.name} task`,
-            `The '${this.input}' does not exist`
+            `The '${this.input}' does not exist`,
+            {
+              logLevel: BalmJS.LogLevel.Info
+            }
           );
 
           cb();

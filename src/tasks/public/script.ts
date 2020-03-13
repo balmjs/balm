@@ -27,7 +27,13 @@ class ScriptTask extends BalmJS.BalmTask {
           //   return;
           // }
 
-          if (BalmJS.config.logs.level <= BalmJS.LogLevel.Info) {
+          const scriptLogLevel: number = stats.hasErrors()
+            ? BalmJS.LogLevel.Error
+            : stats.hasWarnings()
+            ? BalmJS.LogLevel.Warn
+            : BalmJS.LogLevel.Info;
+
+          if (BalmJS.config.logs.level <= scriptLogLevel) {
             console.log(stats.toString(BalmJS.config.scripts.stats));
           }
 
