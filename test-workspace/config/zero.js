@@ -14,6 +14,9 @@ balm.config = {
     dartSass: true
     // sprites: ['icons', 'mdi']
   },
+  scripts: {
+    lint: true
+  },
   images: {
     defaultPlugins: {
       // jpeg: false,

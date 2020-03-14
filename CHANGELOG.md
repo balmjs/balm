@@ -1,5 +1,11 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.9.1 / 2020-03-14
+
+### Chores
+
+- optimize logs for `script` and `modernizr` tasks
+
 ## v2.9.0 / 2020-03-11
 
 ### Features
