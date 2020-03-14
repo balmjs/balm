@@ -25,7 +25,7 @@ describe('Bundler#getEntry()', function() {
     });
 
     describe('entry is a string', function() {
-      const input = './src/scripts/main.js';
+      const input = './src/scripts/index.js';
       const output = [input, HMR];
 
       it(
@@ -57,7 +57,7 @@ describe('Bundler#getEntry()', function() {
 
     describe('entry is an object', function() {
       const input = {
-        main: './src/scripts/main.js'
+        main: './src/scripts/index.js'
       };
       const output = {
         main: [input.main, HMR]
@@ -76,7 +76,7 @@ describe('Bundler#getEntry()', function() {
     describe('entry is an object with vendors', function() {
       const input = {
         lib: ['jquery'],
-        main: './src/scripts/main.js'
+        main: './src/scripts/index.js'
       };
       const output = {
         main: [input.main, HMR]
@@ -103,7 +103,7 @@ describe('Bundler#getEntry()', function() {
     });
 
     describe('entry is a string', function() {
-      const input = './src/scripts/main.js';
+      const input = './src/scripts/index.js';
       const output = input;
 
       it(
@@ -135,7 +135,7 @@ describe('Bundler#getEntry()', function() {
 
     describe('entry is an object', function() {
       const input = {
-        main: './src/scripts/main.js'
+        main: './src/scripts/index.js'
       };
       const output = input;
 
@@ -152,7 +152,7 @@ describe('Bundler#getEntry()', function() {
     describe('entry is an object with vendors', function() {
       const input = {
         lib: ['jquery'],
-        main: './src/scripts/main.js'
+        main: './src/scripts/index.js'
       };
       const output = {
         main: input.main

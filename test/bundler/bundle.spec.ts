@@ -96,7 +96,7 @@ describe('Bundler#webpackConfig()', function() {
           },
           scripts: {
             entry: {
-              main: './src/scripts/main.js'
+              main: './src/scripts/index.js'
             },
             inject: true,
             extractAllVendors: true
@@ -109,7 +109,7 @@ describe('Bundler#webpackConfig()', function() {
         asyncCase(function() {
           webpackConfig(
             {
-              main: './src/scripts/main.js'
+              main: './src/scripts/index.js'
             },
             'dist'
           );

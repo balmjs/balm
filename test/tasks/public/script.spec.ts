@@ -11,12 +11,12 @@ describe('Script Task', function() {
     before(function() {
       balm.config = {
         scripts: {
-          entry: './src/scripts/main.js'
+          entry: './src/scripts/index.js'
         }
       };
     });
 
-    const defaultInput = './src/scripts/main.js';
+    const defaultInput = './src/scripts/index.js';
 
     it(`expected output: "${defaultInput}"`, function(done) {
       scriptTask.fn(done);
