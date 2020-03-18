@@ -7,6 +7,10 @@
 - dependencies: up to date
   - `file-loader`: 5.x -> 6.x
   - `url-loader`: 3.x -> 4.x
+- update test
+  - dart sass
+  - build miniprogram
+  - `mix.replace` api
 
 ## v2.9.1 / 2020-03-14
 
@@ -21,7 +25,7 @@
 > WeChat MiniProgram support
 
 - New Config: `balm.config.env.isMP: boolean` for miniprogram
-- New Api: `mix.replace(input: string | string[], output: string, options?: ReplaceOptions)`
+- New Api: `mix.replace(input: string | string[], output: string, options: ReplaceOptions)`
 
 ```ts
 interface ReplaceOptions {

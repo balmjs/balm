@@ -8,7 +8,7 @@ class ReplaceTask extends BalmJS.BalmTask {
   recipe(
     input: string | string[],
     output: string,
-    options: ReplaceOptions = {}
+    options: ReplaceOptions
   ): any {
     return (): any => {
       this.init(input, output);

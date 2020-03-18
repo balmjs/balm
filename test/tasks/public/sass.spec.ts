@@ -11,8 +11,7 @@ describe('Sass Task', function() {
     before(function() {
       balm.config = {
         styles: {
-          extname: 'scss',
-          dartSass: true
+          extname: 'scss'
         }
       };
     });

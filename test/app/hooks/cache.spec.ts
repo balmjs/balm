@@ -19,7 +19,7 @@ describe('Balm Hooks - versioning / cache busting', function() {
 
     runTest(
       {
-        testCase: isWin ? false : `${output}/file.769b3767.css`,
+        testCase: isWin ? false : `${output}/file.c06d4b3a.css`,
         testHook: (mix: any) => {
           mix.version(input, output);
         }

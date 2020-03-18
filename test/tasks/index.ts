@@ -1,6 +1,6 @@
-// start task
+/* start task */
 import './private/start.spec';
-// main tasks
+/* main tasks */
 import './private/clean.spec'; // top
 import './public/sass.spec';
 import './public/less.spec';
@@ -18,15 +18,16 @@ import './private/build.spec';
 import './private/cache.spec';
 import './private/workbox.spec';
 import './public/pwa.spec';
-// sub tasks
+/* sub tasks */
 import './public/remove.spec';
 import './public/copy.spec';
+import './public/replace.spec';
 import './public/jsmin.spec';
 import './public/version.spec';
 import './public/zip.spec';
 import './public/ftp.spec';
 import './public/publish.spec';
-// end task
+/* end task */
 import './private/end.spec';
-// default task
+/* default task */
 import './default.spec';

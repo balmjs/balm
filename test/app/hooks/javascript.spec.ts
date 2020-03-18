@@ -95,4 +95,16 @@ describe('Balm Hooks - javascript', function() {
       done
     );
   });
+
+  it('bundles a non-existent js file for init error', function(done) {
+    runTest(
+      {
+        testCase: false,
+        testHook: (mix: any) => {
+          mix.js('./undefined.js', output);
+        }
+      },
+      done
+    );
+  });
 });

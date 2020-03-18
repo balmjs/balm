@@ -119,4 +119,34 @@ describe('Bundler#getOutput()', function() {
       );
     });
   });
+
+  describe('miniprogram', function() {
+    before(function() {
+      balm.config = {
+        env: {
+          isProd: true,
+          isMP: true
+        }
+      };
+    });
+
+    const mp = {
+      path: path.join(balm.config.workspace, 'dist', 'common'),
+      library: 'createApp',
+      libraryTarget: 'window',
+      libraryExport: 'default'
+    };
+
+    it(
+      `expected output: "${JSON.stringify(mp)}"`,
+      asyncCase(function() {
+        result = getOutput('', balm.config.scripts);
+
+        expect(result.path).to.equal(mp.path);
+        expect(result.library).to.equal(mp.library);
+        expect(result.libraryTarget).to.equal(mp.libraryTarget);
+        expect(result.libraryExport).to.equal(mp.libraryExport);
+      })
+    );
+  });
 });

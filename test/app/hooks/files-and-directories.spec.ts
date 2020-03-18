@@ -131,4 +131,23 @@ describe('Balm Hooks - files & directories', function() {
       false
     );
   });
+
+  it('replace file content', function(done) {
+    const input = ['src/compress/file.css', 'src/compress/file.js'];
+    const output = `${targetDir}/replace-dest`;
+    const replaceOptions = {
+      substr: /bar/gi,
+      replacement: 'balm'
+    };
+
+    runTest(
+      {
+        testCase: [`${output}/file.css`, `${output}/file.js`],
+        testHook: (mix: any) => {
+          mix.replace(input, output, replaceOptions);
+        }
+      },
+      done
+    );
+  });
 });
