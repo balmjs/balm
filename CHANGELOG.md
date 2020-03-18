@@ -1,5 +1,13 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.10.0 / 2020-03-18
+
+### Chores
+
+- dependencies: up to date
+  - `file-loader`: 5.x -> 6.x
+  - `url-loader`: 3.x -> 4.x
+
 ## v2.9.1 / 2020-03-14
 
 ### Chores
