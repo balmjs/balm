@@ -8,14 +8,28 @@ class ReplaceTask extends BalmJS.BalmTask {
   recipe(
     input: string | string[],
     output: string,
-    options: ReplaceOptions
+    options: ReplaceOptions | ReplaceOptions[]
   ): any {
     return (): any => {
       this.init(input, output);
 
-      return this.src
-        .pipe($.replace(options.substr, options.replacement))
-        .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+      let stream: any = this.src;
+
+      if (BalmJS.utils.isArray(options)) {
+        const replaceOptions: ReplaceOptions[] = options as ReplaceOptions[];
+        replaceOptions.forEach(replaceOption => {
+          stream = stream.pipe(
+            $.replace(replaceOption.substr, replaceOption.replacement)
+          );
+        });
+      } else {
+        const replaceOption: ReplaceOptions = options as ReplaceOptions;
+        stream = stream.pipe(
+          $.replace(replaceOption.substr, replaceOption.replacement)
+        );
+      }
+
+      return stream.pipe(gulp.dest(BalmJS.file.absPath(this.output)));
     };
   }
 

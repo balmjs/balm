@@ -83,7 +83,7 @@ class Hooks extends BaseHooks {
   replace(
     input: string | string[],
     output: string,
-    options: ReplaceOptions
+    options: ReplaceOptions | ReplaceOptions[]
   ): void {
     Maker.generate('replace', [input, output, options]);
   }

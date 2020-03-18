@@ -12,6 +12,11 @@
   - build miniprogram
   - `mix.replace` api
 
+### Features
+
+- update api
+  - `mix.replace(input: string | string[], output: string, options: ReplaceOptions | ReplaceOptions[])`
+
 ## v2.9.1 / 2020-03-14
 
 ### Chores

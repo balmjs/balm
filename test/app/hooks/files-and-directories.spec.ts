@@ -150,4 +150,29 @@ describe('Balm Hooks - files & directories', function() {
       done
     );
   });
+
+  it('multiple replace file content', function(done) {
+    const input = ['src/compress/file.css', 'src/compress/file.js'];
+    const output = `${targetDir}/replace-dest`;
+    const replaceOptions = [
+      {
+        substr: /foo/gi,
+        replacement: 'a'
+      },
+      {
+        substr: /bar/gi,
+        replacement: 'b'
+      }
+    ];
+
+    runTest(
+      {
+        testCase: [`${output}/file.css`, `${output}/file.js`],
+        testHook: (mix: any) => {
+          mix.replace(input, output, replaceOptions);
+        }
+      },
+      done
+    );
+  });
 });
