@@ -1,5 +1,18 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.11.0 / 2020-03-21
+
+### Chores
+
+- dependencies: up to date
+  - `html-loader`: 0.x -> 1.x
+
+### Features
+
+- update `balm.config`
+  - add `scripts.htmlLoaderOptions: object = {}`
+  - migrate <del>`styles.postcssLoaderOptions`</del> to `scripts.postcssLoaderOptions`
+
 ## v2.10.0 / 2020-03-18
 
 ### Chores
@@ -29,8 +42,8 @@
 
 > WeChat MiniProgram support
 
-- New Config: `balm.config.env.isMP: boolean` for miniprogram
-- New Api: `mix.replace(input: string | string[], output: string, options: ReplaceOptions)`
+- new config: `balm.config.env.isMP: boolean` for miniprogram
+- new api: `mix.replace(input: string | string[], output: string, options: ReplaceOptions)`
 
 ```ts
 interface ReplaceOptions {
@@ -43,7 +56,7 @@ interface ReplaceOptions {
 
 ### Features
 
-- Optimized `@use`/`@import`: omitting `node_modules` support
+- optimized `@use`/`@import`: omitting `node_modules` support
 
 ## v2.7.0 / 2020-02-20
 
@@ -58,20 +71,20 @@ interface ReplaceOptions {
 
 > Dart Sass support
 
-- Update `balm.config`
+- update `balm.config`
   - `styles.dartSass: boolean = false`
 
 ## v2.5.0 / 2020-02-12
 
 ### Features
 
-- Update `balm.config`
+- update `balm.config`
   - `images.defaultPlugins: object = {}`
 
 ### BREAKING CHANGES
 
-- Update `balm.config`
-  - rename `scripts.disableDefaultLoaders` to `scripts.defaultLoaders`
+- update `balm.config`
+  - rename <del>`scripts.disableDefaultLoaders`</del> to `scripts.defaultLoaders`
 
 ## v2.4.0 / 2020-01-31
 
@@ -86,7 +99,7 @@ interface ReplaceOptions {
 
 ### BREAKING CHANGES
 
-- Use native `fs.mkdir(path, { recursive: true })` instead of `mkdirp`
+- use native `fs.mkdir(path, { recursive: true })` instead of `mkdirp`
 
 ## v2.3.0 / 2020-01-23
 
@@ -126,7 +139,7 @@ interface ReplaceOptions {
 
 ### Features
 
-- Update `balm.config`
+- update `balm.config`
   - `scripts.ie8: boolean = false`
 
 ## v2.1.1 / 2019-12-22
@@ -137,7 +150,7 @@ interface ReplaceOptions {
 
 ### Features
 
-- Update `balm.config`
+- update `balm.config`
   - restore `scripts.includeJsResource: string[]` (absolute paths) from balm v1
 
 ## v2.1.0 / 2019-11-28
@@ -157,8 +170,8 @@ interface ReplaceOptions {
 
 ### Features
 
-- Improved `url-loader` default rule
-- Update `balm.config`
+- improved `url-loader` default rule
+- update `balm.config`
   - `scripts.urlLoaderOptions: object = {}`
 
 ```js
@@ -179,7 +192,7 @@ balm.config = {
 
 ### BREAKING CHANGES
 
-- Deprecated `balm.config`
+- deprecated `balm.config`
   - scripts.<del>`base64Limit`</del>
 
 ## v2.0.5 / 2019-11-26
@@ -207,13 +220,13 @@ balm.config = {
 
 ### Features
 
-- Update `balm.config`
+- update `balm.config`
   - restore `scripts.extractAllVendors: boolean = false` from balm v1
   - restore `scripts.vendorName: string = 'vendor'` from balm v1
 
 ### BREAKING CHANGES
 
-- Deprecated `balm.config`
+- deprecated `balm.config`
   - scripts.<del>`splitAllVendors`</del>
   - scripts.<del>`vendorsName`</del>: string = <del>`'vendors'`</del>
 
@@ -221,7 +234,7 @@ balm.config = {
 
 ### Features
 
-- Update `balm.config`
+- update `balm.config`
   - restore `extras.includes` from balm v1
 
 ## v2.0.0 / 2019-11-20
