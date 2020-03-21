@@ -1,12 +1,17 @@
 function htmlLoader(): object {
+  const options = Object.assign(
+    {
+      minimize: {
+        removeAttributeQuotes: false
+      }
+    },
+    BalmJS.config.scripts.htmlLoaderOptions
+  );
+
   return {
-    test: /\.(html|tpl)$/,
+    test: /\.html$/i,
     loader: 'html-loader',
-    options: BalmJS.config.env.isProd
-      ? Object.assign({}, BalmJS.config.html.options, {
-          removeAttributeQuotes: false
-        })
-      : {}
+    options
   };
 }
 

@@ -1,13 +1,3 @@
-interface PostcssLoaderOptions {
-  exec?: boolean;
-  parser?: string | object;
-  syntax?: string | object;
-  stringifier?: string | object;
-  config?: object;
-  plugins?: object[] | Function; // NOTE: The same to `styles.postcssPlugins`
-  sourceMap: string | boolean;
-}
-
 const extname = 'css';
 const dartSass = false;
 const minified = false;
@@ -53,14 +43,6 @@ const postcssEnvOptions: object = {
  * @reference https://www.postcss.parts/
  */
 const postcssPlugins: object[] = [];
-/**
- * PostCSS loader for webpack
- *
- * @reference https://github.com/postcss/postcss-loader#options
- */
-const postcssLoaderOptions: PostcssLoaderOptions = {
-  sourceMap: false
-};
 // CSS Sprites
 const imageBasePath = '../'; // Relative to css file
 const sprites: string[] = []; // Image folders
@@ -81,7 +63,6 @@ export default {
   lessOptions,
   postcssEnvOptions,
   postcssPlugins,
-  postcssLoaderOptions,
   imageBasePath,
   sprites,
   spriteRetina,

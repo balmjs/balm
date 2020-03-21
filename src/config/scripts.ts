@@ -1,5 +1,15 @@
 import { BalmEntryObject } from './types';
 
+interface PostcssLoaderOptions {
+  exec?: boolean;
+  parser?: string | object;
+  syntax?: string | object;
+  stringifier?: string | object;
+  config?: object;
+  plugins?: object[] | Function; // NOTE: The same to `styles.postcssPlugins`
+  sourceMap: string | boolean;
+}
+
 // Entry and Context
 const entry: string | string[] | BalmEntryObject = '';
 // Output
@@ -14,7 +24,26 @@ const defaultLoaders: {
   js?: boolean;
   url?: boolean;
 } = {};
+/**
+ * Files: url-loader options
+ *
+ * @reference https://github.com/webpack-contrib/url-loader#options
+ */
 const urlLoaderOptions: object = {};
+/**
+ * Templating: html-loader options
+ *
+ * @reference https://github.com/webpack-contrib/html-loader#options
+ */
+const htmlLoaderOptions: object = {};
+/**
+ * Styling: postcss-loader options
+ *
+ * @reference https://github.com/postcss/postcss-loader#options
+ */
+const postcssLoaderOptions: PostcssLoaderOptions = {
+  sourceMap: false
+};
 // Resolve
 const extensions: string[] = [];
 const alias: object = {};
@@ -113,6 +142,8 @@ export default {
   includeJsResource,
   defaultLoaders,
   urlLoaderOptions,
+  htmlLoaderOptions,
+  postcssLoaderOptions,
   extensions,
   alias,
   plugins,

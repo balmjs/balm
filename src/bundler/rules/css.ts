@@ -7,7 +7,7 @@ const cssModuleRegex = /\.module\.css$/;
 function cssLoader(): object {
   let styleLoader = 'style-loader';
 
-  BalmJS.config.styles.postcssLoaderOptions.plugins = BalmJS.plugins.postcss();
+  BalmJS.config.scripts.postcssLoaderOptions.plugins = BalmJS.plugins.postcss();
 
   if (BalmJS.config.env.inSSR) {
     const loadersCount: number = BalmJS.config.scripts.loaders.length;
@@ -45,7 +45,7 @@ function cssLoader(): object {
       },
       {
         loader: 'postcss-loader',
-        options: BalmJS.config.styles.postcssLoaderOptions
+        options: BalmJS.config.scripts.postcssLoaderOptions
       }
     ],
     // Don't consider CSS imports dead code even if the

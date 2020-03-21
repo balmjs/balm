@@ -17,15 +17,6 @@ interface BalmStyles {
   lessOptions: object;
   postcssEnvOptions: object;
   postcssPlugins: object[];
-  postcssLoaderOptions: {
-    exec?: boolean;
-    parser?: string | object;
-    syntax?: string | object;
-    stringifier?: string | object;
-    config?: object;
-    plugins?: object[] | Function;
-    sourceMap: string | boolean;
-  };
   imageBasePath: string;
   sprites: string[];
   spritePadding: number;
@@ -46,6 +37,16 @@ interface BalmScripts {
     url?: boolean;
   };
   urlLoaderOptions: object;
+  htmlLoaderOptions: object;
+  postcssLoaderOptions: {
+    exec?: boolean;
+    parser?: string | object;
+    syntax?: string | object;
+    stringifier?: string | object;
+    config?: object;
+    plugins?: object[] | Function;
+    sourceMap: string | boolean;
+  };
   extensions: string[];
   alias: object;
   plugins: object[];
