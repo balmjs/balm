@@ -8,7 +8,7 @@ const EE = events.EventEmitter;
 function removeDefaultHandler(stream: any, event: string): boolean | Function {
   let found: boolean | Function = false;
 
-  stream.listeners(event).forEach(function(this: any, item: Function) {
+  stream.listeners(event).forEach(function (this: any, item: Function) {
     if (item.name === `on${event}`) {
       found = item;
       this.removeListener(event, item);

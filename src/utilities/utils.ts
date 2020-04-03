@@ -19,7 +19,7 @@ function isFunction(fn: any): boolean {
 // Deep merge two objects
 function deepMerge(target: any, source: any): any {
   if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach(function(key: string) {
+    Object.keys(source).forEach(function (key: string) {
       if (isObject(source[key])) {
         if (!target[key]) {
           Object.assign(target, { [key]: {} });

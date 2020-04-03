@@ -17,7 +17,7 @@ class ReplaceTask extends BalmJS.BalmTask {
 
       if (BalmJS.utils.isArray(options)) {
         const replaceOptions: ReplaceOptions[] = options as ReplaceOptions[];
-        replaceOptions.forEach(replaceOption => {
+        replaceOptions.forEach((replaceOption) => {
           stream = stream.pipe(
             $.replace(replaceOption.substr, replaceOption.replacement)
           );

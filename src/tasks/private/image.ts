@@ -33,8 +33,8 @@ class ImageTask extends BalmJS.BalmTask {
     ];
     this.defaultOutput = BalmJS.config.dest.img;
     this.plugins = Object.keys(enablePlugins)
-      .filter(key => enablePlugins[key])
-      .map(key => IMAGEMIN_PLUGINS[key]());
+      .filter((key) => enablePlugins[key])
+      .map((key) => IMAGEMIN_PLUGINS[key]());
   }
 
   fn = (): any => {

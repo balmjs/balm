@@ -3,6 +3,7 @@ import './utilities';
 import './tasks';
 import './middlewares';
 import './bundler';
+import './bootstrap/config_check.spec';
 import './bootstrap/index.spec';
 import './app';
 
@@ -23,7 +24,8 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   },
   styles: {
     extname: 'css',
-    sprites: []
+    sprites: [],
+    postcssLoaderOptions: false // NOTE: just for config compatibility check
   },
   scripts: {
     loaders: [],
@@ -34,7 +36,8 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
     bundleAnalyzerReport: false,
     extractCss: {
       enabled: false
-    }
+    },
+    disableDefaultLoaders: false // NOTE: just for config compatibility check
   },
   extras: {
     includes: [],
@@ -61,7 +64,7 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   }
 });
 
-afterEach(function() {
+afterEach(function () {
   balm.config = balmConfigDefaults;
   balm.reset();
 });

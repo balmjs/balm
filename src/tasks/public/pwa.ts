@@ -51,7 +51,7 @@ class PwaTask extends BalmJS.BalmTask {
         BalmJS.logger.debug(`pwa - ${mode}`, options);
 
         await workboxBuild[mode](options)
-          .then(function({
+          .then(function ({
             count,
             size
           }: {
@@ -65,7 +65,7 @@ class PwaTask extends BalmJS.BalmTask {
               `Generated '${swDest}', which will precache ${count} files, totaling ${size} bytes`
             );
           })
-          .catch(function(error: any) {
+          .catch(function (error: any) {
             BalmJS.logger.warn(
               `pwa - ${mode}`,
               `Service worker generation failed: ${error}`

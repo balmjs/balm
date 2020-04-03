@@ -25,7 +25,7 @@ function _style(
 ): Style {
   const color: string = colorStyle.color.toLowerCase();
   let fn: string = colorStyle.background
-    ? COLOR.PREFIX + color.replace(/^[a-z]/, str => str.toUpperCase())
+    ? COLOR.PREFIX + color.replace(/^[a-z]/, (str) => str.toUpperCase())
     : color;
 
   if (colorStyle.bright) {

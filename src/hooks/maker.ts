@@ -51,7 +51,7 @@ class Maker {
     const taskName = ['sprite', ...BLACKLIST_IN_PROD].includes(customTask.name)
       ? customTask.name
       : `${customTask.name}:${BalmJS.recipeIndex}`;
-    let balmTask: Function = function(cb: Function): void {
+    let balmTask: Function = function (cb: Function): void {
       cb();
     }; // NOTE: `balmTask` function name for `gulp.parallel`
 

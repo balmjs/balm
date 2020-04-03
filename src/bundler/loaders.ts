@@ -14,12 +14,12 @@ function getLoaders(customLoaders: object[]): object[] {
     BalmJS.config.scripts.defaultLoaders
   );
   const useDefaultLoaders: boolean = Object.values(enableDefaultLoaders).some(
-    value => value
+    (value) => value
   );
 
   let defaultLoaders: object[] = [];
   if (useDefaultLoaders) {
-    Object.values(LOADERS).forEach(function(Loader: any) {
+    Object.values(LOADERS).forEach(function (Loader: any) {
       const DefaultLoader = Loader.default;
       const key = DefaultLoader.name.replace('Loader', '');
       if (enableDefaultLoaders[key]) {

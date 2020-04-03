@@ -188,15 +188,15 @@ function gulpSftp(options: any): any {
     const conn = new Client();
     connCache = conn;
 
-    conn.on('ready', function() {
+    conn.on('ready', function () {
       BalmJS.logger.debug(PLUGIN_NAME, 'Connection :: ready');
 
-      conn.sftp(function(err: any, sftp: any) {
+      conn.sftp(function (err: any, sftp: any) {
         if (err) {
           throw err;
         }
 
-        sftp.on('end', function(this: any) {
+        sftp.on('end', function (this: any) {
           BalmJS.logger.debug(PLUGIN_NAME, 'SFTP session closed');
           sftpCache = null;
           if (!finished) {
@@ -216,7 +216,7 @@ function gulpSftp(options: any): any {
       this.emit('error', new PluginError(PLUGIN_NAME, err));
     });
 
-    conn.on('end', function() {
+    conn.on('end', function () {
       BalmJS.logger.debug(PLUGIN_NAME, 'Connection :: end');
     });
 
@@ -247,7 +247,7 @@ function gulpSftp(options: any): any {
     const finalRemotePath = normalizePath(path.join(remotePath, file.relative));
 
     // Connection pulled from pool
-    _pool.call(this, function(sftp: any) {
+    _pool.call(this, function (sftp: any) {
       /*
        * Create Directories
        */
@@ -277,7 +277,7 @@ function gulpSftp(options: any): any {
       async.whilst(
         // https://github.com/caolan/async/issues/1668
         (cb: Function) => cb(null, fileDirs && fileDirs.length),
-        function(callback: Function) {
+        function (callback: Function) {
           let d = fileDirs.pop();
           mkDirCache[d] = true;
           // Mdrake - TODO: use a default file permission instead of defaulting to 755
@@ -288,11 +288,11 @@ function gulpSftp(options: any): any {
             d = d.replace('/', '\\');
           }
 
-          sftp.exists(d, function(exist: boolean) {
+          sftp.exists(d, function (exist: boolean) {
             if (exist) {
               callback();
             } else {
-              sftp.mkdir(d, { mode: '0755' }, function(err: any) {
+              sftp.mkdir(d, { mode: '0755' }, function (err: any) {
                 // REMOTE PATH
                 if (err) {
                   // Assuming that the directory exists here, silencing this error
@@ -309,7 +309,7 @@ function gulpSftp(options: any): any {
             }
           });
         },
-        function() {
+        function () {
           const stream = sftp.createWriteStream(finalRemotePath, {
             flags: 'w',
             encoding: null,
@@ -324,7 +324,7 @@ function gulpSftp(options: any): any {
             stream.end(file.contents);
           }
 
-          stream.on('close', function(this: any, err: any) {
+          stream.on('close', function (this: any, err: any) {
             if (err) {
               this.emit('error', new PluginError(PLUGIN_NAME, err));
             } else {

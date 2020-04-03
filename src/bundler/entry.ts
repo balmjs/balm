@@ -49,7 +49,7 @@ function getEntry(
   const HMR: string =
     `${HOT_CLIENT}?` +
     Object.entries(hotOptions)
-      .map(option => option.join('='))
+      .map((option) => option.join('='))
       .join('&');
   const useHMR: boolean =
     scripts.hot &&

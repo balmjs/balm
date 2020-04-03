@@ -20,7 +20,7 @@ function _parsePath(
 function gulpRename(obj: any): any {
   const _stream: any = new stream.Transform({ objectMode: true });
 
-  _stream._transform = function(
+  _stream._transform = function (
     originalFile: any,
     encoding: string,
     callback: Function

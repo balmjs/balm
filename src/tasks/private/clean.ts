@@ -22,7 +22,7 @@ class CleanTask extends BalmJS.BalmTask {
 
   private _getAssetsDir(rootKey = 'assets'): string[] {
     return unique(
-      ASSETS_KEYS.map(assetKey => (BalmJS.config as any)[rootKey][assetKey])
+      ASSETS_KEYS.map((assetKey) => (BalmJS.config as any)[rootKey][assetKey])
     );
   }
 
