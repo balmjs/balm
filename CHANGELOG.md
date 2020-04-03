@@ -1,5 +1,12 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.11.1 / 2020-04-03
+
+### Chores
+
+- optimize `start` & `end` tasks for the async completion
+- upgrade compatibility check for `balm.config`
+
 ## v2.11.0 / 2020-03-21
 
 ### Chores

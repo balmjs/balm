@@ -3,15 +3,15 @@ class StartTask extends BalmJS.BalmTask {
     super('start');
   }
 
-  fn(cb: Function): void {
+  fn = async (cb: Function): Promise<any> => {
     console.time(BalmJS.TIME_FLAG);
 
     if (BalmJS.utils.isFunction(BalmJS.beforeTask)) {
-      (BalmJS.beforeTask as Function)();
+      await (BalmJS.beforeTask as Function)();
     }
 
     cb();
-  }
+  };
 }
 
 export default StartTask;

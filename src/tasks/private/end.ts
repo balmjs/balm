@@ -3,15 +3,15 @@ class EndTask extends BalmJS.BalmTask {
     super('end');
   }
 
-  fn(cb: Function): void {
+  fn = async (cb: Function): Promise<any> => {
     if (BalmJS.utils.isFunction(BalmJS.afterTask)) {
-      (BalmJS.afterTask as Function)();
+      await (BalmJS.afterTask as Function)();
     }
 
     console.timeEnd(BalmJS.TIME_FLAG);
 
     cb();
-  }
+  };
 }
 
 export default EndTask;

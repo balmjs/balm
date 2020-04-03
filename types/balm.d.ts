@@ -22,6 +22,7 @@ interface BalmStyles {
   spritePadding: number;
   spriteParams: object;
   spriteRetina: boolean;
+  postcssLoaderOptions?: any;
 }
 
 interface BalmScripts {
@@ -67,6 +68,7 @@ interface BalmScripts {
     prefix: string;
   };
   ie8: boolean;
+  disableDefaultLoaders?: any;
 }
 
 interface BalmImages {
