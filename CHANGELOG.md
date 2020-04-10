@@ -1,5 +1,11 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.11.2 / 2020-04-10
+
+### Bug Fixes
+
+- fix the problem of `styles.postcssPlugins` failure for `sass`/`less`
+
 ## v2.11.1 / 2020-04-03
 
 ### Chores

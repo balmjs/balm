@@ -1,8 +1,8 @@
 module.exports = {
-  origin: 'https://test.miniprogram.com',
-  entry: '/test/aaa',
+  origin: 'https://mp.balmjs.com',
+  entry: '/(home|index)?',
   router: {
-    index: ['/test/aaa', '/test/bbb']
+    index: ['/']
   },
   redirect: {
     notFound: 'index',
@@ -20,11 +20,10 @@ module.exports = {
     autoBuildNpm: 'npm'
   },
   app: {
-    navigationBarTitleText: 'miniprogram-project'
+    navigationBarTitleText: 'BalmJS for MP'
   },
   global: {
-    // rem: true, // 是否支持 rem
-    // pageStyle: true // 是否支持修改页面样式
+    rem: true
   },
   projectConfig: {
     appid: '',

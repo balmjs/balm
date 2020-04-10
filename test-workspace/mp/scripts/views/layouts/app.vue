@@ -1,5 +1,5 @@
 <template>
-  <div class="demo--top-app-bar">
+  <div class="container demo--top-app-bar">
     <ui-top-app-bar
       contentSelector="#content-main"
       :title="title"

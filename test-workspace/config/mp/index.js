@@ -4,6 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MpPlugin = require('mp-webpack-plugin');
 const balm = require('../balm');
 const balmrc = require('../balmrc');
+const pxtorem = require('postcss-pxtorem');
 
 const balmConfig = Object.assign(balmrc, {
   roots: {
@@ -12,7 +13,13 @@ const balmConfig = Object.assign(balmrc, {
   },
   styles: {
     extname: 'scss',
-    dartSass: true
+    dartSass: true,
+    postcssPlugins: [
+      pxtorem({
+        rootValue: 37.5,
+        propList: ['*', '!font*']
+      })
+    ]
   },
   scripts: {
     entry: {

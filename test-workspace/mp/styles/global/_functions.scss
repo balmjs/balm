@@ -1,0 +1,5 @@
+$rootFontSize: 375 / 10;
+
+@function px2rem($size) {
+  @return ($size / $rootFontSize) + rem;
+}
