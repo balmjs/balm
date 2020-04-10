@@ -4,6 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MpPlugin = require('mp-webpack-plugin');
 const balm = require('../balm');
 const balmrc = require('../balmrc');
+const fuckMP = require('./fuck-mp');
 const pxtorem = require('postcss-pxtorem');
 
 const balmConfig = Object.assign(balmrc, {
@@ -56,24 +57,14 @@ const balmConfig = Object.assign(balmrc, {
       // 'balm-ui-plus': 'balm-ui/src/scripts/plus.js',
       // 'balm-ui-next': 'balm-ui/src/scripts/next.js'
     }
+  },
+  assets: {
+    cache: false
   }
 });
 
 balm.config = balmConfig;
 
 balm.go(mix => {
-  if (mix.env.isProd) {
-    // For external css
-    mix.copy(
-      `./dist/web/${balm.config.paths.target.css}/*`,
-      `./dist/mp/common/${balm.config.paths.target.css}`,
-      {
-        rename: {
-          extname: '.wxss'
-        }
-      }
-    );
-    // For css entry
-    mix.copy('./mp/index.wxss', './dist/mp/pages/main');
-  }
+  fuckMP(mix);
 });

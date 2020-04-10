@@ -1,5 +1,7 @@
+import 'lib-flexible';
 import Vue from 'vue';
 import App from '@/views/layouts/app';
+
 import BalmUI from 'balm-ui'; // Mandatory
 // import BalmUIPlus from 'balm-ui/dist/balm-ui-plus'; // Optional
 // import BalmUINext from 'balm-ui/dist/balm-ui-next'; // Experimental
