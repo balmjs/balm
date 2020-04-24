@@ -5,7 +5,8 @@ const MpPlugin = require('mp-webpack-plugin');
 const balm = require('../balm');
 const balmrc = require('../balmrc');
 const fuckMP = require('./fuck-mp');
-const pxtorem = require('postcss-pxtorem');
+// const pxtorem = require('postcss-pxtorem');
+const publish = require('./publish');
 
 const balmConfig = Object.assign(balmrc, {
   roots: {
@@ -14,13 +15,13 @@ const balmConfig = Object.assign(balmrc, {
   },
   styles: {
     extname: 'scss',
-    dartSass: true,
-    postcssPlugins: [
-      pxtorem({
-        rootValue: 37.5,
-        propList: ['*', '!font*']
-      })
-    ]
+    dartSass: true
+    // postcssPlugins: [
+    //   pxtorem({
+    //     rootValue: 37.5,
+    //     propList: ['*', '!font*']
+    //   })
+    // ]
   },
   scripts: {
     entry: {
@@ -42,7 +43,7 @@ const balmConfig = Object.assign(balmrc, {
             new webpack.DefinePlugin({
               'process.env.isMiniprogram': process.env.isMiniprogram // 注入环境变量，用于业务代码判断
             }),
-            new MpPlugin(require('./miniprogram.config'))
+            new MpPlugin(require('./kbone.config'))
           ]
         : [])
     ],
@@ -59,12 +60,17 @@ const balmConfig = Object.assign(balmrc, {
     }
   },
   assets: {
-    cache: false
+    subDir: balm.config.env.isMP ? '' : 'h5',
+    cache: !balm.config.env.isMP
   }
 });
 
 balm.config = balmConfig;
 
 balm.go(mix => {
-  fuckMP(mix);
+  if (mix.env.isMP) {
+    fuckMP(mix);
+  } else {
+    publish(mix);
+  }
 });
