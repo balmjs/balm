@@ -1,14 +1,14 @@
 import SassTask from '../../../src/tasks/public/sass';
 
-describe('Sass Task', function() {
+describe('Sass Task', function () {
   let sassTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     sassTask = new SassTask();
   });
 
-  describe('default', function() {
-    before(function() {
+  describe('default', function () {
+    before(function () {
       balm.config = {
         styles: {
           extname: 'scss'
@@ -20,7 +20,7 @@ describe('Sass Task', function() {
 
     it(
       `expected output: "${defaultInput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         sassTask.fn();
 
         expect(sassTask.input).to.equal(defaultInput);
@@ -28,8 +28,8 @@ describe('Sass Task', function() {
     );
   });
 
-  describe('#mix.sass()', function() {
-    before(function() {
+  describe('#mix.sass()', function () {
+    before(function () {
       balm.config = {
         styles: {
           extname: 'scss',
@@ -43,12 +43,38 @@ describe('Sass Task', function() {
 
     it(
       `expected output: "${defaultInput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         sassTask.recipe(defaultInput, defaultOutput, {})();
 
         expect(JSON.stringify(sassTask.input)).to.equal(
           JSON.stringify(defaultInput)
         );
+        expect(sassTask.output).to.equal(defaultOutput);
+      })
+    );
+  });
+
+  describe('miniprogram css', function () {
+    before(function () {
+      balm.config = {
+        env: {
+          isProd: true,
+          isMP: true
+        },
+        styles: {
+          extname: 'scss',
+          dartSass: true
+        }
+      };
+    });
+
+    const defaultOutput = path.join('dist', 'common', 'css');
+
+    it(
+      `expected output: "${defaultOutput}"`,
+      asyncCase(function () {
+        sassTask.fn();
+
         expect(sassTask.output).to.equal(defaultOutput);
       })
     );

@@ -1,10 +1,10 @@
 import getOutput from '../../src/bundler/output';
 
-describe('Bundler#getOutput()', function() {
+describe('Bundler#getOutput()', function () {
   let result: any = {};
 
-  describe('development', function() {
-    beforeEach(function() {
+  describe('development', function () {
+    beforeEach(function () {
       balm.config = {
         env: {
           isDev: true
@@ -12,13 +12,13 @@ describe('Bundler#getOutput()', function() {
       };
     });
 
-    describe('default', function() {
+    describe('default', function () {
       const filename = 'js/[name].js';
       const chunkFilename = 'js/async/[id].js';
 
       it(
         `expected output: "${filename}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           result = getOutput('', balm.config.scripts);
 
           expect(result.filename).to.equal(filename);
@@ -27,13 +27,13 @@ describe('Bundler#getOutput()', function() {
       );
     });
 
-    describe('#mix.js()', function() {
+    describe('#mix.js()', function () {
       const filename = '[name].js';
       const chunkFilename = '[id].js';
 
       it(
         `expected output: "${filename}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           result = getOutput('', balm.config.scripts, true);
 
           expect(result.filename).to.equal(filename);
@@ -43,9 +43,9 @@ describe('Bundler#getOutput()', function() {
     });
   });
 
-  describe('production', function() {
-    describe('default', function() {
-      before(function() {
+  describe('production', function () {
+    describe('default', function () {
+      before(function () {
         balm.config = {
           env: {
             isProd: true
@@ -58,7 +58,7 @@ describe('Bundler#getOutput()', function() {
 
       it(
         `expected output: "${filename}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           result = getOutput('', balm.config.scripts);
 
           expect(result.filename).to.equal(filename);
@@ -67,8 +67,8 @@ describe('Bundler#getOutput()', function() {
       );
     });
 
-    describe('cache', function() {
-      before(function() {
+    describe('cache', function () {
+      before(function () {
         balm.config = {
           env: {
             isProd: true
@@ -84,7 +84,7 @@ describe('Bundler#getOutput()', function() {
 
       it(
         `expected output: "${filename}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           result = getOutput('', balm.config.scripts);
 
           expect(result.filename).to.equal(filename);
@@ -93,8 +93,8 @@ describe('Bundler#getOutput()', function() {
       );
     });
 
-    describe('inject', function() {
-      before(function() {
+    describe('inject', function () {
+      before(function () {
         balm.config = {
           env: {
             isProd: true
@@ -110,7 +110,7 @@ describe('Bundler#getOutput()', function() {
 
       it(
         `expected output: "${filename}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           result = getOutput('', balm.config.scripts);
 
           expect(result.filename).to.equal(filename);
@@ -120,8 +120,8 @@ describe('Bundler#getOutput()', function() {
     });
   });
 
-  describe('miniprogram', function() {
-    before(function() {
+  describe('miniprogram js', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true,
@@ -139,7 +139,7 @@ describe('Bundler#getOutput()', function() {
 
     it(
       `expected output: "${JSON.stringify(mp)}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         result = getOutput('', balm.config.scripts);
 
         expect(result.path).to.equal(mp.path);

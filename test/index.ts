@@ -11,7 +11,8 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   env: {
     isProd: false,
     isDev: false,
-    inSSR: false
+    inSSR: false,
+    isMP: false
   },
   paths: {
     target: {
