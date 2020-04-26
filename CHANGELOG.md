@@ -1,11 +1,15 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
-## v2.11.3 / 2020-04-26
+## v2.12.0 / 2020-04-26
 
 ### Chores
 
 - dependencies: up to date
   - `fibers`: 4.x -> 5.x
+
+### Bug Fixes
+
+- Bugfix that the server automatically detects the port in development
 
 ## v2.11.2 / 2020-04-10
 

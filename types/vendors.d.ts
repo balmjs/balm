@@ -3,6 +3,7 @@ declare module 'autoprefixer';
 declare module 'browser-sync';
 declare module 'connect-history-api-fallback';
 declare module 'cssnano';
+declare module 'detect-port';
 declare module 'fancy-log';
 declare module 'fibers';
 declare module 'gulp';

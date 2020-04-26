@@ -1,4 +1,5 @@
 import { series, parallel, watch } from 'gulp';
+import detectPort from 'detect-port';
 import getMiddlewares from '../../middlewares';
 
 function reload(done: Function): void {
@@ -13,6 +14,21 @@ class ServerTask extends BalmJS.BalmTask {
     if (BalmJS.config.scripts.ie8) {
       BalmJS.config.scripts.hot = false;
     }
+
+    detectPort(BalmJS.config.server.port)
+      .then((port: number) => {
+        if (BalmJS.config.server.port !== port) {
+          BalmJS.logger.warn(
+            'server task',
+            `port: ${BalmJS.config.server.port} was occupied, try port: ${port}`
+          );
+
+          BalmJS.config.server.port = port;
+        }
+      })
+      .catch((err: any) => {
+        BalmJS.logger.error('server task', err);
+      });
   }
 
   private _onWatch(): void {
