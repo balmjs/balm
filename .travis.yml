@@ -7,7 +7,7 @@ branches:
 language: node_js
 
 node_js:
-  - '13'
+  - '14'
   - '12'
   - '10'
 
