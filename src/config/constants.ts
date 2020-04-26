@@ -8,4 +8,13 @@ const INJECT_HASHNAME = '[contenthash:8]';
 
 const HMR_PATH = '/__balm_hmr';
 
-export { ASSETS_KEYS, ASYNC_SCRIPTS, STATIC_ASSETS, INJECT_HASHNAME, HMR_PATH };
+const MP_ASSETS = 'common';
+
+export {
+  ASSETS_KEYS,
+  ASYNC_SCRIPTS,
+  STATIC_ASSETS,
+  INJECT_HASHNAME,
+  HMR_PATH,
+  MP_ASSETS
+};

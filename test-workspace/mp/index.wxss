@@ -1,1 +1,2 @@
+@import '../../common/1a/reset.wxss';
 @import '../../common/1a/main.wxss';

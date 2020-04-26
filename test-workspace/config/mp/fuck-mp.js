@@ -1,5 +1,4 @@
 const balm = require('../balm');
-const webDir = './dist/web';
 const mpDir = './dist/mp';
 const mpCommonDir = `${mpDir}/common`;
 const replaceOptions = [
@@ -15,17 +14,6 @@ const replaceOptions = [
 
 module.exports = function fuckMP(mix) {
   if (mix.env.isMP && mix.env.isProd) {
-    // For external css
-    mix.copy(
-      `${webDir}/${balm.config.paths.target.css}/*`,
-      `${mpCommonDir}/${balm.config.paths.target.css}`,
-      {
-        rename: {
-          extname: '.wxss'
-        }
-      }
-    );
-
     // Fix MP bug
     mix.replace(
       `${mpCommonDir}/${balm.config.paths.target.css}/*.wxss`,

@@ -59,10 +59,13 @@ const balmConfig = Object.assign(balmrc, {
       // 'balm-ui-next': 'balm-ui/src/scripts/next.js'
     }
   },
-  assets: {
-    subDir: balm.config.env.isMP ? '' : 'h5',
-    cache: !balm.config.env.isMP
-  }
+  assets: balm.config.env.isMP
+    ? {}
+    : {
+        subDir: 'h5',
+        cache: true,
+        excludes: ['dist/web/h5/1a/reset.css']
+      }
 });
 
 balm.config = balmConfig;
@@ -71,6 +74,9 @@ balm.go(mix => {
   if (mix.env.isMP) {
     fuckMP(mix);
   } else {
+    // Clear miniprogram css
+    mix.remove(['dist/web/index.wxss', 'dist/web/h5/1a/reset.css']);
+
     publish(mix);
   }
 });

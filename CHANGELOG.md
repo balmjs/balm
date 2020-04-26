@@ -1,5 +1,12 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.12.1 / 2020-04-26
+
+### Features
+
+- update styles tasks for miniprogram
+- update miniprogram test
+
 ## v2.12.0 / 2020-04-26
 
 ### Chores

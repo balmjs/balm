@@ -1,4 +1,4 @@
-import { ASYNC_SCRIPTS, INJECT_HASHNAME } from '../config/constants';
+import { ASYNC_SCRIPTS, INJECT_HASHNAME, MP_ASSETS } from '../config/constants';
 
 function getOutput(output: string, scripts: any, isHook = false): any {
   const outputPath: string = output || BalmJS.config.dest.base; // Absolute path
@@ -21,23 +21,22 @@ function getOutput(output: string, scripts: any, isHook = false): any {
   BalmJS.logger.debug(
     'webpack output',
     `Path: ${BalmJS.file.absPath(
-      BalmJS.config.env.isProd && BalmJS.config.env.isMP
-        ? path.join(BalmJS.config.dest.base, 'common')
+      BalmJS.config.env.isMP
+        ? path.join(BalmJS.config.dest.base, MP_ASSETS)
         : outputPath
     )}`
   );
 
-  const miniprogramConfig: object =
-    BalmJS.config.env.isProd && BalmJS.config.env.isMP
-      ? {
-          path: BalmJS.file.absPath(
-            path.join(BalmJS.config.dest.base, 'common')
-          ),
-          library: 'createApp',
-          libraryExport: 'default',
-          libraryTarget: 'window'
-        }
-      : {};
+  const miniprogramConfig: object = BalmJS.config.env.isMP
+    ? {
+        path: BalmJS.file.absPath(
+          path.join(BalmJS.config.dest.base, MP_ASSETS)
+        ),
+        library: 'createApp',
+        libraryExport: 'default',
+        libraryTarget: 'window'
+      }
+    : {};
 
   return Object.assign(
     {

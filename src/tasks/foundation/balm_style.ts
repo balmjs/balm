@@ -2,6 +2,7 @@ import BalmTask from './balm';
 import cssnano from 'cssnano';
 import sass from 'sass';
 import Fiber from 'fibers';
+import { MP_ASSETS } from '../../config/constants';
 
 class BalmStyleTask extends BalmTask {
   constructor(name: string) {
@@ -29,7 +30,13 @@ class BalmStyleTask extends BalmTask {
       '**',
       `!(_*).${extname}`
     );
-    this.defaultOutput = BalmJS.config.dest.css;
+    this.defaultOutput = BalmJS.config.env.isMP
+      ? path.join(
+          BalmJS.config.dest.base,
+          MP_ASSETS,
+          BalmJS.config.paths.target.css
+        )
+      : BalmJS.config.dest.css;
   }
 
   handleStyle(style: string, output: string, options?: any): any {
@@ -82,6 +89,12 @@ class BalmStyleTask extends BalmTask {
         $.if(
           BalmJS.config.env.isProd || BalmJS.config.styles.minified,
           $.postcss([cssnano(BalmJS.config.styles.options)])
+        )
+      )
+      .pipe(
+        $.if(
+          BalmJS.config.env.isMP,
+          BalmJS.plugins.rename({ extname: '.wxss' })
         )
       )
       .pipe(
