@@ -1,5 +1,12 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.11.3 / 2020-04-26
+
+### Chores
+
+- dependencies: up to date
+  - `fibers`: 4.x -> 5.x
+
 ## v2.11.2 / 2020-04-10
 
 ### Bug Fixes
