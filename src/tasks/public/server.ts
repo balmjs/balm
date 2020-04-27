@@ -15,20 +15,22 @@ class ServerTask extends BalmJS.BalmTask {
       BalmJS.config.scripts.hot = false;
     }
 
-    detectPort(BalmJS.config.server.port)
-      .then((port: number) => {
-        if (BalmJS.config.server.port !== port) {
-          BalmJS.logger.warn(
-            'server task',
-            `port: ${BalmJS.config.server.port} was occupied, try port: ${port}`
-          );
+    if (BalmJS.config.env.isDev) {
+      detectPort(BalmJS.config.server.port)
+        .then((port: number) => {
+          if (BalmJS.config.server.port !== port) {
+            BalmJS.logger.warn(
+              'server task',
+              `port: ${BalmJS.config.server.port} was occupied, try port: ${port}`
+            );
 
-          BalmJS.config.server.port = port;
-        }
-      })
-      .catch((err: any) => {
-        BalmJS.logger.error('server task', err);
-      });
+            BalmJS.config.server.port = port;
+          }
+        })
+        .catch((err: any) => {
+          BalmJS.logger.error('server task', err);
+        });
+    }
   }
 
   private _onWatch(): void {
