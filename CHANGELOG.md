@@ -1,5 +1,17 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.13.0 / 2020-05-06
+
+### Chores
+
+- dependencies: up to date
+  - `terser-webpack-plugin`: 2.x -> 3.x
+
+### Bug Fixes
+
+- `script` task: fix default entry bug for the emtry source path
+- `html` task: update assets path bugfix
+
 ## v2.12.1 / 2020-04-26
 
 ### Features

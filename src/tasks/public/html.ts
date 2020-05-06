@@ -12,9 +12,7 @@ class HtmlTask extends BalmJS.BalmTask {
   private _updateAssetsPath(type: any): any {
     const isManifest: boolean = type === 'manifest';
     const assetsType: string = isManifest ? 'img' : type;
-    const from: string = (BalmJS.config.paths.source as any)[assetsType]
-      .split('/')
-      .pop();
+    const from: string = (BalmJS.config.paths.source as any)[assetsType];
     const to: string = BalmJS.file.assetsPath(
       (BalmJS.config.paths.target as any)[assetsType]
     );
@@ -41,6 +39,10 @@ class HtmlTask extends BalmJS.BalmTask {
     return $.replace(assetsPathSrc, assetsPathDest);
   }
 
+  private _hasSourcePath(type: string): boolean {
+    return !!(BalmJS.config.paths.source as any)[type];
+  }
+
   recipe(input?: string, output?: string): any {
     return (): any => {
       this.init(input, output);
@@ -61,29 +63,37 @@ class HtmlTask extends BalmJS.BalmTask {
           )
           .pipe(
             $.if(/\.html$/, BalmJS.plugins.htmlmin(BalmJS.config.html.options))
-          )
-          .pipe(this._updateAssetsPath('css'))
-          .pipe(this._updateAssetsPath('js'))
-          .pipe(this._updateAssetsPath('img'))
-          .pipe(this._updateAssetsPath('media'))
-          .pipe(
-            $.if(BalmJS.config.pwa.manifest, this._updateAssetsPath('manifest'))
           );
+
+        ['css', 'js', 'img', 'media', 'manifest'].forEach((type: string) => {
+          const canUpdate: boolean =
+            type === 'manifest'
+              ? BalmJS.config.pwa.enabled
+              : this._hasSourcePath(type);
+
+          if (canUpdate) {
+            stream = stream.pipe(this._updateAssetsPath(type));
+          }
+        });
 
         stream = BalmJS.config.assets.cache
           ? stream.pipe(
-              $.if(BalmJS.config.pwa.manifest, BalmJS.file.setPublicPath())
+              $.if(BalmJS.config.pwa.enabled, BalmJS.file.setPublicPath())
             )
           : stream.pipe(BalmJS.file.setPublicPath());
       } else {
-        stream = stream
-          .pipe(this._updateAssetsPath('css'))
-          .pipe(this._updateAssetsPath('js'))
-          .pipe($.if(!BalmJS.config.inFrontend, this._updateAssetsPath('img')))
-          .pipe(
-            $.if(!BalmJS.config.inFrontend, this._updateAssetsPath('media'))
-          )
-          .pipe(BalmJS.file.setPublicPath());
+        ['css', 'js', 'img', 'media'].forEach((type: string, index: number) => {
+          const canUpdate: boolean =
+            index > 1
+              ? this._hasSourcePath(type) && !BalmJS.config.inFrontend
+              : this._hasSourcePath(type);
+
+          if (canUpdate) {
+            stream = stream.pipe(this._updateAssetsPath(type));
+          }
+        });
+
+        stream = stream.pipe(BalmJS.file.setPublicPath());
       }
 
       return stream.pipe(gulp.dest(BalmJS.file.absPath(this.output)));
