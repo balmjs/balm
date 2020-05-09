@@ -1,7 +1,7 @@
 import { cleanup, runTest } from './test';
 
-describe('App Test in production', function() {
-  before(function() {
+describe('App Test in production', function () {
+  before(function () {
     balm.config = {
       env: {
         isProd: true
@@ -20,15 +20,18 @@ describe('App Test in production', function() {
       },
       assets: {
         cache: true
+      },
+      pwa: {
+        enabled: true
       }
     };
   });
 
-  after(function() {
+  after(function () {
     cleanup();
   });
 
-  it('expected output: "dist"', function(done) {
+  it('expected output: "dist"', function (done) {
     let testCase = [
       'dist/index.html',
       'dist/favicon.ico',
@@ -81,7 +84,7 @@ describe('App Test in production', function() {
     );
   });
 
-  it('publish assets & templates to remote', function(done) {
+  it('publish assets & templates to remote', function (done) {
     const testCase = [
       'assets/public/a/main.41255e24.css',
       'assets/public/b/main.9af584a0.js',
