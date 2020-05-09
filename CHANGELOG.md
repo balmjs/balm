@@ -1,6 +1,17 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
-## v2.13.0 / 2020-05-06
+## v2.13.1 / 2020-05-09
+
+### Chores
+
+- devDependencies: up to date
+  - `eslint`: 6.x -> 7.x
+
+### Bug Fixes
+
+- bugfix for cache: ⚠️ `v2.13.0` deprecated
+
+## <del>v2.13.0</del> / 2020-05-06
 
 ### Chores
 

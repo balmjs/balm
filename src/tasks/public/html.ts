@@ -78,7 +78,7 @@ class HtmlTask extends BalmJS.BalmTask {
 
         stream = BalmJS.config.assets.cache
           ? stream.pipe(
-              $.if(BalmJS.config.pwa.enabled, BalmJS.file.setPublicPath())
+              $.if(BalmJS.config.pwa.manifest, BalmJS.file.setPublicPath())
             )
           : stream.pipe(BalmJS.file.setPublicPath());
       } else {
