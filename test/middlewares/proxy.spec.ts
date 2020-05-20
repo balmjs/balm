@@ -1,27 +1,27 @@
 import httpProxyMiddleware from '../../src/middlewares/proxy';
 
-describe('Http Proxy Middleware', function() {
+describe('Http Proxy Middleware', function () {
   let middlewares: object[];
 
-  beforeEach(function() {
+  beforeEach(function () {
     middlewares = httpProxyMiddleware();
   });
 
-  describe('non-proxy', function() {
+  describe('non-proxy', function () {
     const middlewaresCount = 0;
 
     it(
       `expected output: ${middlewaresCount}`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(middlewares.length).to.equal(middlewaresCount);
       })
     );
   });
 
-  describe('proxy', function() {
-    describe('config is an object', function() {
-      describe('correct', function() {
-        before(function() {
+  describe('proxy', function () {
+    describe('config is an object', function () {
+      describe('correct', function () {
+        before(function () {
           balm.config = {
             server: {
               proxyConfig: {
@@ -38,14 +38,14 @@ describe('Http Proxy Middleware', function() {
 
         it(
           `expected output: ${middlewaresCount}`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(middlewares.length).to.equal(middlewaresCount);
           })
         );
       });
 
-      describe('wrong', function() {
-        before(function() {
+      describe('wrong', function () {
+        before(function () {
           balm.config = {
             server: {
               proxyConfig: {}
@@ -57,16 +57,16 @@ describe('Http Proxy Middleware', function() {
 
         it(
           `expected output: ${middlewaresCount}`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(middlewares.length).to.equal(middlewaresCount);
           })
         );
       });
     });
 
-    describe('config is an array', function() {
-      describe('correct', function() {
-        before(function() {
+    describe('config is an array', function () {
+      describe('correct', function () {
+        before(function () {
           balm.config = {
             server: {
               proxyConfig: [
@@ -91,14 +91,14 @@ describe('Http Proxy Middleware', function() {
 
         it(
           `expected output: ${middlewaresCount}`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(middlewares.length).to.equal(middlewaresCount);
           })
         );
       });
 
-      describe('wrong', function() {
-        before(function() {
+      describe('wrong', function () {
+        before(function () {
           balm.config = {
             server: {
               proxyConfig: [{}]
@@ -110,15 +110,15 @@ describe('Http Proxy Middleware', function() {
 
         it(
           `expected output: ${middlewaresCount}`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(middlewares.length).to.equal(middlewaresCount);
           })
         );
       });
     });
 
-    describe('invalid', function() {
-      before(function() {
+    describe('invalid', function () {
+      before(function () {
         balm.config = {
           server: {
             proxyConfig: true
@@ -130,7 +130,32 @@ describe('Http Proxy Middleware', function() {
 
       it(
         `expected output: ${middlewaresCount}`,
-        asyncCase(function() {
+        asyncCase(function () {
+          expect(middlewares.length).to.equal(middlewaresCount);
+        })
+      );
+    });
+
+    describe('error', function () {
+      before(function () {
+        balm.config = {
+          server: {
+            proxyConfig: {
+              context: '/api',
+              options: {
+                target: '',
+                changeOrigin: true
+              }
+            }
+          }
+        };
+      });
+
+      const middlewaresCount = 0;
+
+      it(
+        `expected output: ${middlewaresCount}`,
+        asyncCase(function () {
           expect(middlewares.length).to.equal(middlewaresCount);
         })
       );

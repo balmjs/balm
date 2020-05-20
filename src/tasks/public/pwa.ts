@@ -23,9 +23,8 @@ class PwaTask extends BalmJS.BalmTask {
         case 'generateSW':
           options = Object.assign(
             {
-              swDest,
-              importScripts: ['workbox-sw.js'],
-              globDirectory
+              globDirectory,
+              swDest
             },
             BalmJS.config.pwa.options,
             customOptions
@@ -35,9 +34,9 @@ class PwaTask extends BalmJS.BalmTask {
         case 'injectManifest':
           options = Object.assign(
             {
-              swSrc,
+              globDirectory,
               swDest,
-              globDirectory
+              swSrc
             },
             BalmJS.config.pwa.options,
             customOptions

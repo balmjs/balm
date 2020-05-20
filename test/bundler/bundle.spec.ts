@@ -1,9 +1,9 @@
 import webpackConfig from '../../src/bundler';
 
-describe('Bundler#webpackConfig()', function() {
-  describe('web', function() {
-    describe('with externals', function() {
-      before(function() {
+describe('Bundler#webpackConfig()', function () {
+  describe('web', function () {
+    describe('with externals', function () {
+      before(function () {
         balm.config = {
           env: {
             isProd: true
@@ -16,14 +16,14 @@ describe('Bundler#webpackConfig()', function() {
 
       it(
         '`balm.config.scripts.externals` expected output: true',
-        asyncCase(function() {
+        asyncCase(function () {
           webpackConfig(balm.config.scripts.entry, 'dist');
         })
       );
     });
 
-    describe('with sourcemap and report', function() {
-      before(function() {
+    describe('with sourcemap and report', function () {
+      before(function () {
         balm.config = {
           env: {
             isProd: true
@@ -40,14 +40,14 @@ describe('Bundler#webpackConfig()', function() {
 
       it(
         '`balm.config.scripts.sourceMap` expected output: true',
-        asyncCase(function() {
+        asyncCase(function () {
           webpackConfig(balm.config.scripts.entry, 'dist');
         })
       );
     });
 
-    describe('inject', function() {
-      before(function() {
+    describe('inject', function () {
+      before(function () {
         balm.config = {
           env: {
             isProd: true
@@ -60,16 +60,16 @@ describe('Bundler#webpackConfig()', function() {
 
       it(
         '`balm.config.scripts.inject` expected output: true',
-        asyncCase(function() {
+        asyncCase(function () {
           webpackConfig(balm.config.scripts.entry, 'dist');
         })
       );
     });
   });
 
-  describe('vendor extraction', function() {
-    describe('default', function() {
-      before(function() {
+  describe('vendor extraction', function () {
+    describe('default', function () {
+      before(function () {
         balm.config = {
           env: {
             isProd: true
@@ -82,14 +82,14 @@ describe('Bundler#webpackConfig()', function() {
 
       it(
         '`balm.config.scripts.inject` expected output: false',
-        asyncCase(function() {
+        asyncCase(function () {
           webpackConfig(balm.config.scripts.entry, 'dist');
         })
       );
     });
 
-    describe('inject', function() {
-      before(function() {
+    describe('inject', function () {
+      before(function () {
         balm.config = {
           env: {
             isProd: true
@@ -106,7 +106,7 @@ describe('Bundler#webpackConfig()', function() {
 
       it(
         '`balm.config.scripts.inject` expected output: true',
-        asyncCase(function() {
+        asyncCase(function () {
           webpackConfig(
             {
               main: './src/scripts/index.js'
@@ -118,8 +118,25 @@ describe('Bundler#webpackConfig()', function() {
     });
   });
 
-  describe('!web', function() {
-    before(function() {
+  describe('IE8', function () {
+    before(function () {
+      balm.config = {
+        scripts: {
+          ie8: true
+        }
+      };
+    });
+
+    it(
+      'outdated browser',
+      asyncCase(function () {
+        webpackConfig('', 'dist');
+      })
+    );
+  });
+
+  describe('!web', function () {
+    before(function () {
       balm.config = {
         scripts: {
           target: 'node'
@@ -129,7 +146,7 @@ describe('Bundler#webpackConfig()', function() {
 
     it(
       'node',
-      asyncCase(function() {
+      asyncCase(function () {
         webpackConfig('', 'dist');
       })
     );
