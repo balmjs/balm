@@ -27,8 +27,8 @@ class ServerTask extends BalmJS.BalmTask {
             BalmJS.config.server.port = port;
           }
         })
-        .catch((err: any) => {
-          BalmJS.logger.error('server task', err);
+        .catch((error: any) => {
+          BalmJS.logger.error('server task', error);
         });
     }
   }

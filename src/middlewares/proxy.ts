@@ -15,17 +15,10 @@ function httpProxyMiddleware(): object[] {
   const proxyConfig = BalmJS.config.server.proxyConfig;
 
   if (proxyConfig) {
-    if (BalmJS.utils.isObject(proxyConfig)) {
-      // Single proxy
-      const config = proxyConfig as ProxyConfig;
-      if (config.context && config.options) {
-        middleware.push(createProxyMiddleware(config.context, config.options));
-      } else {
-        _handleProxyConfigError();
-      }
-    } else if (BalmJS.utils.isArray(proxyConfig)) {
-      // Multiple proxies
-      for (const config of proxyConfig as ProxyConfig[]) {
+    try {
+      if (BalmJS.utils.isObject(proxyConfig)) {
+        // Single proxy
+        const config = proxyConfig as ProxyConfig;
         if (config.context && config.options) {
           middleware.push(
             createProxyMiddleware(config.context, config.options)
@@ -33,9 +26,22 @@ function httpProxyMiddleware(): object[] {
         } else {
           _handleProxyConfigError();
         }
+      } else if (BalmJS.utils.isArray(proxyConfig)) {
+        // Multiple proxies
+        for (const config of proxyConfig as ProxyConfig[]) {
+          if (config.context && config.options) {
+            middleware.push(
+              createProxyMiddleware(config.context, config.options)
+            );
+          } else {
+            _handleProxyConfigError();
+          }
+        }
+      } else {
+        _handleProxyConfigError();
       }
-    } else {
-      _handleProxyConfigError();
+    } catch (error) {
+      BalmJS.logger.error('proxy middleware', error.message);
     }
   }
 

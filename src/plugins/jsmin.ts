@@ -41,8 +41,8 @@ function gulpJsmin(options: object): any {
 
           file.contents = Buffer.from(content);
           cb(null, file);
-        } catch (err) {
-          const error = new PluginError(PLUGIN_NAME, err);
+        } catch (e) {
+          const error = new PluginError(PLUGIN_NAME, e);
           cb(error);
         }
       } else {

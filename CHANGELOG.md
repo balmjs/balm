@@ -1,5 +1,11 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.13.2 / 2020-05-20
+
+### Chores
+
+- `middlewares`: optimize error handler
+
 ## v2.13.1 / 2020-05-09
 
 ### Chores

@@ -22,9 +22,9 @@ function gulpHtmlmin(options: object): any {
           cb(null, contents);
           callback(null, file);
         }
-      } catch (err) {
+      } catch (e) {
         const opts = Object.assign(options, { fileName: file.path });
-        const error = new PluginError(PLUGIN_NAME, err, opts);
+        const error = new PluginError(PLUGIN_NAME, e, opts);
         cb === callback ? cb(error) : callback(error);
       }
     }
