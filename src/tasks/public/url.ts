@@ -24,7 +24,7 @@ class UrlTask extends BalmJS.BalmTask {
       }
     );
 
-    return $.replace(pathSrc, pathDest);
+    return BalmJS.plugins.replace(pathSrc, pathDest);
   }
 
   recipe(input?: string | string[], output?: string): any {

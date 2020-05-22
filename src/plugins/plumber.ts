@@ -1,5 +1,6 @@
 // Reference `gulp-plumber@1.2.1`
 import events from 'events';
+import { BalmError } from '../config/types';
 
 const PLUGIN_NAME = 'plumber';
 
@@ -22,7 +23,7 @@ function wrapPanicOnErrorHandler(stream: any): void {
   const oldHandler = removeDefaultHandler(stream, 'error');
 
   if (oldHandler) {
-    stream.on('error', function onerror2(this: any, error: any) {
+    stream.on('error', function onerror2(this: any, error: BalmError) {
       if (EE.listenerCount(stream, 'error') === 1) {
         this.removeListener('error', onerror2);
         (oldHandler as Function).call(stream, error);
@@ -31,7 +32,7 @@ function wrapPanicOnErrorHandler(stream: any): void {
   }
 }
 
-function defaultErrorHandler(this: any, error: any): any {
+function defaultErrorHandler(this: any, error: BalmError): any {
   // onerror2 and this handler
   if (EE.listenerCount(this, 'error') < 3) {
     BalmJS.logger.error(
@@ -69,7 +70,6 @@ function gulpPlumber(opts: any = {}): any {
       throw new PluginError(PLUGIN_NAME, "Can't pipe to undefined");
     }
 
-    // this._pipe.apply(this, arguments);
     this._pipe(dest);
 
     if (dest._unplumbed) {

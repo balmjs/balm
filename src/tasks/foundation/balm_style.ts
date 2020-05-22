@@ -3,6 +3,7 @@ import cssnano from 'cssnano';
 import sass from 'sass';
 import Fiber from 'fibers';
 import { MP_ASSETS } from '../../config/constants';
+import { BalmError } from '../../config/types';
 
 class BalmStyleTask extends BalmTask {
   constructor(name: string) {
@@ -57,7 +58,7 @@ class BalmStyleTask extends BalmTask {
         )
       )
       .pipe(
-        BalmJS.plugins.plumber(function (this: any, error: any): void {
+        BalmJS.plugins.plumber(function (this: any, error: BalmError): void {
           // https://github.com/floatdrop/gulp-plumber/issues/30
           BalmJS.logger.error(taskName, error.message);
           // Must emit end event for any dependent streams to pick up on this. Destroying the stream

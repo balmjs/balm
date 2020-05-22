@@ -78,7 +78,7 @@ class File {
       }
     );
 
-    return $.replace(publicPathSrc, publicPathDest);
+    return BalmJS.plugins.replace(publicPathSrc, publicPathDest);
   }
 }
 

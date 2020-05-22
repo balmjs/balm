@@ -1,5 +1,5 @@
 import { series, parallel, watch } from 'gulp';
-import detectPort from 'detect-port';
+import detectPort from '../../utilities/detect-port';
 import getMiddlewares from '../../middlewares';
 
 function reload(done: Function): void {
@@ -16,8 +16,8 @@ class ServerTask extends BalmJS.BalmTask {
     }
 
     if (BalmJS.config.env.isDev) {
-      detectPort(BalmJS.config.server.port)
-        .then((port: number) => {
+      detectPort(BalmJS.config.server.port, BalmJS.config.server.host).then(
+        (port: number) => {
           if (BalmJS.config.server.port !== port) {
             BalmJS.logger.warn(
               'server task',
@@ -26,10 +26,8 @@ class ServerTask extends BalmJS.BalmTask {
 
             BalmJS.config.server.port = port;
           }
-        })
-        .catch((error: any) => {
-          BalmJS.logger.error('server task', error);
-        });
+        }
+      );
     }
   }
 

@@ -1,5 +1,5 @@
 import mergeStream from 'merge-stream';
-import { SpriteOptions } from '../../config/types';
+import { SpriteOptions, BalmError } from '../../config/types';
 
 interface SpriteItem {
   src: string;
@@ -96,7 +96,7 @@ class SpriteTask extends BalmJS.BalmTask {
         const spriteData = gulp
           .src(spriteConfig.input)
           .pipe(
-            BalmJS.plugins.plumber((error: any): void => {
+            BalmJS.plugins.plumber((error: BalmError): void => {
               BalmJS.logger.error(`${this.name} task`, error.message);
             })
           )

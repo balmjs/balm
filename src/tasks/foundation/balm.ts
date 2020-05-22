@@ -1,3 +1,5 @@
+import { BalmError } from '../../config/types';
+
 class BalmTask {
   protected _name: string;
   protected _taskName: string;
@@ -88,7 +90,7 @@ class BalmTask {
         Object.assign({ allowEmpty: true }, this.gulpSrcOptions)
       )
       .pipe(
-        BalmJS.plugins.plumber((error: any): void => {
+        BalmJS.plugins.plumber((error: BalmError): void => {
           BalmJS.logger.error(`${this.name} task`, error.message);
         })
       );

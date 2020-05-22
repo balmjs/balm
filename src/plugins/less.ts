@@ -1,8 +1,8 @@
 // // Reference `gulp-less@4.0.1`
 // import path from 'path';
 // import accord from 'accord';
-// import applySourceMap from './vinyl-sourcemaps-apply';
-// import replaceExt from './replace-ext';
+// import applySourceMap from '../utilities/vinyl-sourcemaps-apply';
+// import replaceExt from '../utilities/replace-ext';
 
 // const less = accord.load('less');
 

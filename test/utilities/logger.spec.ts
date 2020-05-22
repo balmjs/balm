@@ -1,11 +1,11 @@
 import color from '../../src/utilities/color';
 import logger from '../../src/utilities/logger';
 
-describe('Balm Logger', function() {
-  describe('#color()', function() {
+describe('Balm Logger', function () {
+  describe('#color()', function () {
     it(
       'default style',
-      asyncCase(function() {
+      asyncCase(function () {
         const result = color(`<label>`);
 
         expect(result).to.equal('\u001b[37m<label>\u001b[39m');
@@ -14,7 +14,7 @@ describe('Balm Logger', function() {
 
     it(
       'style with colorStyle',
-      asyncCase(function() {
+      asyncCase(function () {
         const result = color(`<label>`, {
           modifier: 'bold',
           color: 'blue',
@@ -31,10 +31,10 @@ describe('Balm Logger', function() {
     );
   });
 
-  describe('#success/debug/info/warn/error()', function() {
+  describe('#success/debug/info/warn/error()', function () {
     it(
       'success',
-      asyncCase(function() {
+      asyncCase(function () {
         logger.success('success', 'Hello');
         logger.success('success', 'BalmJS', {
           logLevel: 3
@@ -44,7 +44,7 @@ describe('Balm Logger', function() {
 
     it(
       'debug',
-      asyncCase(function() {
+      asyncCase(function () {
         logger.debug('debug', 'Hello');
         logger.debug('debug', 'BalmJS', {
           logLevel: 3
@@ -54,7 +54,7 @@ describe('Balm Logger', function() {
 
     it(
       'info',
-      asyncCase(function() {
+      asyncCase(function () {
         logger.info('info', 'Hello');
         logger.info('info', 'BalmJS', {
           logLevel: 3
@@ -64,7 +64,7 @@ describe('Balm Logger', function() {
 
     it(
       'warn',
-      asyncCase(function() {
+      asyncCase(function () {
         logger.warn('warn', 'Hello');
         logger.warn('warn', 'BalmJS', {
           logLevel: 0
@@ -74,9 +74,11 @@ describe('Balm Logger', function() {
 
     it(
       'error',
-      asyncCase(function() {
+      asyncCase(function () {
         logger.error('error', 'Hello');
-        logger.error('error', 'BalmJS', true);
+        logger.error('error', 'BalmJS', {
+          logLevel: 0
+        });
       })
     );
   });

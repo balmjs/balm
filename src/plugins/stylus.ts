@@ -1,8 +1,8 @@
 // // Reference `gulp-stylus@2.7.0`
 // import { extname } from 'path';
 // import accord from 'accord';
-// import applySourceMap from './vinyl-sourcemaps-apply';
-// import replaceExt from './replace-ext';
+// import applySourceMap from '../utilities/vinyl-sourcemaps-apply';
+// import replaceExt from '../utilities/replace-ext';
 
 // const stylus = accord.load('stylus');
 

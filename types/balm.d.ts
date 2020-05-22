@@ -196,7 +196,7 @@ interface BalmLogger {
   debug: (label: string, message: any, options?: object) => void;
   info: (label: string, message: any, options?: object) => void;
   warn: (label: string, message: any, options?: object) => void;
-  error: (label: string, message: any, pre?: boolean) => void;
+  error: (label: string, message: any, options?: object) => void;
 }
 
 interface BalmFile {
@@ -217,6 +217,11 @@ interface BalmPlugins {
   jsmin: (options: any) => any;
   rename: (options: any) => any;
   sftp: (options: any) => any;
+  replace: (
+    search: string | RegExp,
+    replacement: string | Function,
+    options?: any
+  ) => any;
 }
 
 export interface BalmModule {

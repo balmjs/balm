@@ -1,3 +1,5 @@
+import { BalmError } from '../../config/types';
+
 const IMAGEMIN_PLUGINS: { [key: string]: Function } = {
   gif: $.imagemin.gifsicle,
   jpeg: $.imagemin.mozjpeg,
@@ -45,7 +47,7 @@ class ImageTask extends BalmJS.BalmTask {
         since: gulp.lastRun(BalmJS.toNamespace('image') as string)
       })
       .pipe(
-        BalmJS.plugins.plumber((error: any): void => {
+        BalmJS.plugins.plumber((error: BalmError): void => {
           BalmJS.logger.error(`${this.name} task`, error.message);
         })
       )

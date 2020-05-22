@@ -1,5 +1,5 @@
 import webpackConfig from '../../bundler';
-import { BalmEntryObject } from '../../config/types';
+import { BalmEntryObject, BalmError } from '../../config/types';
 
 class ScriptTask extends BalmJS.BalmTask {
   constructor() {
@@ -17,12 +17,12 @@ class ScriptTask extends BalmJS.BalmTask {
 
       BalmJS.webpackCompiler = webpack(
         webpackConfig(this.input, this.output, customOptions, isHook),
-        (err: any, stats: any): void => {
+        (error: BalmError, stats: any): void => {
           // Handle errors here
-          // if (err) {
-          //   BalmJS.logger.error(`${this.name} task`, err.stack || err);
-          //   if (err.details) {
-          //     BalmJS.logger.error(`${this.name} task`, err.details);
+          // if (error) {
+          //   BalmJS.logger.error(`${this.name} task`, error.stack || err);
+          //   if (error.details) {
+          //     BalmJS.logger.error(`${this.name} task`, error.details);
           //   }
           //   return;
           // }

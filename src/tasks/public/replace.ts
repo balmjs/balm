@@ -19,13 +19,19 @@ class ReplaceTask extends BalmJS.BalmTask {
         const replaceOptions: ReplaceOptions[] = options as ReplaceOptions[];
         replaceOptions.forEach((replaceOption) => {
           stream = stream.pipe(
-            $.replace(replaceOption.substr, replaceOption.replacement)
+            BalmJS.plugins.replace(
+              replaceOption.substr,
+              replaceOption.replacement
+            )
           );
         });
       } else {
         const replaceOption: ReplaceOptions = options as ReplaceOptions;
         stream = stream.pipe(
-          $.replace(replaceOption.substr, replaceOption.replacement)
+          BalmJS.plugins.replace(
+            replaceOption.substr,
+            replaceOption.replacement
+          )
         );
       }
 

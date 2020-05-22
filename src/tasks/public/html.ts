@@ -36,7 +36,7 @@ class HtmlTask extends BalmJS.BalmTask {
       }
     );
 
-    return $.replace(assetsPathSrc, assetsPathDest);
+    return BalmJS.plugins.replace(assetsPathSrc, assetsPathDest);
   }
 
   private _hasSourcePath(type: string): boolean {

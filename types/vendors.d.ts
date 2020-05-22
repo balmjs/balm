@@ -9,6 +9,7 @@ declare module 'fibers';
 declare module 'gulp';
 declare module 'gulp-load-plugins';
 declare module 'html-minifier';
+declare module 'istextorbinary';
 declare module 'optimize-css-assets-webpack-plugin';
 declare module 'merge-stream';
 declare module 'mini-css-extract-plugin';
@@ -18,6 +19,7 @@ declare module 'parents';
 declare module 'postcss-import';
 declare module 'postcss-preset-env';
 declare module 'postcss-safe-parser';
+declare module 'readable-stream';
 declare module 'require-dir';
 declare module 'rimraf'; // For test
 declare module 'sass';

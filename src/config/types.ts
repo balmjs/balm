@@ -50,8 +50,8 @@ interface SpriteOptions {
 }
 
 interface ReplaceOptions {
-  substr?: string | RegExp;
-  replacement?: string | Function;
+  substr: string | RegExp;
+  replacement: string | Function;
 }
 
 // Publish
@@ -59,6 +59,12 @@ interface TemplateOption {
   input: string;
   output: string;
   renameOptions: string | Function | RenameOptions;
+}
+
+// Error
+interface BalmError extends Error {
+  code: string;
+  details?: string;
 }
 
 export {
@@ -70,5 +76,6 @@ export {
   HookOptions,
   SpriteOptions,
   ReplaceOptions,
-  TemplateOption
+  TemplateOption,
+  BalmError
 };

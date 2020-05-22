@@ -134,13 +134,23 @@ class Logger {
     }
   }
 
-  error(label: string, message: any, pre = false): void {
-    fancyLog.error(
-      LOG.FORMAT,
-      LOG.PREFIX,
-      color(`<${label}>`, LOG.ERROR),
-      this._log(message, pre)
+  error(label: string, message: any, options: object = {}): void {
+    const logOptions: LogOptions = Object.assign(
+      {
+        logLevel: BalmJS.LogLevel.Error,
+        pre: false
+      },
+      options
     );
+
+    if (BalmJS.config.logs.level <= logOptions.logLevel) {
+      fancyLog.error(
+        LOG.FORMAT,
+        LOG.PREFIX,
+        color(`<${label}>`, LOG.ERROR),
+        this._log(message, logOptions.pre)
+      );
+    }
   }
 }
 

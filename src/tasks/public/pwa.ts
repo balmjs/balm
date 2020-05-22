@@ -64,10 +64,10 @@ class PwaTask extends BalmJS.BalmTask {
               `Generated '${swDest}', which will precache ${count} files, totaling ${size} bytes`
             );
           })
-          .catch(function (error: any) {
+          .catch(function (err: any) {
             BalmJS.logger.warn(
               `pwa - ${mode}`,
-              `Service worker generation failed: ${error}`
+              `Service worker generation failed: ${err}`
             );
           });
 

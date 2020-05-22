@@ -10,7 +10,12 @@
     "!src/tasks/private/modernizr.ts",
     "!src/tasks/public/server.ts",
     "!src/middlewares/index.ts",
-    "!src/plugins/*.ts"
+    "!src/plugins/*.ts",
+    "!src/utilities/address.ts",
+    "!src/utilities/detect-port.ts",
+    "!src/utilities/escape-string-regexp.ts",
+    "!src/utilities/replacestream.ts",
+    "!src/utilities/vinyl-sourcemaps-apply.ts"
   ],
   "exclude": [
     "coverage/**",
