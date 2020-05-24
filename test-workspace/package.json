@@ -40,6 +40,7 @@
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "kbone-api": "^0.2.1",
+    "kbone-ui": "^0.6.5",
     "lib-flexible": "^0.3.2",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.11",

@@ -3,7 +3,7 @@ const mpDir = './dist/mp';
 const mpCommonDir = `${mpDir}/common`;
 const replaceOptions = [
   {
-    substr: /(\.weui-article \*,)|(\*{margin:0;padding:0})|(\.weui-article \*{max-width:100%;box-sizing:border-box})/g,
+    substr: /(\.weui-article \*,)|(\*{margin:0;padding:0})|(\.weui-article \*{max-width:100%;box-sizing:border-box})|(\[class\*=" weui-icon-"\],)/g,
     replacement: ''
   },
   {
