@@ -48,7 +48,7 @@ class ModernizrTask extends BalmJS.BalmTask {
   }
 
   get fn(): any {
-    return (cb: Function): void => {
+    return (callback: Function): void => {
       this.init();
 
       fs.access(this.input, fs.constants.F_OK, (err: any) => {
@@ -61,7 +61,7 @@ class ModernizrTask extends BalmJS.BalmTask {
             }
           );
 
-          cb();
+          callback();
         } else {
           (async (): Promise<any> => {
             const [config] = await Promise.all([
@@ -70,7 +70,7 @@ class ModernizrTask extends BalmJS.BalmTask {
             ]);
             await this._generateScript(config);
 
-            cb();
+            callback();
           })();
         }
       });

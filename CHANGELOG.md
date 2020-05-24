@@ -1,5 +1,19 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.14.0 / 2020-05-24
+
+### Chores
+
+- optimize `BalmJS.logger.error`
+- update types: `BalmError`, `ReplaceOptions`
+- update `stream.Transform` types for plugins
+- update test
+
+### Features
+
+- optimize detect port
+- update plugins: `rename`, `replace`
+
 ## v2.13.2 / 2020-05-20
 
 ### Chores

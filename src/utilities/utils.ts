@@ -13,13 +13,14 @@ function isArray(arr: any): boolean {
 }
 
 function isFunction(fn: any): boolean {
-  return getType(fn) === 'function';
+  const type = getType(fn);
+  return type === 'function' || type === 'generatorfunction';
 }
 
 // Deep merge two objects
 function deepMerge(target: any, source: any): any {
   if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach(function (key: string) {
+    Object.keys(source).forEach((key: string) => {
       if (isObject(source[key])) {
         if (!target[key]) {
           Object.assign(target, { [key]: {} });

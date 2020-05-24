@@ -1,4 +1,5 @@
 // Reference `gulp-replace@1.0.0`
+import { TransformCallback } from 'stream';
 import { Transform } from 'readable-stream';
 import istextorbinary from 'istextorbinary';
 import rs from '../utilities/replacestream';
@@ -18,7 +19,11 @@ function gulpReplace(
 
   return new Transform({
     objectMode: true,
-    transform: (file: any, encoding: string, callback: Function): any => {
+    transform: (
+      file: any,
+      encoding: BufferEncoding,
+      callback: TransformCallback
+    ): void => {
       if (file.isNull()) {
         return callback(null, file);
       }
@@ -36,12 +41,13 @@ function gulpReplace(
         }
 
         if (file.isBuffer()) {
+          const content = file.contents.toString();
           if (search instanceof RegExp) {
-            file.contents = new Buffer(
-              String(file.contents).replace(search, replacement as string)
+            file.contents = Buffer.from(
+              content.replace(search, replacement as string)
             );
           } else {
-            const chunks = String(file.contents).split(search);
+            const chunks = content.split(search);
 
             let result;
             if (typeof replacement === 'function') {
@@ -64,7 +70,7 @@ function gulpReplace(
               result = chunks.join(replacement);
             }
 
-            file.contents = new Buffer(result);
+            file.contents = Buffer.from(result);
           }
           return callback(null, file);
         }

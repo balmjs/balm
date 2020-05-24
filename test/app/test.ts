@@ -1,9 +1,19 @@
 import fs from 'fs';
 import { sync as del } from 'rimraf';
 
+// https://github.com/Microsoft/TypeScript/issues/20007
+interface Function {
+  (...args: any[]): any;
+}
+
 interface TestObj {
   testCase: string | false | string[];
   testHook: Function;
+}
+
+interface timeoutObj {
+  done: Function;
+  delay?: number;
 }
 
 function cleanup() {
@@ -59,20 +69,15 @@ function assertCase(
 
 function runTest(
   testObj: string | false | string[] | TestObj,
-  timeout:
-    | Function
-    | {
-        done: Function;
-        delay?: number;
-      },
+  timeout: Function | timeoutObj,
   checkExist: string | boolean = true
 ) {
   if (typeof testObj === 'object') {
-    balm.afterTask = function() {
+    balm.afterTask = function () {
       assertCase((testObj as TestObj).testCase, checkExist);
     };
 
-    balm.go((testObj as TestObj).testHook || function() {});
+    balm.go((testObj as TestObj).testHook || function () {});
 
     gulp.series('default')();
   } else {
@@ -80,7 +85,7 @@ function runTest(
   }
 
   if (typeof timeout === 'object') {
-    setTimeout(timeout.done, timeout.delay);
+    setTimeout(timeout.done, timeout.delay as number);
   } else if (typeof timeout === 'function') {
     setTimeout(timeout, 2000);
   }

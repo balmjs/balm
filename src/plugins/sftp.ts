@@ -1,9 +1,11 @@
 // Reference `gulp-sftp@0.1.5`
+import { TransformCallback } from 'stream';
 import path from 'path';
 import fs from 'fs';
 import { Client } from 'ssh2';
 import async from 'async';
 import parents from 'parents';
+import { BalmError } from '../config/types';
 
 interface SshConfig {
   host: string;
@@ -188,10 +190,10 @@ function gulpSftp(options: any): any {
     const conn = new Client();
     connCache = conn;
 
-    conn.on('ready', function () {
+    conn.on('ready', () => {
       BalmJS.logger.debug(PLUGIN_NAME, 'Connection :: ready');
 
-      conn.sftp(function (err: any, sftp: any) {
+      conn.sftp((err: any, sftp: any) => {
         if (err) {
           throw err;
         }
@@ -212,11 +214,11 @@ function gulpSftp(options: any): any {
       });
     });
 
-    conn.on('error', (err: any) => {
+    conn.on('error', (err: BalmError) => {
       this.emit('error', new PluginError(PLUGIN_NAME, err));
     });
 
-    conn.on('end', function () {
+    conn.on('end', () => {
       BalmJS.logger.debug(PLUGIN_NAME, 'Connection :: end');
     });
 
@@ -236,18 +238,18 @@ function gulpSftp(options: any): any {
   function _transform(
     this: any,
     file: any,
-    encoding: string,
-    transformCallback: Function
-  ): any {
+    encoding: BufferEncoding,
+    callback: TransformCallback
+  ): void {
     if (file.isNull()) {
-      return transformCallback();
+      return callback();
     }
 
     // Have to create a new connection for each file otherwise they conflict, pulled from sindresorhus
     const finalRemotePath = normalizePath(path.join(remotePath, file.relative));
 
     // Connection pulled from pool
-    _pool.call(this, function (sftp: any) {
+    _pool.call(this, (sftp: any) => {
       /*
        * Create Directories
        */
@@ -277,7 +279,7 @@ function gulpSftp(options: any): any {
       async.whilst(
         // https://github.com/caolan/async/issues/1668
         (cb: Function) => cb(null, fileDirs && fileDirs.length),
-        function (callback: Function) {
+        (cb: Function) => {
           let d = fileDirs.pop();
           mkDirCache[d] = true;
           // Mdrake - TODO: use a default file permission instead of defaulting to 755
@@ -288,11 +290,11 @@ function gulpSftp(options: any): any {
             d = d.replace('/', '\\');
           }
 
-          sftp.exists(d, function (exist: boolean) {
+          sftp.exists(d, (exist: boolean) => {
             if (exist) {
-              callback();
+              cb();
             } else {
-              sftp.mkdir(d, { mode: '0755' }, function (err: any) {
+              sftp.mkdir(d, { mode: '0755' }, (err: any) => {
                 // REMOTE PATH
                 if (err) {
                   // Assuming that the directory exists here, silencing this error
@@ -304,12 +306,12 @@ function gulpSftp(options: any): any {
                   BalmJS.logger.debug(PLUGIN_NAME, `Created: ${d}`);
                 }
 
-                callback();
+                cb();
               });
             }
           });
         },
-        function () {
+        () => {
           const stream = sftp.createWriteStream(finalRemotePath, {
             flags: 'w',
             encoding: null,
@@ -324,9 +326,9 @@ function gulpSftp(options: any): any {
             stream.end(file.contents);
           }
 
-          stream.on('close', function (this: any, err: any) {
-            if (err) {
-              this.emit('error', new PluginError(PLUGIN_NAME, err));
+          stream.on('close', function (this: any, error: BalmError) {
+            if (error) {
+              this.emit('error', new PluginError(PLUGIN_NAME, error));
             } else {
               BalmJS.logger.info(
                 PLUGIN_NAME,
@@ -336,14 +338,14 @@ function gulpSftp(options: any): any {
               fileCount++;
             }
 
-            return transformCallback(err);
+            return callback(error);
           });
         }
       );
     });
   }
 
-  function _flush(flushCallback: Function): void {
+  function _flush(callback: TransformCallback): void {
     if (fileCount > 0) {
       const unit = fileCount === 1 ? 'file' : 'files';
       BalmJS.logger.info(
@@ -364,7 +366,7 @@ function gulpSftp(options: any): any {
       connCache.end();
     }
 
-    flushCallback();
+    callback();
   }
 
   return through2.obj(_transform, _flush);

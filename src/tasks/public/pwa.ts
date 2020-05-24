@@ -6,7 +6,7 @@ class PwaTask extends BalmJS.BalmTask {
   }
 
   recipe(customMode?: string, customOptions: object = {}): any {
-    return async (cb: Function): Promise<any> => {
+    return async (callback: Function): Promise<any> => {
       const mode: string = customMode || BalmJS.config.pwa.mode;
       const globDirectory: string = BalmJS.config.dest.base;
       const swSrc = BalmJS.file.absPath(
@@ -50,32 +50,34 @@ class PwaTask extends BalmJS.BalmTask {
         BalmJS.logger.debug(`pwa - ${mode}`, options);
 
         await workboxBuild[mode](options)
-          .then(function ({
-            count,
-            size
-          }: {
-            count: number;
-            filePaths?: string[];
-            size: number;
-            warnings?: string[];
-          }) {
-            BalmJS.logger.info(
-              `pwa - ${mode}`,
-              `Generated '${swDest}', which will precache ${count} files, totaling ${size} bytes`
-            );
-          })
-          .catch(function (err: any) {
+          .then(
+            ({
+              count,
+              size
+            }: {
+              count: number;
+              filePaths?: string[];
+              size: number;
+              warnings?: string[];
+            }) => {
+              BalmJS.logger.info(
+                `pwa - ${mode}`,
+                `Generated '${swDest}', which will precache ${count} files, totaling ${size} bytes`
+              );
+            }
+          )
+          .catch((err: any) => {
             BalmJS.logger.warn(
               `pwa - ${mode}`,
               `Service worker generation failed: ${err}`
             );
           });
 
-        cb();
+        callback();
       } else {
         BalmJS.logger.warn('pwa task', 'Invalid PWA mode');
 
-        cb();
+        callback();
       }
     };
   }

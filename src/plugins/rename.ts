@@ -1,83 +1,87 @@
-// Reference `gulp-rename@1.4.0`
-import stream from 'stream';
+// Reference `gulp-rename@2.0.0`
+import { Transform, TransformCallback } from 'stream';
+import path from 'path';
+import { RenameOptions } from '../config/types';
 
-function _parsePath(
-  _path: string
-): {
+interface GulpRenameOptions {
+  multiExt?: boolean;
+}
+
+interface GulpRenamePath {
   dirname: string;
   basename: string;
   extname: string;
-} {
-  const extname = path.extname(_path);
-
-  return {
-    dirname: path.dirname(_path),
-    basename: path.basename(_path, extname),
-    extname
-  };
 }
 
-function gulpRename(obj: any): any {
-  const _stream: any = new stream.Transform({ objectMode: true });
+function gulpRename(
+  obj: string | Function | object,
+  options: GulpRenameOptions = {}
+): any {
+  const stream = new Transform({ objectMode: true });
 
-  _stream._transform = function (
-    originalFile: any,
-    encoding: string,
-    callback: Function
-  ): void {
-    let file: any = originalFile.clone({ contents: false });
-    const parsedPath = _parsePath(file.relative);
-    let _path;
-    let finished = true;
+  const parsePath = (_path: string): GulpRenamePath => {
+    const extname = options.multiExt
+      ? path.basename(_path).slice(path.basename(_path).indexOf('.'))
+      : path.extname(_path);
 
-    const type = BalmJS.utils.getType(obj);
+    return {
+      dirname: path.dirname(_path),
+      basename: path.basename(_path, extname),
+      extname: extname
+    };
+  };
 
-    switch (type) {
-      case 'string':
-        if (obj !== '') {
-          _path = obj;
-        }
-        break;
-      case 'function':
-        obj(parsedPath, file);
-        _path = path.join(
-          parsedPath.dirname,
-          parsedPath.basename + parsedPath.extname
-        );
-        break;
-      case 'object': {
-        const dirname = obj.dirname || parsedPath.dirname;
-        const prefix = obj.prefix || '';
-        const basename = obj.basename || parsedPath.basename;
-        const suffix = obj.suffix || '';
-        const extname = obj.extname || parsedPath.extname;
-        _path = path.join(dirname, prefix + basename + suffix + extname);
-        break;
+  stream._transform = (
+    chunk: any,
+    unused: BufferEncoding,
+    callback: TransformCallback
+  ): void => {
+    const file = chunk.clone({ contents: false });
+    let parsedPath = parsePath(file.relative);
+    let _path: string;
+
+    const type = typeof obj;
+
+    if (type === 'string' && obj !== '') {
+      _path = obj as string;
+    } else if (type === 'function') {
+      const newParsedPath = (obj as Function)(parsedPath, file);
+      if (typeof newParsedPath === 'object' && newParsedPath !== null) {
+        parsedPath = newParsedPath;
       }
-      default:
-        finished = false;
+
+      _path = path.join(
+        parsedPath.dirname,
+        parsedPath.basename + parsedPath.extname
+      );
+    } else if (type === 'object' && obj !== undefined && obj !== null) {
+      const _obj = obj as RenameOptions;
+      const dirname = _obj.dirname || parsedPath.dirname;
+      const prefix = _obj.prefix || '';
+      const suffix = _obj.suffix || '';
+      const basename = _obj.basename || parsedPath.basename;
+      const extname = _obj.extname || parsedPath.extname;
+
+      _path = path.join(dirname, prefix + basename + suffix + extname);
+    } else {
+      callback(
+        new Error('Unsupported renaming parameter type supplied'),
+        undefined
+      );
+      return;
     }
 
-    if (finished) {
-      file.path = path.join(file.base, _path);
+    file.path = path.join(file.base, _path);
 
-      // Rename sourcemap if present
-      if (file.sourceMap) {
-        file.sourceMap.file = file.relative;
-      }
-    } else {
-      file = undefined;
-
-      BalmJS.logger.error(
-        'rename',
-        'Unsupported renaming parameter type supplied'
-      );
+    // Rename sourcemap if present
+    if (file.sourceMap) {
+      file.sourceMap.file = file.relative;
     }
 
     callback(null, file);
   };
 
-  return _stream;
+  return stream;
 }
 
 export default gulpRename;

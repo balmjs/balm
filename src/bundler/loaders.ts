@@ -19,7 +19,7 @@ function getLoaders(customLoaders: object[]): object[] {
 
   let defaultLoaders: object[] = [];
   if (useDefaultLoaders) {
-    Object.values(LOADERS).forEach(function (Loader: any) {
+    Object.values(LOADERS).forEach((Loader: any) => {
       const DefaultLoader = Loader.default;
       const key = DefaultLoader.name.replace('Loader', '');
       if (enableDefaultLoaders[key]) {

@@ -1,10 +1,10 @@
 import utils from '../../src/utilities/utils';
 
-describe('Balm Utils', function() {
-  describe('#isString()', function() {
+describe('Balm Utils', function () {
+  describe('#isString()', function () {
     it(
       'A String expected output: true',
-      asyncCase(function() {
+      asyncCase(function () {
         const result = utils.isString('blubber');
 
         expect(result).to.equal(true);
@@ -12,10 +12,10 @@ describe('Balm Utils', function() {
     );
   });
 
-  describe('#isObject()', function() {
+  describe('#isObject()', function () {
     it(
       'An Object expected output: true',
-      asyncCase(function() {
+      asyncCase(function () {
         const result = utils.isObject({});
 
         expect(result).to.equal(true);
@@ -23,10 +23,10 @@ describe('Balm Utils', function() {
     );
   });
 
-  describe('#isArray()', function() {
+  describe('#isArray()', function () {
     it(
       'An Array expected output: true',
-      asyncCase(function() {
+      asyncCase(function () {
         const result = utils.isArray([]);
 
         expect(result).to.equal(true);
@@ -34,11 +34,11 @@ describe('Balm Utils', function() {
     );
   });
 
-  describe('#isFunction()', function() {
+  describe('#isFunction()', function () {
     it(
       'A Function expected output: true',
-      asyncCase(function() {
-        const result = utils.isFunction(function foo() {});
+      asyncCase(function () {
+        const result = utils.isFunction(function () {});
 
         expect(result).to.equal(true);
       })
@@ -46,18 +46,18 @@ describe('Balm Utils', function() {
 
     it(
       'A GeneratorFunction expected output: true',
-      asyncCase(function() {
-        const result = utils.isFunction(function* foo() {});
+      asyncCase(function () {
+        const result = utils.isFunction(function* () {});
 
         expect(result).to.equal(true);
       })
     );
   });
 
-  describe('#deepMerge()', function() {
+  describe('#deepMerge()', function () {
     it(
       'merge non-object',
-      asyncCase(function() {
+      asyncCase(function () {
         const result = utils.deepMerge(0, 1);
 
         expect(result).to.equal(0);
@@ -66,7 +66,7 @@ describe('Balm Utils', function() {
 
     it(
       'merge object',
-      asyncCase(function() {
+      asyncCase(function () {
         const result = utils.deepMerge(
           {
             balm: {}

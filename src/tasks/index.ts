@@ -12,14 +12,14 @@ function registerTasks(recipe: Function): void {
   // 1. Register balm tasks
   const depsTasks: any[] = [];
   const nonDepsTasks: any[] = [];
-  Object.values(AwesomeTasks).forEach(function (AwesomeTask: any) {
+  Object.values(AwesomeTasks).forEach((AwesomeTask: any) => {
     const awesomeTask: any = new AwesomeTask.default();
     awesomeTask.deps
       ? depsTasks.push(awesomeTask)
       : nonDepsTasks.push(awesomeTask);
   });
 
-  nonDepsTasks.forEach(function (task: any) {
+  nonDepsTasks.forEach((task: any) => {
     const taskName: string = task.taskName;
     const taskFunction: Function = task.fn;
 
@@ -27,12 +27,12 @@ function registerTasks(recipe: Function): void {
     BalmJS.tasks.push(task);
   });
 
-  depsTasks.forEach(function (task: any) {
+  depsTasks.forEach((task: any) => {
     const taskName: string = task.taskName;
     const taskFunction: Function = task.deps.length
       ? gulp.series(BalmJS.toNamespace(task.deps))
-      : function (cb: Function): void {
-          cb();
+      : (callback: Function): void => {
+          callback();
         };
 
     gulp.task(taskName, taskFunction);

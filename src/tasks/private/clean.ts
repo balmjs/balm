@@ -74,7 +74,7 @@ class CleanTask extends BalmJS.BalmTask {
     ];
   }
 
-  fn = async (cb: Function): Promise<any> => {
+  fn = async (callback: Function): Promise<any> => {
     const taskName = `${this.name} task`;
     const directories: string[] = BalmJS.config.inFrontend
       ? this.dirInFrontend
@@ -106,7 +106,7 @@ class CleanTask extends BalmJS.BalmTask {
       }
     );
 
-    cb();
+    callback();
   };
 }
 

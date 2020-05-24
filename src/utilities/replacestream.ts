@@ -1,3 +1,4 @@
+import { TransformCallback } from 'stream';
 import { Transform } from 'readable-stream';
 import escapeRegExp from './escape-string-regexp';
 
@@ -127,12 +128,16 @@ function replaceStream(
     return haystack.slice(0, haystack.length - tail.length);
   }
 
-  function transform(buf: any, encoding: string, cb: Function): void {
+  function transform(
+    chunk: any,
+    encoding: BufferEncoding,
+    callback: TransformCallback
+  ): void {
     let matches;
     let lastPos = 0;
     let matchCount = 0;
     let rewritten = '';
-    const haystack = tail + buf.toString(options.encoding);
+    const haystack = tail + chunk.toString(options.encoding);
     tail = '';
 
     while (
@@ -167,15 +172,15 @@ function replaceStream(
       rewritten,
       lastPos
     );
-    cb(null, dataToQueue);
+    callback(null, dataToQueue);
   }
 
-  function flush(this: any, cb: Function): void {
+  function flush(this: any, callback: TransformCallback): void {
     if (tail) {
       this.push(tail);
     }
 
-    cb();
+    callback();
   }
 
   return new Transform({

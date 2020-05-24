@@ -19,8 +19,8 @@ class CopyTask extends BalmJS.BalmTask {
     };
   }
 
-  fn(cb: Function): void {
-    cb();
+  fn(callback: Function): void {
+    callback();
   }
 }
 

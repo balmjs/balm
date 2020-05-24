@@ -6,7 +6,7 @@ class RemoveTask extends BalmJS.BalmTask {
   }
 
   recipe(input: string | string[]): any {
-    return async (cb: Function): Promise<any> => {
+    return async (callback: Function): Promise<any> => {
       this.init(input);
 
       const canDel: boolean =
@@ -45,12 +45,12 @@ class RemoveTask extends BalmJS.BalmTask {
         BalmJS.logger.error(`${this.name} task`, 'Invalid input');
       }
 
-      cb();
+      callback();
     };
   }
 
-  fn(cb: Function): void {
-    cb();
+  fn(callback: Function): void {
+    callback();
   }
 }
 

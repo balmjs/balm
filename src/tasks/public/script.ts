@@ -11,7 +11,7 @@ class ScriptTask extends BalmJS.BalmTask {
     output?: string,
     customOptions: any = {}
   ): any {
-    return (cb: Function): void => {
+    return (callback: Function): void => {
       const isHook = !!input;
       this.init(input || BalmJS.config.scripts.entry, output);
 
@@ -38,7 +38,7 @@ class ScriptTask extends BalmJS.BalmTask {
           }
 
           // Done processing
-          cb();
+          callback();
         }
       );
     };
