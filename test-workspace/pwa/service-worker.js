@@ -10,9 +10,9 @@ var CACHE_NAMES = [
   'images'
 ];
 
-console.log('CACHE_NAMES', CACHE_NAMES);
+// console.log('CACHE_NAMES', CACHE_NAMES);
 
-if (self.workbox) {
+if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
 } else {
   console.log(`Boo! Workbox didn't load 😬`);
@@ -70,11 +70,10 @@ workbox.routing.registerRoute(
 );
 
 // Cache Resources from a Specific Subdirectory
-const subDir = '/static/';
 workbox.routing.registerRoute(function (context) {
   return (
     context.url.origin === self.location.origin &&
-    context.url.pathname.startsWith(subDir)
+    context.url.pathname.startsWith('/static/')
   );
 }, new workbox.strategies.StaleWhileRevalidate());
 
@@ -96,7 +95,7 @@ self.addEventListener('activate', function (event) {
         return Promise.all(
           cacheList.map(function (cacheName) {
             if (CACHE_NAMES.indexOf(cacheName) === -1) {
-              console.log('[ServiceWorker] Removing old cache', cacheName);
+              // console.log('[ServiceWorker] Removing old cache', cacheName);
               return caches.delete(cacheName);
             }
           })
