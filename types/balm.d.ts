@@ -168,6 +168,7 @@ interface BalmConfig {
     options: object;
     swSrcFilename: string;
     swDestFilename: string;
+    version: string;
   };
   logs: {
     level: number;

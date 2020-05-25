@@ -8,16 +8,17 @@ class PwaTask extends BalmJS.BalmTask {
   recipe(customMode?: string, customOptions: object = {}): any {
     return async (callback: Function): Promise<any> => {
       const mode: string = customMode || BalmJS.config.pwa.mode;
+
+      let options: object = {};
       const globDirectory: string = BalmJS.config.dest.base;
-      const swSrc = BalmJS.file.absPath(
-        `${BalmJS.config.roots.source}/${BalmJS.config.pwa.swSrcFilename}`
-      );
       const swDest = BalmJS.file.absPath(
         `${globDirectory}/${BalmJS.config.pwa.swDestFilename}`
       );
-      let options: object = {};
-      let valid = true;
+      const swSrc = BalmJS.file.absPath(
+        `${BalmJS.config.roots.source}/${BalmJS.config.pwa.swSrcFilename}`
+      );
 
+      let valid = true;
       switch (mode) {
         // For basic
         case 'generateSW':
@@ -64,9 +65,11 @@ class PwaTask extends BalmJS.BalmTask {
                 `pwa - ${mode}`,
                 `Generated '${swDest}', which will precache ${count} files, totaling ${size} bytes`
               );
+
+              gulp.parallel(BalmJS.toNamespace('pwa-cache'))();
             }
           )
-          .catch((err: any) => {
+          .catch((err: string) => {
             BalmJS.logger.warn(
               `pwa - ${mode}`,
               `Service worker generation failed: ${err}`

@@ -1,15 +1,15 @@
 const SERVICE_WORKER_API = 'serviceWorker';
-const SERVICE_WORKER_FILE_PATH = 'sw.js';
+const SERVICE_WORKER_FILE_PATH = '/sw.js';
 const isSupportServiceWorker = SERVICE_WORKER_API in navigator;
 
-const sendMessageToSW = msg =>
+const sendMessageToSW = (msg) =>
   // This wraps the message posting/response in a promise, which will resolve if the response doesn't
   // contain an error, and reject with the error if it does. If you'd prefer, it's possible to call
   // controller.postMessage() and set up the onmessage handler independently of a promise, but this is
   // a convenient wrapper.
   new Promise((resolve, reject) => {
     const messageChannel = new MessageChannel();
-    messageChannel.port1.onmessage = event => {
+    messageChannel.port1.onmessage = (event) => {
       if (event.data.error) {
         reject(event.data.error);
       } else {
@@ -30,7 +30,7 @@ const sendMessageToSW = msg =>
 if (isSupportServiceWorker) {
   navigator.serviceWorker
     .register(SERVICE_WORKER_FILE_PATH)
-    .then(() => console.log('Load service worker Success.'))
+    .then(() => console.log('Load service worker success'))
     .catch(() => console.error('Load service worker fail'))
     .then(() => sendMessageToSW('Hello, BalmJS for Service Worker.'))
     .then(console.log)

@@ -14,14 +14,17 @@ const balmConfig = Object.assign(balmrc, {
   pwa: {
     enabled: true,
     workboxSw,
-    mode: 'injectManifest'
+    mode: 'injectManifest',
+    version: 'v1'
   }
 });
 
 balm.config = balmConfig;
 
-balm.go(mix => {
-  if (!balm.config.env.isProd) {
+balm.go((mix) => {
+  if (balm.config.env.isProd) {
+    // mix.copy('./pwa/static/*', './dist/static');
+  } else {
     // mix.copy(workboxSw, balm.config.roots.tmp);
     // PWA API test
     // mix.generateSW();

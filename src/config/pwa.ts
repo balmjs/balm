@@ -11,6 +11,7 @@ const mode = 'generateSW'; // 'generateSW' or 'injectManifest'
 const options: object = {};
 const swSrcFilename = 'service-worker.js';
 const swDestFilename = 'sw.js';
+const version = '';
 
 export default {
   enabled,
@@ -19,5 +20,6 @@ export default {
   mode,
   options,
   swSrcFilename,
-  swDestFilename
+  swDestFilename,
+  version
 };
