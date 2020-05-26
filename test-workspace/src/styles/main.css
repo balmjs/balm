@@ -24,6 +24,10 @@ img {
   height: 64px;
 }
 
+video {
+  max-width: 100%;
+}
+
 #app {
   & a,
   & img,
