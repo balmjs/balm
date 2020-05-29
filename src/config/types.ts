@@ -1,3 +1,5 @@
+/* eslint no-undef: "off" */
+
 // Environment
 interface BalmEnvObject {
   isProd: boolean;

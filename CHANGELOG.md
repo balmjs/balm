@@ -1,5 +1,12 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.15.1 / 2020-05-29
+
+### Chores
+
+- update test for styles
+- optimize `publicUrl` initial value for history mode in development
+
 ## v2.15.0 / 2020-05-25
 
 ### Chores

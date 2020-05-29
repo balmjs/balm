@@ -12,10 +12,19 @@ module.exports = {
     node: true,
     es6: true
   },
+  globals: {
+    path: true,
+    gulp: true,
+    $: true,
+    server: true,
+    webpack: true,
+    through2: true,
+    PluginError: true,
+    BalmJS: true
+  },
   plugins: ['@typescript-eslint', 'prettier'],
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier/@typescript-eslint',
@@ -27,7 +36,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': [2, { allow: ['arrowFunctions'] }],
     '@typescript-eslint/camelcase': [
       2,
-      { allow: ['drop_console', 'ascii_only', 'child_process'] }
+      { allow: ['child_process', 'drop_console', 'ascii_only'] }
     ]
   }
 };
