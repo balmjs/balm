@@ -1,5 +1,12 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.16.0 / 2020-05-31
+
+### Chores
+
+- dependencies: up to date
+  - `istextorbinary`: 4.x -> 5.x
+
 ## v2.15.1 / 2020-05-29
 
 ### Chores
