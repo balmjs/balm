@@ -37,7 +37,7 @@
   },
   "scripts": {
     "prepublishOnly": "gulp prepublish",
-    "lint": "eslint --fix src --ext .ts",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
     "build": "rimraf lib && tsc",
     "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json TS_NODE_FILES=true nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
@@ -126,6 +126,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-exclude-gitignore": "^1.2.0",
     "husky": "^4.2.5",
+    "lint-staged": "^10.2.7",
     "mocha": "^7.2.0",
     "nyc": "^15.0.1",
     "prettier": "^2.0.5",

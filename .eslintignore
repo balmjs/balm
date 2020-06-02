@@ -1,6 +1,6 @@
 node_modules
-coverage
 dist
+coverage
 test
 test-workspace
 babel.config.js

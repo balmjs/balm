@@ -14,12 +14,10 @@ function clean() {
 }
 
 function build() {
-  return src(BALM.source)
-    .pipe(babel())
-    .pipe(dest(BALM.target));
+  return src(BALM.source).pipe(babel()).pipe(dest(BALM.target));
 }
 
-task('format', function() {
+task('format', function () {
   return src(BALM.source)
     .pipe(excludeGitignore())
     .pipe(eslint())
