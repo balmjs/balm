@@ -3,14 +3,15 @@ import httpProxyMiddleware from './proxy';
 import historyMiddleware from './history';
 
 function getMiddlewares(): object[] {
-  const canOverride = BalmJS.config.server.middlewares.every((middleware) =>
-    BalmJS.utils.isObject(middleware)
+  const canOverride = BalmJS.config.server.middlewares.every(
+    (middleware) =>
+      BalmJS.utils.isFunction(middleware) || BalmJS.utils.isObject(middleware)
   );
 
   if (!canOverride) {
     BalmJS.logger.error(
       'server middleware',
-      'server middlewares must be an array (object[])'
+      'server middleware must be a function or object'
     );
   }
 
