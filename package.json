@@ -111,7 +111,7 @@
     "@types/chai": "^4.2.11",
     "@types/express": "^4.17.6",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^14.0.6",
+    "@types/node": "^14.0.11",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "babel-plugin-istanbul": "^6.0.0",
@@ -126,13 +126,13 @@
     "gulp-babel": "^8.0.0",
     "gulp-exclude-gitignore": "^1.2.0",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.7",
+    "lint-staged": "^10.2.9",
     "mocha": "^7.2.0",
-    "nyc": "^15.0.1",
+    "nyc": "^15.1.0",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.5"
   },
   "peerDependencies": {
     "gulp": ">=4"

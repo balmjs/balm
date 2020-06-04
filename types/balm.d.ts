@@ -113,7 +113,7 @@ interface BalmServer {
   hotOptions: object;
   proxyConfig: boolean | ProxyConfig | ProxyConfig[];
   historyOptions: boolean | object;
-  middlewares: object[];
+  middlewares: Function[] | object[];
   extraWatchFiles: string[];
 }
 

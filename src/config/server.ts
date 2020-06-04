@@ -74,7 +74,7 @@ const proxyConfig: boolean | ProxyConfig | ProxyConfig[] = false;
  * @reference https://github.com/bripkens/connect-history-api-fallback#options
  */
 const historyOptions: boolean | object = false;
-const middlewares: object[] = []; // Extra middlewares for server
+const middlewares: Function[] | object[] = []; // Extra middlewares for server
 const extraWatchFiles: string[] = []; // Just for `mix.serve`
 
 export default {
