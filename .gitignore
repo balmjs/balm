@@ -19,10 +19,6 @@ web_modules/
 
 # BalmJS build output
 lib
-.tmp
-dist
-test-workspace/package-lock.json
-test-workspace/yarn.lock
 
 # MacOS generated files
 .DS_Store

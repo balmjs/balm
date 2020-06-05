@@ -1,11 +1,13 @@
-.DS_Store
-bower_components
-node_modules
+# BalmJS build output
 .tmp
-.output
 dist
 assets
+
+# Unit Tests
+.output
 *.zip
+
+# Test Projects
 */styles/sprites
 !vue-spa/scripts/assets
 !vue-ssr/app/scripts/assets
@@ -13,3 +15,7 @@ php/public/build
 php/public/web
 php/public/_index.html
 !php/resources/assets
+
+# Others
+package-lock.json
+yarn.lock
