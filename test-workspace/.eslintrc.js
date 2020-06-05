@@ -1,11 +1,10 @@
 module.exports = {
   root: true,
   parserOptions: {
-    ecmaVersion: 2019,
+    ecmaVersion: 2020,
     sourceType: 'module'
   },
   env: {
-    browser: true,
-    node: true
+    browser: true
   }
 };
