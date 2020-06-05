@@ -1012,11 +1012,6 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
 
-"@types/events@*":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
-  integrity sha512-EaObqwIvayI5a8dCzhFrjKzVwKLxjoG9T6Ppd5CEo07LRKfQ8Yokw54r5+Wq7FaBQ+yXRvQAYPrHwya1/UFt9g==
-
 "@types/express-serve-static-core@*":
   version "4.17.7"
   resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.17.7.tgz#dfe61f870eb549dc6d7e12050901847c7d7e915b"
@@ -1037,11 +1032,10 @@
     "@types/serve-static" "*"
 
 "@types/glob@^7.1.1":
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.1.1.tgz#aa59a1c6e3fbc421e07ccd31a944c30eba521575"
-  integrity sha512-1Bh06cbWJUHMC97acuD6UMG29nMt0Aqz1vF3guLfG+kHHJhy3AyohZFFxYk2f7Q1SQIrNwvncxAE0N/9s70F2w==
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.1.2.tgz#06ca26521353a545d94a0adc74f38a59d232c987"
+  integrity sha512-VgNIkxK+j7Nz5P7jvUZlRvhuPSmsEfS03b0alKcq5V/STUKAa3Plemsn5mrQUO7am6OErJ4rhGEGJbACclrtRA==
   dependencies:
-    "@types/events" "*"
     "@types/minimatch" "*"
     "@types/node" "*"
 
@@ -10351,9 +10345,9 @@ sass-graph@2.2.5:
     yargs "^13.3.2"
 
 sass@^1.26.7:
-  version "1.26.7"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.26.7.tgz#d3c9f3dd9771632bfb60af8746c308da3765166d"
-  integrity sha512-xgNazdkr6yvgHEfNaOjKtZzhDZmKYMCmoRKMPrTDo7YvjaITIzU2DDYsIUuN/atAg7/JOxPeCQHH7TtCo5Tq2g==
+  version "1.26.8"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.26.8.tgz#312652530721f9568d4c4000b0db07ec6eb23325"
+  integrity sha512-yvtzyrKLGiXQu7H12ekXqsfoGT/aTKeMDyVzCB675k1HYuaj0py63i8Uf4SI9CHXj6apDhpfwbUr3gGOjdpu2Q==
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 

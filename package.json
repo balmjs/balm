@@ -88,7 +88,7 @@
     "postcss-safe-parser": "^4.0.2",
     "readable-stream": "^3.6.0",
     "require-dir": "^1.2.0",
-    "sass": "^1.26.7",
+    "sass": "^1.26.8",
     "ssh2": "^0.8.9",
     "style-loader": "^1.2.1",
     "terser": "^4.7.0",
