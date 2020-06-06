@@ -7,12 +7,11 @@ const HOT_CLIENT = 'webpack-hot-middleware/client';
 function initVendors(entries: BalmEntryObject): void {
   const vendors: BalmVendor[] = [];
 
-  for (const key of Object.keys(entries)) {
-    const value: string[] = entries[key] as string[];
+  for (const [key, value] of Object.entries(entries)) {
     if (BalmJS.utils.isArray(value)) {
       vendors.push({
         key,
-        value
+        value: value as string[]
       });
     }
   }
@@ -62,8 +61,7 @@ function getEntry(
   if (BalmJS.utils.isObject(input)) {
     initVendors(input as BalmEntryObject);
 
-    for (const key of Object.keys(input)) {
-      const value: string | string[] = (input as BalmEntryObject)[key];
+    for (const [key, value] of Object.entries(input as BalmEntryObject)) {
       const isVendor: boolean = BalmJS.utils.isArray(value);
 
       // Key

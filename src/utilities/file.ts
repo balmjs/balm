@@ -1,8 +1,8 @@
 class File {
   get stylePaths(): string[] {
     return [
-      path.join(BalmJS.config.workspace, '.'),
-      path.join(BalmJS.config.workspace, 'node_modules'),
+      path.resolve(BalmJS.config.workspace, '.'),
+      path.resolve(BalmJS.config.workspace, 'node_modules'),
       ...BalmJS.config.styles.atImportPaths
     ];
   }
@@ -22,7 +22,7 @@ class File {
   }
 
   absPath(_path: string): string {
-    return path.join(BalmJS.config.workspace, _path);
+    return path.resolve(BalmJS.config.workspace, _path);
   }
 
   absPaths(_paths: string | string[]): string | string[] {
