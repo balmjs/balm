@@ -8,8 +8,9 @@
 
 ### Features
 
-- clean code and update config
 - update `balm.config.server.middlewares: Function[] | object[]`
+- clean code and update config
+- TS rebuild
 
 ## v2.16.0 / 2020-05-31
 
