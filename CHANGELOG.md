@@ -1,5 +1,16 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.17.0 / 2020-06-09
+
+### Bug Fixes
+
+- `pwa minify task`: bugfix
+
+### Features
+
+- clean code and update config
+- update `balm.config.server.middlewares: Function[] | object[]`
+
 ## v2.16.0 / 2020-05-31
 
 ### Chores

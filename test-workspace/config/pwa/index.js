@@ -1,5 +1,6 @@
 const balm = require('../balm');
 const balmrc = require('../balmrc');
+const { version } = require('../../package.json');
 
 const workboxSw = '../node_modules/workbox-sw/build/workbox-sw.js';
 const balmConfig = Object.assign(balmrc, {
@@ -15,7 +16,7 @@ const balmConfig = Object.assign(balmrc, {
     enabled: true,
     workboxSw,
     mode: 'injectManifest',
-    version: 'v1'
+    version: `v${version.replace(/\./g, '')}`
   }
 });
 

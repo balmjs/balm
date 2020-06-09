@@ -1,19 +1,21 @@
 class PwaCacheTask extends BalmJS.BalmTask {
   constructor() {
     super('pwa-cache');
+
+    this.defaultOutput = BalmJS.config.dest.base;
+    this.defaultInput = path.join(
+      this.defaultOutput,
+      BalmJS.config.pwa.swDestFilename
+    );
   }
 
   fn = (): any => {
-    const globDirectory: string = BalmJS.config.dest.base;
-    const swDest = BalmJS.file.absPath(
-      `${globDirectory}/${BalmJS.config.pwa.swDestFilename}`
-    );
+    this.init();
 
     const newVersion = BalmJS.config.pwa.version || Date.now().toString();
     BalmJS.logger.info('pwa - version', newVersion);
 
-    return gulp
-      .src(swDest)
+    return this.src
       .pipe(BalmJS.plugins.replace('{{ version }}', newVersion))
       .pipe(
         $.if(
@@ -21,7 +23,7 @@ class PwaCacheTask extends BalmJS.BalmTask {
           BalmJS.plugins.jsmin(BalmJS.config.scripts.options)
         )
       )
-      .pipe(gulp.dest(globDirectory));
+      .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
   };
 }
 

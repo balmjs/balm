@@ -5,6 +5,7 @@ module.exports = {
     sourceType: 'module'
   },
   env: {
-    browser: true
+    browser: true,
+    node: true
   }
 };

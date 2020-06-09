@@ -19,7 +19,6 @@ export interface GulpPlugins {
   imagemin: any;
   less: any;
   postcss: any;
-  replace: any;
   revAll: any;
   revDeleteOriginal: any;
   sass: any;
