@@ -1,5 +1,9 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.17.1 / 2020-06-10
+
+> Black Lives Matter: <del>`blacklist`</del> -> `blocklist`
+
 ## v2.17.0 / 2020-06-09
 
 ### Bug Fixes
