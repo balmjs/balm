@@ -1,5 +1,12 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.18.0 / 2020-06-12
+
+### Chores
+
+- devDependencies: up to date
+  - `mocha`: 7.x -> 8.x
+
 ## v2.17.1 / 2020-06-10
 
 > Black Lives Matter: <del>`blacklist`</del> -> `blocklist`

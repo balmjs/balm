@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "2.17.1",
+  "version": "2.18.0",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -76,7 +76,7 @@
     "html-loader": "^1.1.0",
     "html-minifier": "^4.0.0",
     "http-proxy-middleware": "^1.0.4",
-    "istextorbinary": "^5.0.0",
+    "istextorbinary": "^5.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "modernizr": "^3.11.2",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
@@ -94,6 +94,7 @@
     "terser": "^4.7.0",
     "terser-webpack-plugin": "^3.0.3",
     "through2": "^3.0.1",
+    "tslib": "^2.0.0",
     "url-loader": "^4.1.0",
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.8.0",
@@ -128,7 +129,7 @@
     "gulp-exclude-gitignore": "^1.2.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.9",
-    "mocha": "^7.2.0",
+    "mocha": "^8.0.1",
     "nyc": "^15.1.0",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
