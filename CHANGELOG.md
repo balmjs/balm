@@ -7,6 +7,10 @@
 - devDependencies: up to date
   - `mocha`: 7.x -> 8.x
 
+### Features
+
+- add tslib
+
 ## v2.17.1 / 2020-06-10
 
 > Black Lives Matter: <del>`blacklist`</del> -> `blocklist`

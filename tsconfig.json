@@ -8,11 +8,11 @@
     "lib": ["ES2018", "ESNext"],
     "module": "CommonJS",
     "moduleResolution": "Node",
-    "outDir": "lib",
+    "outDir": "tslib",
     "strict": true,
     "target": "ES2017"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "coverage", "lib"],
+  "exclude": ["node_modules", "coverage", "lib", "tslib"],
   "files": ["types/index.d.ts"]
 }

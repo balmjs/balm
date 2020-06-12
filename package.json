@@ -28,7 +28,8 @@
     }
   ],
   "files": [
-    "lib"
+    "lib",
+    "tslib"
   ],
   "main": "lib/index.js",
   "repository": {
@@ -36,9 +37,9 @@
     "url": "git+https://github.com/balmjs/balm.git"
   },
   "scripts": {
-    "prepublishOnly": "gulp prepublish",
+    "prepublishOnly": "gulp prepublish && npm run build",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
-    "build": "rimraf lib && tsc",
+    "build": "rimraf tslib && tsc",
     "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json TS_NODE_FILES=true nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "release": "bash ./tools/release.sh"
