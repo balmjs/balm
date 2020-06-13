@@ -95,7 +95,7 @@ function setTask(name: string | Function): string | Function | undefined {
   if (BalmJS.utils.isFunction(name)) {
     result = name as Function;
   } else if (BalmJS.utils.isString(name)) {
-    if (gulp.tree().nodes.includes(name)) {
+    if ((gulp.tree().nodes as string[]).includes(name as string)) {
       result = name as string;
     } else {
       BalmJS.logger.error('gulp task', 'Invalid task name');

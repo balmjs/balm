@@ -13,4 +13,3 @@ global.server = browserSync.create();
 global.webpack = webpack;
 global.through2 = through2;
 global.PluginError = PluginError;
-global.BalmJS = {};

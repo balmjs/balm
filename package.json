@@ -29,9 +29,11 @@
   ],
   "files": [
     "lib",
-    "tslib"
+    "tslib",
+    "index.d.ts"
   ],
   "main": "lib/index.js",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/balmjs/balm.git"
@@ -129,7 +131,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-exclude-gitignore": "^1.2.0",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.9",
+    "lint-staged": "^10.2.10",
     "mocha": "^8.0.1",
     "nyc": "^15.1.0",
     "prettier": "^2.0.5",

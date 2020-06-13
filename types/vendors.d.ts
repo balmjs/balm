@@ -30,7 +30,10 @@ declare module 'webpack-hot-middleware';
 declare module 'webpack-merge';
 declare module 'workbox-build';
 
-declare module '*.json' {
-  const file: any;
-  export default file;
+declare module '*package.json' {
+  var pkg: {
+    version: string;
+  };
+
+  export default pkg;
 }

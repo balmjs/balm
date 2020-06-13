@@ -5,6 +5,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "importHelpers": true,
+    "removeComments": true,
     "lib": ["ES2018", "ESNext"],
     "module": "CommonJS",
     "moduleResolution": "Node",

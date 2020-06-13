@@ -1,7 +1,9 @@
 node_modules
-dist
+types
+lib
+tslib
 coverage
 test
 test-workspace
-babel.config.js
 gulpfile.esm.js
+!.eslintrc.js

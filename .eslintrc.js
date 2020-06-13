@@ -7,7 +7,8 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
     project: './tsconfig.json',
-    tsconfigRootDir: __dirname
+    tsconfigRootDir: __dirname,
+    createDefaultProgram: true
   },
   env: {
     node: true,
@@ -28,12 +29,12 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'prettier',
-    'prettier/@typescript-eslint',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'prettier/@typescript-eslint'
   ],
   rules: {
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'prettier/prettier': 'error',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-empty-function': [2, { allow: ['arrowFunctions'] }],
     '@typescript-eslint/camelcase': [

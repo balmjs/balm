@@ -1,19 +1,41 @@
-export interface Gulp {
-  src: (globs: string | string[], options?: object) => any;
-  dest: (directory: string | Function, options?: object) => any;
-  lastRun: (task: string | Function, precision?: number) => any;
-  series: any;
-  parallel: any;
-  watch: (
-    globs: string | string[],
-    options?: object,
-    task?: string | Function
-  ) => any;
-  task: (taskName: string, taskFunction: Function) => any;
-  tree: (options?: object) => any;
+import { Watcher } from './node';
+
+interface GulpOptions {
+  since?: Date | number | Function;
+  sourcemaps?: boolean | Function;
+  allowEmpty?: boolean;
 }
 
-export interface GulpPlugins {
+// type GulpTaskWithAnonymous = (taskFunction: Function) => void;
+type GulpTask = (taskName: string, taskFunction: Function) => void;
+
+interface GulpTree {
+  label: string;
+  nodes: string[] | object[];
+}
+
+export interface Gulp {
+  src: (
+    globs: string | string[],
+    options?: GulpOptions
+  ) => NodeJS.ReadableStream;
+  dest: (
+    directory: string | Function,
+    options?: GulpOptions
+  ) => NodeJS.WritableStream;
+  lastRun: (task: Function | string, precision?: number) => number | undefined;
+  series: (...tasks: Function[] | string[]) => void;
+  parallel: (...tasks: Function[] | string[]) => void;
+  watch: (
+    globs: string | string[],
+    options?: GulpOptions,
+    task?: Function | string
+  ) => Watcher;
+  task: GulpTask;
+  tree: (options?: GulpOptions) => GulpTree;
+}
+
+export interface GulpPlugin {
   eslint: any;
   if: any;
   imagemin: any;
@@ -27,3 +49,5 @@ export interface GulpPlugins {
   zip: any;
   spritesmith: any;
 }
+
+export type GulpPluginError = import('plugin-error').Constructor;
