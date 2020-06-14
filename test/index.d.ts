@@ -1,19 +1,10 @@
 import '../types/index';
-import { BalmConfig } from '../index';
-
-interface BalmTest {
-  config: Partial<BalmConfig>;
-  beforeTask: string | Function | undefined;
-  afterTask: string | Function | undefined;
-  go: (recipe?: Function) => void;
-  reset: Function;
-}
 
 declare global {
   namespace NodeJS {
     interface Global {
       isWin: boolean;
-      balm: BalmTest;
+      balm: any;
       runTask: Function;
       expect: any;
       asyncCase: Function;
@@ -21,7 +12,7 @@ declare global {
   }
 
   var isWin: boolean;
-  var balm: BalmTest;
+  var balm: any;
   var runTask: Function;
   var expect: any;
   var asyncCase: Function;
