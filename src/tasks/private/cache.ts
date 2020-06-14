@@ -3,7 +3,7 @@ import {
   ASYNC_SCRIPTS,
   STATIC_ASSETS
 } from '../../config/constants';
-import { LooseObject } from '../../config/types';
+import { LooseObject } from '@balm/index';
 
 class CacheTask extends BalmJS.BalmTask {
   constructor() {

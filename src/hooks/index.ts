@@ -7,7 +7,7 @@ import {
   SpriteOptions,
   ReplaceOptions,
   TemplateOption
-} from '../config/types';
+} from '@balm/index';
 
 class BaseHooks {
   get env(): BalmEnvObject {

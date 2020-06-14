@@ -1,4 +1,4 @@
-import { BalmEntryObject } from './types';
+import { BalmEntryObject } from '@balm/index';
 
 interface PostcssLoaderOptions {
   exec?: boolean;

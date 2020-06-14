@@ -1,5 +1,5 @@
 import mergeStream from '../../utilities/merge-stream';
-import { SpriteOptions, BalmError } from '../../config/types';
+import { SpriteOptions, BalmError } from '@balm/index';
 
 interface SpriteItem {
   src: string;

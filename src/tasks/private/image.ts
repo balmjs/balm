@@ -1,4 +1,4 @@
-import { BalmError } from '../../config/types';
+import { BalmError } from '@balm/index';
 
 const IMAGEMIN_PLUGINS: { [key: string]: Function } = {
   gif: $.imagemin.gifsicle,

@@ -4,7 +4,7 @@ import './utilities';
 import './plugins';
 import registerTasks from './tasks';
 import { setConfig, setTask } from './bootstrap';
-import { BalmConfig } from './config/types';
+import { BalmConfig } from '@balm/index';
 
 class Balm {
   #config: BalmConfig;

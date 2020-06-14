@@ -1,10 +1,5 @@
 import { ASSETS_KEYS } from '../config/constants';
-import {
-  LooseObject,
-  BalmConfig,
-  BalmPath,
-  BalmAssetsPath
-} from '../config/types';
+import { LooseObject, BalmConfig, BalmPath, BalmAssetsPath } from '@balm/index';
 import checkConfig from './check_config';
 
 function _createQuickPath(

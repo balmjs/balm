@@ -1,4 +1,4 @@
-import { BalmEntryObject, BalmVendor } from '../config/types';
+import { BalmEntryObject, BalmVendor } from '@balm/index';
 import { HMR_PATH } from '../config/constants';
 
 const FILENAME_REGEX = new RegExp('[^/]+$', 'i');

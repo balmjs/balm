@@ -2,7 +2,7 @@ import webpackMerge from 'webpack-merge';
 import getEntry from './entry';
 import getOutput from './output';
 import getDefaultConfig from './config';
-import { BalmEntryObject } from '../config/types';
+import { BalmEntryObject } from '@balm/index';
 
 function webpackConfig(
   input: string | string[] | BalmEntryObject,

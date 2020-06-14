@@ -1,4 +1,4 @@
-import { BalmError } from '../../config/types';
+import { BalmError } from '@balm/index';
 
 class BalmTask {
   protected _name: string;

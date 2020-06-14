@@ -1,5 +1,5 @@
 import webpackConfig from '../../bundler';
-import { BalmEntryObject, BalmError } from '../../config/types';
+import { BalmEntryObject, BalmError } from '@balm/index';
 
 class ScriptTask extends BalmJS.BalmTask {
   constructor() {

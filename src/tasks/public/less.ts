@@ -1,4 +1,4 @@
-import { HookOptions } from '../../config/types';
+import { HookOptions } from '@balm/index';
 
 class LessTask extends BalmJS.BalmStyleTask {
   constructor() {

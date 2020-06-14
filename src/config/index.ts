@@ -1,5 +1,5 @@
 import './globals';
-import { BalmVendor } from './types';
+import { BalmVendor } from '@balm/index';
 import env from './env';
 import roots from './roots';
 import paths from './paths';

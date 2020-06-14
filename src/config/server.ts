@@ -1,4 +1,4 @@
-import { ProxyConfig } from './types';
+import { ProxyConfig } from '@balm/index';
 
 const port = 3000;
 const host: string | null = null;

@@ -191,10 +191,115 @@ export interface BalmConfig {
   dest: BalmAssetsPath;
 }
 
+export interface BalmVendor {
+  key: string;
+  value: string[];
+}
+
+export interface RenameOptions {
+  dirname?: string;
+  prefix?: string;
+  basename?: string;
+  suffix?: string;
+  extname?: string;
+}
+
+export interface HookOptions {
+  src?: object;
+  sass?: object;
+  less?: object;
+  terser?: object;
+  rename?: string | Function | RenameOptions;
+  ftp?: object;
+}
+
+export interface SpriteOptions {
+  extname?: string;
+  imageBasePath?: string;
+  imageTarget?: string; // NOTE: overwrite `balm.config.paths.target.img`
+  spriteRetina?: boolean;
+  spriteParams?: object;
+}
+
+export interface ReplaceOptions {
+  substr: string | RegExp;
+  replacement: string | Function;
+}
+
+export interface TemplateOption {
+  input: string;
+  output: string;
+  renameOptions: string | Function | RenameOptions;
+}
+
+export interface BalmError extends Error {
+  code: string;
+  details?: string;
+}
+
+interface BalmRecipe {
+  env: BalmEnvObject;
+  html: (input: string, output: string) => void;
+  css: (input: string | string[], output: string) => void;
+  sass: (
+    input: string | string[],
+    output: string,
+    options?: HookOptions
+  ) => void;
+  less: (
+    input: string | string[],
+    output: string,
+    options?: HookOptions
+  ) => void;
+  url: (input: string | string[], output: string) => void;
+  js: (
+    input: string | string[] | BalmEntryObject,
+    output: string,
+    webpackOptions?: any
+  ) => void;
+  jsmin: (
+    input: string | string[],
+    output: string,
+    options?: HookOptions
+  ) => void;
+  copy: (
+    input: string | string[],
+    output: string,
+    options?: HookOptions
+  ) => void;
+  remove: (paths: string | string[]) => void;
+  version: (
+    input: string | string[],
+    output: string,
+    assetsOptions?: object
+  ) => void;
+  serve: (handler: Function) => void;
+  sprite: (
+    input: string[],
+    output: string,
+    spriteOptions?: SpriteOptions
+  ) => void;
+  replace: (
+    input: string | string[],
+    output: string,
+    options: ReplaceOptions | ReplaceOptions[]
+  ) => void;
+  publish: (
+    input: string | TemplateOption[],
+    output: string,
+    renameOptions?: string | Function | RenameOptions
+  ) => void;
+  zip: (input: string | string[], output?: string, filename?: string) => void;
+  ftp: (localFiles: string, options?: HookOptions) => void;
+  generateSW: (pwaOptions: object) => void;
+  injectManifest: (pwaOptions: object) => void;
+  modernizr: () => void;
+}
+
 export interface Balm {
   config: BalmConfig;
   beforeTask: string | Function | undefined;
   afterTask: string | Function | undefined;
-  go: (recipe?: Function) => void;
+  go: (recipe?: BalmRecipe) => void;
   reset: Function;
 }

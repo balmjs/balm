@@ -1,9 +1,4 @@
-import { Balm } from '../index';
-
-interface BalmVendor {
-  key: string;
-  value: string[];
-}
+import { Balm, BalmVendor } from '../index';
 
 interface BalmUtils {
   getType: (obj: unknown) => string;
