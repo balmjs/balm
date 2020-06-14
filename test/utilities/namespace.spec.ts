@@ -19,11 +19,4 @@ describe('Balm Namespace', function() {
       expect(result[1]).to.equal('balm:bar');
     })
   );
-
-  it(
-    'namespace with others',
-    asyncCase(function() {
-      toNamespace(null);
-    })
-  );
 });
