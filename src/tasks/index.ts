@@ -30,7 +30,7 @@ function registerTasks(recipe: Function): void {
   depsTasks.forEach((task: any) => {
     const taskName: string = task.taskName;
     const taskFunction: Function = task.deps.length
-      ? gulp.series(BalmJS.toNamespace(task.deps))
+      ? gulp.series(...BalmJS.toNamespace(task.deps))
       : (callback: Function): void => {
           callback();
         };

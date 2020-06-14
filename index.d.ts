@@ -1,4 +1,7 @@
-// Environment
+export interface LooseObject {
+  [key: string]: any;
+}
+
 export interface BalmEnvObject {
   isProd: boolean;
   isTest: boolean;
@@ -7,7 +10,7 @@ export interface BalmEnvObject {
   isMP: boolean;
 }
 
-interface BalmPath {
+export interface BalmPath {
   base: string;
   css: string;
   js: string;
@@ -34,8 +37,12 @@ interface BalmStyles {
   postcssLoaderOptions?: any;
 }
 
+export interface BalmEntryObject {
+  [entryChunkName: string]: string | string[];
+}
+
 interface BalmScripts {
-  entry: string | string[] | { [entryChunkName: string]: string | string[] };
+  entry: string | string[] | BalmEntryObject;
   library: string | object;
   libraryTarget: string;
   loaders: object[];
@@ -89,7 +96,11 @@ interface BalmImages {
   };
 }
 
-interface BalmAssets {
+export interface BalmAssetsPath extends BalmPath {
+  static: string;
+}
+
+interface BalmAssets extends BalmAssetsPath {
   publicUrlPlaceholder: string;
   publicUrl: string;
   root: string;
@@ -101,10 +112,9 @@ interface BalmAssets {
   options: object;
   includes: string[];
   excludes: string[];
-  static: string; // Custom
 }
 
-interface ProxyConfig {
+export interface ProxyConfig {
   context: string | string[];
   options: object;
 }
@@ -177,8 +187,8 @@ export interface BalmConfig {
     level: number;
     formatOptions: object;
   };
-  src?: any;
-  dest?: any;
+  src: BalmPath;
+  dest: BalmAssetsPath;
 }
 
 export interface Balm {

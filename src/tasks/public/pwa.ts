@@ -66,7 +66,7 @@ class PwaTask extends BalmJS.BalmTask {
                 `Generated '${swDest}', which will precache ${count} files, totaling ${size} bytes`
               );
 
-              gulp.parallel(BalmJS.toNamespace('pwa-cache'))();
+              gulp.parallel(BalmJS.toNamespace('pwa-cache') as string)();
             }
           )
           .catch((err: string) => {

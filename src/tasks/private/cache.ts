@@ -3,6 +3,7 @@ import {
   ASYNC_SCRIPTS,
   STATIC_ASSETS
 } from '../../config/constants';
+import { LooseObject } from '../../config/types';
 
 class CacheTask extends BalmJS.BalmTask {
   constructor() {
@@ -10,10 +11,14 @@ class CacheTask extends BalmJS.BalmTask {
 
     const defaultIncludes: string[] = BalmJS.config.scripts.inject
       ? ASSETS_KEYS.filter((assetKey) => assetKey !== 'js').map((assetKey) =>
-          BalmJS.file.matchAllFiles(BalmJS.config.dest[assetKey])
+          BalmJS.file.matchAllFiles(
+            (BalmJS.config.dest as LooseObject)[assetKey]
+          )
         )
       : ASSETS_KEYS.map((assetKey) =>
-          BalmJS.file.matchAllFiles(BalmJS.config.dest[assetKey])
+          BalmJS.file.matchAllFiles(
+            (BalmJS.config.dest as LooseObject)[assetKey]
+          )
         );
     const defaultExcludes: string[] = [
       path.join(`!${BalmJS.config.dest.base}`, BalmJS.config.pwa.manifest),

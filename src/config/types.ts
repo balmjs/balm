@@ -1,20 +1,18 @@
 /* eslint no-undef: "off" */
-import { BalmEnvObject, BalmConfig } from '@balm/index';
+import {
+  LooseObject,
+  BalmConfig,
+  BalmEnvObject,
+  BalmPath,
+  BalmAssetsPath,
+  BalmEntryObject,
+  ProxyConfig
+} from '@balm/index';
 
-// Scripts
-interface BalmEntryObject {
-  [entryChunkName: string]: string | string[];
-}
-
+// Script
 interface BalmVendor {
   key: string;
   value: string[];
-}
-
-// Server
-interface ProxyConfig {
-  context: string | string[];
-  options: object;
 }
 
 // Hook
@@ -62,8 +60,11 @@ interface BalmError extends Error {
 }
 
 export {
+  LooseObject,
   BalmConfig,
   BalmEnvObject,
+  BalmPath,
+  BalmAssetsPath,
   BalmEntryObject,
   BalmVendor,
   ProxyConfig,

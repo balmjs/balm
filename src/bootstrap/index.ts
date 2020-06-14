@@ -1,13 +1,21 @@
 import { ASSETS_KEYS } from '../config/constants';
-import { BalmConfig } from '../config/types';
+import {
+  LooseObject,
+  BalmConfig,
+  BalmPath,
+  BalmAssetsPath
+} from '../config/types';
 import checkConfig from './check_config';
 
-function _createQuickPath(config: any, rootKey: string): any {
-  const result: any = {};
+function _createQuickPath(
+  config: BalmConfig,
+  rootKey: string
+): BalmPath | BalmAssetsPath {
+  const result: LooseObject = {};
 
-  const rootValue: string = config.roots[rootKey];
-  for (const pathKey of Object.keys(config.paths[rootKey])) {
-    const pathValue: string = config.paths[rootKey][pathKey];
+  const rootValue: string = (config.roots as LooseObject)[rootKey];
+  for (const pathKey of Object.keys((config.paths as LooseObject)[rootKey])) {
+    const pathValue: string = (config.paths as LooseObject)[rootKey][pathKey];
     result[pathKey] =
       rootKey === 'target' && ASSETS_KEYS.includes(pathKey)
         ? path.join(
@@ -19,7 +27,9 @@ function _createQuickPath(config: any, rootKey: string): any {
         : path.join(rootValue, pathValue);
   }
 
-  return result;
+  return rootKey === 'source'
+    ? (result as BalmPath)
+    : (result as BalmAssetsPath);
 }
 
 function _ready(config: BalmConfig): BalmConfig {
@@ -28,7 +38,7 @@ function _ready(config: BalmConfig): BalmConfig {
   config.dest = _createQuickPath(
     config,
     config.env.isProd || !config.inFrontend ? 'target' : 'tmp'
-  );
+  ) as BalmAssetsPath;
 
   config.dest.static = path.join(
     config.dest.base,
@@ -43,9 +53,9 @@ function _ready(config: BalmConfig): BalmConfig {
     BalmJS.file.assetsSuffixPath
   );
   for (const assetKey of ASSETS_KEYS) {
-    config.assets[assetKey] = path.join(
+    (config.assets as LooseObject)[assetKey] = path.join(
       config.assets.static,
-      config.paths.target[assetKey]
+      (config.paths.target as LooseObject)[assetKey]
     );
   }
 

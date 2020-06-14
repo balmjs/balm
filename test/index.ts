@@ -1,3 +1,4 @@
+import path from 'path';
 import './custom-tasks';
 import './utilities';
 import './tasks';
@@ -7,7 +8,11 @@ import './bootstrap/config_check.spec';
 import './bootstrap/index.spec';
 import './app';
 
-const balmConfigDefaults = Object.assign({}, balm.config, {
+const projectRoot = path.resolve(__dirname, '..');
+const workspace = path.join(projectRoot, 'test-workspace');
+
+const balmConfigDefaults = Object.assign({}, {
+  workspace,
   env: {
     isProd: false,
     isDev: false,
@@ -46,7 +51,7 @@ const balmConfigDefaults = Object.assign({}, balm.config, {
   },
   assets: {
     publicUrl: '',
-    root: path.join(balm.config.workspace, 'assets'),
+    root: path.join(workspace, 'assets'),
     subDir: '',
     buildDir: 'build',
     cache: false,

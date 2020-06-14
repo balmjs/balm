@@ -24,8 +24,8 @@ export interface Gulp {
     options?: GulpOptions
   ) => NodeJS.WritableStream;
   lastRun: (task: Function | string, precision?: number) => number | undefined;
-  series: (...tasks: Function[] | string[]) => void;
-  parallel: (...tasks: Function[] | string[]) => void;
+  series: (...tasks: Function[] | string[]) => Function;
+  parallel: (...tasks: Function[] | string[]) => Function;
   watch: (
     globs: string | string[],
     options?: GulpOptions,

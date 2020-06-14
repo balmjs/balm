@@ -60,7 +60,7 @@ class Maker {
       case 'sprite':
         customTask.recipe(...args);
         if (customTask.deps.length) {
-          balmTask = gulp.series(BalmJS.toNamespace(customTask.deps));
+          balmTask = gulp.series(...BalmJS.toNamespace(customTask.deps));
         } else {
           BalmJS.logger.warn(
             'balm hook',
