@@ -4,21 +4,22 @@ import './utilities';
 import './plugins';
 import registerTasks from './tasks';
 import { setConfig, setTask } from './bootstrap';
+import { BalmConfig } from './config/types';
 
 class Balm {
-  private _config: any;
+  #config: BalmConfig;
 
   constructor() {
     console.log(`BalmJS version: ${pkg.version}`);
-    this._config = BalmJS.config;
+    this.#config = BalmJS.config;
   }
 
-  get config(): any {
-    return this._config;
+  get config(): BalmConfig {
+    return this.#config;
   }
-  set config(value: any) {
-    this._config = setConfig(value);
-    BalmJS.config = this._config;
+  set config(value: BalmConfig) {
+    this.#config = setConfig(value);
+    BalmJS.config = this.#config;
   }
 
   set beforeTask(name: string | Function) {

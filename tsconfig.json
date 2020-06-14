@@ -11,9 +11,12 @@
     "moduleResolution": "Node",
     "outDir": "tslib",
     "strict": true,
-    "target": "ES2017"
+    "target": "ES2017",
+    "baseUrl": ".",
+    "paths": {
+      "@balm/*": ["./*"]
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "coverage", "lib", "tslib"],
-  "files": ["types/index.d.ts"]
+  "include": ["src/**/*", "types/index.d.ts"],
+  "exclude": ["node_modules", "coverage", "lib", "tslib"]
 }

@@ -1,3 +1,12 @@
+// Environment
+export interface BalmEnvObject {
+  isProd: boolean;
+  isTest: boolean;
+  isDev: boolean;
+  inSSR: boolean;
+  isMP: boolean;
+}
+
 interface BalmPath {
   base: string;
   css: string;
@@ -118,13 +127,7 @@ interface BalmServer {
 }
 
 export interface BalmConfig {
-  env: {
-    isProd: boolean;
-    isTest: boolean;
-    isDev: boolean;
-    inSSR: boolean;
-    isMP: boolean;
-  };
+  env: BalmEnvObject;
   workspace: string;
   inFrontend: boolean;
   useDefaults: boolean;
@@ -176,4 +179,12 @@ export interface BalmConfig {
   };
   src?: any;
   dest?: any;
+}
+
+export interface Balm {
+  config: BalmConfig;
+  beforeTask: string | Function | undefined;
+  afterTask: string | Function | undefined;
+  go: (recipe?: Function) => void;
+  reset: Function;
 }

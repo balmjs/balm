@@ -1,6 +1,8 @@
 import { Path } from './node';
-import { Gulp, GulpPlugin, GulpPluginError } from './gulp';
+import { Gulp, GulpPlugin } from './gulp';
 import BalmGlobal from './balm';
+
+type PluginError = import('plugin-error').Constructor;
 
 declare global {
   namespace NodeJS {
@@ -11,7 +13,7 @@ declare global {
       server: any;
       webpack: any;
       through2: any;
-      PluginError: GulpPluginError;
+      PluginError: PluginError;
       BalmJS: BalmGlobal;
     }
   }
@@ -22,6 +24,6 @@ declare global {
   var server: any;
   var webpack: any;
   var through2: any;
-  var PluginError: GulpPluginError;
+  var PluginError: PluginError;
   var BalmJS: BalmGlobal;
 }

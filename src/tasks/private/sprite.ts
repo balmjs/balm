@@ -15,7 +15,7 @@ interface SpriteConfig {
 }
 
 class SpriteTask extends BalmJS.BalmTask {
-  private tasks: string[] = [];
+  #tasks: string[] = [];
 
   constructor() {
     super('sprite');
@@ -112,7 +112,7 @@ class SpriteTask extends BalmJS.BalmTask {
         return mergeStream(imgStream, cssStream);
       });
 
-      this.tasks.push(spriteTaskName);
+      this.#tasks.push(spriteTaskName);
     }
   }
 
@@ -132,7 +132,7 @@ class SpriteTask extends BalmJS.BalmTask {
   }
 
   get deps(): string[] {
-    return this.tasks;
+    return this.#tasks;
   }
 }
 

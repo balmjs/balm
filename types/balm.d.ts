@@ -1,4 +1,4 @@
-import { BalmConfig } from '../index';
+import { Balm } from '../index';
 
 interface BalmVendor {
   key: string;
@@ -45,14 +45,6 @@ interface BalmPlugins {
     replacement: string | Function,
     options?: any
   ) => any;
-}
-
-interface Balm {
-  config: BalmConfig;
-  beforeTask: string | Function | undefined;
-  afterTask: string | Function | undefined;
-  go: (recipe?: Function) => void;
-  reset: Function;
 }
 
 export default interface BalmGlobal extends Balm {

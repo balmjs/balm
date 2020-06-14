@@ -49,5 +49,3 @@ export interface GulpPlugin {
   zip: any;
   spritesmith: any;
 }
-
-export type GulpPluginError = import('plugin-error').Constructor;

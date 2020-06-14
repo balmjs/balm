@@ -1,4 +1,5 @@
 import { ASSETS_KEYS } from '../config/constants';
+import { BalmConfig } from '../config/types';
 import checkConfig from './check_config';
 
 function _createQuickPath(config: any, rootKey: string): any {
@@ -21,7 +22,7 @@ function _createQuickPath(config: any, rootKey: string): any {
   return result;
 }
 
-function _ready(config: any): any {
+function _ready(config: BalmConfig): BalmConfig {
   // Create local quick directories
   config.src = _createQuickPath(config, 'source');
   config.dest = _createQuickPath(
@@ -58,19 +59,22 @@ function _resetConfig(): any {
   return BalmJS.config;
 }
 
-function setConfig(customConfig: any): any {
-  const defaultConfig: any = _resetConfig();
+function setConfig(customConfig: BalmConfig): any {
+  const defaultConfig: BalmConfig = _resetConfig();
 
   // 1. Overwrite config
-  const newConfig: any = BalmJS.utils.deepMerge(defaultConfig, customConfig);
+  const newConfig: BalmConfig = BalmJS.utils.deepMerge(
+    defaultConfig,
+    customConfig
+  ) as BalmConfig;
   checkConfig();
 
   // 2. Copy `config.paths.target` to `config.paths.tmp`
-  let config: any = BalmJS.utils.deepMerge(newConfig, {
+  let config: BalmConfig = BalmJS.utils.deepMerge(newConfig, {
     paths: {
       tmp: newConfig.paths.target
     }
-  });
+  }) as BalmConfig;
 
   // 3. For the dynamic project
   if (!config.inFrontend) {

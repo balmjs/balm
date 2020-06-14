@@ -1,13 +1,5 @@
 /* eslint no-undef: "off" */
-
-// Environment
-interface BalmEnvObject {
-  isProd: boolean;
-  isTest: boolean;
-  isDev: boolean;
-  inSSR: boolean;
-  isMP: boolean;
-}
+import { BalmEnvObject, BalmConfig } from '@balm/index';
 
 // Scripts
 interface BalmEntryObject {
@@ -70,6 +62,7 @@ interface BalmError extends Error {
 }
 
 export {
+  BalmConfig,
   BalmEnvObject,
   BalmEntryObject,
   BalmVendor,
