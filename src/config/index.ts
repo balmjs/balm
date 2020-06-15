@@ -1,5 +1,5 @@
 import './globals';
-import { BalmVendor } from '@balm/index';
+import { BalmConfig, BalmVendor } from '@balm/index';
 import env from './env';
 import roots from './roots';
 import paths from './paths';
@@ -35,7 +35,7 @@ const workspace: string = process.cwd();
 const inFrontend = true;
 const useDefaults = true; // Use balm default task
 
-const config: any = {
+const config: BalmConfig = {
   env,
   workspace,
   inFrontend,

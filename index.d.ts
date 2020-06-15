@@ -31,10 +31,8 @@ interface BalmStyles {
   postcssPlugins: object[];
   imageBasePath: string;
   sprites: string[];
-  spritePadding: number;
-  spriteParams: object;
   spriteRetina: boolean;
-  postcssLoaderOptions?: any;
+  spriteParams: object;
 }
 
 export interface BalmEntryObject {
@@ -100,7 +98,7 @@ export interface BalmAssetsPath extends BalmPath {
   static: string;
 }
 
-interface BalmAssets extends BalmAssetsPath {
+export interface BalmAssets extends BalmAssetsPath {
   publicUrlPlaceholder: string;
   publicUrl: string;
   root: string;
@@ -237,7 +235,7 @@ export interface BalmError extends Error {
   details?: string;
 }
 
-interface BalmRecipe {
+export interface BalmRecipe {
   env: BalmEnvObject;
   html: (input: string, output: string) => void;
   css: (input: string | string[], output: string) => void;
@@ -297,9 +295,9 @@ interface BalmRecipe {
 }
 
 export interface Balm {
-  config: BalmConfig;
-  beforeTask: string | Function | undefined;
-  afterTask: string | Function | undefined;
+  config: Partial<BalmConfig>;
+  beforeTask?: string | Function;
+  afterTask?: string | Function;
   go: (recipe?: BalmRecipe) => void;
-  reset: Function;
+  reset?: Function;
 }
