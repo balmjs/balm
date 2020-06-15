@@ -57,14 +57,14 @@ function _ready(config: BalmConfig): BalmConfig {
   return config;
 }
 
-function _resetConfig(): any {
+function _resetConfig(): BalmConfig {
   BalmJS.config.roots.target = 'dist';
   BalmJS.config.roots.tmp = '.tmp';
 
   return BalmJS.config;
 }
 
-function setConfig(customConfig: BalmConfig): any {
+function setConfig(customConfig: Partial<BalmConfig>): BalmConfig {
   const defaultConfig: BalmConfig = _resetConfig();
 
   // 1. Overwrite config

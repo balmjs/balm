@@ -1,4 +1,12 @@
-import { Balm, BalmVendor } from '../index';
+import { BalmConfig, BalmRecipe, BalmVendor } from '../index';
+
+interface Balm {
+  config: BalmConfig;
+  beforeTask?: string | Function;
+  afterTask?: string | Function;
+  go: (recipe?: BalmRecipe) => void;
+  reset?: Function;
+}
 
 interface BalmUtils {
   getType: (obj: unknown) => string;

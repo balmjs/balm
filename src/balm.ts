@@ -14,10 +14,10 @@ class Balm {
     this.#config = BalmJS.config;
   }
 
-  get config(): BalmConfig {
+  get config(): Partial<BalmConfig> {
     return this.#config;
   }
-  set config(value: BalmConfig) {
+  set config(value: Partial<BalmConfig>) {
     this.#config = setConfig(value);
     BalmJS.config = this.#config;
   }

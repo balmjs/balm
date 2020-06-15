@@ -1,9 +1,11 @@
+import { LooseObject } from '@balm/index';
+
 const docsBaseURL = 'https://balmjs.com/docs/v2/config';
 
 // Compatibility for upgrade balm
 function checkConfig(): void {
   // v2.11.0
-  if (BalmJS.config.styles.postcssLoaderOptions) {
+  if ((BalmJS.config.styles as LooseObject).postcssLoaderOptions) {
     BalmJS.logger.warn(
       'balm@2.11.0+ config',
       `'styles.postcssLoaderOptions' was migrated to 'scripts.postcssLoaderOptions'. See ${docsBaseURL}/scripts.html#scripts-postcssloaderoptions`

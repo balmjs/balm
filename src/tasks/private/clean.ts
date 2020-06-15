@@ -34,7 +34,7 @@ class CleanTask extends BalmJS.BalmTask {
 
   get remoteAppDir(): string[] {
     return BalmJS.config.assets.subDir
-      ? [BalmJS.config.assets.static]
+      ? [BalmJS.config.assets.static as string]
       : this._getAssetsDir();
   }
 

@@ -98,7 +98,7 @@ export interface BalmAssetsPath extends BalmPath {
   static: string;
 }
 
-export interface BalmAssets extends BalmAssetsPath {
+export interface BalmAssets extends Partial<BalmAssetsPath> {
   publicUrlPlaceholder: string;
   publicUrl: string;
   root: string;
@@ -295,7 +295,7 @@ export interface BalmRecipe {
 }
 
 export interface Balm {
-  config: Partial<BalmConfig>;
+  config: Partial<Omit<BalmConfig, 'src' | 'dest'>>;
   beforeTask?: string | Function;
   afterTask?: string | Function;
   go: (recipe?: BalmRecipe) => void;

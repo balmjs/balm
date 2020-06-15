@@ -35,7 +35,7 @@ const workspace: string = process.cwd();
 const inFrontend = true;
 const useDefaults = true; // Use balm default task
 
-const config: BalmConfig = {
+const config: Omit<BalmConfig, 'src' | 'dest'> = {
   env,
   workspace,
   inFrontend,
@@ -54,7 +54,7 @@ const config: BalmConfig = {
   logs
 };
 
-BalmJS.config = config;
+BalmJS.config = config as BalmConfig;
 BalmJS.noop = noop;
 BalmJS.LogLevel = LogLevel;
 BalmJS.vendors = vendors;
