@@ -82,7 +82,6 @@ interface BalmScripts {
     prefix: string;
   };
   ie8: boolean;
-  disableDefaultLoaders?: any;
 }
 
 interface BalmImages {
@@ -134,6 +133,14 @@ interface BalmServer {
   extraWatchFiles: string[];
 }
 
+export interface FtpConfig {
+  host?: string;
+  port?: number;
+  username?: string;
+  password?: string;
+  remotePath?: string;
+}
+
 export interface BalmConfig {
   env: BalmEnvObject;
   workspace: string;
@@ -162,13 +169,7 @@ export interface BalmConfig {
   assets: BalmAssets;
   server: BalmServer;
   ftp: {
-    options: {
-      host?: string;
-      port?: number;
-      username?: string;
-      password?: string;
-      remotePath?: string;
-    };
+    options: FtpConfig;
     watchFiles: string[];
   };
   pwa: {

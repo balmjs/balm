@@ -1,10 +1,4 @@
-interface FtpConfig {
-  host?: string;
-  port?: number;
-  username?: string;
-  password?: string;
-  remotePath?: string;
-}
+import { FtpConfig } from '@balm/index';
 
 const options: FtpConfig = {};
 const watchFiles: string[] = [];

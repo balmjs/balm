@@ -13,7 +13,7 @@ function checkConfig(): void {
   }
 
   // v2.5.0
-  if (BalmJS.config.scripts.disableDefaultLoaders) {
+  if ((BalmJS.config.scripts as LooseObject).disableDefaultLoaders) {
     BalmJS.logger.warn(
       'balm@2.5.0+ config',
       `'scripts.disableDefaultLoaders' was renamed to 'scripts.defaultLoaders'. See ${docsBaseURL}/scripts.html#scripts-defaultloaders`
