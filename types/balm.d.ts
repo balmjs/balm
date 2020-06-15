@@ -1,10 +1,10 @@
-import { BalmConfig, BalmRecipe, BalmVendor } from '../index';
+import { BalmConfig, BalmRecipeFunction, BalmVendor } from '../index';
 
 interface Balm {
   config: BalmConfig;
   beforeTask?: string | Function;
   afterTask?: string | Function;
-  go: (recipe?: BalmRecipe) => void;
+  go: (recipe?: BalmRecipeFunction) => void;
   reset?: Function;
 }
 

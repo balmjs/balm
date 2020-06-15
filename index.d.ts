@@ -236,7 +236,7 @@ export interface BalmError extends Error {
   details?: string;
 }
 
-export interface BalmRecipe {
+interface BalmRecipe {
   env: BalmEnvObject;
   html: (input: string, output: string) => void;
   css: (input: string | string[], output: string) => void;
@@ -295,10 +295,12 @@ export interface BalmRecipe {
   modernizr: () => void;
 }
 
+export type BalmRecipeFunction = (parameters: Partial<BalmRecipe>) => {};
+
 export interface Balm {
   config: Partial<Omit<BalmConfig, 'src' | 'dest'>>;
   beforeTask?: string | Function;
   afterTask?: string | Function;
-  go: (recipe?: BalmRecipe) => void;
+  go: (recipe?: BalmRecipeFunction) => void;
   reset?: Function;
 }
