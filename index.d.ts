@@ -2,6 +2,10 @@ export interface LooseObject {
   [key: string]: any;
 }
 
+export type DeepPartial<T> = {
+  [P in keyof T]?: DeepPartial<T[P]>;
+};
+
 export interface BalmEnvObject {
   isProd: boolean;
   isTest: boolean;
@@ -111,7 +115,7 @@ export interface BalmAssets extends Partial<BalmAssetsPath> {
   excludes: string[];
 }
 
-export interface ProxyConfig {
+export interface BalmProxyConfig {
   context: string | string[];
   options: object;
 }
@@ -127,13 +131,13 @@ interface BalmServer {
   options: any;
   devOptions: object;
   hotOptions: object;
-  proxyConfig: boolean | ProxyConfig | ProxyConfig[];
+  proxyConfig: boolean | BalmProxyConfig | BalmProxyConfig[];
   historyOptions: boolean | object;
   middlewares: Function[] | object[];
   extraWatchFiles: string[];
 }
 
-export interface FtpConfig {
+export interface BalmFtpConfig {
   host?: string;
   port?: number;
   username?: string;
@@ -169,7 +173,7 @@ export interface BalmConfig {
   assets: BalmAssets;
   server: BalmServer;
   ftp: {
-    options: FtpConfig;
+    options: BalmFtpConfig;
     watchFiles: string[];
   };
   pwa: {
@@ -298,7 +302,7 @@ interface BalmRecipe {
 export type BalmRecipeFunction = (parameters: Partial<BalmRecipe>) => {};
 
 export interface Balm {
-  config: Partial<Omit<BalmConfig, 'src' | 'dest'>>;
+  config: DeepPartial<Omit<BalmConfig, 'src' | 'dest'>>;
   beforeTask?: string | Function;
   afterTask?: string | Function;
   go: (recipe?: BalmRecipeFunction) => void;

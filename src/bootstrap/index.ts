@@ -1,5 +1,11 @@
 import { ASSETS_KEYS } from '../config/constants';
-import { LooseObject, BalmConfig, BalmPath, BalmAssetsPath } from '@balm/index';
+import {
+  LooseObject,
+  DeepPartial,
+  BalmConfig,
+  BalmPath,
+  BalmAssetsPath
+} from '@balm/index';
 import checkConfig from './check_config';
 
 function _createQuickPath(
@@ -64,7 +70,7 @@ function _resetConfig(): BalmConfig {
   return BalmJS.config;
 }
 
-function setConfig(customConfig: Partial<BalmConfig>): BalmConfig {
+function setConfig(customConfig: DeepPartial<BalmConfig>): BalmConfig {
   const defaultConfig: BalmConfig = _resetConfig();
 
   // 1. Overwrite config

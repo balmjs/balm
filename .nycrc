@@ -18,8 +18,8 @@
     "!src/utilities/replacestream.ts"
   ],
   "exclude": [
-    "coverage/**",
     "node_modules/**",
+    "coverage/**",
     "types/**/*.d.ts",
     "test/**/*.spec.ts"
   ],

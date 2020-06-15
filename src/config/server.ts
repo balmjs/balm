@@ -1,4 +1,4 @@
-import { ProxyConfig } from '@balm/index';
+import { BalmProxyConfig } from '@balm/index';
 
 const port = 3000;
 const host: string | null = null;
@@ -67,7 +67,7 @@ const hotOptions: object = {
  *   }
  * }]
  */
-const proxyConfig: boolean | ProxyConfig | ProxyConfig[] = false;
+const proxyConfig: boolean | BalmProxyConfig | BalmProxyConfig[] = false;
 /**
  * HTML 5 history API
  *

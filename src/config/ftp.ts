@@ -1,6 +1,6 @@
-import { FtpConfig } from '@balm/index';
+import { BalmFtpConfig } from '@balm/index';
 
-const options: FtpConfig = {};
+const options: BalmFtpConfig = {};
 const watchFiles: string[] = [];
 
 export default {
