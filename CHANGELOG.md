@@ -1,5 +1,11 @@
 # [BalmJS](https://balmjs.com/) CHANGELOG
 
+## v2.19.0 / 2020-06-16
+
+### Features
+
+- types refactoring
+
 ## v2.18.0 / 2020-06-12
 
 ### Chores
