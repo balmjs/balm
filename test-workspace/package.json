@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2020.6.12",
+  "version": "2020.6.29",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -31,20 +31,20 @@
     "mp:prod": "npm run mp:build:web && npm run mp:build:mp"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.10.2",
+    "@babel/runtime-corejs3": "^7.10.3",
     "axios": "^0.19.2",
-    "balm-ui": "^6.10.2",
+    "balm-ui": "^7.1.0",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "kbone-api": "^0.2.1",
-    "kbone-ui": "^0.6.7",
+    "kbone-ui": "^0.6.8",
     "lib-flexible": "^0.3.2",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.11",
-    "vue-router": "^3.3.2",
+    "vue-router": "^3.3.4",
     "vue-server-renderer": "^2.6.11",
     "vuex": "^3.4.0",
     "vuex-router-sync": "^5.0.0"

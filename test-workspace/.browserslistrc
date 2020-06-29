@@ -1,12 +1,9 @@
 # Browsers that we support
 
 [production]
-> 0.5%
-last 2 versions
-Firefox ESR
-not dead
-ie 8
+defaults
+IE 8
 
 [development]
 last 1 version
-ie 8
+IE 8
