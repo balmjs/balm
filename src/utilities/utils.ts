@@ -19,7 +19,7 @@ function isFunction(fn: unknown): boolean {
 }
 
 // Deep merge two objects
-function deepMerge(target: LooseObject, source: LooseObject): LooseObject {
+function deepMerge(target: LooseObject, source: LooseObject): object {
   if (isObject(target) && isObject(source)) {
     Object.keys(source).forEach((key: string) => {
       if (isObject(source[key])) {
@@ -29,9 +29,7 @@ function deepMerge(target: LooseObject, source: LooseObject): LooseObject {
 
         deepMerge(target[key], source[key]);
       } else {
-        Object.assign(target, {
-          [key]: source[key] as LooseObject
-        });
+        Object.assign(target, { [key]: source[key] });
       }
     });
   }

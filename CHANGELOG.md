@@ -1,5 +1,13 @@
 # [BalmJS](https://balmjs.com) CHANGELOG
 
+## v2.20.0 / 2020-07-03
+
+### Chores
+
+- devDependencies: up to date
+  - `@typescript-eslint`: 2.x -> 3.x
+- update lint code
+
 ## v2.19.1 / 2020-06-29
 
 ### Chores
