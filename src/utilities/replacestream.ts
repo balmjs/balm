@@ -23,7 +23,7 @@ function createReplaceFn(
     const paramLength = [...args].length - 2;
     for (let i = 1; i < paramLength; i++) {
       newReplace = newReplace.replace(
-        new RegExp('\\$' + i, 'g'),
+        new RegExp(`\\$${i}`, 'g'),
         [...args][i] || ''
       );
     }
@@ -129,7 +129,7 @@ function replaceStream(
   }
 
   function transform(
-    chunk: any,
+    chunk: Buffer | string | any,
     encoding: BufferEncoding,
     callback: TransformCallback
   ): void {
@@ -137,7 +137,7 @@ function replaceStream(
     let lastPos = 0;
     let matchCount = 0;
     let rewritten = '';
-    const haystack = tail + chunk.toString(options.encoding);
+    const haystack = `${tail}${chunk.toString(options.encoding)}`;
     tail = '';
 
     while (

@@ -23,7 +23,7 @@ function getInterface(family: string): os.NetworkInterfaceInfo | undefined {
   family = family || 'IPv4';
 
   for (let i = -1; i < 8; i++) {
-    const interfaceName: string = (name as string) + (i >= 0 ? i : ''); // support 'lo' and 'lo0'
+    const interfaceName = `${name}${i >= 0 ? i : ''}`; // support 'lo' and 'lo0'
     const items = interfaces[interfaceName];
     if (items) {
       for (let j = 0, len = items.length; j < len; j++) {

@@ -5,10 +5,7 @@ class LessTask extends BalmJS.BalmStyleTask {
     super('less');
   }
 
-  get options(): {
-    paths: string[];
-    plugins?: object[];
-  } {
+  get options(): object {
     return Object.assign(
       {
         paths: BalmJS.file.stylePaths

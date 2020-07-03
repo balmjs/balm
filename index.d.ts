@@ -88,13 +88,15 @@ interface BalmScripts {
   ie8: boolean;
 }
 
+export interface BalmImagesPlugins {
+  gif: boolean;
+  jpeg: boolean;
+  png: boolean;
+  svg: boolean;
+}
+
 interface BalmImages {
-  defaultPlugins: {
-    gif?: boolean;
-    jpeg?: boolean;
-    png?: boolean;
-    svg?: boolean;
-  };
+  defaultPlugins: Partial<BalmImagesPlugins>;
 }
 
 export interface BalmAssetsPath extends BalmPath {

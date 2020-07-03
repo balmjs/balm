@@ -5,7 +5,7 @@ import fs from 'fs';
 import { Client } from 'ssh2';
 import async from 'async';
 import parents from 'parents';
-import { BalmError } from '@balm/index';
+import { LooseObject, BalmError } from '@balm/index';
 
 interface SshConfig {
   host: string;
@@ -43,9 +43,10 @@ function _resolveHomePath(key: any): object {
       }
     }
   } else if (!key.contents) {
+    const rsaKey: string = key.location.join(', ');
     throw new PluginError(
       PLUGIN_NAME,
-      'Cannot find RSA key, searched: ' + key.location.join(', ')
+      `Cannot find RSA key, searched: ${rsaKey}`
     );
   }
 
@@ -97,7 +98,7 @@ function _getKey(options: any): object {
   return key;
 }
 
-function gulpSftp(options: any): any {
+function gulpSftp(options: LooseObject): any {
   options = Object.assign({}, options); // Credit sindresorhus
 
   if (options.host === undefined) {
@@ -237,7 +238,7 @@ function gulpSftp(options: any): any {
 
   function _transform(
     this: any,
-    file: any,
+    file: Buffer | string | any,
     encoding: BufferEncoding,
     callback: TransformCallback
   ): void {
@@ -258,7 +259,7 @@ function gulpSftp(options: any): any {
       const dirname = path.dirname(finalRemotePath);
       // Get parents of the target dir
 
-      let fileDirs = parents(dirname)
+      let fileDirs: string[] = parents(dirname)
         .map((d: string) => d.replace(/^\/~/, '~'))
         .map(normalizePath);
 
@@ -280,7 +281,7 @@ function gulpSftp(options: any): any {
         // https://github.com/caolan/async/issues/1668
         (cb: Function) => cb(null, fileDirs && fileDirs.length),
         (cb: Function) => {
-          let d = fileDirs.pop();
+          let d = fileDirs.pop() as string;
           mkDirCache[d] = true;
           // Mdrake - TODO: use a default file permission instead of defaulting to 755
           if (
@@ -294,7 +295,7 @@ function gulpSftp(options: any): any {
             if (exist) {
               cb();
             } else {
-              sftp.mkdir(d, { mode: '0755' }, (err: any) => {
+              sftp.mkdir(d, { mode: '0755' }, (err: string) => {
                 // REMOTE PATH
                 if (err) {
                   // Assuming that the directory exists here, silencing this error
@@ -330,9 +331,10 @@ function gulpSftp(options: any): any {
             if (error) {
               this.emit('error', new PluginError(PLUGIN_NAME, error));
             } else {
+              const fileRelativePath = file.relative as string;
               BalmJS.logger.info(
                 PLUGIN_NAME,
-                `Uploaded: ${file.relative} => ${finalRemotePath}`
+                `Uploaded: ${fileRelativePath} => ${finalRemotePath}`
               );
 
               fileCount++;

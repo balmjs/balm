@@ -39,10 +39,10 @@ interface BalmFile {
 interface BalmPlugins {
   postcss: () => object[];
   plumber: (options?: any) => any;
-  htmlmin: (options: any) => any;
-  jsmin: (options: any) => any;
-  rename: (options: any) => any;
-  sftp: (options: any) => any;
+  htmlmin: (options: object) => any;
+  jsmin: (options: object) => any;
+  rename: (options: string | Function | object) => any;
+  sftp: (options: object) => any;
   replace: (
     search: string | RegExp,
     replacement: string | Function,

@@ -44,23 +44,28 @@ const LOG = {
 };
 
 class Logger {
-  private _log(obj: any, pre = false): any {
-    return pre
-      ? util.inspect(
-          obj,
-          Object.assign(
-            {
-              showHidden: false,
-              depth: 2,
-              colors: true
-            },
-            BalmJS.config.logs.formatOptions
-          )
-        )
-      : obj;
+  private _log(obj: any, pre = false): string {
+    const options: {
+      showHidden: boolean;
+      depth: number;
+      colors: boolean;
+    } = Object.assign(
+      {
+        showHidden: false,
+        depth: 2,
+        colors: true
+      },
+      BalmJS.config.logs.formatOptions
+    );
+
+    return pre ? util.inspect(obj, options) : (obj as string);
   }
 
-  success(label: string, message: any, options: object = {}): void {
+  success(
+    label: string,
+    message: any,
+    options: Partial<LogOptions> = {}
+  ): void {
     const logOptions: LogOptions = Object.assign(
       {
         logLevel: BalmJS.LogLevel.Trace
@@ -80,7 +85,7 @@ class Logger {
     }
   }
 
-  debug(label: string, message: any, options: object = {}): void {
+  debug(label: string, message: any, options: Partial<LogOptions> = {}): void {
     const logOptions: LogOptions = Object.assign(
       {
         logLevel: BalmJS.LogLevel.Debug
@@ -98,7 +103,7 @@ class Logger {
     }
   }
 
-  info(label: string, message: any, options: object = {}): void {
+  info(label: string, message: any, options: Partial<LogOptions> = {}): void {
     const logOptions: LogOptions = Object.assign(
       {
         logLevel: BalmJS.LogLevel.Info
@@ -116,7 +121,7 @@ class Logger {
     }
   }
 
-  warn(label: string, message: any, options: object = {}): void {
+  warn(label: string, message: any, options: Partial<LogOptions> = {}): void {
     const logOptions: LogOptions = Object.assign(
       {
         logLevel: BalmJS.LogLevel.Warn
@@ -134,7 +139,7 @@ class Logger {
     }
   }
 
-  error(label: string, message: any, options: object = {}): void {
+  error(label: string, message: any, options: Partial<LogOptions> = {}): void {
     const logOptions: LogOptions = Object.assign(
       {
         logLevel: BalmJS.LogLevel.Error,

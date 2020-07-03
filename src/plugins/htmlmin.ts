@@ -8,7 +8,7 @@ function gulpHtmlmin(options: object): any {
   options = BalmJS.utils.deepMerge({}, options);
 
   function _transform(
-    file: any,
+    file: Buffer | string | any,
     encoding: BufferEncoding,
     callback: TransformCallback
   ): void {

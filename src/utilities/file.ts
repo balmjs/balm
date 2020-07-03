@@ -31,7 +31,9 @@ class File {
     if (BalmJS.utils.isArray(_paths)) {
       paths = [];
       for (const _path of _paths) {
-        const result: any = /^!(.+)$/.exec(_path);
+        const result: RegExpExecArray = /^!(.+)$/.exec(
+          _path
+        ) as RegExpExecArray;
         if (result) {
           paths.push('!' + this.absPath(result[1]));
         } else {

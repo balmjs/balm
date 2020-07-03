@@ -32,7 +32,7 @@ function gulpRename(
   };
 
   stream._transform = (
-    chunk: any,
+    chunk: Buffer | string | any,
     unused: BufferEncoding,
     callback: TransformCallback
   ): void => {

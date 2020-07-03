@@ -1,5 +1,4 @@
 import './globals';
-import { BalmConfig, BalmVendor } from '@balm/index';
 import env from './env';
 import roots from './roots';
 import paths from './paths';
@@ -13,6 +12,7 @@ import server from './server';
 import ftp from './ftp';
 import pwa from './pwa';
 import logs from './logs';
+import { BalmConfig, BalmVendor } from '@balm/index';
 
 enum LogLevel {
   Trace = 0,

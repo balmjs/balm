@@ -1,24 +1,25 @@
 import getType from './typeof';
+import { LooseObject } from '@balm/index';
 
-function isString(str: any): boolean {
+function isString(str: unknown): boolean {
   return getType(str) === 'string';
 }
 
-function isObject(obj: any): boolean {
+function isObject(obj: unknown): boolean {
   return getType(obj) === 'object';
 }
 
-function isArray(arr: any): boolean {
+function isArray(arr: unknown): boolean {
   return Array.isArray(arr);
 }
 
-function isFunction(fn: any): boolean {
+function isFunction(fn: unknown): boolean {
   const type = getType(fn);
   return type === 'function' || type === 'generatorfunction';
 }
 
 // Deep merge two objects
-function deepMerge(target: any, source: any): any {
+function deepMerge(target: LooseObject, source: LooseObject): LooseObject {
   if (isObject(target) && isObject(source)) {
     Object.keys(source).forEach((key: string) => {
       if (isObject(source[key])) {
@@ -28,7 +29,9 @@ function deepMerge(target: any, source: any): any {
 
         deepMerge(target[key], source[key]);
       } else {
-        Object.assign(target, { [key]: source[key] });
+        Object.assign(target, {
+          [key]: source[key] as LooseObject
+        });
       }
     });
   }

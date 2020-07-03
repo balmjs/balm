@@ -37,9 +37,12 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-empty-function': [2, { allow: ['arrowFunctions'] }],
-    '@typescript-eslint/camelcase': [
-      2,
-      { allow: ['child_process', 'drop_console', 'ascii_only'] }
-    ]
+    '@typescript-eslint/ban-types': 0,
+    '@typescript-eslint/no-unsafe-call': 0,
+    '@typescript-eslint/no-unsafe-member-access': 0,
+    '@typescript-eslint/no-unsafe-return': 0,
+    '@typescript-eslint/no-unsafe-assignment': 0,
+    '@typescript-eslint/restrict-template-expressions': 0,
+    '@typescript-eslint/no-floating-promises': 0
   }
 };

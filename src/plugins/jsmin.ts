@@ -37,7 +37,7 @@ function gulpJsmin(options: object): any {
 
   function _transform(
     this: any,
-    chunk: any,
+    chunk: Buffer | string | any,
     encoding: BufferEncoding,
     callback: TransformCallback
   ): void {

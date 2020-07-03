@@ -40,7 +40,7 @@ function _style(
   const symbols: any = ansiColors.symbols;
   const icon: string =
     colorStyle.symbol && symbols[colorStyle.symbol]
-      ? symbols[colorStyle.symbol] + ' '
+      ? `${symbols[colorStyle.symbol]} `
       : '';
 
   return {

@@ -20,7 +20,7 @@ function gulpReplace(
   return new Transform({
     objectMode: true,
     transform: (
-      file: any,
+      file: Buffer | string | any,
       encoding: BufferEncoding,
       callback: TransformCallback
     ): void => {

@@ -40,7 +40,7 @@ class BalmStyleTask extends BalmTask {
       : BalmJS.config.dest.css;
   }
 
-  handleStyle(style: string, output: string, options?: any): any {
+  handleStyle(style: string, output: string, options?: object): any {
     const taskName = `${this.name} task`;
     const shouldUseSourceMap = !(
       BalmJS.config.env.isProd || BalmJS.config.styles.minified
@@ -73,7 +73,9 @@ class BalmStyleTask extends BalmTask {
     switch (style) {
       case 'sass':
         if (BalmJS.config.styles.dartSass) {
-          options.fiber = Fiber;
+          options = Object.assign({}, options, {
+            fiber: Fiber
+          });
         }
 
         stream = stream.pipe($.sass.sync(options));

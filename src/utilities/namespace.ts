@@ -8,7 +8,7 @@ function toNamespace(taskName: string | string[]): string | string[] {
       (name: string) => `${NAMESPACE}:${name}`
     );
   } else {
-    result = `${NAMESPACE}:${taskName}`;
+    result = `${NAMESPACE}:${taskName as string}`;
   }
 
   return result;

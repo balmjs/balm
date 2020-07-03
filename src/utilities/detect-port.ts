@@ -18,7 +18,7 @@ function listen(
     if (error.code === 'ENOTFOUND') {
       BalmJS.logger.error(
         UTIL_NAME,
-        `ignore dns ENOTFOUND error, get free ${host}:${port}`,
+        `ignore dns ENOTFOUND error, get free ${host as string}:${port}`,
         {
           logLevel: BalmJS.LogLevel.Debug
         }
@@ -33,7 +33,7 @@ function listen(
     port = (server.address() as { port: number }).port;
     server.close();
 
-    BalmJS.logger.debug(UTIL_NAME, `get free ${host}:${port}`);
+    BalmJS.logger.debug(UTIL_NAME, `get free ${host as string}:${port}`);
 
     return callback(null, port);
   });

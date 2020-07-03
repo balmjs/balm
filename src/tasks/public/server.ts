@@ -1,6 +1,7 @@
 import { series, parallel, watch } from 'gulp';
 import detectPort from '../../utilities/detect-port';
 import getMiddlewares from '../../middlewares';
+import { resolve } from 'path';
 
 function reload(done: Function): void {
   server.reload();
@@ -23,10 +24,10 @@ class ServerTask extends BalmJS.BalmTask {
               'server task',
               `port: ${BalmJS.config.server.port} was occupied, try port: ${port}`
             );
-
             BalmJS.config.server.port = port;
           }
-        }
+        },
+        () => {}
       );
     }
   }

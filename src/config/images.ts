@@ -1,9 +1,6 @@
-const defaultPlugins: {
-  gif?: boolean;
-  jpeg?: boolean;
-  png?: boolean;
-  svg?: boolean;
-} = {};
+import { BalmImagesPlugins } from '@balm/index';
+
+const defaultPlugins: Partial<BalmImagesPlugins> = {};
 
 export default {
   defaultPlugins
