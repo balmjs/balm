@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "2.21.0",
+  "version": "2.21.1",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -144,7 +144,7 @@
     "gulp": ">=4"
   },
   "engines": {
-    "node": ">=10.13.0"
+    "node": ">=12.0.0"
   },
   "private": true
 }
