@@ -1,10 +1,11 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { RuleSetRule } from '@balm/index';
 
 // Style files regexes
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 
-function cssLoader(): object {
+function cssLoader(): RuleSetRule {
   let styleLoader = 'style-loader';
 
   BalmJS.config.scripts.postcssLoaderOptions.plugins = BalmJS.plugins.postcss();

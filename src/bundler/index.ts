@@ -1,15 +1,15 @@
-import webpackMerge from 'webpack-merge';
+import { merge } from 'webpack-merge';
 import getEntry from './entry';
 import getOutput from './output';
 import getDefaultConfig from './config';
-import { BalmEntryObject } from '@balm/index';
+import { BalmEntryObject, Configuration } from '@balm/index';
 
 function webpackConfig(
   input: string | string[] | BalmEntryObject,
   output: string,
   customOptions: any = {},
   isHook = false
-): void {
+): Configuration {
   const scripts: any = BalmJS.config.scripts;
   const defaultEntry =
     './' +
@@ -48,7 +48,7 @@ function webpackConfig(
 
   const defaultConfig: any = getDefaultConfig(scripts);
 
-  const configuration: any = webpackMerge(
+  const configuration: Configuration = merge(
     baseConfig,
     defaultConfig,
     scripts.webpackOptions,

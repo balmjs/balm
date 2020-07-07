@@ -1,4 +1,6 @@
-function htmlLoader(): object {
+import { RuleSetRule } from '@balm/index';
+
+function htmlLoader(): RuleSetRule {
   const options = Object.assign(
     {
       minimize: {

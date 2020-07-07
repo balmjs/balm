@@ -1,8 +1,9 @@
-import webpackMerge from 'webpack-merge';
+import { merge } from 'webpack-merge';
 import getCommonConfig from './common';
+import { Configuration } from '@balm/index';
 
-function getDevConfig(scripts: any): any {
-  return webpackMerge(getCommonConfig(scripts), {
+function getDevConfig(scripts: any): Configuration {
+  return merge(getCommonConfig(scripts), {
     mode: 'development',
     plugins: [
       // This is necessary to emit hot updates

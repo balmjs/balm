@@ -1,9 +1,10 @@
-import webpackMerge from 'webpack-merge';
+import { merge } from 'webpack-merge';
 import requireDir from 'require-dir';
+import { RuleSetRule } from '@balm/index';
 
 const LOADERS = requireDir('./rules');
 
-function getLoaders(customLoaders: object[]): object[] {
+function getLoaders(customLoaders: any): RuleSetRule[] {
   const enableDefaultLoaders: { [key: string]: boolean } = Object.assign(
     {
       html: true,
@@ -17,36 +18,41 @@ function getLoaders(customLoaders: object[]): object[] {
     (value) => value
   );
 
-  let defaultLoaders: object[] = [];
+  let defaultLoaders: RuleSetRule[] = [];
   if (useDefaultLoaders) {
     Object.values(LOADERS).forEach((Loader: any) => {
       const DefaultLoader = Loader.default;
       const key = DefaultLoader.name.replace('Loader', '');
       if (enableDefaultLoaders[key]) {
-        const loader: object | object[] = DefaultLoader();
+        const loader: RuleSetRule | RuleSetRule[] = DefaultLoader();
         if (BalmJS.utils.isArray(loader)) {
           defaultLoaders = defaultLoaders.concat(loader);
         } else {
-          defaultLoaders.push(loader);
+          defaultLoaders.push(loader as RuleSetRule);
         }
       }
     });
   }
 
-  const result: any = webpackMerge.smart(
+  const result = merge(
     {
-      rules: defaultLoaders
+      module: {
+        rules: defaultLoaders
+      }
     },
     {
-      rules: customLoaders
+      module: {
+        rules: customLoaders
+      }
     }
   );
+  const defaultModule = result.module as any;
 
-  BalmJS.logger.debug('webpack loaders', result.rules, {
+  BalmJS.logger.debug('webpack loaders', defaultModule.rules, {
     pre: true
   });
 
-  return result.rules;
+  return defaultModule.rules;
 }
 
 export default getLoaders;

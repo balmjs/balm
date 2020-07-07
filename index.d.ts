@@ -43,7 +43,10 @@ export interface BalmEntryObject {
   [entryChunkName: string]: string | string[];
 }
 
-interface BalmScripts {
+export type Configuration = import('webpack').Configuration;
+export type RuleSetRule = import('webpack').RuleSetRule;
+
+export interface BalmScripts {
   entry: string | string[] | BalmEntryObject;
   library: string | object;
   libraryTarget: string;
@@ -67,7 +70,7 @@ interface BalmScripts {
     sourceMap: string | boolean;
   };
   extensions: string[];
-  alias: object;
+  alias: object; // { [key: string]: string }
   plugins: object[];
   hot: boolean;
   sourceMap: string | boolean;

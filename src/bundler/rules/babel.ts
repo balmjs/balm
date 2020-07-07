@@ -1,4 +1,6 @@
-function jsLoader(): object {
+import { RuleSetRule } from '@balm/index';
+
+function jsLoader(): RuleSetRule {
   // Process application JS with Babel.
   // The preset includes JSX, Flow, TypeScript, and some ESnext features.
   return {

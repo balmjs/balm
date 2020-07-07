@@ -1,10 +1,11 @@
 import { STATIC_ASSETS } from '../../config/constants';
+import { RuleSetRule } from '@balm/index';
 
 const imageInlineSizeLimit = parseInt(
   process.env.IMAGE_INLINE_SIZE_LIMIT || '10000'
 );
 
-function urlLoader(): object[] {
+function urlLoader(): RuleSetRule[] {
   const PATHNAME = `${BalmJS.config.paths.target.js}/${STATIC_ASSETS}/`;
   const FILENAME = '[name].[hash:8].[ext]';
   const options = Object.assign(

@@ -1,5 +1,12 @@
 # [BalmJS](https://balmjs.com) CHANGELOG
 
+## v2.21.0 / 2020-07-07
+
+### Chores
+
+- dependencies: up to date
+  - `webpack-merge`: 4.x -> 5.x
+
 ## v2.20.0 / 2020-07-03
 
 ### Chores

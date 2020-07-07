@@ -23,11 +23,9 @@ declare module 'ssh2';
 declare module 'terser';
 declare module 'terser-webpack-plugin';
 declare module 'through2';
-declare module 'webpack';
 declare module 'webpack-bundle-analyzer';
 declare module 'webpack-dev-middleware';
 declare module 'webpack-hot-middleware';
-declare module 'webpack-merge';
 declare module 'workbox-build';
 
 declare module '*package.json' {
