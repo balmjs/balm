@@ -1,7 +1,6 @@
 import { series, parallel, watch } from 'gulp';
 import detectPort from '../../utilities/detect-port';
 import getMiddlewares from '../../middlewares';
-import { resolve } from 'path';
 
 function reload(done: Function): void {
   server.reload();
@@ -50,35 +49,35 @@ class ServerTask extends BalmJS.BalmTask {
     watch(
       `${BalmJS.config.src.base}/*.html`,
       watchOptions,
-      parallel(BalmJS.toNamespace('html'))
+      BalmJS.tasks.get('html').fn
     ).on('change', server.reload);
 
     watch(
       `${BalmJS.config.src.css}/**/*.${BalmJS.config.styles.extname}`,
       watchOptions,
-      parallel(
-        BalmJS.toNamespace(BalmJS.config.inFrontend ? this.styleName : 'style')
-      )
+      BalmJS.config.inFrontend
+        ? BalmJS.tasks.get(this.styleName).fn
+        : parallel(BalmJS.toNamespace('style'))
     );
 
     if (BalmJS.config.scripts.entry && !BalmJS.config.scripts.hot) {
       watch(
         `${BalmJS.config.src.js}/**/*`,
         watchOptions,
-        series(BalmJS.toNamespace('script'), reload)
+        series(BalmJS.tasks.get('script').fn, reload)
       );
     }
 
     watch(
       `${BalmJS.config.src.base}/modernizr.json`,
       watchOptions,
-      parallel(BalmJS.toNamespace('modernizr'))
+      BalmJS.tasks.get('modernizr').fn
     );
 
     watch(
       `${BalmJS.config.src.font}/**/*`,
       watchOptions,
-      parallel(BalmJS.toNamespace('font'))
+      BalmJS.tasks.get('font').fn
     );
 
     // For FTP
@@ -88,7 +87,7 @@ class ServerTask extends BalmJS.BalmTask {
         (path: string) => {
           BalmJS.logger.debug(`${this.name} task`, `File ${path} was changed`);
           BalmJS.watchFtpFile = path;
-          series(BalmJS.toNamespace('ftp'), reload)();
+          series(BalmJS.tasks.get('ftp').fn, reload)();
         }
       );
     }

@@ -1,5 +1,13 @@
 # [BalmJS](https://balmjs.com) CHANGELOG
 
+## v2.22.0 / 2020-07-12
+
+### Chores
+
+- clean code for `BalmJS.tasks`
+- update `server` watchers
+- update `image` task
+
 ## v2.21.1 / 2020-07-07
 
 ### Chores

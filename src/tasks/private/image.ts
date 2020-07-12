@@ -42,17 +42,21 @@ class ImageTask extends BalmJS.BalmTask {
   fn = (): any => {
     this.init();
 
-    return gulp
-      .src(BalmJS.file.absPaths(this.input), {
-        since: gulp.lastRun(BalmJS.toNamespace('image') as string)
-      })
-      .pipe(
-        BalmJS.plugins.plumber((error: BalmError): void => {
-          BalmJS.logger.error(`${this.name} task`, error.message);
+    const images = () => {
+      return gulp
+        .src(BalmJS.file.absPaths(this.input), {
+          since: gulp.lastRun(images)
         })
-      )
-      .pipe($.imagemin(this.plugins))
-      .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+        .pipe(
+          BalmJS.plugins.plumber((error: BalmError): void => {
+            BalmJS.logger.error(`${this.name} task`, error.message);
+          })
+        )
+        .pipe($.imagemin(this.plugins))
+        .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+    };
+
+    return images();
   };
 }
 

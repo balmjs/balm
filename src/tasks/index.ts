@@ -24,7 +24,7 @@ function registerTasks(recipe: Function): void {
     const taskFunction: Function = task.fn;
 
     gulp.task(taskName, taskFunction);
-    BalmJS.tasks.push(task);
+    BalmJS.tasks.set(task.name, task);
   });
 
   depsTasks.forEach((task: any) => {
@@ -36,7 +36,7 @@ function registerTasks(recipe: Function): void {
         };
 
     gulp.task(taskName, taskFunction);
-    BalmJS.tasks.push(task);
+    BalmJS.tasks.set(task.name, task);
   });
 
   // 2. Register balm hooks

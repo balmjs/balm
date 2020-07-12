@@ -47,7 +47,7 @@ class Maker {
       return;
     }
 
-    const customTask = BalmJS.tasks.find((task: any) => task.name === name);
+    const customTask = BalmJS.tasks.get(name);
     const taskName = ['sprite', ...BLOCKLIST_IN_PROD].includes(customTask.name)
       ? customTask.name
       : `${customTask.name}:${BalmJS.recipeIndex}`;

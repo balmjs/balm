@@ -68,7 +68,7 @@ export default interface BalmGlobal extends Balm {
   TIME_FLAG: string;
   BalmTask: any;
   BalmStyleTask: any;
-  tasks: any[];
+  tasks: Map<string, any>;
   recipes: any[];
   recipeIndex: number;
   server: any;
