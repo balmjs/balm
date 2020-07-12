@@ -1,4 +1,4 @@
-import { BalmError } from '@balm/index';
+import { BalmImagesPlugins, BalmError } from '@balm/index';
 
 const IMAGEMIN_PLUGINS: { [key: string]: Function } = {
   gif: $.imagemin.gifsicle,
@@ -35,7 +35,7 @@ class ImageTask extends BalmJS.BalmTask {
           png: true,
           svg: true
         },
-        BalmJS.config.images.plugins
+        BalmJS.config.images.plugins as Partial<BalmImagesPlugins>
       );
 
       this.plugins = Object.keys(enablePlugins)
