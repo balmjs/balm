@@ -18,7 +18,7 @@ balm.config = {
     lint: true
   },
   images: {
-    defaultPlugins: {
+    plugins: {
       // jpeg: false,
       // png: false
     }

@@ -8,6 +8,11 @@
 - update `server` watchers
 - update `image` task
 
+### BREAKING CHANGES
+
+- update `balm.config`
+  - rename <del>`images.defaultPlugins`</del> to `images.plugins`
+
 ## v2.21.1 / 2020-07-07
 
 ### Chores
@@ -266,6 +271,10 @@ self.addEventListener('activate', function (event) {
 
 - update `balm.config`
   - add `scripts.htmlLoaderOptions: object = {}`
+
+### BREAKING CHANGES
+
+- update `balm.config`
   - migrate <del>`styles.postcssLoaderOptions`</del> to `scripts.postcssLoaderOptions`
 
 ## v2.10.0 / 2020-03-18

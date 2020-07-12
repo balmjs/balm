@@ -8,7 +8,7 @@ function checkConfig(): void {
   if ((BalmJS.config.images as LooseObject).defaultPlugins) {
     BalmJS.logger.warn(
       'balm@2.22.0+ config',
-      `'images.defaultPlugins' was migrated to 'images.plugins'. See ${docsBaseURL}/images.html#images-plugins`
+      `'images.defaultPlugins' was renamed to 'images.plugins'. See ${docsBaseURL}/images.html#images-plugins`
     );
   }
 
