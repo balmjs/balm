@@ -99,7 +99,7 @@ export interface BalmImagesPlugins {
 }
 
 interface BalmImages {
-  defaultPlugins: Partial<BalmImagesPlugins>;
+  defaultPlugins: Partial<BalmImagesPlugins> | object[];
 }
 
 export interface BalmAssetsPath extends BalmPath {

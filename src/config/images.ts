@@ -1,7 +1,7 @@
 import { BalmImagesPlugins } from '@balm/index';
 
-const defaultPlugins: Partial<BalmImagesPlugins> = {};
+const plugins: Partial<BalmImagesPlugins> | object[] = {};
 
 export default {
-  defaultPlugins
+  plugins
 };
