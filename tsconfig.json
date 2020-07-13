@@ -14,9 +14,9 @@
     "target": "ES2017",
     "baseUrl": ".",
     "paths": {
-      "@balm/*": ["./*"]
+      "@balm-types/*": ["./packages/core/*"]
     }
   },
-  "include": ["src/**/*", "types/index.d.ts"],
+  "include": ["packages/core/src/**/*", "packages/core/types/index.d.ts"],
   "exclude": ["node_modules", "coverage", "lib", "tslib"]
 }

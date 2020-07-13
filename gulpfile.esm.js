@@ -5,7 +5,7 @@ import eslint from 'gulp-eslint';
 import excludeGitignore from 'gulp-exclude-gitignore';
 
 const BALM = {
-  source: 'src/**/*.ts',
+  source: 'packages/core/src/**/*.ts',
   target: 'lib'
 };
 

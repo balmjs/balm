@@ -3,24 +3,24 @@
     ".ts"
   ],
   "include": [
-    "src/**/*.ts",
-    "!src/config/env.ts",
-    "!src/tasks/index.ts",
-    "!src/tasks/private/sprite.ts",
-    "!src/tasks/private/modernizr.ts",
-    "!src/tasks/public/server.ts",
-    "!src/middlewares/index.ts",
-    "!src/plugins/*.ts",
-    "!src/utilities/address.ts",
-    "!src/utilities/detect-port.ts",
-    "!src/utilities/escape-string-regexp.ts",
-    "!src/utilities/merge-stream.ts",
-    "!src/utilities/replacestream.ts"
+    "packages/core/src/**/*.ts",
+    "!packages/core/src/config/env.ts",
+    "!packages/core/src/tasks/index.ts",
+    "!packages/core/src/tasks/private/sprite.ts",
+    "!packages/core/src/tasks/private/modernizr.ts",
+    "!packages/core/src/tasks/public/server.ts",
+    "!packages/core/src/middlewares/index.ts",
+    "!packages/core/src/plugins/*.ts",
+    "!packages/core/src/utilities/address.ts",
+    "!packages/core/src/utilities/detect-port.ts",
+    "!packages/core/src/utilities/escape-string-regexp.ts",
+    "!packages/core/src/utilities/merge-stream.ts",
+    "!packages/core/src/utilities/replacestream.ts"
   ],
   "exclude": [
     "node_modules/**",
     "coverage/**",
-    "types/**/*.d.ts",
+    "packages/core/types/**/*.d.ts",
     "test/**/*.spec.ts"
   ],
   "reporter": [
