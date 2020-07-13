@@ -7,6 +7,7 @@
 - clean code for `BalmJS.tasks`
 - update `server` watchers
 - update `image` task
+- update test
 
 ### BREAKING CHANGES
 

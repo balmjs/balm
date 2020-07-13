@@ -51,4 +51,21 @@ describe('Image Task', function() {
       })
     );
   });
+
+  describe('with custom plugins', function() {
+    before(function() {
+      balm.config = {
+        images: {
+          plugins: []
+        }
+      };
+
+      balm.go();
+    });
+
+    it(
+      'use imagemin custom plugins',
+      asyncCase(function() {})
+    );
+  });
 });

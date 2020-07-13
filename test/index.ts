@@ -26,8 +26,7 @@ const balmConfigDefaults = Object.assign({}, {
   },
   styles: {
     extname: 'css',
-    sprites: [],
-    postcssLoaderOptions: false // NOTE: just for config compatibility check
+    sprites: []
   },
   scripts: {
     loaders: [],
@@ -38,8 +37,7 @@ const balmConfigDefaults = Object.assign({}, {
     bundleAnalyzerReport: false,
     extractCss: {
       enabled: false
-    },
-    disableDefaultLoaders: false // NOTE: just for config compatibility check
+    }
   },
   extras: {
     includes: [],

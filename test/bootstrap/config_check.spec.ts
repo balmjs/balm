@@ -6,6 +6,9 @@ describe('Config Compatibility Check', function () {
       },
       scripts: {
         disableDefaultLoaders: {}
+      },
+      images: {
+        defaultPlugins: {}
       }
     };
   });
@@ -14,4 +17,10 @@ describe('Config Compatibility Check', function () {
     'expected output: "Warning"',
     asyncCase(function () {})
   );
+
+  after(function() {
+    delete balm.config.styles.postcssLoaderOptions;
+    delete balm.config.scripts.disableDefaultLoaders;
+    delete balm.config.images.defaultPlugins;
+  });
 });
