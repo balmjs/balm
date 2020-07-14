@@ -14,7 +14,7 @@ class ScriptTask extends BalmJS.BalmTask {
   recipe(
     input?: string | string[] | BalmEntryObject,
     output?: string,
-    customOptions: any = {}
+    options: any = {}
   ): any {
     return (callback: Function): void => {
       const hasEsbuildOptions = BalmJS.utils.isObject(
@@ -22,19 +22,22 @@ class ScriptTask extends BalmJS.BalmTask {
       );
 
       if (BalmJS.config.scripts.esbuild || hasEsbuildOptions) {
-        this.init(input || BalmJS.config.scripts.entryPoints, output);
+        this.init(input || BalmJS.config.scripts.entryPoints, output, options);
 
         const commonEsbuildOptions = {
+          entryPoints: this.input,
           outdir: this.output,
-          minify: BalmJS.config.env.isProd,
-          bundle: true
+          bundle: true,
+          minify: BalmJS.config.env.isProd
         };
 
         const esbuildOptions = hasEsbuildOptions
-          ? Object.assign(BalmJS.config.scripts.esbuild, commonEsbuildOptions)
-          : Object.assign(commonEsbuildOptions, {
-              entryPoints: this.input
-            });
+          ? Object.assign(
+              commonEsbuildOptions,
+              BalmJS.config.scripts.esbuild,
+              this.customOptions
+            )
+          : Object.assign(commonEsbuildOptions, this.customOptions);
 
         BalmJS.logger.debug('esbuild options', esbuildOptions);
 
@@ -46,10 +49,10 @@ class ScriptTask extends BalmJS.BalmTask {
       } else {
         const isHook = !!input;
 
-        this.init(input || BalmJS.config.scripts.entry, output);
+        this.init(input || BalmJS.config.scripts.entry, output, options);
 
         BalmJS.webpackCompiler = webpack(
-          webpackConfig(this.input, this.output, customOptions, isHook),
+          webpackConfig(this.input, this.output, this.customOptions, isHook),
           (error: BalmError, stats: any): void => {
             // Handle errors here
             // if (error) {

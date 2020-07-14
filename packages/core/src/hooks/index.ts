@@ -40,9 +40,9 @@ class BaseHooks {
   js(
     input: string | string[] | BalmEntryObject,
     output: string,
-    webpackOptions?: any
+    options?: any // esbuild or webpack options
   ): void {
-    Maker.generate('script', [input, output, webpackOptions]);
+    Maker.generate('script', [input, output, options]);
   }
 
   jsmin(input: string | string[], output: string, options?: HookOptions): void {
