@@ -9,7 +9,7 @@ function getDevConfig(scripts: any): Configuration {
       // This is necessary to emit hot updates
       new webpack.HotModuleReplacementPlugin()
     ],
-    devtool: 'cheap-module-eval-source-map'
+    devtool: scripts.sourceMap || 'cheap-module-eval-source-map'
   });
 }
 

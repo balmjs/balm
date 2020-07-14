@@ -4,6 +4,7 @@
   ],
   "include": [
     "packages/core/src/**/*.ts",
+    "!packages/core/src/config/globals.ts",
     "!packages/core/src/config/env.ts",
     "!packages/core/src/tasks/index.ts",
     "!packages/core/src/tasks/private/sprite.ts",

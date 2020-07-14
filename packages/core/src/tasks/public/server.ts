@@ -60,7 +60,7 @@ class ServerTask extends BalmJS.BalmTask {
         : parallel(BalmJS.toNamespace('style'))
     );
 
-    if (BalmJS.config.scripts.entry && !BalmJS.config.scripts.hot) {
+    if (BalmJS.config.scripts.esbuild || !BalmJS.config.scripts.hot) {
       watch(
         `${BalmJS.config.src.js}/**/*`,
         watchOptions,

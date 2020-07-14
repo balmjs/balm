@@ -40,7 +40,7 @@ const plugins: object[] = [];
 // DevServer
 const hot = true;
 // Devtool
-const sourceMap = false;
+const sourceMap: string | boolean = false;
 // Target
 const target = 'web';
 // Externals

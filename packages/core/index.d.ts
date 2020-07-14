@@ -76,7 +76,7 @@ export interface BalmScripts {
   alias: object; // { [key: string]: string }
   plugins: object[];
   hot: boolean;
-  sourceMap: boolean;
+  sourceMap: string | boolean;
   target: string;
   externals: string | object | Function | RegExp;
   stats: string | object;

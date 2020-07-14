@@ -16,7 +16,7 @@ function getMiddlewares(): object[] {
   }
 
   return [
-    ...webpackMiddleware(),
+    ...(BalmJS.config.scripts.esbuild ? [] : webpackMiddleware()),
     ...httpProxyMiddleware(),
     ...historyMiddleware(),
     ...(canOverride ? BalmJS.config.server.middlewares : [])
