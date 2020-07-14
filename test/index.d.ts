@@ -1,4 +1,4 @@
-import '../types/index';
+import '../packages/core/types/index';
 
 declare global {
   namespace NodeJS {

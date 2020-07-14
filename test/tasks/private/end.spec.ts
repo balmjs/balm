@@ -1,4 +1,4 @@
-import EndTask from '../../../src/tasks/private/end';
+import EndTask from '@balm-core/src/tasks/private/end';
 
 describe('End Task', function() {
   let endTask: any;

@@ -1,6 +1,6 @@
 import { build } from 'esbuild';
 import webpackConfig from '../../bundler';
-import { BalmEntryObject, BalmError } from '@balm-types/index';
+import { BalmEntryObject, BalmError } from '@balm-core/index';
 
 class ScriptTask extends BalmJS.BalmTask {
   constructor() {

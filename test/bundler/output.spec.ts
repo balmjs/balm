@@ -1,4 +1,4 @@
-import getOutput from '../../src/bundler/output';
+import getOutput from '@balm-core/src/bundler/output';
 
 describe('Bundler#getOutput()', function () {
   let result: any = {};

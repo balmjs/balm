@@ -1,4 +1,4 @@
-import { HookOptions } from '@balm-types/index';
+import { HookOptions } from '@balm-core/index';
 
 class FtpTask extends BalmJS.BalmTask {
   constructor() {

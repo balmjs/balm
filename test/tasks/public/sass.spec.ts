@@ -1,4 +1,4 @@
-import SassTask from '../../../src/tasks/public/sass';
+import SassTask from '@balm-core/src/tasks/public/sass';
 
 describe('Sass Task', function () {
   let sassTask: any;

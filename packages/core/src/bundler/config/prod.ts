@@ -5,7 +5,7 @@ import safePostCssParser from 'postcss-safe-parser';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import getCommonConfig from './common';
-import { Configuration } from '@balm-types/index';
+import { Configuration } from '@balm-core/index';
 
 // Run the build command with an extra argument to
 // View the bundle analyzer report after build finishes:

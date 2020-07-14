@@ -1,4 +1,4 @@
-import { RuleSetRule } from '@balm-types/index';
+import { RuleSetRule } from '@balm-core/index';
 
 function jsLoader(): RuleSetRule {
   // Process application JS with Babel.

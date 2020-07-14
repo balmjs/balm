@@ -1,4 +1,4 @@
-import CacheTask from '../../../src/tasks/private/cache';
+import CacheTask from '@balm-core/src/tasks/private/cache';
 
 describe('Cache Task', function() {
   let cacheTask: any;

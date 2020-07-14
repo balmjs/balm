@@ -1,5 +1,5 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { RuleSetRule } from '@balm-types/index';
+import { RuleSetRule } from '@balm-core/index';
 
 // Style files regexes
 const cssRegex = /\.css$/;

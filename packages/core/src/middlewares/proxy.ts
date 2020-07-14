@@ -1,5 +1,5 @@
 import { createProxyMiddleware } from 'http-proxy-middleware';
-import { BalmProxyConfig } from '@balm-types/index';
+import { BalmProxyConfig } from '@balm-core/index';
 
 function _handleProxyConfigError(): void {
   const configuration = '{ context: string | array, options: object }';

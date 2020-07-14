@@ -1,4 +1,4 @@
-import HtmlTask from '../../../src/tasks/public/html';
+import HtmlTask from '@balm-core/src/tasks/public/html';
 
 describe('Html Task', function() {
   let htmlTask: any;

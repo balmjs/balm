@@ -1,6 +1,6 @@
 import { merge } from 'webpack-merge';
 import requireDir from 'require-dir';
-import { RuleSetRule } from '@balm-types/index';
+import { RuleSetRule } from '@balm-core/index';
 
 const LOADERS = requireDir('./rules');
 

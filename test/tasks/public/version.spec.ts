@@ -1,4 +1,4 @@
-import VersionTask from '../../../src/tasks/public/version';
+import VersionTask from '@balm-core/src/tasks/public/version';
 
 describe('Version Task', function() {
   let versionTask: any;

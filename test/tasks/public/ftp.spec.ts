@@ -1,4 +1,4 @@
-import FtpTask from '../../../src/tasks/public/ftp';
+import FtpTask from '@balm-core/src/tasks/public/ftp';
 
 describe('Ftp Task', function() {
   let ftpTask: any;

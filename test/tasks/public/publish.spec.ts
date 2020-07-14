@@ -1,4 +1,4 @@
-import PublishTask from '../../../src/tasks/public/publish';
+import PublishTask from '@balm-core/src/tasks/public/publish';
 
 describe('Publish Task', function() {
   let publishTask: any;

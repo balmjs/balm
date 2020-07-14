@@ -1,4 +1,4 @@
-import utils from '../../src/utilities/utils';
+import utils from '@balm-core/src/utilities/utils';
 
 describe('Balm Utils', function () {
   describe('#isString()', function () {

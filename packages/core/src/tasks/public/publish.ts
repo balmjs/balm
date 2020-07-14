@@ -1,4 +1,4 @@
-import { RenameOptions, TemplateOption } from '@balm-types/index';
+import { RenameOptions, TemplateOption } from '@balm-core/index';
 
 class PublishTask extends BalmJS.BalmTask {
   constructor() {

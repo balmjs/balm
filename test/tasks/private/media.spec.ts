@@ -1,4 +1,4 @@
-import MediaTask from '../../../src/tasks/private/media';
+import MediaTask from '@balm-core/src/tasks/private/media';
 
 describe('Media Task', function() {
   let mediaTask: any;

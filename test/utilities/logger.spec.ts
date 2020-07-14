@@ -1,5 +1,5 @@
-import color from '../../src/utilities/color';
-import logger from '../../src/utilities/logger';
+import color from '@balm-core/src/utilities/color';
+import logger from '@balm-core/src/utilities/logger';
 
 describe('Balm Logger', function () {
   describe('#color()', function () {

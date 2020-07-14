@@ -3,7 +3,7 @@ import cssnano from 'cssnano';
 import sass from 'sass';
 import Fiber from 'fibers';
 import { MP_ASSETS } from '../../config/constants';
-import { BalmError } from '@balm-types/index';
+import { BalmError } from '@balm-core/index';
 
 class BalmStyleTask extends BalmTask {
   constructor(name: string) {

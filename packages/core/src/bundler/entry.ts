@@ -1,5 +1,5 @@
 import { HMR_PATH } from '../config/constants';
-import { BalmEntryObject, BalmVendor } from '@balm-types/index';
+import { BalmEntryObject, BalmVendor } from '@balm-core/index';
 
 const FILENAME_REGEX = new RegExp('[^/]+$', 'i');
 const HOT_CLIENT = 'webpack-hot-middleware/client';

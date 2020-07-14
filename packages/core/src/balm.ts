@@ -4,7 +4,7 @@ import './utilities';
 import './plugins';
 import registerTasks from './tasks';
 import { setConfig, setTask } from './bootstrap';
-import { DeepPartial, BalmConfig } from '@balm-types/index';
+import { DeepPartial, BalmConfig } from '@balm-core/index';
 
 class Balm {
   #config: BalmConfig;

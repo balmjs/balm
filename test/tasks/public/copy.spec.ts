@@ -1,4 +1,4 @@
-import CopyTask from '../../../src/tasks/public/copy';
+import CopyTask from '@balm-core/src/tasks/public/copy';
 
 describe('Copy Task', function() {
   let copyTask: any;

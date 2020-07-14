@@ -1,5 +1,5 @@
 import { STATIC_ASSETS } from '../../config/constants';
-import { RuleSetRule } from '@balm-types/index';
+import { RuleSetRule } from '@balm-core/index';
 
 const imageInlineSizeLimit = parseInt(
   process.env.IMAGE_INLINE_SIZE_LIMIT || '10000'

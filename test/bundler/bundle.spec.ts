@@ -1,4 +1,4 @@
-import webpackConfig from '../../src/bundler';
+import webpackConfig from '@balm-core/src/bundler';
 
 describe('Bundler#webpackConfig()', function () {
   describe('web', function () {

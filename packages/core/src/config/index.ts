@@ -12,7 +12,7 @@ import server from './server';
 import ftp from './ftp';
 import pwa from './pwa';
 import logs from './logs';
-import { BalmConfig, BalmVendor } from '@balm-types/index';
+import { BalmConfig, BalmVendor } from '@balm-core/index';
 
 enum LogLevel {
   Trace = 0,

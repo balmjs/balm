@@ -1,4 +1,4 @@
-import BuildTask from '../../../src/tasks/private/build';
+import BuildTask from '@balm-core/src/tasks/private/build';
 
 describe('Build Task', function() {
   let buildTask: any;

@@ -1,4 +1,4 @@
-import { RenameOptions, HookOptions } from '@balm-types/index';
+import { RenameOptions, HookOptions } from '@balm-core/index';
 
 class JsminTask extends BalmJS.BalmTask {
   constructor() {

@@ -1,4 +1,4 @@
-import ExtraTask from '../../../src/tasks/private/extra';
+import ExtraTask from '@balm-core/src/tasks/private/extra';
 
 describe('Extra Task', function() {
   let extraTask: any;

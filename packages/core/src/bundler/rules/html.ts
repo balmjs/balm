@@ -1,4 +1,4 @@
-import { RuleSetRule } from '@balm-types/index';
+import { RuleSetRule } from '@balm-core/index';
 
 function htmlLoader(): RuleSetRule {
   const options = Object.assign(

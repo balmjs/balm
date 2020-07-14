@@ -1,6 +1,6 @@
 import getLoaders from '../loaders';
 import { INJECT_HASHNAME } from '../../config/constants';
-import { Configuration } from '@balm-types/index';
+import { Configuration } from '@balm-core/index';
 
 function _getSplitChunks(): boolean | object {
   const scripts: any = BalmJS.config.scripts;

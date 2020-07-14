@@ -1,4 +1,4 @@
-import { BalmFtpConfig } from '@balm-types/index';
+import { BalmFtpConfig } from '@balm-core/index';
 
 const options: BalmFtpConfig = {};
 const watchFiles: string[] = [];

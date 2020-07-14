@@ -5,7 +5,7 @@ import fs from 'fs';
 import { Client } from 'ssh2';
 import async from 'async';
 import parents from 'parents';
-import { LooseObject, BalmError } from '@balm-types/index';
+import { LooseObject, BalmError } from '@balm-core/index';
 
 interface SshConfig {
   host: string;

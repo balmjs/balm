@@ -1,4 +1,4 @@
-import { BalmImagesPlugins } from '@balm-types/index';
+import { BalmImagesPlugins } from '@balm-core/index';
 
 const plugins: Partial<BalmImagesPlugins> | object[] = {};
 

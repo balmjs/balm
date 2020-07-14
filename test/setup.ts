@@ -1,5 +1,5 @@
 import path from 'path';
-import balm from '../packages/core/src';
+import balm from '@balm-core/src/index';
 import { expect } from 'chai';
 
 const isWin = process.platform === 'win32';

@@ -1,6 +1,6 @@
 import net from 'net';
 import address from './address';
-import { BalmError } from '@balm-types/index';
+import { BalmError } from '@balm-core/index';
 
 const UTIL_NAME = 'detect port';
 const MAX_PORT = 65535;

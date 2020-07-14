@@ -1,4 +1,4 @@
-import StartTask from '../../../src/tasks/private/start';
+import StartTask from '@balm-core/src/tasks/private/start';
 
 describe('Start Task', function() {
   let startTask: any;

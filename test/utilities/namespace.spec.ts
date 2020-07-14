@@ -1,4 +1,4 @@
-import toNamespace from '../../src/utilities/namespace';
+import toNamespace from '@balm-core/src/utilities/namespace';
 
 describe('Balm Namespace', function() {
   it(

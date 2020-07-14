@@ -1,4 +1,4 @@
-import StyleTask from '../../../src/tasks/private/style';
+import StyleTask from '@balm-core/src/tasks/private/style';
 
 describe('Style Task', function() {
   let styleTask: any;

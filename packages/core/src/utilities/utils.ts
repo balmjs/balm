@@ -1,5 +1,5 @@
 import getType from './typeof';
-import { LooseObject } from '@balm-types/index';
+import { LooseObject } from '@balm-core/index';
 
 function isString(str: unknown): boolean {
   return getType(str) === 'string';

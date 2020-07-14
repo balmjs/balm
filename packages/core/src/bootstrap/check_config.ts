@@ -1,4 +1,4 @@
-import { LooseObject } from '@balm-types/index';
+import { LooseObject } from '@balm-core/index';
 
 const docsBaseURL = 'https://balmjs.com/docs/v2/config';
 

@@ -1,4 +1,4 @@
-import { HookOptions } from '@balm-types/index';
+import { HookOptions } from '@balm-core/index';
 
 class CopyTask extends BalmJS.BalmTask {
   constructor() {

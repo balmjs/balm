@@ -1,4 +1,4 @@
-import { BalmEntryObject, PostcssLoaderOptions } from '@balm-types/index';
+import { BalmEntryObject, PostcssLoaderOptions } from '@balm-core/index';
 
 // Entry and Context
 const entry: string | string[] | BalmEntryObject = '';
