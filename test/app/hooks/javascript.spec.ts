@@ -2,7 +2,7 @@ import { cleanup, runTest } from '../test';
 
 const targetDir = '.output';
 
-describe('Balm Hooks - javascript', function() {
+describe('Balm Hooks - webpack', function() {
   beforeEach(function() {
     balm.config = {
       useDefaults: false
@@ -102,6 +102,42 @@ describe('Balm Hooks - javascript', function() {
         testCase: false,
         testHook: (mix: any) => {
           mix.js('./undefined.js', output);
+        }
+      },
+      done
+    );
+  });
+});
+
+describe('Balm Hooks - esbuild', function() {
+  beforeEach(function() {
+    balm.config = {
+      useDefaults: false,
+      env: {
+        isProd: true
+      },
+      scripts: {
+        esbuild: {
+          entryPoints: ['src/scripts/index.js']
+        }
+      }
+    };
+  });
+
+  after(function() {
+    cleanup();
+  });
+
+  const output = `${targetDir}/js`;
+
+  it('use esbuild with error', function(done) {
+    runTest(
+      {
+        testCase: false,
+        testHook: (mix: any) => {
+          mix.js('./src/scripts/index.js', output, {
+            splitting: true
+          });
         }
       },
       done

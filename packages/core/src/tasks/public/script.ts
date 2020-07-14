@@ -1,5 +1,5 @@
-import { build } from 'esbuild';
-import webpackConfig from '../../bundler';
+import esbuild from '../../bundler/esbuild';
+import webpackConfig from '../../bundler/webpack';
 import { BalmEntryObject, BalmError } from '@balm-core/index';
 
 class ScriptTask extends BalmJS.BalmTask {
@@ -14,45 +14,29 @@ class ScriptTask extends BalmJS.BalmTask {
   recipe(
     input?: string | string[] | BalmEntryObject,
     output?: string,
-    options: any = {}
+    customOptions: any = {}
   ): any {
     return (callback: Function): void => {
-      const hasEsbuildOptions = BalmJS.utils.isObject(
-        BalmJS.config.scripts.esbuild
-      );
+      const useEsbuild =
+        BalmJS.config.scripts.esbuild ||
+        BalmJS.utils.isObject(BalmJS.config.scripts.esbuild);
 
-      if (BalmJS.config.scripts.esbuild || hasEsbuildOptions) {
-        this.init(input || BalmJS.config.scripts.entryPoints, output, options);
+      if (useEsbuild) {
+        this.init(input || BalmJS.config.scripts.entryPoints, output);
 
-        const commonEsbuildOptions = {
-          entryPoints: this.input,
-          outdir: this.output,
-          bundle: true,
-          minify: BalmJS.config.env.isProd
-        };
-
-        const esbuildOptions = hasEsbuildOptions
-          ? Object.assign(
-              commonEsbuildOptions,
-              BalmJS.config.scripts.esbuild,
-              this.customOptions
-            )
-          : Object.assign(commonEsbuildOptions, this.customOptions);
-
-        BalmJS.logger.debug('esbuild options', esbuildOptions);
-
-        build(esbuildOptions).catch((error: BalmError) => {
-          BalmJS.logger.error(`${this.name} task`, error.message);
-        });
-        // Done processing
-        callback();
+        esbuild(
+          BalmJS.utils.isString(this.input) ? [this.input] : this.input,
+          this.output,
+          customOptions,
+          callback
+        );
       } else {
         const isHook = !!input;
 
-        this.init(input || BalmJS.config.scripts.entry, output, options);
+        this.init(input || BalmJS.config.scripts.entry, output);
 
         BalmJS.webpackCompiler = webpack(
-          webpackConfig(this.input, this.output, this.customOptions, isHook),
+          webpackConfig(this.input, this.output, customOptions, isHook),
           (error: BalmError, stats: any): void => {
             // Handle errors here
             // if (error) {

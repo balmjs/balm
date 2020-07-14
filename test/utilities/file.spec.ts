@@ -165,6 +165,17 @@ describe('Balm File', function() {
     });
   });
 
+  describe('#defaultEntry', function() {
+    const defaultEntry = path.join(balm.config.roots.source, balm.config.paths.source.js, 'index.js');
+
+    it(
+      `expected output: "${defaultEntry}"`,
+      asyncCase(function() {
+        expect(file.defaultEntry).to.equal(defaultEntry);
+      })
+    );
+  });
+
   describe('#absPaths()', function() {
     const absPath = path.join(balm.config.workspace, 'foo');
 

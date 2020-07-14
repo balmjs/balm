@@ -1,4 +1,4 @@
-import webpackConfig from '../../packages/core/src/bundler';
+import webpackConfig from '../../packages/core/src/bundler/webpack';
 
 describe('Bundler#webpackConfig()', function () {
   describe('web', function () {

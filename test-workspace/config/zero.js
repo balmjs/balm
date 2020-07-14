@@ -15,6 +15,7 @@ balm.config = {
     // sprites: ['icons', 'mdi']
   },
   scripts: {
+    esbuild: true,
     lint: true
   },
   images: {

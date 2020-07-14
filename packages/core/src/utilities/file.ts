@@ -21,6 +21,14 @@ class File {
       : BalmJS.config.assets.subDir;
   }
 
+  get defaultEntry(): string {
+    return path.join(
+      BalmJS.config.roots.source,
+      BalmJS.config.paths.source.js,
+      'index.js'
+    );
+  }
+
   absPath(_path: string): string {
     return path.resolve(BalmJS.config.workspace, _path);
   }

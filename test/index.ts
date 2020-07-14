@@ -37,7 +37,8 @@ const balmConfigDefaults = Object.assign({}, {
     bundleAnalyzerReport: false,
     extractCss: {
       enabled: false
-    }
+    },
+    esbuild: false
   },
   extras: {
     includes: [],
