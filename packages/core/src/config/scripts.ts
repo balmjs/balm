@@ -1,14 +1,4 @@
-import { BalmEntryObject } from '@balm-types/index';
-
-interface PostcssLoaderOptions {
-  exec?: boolean;
-  parser?: string | object;
-  syntax?: string | object;
-  stringifier?: string | object;
-  config?: object;
-  plugins?: object[] | Function; // NOTE: The same to `styles.postcssPlugins`
-  sourceMap: string | boolean;
-}
+import { BalmEntryObject, PostcssLoaderOptions } from '@balm-types/index';
 
 // Entry and Context
 const entry: string | string[] | BalmEntryObject = '';
@@ -41,9 +31,7 @@ const htmlLoaderOptions: object = {};
  *
  * @reference https://github.com/postcss/postcss-loader#options
  */
-const postcssLoaderOptions: PostcssLoaderOptions = {
-  sourceMap: false
-};
+const postcssLoaderOptions: Partial<PostcssLoaderOptions> = {};
 // Resolve
 const extensions: string[] = [];
 const alias: object = {};
@@ -52,7 +40,7 @@ const plugins: object[] = [];
 // DevServer
 const hot = true;
 // Devtool
-const sourceMap: string | boolean = false;
+const sourceMap = false;
 // Target
 const target = 'web';
 // Externals
@@ -71,8 +59,6 @@ const stats: string | object = {
  * @reference https://webpack.js.org/configuration/
  */
 const webpackOptions: object = {};
-// Other advanced options
-const lint = false;
 /**
  * Terser minify options
  *
@@ -133,6 +119,10 @@ const extractCss: {
 };
 // IE8 compatibility
 const ie8 = false;
+// Other advanced options
+const esbuild: object | boolean = false;
+const entryPoints: string[] = [];
+const lint = false;
 
 export default {
   entry,
@@ -153,12 +143,14 @@ export default {
   externals,
   stats,
   webpackOptions,
-  lint,
   options,
   inject,
   optimization,
   extractAllVendors,
   vendorName,
   extractCss,
-  ie8
+  ie8,
+  esbuild,
+  entryPoints,
+  lint
 };

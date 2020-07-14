@@ -39,7 +39,6 @@
     "url": "git+https://github.com/balmjs/balm.git"
   },
   "dependencies": {
-    "balm": "3.0.0-alpha.0",
     "ansi-colors": "^4.1.1",
     "async": "^3.2.0",
     "autoprefixer": "^9.8.5",
@@ -47,6 +46,7 @@
     "connect-history-api-fallback": "^1.6.0",
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
+    "esbuild": "^0.6.2",
     "fancy-log": "^1.3.3",
     "fibers": "^5.0.0",
     "gulp-eslint": "^6.0.0",
@@ -87,12 +87,6 @@
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^5.0.9",
     "workbox-build": "^5.1.3"
-  },
-  "devDependencies": {
-    "@types/node": "^14.0.22",
-    "@types/webpack": "^4.41.21",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.6"
   },
   "peerDependencies": {
     "gulp": ">=4"

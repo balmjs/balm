@@ -1,5 +1,5 @@
-import atImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
+import atImport from 'postcss-import';
 import autoprefixer from 'autoprefixer';
 
 function getDefaultPostcssPlugins(): object[] {

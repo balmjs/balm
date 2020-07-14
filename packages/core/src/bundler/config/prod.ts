@@ -14,7 +14,7 @@ import { Configuration } from '@balm-types/index';
 const bundleAnalyzerReport = process.env.npm_config_report || false;
 
 function getProdConfig(scripts: any): Configuration {
-  const shouldUseSourceMap: string | boolean = scripts.sourceMap;
+  const shouldUseSourceMap = scripts.sourceMap;
   const terserOptions: { ie8?: boolean } = scripts.options;
 
   if (scripts.ie8) {
@@ -65,7 +65,7 @@ function getProdConfig(scripts: any): Configuration {
       // View the bundle analyzer report
       ...(bundleAnalyzerReport ? [new BundleAnalyzerPlugin()] : [])
     ],
-    devtool: shouldUseSourceMap ? 'source-map' : false
+    devtool: shouldUseSourceMap
   });
 }
 

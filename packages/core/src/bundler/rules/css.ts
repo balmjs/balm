@@ -7,9 +7,6 @@ const cssModuleRegex = /\.module\.css$/;
 
 function cssLoader(): RuleSetRule {
   let styleLoader = 'style-loader';
-
-  BalmJS.config.scripts.postcssLoaderOptions.plugins = BalmJS.plugins.postcss();
-
   if (BalmJS.config.env.inSSR) {
     const loadersCount: number = BalmJS.config.scripts.loaders.length;
     for (let i = 0; i < loadersCount; i++) {
@@ -22,6 +19,12 @@ function cssLoader(): RuleSetRule {
       }
     }
   }
+
+  BalmJS.config.scripts.postcssLoaderOptions.plugins = BalmJS.plugins.postcss();
+
+  const sourceMap = BalmJS.config.env.isProd
+    ? BalmJS.config.scripts.sourceMap
+    : BalmJS.config.env.isDev;
 
   // "postcss" loader applies autoprefixer to our CSS.
   // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -41,12 +44,18 @@ function cssLoader(): RuleSetRule {
         loader: 'css-loader',
         options: {
           importLoaders: 1,
-          sourceMap: BalmJS.config.env.isProd && BalmJS.config.scripts.sourceMap
+          sourceMap
         }
       },
       {
         loader: 'postcss-loader',
-        options: BalmJS.config.scripts.postcssLoaderOptions
+        options: Object.assign(
+          {
+            ident: 'postcss',
+            sourceMap
+          },
+          BalmJS.config.scripts.postcssLoaderOptions
+        )
       }
     ],
     // Don't consider CSS imports dead code even if the

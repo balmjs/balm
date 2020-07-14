@@ -46,7 +46,18 @@ export interface BalmEntryObject {
 export type Configuration = import('webpack').Configuration;
 export type RuleSetRule = import('webpack').RuleSetRule;
 
+export interface PostcssLoaderOptions {
+  exec?: boolean;
+  parser?: string | object;
+  syntax?: string | object;
+  stringifier?: string | object;
+  config?: object;
+  plugins: object[] | Function; // NOTE: The same to `styles.postcssPlugins`
+  sourceMap: string | boolean;
+}
+
 export interface BalmScripts {
+  // webpack
   entry: string | string[] | BalmEntryObject;
   library: string | object;
   libraryTarget: string;
@@ -60,25 +71,16 @@ export interface BalmScripts {
   };
   urlLoaderOptions: object;
   htmlLoaderOptions: object;
-  postcssLoaderOptions: {
-    exec?: boolean;
-    parser?: string | object;
-    syntax?: string | object;
-    stringifier?: string | object;
-    config?: object;
-    plugins?: object[] | Function;
-    sourceMap: string | boolean;
-  };
+  postcssLoaderOptions: Partial<PostcssLoaderOptions>;
   extensions: string[];
   alias: object; // { [key: string]: string }
   plugins: object[];
   hot: boolean;
-  sourceMap: string | boolean;
+  sourceMap: boolean;
   target: string;
   externals: string | object | Function | RegExp;
   stats: string | object;
   webpackOptions: object;
-  lint: boolean;
   options: object;
   inject: boolean;
   optimization: object;
@@ -89,6 +91,11 @@ export interface BalmScripts {
     prefix: string;
   };
   ie8: boolean;
+  // esbuild
+  esbuild: object | boolean;
+  entryPoints: string[];
+  // eslint
+  lint: boolean;
 }
 
 export interface BalmImagesPlugins {

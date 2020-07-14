@@ -9,7 +9,7 @@
     "lib": ["ES2018", "ESNext"],
     "module": "CommonJS",
     "moduleResolution": "Node",
-    "outDir": "tslib",
+    "outDir": "packages/core/tslib",
     "strict": true,
     "target": "ES2017",
     "baseUrl": ".",
