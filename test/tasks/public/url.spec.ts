@@ -1,4 +1,4 @@
-import UrlTask from '@balm-core/src/tasks/public/url';
+import UrlTask from '../../../packages/core/src/tasks/public/url';
 
 describe('Url Task', function() {
   let urlTask: any;

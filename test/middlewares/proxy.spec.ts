@@ -1,4 +1,4 @@
-import httpProxyMiddleware from '@balm-core/src/middlewares/proxy';
+import httpProxyMiddleware from '../../packages/core/src/middlewares/proxy';
 
 describe('Http Proxy Middleware', function () {
   let middlewares: object[];

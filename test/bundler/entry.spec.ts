@@ -1,4 +1,4 @@
-import getEntry from '@balm-core/src/bundler/entry';
+import getEntry from '../../packages/core/src/bundler/entry';
 
 const HOT_CLIENT = 'webpack-hot-middleware/client';
 const HMR = `${HOT_CLIENT}?reload=true&noInfo=true&path=/__balm_hmr`;

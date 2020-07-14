@@ -1,4 +1,4 @@
-import WorkboxTask from '@balm-core/src/tasks/private/workbox-sw';
+import WorkboxTask from '../../../packages/core/src/tasks/private/workbox-sw';
 
 describe('Workbox Task', function() {
   let workboxTask: any;

@@ -1,4 +1,4 @@
-import ScriptTask from '@balm-core/src/tasks/public/script';
+import ScriptTask from '../../../packages/core/src/tasks/public/script';
 
 describe('Script Task', function() {
   let scriptTask: any;

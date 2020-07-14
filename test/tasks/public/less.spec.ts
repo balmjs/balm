@@ -1,4 +1,4 @@
-import LessTask from '@balm-core/src/tasks/public/less';
+import LessTask from '../../../packages/core/src/tasks/public/less';
 
 describe('Less Task', function() {
   let lessTask: any;

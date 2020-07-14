@@ -1,4 +1,4 @@
-import FontTask from '@balm-core/src/tasks/private/font';
+import FontTask from '../../../packages/core/src/tasks/private/font';
 
 describe('Font Task', function() {
   let fontTask: any;

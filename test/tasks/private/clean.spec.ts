@@ -1,4 +1,4 @@
-import CleanTask from '@balm-core/src/tasks/private/clean';
+import CleanTask from '../../../packages/core/src/tasks/private/clean';
 
 describe('Clean Task', function() {
   let cleanTask: any;

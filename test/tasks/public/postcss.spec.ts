@@ -1,4 +1,4 @@
-import PostcssTask from '@balm-core/src/tasks/public/postcss';
+import PostcssTask from '../../../packages/core/src/tasks/public/postcss';
 
 describe('Postcss Task', function() {
   let postcssTask: any;

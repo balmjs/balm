@@ -1,5 +1,5 @@
-import DefaultTask from '@balm-core/src/tasks/default';
-import balm from '@balm-core/src/index';
+import DefaultTask from '../../packages/core/src/tasks/default';
+import balm from '../../packages/core/src/index';
 
 describe('Default Task', function() {
   let defaultTask: any;

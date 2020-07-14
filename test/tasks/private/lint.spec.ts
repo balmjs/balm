@@ -1,4 +1,4 @@
-import LintTask from '@balm-core/src/tasks/private/lint';
+import LintTask from '../../../packages/core/src/tasks/private/lint';
 
 describe('Lint Task', function() {
   let lintTask: any;

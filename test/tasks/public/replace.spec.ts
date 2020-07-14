@@ -1,4 +1,4 @@
-import ReplaceTask from '@balm-core/src/tasks/public/replace';
+import ReplaceTask from '../../../packages/core/src/tasks/public/replace';
 
 describe('Replace Task', function() {
   let replaceTask: any;

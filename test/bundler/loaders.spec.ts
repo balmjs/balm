@@ -1,4 +1,4 @@
-import getLoaders from '@balm-core/src/bundler/loaders';
+import getLoaders from '../../packages/core/src/bundler/loaders';
 
 describe('Bundler#getLoaders()', function() {
   let rules: any = [];

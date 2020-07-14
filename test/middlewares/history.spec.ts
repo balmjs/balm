@@ -1,4 +1,4 @@
-import historyMiddleware from '@balm-core/src/middlewares/history';
+import historyMiddleware from '../../packages/core/src/middlewares/history';
 
 describe('History Middleware', function() {
   let middlewares: object[];

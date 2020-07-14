@@ -1,4 +1,4 @@
-import ImageTask from '@balm-core/src/tasks/private/image';
+import ImageTask from '../../../packages/core/src/tasks/private/image';
 
 describe('Image Task', function() {
   let imageTask: any;
