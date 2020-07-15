@@ -1,2 +1,4 @@
 #!/bin/bash
-npm publish
+
+cd packages/balm
+npm publish --tag next
