@@ -27,9 +27,7 @@ class ServerTask extends BalmJS.BalmTask {
   }
 
   private _watchTask(taskName: string, serverReload = false): Function {
-    const balmTask = parallel(
-      BalmJS.toNamespace(BalmJS.tasks.get(taskName).name)
-    );
+    const balmTask = BalmJS.tasks.get(taskName).fn; // !important
     const reload = (done: Function): void => {
       server.reload();
       done();

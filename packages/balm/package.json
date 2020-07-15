@@ -31,9 +31,6 @@
     "lib"
   ],
   "main": "lib/index.js",
-  "bin": {
-    "balm": "./bin/balm"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/balmjs/balm.git"
@@ -47,11 +44,14 @@
     "css-loader": "^3.6.0",
     "file-loader": "^6.0.0",
     "global-dirs": "^2.0.1",
-    "gulp": "^4.0.2",
     "html-loader": "^1.1.0",
     "postcss-loader": "^3.0.0",
     "style-loader": "^1.2.1",
-    "url-loader": "^4.1.0"
+    "url-loader": "^4.1.0",
+    "webpack-hot-middleware": "^2.25.0"
+  },
+  "peerDependencies": {
+    "gulp": ">=4"
   },
   "engines": {
     "node": ">=12.0.0"
