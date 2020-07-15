@@ -36,7 +36,7 @@
     "build": "rimraf packages/core/tslib && tsc",
     "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json TS_NODE_FILES=true nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "release": "bash ./scripts/release-core.sh && bash ./scripts/release.sh"
+    "release": "bash ./scripts/release-core.sh && ./scripts/release.sh"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
