@@ -1,5 +1,5 @@
 {
-  "name": "@balm/core",
+  "name": "balm-core",
   "version": "3.0.0-alpha.0",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [

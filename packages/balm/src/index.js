@@ -2,13 +2,21 @@ import path from 'path';
 import fs from 'fs';
 import globalDirectories from 'global-dirs';
 
+const BALM_CORE_PACKAGE_NAME = 'balm-core';
+
 const useTslib = process.argv.includes('--balm-ts');
 const lib = useTslib ? 'tslib' : 'lib';
 
-const localBalmCore = path.join(__dirname, '..', '..', '@balm/core', lib);
+const localBalmCore = path.join(
+  __dirname,
+  '..',
+  '..',
+  BALM_CORE_PACKAGE_NAME,
+  lib
+);
 const globalBalmCore = path.join(
   globalDirectories.npm.packages,
-  '@balm/core',
+  BALM_CORE_PACKAGE_NAME,
   lib
 );
 
@@ -18,7 +26,7 @@ if (fs.existsSync(localBalmCore)) {
 } else if (fs.existsSync(globalBalmCore)) {
   balmCore = globalBalmCore;
 } else {
-  console.warn('[BalmJS]', '`@balm/core` not found :(');
+  console.warn('[BalmJS]', `${BALM_CORE_PACKAGE_NAME} module not found :(`);
 }
 
 let balm;

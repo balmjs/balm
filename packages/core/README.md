@@ -1,1 +1,1 @@
-# @balm/core
+# balm-core
