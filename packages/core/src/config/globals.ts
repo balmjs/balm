@@ -7,6 +7,7 @@ import webpack from 'webpack';
 import through2 from 'through2';
 import PluginError from 'plugin-error';
 
+// Set gulp for runtime env
 const gulpRuntimePath = `${process.cwd()}/node_modules/gulp/index.js`;
 
 global.path = path;

@@ -1,4 +1,3 @@
-// const balm = require('../../packages/core/lib'); // for babel
-const balm = require('../../packages/core/tslib'); // for ts
+const balm = require('../../packages/balm/lib');
 
 module.exports = balm;
