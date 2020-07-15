@@ -10,7 +10,7 @@ const BALM = {
     dest: 'packages/core/lib'
   },
   runtime: {
-    src: 'packages/balm/src/**/*.js',
+    src: 'packages/balm/src/*.js',
     dest: 'packages/balm/lib'
   }
 };
