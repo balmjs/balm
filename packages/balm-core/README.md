@@ -104,9 +104,11 @@ npm init -y
 :bell: BalmJS workflow using [gulp](https://gulpjs.com/) for the build process, so you need install `gulp-cli` globally and `gulp` local dependency.
 
 ```sh
+yarn global add balm-core@next
 yarn global add gulp-cli
 yarn add -D gulp
 # OR
+npm install -g balm-core@next
 npm install -g gulp-cli
 npm install -D gulp
 
@@ -120,9 +122,9 @@ $ gulp -v
 ### 1. Installing **`balm`**
 
 ```sh
-yarn add -D balm
+yarn add -D balm@next
 # OR
-npm install -D balm
+npm install -D balm@next
 ```
 
 > We currently recommend using [Yarn](https://yarnpkg.com/en/docs/install) instead of npm.
