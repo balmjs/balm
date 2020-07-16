@@ -39,14 +39,14 @@
     "release": "bash ./scripts/release-core.sh && ./scripts/release.sh"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.4",
-    "@babel/core": "^7.10.4",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
-    "@babel/plugin-transform-runtime": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@babel/register": "^7.10.4",
+    "@babel/register": "^7.10.5",
     "@types/chai": "^4.2.11",
     "@types/express": "^4.17.7",
     "@types/mocha": "^8.0.0",

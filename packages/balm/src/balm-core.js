@@ -17,7 +17,11 @@ if (process.env.BALM_CORE) {
 } else if (fs.existsSync(yarnGlobalModule)) {
   balmCore = yarnGlobalModule;
 } else {
-  console.warn('[BalmJS]', `${BALM_CORE_PACKAGE_NAME} module not found :(`);
+  console.error(
+    '[BalmJS]',
+    `\`${BALM_CORE_PACKAGE_NAME}\` module not found :(`
+  );
+  process.exit(1);
 }
 
 export default balmCore;
