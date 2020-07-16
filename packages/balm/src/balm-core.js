@@ -8,7 +8,9 @@ import {
 
 let balmCore;
 
-if (fs.existsSync(localModule)) {
+if (process.env.BALM_CORE) {
+  balmCore = process.env.BALM_CORE;
+} else if (fs.existsSync(localModule)) {
   balmCore = localModule;
 } else if (fs.existsSync(npmGlobalModule)) {
   balmCore = npmGlobalModule;
