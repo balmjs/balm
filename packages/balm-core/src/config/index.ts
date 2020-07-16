@@ -25,7 +25,7 @@ enum LogLevel {
 const noop: Function = () => {};
 const vendors: BalmVendor[] = [];
 
-const workspace = process.cwd();
+const workspace = process.env.BALM_CWD as string;
 /**
  * Project type
  *

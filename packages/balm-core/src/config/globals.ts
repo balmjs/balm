@@ -7,8 +7,9 @@ import PluginError from 'plugin-error';
 import fs from 'fs';
 import colors from 'ansi-colors';
 
-// Set gulp for runtime env
-const gulpRuntimePath = `${process.cwd()}/node_modules/gulp/index.js`;
+// Set env var for ORIGINAL cwd before anything touches it
+process.env.BALM_CWD = process.env.INIT_CWD || process.cwd();
+const gulpRuntimePath = `${process.env.BALM_CWD}/node_modules/gulp/index.js`;
 
 if (!fs.existsSync(gulpRuntimePath)) {
   console.error(
