@@ -7,8 +7,9 @@
 </template>
 
 <script>
-import Hello from '@/views/components/hello';
 import logo from '@/assets/logo.png';
+
+const Hello = () => import('@/views/components/hello');
 
 export default {
   name: 'app',

@@ -3,8 +3,9 @@
     [
       "@babel/env",
       {
+        "modules": false,
         // "loose": true,
-        "modules": "commonjs",
+        // "modules": "commonjs",
         // "debug": true,
         "useBuiltIns": "entry",
         "corejs": 3

@@ -1,14 +1,16 @@
 const hello = () => import('./main-hello');
 
-console.info('[Async]', 'before');
+(async () => {
+  const { greet } = (await hello()).default;
 
-hello().then(m => {
-  m.default.greet();
-});
+  console.info('[Async]', 'before');
 
-['a', 'b', 'c', 'd'].forEach(item => {
-  console.log(`Loading ${item}`);
-  import(`./async/${item}`);
-});
+  greet();
 
-console.info('[Async]', 'after');
+  console.info('[Async]', 'after');
+
+  ['c', 'd', 'e', 'f', 'g', 'a', 'b'].forEach((item) => {
+    console.log(`Loading ${item}`);
+    import(`./async/${item}`);
+  });
+})();

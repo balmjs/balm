@@ -12,7 +12,6 @@ import List from './list.vue';
 import { mapActions } from 'vuex';
 
 export default {
-  name: 'App',
   components: {
     'v-list': List
   },

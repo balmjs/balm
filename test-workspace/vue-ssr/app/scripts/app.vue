@@ -9,7 +9,7 @@
 import Header from './components/header';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     'v-header': Header
   }
