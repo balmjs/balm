@@ -87,7 +87,7 @@ class BalmStyleTask extends BalmTask {
     }
 
     return stream
-      .pipe($.postcss(BalmJS.plugins.postcss()))
+      .pipe($.postcss(BalmJS.plugins.postcss(style === 'postcss')))
       .pipe(
         $.if(
           BalmJS.config.env.isProd || BalmJS.config.styles.minified,

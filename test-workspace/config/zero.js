@@ -41,7 +41,7 @@ balm.go((mix) => {
     console.log('dev');
 
     // mix.serve((watcher, reload) => {
-    //   watcher.on('change', file => {
+    //   watcher.on('change', (file) => {
     //     console.log('changed', file);
 
     //     let extname = file.split('.')[1];

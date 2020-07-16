@@ -38,7 +38,7 @@ interface BalmFile {
 }
 
 interface BalmPlugins {
-  postcss: () => object[];
+  postcss: (isPostCSS?: boolean) => object[];
   plumber: (options?: any) => any;
   htmlmin: (options: object) => any;
   jsmin: (options: object) => any;

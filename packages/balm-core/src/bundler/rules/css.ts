@@ -20,7 +20,7 @@ function cssLoader(): RuleSetRule {
     }
   }
 
-  BalmJS.config.scripts.postcssLoaderOptions.plugins = BalmJS.plugins.postcss();
+  BalmJS.config.scripts.postcssLoaderOptions.plugins = BalmJS.plugins.postcss(); // TODO: isPostCSS?
 
   const sourceMap = BalmJS.config.env.isProd
     ? BalmJS.config.scripts.sourceMap

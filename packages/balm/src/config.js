@@ -3,7 +3,7 @@ import globalDirectories from 'global-dirs';
 
 const BALM_CORE_PACKAGE_NAME = 'balm-core';
 
-const useTslib = process.argv.includes('--balm-ts');
+const useTslib = process.env.BALM_TS || process.argv.includes('--balm-ts');
 const lib = useTslib ? 'tslib' : 'lib';
 
 const localModule = path.join(
