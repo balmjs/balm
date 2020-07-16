@@ -19,7 +19,7 @@ const scripts = Object.assign(base, {
   // https://github.com/liady/webpack-node-externals
   externals: nodeExternals({
     // do not externalize CSS files in case we need to import it from a dep
-    whitelist: /\.css$/
+    allowlist: /\.css$/
   })
 });
 
@@ -45,7 +45,7 @@ balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
 
 balm.config = balmConfig;
 
-balm.go(mix => {
+balm.go((mix) => {
   if (mix.env.isProd) {
     console.log('build server');
   }

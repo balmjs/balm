@@ -4,9 +4,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MpPlugin = require('mp-webpack-plugin');
 const balm = require('../balm');
 const balmrc = require('../balmrc');
-const fuckMP = require('./fuck-mp');
 // const pxtorem = require('postcss-pxtorem');
-const publish = require('./publish');
+const publish = require('./balm.publish');
 
 const balmConfig = Object.assign(balmrc, {
   roots: {
@@ -43,7 +42,7 @@ const balmConfig = Object.assign(balmrc, {
             new webpack.DefinePlugin({
               'process.env.isMiniprogram': process.env.isMiniprogram // 注入环境变量，用于业务代码判断
             }),
-            new MpPlugin(require('./kbone.config'))
+            new MpPlugin(require('./wx.kbone.config'))
           ]
         : [])
     ],
@@ -70,9 +69,9 @@ const balmConfig = Object.assign(balmrc, {
 
 balm.config = balmConfig;
 
-balm.go(mix => {
+balm.go((mix) => {
   if (mix.env.isMP) {
-    fuckMP(mix);
+    // TODO: fuck mp
   } else {
     // Clear miniprogram css
     mix.remove(['dist/web/index.wxss', 'dist/web/h5/1a/reset.css']);
