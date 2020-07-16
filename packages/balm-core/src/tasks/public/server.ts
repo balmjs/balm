@@ -1,6 +1,7 @@
-import { series, parallel, watch } from 'gulp';
 import detectPort from '../../utilities/detect-port';
 import getMiddlewares from '../../middlewares';
+
+const { series, watch } = gulp;
 
 class ServerTask extends BalmJS.BalmTask {
   constructor() {

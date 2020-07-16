@@ -3,6 +3,7 @@ import { Watcher } from './node';
 interface GulpOptions {
   since?: Date | number | Function;
   sourcemaps?: boolean | Function;
+  cwd?: string;
   allowEmpty?: boolean;
 }
 
