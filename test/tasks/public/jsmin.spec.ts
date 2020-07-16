@@ -1,4 +1,4 @@
-import JsminTask from '../../../packages/core/src/tasks/public/jsmin';
+import JsminTask from '../../../packages/balm-core/src/tasks/public/jsmin';
 
 describe('Jsmin Task', function() {
   let jsminTask: any;

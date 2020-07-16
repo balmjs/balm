@@ -1,4 +1,4 @@
-import PwaTask from '../../../packages/core/src/tasks/public/pwa';
+import PwaTask from '../../../packages/balm-core/src/tasks/public/pwa';
 
 describe('Pwa Task', function() {
   let pwaTask: any;

@@ -6,8 +6,8 @@ import excludeGitignore from 'gulp-exclude-gitignore';
 
 const BALM = {
   core: {
-    src: 'packages/core/src/**/*.ts',
-    dest: 'packages/core/lib'
+    src: 'packages/balm-core/src/**/*.ts',
+    dest: 'packages/balm-core/lib'
   },
   runtime: {
     src: 'packages/balm/src/*.js',

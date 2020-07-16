@@ -1,4 +1,4 @@
-import ZipTask from '../../../packages/core/src/tasks/public/zip';
+import ZipTask from '../../../packages/balm-core/src/tasks/public/zip';
 
 describe('Zip Task', function() {
   let zipTask: any;

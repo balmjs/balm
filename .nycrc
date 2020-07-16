@@ -3,25 +3,25 @@
     ".ts"
   ],
   "include": [
-    "packages/core/src/**/*.ts",
-    "!packages/core/src/config/globals.ts",
-    "!packages/core/src/config/env.ts",
-    "!packages/core/src/tasks/index.ts",
-    "!packages/core/src/tasks/private/sprite.ts",
-    "!packages/core/src/tasks/private/modernizr.ts",
-    "!packages/core/src/tasks/public/server.ts",
-    "!packages/core/src/middlewares/index.ts",
-    "!packages/core/src/plugins/*.ts",
-    "!packages/core/src/utilities/address.ts",
-    "!packages/core/src/utilities/detect-port.ts",
-    "!packages/core/src/utilities/escape-string-regexp.ts",
-    "!packages/core/src/utilities/merge-stream.ts",
-    "!packages/core/src/utilities/replacestream.ts"
+    "packages/balm-core/src/**/*.ts",
+    "!packages/balm-core/src/config/globals.ts",
+    "!packages/balm-core/src/config/env.ts",
+    "!packages/balm-core/src/tasks/index.ts",
+    "!packages/balm-core/src/tasks/private/sprite.ts",
+    "!packages/balm-core/src/tasks/private/modernizr.ts",
+    "!packages/balm-core/src/tasks/public/server.ts",
+    "!packages/balm-core/src/middlewares/index.ts",
+    "!packages/balm-core/src/plugins/*.ts",
+    "!packages/balm-core/src/utilities/address.ts",
+    "!packages/balm-core/src/utilities/detect-port.ts",
+    "!packages/balm-core/src/utilities/escape-string-regexp.ts",
+    "!packages/balm-core/src/utilities/merge-stream.ts",
+    "!packages/balm-core/src/utilities/replacestream.ts"
   ],
   "exclude": [
     "node_modules/**",
     "coverage/**",
-    "packages/core/types/**/*.d.ts",
+    "packages/balm-core/types/**/*.d.ts",
     "test/**/*.spec.ts"
   ],
   "reporter": [

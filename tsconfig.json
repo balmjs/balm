@@ -9,14 +9,17 @@
     "lib": ["ES2018", "ESNext"],
     "module": "CommonJS",
     "moduleResolution": "Node",
-    "outDir": "packages/core/tslib",
+    "outDir": "packages/balm-core/tslib",
     "strict": true,
     "target": "ES2017",
     "baseUrl": ".",
     "paths": {
-      "@balm-core/*": ["./packages/core/*"]
+      "@balm-core/*": ["./packages/balm-core/*"]
     }
   },
-  "include": ["packages/core/src/**/*", "packages/core/types/index.d.ts"],
+  "include": [
+    "packages/balm-core/src/**/*",
+    "packages/balm-core/types/index.d.ts"
+  ],
   "exclude": ["node_modules", "coverage", "lib", "tslib"]
 }

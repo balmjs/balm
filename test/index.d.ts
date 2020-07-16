@@ -1,4 +1,4 @@
-import '../packages/core/types/index';
+import '../packages/balm-core/types/index';
 
 declare global {
   namespace NodeJS {

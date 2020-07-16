@@ -1,4 +1,4 @@
-import file from '../../packages/core/src/utilities/file';
+import file from '../../packages/balm-core/src/utilities/file';
 
 describe('Balm File', function() {
   describe('#stylePaths', function() {

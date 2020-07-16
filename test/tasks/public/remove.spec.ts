@@ -1,4 +1,4 @@
-import RemoveTask from '../../../packages/core/src/tasks/public/remove';
+import RemoveTask from '../../../packages/balm-core/src/tasks/public/remove';
 
 describe('Remove Task', function() {
   let removeTask: any;
