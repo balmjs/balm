@@ -5,12 +5,16 @@ import webpack from 'webpack';
 import through2 from 'through2';
 import PluginError from 'plugin-error';
 import fs from 'fs';
+import colors from 'ansi-colors';
 
 // Set gulp for runtime env
 const gulpRuntimePath = `${process.cwd()}/node_modules/gulp/index.js`;
 
 if (!fs.existsSync(gulpRuntimePath)) {
-  console.error('[BalmJS]', '`gulp` module not found :(');
+  console.error(
+    colors.bgBlueBright('<BalmJS>'),
+    colors.yellow('`gulp` module not found :(')
+  );
   process.exit(1);
 }
 

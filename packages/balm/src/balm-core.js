@@ -1,4 +1,5 @@
 import fs from 'fs';
+import colors from 'ansi-colors';
 import {
   BALM_CORE_PACKAGE_NAME,
   localModule,
@@ -18,8 +19,8 @@ if (process.env.BALM_CORE) {
   balmCore = yarnGlobalModule;
 } else {
   console.error(
-    '[BalmJS]',
-    `\`${BALM_CORE_PACKAGE_NAME}\` module not found :(`
+    colors.bgBlueBright('<BalmJS>'),
+    colors.yellow(`\`${BALM_CORE_PACKAGE_NAME}\` module not found :(`)
   );
   process.exit(1);
 }

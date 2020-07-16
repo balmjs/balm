@@ -40,6 +40,7 @@
     "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/runtime": "^7.10.5",
+    "ansi-colors": "^4.1.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.6.0",
     "file-loader": "^6.0.0",
