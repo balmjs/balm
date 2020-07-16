@@ -60,6 +60,15 @@ function _ready(config: BalmConfig): BalmConfig {
     );
   }
 
+  // Set HMR flag
+  const HMR_ENV =
+    config.useDefaults &&
+    config.env.isDev &&
+    !config.env.inSSR &&
+    !config.env.isMP;
+  config.server.useHMR =
+    HMR_ENV && (!config.scripts.ie8 || config.scripts.esbuild === false);
+
   return config;
 }
 

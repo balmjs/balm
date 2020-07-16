@@ -75,7 +75,6 @@ export interface BalmScripts {
   extensions: string[];
   alias: object; // { [key: string]: string }
   plugins: object[];
-  hot: boolean;
   sourceMap: string | boolean;
   target: string;
   externals: string | object | Function | RegExp;
@@ -147,6 +146,7 @@ interface BalmServer {
   historyOptions: boolean | object;
   middlewares: Function[] | object[];
   extraWatchFiles: string[];
+  useHMR?: boolean;
 }
 
 export interface BalmFtpConfig {

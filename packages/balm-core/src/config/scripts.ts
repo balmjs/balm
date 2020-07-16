@@ -37,8 +37,6 @@ const extensions: string[] = [];
 const alias: object = {};
 // Plugins
 const plugins: object[] = [];
-// DevServer
-const hot = true;
 // Devtool
 const sourceMap: string | boolean = false;
 // Target
@@ -137,7 +135,6 @@ export default {
   extensions,
   alias,
   plugins,
-  hot,
   sourceMap,
   target,
   externals,

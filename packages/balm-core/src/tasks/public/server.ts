@@ -7,10 +7,6 @@ class ServerTask extends BalmJS.BalmTask {
   constructor() {
     super('serve');
 
-    if (BalmJS.config.scripts.ie8) {
-      BalmJS.config.scripts.hot = false;
-    }
-
     if (BalmJS.config.env.isDev) {
       detectPort(BalmJS.config.server.port, BalmJS.config.server.host).then(
         (port: number) => {
@@ -64,7 +60,7 @@ class ServerTask extends BalmJS.BalmTask {
       this._watchTask(BalmJS.config.inFrontend ? this.styleName : 'style')
     );
 
-    if (BalmJS.config.scripts.esbuild || !BalmJS.config.scripts.hot) {
+    if (!BalmJS.config.server.useHMR) {
       watch(
         `${BalmJS.config.src.js}/**/*`,
         watchOptions,

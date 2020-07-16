@@ -50,13 +50,7 @@ function getEntry(
     Object.entries(hotOptions)
       .map((option) => option.join('='))
       .join('&');
-  const useHMR: boolean =
-    scripts.hot &&
-    BalmJS.config.useDefaults &&
-    BalmJS.config.env.isDev &&
-    !BalmJS.config.env.inSSR &&
-    !scripts.ie8 &&
-    !BalmJS.config.env.isMP;
+  const useHMR = BalmJS.config.server.useHMR;
 
   if (BalmJS.utils.isObject(input)) {
     initVendors(input as BalmEntryObject);
