@@ -22,24 +22,6 @@ function webpackConfig(
     baseConfig.externals = scripts.externals;
   }
 
-  if (scripts.target === 'web') {
-    baseConfig.node = {
-      // Prevent webpack from injecting useless setImmediate polyfill because Vue
-      // source contains it (although only uses it if it's native).
-      setImmediate: false,
-      // Prevent webpack from injecting mocks to Node native modules
-      // that does not make sense for the client
-      module: 'empty',
-      dgram: 'empty',
-      dns: 'mock',
-      fs: 'empty',
-      http2: 'empty',
-      net: 'empty',
-      tls: 'empty',
-      child_process: 'empty'
-    };
-  }
-
   const defaultConfig: any = getDefaultConfig(scripts);
 
   const configuration: Configuration = merge(

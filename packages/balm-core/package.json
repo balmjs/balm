@@ -1,6 +1,6 @@
 {
   "name": "balm-core",
-  "version": "3.0.0-beta.0",
+  "version": "3.0.0-beta.1",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -81,7 +81,7 @@
     "terser-webpack-plugin": "^3.0.6",
     "through2": "^4.0.2",
     "tslib": "^2.0.0",
-    "webpack": "^4.43.0",
+    "webpack": "^5.0.0-beta.22",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
@@ -98,6 +98,5 @@
   },
   "engines": {
     "node": ">=12.0.0"
-  },
-  "private": true
+  }
 }

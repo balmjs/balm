@@ -27,6 +27,13 @@ function getOutput(output: string, scripts: any, isHook = false): any {
     )}`
   );
 
+  const customLibraryConfig: object = scripts.library
+    ? {
+        library: scripts.library,
+        libraryTarget: scripts.libraryTarget
+      }
+    : {};
+
   const miniprogramConfig: object = BalmJS.config.env.isMP
     ? {
         path: BalmJS.file.absPath(
@@ -36,7 +43,7 @@ function getOutput(output: string, scripts: any, isHook = false): any {
         libraryExport: 'default',
         libraryTarget: 'window'
       }
-    : {};
+    : customLibraryConfig;
 
   return Object.assign(
     {
@@ -45,8 +52,6 @@ function getOutput(output: string, scripts: any, isHook = false): any {
         ? jsFilename
         : BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`),
       publicPath: BalmJS.file.publicPath,
-      library: scripts.library,
-      libraryTarget: scripts.libraryTarget,
       chunkFilename: isHook
         ? jsChunkFilename
         : BalmJS.file.assetsPath(

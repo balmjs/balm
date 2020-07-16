@@ -14,7 +14,7 @@ function _getSplitChunks(): boolean | object {
       : `${scripts.vendorName}.js`;
 
     cacheGroups = {
-      vendors: {
+      defaultVendors: {
         chunks: 'initial',
         name: jsFilename,
         test: /[\\/](node_modules|bower_components)[\\/]/,
@@ -101,7 +101,10 @@ function getCommonConfig(scripts: any): Configuration {
       // solution that requires the user to opt into importing specific locales.
       // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
       // You can remove this if you don't use Moment.js:
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/locale$/,
+        contextRegExp: /moment$/
+      }),
       ...scripts.plugins
     ],
     target: scripts.target,
