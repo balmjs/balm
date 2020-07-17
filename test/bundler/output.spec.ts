@@ -118,6 +118,31 @@ describe('Bundler#getOutput()', function () {
         })
       );
     });
+
+    describe('custom library', function () {
+      const libraryName = 'BalmJS';
+
+      before(function () {
+        balm.config = {
+          env: {
+            isProd: true
+          },
+          scripts: {
+            library: libraryName,
+            libraryTarget:'umd'
+          }
+        };
+      });
+
+      it(
+        `expected output: "${libraryName}"`,
+        asyncCase(function () {
+          result = getOutput('', balm.config.scripts);
+
+          expect(result.library).to.equal(libraryName);
+        })
+      );
+    });
   });
 
   describe('miniprogram js', function () {

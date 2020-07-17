@@ -37,7 +37,7 @@ describe('Bootstrap', function() {
     });
   });
 
-  describe('For the dynamic project', function() {
+  describe('for the dynamic project', function() {
     const target = 'new-dist';
     before(function() {
       balm.config = {
@@ -53,6 +53,24 @@ describe('Bootstrap', function() {
       asyncCase(function() {
         expect(balm.config.roots.target).to.equal(target);
       })
+    );
+  });
+
+  describe('for IE8', function() {
+    before(function() {
+      balm.config = {
+        env: {
+          isDev: true
+        },
+        scripts: {
+          ie8: true
+        }
+      };
+    });
+
+    it(
+      'useHMR = false',
+      asyncCase(function() {})
     );
   });
 });

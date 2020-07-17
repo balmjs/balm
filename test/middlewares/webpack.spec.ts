@@ -43,6 +43,10 @@ describe('Webpack Middleware', function() {
       BalmJS.config.server.useHMR = true;
     });
 
+    after(function() {
+      BalmJS.config.server.useHMR = false;
+    });
+
     const middlewaresCount = 2;
 
     it(

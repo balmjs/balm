@@ -29,6 +29,8 @@ const balmConfigDefaults = Object.assign({}, {
     sprites: []
   },
   scripts: {
+    library: '',
+    libraryTarget: 'var',
     loaders: [],
     target: 'web',
     externals: false,
