@@ -17,13 +17,9 @@ class ScriptTask extends BalmJS.BalmTask {
     customOptions: any = {}
   ): any {
     return (callback: Function): void => {
-      const useEsbuild =
-        BalmJS.config.scripts.esbuild ||
-        BalmJS.utils.isObject(BalmJS.config.scripts.esbuild);
+      this.init(input || BalmJS.config.scripts.entry, output);
 
-      if (useEsbuild) {
-        this.init(input || BalmJS.config.scripts.entryPoints, output);
-
+      if (BalmJS.config.scripts.esbuild) {
         esbuild(
           BalmJS.utils.isString(this.input) ? [this.input] : this.input,
           this.output,
@@ -32,8 +28,6 @@ class ScriptTask extends BalmJS.BalmTask {
         );
       } else {
         const isHook = !!input;
-
-        this.init(input || BalmJS.config.scripts.entry, output);
 
         BalmJS.webpackCompiler = webpack(
           webpackConfig(this.input, this.output, customOptions, isHook),

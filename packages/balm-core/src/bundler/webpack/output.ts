@@ -1,4 +1,8 @@
-import { ASYNC_SCRIPTS, INJECT_HASHNAME, MP_ASSETS } from '../config/constants';
+import {
+  ASYNC_SCRIPTS,
+  INJECT_HASHNAME,
+  MP_ASSETS
+} from '../../config/constants';
 
 function getOutput(output: string, scripts: any, isHook = false): any {
   const outputPath: string = output || BalmJS.config.dest.base; // Absolute path

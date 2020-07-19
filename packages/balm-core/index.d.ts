@@ -26,7 +26,7 @@ export interface BalmPath {
 interface BalmStyles {
   extname: string;
   dartSass: boolean;
-  minified: boolean;
+  minify: boolean;
   atImportPaths: string[];
   options: object;
   sassOptions: object;
@@ -56,9 +56,21 @@ export interface PostcssLoaderOptions {
   sourceMap: string | boolean;
 }
 
+export type BuildOptions = import('esbuild').BuildOptions;
+export type TransformOptions = import('esbuild').TransformOptions;
+export type TransformResult = import('esbuild').TransformResult;
+
 export interface BalmScripts {
-  // webpack
+  // eslint
+  lint: boolean;
+  // common
   entry: string | string[] | BalmEntryObject;
+  // esbuild
+  esbuild: boolean;
+  buildOptions: BuildOptions;
+  useTransform: boolean;
+  transformOptions: TransformOptions;
+  // webpack
   library: string | object;
   libraryTarget: string;
   loaders: object[];
@@ -90,11 +102,6 @@ export interface BalmScripts {
     prefix: string;
   };
   ie8: boolean;
-  // esbuild
-  esbuild: object | boolean;
-  entryPoints: string[];
-  // eslint
-  lint: boolean;
 }
 
 export interface BalmImagesPlugins {

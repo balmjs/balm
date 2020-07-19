@@ -1,7 +1,28 @@
-import { BalmEntryObject, PostcssLoaderOptions } from '@balm-core/index';
+import {
+  BalmEntryObject,
+  BuildOptions,
+  TransformOptions,
+  PostcssLoaderOptions
+} from '@balm-core/index';
 
+// common options
+const lint = false;
 // Entry and Context
 const entry: string | string[] | BalmEntryObject = '';
+
+/**
+ * Esbuild bundler
+ */
+
+const esbuild = false;
+const buildOptions: BuildOptions = {};
+const useTransform = false;
+const transformOptions: TransformOptions = {};
+
+/**
+ * Webpack bundler
+ */
+
 // Output
 const library: string | object = '';
 const libraryTarget = 'var'; // ['var', 'this', 'window', 'global', 'commonjs', 'commonjs2', 'amd', 'umd']
@@ -117,13 +138,17 @@ const extractCss: {
 };
 // IE8 compatibility
 const ie8 = false;
-// Other advanced options
-const esbuild: object | boolean = false;
-const entryPoints: string[] = [];
-const lint = false;
 
 export default {
+  // common
+  lint,
   entry,
+  // esbuild
+  esbuild,
+  buildOptions,
+  useTransform,
+  transformOptions,
+  // webpack
   library,
   libraryTarget,
   loaders,
@@ -146,8 +171,5 @@ export default {
   extractAllVendors,
   vendorName,
   extractCss,
-  ie8,
-  esbuild,
-  entryPoints,
-  lint
+  ie8
 };

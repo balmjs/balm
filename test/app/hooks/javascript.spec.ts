@@ -117,9 +117,8 @@ describe('Balm Hooks - esbuild', function() {
         isProd: true
       },
       scripts: {
-        esbuild: {
-          entryPoints: ['src/scripts/index.js']
-        }
+        esbuild: true,
+        entry: ['src/scripts/index.js']
       }
     };
   });

@@ -43,7 +43,7 @@ class BalmStyleTask extends BalmTask {
   handleStyle(style: string, output: string, options?: object): any {
     const taskName = `${this.name} task`;
     const shouldUseSourceMap = !(
-      BalmJS.config.env.isProd || BalmJS.config.styles.minified
+      BalmJS.config.env.isProd || BalmJS.config.styles.minify
     );
 
     let stream: any = gulp
@@ -90,7 +90,7 @@ class BalmStyleTask extends BalmTask {
       .pipe($.postcss(BalmJS.plugins.postcss(style === 'postcss')))
       .pipe(
         $.if(
-          BalmJS.config.env.isProd || BalmJS.config.styles.minified,
+          BalmJS.config.env.isProd || BalmJS.config.styles.minify,
           $.postcss([cssnano(BalmJS.config.styles.options)])
         )
       )

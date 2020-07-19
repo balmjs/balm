@@ -1,4 +1,4 @@
-import getOutput from '../../packages/balm-core/src/bundler/output';
+import getOutput from '../../packages/balm-core/src/bundler/webpack/output';
 
 describe('Bundler#getOutput()', function () {
   let result: any = {};

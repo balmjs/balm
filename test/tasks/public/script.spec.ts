@@ -46,7 +46,7 @@ describe('Script Task', function() {
   });
 
   describe('use esbuild', function() {
-    const defaultInput: string[] = [];
+    const defaultInput = './src/scripts/index.js';
 
     before(function() {
       balm.config = {
@@ -59,9 +59,7 @@ describe('Script Task', function() {
     it(`expected output: "${defaultInput}"`, function(done) {
       scriptTask.fn(done);
 
-      expect(JSON.stringify(scriptTask.input)).to.equal(
-        JSON.stringify(defaultInput)
-      );
+      expect(scriptTask.input).to.equal(defaultInput);
     });
   });
 

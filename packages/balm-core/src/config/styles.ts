@@ -1,6 +1,6 @@
 const extname = 'css';
 const dartSass = false;
-const minified = false;
+const minify = false;
 const atImportPaths: string[] = [];
 /**
  * Cssnano optimisations
@@ -56,7 +56,7 @@ const spriteParams: object = {};
 export default {
   extname,
   dartSass,
-  minified,
+  minify,
   atImportPaths,
   options,
   sassOptions,

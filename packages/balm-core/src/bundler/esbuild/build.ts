@@ -8,13 +8,13 @@ const minifyOptions = {
   minifySyntax: true
 };
 
-const esbuild = (
+const esBuild = (
   input: string[],
   output: string,
   customOptions: any,
   callback: Function
 ): void => {
-  const defaultOptions = {
+  const defaultBuildOptions = {
     entryPoints: input.length
       ? BalmJS.file.absPaths(input)
       : [BalmJS.file.absPath(BalmJS.file.defaultEntry)],
@@ -24,12 +24,14 @@ const esbuild = (
   };
 
   const buildOptions = BalmJS.config.env.isProd
-    ? Object.assign(defaultOptions, minifyOptions)
-    : defaultOptions;
+    ? Object.assign(defaultBuildOptions, minifyOptions)
+    : defaultBuildOptions;
 
-  const esbuildOptions = BalmJS.utils.isObject(BalmJS.config.scripts.esbuild)
-    ? Object.assign(buildOptions, BalmJS.config.scripts.esbuild, customOptions)
-    : Object.assign(buildOptions, customOptions);
+  const esbuildOptions = Object.assign(
+    buildOptions,
+    BalmJS.config.scripts.buildOptions,
+    customOptions
+  );
 
   BalmJS.logger.success('esbuild options', esbuildOptions, {
     pre: true
@@ -45,4 +47,4 @@ const esbuild = (
     });
 };
 
-export default esbuild;
+export default esBuild;
