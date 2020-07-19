@@ -5,7 +5,7 @@
   <br>
   <br>
 
-[![NPM version][npm-image]][npm-url]
+[![NPM version][balm-image]][balm-url]
 [![node][node-image]][node-url]
 [![Dependency Status][deps-image]][deps-url]
 [![Build Status][travis-image]][travis-url]
@@ -66,6 +66,7 @@ project
 
 | Project                                               | Status                                                 | Description                                       |
 | ----------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------- |
+| [balm-core](https://github.com/balmjs/balm)           | [![NPM version][balm-core-image]][balm-core-url]       | BalmJS core (for `balm@3`)                        |
 | [balm-cli](https://github.com/balmjs/balm-cli)        | [![NPM version][balm-cli-image]][balm-cli-url]         | :spades: BalmJS scaffolding tool                  |
 | [balm-gui](https://github.com/balmjs/balm-gui)        | N/A                                                    | :clubs: GUI for BalmJS                            |
 | [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue               |
@@ -88,7 +89,7 @@ You need to set up your development environment before you can do anything.
 
 Install [Node.js® and npm](https://nodejs.org/en/download/) if they are not already on your machine.
 
-> **Verify that you are running at least node `10.13.x` and npm `5.2.x`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
+> **Verify that you are running at least node `12.0.0` and npm `5.2.0`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
 
 You develop apps in the context of an [Balm workspace](https://balmjs.com/docs/v2/guide/structure.html).
 
@@ -104,11 +105,9 @@ npm init -y
 :bell: BalmJS workflow using [gulp](https://gulpjs.com/) for the build process, so you need install `gulp-cli` globally and `gulp` local dependency.
 
 ```sh
-yarn global add balm-core@next
 yarn global add gulp-cli
 yarn add -D gulp
 # OR
-npm install -g balm-core@next
 npm install -g gulp-cli
 npm install -D gulp
 
@@ -122,8 +121,10 @@ $ gulp -v
 ### 1. Installing **`balm`**
 
 ```sh
+yarn global add balm-core
 yarn add -D balm@next
 # OR
+npm install -g balm-core
 npm install -D balm@next
 ```
 
@@ -182,8 +183,10 @@ In chronological order
 - [gulp.js](https://gulpjs.com/)
 - [webpack](https://webpack.js.org/)
 
-[npm-image]: https://badge.fury.io/js/balm.svg
-[npm-url]: https://npmjs.org/package/balm
+[balm-core-image]: https://badge.fury.io/js/balm-core.svg
+[balm-core-url]: https://npmjs.org/package/balm-core
+[balm-image]: https://badge.fury.io/js/balm.svg
+[balm-url]: https://npmjs.org/package/balm
 [node-image]: https://img.shields.io/node/v/balm.svg
 [node-url]: https://nodejs.org
 [deps-image]: https://david-dm.org/balmjs/balm.svg?theme=shields.io
