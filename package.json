@@ -146,5 +146,7 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  "private": true
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
