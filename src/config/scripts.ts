@@ -10,6 +10,7 @@ interface PostcssLoaderOptions {
   sourceMap: string | boolean;
 }
 
+const lint = false;
 // Entry and Context
 const entry: string | string[] | BalmEntryObject = '';
 // Output
@@ -49,8 +50,6 @@ const extensions: string[] = [];
 const alias: object = {};
 // Plugins
 const plugins: object[] = [];
-// DevServer
-const hot = true;
 // Devtool
 const sourceMap: string | boolean = false;
 // Target
@@ -71,8 +70,6 @@ const stats: string | object = {
  * @reference https://webpack.js.org/configuration/
  */
 const webpackOptions: object = {};
-// Other advanced options
-const lint = false;
 /**
  * Terser minify options
  *
@@ -135,6 +132,7 @@ const extractCss: {
 const ie8 = false;
 
 export default {
+  lint,
   entry,
   library,
   libraryTarget,
@@ -147,13 +145,11 @@ export default {
   extensions,
   alias,
   plugins,
-  hot,
   sourceMap,
   target,
   externals,
   stats,
   webpackOptions,
-  lint,
   options,
   inject,
   optimization,

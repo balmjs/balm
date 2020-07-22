@@ -8,7 +8,7 @@ const cssModuleRegex = /\.module\.css$/;
 function cssLoader(): RuleSetRule {
   let styleLoader = 'style-loader';
 
-  BalmJS.config.scripts.postcssLoaderOptions.plugins = BalmJS.plugins.postcss();
+  BalmJS.config.scripts.postcssLoaderOptions.plugins = BalmJS.plugins.postcss(); // TODO: isPostCSS?
 
   if (BalmJS.config.env.inSSR) {
     const loadersCount: number = BalmJS.config.scripts.loaders.length;

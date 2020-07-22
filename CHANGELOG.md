@@ -1,5 +1,19 @@
 # [BalmJS](https://balmjs.com) CHANGELOG
 
+## v2.22.1 / 2020-07-22
+
+### Bug Fixes
+
+- `postcss` plugin bugfix for css extname
+
+### Chores
+
+- update `server` watchers
+
+### BREAKING CHANGES
+
+- deprecated <del>`balm.config.scripts.hot`</del>
+
 ## v2.22.0 / 2020-07-12
 
 ### Chores

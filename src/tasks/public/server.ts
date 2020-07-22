@@ -11,10 +11,6 @@ class ServerTask extends BalmJS.BalmTask {
   constructor() {
     super('serve');
 
-    if (BalmJS.config.scripts.ie8) {
-      BalmJS.config.scripts.hot = false;
-    }
-
     if (BalmJS.config.env.isDev) {
       detectPort(BalmJS.config.server.port, BalmJS.config.server.host).then(
         (port: number) => {
@@ -29,6 +25,16 @@ class ServerTask extends BalmJS.BalmTask {
         () => {}
       );
     }
+  }
+
+  private _watchTask(taskName: string, serverReload = false): Function {
+    const balmTask = BalmJS.tasks.get(taskName).fn; // !important
+    const reload = (done: Function): void => {
+      server.reload();
+      done();
+    };
+
+    return serverReload ? series(balmTask, reload) : balmTask;
   }
 
   private _onWatch(): void {
@@ -49,35 +55,33 @@ class ServerTask extends BalmJS.BalmTask {
     watch(
       `${BalmJS.config.src.base}/*.html`,
       watchOptions,
-      BalmJS.tasks.get('html').fn
+      this._watchTask('html')
     ).on('change', server.reload);
 
     watch(
       `${BalmJS.config.src.css}/**/*.${BalmJS.config.styles.extname}`,
       watchOptions,
-      BalmJS.config.inFrontend
-        ? BalmJS.tasks.get(this.styleName).fn
-        : parallel(BalmJS.toNamespace('style'))
+      this._watchTask(BalmJS.config.inFrontend ? this.styleName : 'style')
     );
 
-    if (BalmJS.config.scripts.entry && !BalmJS.config.scripts.hot) {
+    if (!BalmJS.config.server.useHMR) {
       watch(
         `${BalmJS.config.src.js}/**/*`,
         watchOptions,
-        series(BalmJS.tasks.get('script').fn, reload)
+        this._watchTask('script', true)
       );
     }
 
     watch(
       `${BalmJS.config.src.base}/modernizr.json`,
       watchOptions,
-      BalmJS.tasks.get('modernizr').fn
+      this._watchTask('modernizr')
     );
 
     watch(
       `${BalmJS.config.src.font}/**/*`,
       watchOptions,
-      BalmJS.tasks.get('font').fn
+      this._watchTask('font')
     );
 
     // For FTP
@@ -87,7 +91,7 @@ class ServerTask extends BalmJS.BalmTask {
         (path: string) => {
           BalmJS.logger.debug(`${this.name} task`, `File ${path} was changed`);
           BalmJS.watchFtpFile = path;
-          series(BalmJS.tasks.get('ftp').fn, reload)();
+          this._watchTask('ftp', true)();
         }
       );
     }

@@ -47,6 +47,7 @@ export type Configuration = import('webpack').Configuration;
 export type RuleSetRule = import('webpack').RuleSetRule;
 
 export interface BalmScripts {
+  lint: boolean;
   entry: string | string[] | BalmEntryObject;
   library: string | object;
   libraryTarget: string;
@@ -72,13 +73,11 @@ export interface BalmScripts {
   extensions: string[];
   alias: object; // { [key: string]: string }
   plugins: object[];
-  hot: boolean;
   sourceMap: string | boolean;
   target: string;
   externals: string | object | Function | RegExp;
   stats: string | object;
   webpackOptions: object;
-  lint: boolean;
   options: object;
   inject: boolean;
   optimization: object;
@@ -140,6 +139,7 @@ interface BalmServer {
   historyOptions: boolean | object;
   middlewares: Function[] | object[];
   extraWatchFiles: string[];
+  useHMR?: boolean;
 }
 
 export interface BalmFtpConfig {

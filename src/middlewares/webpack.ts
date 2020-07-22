@@ -15,7 +15,7 @@ function webpackMiddleware(): object[] {
       )
     );
 
-    if (BalmJS.config.scripts.hot) {
+    if (BalmJS.config.server.useHMR) {
       middleware.push(
         webpackHot(BalmJS.webpackCompiler, {
           log: false,
@@ -24,11 +24,7 @@ function webpackMiddleware(): object[] {
       );
     }
   } else {
-    BalmJS.logger.warn(
-      'webpack middleware',
-      'Webpack compiler is not ready, `HMR` is disabled'
-    );
-    BalmJS.config.scripts.hot = false;
+    BalmJS.logger.warn('webpack middleware', 'Webpack compiler is not ready');
   }
 
   return middleware;
