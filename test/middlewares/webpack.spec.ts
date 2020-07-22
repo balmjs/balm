@@ -24,12 +24,6 @@ describe('Webpack Middleware', function() {
 
   describe('dev without hot', function() {
     before(function() {
-      balm.config = {
-        scripts: {
-          hot: false
-        }
-      };
-
       BalmJS.webpackCompiler = webpack({});
     });
 
@@ -45,13 +39,12 @@ describe('Webpack Middleware', function() {
 
   describe('dev with hot', function() {
     before(function() {
-      balm.config = {
-        scripts: {
-          hot: true
-        }
-      };
-
       BalmJS.webpackCompiler = webpack({});
+      BalmJS.config.server.useHMR = true;
+    });
+
+    after(function() {
+      BalmJS.config.server.useHMR = false;
     });
 
     const middlewaresCount = 2;
