@@ -44,7 +44,7 @@
     "build": "rimraf tslib && tsc",
     "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json TS_NODE_FILES=true nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "release": "bash ./tools/release.sh"
+    "release": "bash ./scripts/release.sh"
   },
   "dependencies": {
     "@babel/core": "^7.10.5",
