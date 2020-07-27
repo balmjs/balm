@@ -41,7 +41,9 @@ function cssLoader(): RuleSetRule {
         loader: 'css-loader',
         options: {
           importLoaders: 1,
-          sourceMap: BalmJS.config.env.isProd && BalmJS.config.scripts.sourceMap
+          sourceMap:
+            BalmJS.config.env.isProd && BalmJS.config.scripts.sourceMap,
+          esModule: BalmJS.config.scripts.useEsModule
         }
       },
       {

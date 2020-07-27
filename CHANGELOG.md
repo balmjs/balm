@@ -1,5 +1,16 @@
 # [BalmJS](https://balmjs.com) CHANGELOG
 
+## v2.23.0 / 2020-07-27
+
+### Chores
+
+- dependencies: up to date
+  - `css-loader`: 3.x -> 4.x
+
+### Features
+
+- add `balm.config.scripts.useEsModule: boolean = false` for all default loaders
+
 ## v2.22.1 / 2020-07-22
 
 ### Bug Fixes

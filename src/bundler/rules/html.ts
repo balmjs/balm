@@ -5,7 +5,8 @@ function htmlLoader(): RuleSetRule {
     {
       minimize: {
         removeAttributeQuotes: false
-      }
+      },
+      esModule: BalmJS.config.scripts.useEsModule
     },
     BalmJS.config.scripts.htmlLoaderOptions
   );

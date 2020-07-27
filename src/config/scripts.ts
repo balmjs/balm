@@ -1,14 +1,4 @@
-import { BalmEntryObject } from '@balm/index';
-
-interface PostcssLoaderOptions {
-  exec?: boolean;
-  parser?: string | object;
-  syntax?: string | object;
-  stringifier?: string | object;
-  config?: object;
-  plugins?: object[] | Function; // NOTE: The same to `styles.postcssPlugins`
-  sourceMap: string | boolean;
-}
+import { BalmEntryObject, PostcssLoaderOptions } from '@balm/index';
 
 const lint = false;
 // Entry and Context
@@ -25,6 +15,7 @@ const defaultLoaders: {
   js?: boolean;
   url?: boolean;
 } = {};
+const useEsModule = false;
 /**
  * Files: url-loader options
  *
@@ -139,6 +130,7 @@ export default {
   loaders,
   includeJsResource,
   defaultLoaders,
+  useEsModule,
   urlLoaderOptions,
   htmlLoaderOptions,
   postcssLoaderOptions,

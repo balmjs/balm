@@ -11,7 +11,8 @@ function urlLoader(): RuleSetRule[] {
   const options = Object.assign(
     {
       limit: imageInlineSizeLimit, // Loads files as `base64` encoded URL
-      name: BalmJS.file.assetsPath(`${PATHNAME}${FILENAME}`)
+      name: BalmJS.file.assetsPath(`${PATHNAME}${FILENAME}`),
+      esModule: BalmJS.config.scripts.useEsModule
     },
     BalmJS.config.scripts.urlLoaderOptions
   );
