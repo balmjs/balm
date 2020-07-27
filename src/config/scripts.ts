@@ -15,7 +15,7 @@ const defaultLoaders: {
   js?: boolean;
   url?: boolean;
 } = {};
-const useEsModule = false;
+const useEsModule = true;
 /**
  * Files: url-loader options
  *

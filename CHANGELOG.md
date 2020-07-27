@@ -9,7 +9,7 @@
 
 ### Features
 
-- add `balm.config.scripts.useEsModule: boolean = false` for all default loaders
+- add `balm.config.scripts.useEsModule: boolean = true` for all default loaders
 
 ## v2.22.1 / 2020-07-22
 
