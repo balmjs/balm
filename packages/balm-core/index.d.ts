@@ -74,13 +74,14 @@ export interface BalmScripts {
   library: string | object;
   libraryTarget: string;
   loaders: object[];
-  includeJsResource: string[];
   defaultLoaders: {
     html?: boolean;
     css?: boolean;
     js?: boolean;
     url?: boolean;
   };
+  includeJsResource: string[];
+  useEsModule: boolean;
   urlLoaderOptions: object;
   htmlLoaderOptions: object;
   postcssLoaderOptions: Partial<PostcssLoaderOptions>;

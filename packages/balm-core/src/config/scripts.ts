@@ -28,13 +28,14 @@ const library: string | object = '';
 const libraryTarget = 'var'; // ['var', 'this', 'window', 'global', 'commonjs', 'commonjs2', 'amd', 'umd']
 // Module
 const loaders: object[] = [];
-const includeJsResource: string[] = [];
 const defaultLoaders: {
   html?: boolean;
   css?: boolean;
   js?: boolean;
   url?: boolean;
 } = {};
+const includeJsResource: string[] = [];
+const useEsModule = true;
 /**
  * Files: url-loader options
  *
@@ -152,8 +153,9 @@ export default {
   library,
   libraryTarget,
   loaders,
-  includeJsResource,
   defaultLoaders,
+  includeJsResource,
+  useEsModule,
   urlLoaderOptions,
   htmlLoaderOptions,
   postcssLoaderOptions,

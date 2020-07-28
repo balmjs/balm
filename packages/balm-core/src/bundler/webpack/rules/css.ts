@@ -6,7 +6,7 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 
 function cssLoader(): RuleSetRule {
-  let styleLoader = 'style-loader';
+  let styleLoader = require.resolve('style-loader');
   if (BalmJS.config.env.inSSR) {
     const loadersCount: number = BalmJS.config.scripts.loaders.length;
     for (let i = 0; i < loadersCount; i++) {
@@ -41,14 +41,15 @@ function cssLoader(): RuleSetRule {
         ? MiniCssExtractPlugin.loader
         : styleLoader,
       {
-        loader: 'css-loader',
+        loader: require.resolve('css-loader'),
         options: {
           importLoaders: 1,
-          sourceMap
+          sourceMap,
+          esModule: BalmJS.config.scripts.useEsModule
         }
       },
       {
-        loader: 'postcss-loader',
+        loader: require.resolve('postcss-loader'),
         options: Object.assign(
           {
             ident: 'postcss',

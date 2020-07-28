@@ -11,7 +11,8 @@ function urlLoader(): RuleSetRule[] {
   const options = Object.assign(
     {
       limit: imageInlineSizeLimit, // Loads files as `base64` encoded URL
-      name: BalmJS.file.assetsPath(`${PATHNAME}${FILENAME}`)
+      name: BalmJS.file.assetsPath(`${PATHNAME}${FILENAME}`),
+      esModule: BalmJS.config.scripts.useEsModule
     },
     BalmJS.config.scripts.urlLoaderOptions
   );
@@ -22,17 +23,17 @@ function urlLoader(): RuleSetRule[] {
     // A missing `test` is equivalent to a match.
     {
       test: /\.(bmp|gif|jpe?g|png|svg)(\?.*)?$/,
-      loader: 'url-loader',
+      loader: require.resolve('url-loader'),
       options
     },
     {
       test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-      loader: 'url-loader',
+      loader: require.resolve('url-loader'),
       options
     },
     {
       test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-      loader: 'url-loader',
+      loader: require.resolve('url-loader'),
       options
     }
   ];

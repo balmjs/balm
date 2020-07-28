@@ -5,14 +5,15 @@ function htmlLoader(): RuleSetRule {
     {
       minimize: {
         removeAttributeQuotes: false
-      }
+      },
+      esModule: BalmJS.config.scripts.useEsModule
     },
     BalmJS.config.scripts.htmlLoaderOptions
   );
 
   return {
     test: /\.html$/i,
-    loader: 'html-loader',
+    loader: require.resolve('html-loader'),
     options
   };
 }
