@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 /* eslint-disable @typescript-eslint/no-var-requires */
+const gulp = require('gulp');
 const { argv } = require('yargs');
 const fs = require('fs');
 const colors = require('ansi-colors');
@@ -8,6 +9,10 @@ const balm = require('../lib');
 
 const balmCwd = process.env.BALM_CWD || process.cwd();
 const balmConfigFile = argv.config || `${balmCwd}/balm.config.js`;
+
+function run() {
+  gulp.parallel('default')();
+}
 
 if (balmConfigFile && fs.existsSync(balmConfigFile)) {
   const balmConfig = require(balmConfigFile);
@@ -26,6 +31,7 @@ if (balmConfigFile && fs.existsSync(balmConfigFile)) {
       }
 
       recipe ? balm.go(recipe) : balm.go();
+      run();
     } else {
       console.warn(
         colors.bgBlueBright('<BalmJS>'),
@@ -36,6 +42,7 @@ if (balmConfigFile && fs.existsSync(balmConfigFile)) {
     balm.config = balmConfig || {};
 
     balm.go();
+    run();
   }
 } else {
   console.error(
