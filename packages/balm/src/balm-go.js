@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const gulp = require('gulp');
-const { argv } = require('yargs');
-const fs = require('fs');
-const colors = require('ansi-colors');
-const balm = require('./lib');
+import gulp from 'gulp';
+import { argv } from 'yargs';
+import fs from 'fs';
+import colors from 'ansi-colors';
+import balm from './index';
 
 const balmCwd = process.env.BALM_CWD || process.cwd();
 const balmConfigFile = argv.config || `${balmCwd}/balm.config.js`;
@@ -13,6 +12,7 @@ function run() {
 }
 
 if (balmConfigFile && fs.existsSync(balmConfigFile)) {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const balmConfig = require(balmConfigFile);
 
   if (typeof balmConfig === 'function') {
