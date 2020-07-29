@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "3.0.0-beta.4",
+  "version": "3.0.0-beta.5",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -45,6 +45,7 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/runtime": "^7.10.5",
     "ansi-colors": "^4.1.1",
+    "balm-cli": "^2.0.0-beta.0",
     "global-dirs": "^2.0.1",
     "gulp": "^4.0.2",
     "webpack-hot-middleware": "^2.25.0",
