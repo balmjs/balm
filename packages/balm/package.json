@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "3.0.0-beta.6",
+  "version": "3.0.0-beta.7",
   "description": "A flexible front-end workflow for webapps",
   "keywords": [
     "balm",
@@ -28,12 +28,13 @@
     }
   ],
   "files": [
+    "bin",
     "lib",
-    "bin"
+    "index.js"
   ],
   "main": "lib/index.js",
   "bin": {
-    "balm-go": "./bin/balm-go.js"
+    "balm": "./bin/balm.js"
   },
   "repository": {
     "type": "git",
