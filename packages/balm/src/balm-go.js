@@ -1,11 +1,12 @@
-import gulp from 'gulp';
+import path from 'path';
 import { argv } from 'yargs';
 import fs from 'fs';
 import colors from 'ansi-colors';
+import gulp from 'gulp';
 import balm from './index';
 
 const balmCwd = process.env.BALM_CWD || process.cwd();
-const balmConfigFile = argv.config || `${balmCwd}/balm.config.js`;
+const balmConfigFile = path.join(balmCwd, argv.config || 'balm.config.js');
 
 function run() {
   gulp.parallel('default')();
