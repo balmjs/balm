@@ -17,7 +17,7 @@ if (balmConfigFile && fs.existsSync(balmConfigFile)) {
   const balmConfig = require(balmConfigFile);
 
   if (typeof balmConfig === 'function') {
-    let { config, beforeTask, afterTask, recipe } = balmConfig();
+    let { config, beforeTask, afterTask, api } = balmConfig(balm);
 
     if (config) {
       balm.config = config;
@@ -29,7 +29,7 @@ if (balmConfigFile && fs.existsSync(balmConfigFile)) {
         balm.afterTask = afterTask;
       }
 
-      recipe ? balm.go(recipe) : balm.go();
+      api ? balm.go(api) : balm.go();
       run();
     } else {
       console.warn(
