@@ -17,6 +17,8 @@
   <p>A flexible Front-End workflow for webapps</p>
 </div>
 
+> [BalmJS 3.0](https://github.com/balmjs/balm/tree/next) is coming up...
+
 ## What's BalmJS?
 
 BalmJS prescribes best practices and tools to help you stay productive.
@@ -90,7 +92,7 @@ Install [Node.js® and npm](https://nodejs.org/en/download/) if they are not alr
 
 > **Verify that you are running at least node `10.13.x` and npm `5.2.x`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
 
-You develop apps in the context of an [Balm workspace](https://balmjs.com/docs/v2/guide/structure.html).
+You develop apps in the context of an [Balm workspace](https://balmjs.com/docs/guide/structure.html).
 
 To create a new workspace and initial starter app:
 
@@ -144,7 +146,7 @@ balm.config = {
 balm.go();
 ```
 
-:page_with_curl: Refer to [configuration docs](https://balmjs.com/docs/v2/config/) to learn more about config **`balm`**.
+:page_with_curl: Refer to [configuration docs](https://balmjs.com/docs/config/) to learn more about config **`balm`**.
 
 ### 3. Usage
 
@@ -160,11 +162,11 @@ gulp --production
 gulp -p
 ```
 
-## [Documentation](https://balmjs.com/docs/v2/)
+## [Documentation](https://balmjs.com/docs/)
 
-- [Getting Started](https://balmjs.com/docs/v2/guide/getting-started.html)
-- [Configuration](https://balmjs.com/docs/v2/config/)
-- [Custom Task API](https://balmjs.com/docs/v2/api/)
+- [Getting Started](https://balmjs.com/docs/guide/getting-started.html)
+- [Configuration](https://balmjs.com/docs/config/)
+- [Custom Task API](https://balmjs.com/docs/api/)
 
 ## License
 

@@ -1,5 +1,4 @@
 import getType from './typeof';
-import { LooseObject } from '@balm/index';
 
 function isString(str: unknown): boolean {
   return getType(str) === 'string';
@@ -19,7 +18,7 @@ function isFunction(fn: unknown): boolean {
 }
 
 // Deep merge two objects
-function deepMerge(target: LooseObject, source: LooseObject): object {
+function deepMerge(target: any, source: any): object {
   if (isObject(target) && isObject(source)) {
     Object.keys(source).forEach((key: string) => {
       if (isObject(source[key])) {

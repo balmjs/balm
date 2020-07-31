@@ -56,6 +56,15 @@ describe('Balm Utils', function () {
 
   describe('#deepMerge()', function () {
     it(
+      'merge non-object',
+      asyncCase(function () {
+        const result = utils.deepMerge(0, 1);
+
+        expect(result).to.equal(0);
+      })
+    );
+
+    it(
       'merge object',
       asyncCase(function () {
         const result = utils.deepMerge(
