@@ -40,6 +40,7 @@ class PublishTask extends BalmJS.BalmTask {
     output: string,
     renameOptions: string | Function | RenameOptions
   ): any {
+    // TODO: has bug with `zip`
     return (callback: Function): void => {
       if (BalmJS.config.env.isProd) {
         if (BalmJS.utils.isArray(input)) {
