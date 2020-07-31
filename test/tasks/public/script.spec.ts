@@ -51,12 +51,13 @@ describe('Script Task', function() {
     before(function() {
       balm.config = {
         scripts: {
-          esbuild: true
+          esbuild: true,
+          entry: defaultInput
         }
       };
     });
 
-    it(`expected output: "${defaultInput}"`, function(done) {
+    it(`expected input: "${defaultInput}"`, function(done) {
       scriptTask.fn(done);
 
       expect(scriptTask.input).to.equal(defaultInput);
@@ -64,21 +65,24 @@ describe('Script Task', function() {
   });
 
   describe('use esbuild #mix.js()', function() {
+    const defaultInput = ['src/scripts/index.js'];
+    const defaultOutput = 'dist/js';
+
     before(function() {
       balm.config = {
         scripts: {
-          esbuild: true
+          esbuild: true,
+          entry: defaultInput
         }
       };
     });
 
-    const defaultInput = 'src/scripts/index.js';
-    const defaultOutput = 'dist/js';
-
-    it(`expected output: "${defaultInput}"`, function(done) {
+    it(`expected output: "${defaultOutput}"`, function(done) {
       scriptTask.recipe(defaultInput, defaultOutput, {})(done);
 
-      expect(scriptTask.input).to.equal(defaultInput);
+      expect(JSON.stringify(scriptTask.input)).to.equal(
+        JSON.stringify(defaultInput)
+      );
       expect(scriptTask.output).to.equal(defaultOutput);
     });
   });

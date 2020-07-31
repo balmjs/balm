@@ -15,9 +15,7 @@ const esBuild = (
   callback: Function
 ): void => {
   const defaultBuildOptions = {
-    entryPoints: input.length
-      ? BalmJS.file.absPaths(input)
-      : [BalmJS.file.absPath(BalmJS.file.defaultEntry)],
+    entryPoints: BalmJS.file.absPaths(input),
     outdir: BalmJS.file.absPath(output),
     bundle: true,
     logLevel: 'silent'

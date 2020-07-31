@@ -10,9 +10,6 @@ node_js:
   - '14'
   - '12'
 
-before_script:
-  - npm install -g gulp-cli
-
 script:
   - node --version && npm --version
   - npm test

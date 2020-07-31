@@ -26,7 +26,6 @@ matrix:
 # scripts that run after cloning repository
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
-  - npm install -g gulp-cli
   - npm install
 
 # build platform, i.e. x86, x64, Any CPU. This setting is optional.

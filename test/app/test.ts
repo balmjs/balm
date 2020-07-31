@@ -79,7 +79,7 @@ function runTest(
 
     balm.go((testObj as TestObj).testHook || function () {});
 
-    gulp.series('default')();
+    gulp.parallel('default')();
   } else {
     assertCase(testObj, checkExist);
   }

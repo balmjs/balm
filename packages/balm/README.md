@@ -52,11 +52,11 @@ project
 │ └── index.html // Required. A entry file for HTML.
 ├─┬ config       // Optional. But recommended. Refer to BalmCLI's templates.
 │ ├── balmrc.js
-│ └── publish.js
-├── .dotfile     // (e.g. .gitignore, .browserslistrc, etc...)
+│ └── balm.publish.js
+├── .dotfile       // (e.g. .gitignore, .browserslistrc, etc...)
 ├── babel.config.js
-├── gulpfile.js  // Required. A configuration file for Balm.
-├── package.json // Required.
+├── balm.config.js // Required. A configuration file for Balm.
+├── package.json   // Required.
 └── ...
 ```
 
@@ -91,7 +91,7 @@ Install [Node.js® and npm](https://nodejs.org/en/download/) if they are not alr
 
 > **Verify that you are running at least node `12.0.0` and npm `5.2.0`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
 
-You develop apps in the context of an [Balm workspace](https://balmjs.com/docs/v2/guide/structure.html).
+You develop apps in the context of an [Balm workspace](https://balmjs.com/docs/guide/structure.html).
 
 To create a new workspace and initial starter app:
 
@@ -102,29 +102,13 @@ cd balm-project
 npm init -y
 ```
 
-:bell: BalmJS workflow using [gulp](https://gulpjs.com/) for the build process, so you need install `gulp-cli` globally and `gulp` local dependency.
-
-```sh
-yarn global add gulp-cli
-yarn add -D gulp
-# OR
-npm install -g gulp-cli
-npm install -D gulp
-
-# Verify
-$ gulp -v
-# Output:
-# CLI version: 2.2.0
-# Local version: 4.0.0
-```
-
 ### 1. Installing **`balm`**
 
 ```sh
-yarn global add balm-core
+yarn global add balm-core@next
 yarn add -D balm@next
 # OR
-npm install -g balm-core
+npm install -g balm-core@next
 npm install -D balm@next
 ```
 
@@ -132,42 +116,44 @@ npm install -D balm@next
 
 ### 2. Configuration
 
-In your project directory, create a file named `gulpfile.js` in your project root with these contents:
+In your project directory, create a file named `balm.config.js` in your project root with these contents:
 
-```js
-// 1. import balm
-const balm = require('balm');
-
-// 2. config balm
-balm.config = {
+```json
+module.exports = {
   // Your project config
 };
-
-// 3. run & enjoy
-balm.go();
 ```
 
-:page_with_curl: Refer to [configuration docs](https://balmjs.com/docs/v2/config/) to learn more about config **`balm`**.
+:page_with_curl: Refer to [configuration docs](https://balmjs.com/docs/config/) to learn more about config **`balm`**.
 
 ### 3. Usage
+
+Edit `package.json` in your project directory:
+
+```json
+{
+  "scripts": {
+    "dev": "balm",
+    "prod": "balm -p"
+  }
+}
+```
 
 Run the command in your project directory:
 
 ```sh
 # For development
-gulp
+npm run dev
 
 # For production
-gulp --production
-# OR
-gulp -p
+npm run prod
 ```
 
-## [Documentation](https://balmjs.com/docs/v2/)
+## [Documentation](https://balmjs.com/docs/)
 
-- [Getting Started](https://balmjs.com/docs/v2/guide/getting-started.html)
-- [Configuration](https://balmjs.com/docs/v2/config/)
-- [Custom Task API](https://balmjs.com/docs/v2/api/)
+- [Getting Started](https://balmjs.com/docs/guide/getting-started.html)
+- [Configuration](https://balmjs.com/docs/config/)
+- [Custom Task API](https://balmjs.com/docs/api/)
 
 ## License
 

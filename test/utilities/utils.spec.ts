@@ -56,6 +56,15 @@ describe('Balm Utils', function () {
 
   describe('#deepMerge()', function () {
     it(
+      'merge non-object',
+      asyncCase(function () {
+        const result = utils.deepMerge(0, 1);
+
+        expect(result).to.equal(0);
+      })
+    );
+
+    it(
       'merge object',
       asyncCase(function () {
         const result = utils.deepMerge(
@@ -66,7 +75,7 @@ describe('Balm Utils', function () {
             balm: {
               project: {
                 name: 'BalmJS',
-                age: 2019
+                since: 2016
               },
               author: 'N.Elf-mousE'
             }
@@ -74,7 +83,7 @@ describe('Balm Utils', function () {
         );
 
         expect(JSON.stringify(result)).to.equal(
-          '{"balm":{"project":{"name":"BalmJS","age":2019},"author":"N.Elf-mousE"}}'
+          '{"balm":{"project":{"name":"BalmJS","since":2016},"author":"N.Elf-mousE"}}'
         );
       })
     );
