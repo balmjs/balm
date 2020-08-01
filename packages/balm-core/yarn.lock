@@ -2985,10 +2985,10 @@ css-has-pseudo@^0.10.0:
     postcss "^7.0.6"
     postcss-selector-parser "^5.0.0-rc.4"
 
-css-loader@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-4.1.1.tgz#48342f098784e75bbfc0933dea2853314fb737d8"
-  integrity sha512-nZ4OC2g88+wOOdkVQ0yYy7T6uXSkb7I7UyMNnaevQQvVWskTSDRAz08ETl91et4ghVL6jfnzWUt0o2XaY0gyRg==
+css-loader@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-4.2.0.tgz#b57efb92ac8f0cd85bf92d89df9634ef1f51b8bf"
+  integrity sha512-ko7a9b0iFpWtk9eSI/C8IICvZeGtYnjxYjw45rJprokXj/+kBd/siX4vAIBq9Uij8Jubc4jL1EvSnTjCEwaHSw==
   dependencies:
     camelcase "^6.0.0"
     cssesc "^3.0.0"
@@ -3712,10 +3712,10 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-esbuild@^0.6.11:
-  version "0.6.11"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.6.11.tgz#76a62155b85596bb3d3ab91c64f32a30beb34868"
-  integrity sha512-tvOcCSc8FvUAiqQO9TdIEdfv+gcAji0dUsSLyX6bXTnM9tKzEtfhk+nirlxg9K3o3E5lehDD8z2RQMgS2ifCAA==
+esbuild@^0.6.13:
+  version "0.6.13"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.6.13.tgz#eb7641715efcdc16bdc5c6f5b1671cb5dc61c8ce"
+  integrity sha512-eTaeqZCna+g9cTqhdT/qn1n+ef8FinkjTHTEexn8mbCRxxqGlc1GfgiURXt74OAwHwH6IU2j/bX9NCyFBsi5KQ==
 
 escalade@^3.0.1:
   version "3.0.2"
