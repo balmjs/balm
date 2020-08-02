@@ -1,12 +1,11 @@
 const path = require('path');
-const balm = require('./balm');
-
-const projectRoot = path.resolve(__dirname, '..', '..');
-const workspace = path.join(projectRoot, 'test-workspace');
 
 console.info('balm@zero');
 
-balm.config = {
+const projectRoot = path.resolve(__dirname, '..');
+const workspace = path.join(projectRoot, 'test-workspace');
+
+const config = {
   workspace,
   // useDefaults: false,
   styles: {
@@ -20,8 +19,8 @@ balm.config = {
   },
   images: {
     plugins: {
-      // jpeg: false,
-      // png: false
+      jpeg: false,
+      png: false
     }
   },
   assets: {
@@ -32,7 +31,7 @@ balm.config = {
   }
 };
 
-balm.go((mix) => {
+const api = (mix) => {
   // mix.sprite(['icons', 'mdi'], '.output/images');
 
   if (mix.env.isProd) {
@@ -55,4 +54,11 @@ balm.go((mix) => {
     //   });
     // });
   }
-});
+};
+
+module.exports = () => {
+  return {
+    config,
+    api
+  };
+};

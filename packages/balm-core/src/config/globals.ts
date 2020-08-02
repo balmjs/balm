@@ -9,7 +9,9 @@ import colors from 'ansi-colors';
 
 // Set env var for ORIGINAL cwd before anything touches it
 process.env.BALM_CWD = process.env.INIT_CWD || process.cwd();
-const gulpRuntimePath = `${process.env.BALM_CWD}/node_modules/gulp/index.js`;
+const gulpRuntimePath = `${
+  process.env.BALM || process.env.BALM_CWD
+}/node_modules/gulp/index.js`;
 
 if (!fs.existsSync(gulpRuntimePath)) {
   console.error(

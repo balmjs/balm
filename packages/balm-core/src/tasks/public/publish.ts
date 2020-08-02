@@ -15,7 +15,7 @@ class PublishTask extends BalmJS.BalmTask {
     input: string,
     output: string,
     renameOptions: string | Function | RenameOptions = {}
-  ): void {
+  ): any {
     if (input && output) {
       this.init(
         path.join(BalmJS.config.dest.base, input),
@@ -25,7 +25,7 @@ class PublishTask extends BalmJS.BalmTask {
       this.init();
     }
 
-    this.src
+    return this.src
       .pipe(
         $.if(
           !BalmJS.utils.isArray(this.input),
@@ -40,27 +40,29 @@ class PublishTask extends BalmJS.BalmTask {
     output: string,
     renameOptions: string | Function | RenameOptions
   ): any {
-    return (callback: Function): void => {
+    return (callback: Function): any => {
       if (BalmJS.config.env.isProd) {
         if (BalmJS.utils.isArray(input)) {
-          (input as TemplateOption[]).forEach((template: TemplateOption) => {
+          // TODO: await
+          for (const template of input as TemplateOption[]) {
             this._release(
               template.input,
               template.output,
               template.renameOptions
             );
-          });
+          }
+          callback();
         } else {
-          this._release(input as string, output, renameOptions);
+          return this._release(input as string, output, renameOptions);
         }
       } else {
         BalmJS.logger.warn(
           `${this.name} task`,
           '`mix.publish()` is only supported for production'
         );
-      }
 
-      callback();
+        callback();
+      }
     };
   }
 

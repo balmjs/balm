@@ -47,35 +47,28 @@ class ModernizrTask extends BalmJS.BalmTask {
     });
   }
 
-  get fn(): any {
-    return (callback: Function): void => {
-      this.init();
+  fn = async (callback: Function): Promise<any> => {
+    this.init();
 
-      fs.access(this.input, fs.constants.F_OK, (err: any) => {
-        if (err) {
-          BalmJS.logger.warn(
-            `${this.name} task`,
-            `The '${this.input}' does not exist`,
-            {
-              logLevel: BalmJS.LogLevel.Info
-            }
-          );
+    if (fs.existsSync(this.input)) {
+      const [config] = await Promise.all([
+        this._readConfig(),
+        this._createDir()
+      ]);
 
-          callback();
-        } else {
-          (async (): Promise<any> => {
-            const [config] = await Promise.all([
-              this._readConfig(),
-              this._createDir()
-            ]);
-            await this._generateScript(config);
-
-            callback();
-          })();
+      await this._generateScript(config);
+    } else {
+      BalmJS.logger.warn(
+        `${this.name} task`,
+        `The '${this.input}' does not exist`,
+        {
+          logLevel: BalmJS.LogLevel.Info
         }
-      });
-    };
-  }
+      );
+    }
+
+    callback();
+  };
 }
 
 export default ModernizrTask;

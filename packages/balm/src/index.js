@@ -1,3 +1,4 @@
+import './balm-env';
 import fs from 'fs';
 import balmCore from './balm-core';
 

@@ -2,14 +2,18 @@ import build from './build';
 import transform from './transform';
 
 const esbuild = (
-  input: string[],
+  input: string | string[] = BalmJS.file.defaultEntry,
   output: string,
   customOptions: any,
   callback: Function
 ): void => {
+  const entry = BalmJS.utils.isString(input)
+    ? [input as string]
+    : (input as string[]);
+
   BalmJS.config.scripts.useTransform
-    ? transform(input, output, customOptions, callback)
-    : build(input, output, customOptions, callback);
+    ? transform(entry, output, customOptions, callback)
+    : build(entry, output, customOptions, callback);
 };
 
 export default esbuild;
