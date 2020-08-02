@@ -66,8 +66,8 @@ function _ready(config: BalmConfig): BalmConfig {
     config.env.isDev &&
     !config.env.inSSR &&
     !config.env.isMP;
-  config.server.useHMR =
-    HMR_ENV && (!config.scripts.ie8 || !config.scripts.esbuild);
+  const HMR_Enabling = !(config.scripts.ie8 || config.scripts.esbuild);
+  config.server.useHMR = HMR_ENV && HMR_Enabling;
 
   return config;
 }
