@@ -1,3 +1,4 @@
+import mergeStream from '../../utilities/merge-stream';
 import { RenameOptions, TemplateOption } from '@balm-core/index';
 
 class PublishTask extends BalmJS.BalmTask {
@@ -43,15 +44,14 @@ class PublishTask extends BalmJS.BalmTask {
     return (callback: Function): any => {
       if (BalmJS.config.env.isProd) {
         if (BalmJS.utils.isArray(input)) {
-          // TODO: await
-          for (const template of input as TemplateOption[]) {
+          const tasks = (input as TemplateOption[]).map((template) =>
             this._release(
               template.input,
               template.output,
               template.renameOptions
-            );
-          }
-          callback();
+            )
+          );
+          return mergeStream(...tasks);
         } else {
           return this._release(input as string, output, renameOptions);
         }
