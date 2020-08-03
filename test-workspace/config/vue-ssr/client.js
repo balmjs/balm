@@ -30,9 +30,6 @@ const getConfig = (balm) => {
     scripts,
     assets: {
       cache: true
-    },
-    logs: {
-      level: 2
     }
   });
 

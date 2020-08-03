@@ -26,10 +26,7 @@ const balmConfig = Object.assign(balmrc, {
   roots: {
     source: 'vue-ssr/app'
   },
-  scripts,
-  logs: {
-    level: 2
-  }
+  scripts
 });
 
 // This is the plugin that turns the entire output of the server build
