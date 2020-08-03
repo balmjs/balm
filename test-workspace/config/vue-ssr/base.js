@@ -13,7 +13,16 @@ module.exports = {
     },
     {
       test: /\.less$/,
-      loader: ['vue-style-loader', 'css-loader', 'less-loader']
+      use: [
+        'vue-style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            esModule: false
+          }
+        },
+        'less-loader'
+      ]
     }
   ],
   defaultLoaders: {
