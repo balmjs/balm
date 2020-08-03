@@ -2,8 +2,8 @@ const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const base = require('./base');
-const balm = require('../balm');
 const balmrc = require('../balmrc');
+const { config } = require('process');
 
 const scripts = Object.assign(base, {
   entry: {
@@ -43,10 +43,6 @@ balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
   new VueSSRServerPlugin()
 ]);
 
-balm.config = balmConfig;
+console.log('server config', balmConfig);
 
-balm.go((mix) => {
-  if (mix.env.isProd) {
-    console.log('build server');
-  }
-});
+module.exports = balmConfig;

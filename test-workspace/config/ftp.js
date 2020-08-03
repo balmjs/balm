@@ -1,12 +1,11 @@
 const path = require('path');
-const balm = require('./balm');
 
 const projectRoot = path.resolve(__dirname, '..', '..');
 const workspace = path.join(projectRoot, 'test-workspace');
 
 console.info('balm@ftp');
 
-balm.config = {
+const config = {
   workspace,
   // useDefaults: false,
   roots: {
@@ -29,9 +28,16 @@ balm.config = {
   }
 };
 
-balm.go(mix => {
+const api = (mix) => {
   // mix.ftp([
   //   'ftp/awesome/application/modules/views/**/*',
   //   'ftp/awesome/www/modules/user/**/*'
   // ]);
-});
+};
+
+module.exports = () => {
+  return {
+    config,
+    api
+  };
+};

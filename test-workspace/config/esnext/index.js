@@ -1,8 +1,6 @@
-const path = require('path');
-const balm = require('../balm');
 const balmrc = require('../balmrc');
 
-const balmConfig = Object.assign(balmrc, {
+module.exports = Object.assign(balmrc, {
   roots: {
     source: 'esnext'
   },
@@ -14,7 +12,3 @@ const balmConfig = Object.assign(balmrc, {
     ie8: true
   }
 });
-
-balm.config = balmConfig;
-
-balm.go();

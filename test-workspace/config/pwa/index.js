@@ -1,9 +1,8 @@
-const balm = require('../balm');
 const balmrc = require('../balmrc');
-const { version } = require('../../package.json');
+const pkg = require('../../package.json');
 
 const workboxSw = '../node_modules/workbox-sw/build/workbox-sw.js';
-const balmConfig = Object.assign(balmrc, {
+const config = Object.assign(balmrc, {
   roots: {
     source: 'pwa'
   },
@@ -16,19 +15,24 @@ const balmConfig = Object.assign(balmrc, {
     enabled: true,
     workboxSw,
     mode: 'injectManifest',
-    version: `v${version.replace(/\./g, '')}`
+    version: `v${pkg.version.replace(/\./g, '')}`
   }
 });
 
-balm.config = balmConfig;
-
-balm.go((mix) => {
-  if (balm.config.env.isProd) {
+const api = (mix) => {
+  if (mix.env.isProd) {
     // mix.copy('./pwa/static/*', './dist/static');
   } else {
-    // mix.copy(workboxSw, balm.config.roots.tmp);
+    // mix.copy(workboxSw, '.tmp');
     // PWA API test
     // mix.generateSW();
     // mix.injectManifest();
   }
-});
+};
+
+module.exports = (balm) => {
+  return {
+    config,
+    api
+  };
+};

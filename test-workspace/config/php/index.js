@@ -1,10 +1,9 @@
 const path = require('path');
-const balm = require('../balm');
 const balmrc = require('../balmrc');
 
 console.info('balm@php');
 
-const balmConfig = Object.assign(balmrc, {
+module.exports = Object.assign(balmrc, {
   inFrontend: false, // for PHP framework
   server: {
     proxy: 'balmjs.local',
@@ -40,7 +39,3 @@ const balmConfig = Object.assign(balmrc, {
     cache: true
   }
 });
-
-balm.config = balmConfig;
-
-balm.go();

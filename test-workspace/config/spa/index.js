@@ -1,5 +1,4 @@
 const jsConfig = require('./_test');
-const balm = require('../balm');
 let balmrc = require('../balmrc'); // Note: Imported Variables Are Read-only
 
 const scripts = Object.assign(jsConfig, {
@@ -10,7 +9,7 @@ const scripts = Object.assign(jsConfig, {
   }
 });
 
-const balmConfig = Object.assign(balmrc, {
+module.exports = Object.assign(balmrc, {
   roots: {
     source: 'spa'
   },
@@ -34,11 +33,4 @@ const balmConfig = Object.assign(balmrc, {
       'dist/awesome/web/3c/icons/*'
     ]
   }
-});
-
-balm.config = balmConfig;
-
-balm.go(mix => {
-  // mix.publish();
-  // mix.publish('cdn-local.html', 'public');
 });
