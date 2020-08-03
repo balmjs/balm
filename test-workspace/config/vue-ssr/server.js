@@ -3,7 +3,6 @@ const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const base = require('./base');
 const balmrc = require('../balmrc');
-const { config } = require('process');
 
 const scripts = Object.assign(base, {
   entry: {

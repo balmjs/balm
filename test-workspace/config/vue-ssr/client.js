@@ -49,6 +49,8 @@ const getConfig = (balm) => {
     balmConfig.scripts.inject = true;
   }
 
+  console.log('client config', balmConfig);
+
   return balmConfig;
 };
 
