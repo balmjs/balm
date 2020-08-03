@@ -1,4 +1,4 @@
-import { merge } from 'webpack-merge';
+import merge from 'webpack-merge';
 import requireDir from 'require-dir';
 import { RuleSetRule } from '@balm-core/index';
 

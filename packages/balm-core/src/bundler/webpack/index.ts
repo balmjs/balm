@@ -1,4 +1,4 @@
-import { merge } from 'webpack-merge';
+import merge from 'webpack-merge';
 import getEntry from './entry';
 import getOutput from './output';
 import getDefaultConfig from './config';

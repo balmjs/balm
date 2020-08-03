@@ -3712,10 +3712,10 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-esbuild@^0.6.13:
-  version "0.6.13"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.6.13.tgz#eb7641715efcdc16bdc5c6f5b1671cb5dc61c8ce"
-  integrity sha512-eTaeqZCna+g9cTqhdT/qn1n+ef8FinkjTHTEexn8mbCRxxqGlc1GfgiURXt74OAwHwH6IU2j/bX9NCyFBsi5KQ==
+esbuild@^0.6.0:
+  version "0.6.14"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.6.14.tgz#4f0d8780636ec664faa7e8134ccd523a396b1e33"
+  integrity sha512-coT5T5flVNaleZQAciBJCpkJ0xB+7TShhinPLUK0Zbz/yy385DKY3nGTNmHy6+oFARI3qnNlBRAbMYgxLN9/mA==
 
 escalade@^3.0.1:
   version "3.0.2"
@@ -10892,10 +10892,10 @@ webpack-log@^2.0.0:
     ansi-colors "^3.0.0"
     uuid "^3.3.2"
 
-webpack-merge@^5.0.9:
-  version "5.0.9"
-  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.0.9.tgz#d5e0e0ae564ae704836d747893bdd2741544bf31"
-  integrity sha512-P4teh6O26xIDPugOGX61wPxaeP918QOMjmzhu54zTVcLtOS28ffPWtnv+ilt3wscwBUCL2WNMnh97XkrKqt9Fw==
+webpack-merge@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.1.0.tgz#5a24b2d5fa0431db96862116a7b7f18c4cd7bbd4"
+  integrity sha512-NNEXYSV/ixLwICcAhlVQ8c8E8dHmOcVnubfhoFdL6Tpbq6N9ZUvotQBYPwTsyXepXmCm34KjXgdC4PCQwJBp/w==
   dependencies:
     clone-deep "^4.0.1"
     wildcard "^2.0.0"

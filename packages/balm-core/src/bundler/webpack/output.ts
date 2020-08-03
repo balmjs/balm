@@ -32,10 +32,7 @@ function getOutput(output: string, scripts: any, isHook = false): any {
   );
 
   const customLibraryConfig: object = scripts.library
-    ? {
-        library: scripts.library,
-        libraryTarget: scripts.libraryTarget
-      }
+    ? { library: scripts.library }
     : {};
 
   const miniprogramConfig: object = BalmJS.config.env.isMP
@@ -47,7 +44,7 @@ function getOutput(output: string, scripts: any, isHook = false): any {
         libraryExport: 'default',
         libraryTarget: 'window'
       }
-    : customLibraryConfig;
+    : {};
 
   return Object.assign(
     {
@@ -60,8 +57,10 @@ function getOutput(output: string, scripts: any, isHook = false): any {
         ? jsChunkFilename
         : BalmJS.file.assetsPath(
             `${jsFolder}/${ASYNC_SCRIPTS}/${jsChunkFilename}`
-          )
+          ),
+      libraryTarget: scripts.libraryTarget
     },
+    customLibraryConfig,
     miniprogramConfig
   );
 }

@@ -1,4 +1,4 @@
-import { merge } from 'webpack-merge';
+import merge from 'webpack-merge';
 import getCommonConfig from './common';
 import { Configuration } from '@balm-core/index';
 

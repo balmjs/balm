@@ -1,4 +1,4 @@
-import { merge } from 'webpack-merge';
+import merge from 'webpack-merge';
 import TerserPlugin from 'terser-webpack-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import safePostCssParser from 'postcss-safe-parser';
