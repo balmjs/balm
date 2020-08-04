@@ -121,8 +121,6 @@ export interface BalmAssetsPath extends BalmPath {
 }
 
 export interface BalmAssets extends Partial<BalmAssetsPath> {
-  publicUrlPlaceholder: string;
-  publicUrl: string;
   root: string;
   mainDir: string;
   subDir: string;

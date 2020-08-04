@@ -1869,10 +1869,10 @@ binary-extensions@^2.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.1.0.tgz#30fa40c9e7fe07dbc895678cd287024dea241dd9"
   integrity sha512-1Yj8h9Q+QDF5FzhMs/c9+6UntbD5MkRfRwac8DoEm9ZfUBZ7tZ55YcGVAzEe4bXsdQHEk+s9S5wsOKVdZrw0tQ==
 
-binaryextensions@^4.10.0:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/binaryextensions/-/binaryextensions-4.10.0.tgz#3a3269fd4bf9519664e2c5c8460f3fc60f81ecfe"
-  integrity sha512-xFZcAraOQYGCr0ifbkcgKV7ycrDdG9NdEwIvy5tiJWeT9V+Yr6UP8ZduIq1EBGi0AuO4+ohMwUFdtwitHdObEg==
+binaryextensions@^4.12.0:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/binaryextensions/-/binaryextensions-4.12.0.tgz#c8db4bcf4076392ae502d0cc89cb3512c5928b93"
+  integrity sha512-qwz12iB1q1/OTOLekNlsRAz70R5k+TIcAwzPyrrtY3zCBTiVB7/Bxl98vnj+Yi9g6n/evJ3JC3Zpe1BHARPIBg==
 
 bindings@^1.5.0:
   version "1.5.0"
@@ -3522,10 +3522,10 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-editions@^3.14.0:
-  version "3.15.0"
-  resolved "https://registry.yarnpkg.com/editions/-/editions-3.15.0.tgz#78344ab3f6eb968f02e5017bbaecbb61881cf547"
-  integrity sha512-qWEHN5JsD0VXG4mxd0VpXNa9MRim/AZDDPXdgtJwYwdwuTwDoogVuHUNaT34sQF4Rf9CHfAfgAlZ1wmKaGUmqg==
+editions@^3.16.0:
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/editions/-/editions-3.16.0.tgz#63ae6aa5d7921403dcc678aca28bfa9bc0212802"
+  integrity sha512-DUuN1+t7sMFVR4+kCbYNVNAg43It402JqEyGcgdqG/PlmReBUoULfJSP7nXVMzhyRexQbl3XEmLQsDdmS7nRqg==
   dependencies:
     errlop "^3.14.0"
     semver "6.3.0"
@@ -5966,14 +5966,14 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-istextorbinary@^5.8.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/istextorbinary/-/istextorbinary-5.8.0.tgz#1bc3a74f5fe40eb3dd47b23d1a1c5dad0becb2a0"
-  integrity sha512-WA0yQ3PwItHOnP095910lwhff4gCb0Ot9/kFj1oZXboKtBVjjPPuSo9kPEMzcu/4eP0ons6pLet1Ho8tcnWIaA==
+istextorbinary@^5.9.0:
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/istextorbinary/-/istextorbinary-5.9.0.tgz#d98234d92221ae3448da96dcb35e7913383edb10"
+  integrity sha512-Nb8pqTgaXk2xoYggY3/iQozVpeCCVSX7m0V2Zv5rJVVOphJ/ga8IMnwq/OZ5Xc5WVXfI+y3NUi3GTJ6BxHBrjg==
   dependencies:
-    binaryextensions "^4.10.0"
-    editions "^3.14.0"
-    textextensions "^5.7.0"
+    binaryextensions "^4.12.0"
+    editions "^3.16.0"
+    textextensions "^5.8.0"
 
 isurl@^1.0.0-alpha5:
   version "1.0.0"
@@ -5991,7 +5991,7 @@ jest-worker@^24.9.0:
     merge-stream "^2.0.0"
     supports-color "^6.1.0"
 
-jest-worker@^26.1.0:
+jest-worker@^26.2.1:
   version "26.2.1"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-26.2.1.tgz#5d630ab93f666b53f911615bc13e662b382bd513"
   integrity sha512-+XcGMMJDTeEGncRb5M5Zq9P7K4sQ1sirhjdOxsN1462h6lFo9w59bl2LVQmdGEEeU3m+maZCkS2Tcc9SfCHO4A==
@@ -10128,14 +10128,14 @@ terser-webpack-plugin@^1.4.3:
     webpack-sources "^1.4.0"
     worker-farm "^1.7.0"
 
-terser-webpack-plugin@^3.0.8:
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-3.0.8.tgz#d1a53442a143e09e00c880e8d77c1e79cb05318b"
-  integrity sha512-ygwK8TYMRTYtSyLB2Mhnt90guQh989CIq/mL/2apwi6rA15Xys4ydNUiH4ah6EZCfQxSk26ZFQilZ4IQ6IZw6A==
+terser-webpack-plugin@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-3.1.0.tgz#91e6d39571460ed240c0cf69d295bcf30ebf98cb"
+  integrity sha512-cjdZte66fYkZ65rQ2oJfrdCAkkhJA7YLYk5eGOcGCSGlq0ieZupRdjedSQXYknMPo2IveQL+tPdrxUkERENCFA==
   dependencies:
     cacache "^15.0.5"
     find-cache-dir "^3.3.1"
-    jest-worker "^26.1.0"
+    jest-worker "^26.2.1"
     p-limit "^3.0.2"
     schema-utils "^2.6.6"
     serialize-javascript "^4.0.0"
@@ -10157,10 +10157,10 @@ text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-textextensions@^5.7.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-5.8.0.tgz#76490b5c1d545935c9b629754e5bef6c8f16cb16"
-  integrity sha512-UvpESKvfVBwyYtlyl6P6SwfPQCWVG0njIvcsxSUvd1Ypy5He5h1bfHt/NO+NMgzoi7KD3+QivbxzziHmYykdWQ==
+textextensions@^5.8.0:
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-5.9.0.tgz#6b7cc37e7c5e3467b7f127103ff227f59fbcf4c8"
+  integrity sha512-grio9JxRQJF02jtlEUJbiA0p6Xe6bbG/0I4a9WfP1G7zhJ2Ea20I8LGXALfGU94XzhGFqz5EBRWHHdxq31xO4Q==
 
 tfunk@^3.0.1:
   version "3.1.0"
@@ -10892,10 +10892,10 @@ webpack-log@^2.0.0:
     ansi-colors "^3.0.0"
     uuid "^3.3.2"
 
-webpack-merge@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.1.0.tgz#5a24b2d5fa0431db96862116a7b7f18c4cd7bbd4"
-  integrity sha512-NNEXYSV/ixLwICcAhlVQ8c8E8dHmOcVnubfhoFdL6Tpbq6N9ZUvotQBYPwTsyXepXmCm34KjXgdC4PCQwJBp/w==
+webpack-merge@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.1.1.tgz#c79f36b4ad39a597c3bb780f809b514d65d85d01"
+  integrity sha512-UhIkHAVqeG9EqFfYo7dRELrVfH6HYaOTYM7ssKCwfIIHYnWepGVOFp1E166GwgPGFqV6M68UgRiKOERjVOKIXA==
   dependencies:
     clone-deep "^4.0.1"
     wildcard "^2.0.0"

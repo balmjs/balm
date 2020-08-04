@@ -1,3 +1,5 @@
+import { PUBLIC_URL } from '../../config/constants';
+
 class HtmlTask extends BalmJS.BalmTask {
   constructor() {
     super('html');
@@ -18,12 +20,10 @@ class HtmlTask extends BalmJS.BalmTask {
     );
 
     const assetsPathSrc = new RegExp(
-      isManifest
-        ? `/?${from}`
-        : `${BalmJS.config.assets.publicUrlPlaceholder}/${from}`,
+      isManifest ? `/?${from}` : `${PUBLIC_URL}/${from}`,
       'g'
     );
-    const assetsPathDest = `${BalmJS.config.assets.publicUrlPlaceholder}/${to}`;
+    const assetsPathDest = `${PUBLIC_URL}/${to}`;
 
     BalmJS.logger.debug(
       `${this.name} task - assets path`,

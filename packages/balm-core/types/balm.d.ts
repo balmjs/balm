@@ -26,8 +26,9 @@ interface BalmLogger {
 }
 
 interface BalmFile {
+  getPublicUrlOrPath: (homepage?: string, envPublicUrl?: string) => string;
+  publicUrlOrPath: string;
   stylePaths: string[];
-  publicPath: string;
   assetsSuffixPath: string;
   defaultEntry: string;
   absPath: (path: string) => string;

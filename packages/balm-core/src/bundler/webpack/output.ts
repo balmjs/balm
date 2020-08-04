@@ -52,7 +52,7 @@ function getOutput(output: string, scripts: any, isHook = false): any {
       filename: isHook
         ? jsFilename
         : BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`),
-      publicPath: BalmJS.file.publicPath,
+      publicPath: BalmJS.file.publicUrlOrPath,
       chunkFilename: isHook
         ? jsChunkFilename
         : BalmJS.file.assetsPath(
