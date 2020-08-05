@@ -20,7 +20,12 @@ class ScriptTask extends BalmJS.BalmTask {
       this.init(input || BalmJS.config.scripts.entry, output);
 
       if (BalmJS.config.scripts.esbuild) {
-        esbuild(this.input, this.output, customOptions, callback);
+        esbuild(
+          this.input || BalmJS.file.defaultEntry,
+          this.output,
+          customOptions,
+          callback
+        );
       } else {
         const isHook = !!input;
 

@@ -110,36 +110,71 @@ describe('Balm Hooks - webpack', function() {
 });
 
 describe('Balm Hooks - esbuild', function() {
-  beforeEach(function() {
-    balm.config = {
-      useDefaults: false,
-      env: {
-        isProd: true
-      },
-      scripts: {
-        esbuild: true,
-        entry: ['src/scripts/index.js']
-      }
-    };
-  });
-
   after(function() {
     cleanup();
   });
 
   const output = `${targetDir}/js`;
 
-  it('use esbuild with error', function(done) {
-    runTest(
-      {
-        testCase: false,
-        testHook: (mix: any) => {
-          mix.js('./src/scripts/index.js', output, {
-            splitting: true
-          });
+  describe('running a build', function() {
+    beforeEach(function() {
+      balm.config = {
+        useDefaults: false,
+        env: {
+          isProd: true
+        },
+        scripts: {
+          esbuild: true
         }
-      },
-      done
-    );
+      };
+    });
+
+    it('use esbuild with error', function(done) {
+      runTest(
+        {
+          testCase: false,
+          testHook: (mix: any) => {
+            mix.js('./src/scripts/index.js', output, {
+              splitting: true
+            });
+          }
+        },
+        done
+      );
+    });
+  });
+
+  describe('transforming a file', function() {
+    beforeEach(function() {
+      balm.config = {
+        useDefaults: false,
+        env: {
+          isProd: true
+        },
+        scripts: {
+          esbuild: true,
+          useTransform: true
+        }
+      };
+    });
+
+    it('use custom build', function(done) {
+      runTest(
+        {
+          testCase: false,
+          testHook: (mix: any) => {
+            mix.js([
+              './src/scripts/page-a.js',
+              './src/scripts/page-b.js',
+              './src/scripts/page-c.js'
+            ], output, {
+              target: 'es2015',
+              splitting: true
+            });
+          }
+        },
+        done
+      );
+    });
   });
 });

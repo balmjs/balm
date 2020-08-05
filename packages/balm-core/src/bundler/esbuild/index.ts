@@ -2,7 +2,7 @@ import build from './build';
 import transform from './transform';
 
 const esbuild = (
-  input: string | string[] = BalmJS.file.defaultEntry,
+  input: string | string[],
   output: string,
   customOptions: any,
   callback: Function

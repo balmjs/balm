@@ -32,7 +32,7 @@ const esBuild = (
   );
 
   BalmJS.logger.debug(
-    'esbuild bundler',
+    'esbuild bundler - build',
     {
       input: esbuildOptions.entryPoints,
       output: esbuildOptions.outdir

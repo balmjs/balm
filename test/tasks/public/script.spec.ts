@@ -51,16 +51,13 @@ describe('Script Task', function() {
     before(function() {
       balm.config = {
         scripts: {
-          esbuild: true,
-          entry: defaultInput
+          esbuild: true
         }
       };
     });
 
     it(`expected input: "${defaultInput}"`, function(done) {
       scriptTask.fn(done);
-
-      expect(scriptTask.input).to.equal(defaultInput);
     });
   });
 
