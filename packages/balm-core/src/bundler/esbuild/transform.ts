@@ -23,7 +23,7 @@ const esTransform = (
     const service = await startService();
 
     try {
-      for await (let entry of input) {
+      for await (const entry of input) {
         build.input = BalmJS.file.absPath(entry);
 
         BalmJS.logger.debug(
