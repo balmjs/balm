@@ -48,7 +48,9 @@ class PwaTask extends BalmJS.BalmTask {
       }
 
       if (valid) {
-        BalmJS.logger.debug(`pwa - ${mode}`, options);
+        BalmJS.logger.debug(`pwa - ${mode}`, options, {
+          pre: true
+        });
 
         await workboxBuild[mode](options)
           .then(

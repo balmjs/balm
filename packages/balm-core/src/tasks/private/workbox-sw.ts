@@ -2,7 +2,10 @@ class WorkboxSwTask extends BalmJS.BalmTask {
   constructor() {
     super('workbox-sw');
 
-    this.defaultInput = BalmJS.config.pwa.workboxSw;
+    this.defaultInput = [
+      BalmJS.config.pwa.workboxSw,
+      `${BalmJS.config.pwa.workboxSw}.map`
+    ];
     this.defaultOutput = BalmJS.config.dest.base;
   }
 
