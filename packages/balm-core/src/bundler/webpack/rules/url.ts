@@ -1,4 +1,5 @@
 import { STATIC_ASSETS } from '../../../config/constants';
+import { imgRegex, fontRegex, mediaRegex } from '../config/regex';
 import { RuleSetRule } from '@balm-core/index';
 
 const imageInlineSizeLimit = parseInt(
@@ -22,17 +23,17 @@ function urlLoader(): RuleSetRule[] {
     // smaller than specified limit in bytes as data URLs to avoid requests.
     // A missing `test` is equivalent to a match.
     {
-      test: /\.(bmp|gif|jpe?g|png|svg)(\?.*)?$/,
+      test: imgRegex,
       loader: require.resolve('url-loader'),
       options
     },
     {
-      test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+      test: mediaRegex,
       loader: require.resolve('url-loader'),
       options
     },
     {
-      test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+      test: fontRegex,
       loader: require.resolve('url-loader'),
       options
     }

@@ -1,3 +1,4 @@
+import { htmlRegex } from '../config/regex';
 import { RuleSetRule } from '@balm-core/index';
 
 function htmlLoader(): RuleSetRule {
@@ -12,7 +13,7 @@ function htmlLoader(): RuleSetRule {
   );
 
   return {
-    test: /\.html$/i,
+    test: `${htmlRegex}i`,
     loader: require.resolve('html-loader'),
     options
   };

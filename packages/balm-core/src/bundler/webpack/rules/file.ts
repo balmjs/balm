@@ -1,4 +1,5 @@
 import { STATIC_ASSETS } from '../../../config/constants';
+import { htmlRegex, jsRegex } from '../config/regex';
 import { RuleSetRule } from '@balm-core/index';
 
 function fileLoader(): RuleSetRule {
@@ -16,7 +17,7 @@ function fileLoader(): RuleSetRule {
     // its runtime that would otherwise be processed through "file" loader.
     // Also exclude `html` and `json` extensions so they get processed
     // by webpacks internal loaders.
-    exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+    exclude: [jsRegex, htmlRegex, /\.json$/],
     options: {
       name: BalmJS.file.assetsPath(`${PATHNAME}${FILENAME}`)
     }

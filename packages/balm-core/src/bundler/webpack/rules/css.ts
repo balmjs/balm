@@ -1,9 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { cssRegex, cssModuleRegex } from '../config/regex';
 import { RuleSetRule } from '@balm-core/index';
-
-// Style files regexes
-const cssRegex = /\.css$/;
-const cssModuleRegex = /\.module\.css$/;
 
 function cssLoader(): RuleSetRule {
   let styleLoader = require.resolve('style-loader');
