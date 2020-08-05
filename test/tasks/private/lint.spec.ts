@@ -9,7 +9,7 @@ describe('Lint Task', function() {
   });
 
   describe('JS lint', function() {
-    const defaultOutput = path.join('src', 'scripts');
+    const defaultOutput = path.join(balm.config.workspace, 'src', 'scripts');
 
     it(
       `expected output: "${defaultOutput}"`,

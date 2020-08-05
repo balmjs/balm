@@ -5,20 +5,25 @@ class RemoveTask extends BalmJS.BalmTask {
     super('remove');
   }
 
+  getFiles(input: string | string[]): string | string[] {
+    let files: string | string[] = BalmJS.file.absPaths(input);
+    // NOTE: compatible with windows for `del@5.x`
+    files = BalmJS.utils.isArray(input)
+      ? (files as string[]).map((file: string) => file.replace(/\\/g, '/'))
+      : (files as string).replace(/\\/g, '/');
+
+    return files;
+  }
+
   recipe(input: string | string[]): any {
     return async (callback: Function): Promise<any> => {
-      this.init(input);
-
-      const canDel: boolean =
-        (BalmJS.utils.isString(this.input) && this.input.trim()) ||
-        (BalmJS.utils.isArray(this.input) && this.input.length);
+      const canDel = !!(
+        (BalmJS.utils.isString(input) && (input as string).trim()) ||
+        (BalmJS.utils.isArray(input) && input.length)
+      );
 
       if (canDel) {
-        let files: string | string[] = BalmJS.file.absPaths(this.input);
-        // NOTE: compatible with windows for `del@5.x`
-        files = BalmJS.utils.isArray(this.input)
-          ? (files as string[]).map((file: string) => file.replace(/\\/g, '/'))
-          : (files as string).replace(/\\/g, '/');
+        const files = this.getFiles(input);
 
         BalmJS.logger.debug(
           `${this.name} task`,

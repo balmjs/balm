@@ -13,9 +13,9 @@ class FtpTask extends BalmJS.BalmTask {
     return (): any => {
       const taskName = `${this.name} task`;
 
-      this.init(localFiles || BalmJS.watchFtpFile, null, options);
+      if (localFiles || BalmJS.watchFtpFile) {
+        this.init(localFiles || BalmJS.watchFtpFile, null, options);
 
-      if (this.input) {
         if (!options.src) {
           this.gulpSrcOptions = {
             base: '.'

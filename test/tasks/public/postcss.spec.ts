@@ -16,7 +16,7 @@ describe('Postcss Task', function() {
       };
     });
 
-    const defaultInput = path.join('src', 'styles', '**', '!(_*).css');
+    const defaultInput = path.join(balm.config.workspace, 'src', 'styles', '**', '!(_*).css');
 
     it(
       `expected output: "${defaultInput}"`,
@@ -41,8 +41,10 @@ describe('Postcss Task', function() {
       };
     });
 
-    const defaultInput = ['css/*.css'];
-    const defaultOutput = 'dist';
+    const defaultInput = [
+      path.join(balm.config.workspace, 'css', '/*.css')
+    ];
+    const defaultOutput = path.join(balm.config.workspace, 'dist');
 
     it(
       `expected output: "${defaultInput}"`,

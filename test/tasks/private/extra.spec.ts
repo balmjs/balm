@@ -3,7 +3,7 @@ import ExtraTask from '../../../packages/balm-core/src/tasks/private/extra';
 describe('Extra Task', function() {
   let extraTask: any;
 
-  const srcBase = 'src';
+  const srcBase = path.join(balm.config.workspace, 'src');
 
   describe('without extra input', function() {
     before(function() {

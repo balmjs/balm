@@ -17,7 +17,7 @@ describe('Build Task', function() {
       };
     });
 
-    const defaultInput = path.join('dist', '**', '*');
+    const defaultInput = path.join(balm.config.workspace, 'dist', '**', '*');
 
     it(
       `expected output: "${defaultInput}"`,

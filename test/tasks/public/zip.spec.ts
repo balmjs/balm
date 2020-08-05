@@ -14,8 +14,8 @@ describe('Zip Task', function() {
   });
 
   describe('#mix.zip()', function() {
-    const defaultInput = 'dist/**/*';
-    const defaultOutput = '.';
+    const defaultInput = path.join(balm.config.workspace, 'dist/**/*');
+    const defaultOutput = path.join(balm.config.workspace, '.');
 
     describe('!options', function() {
       it(

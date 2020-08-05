@@ -13,7 +13,9 @@ describe('Image Task', function() {
       balm.go();
     });
 
-    const defaultInput = [path.join('src', 'images', '**', '*')];
+    const defaultInput = [
+      path.join(balm.config.workspace, 'src', 'images', '**', '*')
+    ];
 
     it(
       `expected output: "${defaultInput}"`,
@@ -37,9 +39,9 @@ describe('Image Task', function() {
     });
 
     const defaultInput = [
-      path.join('src', 'images', '**', '*'),
-      path.join('!src', 'images', 'icons'),
-      path.join('!src', 'images', 'icons', '*.png')
+      path.join(balm.config.workspace, 'src', 'images', '**', '*'),
+      '!' + path.join(balm.config.workspace, 'src', 'images', 'icons'),
+      '!' + path.join(balm.config.workspace, 'src', 'images', 'icons', '*.png')
     ];
 
     it(

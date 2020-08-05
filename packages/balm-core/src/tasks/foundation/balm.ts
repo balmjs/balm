@@ -84,7 +84,15 @@ class BalmTask {
 
   get src(): any {
     return gulp
-      .src(this.input, Object.assign({ allowEmpty: true }, this.gulpSrcOptions))
+      .src(
+        this.input,
+        Object.assign(
+          {
+            allowEmpty: true
+          },
+          this.gulpSrcOptions
+        )
+      )
       .pipe(
         BalmJS.plugins.plumber((error: BalmError): void => {
           BalmJS.logger.error(`${this.name} task`, error.message);

@@ -19,7 +19,7 @@ describe('Url Task', function() {
       };
     });
 
-    const defaultOutput = path.join('.tmp', 'css');
+    const defaultOutput = path.join(balm.config.workspace, '.tmp', 'css');
     const defaultInput = path.join(defaultOutput, '**', '*.css');
 
     it(
@@ -45,7 +45,7 @@ describe('Url Task', function() {
       };
     });
 
-    const defaultOutput = path.join('dist', 'css');
+    const defaultOutput = path.join(balm.config.workspace, 'dist', 'css');
     const defaultInput = path.join(defaultOutput, '**', '*.css');
 
     it(
@@ -68,7 +68,7 @@ describe('Url Task', function() {
       };
     });
 
-    const defaultOutput = 'dist';
+    const defaultOutput = path.join(balm.config.workspace, 'dist');
     const defaultInput = path.join(defaultOutput, '**', '*.css');
 
     it(

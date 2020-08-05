@@ -14,8 +14,11 @@ describe('Replace Task', function() {
   });
 
   describe('#mix.replace()', function() {
-    const defaultInput = ['src/compress/file.css', 'src/compress/file.js'];
-    const defaultOutput = 'dist';
+    const defaultInput = [
+      path.join(balm.config.workspace, 'src/compress/file.css'),
+      path.join(balm.config.workspace, 'src/compress/file.js')
+    ];
+    const defaultOutput = path.join(balm.config.workspace, 'dist');
     const replaceOptions = {
       substr: /bar/gi,
       replacement: 'balm'

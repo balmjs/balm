@@ -17,7 +17,7 @@ describe('Workbox Task', function() {
       };
     });
 
-    const defaultOutput = 'dist';
+    const defaultOutput = path.join(balm.config.workspace, 'dist');
 
     it(
       `expected output: "${defaultOutput}"`,

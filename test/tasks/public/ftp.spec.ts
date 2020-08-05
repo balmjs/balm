@@ -11,17 +11,15 @@ describe('Ftp Task', function() {
     const defaultInput = undefined;
 
     it(
-      `expected output: ${defaultInput}`,
+      `expected output: "Invalid local files"`,
       asyncCase(function() {
         ftpTask.fn();
-
-        expect(ftpTask.input).to.equal(defaultInput);
       })
     );
   });
 
   describe('#mix.ftp()', function() {
-    const defaultInput = 'dist/*';
+    const defaultInput = path.join(balm.config.workspace, 'dist/*');
 
     describe('!options', function() {
       it(

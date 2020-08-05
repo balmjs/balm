@@ -1,6 +1,17 @@
 import file from '../../packages/balm-core/src/utilities/file';
 
 describe('Balm File', function() {
+  describe('#publicUrlOrPath', function() {
+    const publicUrl = '/';
+
+    it(
+      `expected output: "${publicUrl}"`,
+      asyncCase(function() {
+        expect(file.publicUrlOrPath).to.equal(publicUrl);
+      })
+    );
+  });
+
   describe('#stylePaths', function() {
     const stylePath = path.join(balm.config.workspace, '.');
 
@@ -10,65 +21,6 @@ describe('Balm File', function() {
         expect(file.stylePaths[0]).to.equal(stylePath);
       })
     );
-  });
-
-  describe('#publicPath', function() {
-    describe('in development', function() {
-      before(function() {
-        balm.config = {
-          env: {
-            isDev: true
-          }
-        };
-      });
-      const publicUrl = '';
-
-      it(
-        `expected output: "${publicUrl}"`,
-        asyncCase(function() {
-          expect(file.publicPath).to.equal(publicUrl);
-        })
-      );
-    });
-
-    describe('in production', function() {
-      before(function() {
-        balm.config = {
-          env: {
-            isProd: true
-          },
-          assets: {
-            publicUrl: 'https://balmjs.com/'
-          }
-        };
-      });
-      const publicUrl = 'https://balmjs.com/';
-
-      it(
-        `expected output: "${publicUrl}"`,
-        asyncCase(function() {
-          expect(file.publicPath).to.equal(publicUrl);
-        })
-      );
-    });
-
-    describe('has public url', function() {
-      before(function() {
-        balm.config = {
-          assets: {
-            publicUrl: '/'
-          }
-        };
-      });
-      const publicUrl = '/';
-
-      it(
-        `expected output: "${publicUrl}"`,
-        asyncCase(function() {
-          expect(file.publicPath).to.equal(publicUrl);
-        })
-      );
-    });
   });
 
   describe('#assetsSuffixPath', function() {

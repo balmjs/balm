@@ -17,7 +17,7 @@ describe('Html Task', function() {
       };
     });
 
-    const defaultOutput = '.tmp';
+    const defaultOutput = path.join(balm.config.workspace, '.tmp');
 
     it(
       `expected output: "${defaultOutput}"`,
@@ -39,7 +39,7 @@ describe('Html Task', function() {
       };
     });
 
-    const defaultOutput = 'dist';
+    const defaultOutput = path.join(balm.config.workspace, 'dist');
 
     it(
       `expected output: "${defaultOutput}"`,
@@ -61,7 +61,7 @@ describe('Html Task', function() {
       };
     });
 
-    const defaultOutput = 'dist';
+    const defaultOutput = path.join(balm.config.workspace, 'dist');
 
     it(
       `expected output: "${defaultOutput}"`,

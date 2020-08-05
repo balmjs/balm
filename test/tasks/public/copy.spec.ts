@@ -14,8 +14,11 @@ describe('Copy Task', function() {
   });
 
   describe('#mix.copy()', function() {
-    const defaultInput = ['src/foo.txt', 'src/bar.txt'];
-    const defaultOutput = 'dist';
+    const defaultInput = [
+      path.join(balm.config.workspace, 'src/foo.txt'),
+      path.join(balm.config.workspace, 'src/bar.txt')
+    ];
+    const defaultOutput = path.join(balm.config.workspace, 'dist');
 
     describe('!options', function() {
       it(

@@ -14,8 +14,8 @@ describe('Jsmin Task', function() {
   });
 
   describe('#mix.jsmin()', function() {
-    const defaultInput = 'src/main.js';
-    const defaultOutput = 'dist';
+    const defaultInput = path.join(balm.config.workspace, 'src/main.js');
+    const defaultOutput = path.join(balm.config.workspace, 'dist');
 
     describe('!options', function() {
       it(
