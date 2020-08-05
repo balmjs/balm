@@ -18,6 +18,17 @@ function webpackConfig(
     output: getOutput(output, scripts, isHook)
   };
 
+  BalmJS.logger.debug(
+    'webpack bundler',
+    {
+      input: baseConfig.entry,
+      output: baseConfig.output.path
+    },
+    {
+      pre: true
+    }
+  );
+
   if (scripts.externals) {
     baseConfig.externals = scripts.externals;
   }

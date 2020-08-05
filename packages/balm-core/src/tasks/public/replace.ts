@@ -35,7 +35,7 @@ class ReplaceTask extends BalmJS.BalmTask {
         );
       }
 
-      return stream.pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+      return stream.pipe(gulp.dest(this.output));
     };
   }
 

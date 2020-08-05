@@ -35,7 +35,7 @@ class ExtraTask extends BalmJS.BalmTask {
       dot: true
     };
 
-    return this.src.pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+    return this.src.pipe(gulp.dest(this.output));
   };
 }
 

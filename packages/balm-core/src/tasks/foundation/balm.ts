@@ -1,68 +1,67 @@
 import { BalmError } from '@balm-core/index';
 
 class BalmTask {
-  protected _name: string;
-  protected _taskName: string;
+  #name: string;
+  #taskName: string;
 
-  protected _input: any;
-  protected _output = '';
-  protected _customOptions: any = {};
-  protected _defaultInput: any;
-  protected _defaultOutput = '';
+  #defaultInput: any;
+  #defaultOutput = '';
 
-  protected _gulpSrcOptions: object = {}; // NOTE: gulp.src options
+  #input: any;
+  #output = '';
+  #customOptions: any = {};
+
+  #gulpSrcOptions: object = {};
 
   constructor(name: string) {
-    this._name = name;
-    this._taskName =
-      name === 'default' ? name : (BalmJS.toNamespace(name) as string);
+    this.#name = name;
+    this.#taskName = BalmJS.toNamespace(name) as string;
   }
 
   get name(): string {
-    return this._name;
+    return this.#name;
   }
   get taskName(): string {
-    return this._taskName;
+    return this.#taskName;
+  }
+
+  get defaultInput(): string | string[] {
+    return this.#defaultInput;
+  }
+  set defaultInput(input: string | string[]) {
+    this.#defaultInput = input;
+  }
+  get defaultOutput(): string {
+    return this.#defaultOutput;
+  }
+  set defaultOutput(output: string) {
+    this.#defaultOutput = output;
   }
 
   get input(): string | string[] {
-    return this._input;
+    return this.#input;
   }
   set input(input: string | string[]) {
-    this._input = input;
+    this.#input = input;
   }
-  get defaultInput(): string | string[] {
-    return this._defaultInput;
-  }
-  set defaultInput(input: string | string[]) {
-    this._defaultInput = input;
-  }
-
   get output(): string {
-    return this._output;
+    return this.#output;
   }
   set output(output: string) {
-    this._output = output;
+    this.#output = output;
   }
-  get defaultOutput(): string {
-    return this._defaultOutput;
-  }
-  set defaultOutput(output: string) {
-    this._defaultOutput = output;
-  }
-
   get customOptions(): any {
-    return this._customOptions;
+    return this.#customOptions;
   }
   set customOptions(options: any) {
-    this._customOptions = options;
+    this.#customOptions = options;
   }
 
   get gulpSrcOptions(): object {
-    return this._gulpSrcOptions;
+    return this.#gulpSrcOptions;
   }
   set gulpSrcOptions(output: object) {
-    this._gulpSrcOptions = output;
+    this.#gulpSrcOptions = output;
   }
 
   get styleName(): string {
@@ -85,10 +84,7 @@ class BalmTask {
 
   get src(): any {
     return gulp
-      .src(
-        BalmJS.file.absPaths(this.input),
-        Object.assign({ allowEmpty: true }, this.gulpSrcOptions)
-      )
+      .src(this.input, Object.assign({ allowEmpty: true }, this.gulpSrcOptions))
       .pipe(
         BalmJS.plugins.plumber((error: BalmError): void => {
           BalmJS.logger.error(`${this.name} task`, error.message);
@@ -108,8 +104,13 @@ class BalmTask {
       default:
     }
 
-    this.input = input || this.defaultInput;
-    this.output = output || this.defaultOutput;
+    const useAbsPath = !(key == 'script' || key === 'sprite');
+    this.input = useAbsPath
+      ? BalmJS.file.absPaths(input || this.defaultInput)
+      : input || this.defaultInput;
+    this.output = useAbsPath
+      ? BalmJS.file.absPath(output || this.defaultOutput)
+      : output || this.defaultOutput;
     this.customOptions = options[key] || {};
 
     const obj: {
@@ -124,9 +125,11 @@ class BalmTask {
       obj.customOptions = this.customOptions;
     }
 
-    BalmJS.logger.debug(`${this.name} task`, obj, {
-      pre: true
-    });
+    if (useAbsPath) {
+      BalmJS.logger.debug(`${this.name} task`, obj, {
+        pre: true
+      });
+    }
 
     if (options.src) {
       this.gulpSrcOptions = options.src;

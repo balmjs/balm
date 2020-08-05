@@ -34,7 +34,7 @@ class UrlTask extends BalmJS.BalmTask {
       return this.src
         .pipe(this._urlProcessing('img'))
         .pipe(this._urlProcessing('font'))
-        .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+        .pipe(gulp.dest(this.output));
     };
   }
 

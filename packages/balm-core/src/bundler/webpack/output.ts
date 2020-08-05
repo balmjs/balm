@@ -22,15 +22,6 @@ function getOutput(output: string, scripts: any, isHook = false): any {
   }
   const jsChunkFilename = `${chunkFilename}.js`;
 
-  BalmJS.logger.debug(
-    'webpack output',
-    `Path: ${BalmJS.file.absPath(
-      BalmJS.config.env.isMP
-        ? path.join(BalmJS.config.dest.base, MP_ASSETS)
-        : outputPath
-    )}`
-  );
-
   const customLibraryConfig: object = scripts.library
     ? { library: scripts.library }
     : {};

@@ -15,7 +15,7 @@ class CopyTask extends BalmJS.BalmTask {
 
       return this.src
         .pipe(BalmJS.plugins.rename(this.customOptions))
-        .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+        .pipe(gulp.dest(this.output));
     };
   }
 

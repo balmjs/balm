@@ -58,7 +58,7 @@ class ImageTask extends BalmJS.BalmTask {
           })
         )
         .pipe($.if(this.plugins.length, $.imagemin(this.plugins)))
-        .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+        .pipe(gulp.dest(this.output));
     };
 
     return images();

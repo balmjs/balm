@@ -9,7 +9,7 @@ interface SpriteItem {
 
 interface SpriteConfig {
   input: string;
-  params: object;
+  params?: object;
   imgOutput: string;
   cssOutput: string;
 }
@@ -86,11 +86,16 @@ class SpriteTask extends BalmJS.BalmTask {
       const spriteItem: SpriteItem = spriteList[key];
       const spriteTaskName = `${this.name}:${spriteItem.folderName}`; // E.g. 'sprite:awesome'
       const spriteConfig: SpriteConfig = {
-        input: spriteItem.src,
-        params: this._getParams(spriteItem, spriteOptions),
-        imgOutput: this.output,
-        cssOutput: `${BalmJS.config.src.css}/${this.name}s` // E.g. 'path/to/css/sprites'
+        input: BalmJS.file.absPath(spriteItem.src),
+        imgOutput: BalmJS.file.absPath(this.output),
+        cssOutput: BalmJS.file.absPath(`${BalmJS.config.src.css}/${this.name}s`) // E.g. 'path/to/css/sprites'
       };
+
+      BalmJS.logger.debug(`${this.name} task`, spriteConfig, {
+        pre: true
+      });
+
+      spriteConfig.params = this._getParams(spriteItem, spriteOptions);
 
       gulp.task(BalmJS.toNamespace(spriteTaskName) as string, () => {
         const spriteData = gulp
@@ -103,10 +108,10 @@ class SpriteTask extends BalmJS.BalmTask {
           .pipe($.spritesmith(spriteConfig.params));
 
         const imgStream = spriteData.img.pipe(
-          gulp.dest(BalmJS.file.absPath(spriteConfig.imgOutput))
+          gulp.dest(spriteConfig.imgOutput)
         );
         const cssStream = spriteData.css.pipe(
-          gulp.dest(BalmJS.file.absPath(spriteConfig.cssOutput))
+          gulp.dest(spriteConfig.cssOutput)
         );
 
         return mergeStream(imgStream, cssStream);

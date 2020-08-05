@@ -17,7 +17,7 @@ if (fs.existsSync(localModule)) {
   balmCore = yarnGlobalModule;
 } else {
   console.error(
-    colors.bgBlueBright('<BalmJS>'),
+    colors.bgBlueBright('BalmJS'),
     colors.yellow(`\`${BALM_CORE_PACKAGE_NAME}\` module not found :(`)
   );
   process.exit(1);

@@ -5,7 +5,8 @@ class ModernizrTask extends BalmJS.BalmTask {
   constructor() {
     super('modernizr');
 
-    this.defaultInput = BalmJS.file.absPath(`${this.name}.json`);
+    this.defaultInput = `${this.name}.json`;
+    this.defaultOutput = path.join(BalmJS.config.dest.js, `${this.name}.js`);
   }
 
   private _readConfig(): Promise<any> {
@@ -33,16 +34,10 @@ class ModernizrTask extends BalmJS.BalmTask {
   private _generateScript(config: object): Promise<any> {
     return new Promise((resolve, reject): void => {
       Modernizr.build(config, (content: any) => {
-        fs.writeFile(
-          BalmJS.file.absPath(
-            path.join(BalmJS.config.dest.js, `${this.name}.js`)
-          ),
-          content,
-          (err: any) => {
-            if (err) reject(err);
-            resolve(content);
-          }
-        );
+        fs.writeFile(this.output, content, (err: any) => {
+          if (err) reject(err);
+          resolve(content);
+        });
       });
     });
   }

@@ -31,6 +31,17 @@ const esBuild = (
     customOptions
   );
 
+  BalmJS.logger.debug(
+    'esbuild bundler',
+    {
+      input: esbuildOptions.entryPoints,
+      output: esbuildOptions.outdir
+    },
+    {
+      pre: true
+    }
+  );
+
   BalmJS.logger.success('esbuild options', esbuildOptions, {
     pre: true
   });

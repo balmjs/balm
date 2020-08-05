@@ -25,7 +25,7 @@ class JsminTask extends BalmJS.BalmTask {
       return this.src
         .pipe(BalmJS.plugins.jsmin(this.options))
         .pipe(BalmJS.plugins.rename(renameOptions))
-        .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+        .pipe(gulp.dest(this.output));
     };
   }
 

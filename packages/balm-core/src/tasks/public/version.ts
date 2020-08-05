@@ -21,9 +21,9 @@ class VersionTask extends BalmJS.BalmTask {
 
       return this.src
         .pipe($.revAll.revision(this.options))
-        .pipe(gulp.dest(BalmJS.file.absPath(this.output)))
+        .pipe(gulp.dest(this.output))
         .pipe($.revAll.versionFile())
-        .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+        .pipe(gulp.dest(this.output));
     };
   }
 

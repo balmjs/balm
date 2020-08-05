@@ -48,7 +48,7 @@ class BalmStyleTask extends BalmTask {
 
     let stream: any = gulp
       .src(
-        BalmJS.file.absPaths(this.input),
+        this.input,
         Object.assign(
           {
             sourcemaps: shouldUseSourceMap,
@@ -101,7 +101,7 @@ class BalmStyleTask extends BalmTask {
         )
       )
       .pipe(
-        gulp.dest(BalmJS.file.absPath(output), {
+        gulp.dest(output, {
           sourcemaps: shouldUseSourceMap
         })
       )

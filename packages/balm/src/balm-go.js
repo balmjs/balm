@@ -9,7 +9,7 @@ const balmCwd = process.env.BALM_CWD || process.cwd();
 const balmConfigFile = path.join(balmCwd, argv.config || 'balm.config.js');
 
 function run() {
-  gulp.parallel('default')();
+  gulp.parallel('balm:default')();
 }
 
 if (balmConfigFile && fs.existsSync(balmConfigFile)) {
@@ -33,7 +33,7 @@ if (balmConfigFile && fs.existsSync(balmConfigFile)) {
       run();
     } else {
       console.warn(
-        colors.bgBlueBright('<BalmJS>'),
+        colors.bgBlueBright('BalmJS'),
         colors.yellow('`config` is required')
       );
     }
@@ -45,7 +45,7 @@ if (balmConfigFile && fs.existsSync(balmConfigFile)) {
   }
 } else {
   console.error(
-    colors.bgBlueBright('<BalmJS>'),
+    colors.bgBlueBright('BalmJS'),
     colors.yellow('`balm.config.js` not found :(')
   );
   process.exit(1);

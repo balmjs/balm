@@ -23,7 +23,7 @@ class PwaCacheTask extends BalmJS.BalmTask {
           BalmJS.plugins.jsmin(BalmJS.config.scripts.options)
         )
       )
-      .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+      .pipe(gulp.dest(this.output));
   };
 }
 

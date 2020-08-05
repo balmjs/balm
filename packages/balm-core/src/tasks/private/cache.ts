@@ -21,9 +21,9 @@ class CacheTask extends BalmJS.BalmTask {
           )
         );
     const defaultExcludes: string[] = [
-      path.join(`!${BalmJS.config.dest.base}`, BalmJS.config.pwa.manifest),
       path.join(`!${BalmJS.config.dest.js}`, ASYNC_SCRIPTS, '*'),
-      path.join(`!${BalmJS.config.dest.js}`, STATIC_ASSETS, '*')
+      path.join(`!${BalmJS.config.dest.js}`, STATIC_ASSETS, '*'),
+      path.join(`!${BalmJS.config.dest.base}`, BalmJS.config.pwa.manifest)
     ];
 
     const customIncludes: string[] = BalmJS.config.assets.includes;
@@ -54,10 +54,10 @@ class CacheTask extends BalmJS.BalmTask {
     return this.src
       .pipe($.revAll.revision(BalmJS.config.assets.options))
       .pipe($.if(/\.html$/, BalmJS.file.setPublicPath()))
-      .pipe(gulp.dest(BalmJS.file.absPath(this.output)))
+      .pipe(gulp.dest(this.output))
       .pipe($.revDeleteOriginal())
       .pipe($.revAll.manifestFile())
-      .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+      .pipe(gulp.dest(this.output));
   };
 }
 

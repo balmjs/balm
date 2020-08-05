@@ -14,9 +14,7 @@ class ZipTask extends BalmJS.BalmTask {
     return (): any => {
       this.init(input, output);
 
-      return this.src
-        .pipe($.zip(filename))
-        .pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+      return this.src.pipe($.zip(filename)).pipe(gulp.dest(this.output));
     };
   }
 

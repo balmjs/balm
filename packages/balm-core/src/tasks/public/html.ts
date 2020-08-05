@@ -96,7 +96,7 @@ class HtmlTask extends BalmJS.BalmTask {
         stream = stream.pipe(BalmJS.file.setPublicPath());
       }
 
-      return stream.pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+      return stream.pipe(gulp.dest(this.output));
     };
   }
 

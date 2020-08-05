@@ -12,7 +12,7 @@ class FontTask extends BalmJS.BalmTask {
   fn = (): any => {
     this.init();
 
-    return this.src.pipe(gulp.dest(BalmJS.file.absPath(this.output)));
+    return this.src.pipe(gulp.dest(this.output));
   };
 }
 
