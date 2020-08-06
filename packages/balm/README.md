@@ -23,7 +23,7 @@ BalmJS prescribes best practices and tools to help you stay productive.
 
 ## Features
 
-- **gulp + webpack** for _any_ Front-end projects
+- Based on **gulp + webpack** for _any_ webapp projects
 - Automagically compile PostCSS/Sass/Less
 - CSS Autoprefixing
 - Automagically generation CSS sprites
@@ -50,10 +50,7 @@ project
 │ ├─┬ styles
 │ │ └── main.css // Required. A entry file for CSS.
 │ └── index.html // Required. A entry file for HTML.
-├─┬ config       // Optional. But recommended. Refer to BalmCLI's templates.
-│ ├── balmrc.js
-│ └── balm.publish.js
-├── .dotfile       // (e.g. .gitignore, .browserslistrc, etc...)
+├── .dotfile     // (e.g. .gitignore, .browserslistrc, etc...)
 ├── babel.config.js
 ├── balm.config.js // Required. A configuration file for Balm.
 ├── package.json   // Required.
@@ -66,11 +63,11 @@ project
 
 | Project                                               | Status                                                 | Description                                       |
 | ----------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------- |
-| [balm-core](https://github.com/balmjs/balm)           | [![NPM version][balm-core-image]][balm-core-url]       | BalmJS core (for `balm@3`)                        |
-| [balm-cli](https://github.com/balmjs/balm-cli)        | [![NPM version][balm-cli-image]][balm-cli-url]         | :spades: BalmJS scaffolding tool                  |
+| **[balm-core](https://github.com/balmjs/balm)**       | [![NPM version][balm-core-image]][balm-core-url]       | :black_joker: BalmJS core (for `balm@3`)          |
+| **[balm-cli](https://github.com/balmjs/balm-cli)**    | [![NPM version][balm-cli-image]][balm-cli-url]         | :spades: BalmJS scaffolding tool                  |
 | [balm-gui](https://github.com/balmjs/balm-gui)        | N/A                                                    | :clubs: GUI for BalmJS                            |
 | [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue               |
-| [balm-ui](https://github.com/balmjs/ui-vue)           | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Next Generation Material UI for Vue.js |
+| **[balm-ui](https://github.com/balmjs/ui-vue)**       | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Next Generation Material UI for Vue.js |
 | [balm-scroll](https://github.com/balmjs/balm-scroll)  | [![NPM version][balm-scroll-image]][balm-scroll-url]   | :scroll: Smooth scrolling for Vue.js              |
 
 ## Demo
@@ -105,10 +102,10 @@ npm init -y
 ### 1. Installing **`balm`**
 
 ```sh
-yarn global add balm-core@next
+yarn global add balm-core
 yarn add -D balm@next
 # OR
-npm install -g balm-core@next
+npm install -g balm-core
 npm install -D balm@next
 ```
 
@@ -119,9 +116,7 @@ npm install -D balm@next
 In your project directory, create a file named `balm.config.js` in your project root with these contents:
 
 ```json
-module.exports = {
-  // Your project config
-};
+module.exports = {};
 ```
 
 :page_with_curl: Refer to [configuration docs](https://balmjs.com/docs/config/) to learn more about config **`balm`**.
