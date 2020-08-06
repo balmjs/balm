@@ -115,8 +115,10 @@ npm install -D balm@next
 
 In your project directory, create a file named `balm.config.js` in your project root with these contents:
 
-```json
-module.exports = {};
+```js
+module.exports = {
+  // Your project config
+};
 ```
 
 :page_with_curl: Refer to [configuration docs](https://balmjs.com/docs/config/) to learn more about config **`balm`**.
