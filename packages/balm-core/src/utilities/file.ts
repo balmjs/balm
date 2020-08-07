@@ -39,11 +39,7 @@ class File {
   }
 
   get defaultEntry(): string {
-    return path.join(
-      BalmJS.config.roots.source,
-      BalmJS.config.paths.source.js,
-      'index.js'
-    );
+    return path.join(BalmJS.config.src.js, 'index.js');
   }
 
   absPath(_path: string): string {

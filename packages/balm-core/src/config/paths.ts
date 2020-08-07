@@ -1,14 +1,8 @@
-interface BalmPath {
-  base: string;
-  css: string;
-  js: string;
-  img: string;
-  font: string;
-  media: string;
-}
+import { BalmPath } from '@balm-core/index';
 
 const source: BalmPath = {
   base: '', // Project directory
+  html: '', // HTML template directory: `src`
   css: 'styles', // Stylesheet directory: `src/styles`
   js: 'scripts', // Javascript directory: `src/scripts`
   img: 'images', // Image directory: `src/images`
@@ -16,8 +10,8 @@ const source: BalmPath = {
   media: 'media' // Media directory: `src/media`
 };
 
-const tmp: BalmPath = {
-  base: '',
+const tmp: Omit<BalmPath, 'html'> = {
+  base: '', // `.tmp`
   css: 'css', // `.tmp/css`
   js: 'js', // `.tmp/js`
   img: 'img', // `.tmp/img`
@@ -25,8 +19,8 @@ const tmp: BalmPath = {
   media: 'media' // `.tmp/media`
 };
 
-const target: BalmPath = {
-  base: '',
+const target: Omit<BalmPath, 'html'> = {
+  base: '', // `dist`
   css: 'css', // `dist/css`
   js: 'js', // `dist/js`
   img: 'img', // `dist/img`

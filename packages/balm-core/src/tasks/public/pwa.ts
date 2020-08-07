@@ -15,7 +15,7 @@ class PwaTask extends BalmJS.BalmTask {
         `${globDirectory}/${BalmJS.config.pwa.swDestFilename}`
       );
       const swSrc = BalmJS.file.absPath(
-        `${BalmJS.config.roots.source}/${BalmJS.config.pwa.swSrcFilename}`
+        `${BalmJS.config.src.base}/${BalmJS.config.pwa.swSrcFilename}`
       );
 
       let valid = true;

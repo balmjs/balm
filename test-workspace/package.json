@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2020.8.5",
+  "version": "2020.8.7",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -41,7 +41,7 @@
     "lib-flexible": "^0.3.2",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.11",
-    "vue-router": "^3.3.4",
+    "vue-router": "^3.4.1",
     "vue-server-renderer": "^2.6.11",
     "vuex": "^3.5.1",
     "vuex-router-sync": "^5.0.0"
@@ -52,7 +52,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.10.0",
     "@babel/plugin-syntax-dynamic-import": "^7.8.0",
     "@babel/runtime-corejs3": "^7.10.0",
-    "css-loader": "^4.2.0",
+    "css-loader": "^4.2.1",
     "less": "^3.12.0",
     "less-loader": "^6.2.0",
     "mp-webpack-plugin": "^1.0.0",

@@ -8,6 +8,11 @@ const workspace = path.join(projectRoot, 'test-workspace');
 const config = {
   workspace,
   // useDefaults: false,
+  // paths: {
+  //   source: {
+  //     html: 'tpl'
+  //   }
+  // },
   styles: {
     extname: 'scss',
     dartSass: true

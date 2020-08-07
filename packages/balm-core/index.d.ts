@@ -16,6 +16,7 @@ export interface BalmEnvObject {
 
 export interface BalmPath {
   base: string;
+  html: string;
   css: string;
   js: string;
   img: string;
@@ -175,8 +176,8 @@ export interface BalmConfig {
   };
   paths: {
     source: BalmPath;
-    tmp: BalmPath;
-    target: BalmPath;
+    tmp: Omit<BalmPath, 'html'>;
+    target: Omit<BalmPath, 'html'>;
   };
   html: {
     options: object;
