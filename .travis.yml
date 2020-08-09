@@ -13,6 +13,7 @@ node_js:
 before_script:
   - yarn
   - cd packages/balm-core && yarn
+  - cd ../..
 
 script:
   - node --version && npm --version

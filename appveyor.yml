@@ -29,6 +29,7 @@ install:
   - npm install
   - cd packages/balm-core
   - npm install
+  - cd ../..
 
 # build platform, i.e. x86, x64, Any CPU. This setting is optional.
 platform:
