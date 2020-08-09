@@ -10,6 +10,10 @@ node_js:
   - '14'
   - '12'
 
+before_script:
+  - yarn
+  - cd packages/balm-core && yarn
+
 script:
   - node --version && npm --version
   - npm test

@@ -24,7 +24,3 @@ tslib
 # MacOS generated files
 .DS_Store
 .DS_Store?
-
-# Others
-yarn.lock
-package-lock.json
