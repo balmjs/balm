@@ -17,8 +17,6 @@
   <p>A flexible Front-End workflow for webapps</p>
 </div>
 
-> [BalmJS 3.0](https://github.com/balmjs/balm/tree/next) is coming up...
-
 ## What's BalmJS?
 
 BalmJS prescribes best practices and tools to help you stay productive.
