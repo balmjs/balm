@@ -19,7 +19,7 @@ describe('Ftp Task', function() {
   });
 
   describe('#mix.ftp()', function() {
-    const defaultInput = path.join(balm.config.workspace, 'dist/*');
+    const defaultInput = 'dist/*';
 
     describe('!options', function() {
       it(
@@ -27,7 +27,7 @@ describe('Ftp Task', function() {
         asyncCase(function() {
           ftpTask.recipe(defaultInput)();
 
-          expect(ftpTask.input).to.equal(defaultInput);
+          expect(ftpTask.input).to.equal(path.join(balm.config.workspace, defaultInput));
         })
       );
     });

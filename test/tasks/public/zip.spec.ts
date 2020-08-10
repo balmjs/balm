@@ -14,8 +14,8 @@ describe('Zip Task', function() {
   });
 
   describe('#mix.zip()', function() {
-    const defaultInput = path.join(balm.config.workspace, 'dist/**/*');
-    const defaultOutput = path.join(balm.config.workspace, '.');
+    const defaultInput = 'dist/**/*';
+    const defaultOutput = '.';
 
     describe('!options', function() {
       it(
@@ -23,8 +23,8 @@ describe('Zip Task', function() {
         asyncCase(function() {
           zipTask.recipe(defaultInput, defaultOutput)();
 
-          expect(zipTask.input).to.equal(defaultInput);
-          expect(zipTask.output).to.equal(defaultOutput);
+          expect(zipTask.input).to.equal(path.join(balm.config.workspace, defaultInput));
+          expect(zipTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
         })
       );
     });

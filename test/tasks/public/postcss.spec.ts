@@ -42,9 +42,9 @@ describe('Postcss Task', function() {
     });
 
     const defaultInput = [
-      path.join(balm.config.workspace, 'css', '/*.css')
+      path.join('css', '/*.css')
     ];
-    const defaultOutput = path.join(balm.config.workspace, 'dist');
+    const defaultOutput = 'dist';
 
     it(
       `expected output: "${defaultInput}"`,
@@ -52,9 +52,11 @@ describe('Postcss Task', function() {
         postcssTask.recipe(defaultInput, defaultOutput)();
 
         expect(JSON.stringify(postcssTask.input)).to.equal(
-          JSON.stringify(defaultInput)
+          JSON.stringify([
+            path.join(balm.config.workspace, 'css', '/*.css')
+          ])
         );
-        expect(postcssTask.output).to.equal(defaultOutput);
+        expect(postcssTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
       })
     );
   });

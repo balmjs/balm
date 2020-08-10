@@ -14,8 +14,8 @@ describe('Jsmin Task', function() {
   });
 
   describe('#mix.jsmin()', function() {
-    const defaultInput = path.join(balm.config.workspace, 'src/main.js');
-    const defaultOutput = path.join(balm.config.workspace, 'dist');
+    const defaultInput = 'src/main.js';
+    const defaultOutput = 'dist';
 
     describe('!options', function() {
       it(
@@ -23,8 +23,8 @@ describe('Jsmin Task', function() {
         asyncCase(function() {
           jsminTask.recipe(defaultInput, defaultOutput)();
 
-          expect(jsminTask.input).to.equal(defaultInput);
-          expect(jsminTask.output).to.equal(defaultOutput);
+          expect(jsminTask.input).to.equal(path.join(balm.config.workspace, defaultInput));
+          expect(jsminTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
         })
       );
     });

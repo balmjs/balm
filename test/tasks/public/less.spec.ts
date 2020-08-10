@@ -38,9 +38,9 @@ describe('Less Task', function() {
     });
 
     const defaultInput = [
-      path.join(balm.config.workspace, 'less', '*.less')
+      path.join('less', '*.less')
     ];
-    const defaultOutput = path.join(balm.config.workspace, 'dist');
+    const defaultOutput = 'dist';
 
     it(
       `expected output: "${defaultInput}"`,
@@ -48,9 +48,11 @@ describe('Less Task', function() {
         lessTask.recipe(defaultInput, defaultOutput, {})();
 
         expect(JSON.stringify(lessTask.input)).to.equal(
-          JSON.stringify(defaultInput)
+          JSON.stringify([
+            path.join(balm.config.workspace, 'less', '*.less')
+          ])
         );
-        expect(lessTask.output).to.equal(defaultOutput);
+        expect(lessTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
       })
     );
   });

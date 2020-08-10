@@ -68,7 +68,7 @@ describe('Url Task', function() {
       };
     });
 
-    const defaultOutput = path.join(balm.config.workspace, 'dist');
+    const defaultOutput = 'dist';
     const defaultInput = path.join(defaultOutput, '**', '*.css');
 
     it(
@@ -76,8 +76,8 @@ describe('Url Task', function() {
       asyncCase(function() {
         urlTask.recipe(defaultInput, defaultOutput)();
 
-        expect(urlTask.output).to.equal(defaultOutput);
-        expect(urlTask.input).to.equal(defaultInput);
+        expect(urlTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
+        expect(urlTask.input).to.equal(path.join(balm.config.workspace, defaultInput));
       })
     );
   });

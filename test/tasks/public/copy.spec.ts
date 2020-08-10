@@ -14,11 +14,8 @@ describe('Copy Task', function() {
   });
 
   describe('#mix.copy()', function() {
-    const defaultInput = [
-      path.join(balm.config.workspace, 'src/foo.txt'),
-      path.join(balm.config.workspace, 'src/bar.txt')
-    ];
-    const defaultOutput = path.join(balm.config.workspace, 'dist');
+    const defaultInput = ['src/foo.txt', 'src/bar.txt'];
+    const defaultOutput = 'dist';
 
     describe('!options', function() {
       it(
@@ -27,9 +24,12 @@ describe('Copy Task', function() {
           copyTask.recipe(defaultInput, defaultOutput)();
 
           expect(JSON.stringify(copyTask.input)).to.equal(
-            JSON.stringify(defaultInput)
+            JSON.stringify([
+              path.join(balm.config.workspace, 'src/foo.txt'),
+              path.join(balm.config.workspace, 'src/bar.txt')
+            ])
           );
-          expect(copyTask.output).to.equal(defaultOutput);
+          expect(copyTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
         })
       );
     });

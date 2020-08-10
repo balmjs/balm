@@ -39,10 +39,10 @@ describe('Sass Task', function () {
     });
 
     const defaultInput = [
-      path.join(balm.config.workspace, 'sass', '*.sass'),
-      path.join(balm.config.workspace, 'scss', '*.scss')
+      path.join('sass', '*.sass'),
+      path.join('scss', '*.scss')
     ];
-    const defaultOutput = path.join(balm.config.workspace, 'dist');
+    const defaultOutput = 'dist';
 
     it(
       `expected output: "${defaultInput}"`,
@@ -50,9 +50,12 @@ describe('Sass Task', function () {
         sassTask.recipe(defaultInput, defaultOutput, {})();
 
         expect(JSON.stringify(sassTask.input)).to.equal(
-          JSON.stringify(defaultInput)
+          JSON.stringify([
+            path.join(balm.config.workspace, 'sass', '*.sass'),
+            path.join(balm.config.workspace, 'scss', '*.scss')
+          ])
         );
-        expect(sassTask.output).to.equal(defaultOutput);
+        expect(sassTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
       })
     );
   });
