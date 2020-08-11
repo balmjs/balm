@@ -24,6 +24,14 @@ describe('Bootstrap', function() {
   });
 
   describe('#go()', function() {
+    describe('function', function() {
+      before(function() {
+        balm.go();
+      });
+
+      it('expected output: "balm tasks"', asyncCase(function() {}));
+    });
+
     describe('!function', function() {
       before(function() {
         balm.go('gg');

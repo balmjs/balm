@@ -203,21 +203,4 @@ describe('Balm File', function() {
       );
     });
   });
-
-  // describe('#setPublicPath()', function() {
-  //   before(function() {
-  //     balm.config = {
-  //       env: {
-  //         isProd: true
-  //       }
-  //     };
-  //   });
-
-  //   it(
-  //     `expected output: "/"`,
-  //     asyncCase(function() {
-  //       file.setPublicPath();
-  //     })
-  //   );
-  // });
 });
