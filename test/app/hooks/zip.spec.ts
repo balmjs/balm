@@ -3,40 +3,58 @@ import { cleanup, runTest } from '../test';
 const targetDir = '.output';
 
 describe('Balm Hooks - zip', function() {
-  before(function() {
-    balm.config = {
-      useDefaults: false
-    };
-  });
-
   after(function() {
     cleanup();
   });
 
-  it('#mix.zip()', function(done) {
-    let input = ['src/compress/*', 'src/copy/**/*'];
-    let output = targetDir;
-
-    runTest(
-      {
-        testCase: `${output}/new-archive.zip`,
-        testHook: (mix: any) => {
-          mix.zip(input, output, 'new-archive.zip');
+  describe('#mix.zip() with default', function() {
+    before(function() {
+      balm.config = {
+        env: {
+          isProd: true
+        },
+        logs: {
+          level: 2
         }
-      },
-      done
-    );
+      };
+    });
+
+    it(`expected output: "archive.zip"`, function(done) {
+      runTest(
+        {
+          testCase: 'archive.zip',
+          testHook: (mix: any) => {
+            mix.zip();
+          }
+        },
+        {
+          done,
+          delay: 4000
+        }
+      );
+    });
   });
 
-  it('#mix.zip() with default', function(done) {
-    runTest(
-      {
-        testCase: 'archive.zip',
-        testHook: (mix: any) => {
-          mix.zip();
-        }
-      },
-      done
-    );
+  describe('#mix.zip() with custom', function() {
+    before(function() {
+      balm.config = {
+        useDefaults: false
+      };
+    });
+
+    let input = ['src/compress/*', 'src/copy/**/*'];
+    let output = `${targetDir}/new-archive.zip`;
+
+    it(`expected output: "${output}"`, function(done) {
+      runTest(
+        {
+          testCase: output,
+          testHook: (mix: any) => {
+            mix.zip(input, targetDir, 'new-archive.zip');
+          }
+        },
+        done
+      );
+    });
   });
 });
