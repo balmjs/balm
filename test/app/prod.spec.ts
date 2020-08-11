@@ -35,12 +35,11 @@ describe('App Test in production', function () {
     let testCase = [
       'dist/index.html',
       'dist/favicon.ico',
-      'dist/rev-manifest.json'
-      // 'dist/a/main.41255e24.css',
-      // 'dist/b/main.9af584a0.js',
+      'dist/rev-manifest.json',
+      // 'dist/a/main.7ad32811.css',
+      // 'dist/b/main.3faa14e5.js',
       // 'dist/c/logo.bae9298c.svg',
-      // 'dist/d/roboto-regular.f94d5e51.woff',
-      // 'dist/e/big_buck_bunny.f13004ee.mp4'
+      // 'dist/d/roboto-regular.f94d5e51.woff'
     ];
 
     const input = 'index.html';
@@ -86,8 +85,8 @@ describe('App Test in production', function () {
 
   it('publish assets & templates to remote', function (done) {
     const testCase = [
-      'assets/public/a/main.41255e24.css',
-      'assets/public/b/main.9af584a0.js',
+      'assets/public/a/main.7ad32811.css',
+      'assets/public/b/main.3faa14e5.js',
       'assets/views/home.blade.php',
       'assets/views/a/page-a.phtml',
       'assets/views/b/page-b.phtml'

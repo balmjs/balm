@@ -22,18 +22,7 @@ function asyncCase(fn: Function) {
   };
 }
 
-function runTest(config: any, recipe: Function = () => {}) {
-  if (config) {
-    balm.config = config;
-  }
-
-  balm.go(recipe);
-
-  gulp.parallel('balm:default')();
-}
-
 global.isWin = isWin;
 global.balm = balm;
 global.expect = expect;
 global.asyncCase = asyncCase;
-global.runTest = runTest;

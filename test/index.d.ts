@@ -7,7 +7,6 @@ declare global {
       balm: any;
       expect: any;
       asyncCase: Function;
-      runTest: Function;
     }
   }
 
@@ -15,5 +14,4 @@ declare global {
   var balm: any;
   var expect: any;
   var asyncCase: Function;
-  var runTest: Function;
 }
