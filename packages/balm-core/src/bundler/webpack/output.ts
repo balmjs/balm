@@ -50,6 +50,7 @@ function getOutput(output: string, scripts: any, isHook = false): any {
             `${jsFolder}/${ASYNC_SCRIPTS}/${jsChunkFilename}`
           ),
       libraryTarget: scripts.libraryTarget
+      // ecmaVersion: scripts.ecmaVersion // NOTE: for webpack@5
     },
     customLibraryConfig,
     miniprogramConfig

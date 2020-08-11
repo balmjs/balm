@@ -9,23 +9,13 @@
     "front-end",
     "workflow"
   ],
-  "homepage": "https://balmjs.com",
+  "homepage": "https://balm.js.org",
   "license": "MIT",
   "author": {
     "name": "Elf-mousE",
     "email": "ifmouz@gmail.com",
     "url": "http://elf-mouse.me"
   },
-  "contributors": [
-    {
-      "name": "74sharlock",
-      "email": "sharlock7788@gmail.com"
-    },
-    {
-      "name": "Lenny-Hu",
-      "email": "a97251292@gmail.com"
-    }
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/balmjs/balm.git"

@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://balmjs.com/">
-    <img width="128" heigth="128" src="https://balmjs.com/logo.png" alt="BalmJS">
+  <a href="https://balm.js.org/">
+    <img width="128" heigth="128" src="https://balm.js.org/logo.png" alt="BalmJS">
   </a>
   <br>
   <br>
@@ -88,7 +88,7 @@ Install [Node.js® and npm](https://nodejs.org/en/download/) if they are not alr
 
 > **Verify that you are running at least node `12.0.0` and npm `5.2.0`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
 
-You develop apps in the context of an [Balm workspace](https://balmjs.com/docs/guide/structure.html).
+You develop apps in the context of an [Balm workspace](https://balm.js.org/docs/guide/structure.html).
 
 To create a new workspace and initial starter app:
 
@@ -121,7 +121,7 @@ module.exports = {
 };
 ```
 
-:page_with_curl: Refer to [configuration docs](https://balmjs.com/docs/config/) to learn more about config **`balm`**.
+:page_with_curl: Refer to [configuration docs](https://balm.js.org/docs/config/) to learn more about config **`balm`**.
 
 ### 3. Usage
 
@@ -146,11 +146,11 @@ npm run dev
 npm run prod
 ```
 
-## [Documentation](https://balmjs.com/docs/)
+## [Documentation](https://balm.js.org/docs/)
 
-- [Getting Started](https://balmjs.com/docs/guide/getting-started.html)
-- [Configuration](https://balmjs.com/docs/config/)
-- [Custom Task API](https://balmjs.com/docs/api/)
+- [Getting Started](https://balm.js.org/docs/guide/getting-started.html)
+- [Configuration](https://balm.js.org/docs/config/)
+- [Custom Task API](https://balm.js.org/docs/api/)
 
 ## License
 

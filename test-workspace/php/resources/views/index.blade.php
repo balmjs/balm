@@ -22,7 +22,7 @@ use \App\Helpers as helpers;
     <div id="app">
       <span>Hello</span>
       <img src="<?php echo helpers\balm('img/logo.svg', 'web'); ?>" alt="BalmJS" />
-      <a href="//balmjs.com/">BalmJS</a>
+      <a href="//balm.js.org/">BalmJS</a>
       <span>for <b>PHP</b></span>
     </div>
     <script src="<?php echo helpers\balm('js/app.js', 'web'); ?>"></script>

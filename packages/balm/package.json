@@ -1,7 +1,7 @@
 {
   "name": "balm",
-  "version": "3.0.0-beta.13",
-  "description": "A flexible front-end workflow for webapps",
+  "version": "3.0.0-beta.14",
+  "description": "BalmJS runtime core",
   "keywords": [
     "balm",
     "balmjs",
@@ -10,7 +10,7 @@
     "front-end",
     "workflow"
   ],
-  "homepage": "https://balmjs.com",
+  "homepage": "https://balm.js.org",
   "license": "MIT",
   "author": {
     "name": "Elf-mousE",

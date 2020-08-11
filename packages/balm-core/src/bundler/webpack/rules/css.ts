@@ -35,7 +35,12 @@ function cssLoader(): RuleSetRule {
     exclude: cssModuleRegex,
     use: [
       BalmJS.config.env.isProd && BalmJS.config.scripts.extractCss.enabled
-        ? MiniCssExtractPlugin.loader
+        ? {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: BalmJS.config.scripts.useEsModule
+            }
+          }
         : styleLoader,
       {
         loader: require.resolve('css-loader'),

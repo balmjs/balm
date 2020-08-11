@@ -3,7 +3,7 @@
     <h1>{{ msg }}</h1>
     <p>
       thx
-      <a href="//balmjs.com/">BalmJS</a>
+      <a href="//balm.js.org/">BalmJS</a>
     </p>
   </div>
 </template>
