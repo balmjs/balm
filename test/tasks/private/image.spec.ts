@@ -9,10 +9,6 @@ describe('Image Task', function() {
   });
 
   describe('without sprites', function() {
-    before(function() {
-      balm.go();
-    });
-
     const defaultInput = [
       path.join(balm.config.workspace, 'src', 'images', '**', '*')
     ];
@@ -34,8 +30,6 @@ describe('Image Task', function() {
           sprites: ['icons']
         }
       };
-
-      balm.go();
     });
 
     const defaultInput = [
@@ -61,8 +55,6 @@ describe('Image Task', function() {
           plugins: []
         }
       };
-
-      balm.go();
     });
 
     it(

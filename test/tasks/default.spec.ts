@@ -1,3 +1,4 @@
+import './custom-tasks';
 import DefaultTask from '../../packages/balm-core/src/tasks/default';
 import balm from '../../packages/balm-core/src/index';
 

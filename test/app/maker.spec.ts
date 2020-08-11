@@ -5,7 +5,7 @@ describe('Maker', function() {
     cleanup();
   });
 
-  describe('blacklist in production', function() {
+  describe('blocklist in production', function() {
     before(function() {
       balm.config = {
         env: {
@@ -28,7 +28,7 @@ describe('Maker', function() {
     });
   });
 
-  describe('blacklist in development', function() {
+  describe('blocklist in development', function() {
     before(function() {
       balm.config = {
         env: {

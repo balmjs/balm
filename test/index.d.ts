@@ -5,15 +5,15 @@ declare global {
     interface Global {
       isWin: boolean;
       balm: any;
-      runTask: Function;
       expect: any;
       asyncCase: Function;
+      runTest: Function;
     }
   }
 
   var isWin: boolean;
   var balm: any;
-  var runTask: Function;
   var expect: any;
   var asyncCase: Function;
+  var runTest: Function;
 }

@@ -1,7 +1,5 @@
 import { cleanup, runTest } from '../test';
 
-const targetDir = '.output';
-
 describe('Balm Hooks - others', function() {
   beforeEach(function() {
     balm.config = {

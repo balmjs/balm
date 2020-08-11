@@ -7,9 +7,7 @@ describe('Bootstrap', function() {
 
       it(
         'expected output: "Task must be a string or function"',
-        asyncCase(function() {
-          balm.go();
-        })
+        asyncCase(function() {})
       );
     });
 
@@ -20,9 +18,7 @@ describe('Bootstrap', function() {
 
       it(
         'expected output: "Invalid task name"',
-        asyncCase(function() {
-          balm.go();
-        })
+        asyncCase(function() {})
       );
     });
   });

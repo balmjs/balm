@@ -1,7 +1,7 @@
 import file from '../../packages/balm-core/src/utilities/file';
 
 describe('Balm File', function() {
-  describe('#publicUrlOrPath', function() {
+  describe('.publicUrlOrPath', function() {
     const publicUrl = '/';
 
     it(
@@ -12,7 +12,7 @@ describe('Balm File', function() {
     );
   });
 
-  describe('#stylePaths', function() {
+  describe('.stylePaths', function() {
     const stylePath = path.join(balm.config.workspace, '.');
 
     it(
@@ -23,7 +23,7 @@ describe('Balm File', function() {
     );
   });
 
-  describe('#assetsSuffixPath', function() {
+  describe('.assetsSuffixPath', function() {
     describe('in frontend', function() {
       describe('!subDir', function() {
         before(function() {
@@ -117,7 +117,7 @@ describe('Balm File', function() {
     });
   });
 
-  describe('#defaultEntry', function() {
+  describe('.defaultEntry', function() {
     const defaultEntry = path.join(balm.config.roots.source, balm.config.paths.source.js, 'index.js');
 
     it(
@@ -204,23 +204,20 @@ describe('Balm File', function() {
     });
   });
 
-  describe('#setPublicPath()', function() {
-    before(function() {
-      balm.config = {
-        env: {
-          isProd: true
-        },
-        assets: {
-          publicUrl: '/'
-        }
-      };
-    });
+  // describe('#setPublicPath()', function() {
+  //   before(function() {
+  //     balm.config = {
+  //       env: {
+  //         isProd: true
+  //       }
+  //     };
+  //   });
 
-    it(
-      `expected output: "/"`,
-      asyncCase(function() {
-        file.setPublicPath();
-      })
-    );
-  });
+  //   it(
+  //     `expected output: "/"`,
+  //     asyncCase(function() {
+  //       file.setPublicPath();
+  //     })
+  //   );
+  // });
 });

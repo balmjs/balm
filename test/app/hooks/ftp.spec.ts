@@ -1,7 +1,5 @@
 import { runTest } from '../test';
 
-const targetDir = '.output';
-
 describe('Balm Hooks - ftp', function() {
   before(function() {
     balm.config = {
