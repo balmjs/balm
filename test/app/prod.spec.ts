@@ -31,7 +31,7 @@ describe('App Test in production', function () {
     cleanup();
   });
 
-  it('expected output: "dist"', function (done) {
+  it('expected output: "dist & assets"', function (done) {
     let testCase = [
       'dist/index.html',
       'dist/favicon.ico',
@@ -39,7 +39,12 @@ describe('App Test in production', function () {
       // 'dist/a/main.7ad32811.css',
       // 'dist/b/main.3faa14e5.js',
       // 'dist/c/logo.bae9298c.svg',
-      // 'dist/d/roboto-regular.f94d5e51.woff'
+      // 'dist/d/roboto-regular.f94d5e51.woff',
+      'assets/public/a/main.7ad32811.css',
+      'assets/public/b/main.3faa14e5.js',
+      'assets/views/home.blade.php',
+      'assets/views/a/page-a.phtml',
+      // 'assets/views/b/page-b.phtml'
     ];
 
     const input = 'index.html';
@@ -81,17 +86,5 @@ describe('App Test in production', function () {
         delay: 4000
       }
     );
-  });
-
-  it('publish assets & templates to remote', function (done) {
-    const testCase = [
-      'assets/public/a/main.7ad32811.css',
-      'assets/public/b/main.3faa14e5.js',
-      'assets/views/home.blade.php',
-      'assets/views/a/page-a.phtml',
-      'assets/views/b/page-b.phtml'
-    ];
-
-    runTest(testCase, done);
   });
 });
