@@ -1,11 +1,6 @@
-import { series, parallel, watch } from 'gulp';
+import { series, watch } from 'gulp';
 import detectPort from '../../utilities/detect-port';
 import getMiddlewares from '../../middlewares';
-
-function reload(done: Function): void {
-  server.reload();
-  done();
-}
 
 class ServerTask extends BalmJS.BalmTask {
   constructor() {
@@ -55,8 +50,8 @@ class ServerTask extends BalmJS.BalmTask {
     watch(
       `${BalmJS.config.src.base}/*.html`,
       watchOptions,
-      this._watchTask('html')
-    ).on('change', server.reload);
+      this._watchTask('html', true)
+    );
 
     watch(
       `${BalmJS.config.src.css}/**/*.${BalmJS.config.styles.extname}`,
@@ -100,7 +95,7 @@ class ServerTask extends BalmJS.BalmTask {
   recipe(customHandler?: Function): any {
     return (callback: Function): void => {
       if (BalmJS.server) {
-        BalmJS.logger.warn('server task', 'The server has started');
+        BalmJS.logger.warn('server task', 'Server has started');
       } else {
         let bsOptions: any = {
           logPrefix: 'BalmJS',

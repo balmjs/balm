@@ -1,6 +1,6 @@
 import { LooseObject } from '@balm/index';
 
-const docsBaseURL = 'https://balmjs.com/docs/v2/config';
+const docsBaseURL = 'https://balm.js.org/docs/config';
 
 function upgradeGuide(key: string, value: string, message: string) {
   return `${message} See ${docsBaseURL}/${key}.html#${key}-${value}`;

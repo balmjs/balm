@@ -37,19 +37,19 @@ describe('Publish Task', function() {
         };
       });
 
-      it('publish all static assets', function(done) {
-        publishTask.recipe()(done);
-      });
+      it('publish all static assets', asyncCase(function() {
+        publishTask.recipe()();
+      }));
 
-      it('publish one template', function(done) {
+      it('publish one template', asyncCase(function() {
         publishTask.recipe('index.html', 'dist', {
           basename: 'home',
           suffix: '.blade',
           extname: '.php'
-        })(done);
-      });
+        })();
+      }));
 
-      it('publish multiple templates', function(done) {
+      it('publish multiple templates', asyncCase(function() {
         publishTask.recipe([
           {
             input: 'page-1.html',
@@ -65,8 +65,8 @@ describe('Publish Task', function() {
               extname: '.php'
             }
           }
-        ])(done);
-      });
+        ])();
+      }));
     });
   });
 });

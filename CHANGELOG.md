@@ -1,5 +1,17 @@
 # [BalmJS](https://balmjs.com) CHANGELOG
 
+> ⚠️ Now, `balm@3` is ready! please upgrade it!!!
+
+## v2.24.0 / 2020-08-14
+
+### Bug Fixes
+
+- fix `server` watching bug
+
+### ### Chores
+
+- optimize `publish` task
+
 ## v2.23.0 / 2020-07-27
 
 ### Chores

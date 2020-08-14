@@ -11,13 +11,7 @@ function webpackConfig(
   isHook = false
 ): Configuration {
   const scripts: any = BalmJS.config.scripts;
-  const defaultEntry =
-    './' +
-    path.join(
-      BalmJS.config.roots.source,
-      BalmJS.config.paths.source.js,
-      'index.js'
-    );
+  const defaultEntry = './' + path.join(BalmJS.config.src.js, 'index.js');
 
   const baseConfig: any = {
     entry: input ? getEntry(input, scripts) : defaultEntry,

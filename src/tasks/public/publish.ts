@@ -1,3 +1,4 @@
+import mergeStream from '../../utilities/merge-stream';
 import { RenameOptions, TemplateOption } from '@balm/index';
 
 class PublishTask extends BalmJS.BalmTask {
@@ -15,7 +16,7 @@ class PublishTask extends BalmJS.BalmTask {
     input: string,
     output: string,
     renameOptions: string | Function | RenameOptions = {}
-  ): void {
+  ): any {
     if (input && output) {
       this.init(
         path.join(BalmJS.config.dest.base, input),
@@ -25,7 +26,7 @@ class PublishTask extends BalmJS.BalmTask {
       this.init();
     }
 
-    this.src
+    return this.src
       .pipe(
         $.if(
           !BalmJS.utils.isArray(this.input),
@@ -40,28 +41,28 @@ class PublishTask extends BalmJS.BalmTask {
     output: string,
     renameOptions: string | Function | RenameOptions
   ): any {
-    // TODO: has bug with `zip`
-    return (callback: Function): void => {
+    return (callback: Function): any => {
       if (BalmJS.config.env.isProd) {
         if (BalmJS.utils.isArray(input)) {
-          (input as TemplateOption[]).forEach((template: TemplateOption) => {
+          const tasks = (input as TemplateOption[]).map((template) =>
             this._release(
               template.input,
               template.output,
               template.renameOptions
-            );
-          });
+            )
+          );
+          return mergeStream(...tasks);
         } else {
-          this._release(input as string, output, renameOptions);
+          return this._release(input as string, output, renameOptions);
         }
       } else {
         BalmJS.logger.warn(
           `${this.name} task`,
           '`mix.publish()` is only supported for production'
         );
-      }
 
-      callback();
+        callback();
+      }
     };
   }
 

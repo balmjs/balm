@@ -26,8 +26,7 @@ class BalmStyleTask extends BalmTask {
     }
 
     this.defaultInput = path.join(
-      BalmJS.config.roots.source,
-      BalmJS.config.paths.source.css,
+      BalmJS.config.src.css,
       '**',
       `!(_*).${extname}`
     );
