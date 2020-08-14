@@ -8,7 +8,6 @@ const atImportPaths: string[] = [];
  * @reference https://cssnano.co/guides/optimisations/
  */
 const options: object = {
-  safe: true,
   autoprefixer: false,
   discardComments: {
     removeAll: true
