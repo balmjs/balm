@@ -122,10 +122,13 @@ function setTask(name: string | Function): string | Function | undefined {
     if ((gulp.tree().nodes as string[]).includes(name as string)) {
       result = name as string;
     } else {
-      BalmJS.logger.error('gulp task', 'Invalid task name');
+      BalmJS.logger.error('before/end task', 'Invalid gulp task name');
     }
   } else {
-    BalmJS.logger.error('gulp task', 'Task must be a string or function');
+    BalmJS.logger.error(
+      'before/end task',
+      'Task must be a string or gulp function'
+    );
   }
 
   return result;

@@ -1,6 +1,6 @@
 {
   "name": "balm-core",
-  "version": "3.0.0-beta.17",
+  "version": "3.0.0-beta.18",
   "description": "BalmJS compiler core",
   "keywords": [
     "balm",
@@ -85,7 +85,7 @@
     "ssh2": "^0.8.9",
     "style-loader": "^1.2.1",
     "terser": "^4.8.0",
-    "terser-webpack-plugin": "^3.1.0",
+    "terser-webpack-plugin": "^4.1.0",
     "through2": "^4.0.2",
     "tslib": "^2.0.1",
     "url-loader": "^4.1.0",

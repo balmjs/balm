@@ -11,7 +11,7 @@ function getMiddlewares(): object[] {
   if (!canOverride) {
     BalmJS.logger.error(
       'server middleware',
-      'server middleware must be a function (`function (req, res, next) {}`) or object (`{ route: "/api", handle: function (req, res, next) {} }`)'
+      'Server middleware must be a function (`function (req, res, next) {}`) or object (`{ route: "/api", handle: function (req, res, next) {} }`)'
     );
   }
 

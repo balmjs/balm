@@ -81,7 +81,7 @@ class CleanTask extends BalmJS.BalmTask {
       : this.dirInBackend;
 
     if (BalmJS.config.env.isProd && !BalmJS.config.assets.root) {
-      BalmJS.logger.warn(taskName, 'remote root path is empty');
+      BalmJS.logger.warn(taskName, 'Remote root path is empty');
     }
 
     BalmJS.logger.debug(

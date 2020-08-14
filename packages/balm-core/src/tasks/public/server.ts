@@ -1,8 +1,6 @@
 import detectPort from '../../utilities/detect-port';
 import getMiddlewares from '../../middlewares';
 
-const { series, watch } = gulp;
-
 class ServerTask extends BalmJS.BalmTask {
   constructor() {
     super('serve');
@@ -30,10 +28,12 @@ class ServerTask extends BalmJS.BalmTask {
       done();
     };
 
-    return serverReload ? series(balmTask, reload) : balmTask;
+    return serverReload ? gulp.series(balmTask, reload) : balmTask;
   }
 
   private _onWatch(): void {
+    const { watch } = gulp;
+
     // NOTE: bugfix for windows - chokidar.cwd has not default
     const watchOptions = {
       cwd: BalmJS.config.workspace
@@ -51,8 +51,8 @@ class ServerTask extends BalmJS.BalmTask {
     watch(
       `${BalmJS.config.src.html}/*.html`,
       watchOptions,
-      this._watchTask('html')
-    ).on('change', server.reload);
+      this._watchTask('html', true)
+    );
 
     watch(
       `${BalmJS.config.src.css}/**/*.${BalmJS.config.styles.extname}`,
@@ -96,7 +96,7 @@ class ServerTask extends BalmJS.BalmTask {
   recipe(customHandler?: Function): any {
     return (callback: Function): void => {
       if (BalmJS.server) {
-        BalmJS.logger.warn('server task', 'The server has started');
+        BalmJS.logger.warn('server task', 'Server has started');
       } else {
         let bsOptions: any = {
           logPrefix: 'BalmJS',
@@ -151,7 +151,7 @@ class ServerTask extends BalmJS.BalmTask {
           } else {
             BalmJS.watching = true;
 
-            const watcher = watch([
+            const watcher = gulp.watch([
               `${BalmJS.config.src.base}/**/*`,
               ...BalmJS.config.server.extraWatchFiles
             ]);

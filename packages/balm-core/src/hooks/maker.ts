@@ -64,7 +64,7 @@ class Maker {
         } else {
           BalmJS.logger.warn(
             'balm hook',
-            'mix.sprite() is missing `input` parameters'
+            '`mix.sprite()` is missing `input` parameters'
           );
         }
         break;

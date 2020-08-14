@@ -85,7 +85,7 @@ function getEntry(
   } else {
     BalmJS.logger.warn(
       'webpack entry',
-      'scripts entry must be a `string | array | object`'
+      '`scripts.entry` must be `string | array | object`'
     );
   }
 

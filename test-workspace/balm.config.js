@@ -22,17 +22,17 @@ const config = {
     esbuild: true,
     lint: true
   },
-  images: {
-    plugins: {
-      jpeg: false,
-      png: false
-    }
-  },
+  // images: {
+  //   plugins: {
+  //     jpeg: false,
+  //     png: false
+  //   }
+  // },
   assets: {
     cache: true
   },
   logs: {
-    level: 1
+    level: 2
   }
 };
 

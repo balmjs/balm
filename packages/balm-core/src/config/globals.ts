@@ -16,7 +16,7 @@ const gulpRuntimePath = `${
 if (!fs.existsSync(gulpRuntimePath)) {
   console.error(
     colors.bgBlueBright('BalmJS'),
-    colors.yellow('`gulp` module not found :(')
+    colors.yellow('`balm@3` module not found :(')
   );
   process.exit(1);
 }
