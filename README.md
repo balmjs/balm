@@ -17,6 +17,8 @@
   <p>A flexible Front-End workflow for webapps</p>
 </div>
 
+> :bell: Now, [`balm@3`](https://balm.js.org/) is ready! Upgrade and enjoy!!! :ghost:
+
 ## What's BalmJS?
 
 BalmJS prescribes best practices and tools to help you stay productive.
@@ -60,7 +62,7 @@ project
 └── ...
 ```
 
-> :rocket: We recommend using [Balm CLI](https://github.com/balmjs/balm-cli) to scaffold out a front-end web app. :ghost:
+> :rocket: We recommend using [Balm CLI](https://github.com/balmjs/balm-cli) to scaffold out a front-end web app.
 
 ## Ecosystem
 

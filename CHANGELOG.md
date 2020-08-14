@@ -1,6 +1,6 @@
-# [BalmJS](https://balmjs.com) CHANGELOG
+# [BalmJS](https://balm.js.org) CHANGELOG
 
-> ⚠️ Now, `balm@3` is ready! please upgrade it!!!
+> :bell: Now, [`balm@3`](https://balm.js.org/) is ready! Upgrade and enjoy!!! :ghost:
 
 ## v2.24.0 / 2020-08-14
 
