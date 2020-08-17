@@ -1,9 +1,9 @@
 import { TransformCallback } from 'stream';
-import Terser from 'terser';
+import { minify } from 'terser';
 
 const PLUGIN_NAME = 'jsmin';
 
-function minify(file: any, opts: object, cb: Function): void {
+async function jsMinify(file: any, opts: object, cb: Function): Promise<any> {
   const extname = path.extname(file.path);
 
   if (extname === '.js') {
@@ -13,10 +13,7 @@ function minify(file: any, opts: object, cb: Function): void {
     code[path.basename(file.path)] = content;
 
     try {
-      const result: any = Terser.minify(code, opts);
-      if (result.error) {
-        throw result.error;
-      }
+      const result = await minify(code, opts);
       content = result.code;
 
       file.contents = Buffer.from(content);
@@ -53,7 +50,7 @@ function gulpJsmin(options: object): any {
       return;
     }
 
-    minify(chunk, options, callback);
+    jsMinify(chunk, options, callback);
   }
 
   return through2.obj(_transform);
