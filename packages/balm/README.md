@@ -61,14 +61,15 @@ project
 
 ## Ecosystem
 
-| Project                                               | Status                                                 | Description                                       |
-| ----------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------- |
-| **[balm-core](https://github.com/balmjs/balm)**       | [![NPM version][balm-core-image]][balm-core-url]       | :black_joker: BalmJS core (for `balm@3`)          |
-| **[balm-cli](https://github.com/balmjs/balm-cli)**    | [![NPM version][balm-cli-image]][balm-cli-url]         | :spades: BalmJS scaffolding tool                  |
-| [balm-gui](https://github.com/balmjs/balm-gui)        | N/A                                                    | :clubs: GUI for BalmJS                            |
-| [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue               |
-| **[balm-ui](https://github.com/balmjs/ui-vue)**       | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Next Generation Material UI for Vue.js |
-| [balm-scroll](https://github.com/balmjs/balm-scroll)  | [![NPM version][balm-scroll-image]][balm-scroll-url]   | :scroll: Smooth scrolling for Vue.js              |
+| Project                                               | Status                                                 | Description                                                |
+| ----------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------- |
+| **[balm-core](https://github.com/balmjs/balm)**       | [![NPM version][balm-core-image]][balm-core-url]       | :black_joker: BalmJS compiler core (required for `balm@3`) |
+| **[balm](https://github.com/balmjs/balm)**            | [![NPM version][balm-image]][balm-url]                 | :black_joker: BalmJS runtime core                          |
+| **[balm-cli](https://github.com/balmjs/balm-cli)**    | [![NPM version][balm-cli-image]][balm-cli-url]         | :spades: BalmJS scaffolding tool                           |
+| [balm-gui](https://github.com/balmjs/balm-gui)        | N/A                                                    | :clubs: GUI for BalmJS                                     |
+| [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue                        |
+| **[balm-ui](https://github.com/balmjs/ui-vue)**       | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Next Generation Material UI for Vue.js          |
+| [balm-scroll](https://github.com/balmjs/balm-scroll)  | [![NPM version][balm-scroll-image]][balm-scroll-url]   | :scroll: Smooth scrolling for Vue.js                       |
 
 ## Demo
 
@@ -172,8 +173,8 @@ In chronological order
 [balm-url]: https://npmjs.org/package/balm
 [node-image]: https://img.shields.io/node/v/balm.svg
 [node-url]: https://nodejs.org
-[deps-image]: https://david-dm.org/balmjs/balm.svg?theme=shields.io
-[deps-url]: https://david-dm.org/balmjs/balm
+[deps-image]: https://david-dm.org/balmjs/balm.svg?path=packages/balm&theme=shields.io
+[deps-url]: https://david-dm.org/balmjs/balm?path=packages/balm
 [travis-image]: https://travis-ci.org/balmjs/balm.svg?branch=master
 [travis-url]: https://travis-ci.org/balmjs/balm
 [appveyor-image]: https://ci.appveyor.com/api/projects/status/github/balmjs/balm?svg=true
