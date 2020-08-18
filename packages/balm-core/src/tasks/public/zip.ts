@@ -10,12 +10,14 @@ class ZipTask extends BalmJS.BalmTask {
     input?: string | string[],
     output?: string,
     filename = 'archive.zip'
-  ): any {
-    return (): any => {
+  ): Function {
+    const balmZip = (): any => {
       this.init(input, output);
 
       return this.src.pipe($.zip(filename)).pipe(gulp.dest(this.output));
     };
+
+    return balmZip;
   }
 
   fn(callback: Function): void {

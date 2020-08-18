@@ -93,8 +93,8 @@ class ServerTask extends BalmJS.BalmTask {
     }
   }
 
-  recipe(customHandler?: Function): any {
-    return (callback: Function): void => {
+  recipe(customHandler?: Function): Function {
+    const balmServe = (callback: Function): void => {
       if (BalmJS.server) {
         BalmJS.logger.warn('server task', 'Server has started');
       } else {
@@ -167,9 +167,11 @@ class ServerTask extends BalmJS.BalmTask {
 
       callback();
     };
+
+    return balmServe;
   }
 
-  get fn(): any {
+  get fn(): Function {
     return this.recipe();
   }
 }

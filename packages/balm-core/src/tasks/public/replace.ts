@@ -9,8 +9,8 @@ class ReplaceTask extends BalmJS.BalmTask {
     input: string | string[],
     output: string,
     options: ReplaceOptions | ReplaceOptions[]
-  ): any {
-    return (): any => {
+  ): Function {
+    const balmReplace = (): any => {
       this.init(input, output);
 
       let stream: any = this.src;
@@ -37,6 +37,8 @@ class ReplaceTask extends BalmJS.BalmTask {
 
       return stream.pipe(gulp.dest(this.output));
     };
+
+    return balmReplace;
   }
 
   fn(callback: Function): void {

@@ -13,8 +13,8 @@ class VersionTask extends BalmJS.BalmTask {
     input?: string | string[],
     output?: string,
     assetsOptions?: object
-  ): any {
-    return (): any => {
+  ): Function {
+    const balmVersion = (): any => {
       this.init(input, output, {
         version: assetsOptions
       });
@@ -25,6 +25,8 @@ class VersionTask extends BalmJS.BalmTask {
         .pipe($.revAll.versionFile())
         .pipe(gulp.dest(this.output));
     };
+
+    return balmVersion;
   }
 
   fn(callback: Function): void {

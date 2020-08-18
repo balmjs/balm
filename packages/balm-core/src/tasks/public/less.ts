@@ -19,15 +19,17 @@ class LessTask extends BalmJS.BalmStyleTask {
     input?: string | string[],
     output?: string,
     options: HookOptions = {}
-  ): any {
-    return (): any => {
+  ): Function {
+    const balmLess = (): any => {
       this.init(input, output, options);
 
       return this.handleStyle(this.name, this.output, this.options);
     };
+
+    return balmLess;
   }
 
-  get fn(): any {
+  get fn(): Function {
     return this.recipe();
   }
 }

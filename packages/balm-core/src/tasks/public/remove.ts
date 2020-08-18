@@ -15,8 +15,8 @@ class RemoveTask extends BalmJS.BalmTask {
     return files;
   }
 
-  recipe(input: string | string[]): any {
-    return async (callback: Function): Promise<any> => {
+  recipe(input: string | string[]): Function {
+    const balmRemove = async (callback: Function): Promise<any> => {
       const canDel = !!(
         (BalmJS.utils.isString(input) && (input as string).trim()) ||
         (BalmJS.utils.isArray(input) && input.length)
@@ -52,6 +52,8 @@ class RemoveTask extends BalmJS.BalmTask {
 
       callback();
     };
+
+    return balmRemove;
   }
 
   fn(callback: Function): void {

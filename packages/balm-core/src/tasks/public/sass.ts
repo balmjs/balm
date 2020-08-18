@@ -20,15 +20,17 @@ class SassTask extends BalmJS.BalmStyleTask {
     input?: string | string[],
     output?: string,
     options: HookOptions = {}
-  ): any {
-    return (): any => {
+  ): Function {
+    const balmSass = (): any => {
       this.init(input, output, options);
 
       return this.handleStyle(this.name, this.output, this.options);
     };
+
+    return balmSass;
   }
 
-  get fn(): any {
+  get fn(): Function {
     return this.recipe();
   }
 }

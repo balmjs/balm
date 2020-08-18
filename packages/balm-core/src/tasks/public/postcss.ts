@@ -3,15 +3,17 @@ class PostcssTask extends BalmJS.BalmStyleTask {
     super('postcss');
   }
 
-  recipe(input?: string | string[], output?: string): any {
-    return (): any => {
+  recipe(input?: string | string[], output?: string): Function {
+    const balmPostcss = (): any => {
       this.init(input, output);
 
       return this.handleStyle(this.name, this.output);
     };
+
+    return balmPostcss;
   }
 
-  get fn(): any {
+  get fn(): Function {
     return this.recipe();
   }
 }

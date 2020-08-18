@@ -9,14 +9,16 @@ class CopyTask extends BalmJS.BalmTask {
     input: string | string[],
     output: string,
     options: HookOptions = {}
-  ): any {
-    return (): any => {
+  ): Function {
+    const balmCopy = (): any => {
       this.init(input, output, options);
 
       return this.src
         .pipe(BalmJS.plugins.rename(this.customOptions))
         .pipe(gulp.dest(this.output));
     };
+
+    return balmCopy;
   }
 
   fn(callback: Function): void {

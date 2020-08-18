@@ -13,8 +13,8 @@ class JsminTask extends BalmJS.BalmTask {
     input: string | string[],
     output: string,
     options: HookOptions = {}
-  ): any {
-    return (): any => {
+  ): Function {
+    const balmJsmin = (): any => {
       this.init(input, output, options);
 
       const renameOptions:
@@ -27,6 +27,8 @@ class JsminTask extends BalmJS.BalmTask {
         .pipe(BalmJS.plugins.rename(renameOptions))
         .pipe(gulp.dest(this.output));
     };
+
+    return balmJsmin;
   }
 
   fn(callback: Function): void {

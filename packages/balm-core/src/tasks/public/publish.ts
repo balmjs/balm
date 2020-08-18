@@ -40,8 +40,8 @@ class PublishTask extends BalmJS.BalmTask {
     input: string | TemplateOption[],
     output: string,
     renameOptions: string | Function | RenameOptions
-  ): any {
-    return (callback: Function): any => {
+  ): Function {
+    const balmPublish = (callback: Function): any => {
       if (BalmJS.config.env.isProd) {
         if (BalmJS.utils.isArray(input)) {
           const tasks = (input as TemplateOption[]).map((template) =>
@@ -64,6 +64,8 @@ class PublishTask extends BalmJS.BalmTask {
         callback();
       }
     };
+
+    return balmPublish;
   }
 
   fn(callback: Function): void {

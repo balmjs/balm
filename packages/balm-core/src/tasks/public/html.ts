@@ -43,8 +43,8 @@ class HtmlTask extends BalmJS.BalmTask {
     return !!(BalmJS.config.paths.source as any)[type];
   }
 
-  recipe(input?: string, output?: string): any {
-    return (): any => {
+  recipe(input?: string, output?: string): Function {
+    const balmHtml = (): any => {
       this.init(input, output);
 
       let stream: any = this.src;
@@ -98,9 +98,11 @@ class HtmlTask extends BalmJS.BalmTask {
 
       return stream.pipe(gulp.dest(this.output));
     };
+
+    return balmHtml;
   }
 
-  get fn(): any {
+  get fn(): Function {
     return this.recipe();
   }
 }

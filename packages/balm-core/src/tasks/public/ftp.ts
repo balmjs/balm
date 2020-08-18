@@ -9,8 +9,8 @@ class FtpTask extends BalmJS.BalmTask {
     return Object.assign({}, BalmJS.config.ftp.options, this.customOptions);
   }
 
-  recipe(localFiles?: string | string[], options: HookOptions = {}): any {
-    return (): any => {
+  recipe(localFiles?: string | string[], options: HookOptions = {}): Function {
+    const balmFtp = (): any => {
       const taskName = `${this.name} task`;
 
       const input = localFiles || BalmJS.watchFtpFile;
@@ -36,9 +36,11 @@ class FtpTask extends BalmJS.BalmTask {
         BalmJS.logger.warn(taskName, 'Invalid local files');
       }
     };
+
+    return balmFtp;
   }
 
-  get fn(): any {
+  get fn(): Function {
     return this.recipe();
   }
 }

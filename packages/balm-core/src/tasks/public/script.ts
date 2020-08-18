@@ -15,8 +15,8 @@ class ScriptTask extends BalmJS.BalmTask {
     input?: string | string[] | BalmEntryObject,
     output?: string,
     customOptions: any = {}
-  ): any {
-    return (callback: Function): void => {
+  ): Function {
+    const balmScript = (callback: Function): void => {
       this.init(input || BalmJS.config.scripts.entry, output);
 
       if (BalmJS.config.scripts.esbuild) {
@@ -57,9 +57,11 @@ class ScriptTask extends BalmJS.BalmTask {
         );
       }
     };
+
+    return balmScript;
   }
 
-  get fn(): any {
+  get fn(): Function {
     return this.recipe();
   }
 }

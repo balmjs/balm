@@ -5,8 +5,8 @@ class PwaTask extends BalmJS.BalmTask {
     super('pwa');
   }
 
-  recipe(customMode?: string, customOptions: object = {}): any {
-    return async (callback: Function): Promise<any> => {
+  recipe(customMode?: string, customOptions: object = {}): Function {
+    const balmPwa = async (callback: Function): Promise<any> => {
       const mode: string = customMode || BalmJS.config.pwa.mode;
 
       let options: object = {};
@@ -85,9 +85,11 @@ class PwaTask extends BalmJS.BalmTask {
         callback();
       }
     };
+
+    return balmPwa;
   }
 
-  get fn(): any {
+  get fn(): Function {
     return this.recipe();
   }
 }

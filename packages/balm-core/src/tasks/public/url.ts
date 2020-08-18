@@ -27,8 +27,8 @@ class UrlTask extends BalmJS.BalmTask {
     return BalmJS.plugins.replace(pathSrc, pathDest);
   }
 
-  recipe(input?: string | string[], output?: string): any {
-    return (): any => {
+  recipe(input?: string | string[], output?: string): Function {
+    const balmUrl = (): any => {
       this.init(input, output);
 
       return this.src
@@ -36,9 +36,11 @@ class UrlTask extends BalmJS.BalmTask {
         .pipe(this._urlProcessing('font'))
         .pipe(gulp.dest(this.output));
     };
+
+    return balmUrl;
   }
 
-  get fn(): any {
+  get fn(): Function {
     return this.recipe();
   }
 }
