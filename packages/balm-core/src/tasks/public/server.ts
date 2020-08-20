@@ -22,7 +22,7 @@ class ServerTask extends BalmJS.BalmTask {
   }
 
   private _watchTask(taskName: string, serverReload = false): Function {
-    const balmTask = BalmJS.tasks.get(taskName).fn; // !important
+    const balmTask: Function = BalmJS.tasks.get(taskName).fn;
     const reload = (done: Function): void => {
       server.reload();
       done();

@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "3.0.0-beta.15",
+  "version": "3.0.0-beta.16",
   "description": "BalmJS runtime core",
   "keywords": [
     "balm",
@@ -37,7 +37,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/balmjs/balm.git"
+    "url": "git+https://github.com/balmjs/balm.git",
+    "directory": "packages/balm"
   },
   "dependencies": {
     "@babel/core": "^7.11.0",

@@ -3,10 +3,9 @@ import requireDir from 'require-dir';
 import DefaultTask from './default';
 import Hooks from '../hooks';
 
-const PRIVATE_TASKS = requireDir('./private');
-const PUBLIC_TASKS = requireDir('./public');
-
 function registerTasks(recipe: Function): void {
+  const PRIVATE_TASKS = requireDir('./private');
+  const PUBLIC_TASKS = requireDir('./public');
   const AwesomeTasks = BalmJS.utils.deepMerge(PRIVATE_TASKS, PUBLIC_TASKS);
 
   // 1. Register balm tasks

@@ -21,7 +21,7 @@ if (!fs.existsSync(gulpRuntimePath)) {
   process.exit(1);
 }
 
-// Chdir before requiring gulpfile to make sure
+// Chdir before requiring balm config to make sure
 // we let them chdir as needed
 if (process.cwd() !== process.env.BALM_CWD) {
   process.chdir(process.env.BALM_CWD);
