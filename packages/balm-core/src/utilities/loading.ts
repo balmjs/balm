@@ -13,7 +13,7 @@ class BalmLoading {
   #frameCount = spinner.frames.length;
 
   get frame(): string {
-    let currentFrame = spinner.frames[this.#frameIndex];
+    const currentFrame = spinner.frames[this.#frameIndex];
     this.#frameIndex = ++this.#frameIndex % this.#frameCount;
     return currentFrame;
   }

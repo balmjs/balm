@@ -1,11 +1,13 @@
 # [BalmJS](https://balm.js.org) CHANGELOG
 
-## v3.0.0-beta / 2020-08-07
-
 > Born to build, better enterprise workflow with Node.js
 
 - `balm-core@3` globally for workflow compiler
 - `balm@3` local for workflow runtime
+
+## v3.0.0-rc / 2020-08-21
+
+## v3.0.0-beta / 2020-08-07
 
 ### [Upgrading To 3.0 From 2.x](https://balm.js.org/docs/guide/upgrade/upgrade-3.0.html)
 
