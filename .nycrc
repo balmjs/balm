@@ -6,6 +6,7 @@
     "packages/balm-core/src/**/*.ts",
     "!packages/balm-core/src/config/globals.ts",
     "!packages/balm-core/src/config/env.ts",
+    "!packages/balm-core/src/config/spinner.ts",
     "!packages/balm-core/src/tasks/index.ts",
     "!packages/balm-core/src/tasks/private/sprite.ts",
     "!packages/balm-core/src/tasks/private/modernizr.ts",

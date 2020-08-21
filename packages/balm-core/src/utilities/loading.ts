@@ -1,8 +1,5 @@
-// Reference `cli-spinners`
-const spinner = {
-  interval: 80,
-  frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
-};
+import readline from 'readline';
+import spinner from '../config/spinner';
 
 class BalmLoading {
   #stream: NodeJS.WriteStream & {
@@ -19,8 +16,9 @@ class BalmLoading {
   }
 
   clear() {
-    this.#stream.clearLine(0);
-    this.#stream.cursorTo(0);
+    // Compatibility on Windows
+    readline.clearLine(this.#stream, 0);
+    readline.cursorTo(this.#stream, 0);
   }
 
   render() {
