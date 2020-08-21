@@ -1,3 +1,4 @@
+import './hello';
 import Balm from './balm';
 
 const balm = new Balm();

@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "3.0.0-beta.16",
+  "version": "3.0.0-rc.0",
   "description": "BalmJS runtime core",
   "keywords": [
     "balm",

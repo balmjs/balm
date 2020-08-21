@@ -4,13 +4,15 @@ import './utilities';
 import './plugins';
 import registerTasks from './tasks';
 import { setConfig, setTask } from './bootstrap';
+import loading from './utilities/loading';
 import { DeepPartial, BalmConfig } from '@balm-core/index';
 
 class Balm {
   #config: BalmConfig;
 
   constructor() {
-    console.log(`BalmJS version: ${pkg.version}`);
+    BalmJS.loading = false;
+    loading.succeed(`BalmJS version: ${pkg.version}`);
     this.#config = BalmJS.config;
   }
 

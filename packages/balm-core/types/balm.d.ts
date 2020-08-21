@@ -76,4 +76,5 @@ export default interface BalmGlobal extends Balm {
   watchFtpFile: string;
   watching: boolean;
   webpackCompiler: any;
+  loading: boolean;
 }

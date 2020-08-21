@@ -4,8 +4,8 @@
 
 > Born to build, better enterprise workflow with Node.js
 
-- `balm-core@3` globally for workflow
-- `balm@3` local for environment
+- `balm-core@3` globally for workflow compiler
+- `balm@3` local for workflow runtime
 
 ### [Upgrading To 3.0 From 2.x](https://balm.js.org/docs/guide/upgrade/upgrade-3.0.html)
 
