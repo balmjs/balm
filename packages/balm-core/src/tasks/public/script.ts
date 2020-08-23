@@ -1,5 +1,6 @@
 import esbuild from '../../bundler/esbuild';
 import webpackConfig from '../../bundler/webpack';
+import compiling from '../../utilities/compiling';
 import { BalmEntryObject, BalmError } from '@balm-core/index';
 
 class ScriptTask extends BalmJS.BalmTask {
@@ -27,11 +28,15 @@ class ScriptTask extends BalmJS.BalmTask {
           callback
         );
       } else {
+        compiling.start();
+
         const isHook = !!input;
 
         BalmJS.webpackCompiler = webpack(
           webpackConfig(this.input, this.output, customOptions, isHook),
           (error: BalmError, stats: any): void => {
+            compiling.stop();
+
             // Handle errors here
             // if (error) {
             //   BalmJS.logger.error(`${this.name} task`, error.stack || err);

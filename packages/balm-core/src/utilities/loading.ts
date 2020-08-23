@@ -21,9 +21,9 @@ class BalmLoading {
     readline.cursorTo(this.#stream, 0);
   }
 
-  render() {
+  render(text = `${this.frame} Loading BalmJS...`) {
     this.clear();
-    this.#stream.write(`${this.frame} Loading BalmJS...`);
+    this.#stream.write(text);
   }
 
   succeed(text: string) {
