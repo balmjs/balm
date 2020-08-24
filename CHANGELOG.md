@@ -2,8 +2,8 @@
 
 > Born to build, better enterprise workflow with Node.js
 
-- `balm-core@3` globally for workflow compiler
-- `balm@3` local for workflow runtime
+- `balm-core` globally for workflow compiler
+- `balm@next` local for workflow runtime
 
 ## v3.0.0-rc / 2020-08-21
 
@@ -15,14 +15,14 @@
 
 ```sh
 yarn global add balm-core
-yarn add -D balm@3
+yarn add -D balm@next
 ```
 
 OR
 
 ```sh
 npm install -g balm-core
-npm install -D balm@3
+npm install -D balm@next
 ```
 
 #### 2. Upgrade entry config file
