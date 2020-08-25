@@ -18,9 +18,9 @@ async function jsMinify(file: any, opts: object, cb: Function): Promise<any> {
 
       file.contents = Buffer.from(content);
       cb(null, file);
-    } catch (error) {
-      const _error = new PluginError(PLUGIN_NAME, error);
-      cb(_error);
+    } catch (e) {
+      const error = new PluginError(PLUGIN_NAME, e);
+      cb(error);
     }
   } else {
     BalmJS.logger.error(PLUGIN_NAME, 'Invalid JS file');
@@ -32,7 +32,7 @@ async function jsMinify(file: any, opts: object, cb: Function): Promise<any> {
 function gulpJsmin(options: object): any {
   options = BalmJS.utils.deepMerge({}, options);
 
-  function _transform(
+  function transform(
     this: any,
     chunk: Buffer | string | any,
     encoding: BufferEncoding,
@@ -53,7 +53,7 @@ function gulpJsmin(options: object): any {
     jsMinify(chunk, options, callback);
   }
 
-  return through2.obj(_transform);
+  return through2.obj(transform);
 }
 
 export default gulpJsmin;

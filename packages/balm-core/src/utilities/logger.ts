@@ -44,7 +44,7 @@ const LOG = {
 };
 
 class Logger {
-  private _log(obj: any, pre = false): string {
+  #log = (obj: any, pre = false): string => {
     const options: {
       showHidden: boolean;
       depth: number;
@@ -59,7 +59,7 @@ class Logger {
     );
 
     return pre ? util.inspect(obj, options) : (obj as string);
-  }
+  };
 
   success(
     label: string,
@@ -79,7 +79,7 @@ class Logger {
         LOG.FORMAT,
         LOG.PREFIX,
         color(`<${label}>`, LOG.OK),
-        this._log(message, logOptions.pre)
+        this.#log(message, logOptions.pre)
       );
       console.log(LOG.end);
     }
@@ -98,7 +98,7 @@ class Logger {
         LOG.FORMAT,
         LOG.PREFIX,
         color(`<${label}>`, LOG.DEBUG),
-        this._log(message, logOptions.pre)
+        this.#log(message, logOptions.pre)
       );
     }
   }
@@ -116,7 +116,7 @@ class Logger {
         LOG.FORMAT,
         LOG.PREFIX,
         color(`<${label}>`, LOG.INFO),
-        this._log(message, logOptions.pre)
+        this.#log(message, logOptions.pre)
       );
     }
   }
@@ -134,7 +134,7 @@ class Logger {
         LOG.FORMAT,
         LOG.PREFIX,
         color(`<${label}>`, LOG.WARN),
-        this._log(message, logOptions.pre)
+        this.#log(message, logOptions.pre)
       );
     }
   }
@@ -153,7 +153,7 @@ class Logger {
         LOG.FORMAT,
         LOG.PREFIX,
         color(`<${label}>`, LOG.ERROR),
-        this._log(message, logOptions.pre)
+        this.#log(message, logOptions.pre)
       );
     }
   }

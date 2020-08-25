@@ -12,11 +12,11 @@ class PublishTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.assets.static; // Remote dir
   }
 
-  private _release(
+  #release = (
     input: string,
     output: string,
     renameOptions: string | Function | RenameOptions = {}
-  ): any {
+  ): any => {
     if (input && output) {
       this.init(
         path.join(BalmJS.config.dest.base, input),
@@ -34,7 +34,7 @@ class PublishTask extends BalmJS.BalmTask {
         )
       )
       .pipe(gulp.dest(this.output)); // Absolute path
-  }
+  };
 
   recipe(
     input: string | TemplateOption[],
@@ -45,7 +45,7 @@ class PublishTask extends BalmJS.BalmTask {
       if (BalmJS.config.env.isProd) {
         if (BalmJS.utils.isArray(input)) {
           const tasks = (input as TemplateOption[]).map((template) =>
-            this._release(
+            this.#release(
               template.input,
               template.output,
               template.renameOptions
@@ -53,7 +53,7 @@ class PublishTask extends BalmJS.BalmTask {
           );
           return mergeStream(...tasks);
         } else {
-          return this._release(input as string, output, renameOptions);
+          return this.#release(input as string, output, renameOptions);
         }
       } else {
         BalmJS.logger.warn(

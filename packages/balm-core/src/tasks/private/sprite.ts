@@ -29,10 +29,10 @@ class SpriteTask extends BalmJS.BalmTask {
     }
   }
 
-  private _getParams(
+  #getParams = (
     spriteItem: SpriteItem,
     spriteOptions: SpriteOptions
-  ): object {
+  ): object => {
     const stylesConfig = Object.assign(spriteOptions, BalmJS.config.styles);
     const spriteName = `${spriteItem.folderName}-${this.name}s`;
     const imageTarget: string =
@@ -70,7 +70,7 @@ class SpriteTask extends BalmJS.BalmTask {
     }
 
     return Object.assign(defaultParams, stylesConfig.spriteParams);
-  }
+  };
 
   collect(spriteOptions: SpriteOptions = {}): void {
     const spriteList: SpriteItem[] = [];
@@ -95,7 +95,7 @@ class SpriteTask extends BalmJS.BalmTask {
         pre: true
       });
 
-      spriteConfig.params = this._getParams(spriteItem, spriteOptions);
+      spriteConfig.params = this.#getParams(spriteItem, spriteOptions);
 
       gulp.task(BalmJS.toNamespace(spriteTaskName) as string, () => {
         const spriteData = gulp

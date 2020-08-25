@@ -2,7 +2,7 @@ import getLoaders from '../loaders';
 import { INJECT_HASHNAME } from '../../../config/constants';
 import { Configuration } from '@balm-core/index';
 
-function _getSplitChunks(): boolean | object {
+function getSplitChunks(): boolean | object {
   const scripts: any = BalmJS.config.scripts;
   const jsFolder: string = BalmJS.config.paths.target.js;
 
@@ -48,7 +48,7 @@ function _getSplitChunks(): boolean | object {
 }
 
 function getCommonConfig(scripts: any): Configuration {
-  const splitChunks: any = _getSplitChunks();
+  const splitChunks: any = getSplitChunks();
   const optimization: any = splitChunks
     ? BalmJS.utils.deepMerge(
         {

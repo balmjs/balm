@@ -9,16 +9,16 @@ class ModernizrTask extends BalmJS.BalmTask {
     this.defaultOutput = path.join(BalmJS.config.dest.js, `${this.name}.js`);
   }
 
-  private _readConfig(): Promise<any> {
+  #readConfig = (): Promise<any> => {
     return new Promise((resolve, reject): void => {
       fs.readFile(this.input, 'utf8', (err: any, data: any) => {
         if (err) reject(err);
         resolve(JSON.parse(data));
       });
     });
-  }
+  };
 
-  private _createDir(): Promise<any> {
+  #createDir = (): Promise<any> => {
     return new Promise((resolve, reject): void => {
       fs.mkdir(
         BalmJS.file.absPath(BalmJS.config.dest.js),
@@ -29,9 +29,9 @@ class ModernizrTask extends BalmJS.BalmTask {
         }
       );
     });
-  }
+  };
 
-  private _generateScript(config: object): Promise<any> {
+  #generateScript = (config: object): Promise<any> => {
     return new Promise((resolve, reject): void => {
       Modernizr.build(config, (content: any) => {
         fs.writeFile(this.output, content, (err: any) => {
@@ -40,18 +40,18 @@ class ModernizrTask extends BalmJS.BalmTask {
         });
       });
     });
-  }
+  };
 
   fn = async (callback: Function): Promise<any> => {
     this.init();
 
     if (fs.existsSync(this.input)) {
       const [config] = await Promise.all([
-        this._readConfig(),
-        this._createDir()
+        this.#readConfig(),
+        this.#createDir()
       ]);
 
-      await this._generateScript(config);
+      await this.#generateScript(config);
     } else {
       BalmJS.logger.warn(
         `${this.name} task`,

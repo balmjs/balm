@@ -23,7 +23,7 @@ const PLUGIN_NAME = 'sftp';
 
 const normalizePath = (_path: string): string => _path.replace(/\\/g, '/');
 
-function _resolveHomePath(key: any): object {
+function resolveHomePath(key: any): object {
   if (key.location) {
     const HOME: string = process.env.HOME || process.env.USERPROFILE || '';
 
@@ -53,10 +53,10 @@ function _resolveHomePath(key: any): object {
   return key;
 }
 
-/*
+/**
  * Lots of ways to present key info
  */
-function _getKey(options: any): object {
+function getKey(options: any): object {
   let key = options.key || options.keyLocation || null;
 
   if (key && BalmJS.utils.isString(key)) {
@@ -92,7 +92,7 @@ function _getKey(options: any): object {
     }
 
     // Resolve all home paths
-    key = _resolveHomePath(key);
+    key = resolveHomePath(key);
   }
 
   return key;
@@ -139,7 +139,7 @@ function gulpSftp(options: LooseObject): any {
   /*
    * Key info
    */
-  const key: any = _getKey(options);
+  const key: any = getKey(options);
 
   /*
    * End Key normalization, key should now be of form:
@@ -236,7 +236,7 @@ function gulpSftp(options: LooseObject): any {
     conn.connect(connectionOptions);
   }
 
-  function _transform(
+  function transform(
     this: any,
     file: Buffer | string | any,
     encoding: BufferEncoding,
@@ -347,7 +347,7 @@ function gulpSftp(options: LooseObject): any {
     });
   }
 
-  function _flush(callback: TransformCallback): void {
+  function flush(callback: TransformCallback): void {
     if (fileCount > 0) {
       const unit = fileCount === 1 ? 'file' : 'files';
       BalmJS.logger.info(
@@ -371,7 +371,7 @@ function gulpSftp(options: LooseObject): any {
     callback();
   }
 
-  return through2.obj(_transform, _flush);
+  return through2.obj(transform, flush);
 }
 
 export default gulpSftp;

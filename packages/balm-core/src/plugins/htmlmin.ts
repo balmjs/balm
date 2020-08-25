@@ -7,7 +7,7 @@ const PLUGIN_NAME = 'htmlmin';
 function gulpHtmlmin(options: object): any {
   options = BalmJS.utils.deepMerge({}, options);
 
-  function _transform(
+  function transform(
     file: Buffer | string | any,
     encoding: BufferEncoding,
     callback: TransformCallback
@@ -27,10 +27,10 @@ function gulpHtmlmin(options: object): any {
           cb(null, contents);
           callback(null, file);
         }
-      } catch (error) {
+      } catch (e) {
         const opts = Object.assign(options, { fileName: file.path });
-        const _error = new PluginError(PLUGIN_NAME, error, opts);
-        cb === callback ? cb(_error) : callback(_error);
+        const error = new PluginError(PLUGIN_NAME, e, opts);
+        cb === callback ? cb(error) : callback(error);
       }
     }
 
@@ -41,7 +41,7 @@ function gulpHtmlmin(options: object): any {
     }
   }
 
-  return through2.obj(_transform);
+  return through2.obj(transform);
 }
 
 export default gulpHtmlmin;

@@ -8,7 +8,7 @@ import {
   BalmAssetsPath
 } from '@balm-core/index';
 
-function _createQuickPath(
+function createQuickPath(
   config: BalmConfig,
   rootKey: string
 ): BalmPath | BalmAssetsPath {
@@ -33,10 +33,10 @@ function _createQuickPath(
     : (result as BalmAssetsPath);
 }
 
-function _ready(config: BalmConfig): BalmConfig {
+function ready(config: BalmConfig): BalmConfig {
   // Create local quick directories
-  config.src = _createQuickPath(config, 'source');
-  config.dest = _createQuickPath(
+  config.src = createQuickPath(config, 'source');
+  config.dest = createQuickPath(
     config,
     config.env.isProd || !config.inFrontend ? 'target' : 'tmp'
   ) as BalmAssetsPath;
@@ -72,7 +72,7 @@ function _ready(config: BalmConfig): BalmConfig {
   return config;
 }
 
-function _resetConfig(): BalmConfig {
+function resetConfig(): BalmConfig {
   BalmJS.config.roots.target = 'dist';
   BalmJS.config.roots.tmp = '.tmp';
 
@@ -80,7 +80,7 @@ function _resetConfig(): BalmConfig {
 }
 
 function setConfig(customConfig: DeepPartial<BalmConfig>): BalmConfig {
-  const defaultConfig: BalmConfig = _resetConfig();
+  const defaultConfig: BalmConfig = resetConfig();
 
   // 1. Overwrite config
   const newConfig: BalmConfig = BalmJS.utils.deepMerge(
@@ -105,7 +105,7 @@ function setConfig(customConfig: DeepPartial<BalmConfig>): BalmConfig {
   }
 
   // 4. Before created
-  config = _ready(config);
+  config = ready(config);
   BalmJS.logger.success('balm configuration', config, {
     pre: true
   });

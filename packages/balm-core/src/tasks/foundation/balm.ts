@@ -1,67 +1,20 @@
 import { BalmError } from '@balm-core/index';
 
 class BalmTask {
-  #name: string;
-  #taskName: string;
+  protected name: string;
+  protected taskName: string;
 
-  #defaultInput: any;
-  #defaultOutput = '';
+  protected defaultInput: string | string[] = '';
+  protected defaultOutput: string = '';
 
-  #input: any;
-  #output = '';
-  #customOptions: any = {};
-
-  #gulpSrcOptions: object = {};
+  protected input: string | string[] = '';
+  protected output: string = '';
+  protected customOptions: any = {};
+  protected gulpSrcOptions: object = {};
 
   constructor(name: string) {
-    this.#name = name;
-    this.#taskName = BalmJS.toNamespace(name) as string;
-  }
-
-  get name(): string {
-    return this.#name;
-  }
-  get taskName(): string {
-    return this.#taskName;
-  }
-
-  get defaultInput(): string | string[] {
-    return this.#defaultInput;
-  }
-  set defaultInput(input: string | string[]) {
-    this.#defaultInput = input;
-  }
-  get defaultOutput(): string {
-    return this.#defaultOutput;
-  }
-  set defaultOutput(output: string) {
-    this.#defaultOutput = output;
-  }
-
-  get input(): string | string[] {
-    return this.#input;
-  }
-  set input(input: string | string[]) {
-    this.#input = input;
-  }
-  get output(): string {
-    return this.#output;
-  }
-  set output(output: string) {
-    this.#output = output;
-  }
-  get customOptions(): any {
-    return this.#customOptions;
-  }
-  set customOptions(options: any) {
-    this.#customOptions = options;
-  }
-
-  get gulpSrcOptions(): object {
-    return this.#gulpSrcOptions;
-  }
-  set gulpSrcOptions(output: object) {
-    this.#gulpSrcOptions = output;
+    this.name = name;
+    this.taskName = BalmJS.toNamespace(name) as string;
   }
 
   get styleName(): string {

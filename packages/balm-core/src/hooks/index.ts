@@ -73,7 +73,7 @@ class BaseHooks {
   }
 }
 
-class Hooks extends BaseHooks {
+class BalmHooks extends BaseHooks {
   // Stylesheets
   sprite(input: string[], output: string, spriteOptions?: SpriteOptions): void {
     Maker.generate('sprite', [input, output, spriteOptions]);
@@ -123,4 +123,4 @@ class Hooks extends BaseHooks {
   }
 }
 
-export default Hooks;
+export default BalmHooks;

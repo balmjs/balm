@@ -6,7 +6,7 @@ class UrlTask extends BalmJS.BalmTask {
     this.defaultInput = BalmJS.file.matchAllFiles(this.defaultOutput, '*.css');
   }
 
-  private _urlProcessing(type: string): any {
+  #urlProcessing = (type: string): any => {
     const pattern: string = (BalmJS.config.paths.source as any)[type]
       .split('/')
       .pop();
@@ -25,15 +25,15 @@ class UrlTask extends BalmJS.BalmTask {
     );
 
     return BalmJS.plugins.replace(pathSrc, pathDest);
-  }
+  };
 
   recipe(input?: string | string[], output?: string): Function {
     const balmUrl = (): any => {
       this.init(input, output);
 
       return this.src
-        .pipe(this._urlProcessing('img'))
-        .pipe(this._urlProcessing('font'))
+        .pipe(this.#urlProcessing('img'))
+        .pipe(this.#urlProcessing('font'))
         .pipe(gulp.dest(this.output));
     };
 

@@ -11,7 +11,7 @@ class HtmlTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.dest.base;
   }
 
-  private _updateAssetsPath(type: any): any {
+  #updateAssetsPath = (type: any): any => {
     const isManifest: boolean = type === 'manifest';
     const assetsType: string = isManifest ? 'img' : type;
     const from: string = (BalmJS.config.paths.source as any)[assetsType];
@@ -37,11 +37,11 @@ class HtmlTask extends BalmJS.BalmTask {
     );
 
     return BalmJS.plugins.replace(assetsPathSrc, assetsPathDest);
-  }
+  };
 
-  private _hasSourcePath(type: string): boolean {
+  #hasSourcePath = (type: string): boolean => {
     return !!(BalmJS.config.paths.source as any)[type];
-  }
+  };
 
   recipe(input?: string, output?: string): Function {
     const balmHtml = (): any => {
@@ -69,10 +69,10 @@ class HtmlTask extends BalmJS.BalmTask {
           const canUpdate: boolean =
             type === 'manifest'
               ? BalmJS.config.pwa.enabled
-              : this._hasSourcePath(type);
+              : this.#hasSourcePath(type);
 
           if (canUpdate) {
-            stream = stream.pipe(this._updateAssetsPath(type));
+            stream = stream.pipe(this.#updateAssetsPath(type));
           }
         });
 
@@ -85,11 +85,11 @@ class HtmlTask extends BalmJS.BalmTask {
         ['css', 'js', 'img', 'media'].forEach((type: string, index: number) => {
           const canUpdate: boolean =
             index > 1
-              ? this._hasSourcePath(type) && !BalmJS.config.inFrontend
-              : this._hasSourcePath(type);
+              ? this.#hasSourcePath(type) && !BalmJS.config.inFrontend
+              : this.#hasSourcePath(type);
 
           if (canUpdate) {
-            stream = stream.pipe(this._updateAssetsPath(type));
+            stream = stream.pipe(this.#updateAssetsPath(type));
           }
         });
 

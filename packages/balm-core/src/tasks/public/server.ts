@@ -21,7 +21,7 @@ class ServerTask extends BalmJS.BalmTask {
     }
   }
 
-  private _watchTask(taskName: string, serverReload = false): Function {
+  #watchTask = (taskName: string, serverReload = false): Function => {
     const balmTask: Function = BalmJS.tasks.get(taskName).fn;
     const reload = (done: Function): void => {
       server.reload();
@@ -29,9 +29,9 @@ class ServerTask extends BalmJS.BalmTask {
     };
 
     return serverReload ? gulp.series(balmTask, reload) : balmTask;
-  }
+  };
 
-  private _onWatch(): void {
+  #onWatch = (): void => {
     const { watch } = gulp;
 
     // NOTE: bugfix for windows - chokidar.cwd has not default
@@ -51,33 +51,33 @@ class ServerTask extends BalmJS.BalmTask {
     watch(
       `${BalmJS.config.src.html}/*.html`,
       watchOptions,
-      this._watchTask('html', true)
+      this.#watchTask('html', true)
     );
 
     watch(
       `${BalmJS.config.src.css}/**/*.${BalmJS.config.styles.extname}`,
       watchOptions,
-      this._watchTask(BalmJS.config.inFrontend ? this.styleName : 'style')
+      this.#watchTask(BalmJS.config.inFrontend ? this.styleName : 'style')
     );
 
     if (!BalmJS.config.server.useHMR) {
       watch(
         `${BalmJS.config.src.js}/**/*`,
         watchOptions,
-        this._watchTask('script', true)
+        this.#watchTask('script', true)
       );
     }
 
     watch(
       `${BalmJS.config.src.base}/modernizr.json`,
       watchOptions,
-      this._watchTask('modernizr')
+      this.#watchTask('modernizr')
     );
 
     watch(
       `${BalmJS.config.src.font}/**/*`,
       watchOptions,
-      this._watchTask('font')
+      this.#watchTask('font')
     );
 
     // For FTP
@@ -87,11 +87,11 @@ class ServerTask extends BalmJS.BalmTask {
         (path: string) => {
           BalmJS.logger.debug(`${this.name} task`, `File ${path} was changed`);
           BalmJS.watchFtpFile = path;
-          this._watchTask('ftp', true)();
+          this.#watchTask('ftp', true)();
         }
       );
     }
-  }
+  };
 
   recipe(customHandler?: Function): Function {
     const balmServe = (callback: Function): void => {
@@ -147,7 +147,7 @@ class ServerTask extends BalmJS.BalmTask {
           BalmJS.server = server.init(bsOptions);
 
           if (BalmJS.config.useDefaults) {
-            this._onWatch();
+            this.#onWatch();
           } else {
             BalmJS.watching = true;
 

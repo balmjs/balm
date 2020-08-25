@@ -5,7 +5,7 @@ class RemoveTask extends BalmJS.BalmTask {
     super('remove');
   }
 
-  getFiles(input: string | string[]): string | string[] {
+  #getFiles = (input: string | string[]): string | string[] => {
     let files: string | string[] = BalmJS.file.absPaths(input);
     // NOTE: compatible with windows for `del@5.x`
     files = BalmJS.utils.isArray(input)
@@ -13,7 +13,7 @@ class RemoveTask extends BalmJS.BalmTask {
       : (files as string).replace(/\\/g, '/');
 
     return files;
-  }
+  };
 
   recipe(input: string | string[]): Function {
     const balmRemove = async (callback: Function): Promise<any> => {
@@ -23,7 +23,7 @@ class RemoveTask extends BalmJS.BalmTask {
       );
 
       if (canDel) {
-        const files = this.getFiles(input);
+        const files = this.#getFiles(input);
 
         BalmJS.logger.debug(
           `${this.name} task`,
