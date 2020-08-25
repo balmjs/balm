@@ -5,10 +5,10 @@ class BalmTask {
   protected taskName: string;
 
   protected defaultInput: string | string[] = '';
-  protected defaultOutput: string = '';
+  protected defaultOutput = '';
 
   protected input: string | string[] = '';
-  protected output: string = '';
+  protected output = '';
   protected customOptions: any = {};
   protected gulpSrcOptions: object = {};
 
