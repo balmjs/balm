@@ -127,7 +127,7 @@ function setTask(name: string | Function): string | Function | undefined {
   } else {
     BalmJS.logger.error(
       'before/end task',
-      'Task must be a string or gulp function'
+      'Task must be a string (gulp task name) or function'
     );
   }
 

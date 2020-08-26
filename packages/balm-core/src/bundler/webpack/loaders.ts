@@ -1,16 +1,17 @@
 import merge from 'webpack-merge';
 import requireDir from 'require-dir';
-import { RuleSetRule } from '@balm-core/index';
+import { RuleSetRule, BalmLoaders } from '@balm-core/index';
 
 const LOADERS = requireDir('./rules');
 
 function getLoaders(customLoaders: any): RuleSetRule[] {
-  const enableDefaultLoaders: { [key: string]: boolean } = Object.assign(
+  const enableDefaultLoaders: BalmLoaders = Object.assign(
     {
       html: true,
       css: true,
       js: true,
-      url: true
+      url: true,
+      file: true
     },
     BalmJS.config.scripts.defaultLoaders
   );
@@ -22,7 +23,12 @@ function getLoaders(customLoaders: any): RuleSetRule[] {
   if (useDefaultLoaders) {
     Object.values(LOADERS).forEach((Loader: any) => {
       const DefaultLoader = Loader.default;
-      const key = DefaultLoader.name.replace('Loader', '');
+      const key:
+        | 'html'
+        | 'css'
+        | 'js'
+        | 'url'
+        | 'file' = DefaultLoader.name.replace('Loader', '');
       if (enableDefaultLoaders[key]) {
         const loader: RuleSetRule | RuleSetRule[] = DefaultLoader();
         if (BalmJS.utils.isArray(loader)) {

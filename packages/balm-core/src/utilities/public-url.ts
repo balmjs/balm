@@ -1,4 +1,5 @@
 import { URL } from 'url';
+import { DOMAIN } from '../config/constants';
 
 /**
  * Returns a URL or a path with slash at the end
@@ -7,7 +8,7 @@ import { URL } from 'url';
  * In development can use `path` module functions for operations
  */
 function getPublicUrlOrPath(homepage?: string, envPublicUrl?: string): string {
-  const stubDomain = 'https://balm.js.org';
+  const stubDomain = DOMAIN;
 
   if (envPublicUrl) {
     // ensure last slash exists

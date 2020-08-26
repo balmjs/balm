@@ -40,12 +40,20 @@ interface BalmStyles {
   spriteParams: object;
 }
 
+export type Configuration = import('webpack').Configuration;
+export type RuleSetRule = import('webpack').RuleSetRule;
+
 export interface BalmEntryObject {
   [entryChunkName: string]: string | string[];
 }
 
-export type Configuration = import('webpack').Configuration;
-export type RuleSetRule = import('webpack').RuleSetRule;
+export interface BalmLoaders {
+  html: boolean;
+  css: boolean;
+  js: boolean;
+  url: boolean;
+  file: boolean;
+}
 
 export interface PostcssLoaderOptions {
   exec?: boolean;
@@ -75,12 +83,7 @@ export interface BalmScripts {
   library: string | object;
   libraryTarget: string;
   loaders: object[];
-  defaultLoaders: {
-    html?: boolean;
-    css?: boolean;
-    js?: boolean;
-    url?: boolean;
-  };
+  defaultLoaders: Partial<BalmLoaders>;
   includeJsResource: string[];
   useEsModule: boolean;
   urlLoaderOptions: object;

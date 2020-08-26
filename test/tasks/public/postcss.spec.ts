@@ -36,7 +36,7 @@ describe('Postcss Task', function() {
         },
         styles: {
           extname: 'css',
-          minified: true
+          minify: true
         }
       };
     });

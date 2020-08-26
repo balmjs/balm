@@ -1,8 +1,9 @@
 import {
   BalmEntryObject,
+  BalmLoaders,
+  PostcssLoaderOptions,
   BuildOptions,
-  TransformOptions,
-  PostcssLoaderOptions
+  TransformOptions
 } from '@balm-core/index';
 
 // common options
@@ -29,12 +30,7 @@ const libraryTarget = 'var'; // ['var', 'this', 'window', 'global', 'commonjs', 
 // const ecmaVersion = 5; // default value of webpack 4
 // Module
 const loaders: object[] = [];
-const defaultLoaders: {
-  html?: boolean;
-  css?: boolean;
-  js?: boolean;
-  url?: boolean;
-} = {};
+const defaultLoaders: Partial<BalmLoaders> = {};
 const includeJsResource: string[] = [];
 const useEsModule = true;
 /**
