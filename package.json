@@ -26,7 +26,7 @@
     "build": "rimraf packages/balm-core/tslib && tsc",
     "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json TS_NODE_FILES=true nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "release": "bash ./scripts/release-core.sh && ./scripts/release.sh"
+    "release": "bash ./scripts/release-balm-core.sh && ./scripts/release-balm.sh"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.0",

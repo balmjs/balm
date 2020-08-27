@@ -1,4 +1,6 @@
 #!/bin/bash
 
-cd packages/balm
-npm publish --tag next
+VERSION=$1
+
+git tag $VERSION
+git push origin --tags
