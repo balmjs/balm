@@ -10,8 +10,7 @@ function getLoaders(customLoaders: any): RuleSetRule[] {
       html: true,
       css: true,
       js: true,
-      url: true,
-      file: true
+      url: true
     },
     BalmJS.config.scripts.defaultLoaders
   );
@@ -23,12 +22,10 @@ function getLoaders(customLoaders: any): RuleSetRule[] {
   if (useDefaultLoaders) {
     Object.values(LOADERS).forEach((Loader: any) => {
       const DefaultLoader = Loader.default;
-      const key:
-        | 'html'
-        | 'css'
-        | 'js'
-        | 'url'
-        | 'file' = DefaultLoader.name.replace('Loader', '');
+      const key: 'html' | 'css' | 'js' | 'url' = DefaultLoader.name.replace(
+        'Loader',
+        ''
+      );
       if (enableDefaultLoaders[key]) {
         const loader: RuleSetRule | RuleSetRule[] = DefaultLoader();
         if (BalmJS.utils.isArray(loader)) {

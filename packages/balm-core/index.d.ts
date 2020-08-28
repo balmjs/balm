@@ -52,7 +52,6 @@ export interface BalmLoaders {
   css: boolean;
   js: boolean;
   url: boolean;
-  file: boolean;
 }
 
 export interface PostcssLoaderOptions {
