@@ -71,15 +71,7 @@ project
 | **[balm-ui](https://github.com/balmjs/ui-vue)**       | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Next Generation Material UI for Vue.js            |
 | [balm-scroll](https://github.com/balmjs/balm-scroll)  | [![NPM version][balm-scroll-image]][balm-scroll-url]   | :scroll: Smooth scrolling for Vue.js                         |
 
-## Demo
-
-- [x] [Simple HTML](https://github.com/balmjs/demo-html)
-- [x] [Laravel](https://github.com/balmjs/demo-laravel)
-- [x] [Vue](https://github.com/balmjs/demo-vue)
-- [x] [TypeScript](https://github.com/balmjs/demo-ts)
-- [x] Yours awesome projects...
-
-## Installation
+## Getting Started
 
 ### 0. Requirements
 
@@ -100,7 +92,7 @@ cd balm-project
 npm init -y
 ```
 
-### 1. Installing **`balm`**
+### 1. Installation
 
 ```sh
 yarn global add balm-core

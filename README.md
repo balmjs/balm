@@ -78,7 +78,7 @@ project
 - [x] [TypeScript](https://github.com/balmjs/demo-ts)
 - [x] Yours awesome projects...
 
-## Installation
+## Getting Started
 
 ### 0. Requirements
 
@@ -99,7 +99,7 @@ cd balm-project
 npm init -y
 ```
 
-### 1. Installing **`balm`**
+### 1. Installation
 
 ```sh
 yarn global add balm-core
