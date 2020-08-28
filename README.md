@@ -73,9 +73,8 @@ project
 
 ## Demo
 
-- [x] [Simple HTML](https://github.com/balmjs/demo-html)
+- [x] [HTML boilerplate](https://github.com/balmjs/demo-html5-boilerplate)
 - [x] [Laravel](https://github.com/balmjs/demo-laravel)
-- [x] [Vue](https://github.com/balmjs/demo-vue)
 - [x] [TypeScript](https://github.com/balmjs/demo-ts)
 - [x] Yours awesome projects...
 
