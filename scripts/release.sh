@@ -1,6 +1,7 @@
 #!/bin/bash
 
-VERSION=$1
+# VERSION=$1
 
-git tag $VERSION
-git push origin --tags
+# git tag $VERSION
+# git push origin --tags
+lerna publish --dist-tag next
