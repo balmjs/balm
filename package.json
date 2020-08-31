@@ -13,7 +13,6 @@
     "url": "git+https://github.com/balmjs/balm.git"
   },
   "scripts": {
-    "prepublish": "gulp prepublish && npm run build",
     "build": "rimraf packages/balm-core/tslib && tsc",
     "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json TS_NODE_FILES=true nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls",

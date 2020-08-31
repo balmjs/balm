@@ -1,4 +1,4 @@
 #!/bin/bash
 
-npm run prepublish
+gulp prepublish && npm run build
 lerna publish
