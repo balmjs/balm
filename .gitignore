@@ -20,6 +20,7 @@ web_modules/
 # BalmJS build output
 lib
 tslib
+*.log
 
 # MacOS generated files
 .DS_Store
