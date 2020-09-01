@@ -5,6 +5,10 @@
 - `balm-core` globally for workflow compiler
 - `balm` locally for workflow runtime
 
+## v3.0.1 / 2020-09-01
+
+- export `Balm` for multiprocess instances
+
 ## v3.0.0 / 2020-08-31
 
 ### [Upgrading To 3.0 From 2.x](https://balm.js.org/docs/guide/upgrade/upgrade-3.0.html)
