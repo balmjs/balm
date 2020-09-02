@@ -4,7 +4,7 @@ class DefaultTask extends BalmJS.BalmTask {
   }
 
   get startTask(): string[] {
-    const tasks: string[] = BalmJS.toNamespace(['start']) as string[];
+    const tasks = BalmJS.toNamespace(['start']) as string[];
 
     if (BalmJS.utils.isString(BalmJS.beforeTask)) {
       tasks.unshift(BalmJS.beforeTask as string);
@@ -22,7 +22,9 @@ class DefaultTask extends BalmJS.BalmTask {
       // Scripts
       ...(BalmJS.config.scripts.lint ? ['lint'] : []),
       'script',
+      // Templates
       'html',
+      // Other Assets
       ...(BalmJS.config.env.isProd || !BalmJS.config.inFrontend
         ? ['image', 'font', 'media']
         : [])
@@ -40,9 +42,17 @@ class DefaultTask extends BalmJS.BalmTask {
       tasks = [...tasks, 'modernizr', 'serve'];
     }
 
-    return BalmJS.config.useDefaults
+    let defaultMainTasks = BalmJS.config.useDefaults
       ? (BalmJS.toNamespace(tasks) as string[])
       : [];
+
+    if (BalmJS.config.env.inSSR || BalmJS.config.env.isMP) {
+      defaultMainTasks = BalmJS.toNamespace(
+        BalmJS.config.env.isMP ? ['style', 'script'] : ['script']
+      ) as string[];
+    }
+
+    return defaultMainTasks;
   }
 
   get subTasks(): string[] {
@@ -52,7 +62,7 @@ class DefaultTask extends BalmJS.BalmTask {
   }
 
   get endTask(): string[] {
-    const tasks: string[] = BalmJS.toNamespace(['end']) as string[];
+    const tasks = BalmJS.toNamespace(['end']) as string[];
 
     if (BalmJS.utils.isString(BalmJS.afterTask)) {
       tasks.push(BalmJS.afterTask as string);
