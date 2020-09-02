@@ -13,10 +13,11 @@
     "url": "git+https://github.com/balmjs/balm.git"
   },
   "scripts": {
-    "build": "rimraf packages/balm-core/tslib && tsc",
+    "build": "gulp prepublish && rimraf packages/balm-core/tslib && tsc",
     "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json TS_NODE_FILES=true nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "release": "bash ./scripts/release.sh"
+    "release": "./scripts/clone-license.sh && ./scripts/release.sh",
+    "release:all": "./scripts/clone-license.sh && ./scripts/release-all.sh"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.0",
