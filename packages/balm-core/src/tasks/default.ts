@@ -46,7 +46,11 @@ class DefaultTask extends BalmJS.BalmTask {
       ? (BalmJS.toNamespace(tasks) as string[])
       : [];
 
-    if (BalmJS.config.env.inSSR || BalmJS.config.env.isMP) {
+    if (
+      BalmJS.config.env.inSSR ||
+      BalmJS.config.env.isMP ||
+      BalmJS.config.env.inDesktopApp
+    ) {
       defaultMainTasks = BalmJS.toNamespace(
         BalmJS.config.env.isMP ? ['style', 'script'] : ['script']
       ) as string[];

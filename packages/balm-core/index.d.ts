@@ -12,6 +12,7 @@ export interface BalmEnvObject {
   isDev: boolean;
   inSSR: boolean;
   isMP: boolean;
+  inDesktopApp: boolean;
 }
 
 export interface BalmPath {
@@ -145,7 +146,6 @@ interface BalmServer {
   host: string | null;
   https: boolean | undefined;
   open: string | boolean;
-  localOnly: boolean;
   proxy: string | boolean | object;
   serveStatic: string[];
   options: any;
@@ -213,6 +213,7 @@ export interface BalmConfig {
   };
   src: BalmPath;
   dest: BalmAssetsPath;
+  inDesktopApp: boolean;
 }
 
 export interface BalmVendor {

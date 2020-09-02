@@ -84,7 +84,9 @@ class File {
 
   setPublicPath(): any {
     const publicPathSrc = `${PUBLIC_URL}/`;
-    const publicPathDest: string = this.publicUrlOrPath;
+    const publicPathDest: string = BalmJS.config.inDesktopApp
+      ? `.${this.publicUrlOrPath}`
+      : this.publicUrlOrPath;
 
     BalmJS.logger.debug(
       `set public path`,

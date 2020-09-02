@@ -1,9 +1,12 @@
 const ENV = {
+  // standard
   PROD: 'production',
   TEST: 'test',
   DEV: 'development',
+  // plus
   SSR: 'server',
-  MP: 'miniprogram'
+  MP: 'miniprogram',
+  DESKTOP_APP: 'desktop-app'
 };
 
 const isProd: boolean =
@@ -36,10 +39,16 @@ const isMP: boolean =
   process.argv.includes(`--${ENV.MP}`) ||
   process.argv.includes('-mp');
 
+const inDesktopApp: boolean =
+  process.env.NODE_ENV === ENV.DESKTOP_APP ||
+  process.argv.includes(`--${ENV.DESKTOP_APP}`) ||
+  process.argv.includes('-electron');
+
 export default {
   isProd,
   isTest,
   isDev,
   inSSR,
-  isMP
+  isMP,
+  inDesktopApp
 };

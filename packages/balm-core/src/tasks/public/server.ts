@@ -98,24 +98,26 @@ class ServerTask extends BalmJS.BalmTask {
       if (BalmJS.server) {
         BalmJS.logger.warn('server task', 'Server has started');
       } else {
+        const serverConfig = BalmJS.config.server;
+
         let bsOptions: any = {
           logPrefix: 'BalmJS',
           notify: false,
-          port: BalmJS.config.server.port,
-          host: BalmJS.config.server.host,
-          https: BalmJS.config.server.https,
-          open: BalmJS.config.server.open,
-          localOnly: BalmJS.config.server.localOnly,
+          port: serverConfig.port,
+          host: serverConfig.host,
+          https: serverConfig.https,
+          open: serverConfig.open,
+          localOnly: BalmJS.config.inDesktopApp,
           scriptPath: BalmJS.config.scripts.ie8 ? (): string => '' : undefined
         };
 
-        if (BalmJS.config.server.proxy) {
-          if (BalmJS.utils.isString(BalmJS.config.server.proxy)) {
+        if (serverConfig.proxy) {
+          if (BalmJS.utils.isString(serverConfig.proxy)) {
             bsOptions.proxy = {
-              target: BalmJS.config.server.proxy
+              target: serverConfig.proxy
             };
-          } else if (BalmJS.utils.isObject(BalmJS.config.server.proxy)) {
-            bsOptions.proxy = BalmJS.config.server.proxy;
+          } else if (BalmJS.utils.isObject(serverConfig.proxy)) {
+            bsOptions.proxy = serverConfig.proxy;
           } else {
             BalmJS.logger.error(
               `${this.name} task`,
@@ -123,7 +125,7 @@ class ServerTask extends BalmJS.BalmTask {
             );
           }
 
-          bsOptions.serveStatic = BalmJS.config.server.serveStatic;
+          bsOptions.serveStatic = serverConfig.serveStatic;
         } else {
           bsOptions.server = {
             baseDir: [BalmJS.config.dest.base, BalmJS.config.src.base],
@@ -138,10 +140,7 @@ class ServerTask extends BalmJS.BalmTask {
           ? getMiddlewares()
           : false;
 
-        bsOptions = BalmJS.utils.deepMerge(
-          bsOptions,
-          BalmJS.config.server.options
-        );
+        bsOptions = BalmJS.utils.deepMerge(bsOptions, serverConfig.options);
 
         if (BalmJS.config.env.isDev) {
           BalmJS.server = server.init(bsOptions);
@@ -153,7 +152,7 @@ class ServerTask extends BalmJS.BalmTask {
 
             const watcher = gulp.watch([
               `${BalmJS.config.src.base}/**/*`,
-              ...BalmJS.config.server.extraWatchFiles
+              ...serverConfig.extraWatchFiles
             ]);
 
             try {

@@ -4,7 +4,6 @@ const port = 3000;
 const host: string | null = null;
 const https: boolean | undefined = undefined;
 const open: string | boolean = false;
-const localOnly = false; // Support environments where dynamic hostnames are not required (ie: electron)
 const proxy: string | boolean | object = false; // Host: your.project.dev
 const serveStatic: string[] = [
   // {
@@ -82,7 +81,6 @@ export default {
   host,
   https,
   open,
-  localOnly,
   proxy,
   serveStatic,
   options,

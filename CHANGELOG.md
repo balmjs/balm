@@ -5,6 +5,17 @@
 - `balm-core` globally for workflow compiler
 - `balm` locally for workflow runtime
 
+## v3.1.0 / 2020-09-02
+
+### Features
+
+- optimize electron support for desktop apps
+- add config `env.inDesktopApp`
+
+### BREAKING CHANGES
+
+- remove config `server.localOnly`
+
 ## v3.0.1 / 2020-09-01
 
 - export `Balm` for multiprocess instances
