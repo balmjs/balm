@@ -11,7 +11,8 @@ const balmConfigDefaults = Object.assign({}, {
     isProd: false,
     isDev: false,
     inSSR: false,
-    isMP: false
+    isMP: false,
+    inDesktopApp: false
   },
   inFrontend: true,
   paths: {

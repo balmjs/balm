@@ -3,28 +3,56 @@ import { cleanup, runTest } from '../test';
 const targetDir = '.output';
 
 describe('Balm Hooks - html', function() {
-  before(function() {
-    balm.config = {
-      useDefaults: false
-    };
+  describe('for web', function() {
+    before(function() {
+      balm.config = {
+        useDefaults: false
+      };
+    });
+
+    after(function() {
+      cleanup();
+    });
+
+    it('#mix.html()', function(done) {
+      const input = 'src/index.html';
+      const output = `${targetDir}/html`;
+
+      runTest(
+        {
+          testCase: `${output}/index.html`,
+          testHook: (mix: any) => {
+            mix.html(input, output);
+          }
+        },
+        done
+      );
+    });
   });
 
-  after(function() {
-    cleanup();
-  });
+  describe('for desktop', function() {
+    before(function() {
+      BalmJS.config.inDesktopApp = true;
+    });
 
-  it('#mix.html()', function(done) {
-    const input = 'src/index.html';
-    const output = `${targetDir}/html`;
+    after(function() {
+      BalmJS.config.inDesktopApp = false;
+      cleanup();
+    });
 
-    runTest(
-      {
-        testCase: `${output}/index.html`,
-        testHook: (mix: any) => {
-          mix.html(input, output);
-        }
-      },
-      done
-    );
+    it('#mix.html()', function(done) {
+      const input = 'src/index.html';
+      const output = `${targetDir}/html`;
+
+      runTest(
+        {
+          testCase: `${output}/index.html`,
+          testHook: (mix: any) => {
+            mix.html(input, output);
+          }
+        },
+        done
+      );
+    });
   });
 });

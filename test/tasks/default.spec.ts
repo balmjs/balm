@@ -238,4 +238,42 @@ describe('Default Task', function() {
       );
     });
   });
+
+  describe('build miniprogram', function() {
+    before(function() {
+      balm.config = {
+        env: {
+          isMP: true
+        }
+      };
+    });
+
+    it(
+      'tasks length expected output: 2',
+      asyncCase(function() {
+        const tasks = defaultTask.mainTasks;
+
+        expect(tasks.length).to.equal(2);
+      })
+    );
+  });
+
+  describe('build electron', function() {
+    before(function() {
+      balm.config = {
+        env: {
+          inDesktopApp: true
+        }
+      };
+    });
+
+    it(
+      'tasks length expected output: 1',
+      asyncCase(function() {
+        const tasks = defaultTask.mainTasks;
+
+        expect(tasks.length).to.equal(1);
+      })
+    );
+  });
 });
