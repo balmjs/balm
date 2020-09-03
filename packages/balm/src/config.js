@@ -1,28 +1,15 @@
-import path from 'path';
-import globalDirectories from 'global-dirs';
+import colors from 'ansi-colors';
 
-const BALM_CORE_PACKAGE_NAME = 'balm-core';
+function getMessage(msg) {
+  return colors.yellow(msg);
+}
 
-const useTslib = process.env.BALM_TS || process.argv.includes('--balm-ts');
-const lib = useTslib ? 'tslib' : 'lib';
-
-const localModule = process.env.BALM_CORE
-  ? path.join(process.env.BALM_CORE, lib)
-  : path.join(__dirname, '..', '..', BALM_CORE_PACKAGE_NAME, lib);
-const npmGlobalModule = path.join(
-  globalDirectories.npm.packages,
-  BALM_CORE_PACKAGE_NAME,
-  lib
-);
-const yarnGlobalModule = path.join(
-  globalDirectories.yarn.packages,
-  BALM_CORE_PACKAGE_NAME,
-  lib
-);
-
-export {
-  BALM_CORE_PACKAGE_NAME,
-  localModule,
-  npmGlobalModule,
-  yarnGlobalModule
+export const title = colors.bgBlueBright('BalmJS');
+export const message = {
+  outdated: getMessage('A newer version of `balm-core` is available.'),
+  config: getMessage('`config` is required'),
+  notFound: getMessage('`balm.config.js` not found :('),
+  binCommand: getMessage(
+    'Only `balm` or `balm --production` can be run in the project'
+  )
 };

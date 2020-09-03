@@ -5,7 +5,7 @@ import {
   localModule,
   npmGlobalModule,
   yarnGlobalModule
-} from './config';
+} from './balm-core-module';
 
 let balmCore;
 
