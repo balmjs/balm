@@ -1,4 +1,3 @@
-import pkg from '../package.json';
 import './config';
 import './utilities';
 import './plugins';
@@ -12,7 +11,7 @@ class Balm {
 
   constructor() {
     BalmJS.loading = false;
-    loading.succeed(`BalmJS version: ${pkg.version}`);
+    loading.succeed();
     this.#config = BalmJS.config;
   }
 
