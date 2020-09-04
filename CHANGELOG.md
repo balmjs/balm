@@ -5,6 +5,25 @@
 - `balm-core` globally for workflow compiler
 - `balm` locally for workflow runtime
 
+## v3.3.0 / 2020-09-04
+
+### Features
+
+- update command: <del>`balm`</del> -> `balm go`
+
+### BREAKING CHANGES
+
+- update `package.json`:
+
+```json
+{
+  "scripts": {
+    "dev": "balm go",
+    "prod": "balm go -p"
+  }
+}
+```
+
 ## v3.2.2 / 2020-09-04
 
 ### Bug Fixes
