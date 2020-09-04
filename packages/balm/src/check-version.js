@@ -4,7 +4,7 @@ import { title, message } from './config';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function checkVersion(balmCoreVersion) {
-  if (semver.lt(balmCoreVersion, pkg.version)) {
+  if (balmCoreVersion && semver.lt(balmCoreVersion, pkg.version)) {
     console.log(title, message.outdated);
   }
 }
