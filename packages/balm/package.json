@@ -33,7 +33,7 @@
   ],
   "main": "lib/index.js",
   "bin": {
-    "balm-go": "./bin/balm-go.js"
+    "balm": "./bin/balm.js"
   },
   "repository": {
     "type": "git",

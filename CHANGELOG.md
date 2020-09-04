@@ -5,24 +5,23 @@
 - `balm-core` globally for workflow compiler
 - `balm` locally for workflow runtime
 
-## v3.3.0 / 2020-09-04
+## v3.3.1 / 2020-09-04
 
 ### Features
 
-- update command: <del>`balm`</del> -> `balm go`
+- optimize project running
 
-### BREAKING CHANGES
+1. using `balm go` command by [`balm-cli`](https://github.com/balmjs/balm-cli)
+2. update `package.json`:
 
-- update `package.json`:
-
-```json
-{
-  "scripts": {
-    "dev": "balm go",
-    "prod": "balm go -p"
-  }
-}
-```
+   ```json
+   {
+     "scripts": {
+       "dev": "balm",
+       "prod": "balm -p"
+     }
+   }
+   ```
 
 ## v3.2.2 / 2020-09-04
 
