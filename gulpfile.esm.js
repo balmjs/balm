@@ -5,22 +5,22 @@ import eslint from 'gulp-eslint';
 import excludeGitignore from 'gulp-exclude-gitignore';
 
 const BALM = {
-  core: {
+  compiler: {
     src: 'packages/balm-core/src/**/*.ts',
     dest: 'packages/balm-core/lib'
   },
   runtime: {
-    src: 'packages/balm/src/*.js',
+    src: 'packages/balm/src/**/*.js',
     dest: 'packages/balm/lib'
   }
 };
 
 function clean() {
-  return del([BALM.core.dest, BALM.runtime.dest]);
+  return del([BALM.compiler.dest, BALM.runtime.dest]);
 }
 
 function buildCore() {
-  return src(BALM.core.src).pipe(babel()).pipe(dest(BALM.core.dest));
+  return src(BALM.compiler.src).pipe(babel()).pipe(dest(BALM.compiler.dest));
 }
 
 function buildRuntime() {
@@ -30,7 +30,7 @@ function buildRuntime() {
 const build = series(buildCore, buildRuntime);
 
 task('format', function () {
-  return src(BALM.core.src)
+  return src(BALM.compiler.src)
     .pipe(excludeGitignore())
     .pipe(eslint())
     .pipe(eslint.format())

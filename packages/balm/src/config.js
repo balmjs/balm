@@ -9,7 +9,5 @@ export const message = {
   outdated: getMessage('A newer version of `balm-core` is available.'),
   config: getMessage('`config` is required'),
   notFound: getMessage('`balm.config.js` not found :('),
-  binCommand: getMessage(
-    'Only `balm` or `balm --production` can be run in the project'
-  )
+  binCommand: getMessage('Only `balm go` command can be run in the project')
 };
