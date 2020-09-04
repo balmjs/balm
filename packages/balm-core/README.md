@@ -20,9 +20,9 @@
 
 BalmJS prescribes best practices and tools to help you stay productive.
 
-- **Naturally**: Make web development _simple_ and _natural_.
+- **Naturally**: Make web development _simple_, _natural_ and _pleasant_.
 - **Structure-Based**: _One configuration file_ can manage webapp projects with at least 90% use cases.
-- **Learn Once, Run Any Webapps**: Any front-end technology stack uses _the same startup way_ for developing and building.
+- **Learn Once, Run Any Webapps**: Any front-end technology stack will be developed and built in _the same way_.
 
 ## Features
 
@@ -35,6 +35,7 @@ BalmJS prescribes best practices and tools to help you stay productive.
 - Built-in preview server with BrowserSync
 - Custom publish assets to remote (Front-end to Back-end) project
 - ZIP/FTP/PWA supported
+- Easily define and extend your own tasks
 
 ## Structure
 
@@ -60,7 +61,7 @@ project
 └── ...
 ```
 
-## Getting Started
+## Installation
 
 ### 0. Requirements
 
@@ -83,12 +84,16 @@ cd my-project
 npm init -y
 ```
 
-### 1. Installation
+### 1. Installing `balm`
 
 ```sh
 yarn global add balm-core
 yarn add -D balm
-# OR
+```
+
+OR
+
+```sh
 npm install -g balm-core
 npm install -D balm
 ```
@@ -139,11 +144,12 @@ npm run prod
 
 ## Documentation
 
-To check out [live example](https://balm.js.org/balm-example.zip) and docs, visit [balm.js.org](https://balm.js.org/docs/).
+To download [example](https://balm.js.org/balm-example.zip) and try it, visit [balm.js.org](https://balm.js.org/docs/).
 
 - [Getting Started](https://balm.js.org/docs/guide/getting-started.html)
 - [Configuration](https://balm.js.org/docs/config/)
 - [Custom Task API](https://balm.js.org/docs/api/)
+- [Advanced Usage](https://balm.js.org/docs/advanced/)
 
 ## Ecosystem
 
@@ -156,6 +162,10 @@ To check out [live example](https://balm.js.org/balm-example.zip) and docs, visi
 | [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue                          |
 | **[balm-ui](https://github.com/balmjs/ui-vue)**       | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Next Generation Material UI for Vue.js            |
 | [balm-scroll](https://github.com/balmjs/balm-scroll)  | [![NPM version][balm-scroll-image]][balm-scroll-url]   | :scroll: Smooth scrolling for Vue.js                         |
+
+## Support
+
+Please, don't hesitate to [file an issue](https://github.com/balmjs/balm/issues/new) if you have questions.
 
 ## License
 
