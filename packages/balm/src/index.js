@@ -15,7 +15,7 @@ function run() {
 
 if (balmConfigFile && fs.existsSync(balmConfigFile)) {
   const balmConfig = require(balmConfigFile);
-  const balm = require('./bootstrap/balm');
+  const balm = require('./bootstrap/balm').default;
 
   if (typeof balmConfig === 'function') {
     let { config, beforeTask, afterTask, api } = balmConfig(balm);
