@@ -90,7 +90,13 @@ class BalmStyleTask extends BalmTask {
       .pipe(
         $.if(
           BalmJS.config.env.isProd || BalmJS.config.styles.minify,
-          $.postcss([cssnano(BalmJS.config.styles.options)])
+          $.postcss([
+            cssnano(
+              Object.assign(BalmJS.config.styles.options, {
+                autoprefixer: false
+              })
+            )
+          ])
         )
       )
       .pipe(
