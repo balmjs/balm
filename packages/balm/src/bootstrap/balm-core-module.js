@@ -8,7 +8,7 @@ const lib = useTslib ? 'tslib' : 'lib';
 
 const localModule = process.env.BALM_CORE
   ? path.join(process.env.BALM_CORE, lib)
-  : path.join(__dirname, '..', '..', BALM_CORE_PACKAGE_NAME, lib);
+  : path.join(process.cwd(), 'node_modules', BALM_CORE_PACKAGE_NAME, lib);
 const npmGlobalModule = path.join(
   globalDirectories.npm.packages,
   BALM_CORE_PACKAGE_NAME,
