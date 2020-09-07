@@ -5,10 +5,9 @@ const atImportPaths: string[] = [];
 /**
  * Cssnano optimisations
  *
- * @reference https://cssnano.co/guides/optimisations/
+ * @reference https://cssnano.co/docs/optimisations/
  */
 const options: object = {
-  autoprefixer: false,
   discardComments: {
     removeAll: true
   }
