@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import './bootstrap/balm-env';
+import './bootstrap/balm-env'; // Load `balm.env.js`
 import path from 'path';
 import { argv } from 'yargs';
 import fs from 'fs';
@@ -14,8 +14,8 @@ function run() {
 }
 
 if (balmConfigFile && fs.existsSync(balmConfigFile)) {
-  const balmConfig = require(balmConfigFile);
-  const balm = require('./bootstrap/balm').default;
+  const balmConfig = require(balmConfigFile); // Load `balm.config.js`
+  const balm = require('./bootstrap/balm').default; // Get `balm-core`
 
   if (typeof balmConfig === 'function') {
     let { config, beforeTask, afterTask, api } = balmConfig(balm);

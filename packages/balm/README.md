@@ -69,7 +69,7 @@ You need to set up your development environment before you can do anything.
 
 Install [Node.js® and npm](https://nodejs.org/en/download/) if they are not already on your machine.
 
-> **Verify that you are running at least node `12.0.0` and npm `5.2.0`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
+> **Verify that you are running at least node `10.13.0` and npm `5.2.0`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
 
 You develop apps in the context of an [Balm workspace](https://balm.js.org/docs/guide/structure.html).
 
@@ -179,8 +179,8 @@ Please, don't hesitate to [file an issue](https://github.com/balmjs/balm/issues/
 [balm-url]: https://npmjs.org/package/balm
 [license-image]: https://img.shields.io/npm/l/balm-core.svg?sanitize=true
 [license-url]: https://www.npmjs.com/package/balm-core
-[deps-image]: https://david-dm.org/balmjs/balm.svg?path=packages/balm-core&theme=shields.io
-[deps-url]: https://david-dm.org/balmjs/balm?path=packages/balm-core
+[deps-image]: https://david-dm.org/balmjs/balm.svg?path=packages/balm&theme=shields.io
+[deps-url]: https://david-dm.org/balmjs/balm?path=packages/balm
 [travis-image]: https://travis-ci.org/balmjs/balm.svg?branch=master
 [travis-url]: https://travis-ci.org/balmjs/balm
 [appveyor-image]: https://ci.appveyor.com/api/projects/status/github/balmjs/balm?svg=true
