@@ -4,7 +4,8 @@ import { LooseObject } from '@balm-core/index';
 const docsBaseURL = `${DOMAIN}/docs/config`;
 
 function upgradeGuide(key: string, value: string, message: string) {
-  return `${message} See ${docsBaseURL}/${key}.html#${key}-${value}`;
+  const page = key === 'scripts' ? 'scripts-webpack' : key.toLowerCase();
+  return `${message} See ${docsBaseURL}/${page}.html#${key}-${value.toLowerCase()}`;
 }
 
 function upgradeRenamed(
@@ -31,13 +32,13 @@ function upgradeMigrated(
   from: string,
   to: string
 ) {
-  if ((BalmJS.config as LooseObject)[configCategory][from]) {
+  if ((BalmJS.config as LooseObject)[from][configCategory]) {
     BalmJS.logger.warn(
       `balm@${version}+ config`,
       upgradeGuide(
-        configCategory,
         to,
-        `'${configCategory}.${from}' was migrated to '${configCategory}.${to}'.`
+        configCategory,
+        `'${from}.${configCategory}' was migrated to '${to}.${configCategory}'.`
       )
     );
   }
@@ -47,12 +48,7 @@ function upgradeMigrated(
 function checkConfig(): void {
   // For v2
   upgradeRenamed('2.5.0', 'scripts', 'disableDefaultLoaders', 'defaultLoaders');
-  upgradeMigrated(
-    '2.11.0',
-    'styles',
-    'postcssLoaderOptions',
-    'postcssLoaderOptions'
-  );
+  upgradeMigrated('2.11.0', 'postcssLoaderOptions', 'styles', 'scripts');
   upgradeRenamed('2.22.0', 'images', 'defaultPlugins', 'plugins');
 
   // For v3

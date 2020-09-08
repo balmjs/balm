@@ -5,6 +5,14 @@
 - `balm-core` globally for workflow compiler
 - `balm` locally for workflow runtime
 
+## v3.4.1 / 2020-09-08
+
+### Bug Fixes
+
+- add `postcss` dependencies
+- bugfix for `postcss-loader`
+- fix docs url for check config function
+
 ## v3.4.0 / 2020-09-08
 
 - update dependencies

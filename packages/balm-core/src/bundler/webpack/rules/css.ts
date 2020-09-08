@@ -17,10 +17,6 @@ function cssLoader(): RuleSetRule {
     }
   }
 
-  BalmJS.config.scripts.postcssLoaderOptions.plugins = BalmJS.plugins.postcss(
-    true
-  );
-
   const sourceMap = BalmJS.config.env.isProd
     ? BalmJS.config.scripts.sourceMap
     : BalmJS.config.env.isDev;
@@ -56,7 +52,9 @@ function cssLoader(): RuleSetRule {
         loader: require.resolve('postcss-loader'),
         options: Object.assign(
           {
-            ident: 'postcss',
+            postcssOptions: {
+              plugins: BalmJS.plugins.postcss(true)
+            },
             sourceMap
           },
           BalmJS.config.scripts.postcssLoaderOptions
