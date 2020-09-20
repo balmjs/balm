@@ -5,6 +5,15 @@
 - `balm-core` globally for workflow compiler
 - `balm` locally for workflow runtime
 
+## v3.5.0 / 2020-09-20
+
+- update dependencies
+  - `autoprefixer`: 9.x -> 10.x
+  - `esbuild`: 0.6.x -> 0.7.x
+  - `postcss`: 7.x -> 8.x
+  - `postcss-safe-parser`: 4.x -> 5.x
+  - `yargs`: 15.x -> 16.x
+
 ## v3.4.1 / 2020-09-08
 
 ### Bug Fixes
