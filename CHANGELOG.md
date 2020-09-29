@@ -2,14 +2,16 @@
 
 > Born to build, better enterprise workflow with Node.js
 
-- `balm-core` globally for workflow compiler
-- `balm` locally for workflow runtime
+- `balm-core`: globally for workflow compiler
+- `balm`: locally for workflow runtime
 
-## v3.5.0 / 2020-09-20
+## v3.5.0 / 2020-09-29
 
 - update dependencies
   - `autoprefixer`: 9.x -> 10.x
+  - `del`: 5.x -> 6.x
   - `esbuild`: 0.6.x -> 0.7.x
+  - `gulp-postcss`: 8.x -> 9.x
   - `postcss`: 7.x -> 8.x
   - `postcss-safe-parser`: 4.x -> 5.x
   - `yargs`: 15.x -> 16.x

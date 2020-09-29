@@ -166,10 +166,9 @@ describe('Balm Hooks - esbuild', function() {
             mix.js([
               './src/scripts/page-a.js',
               './src/scripts/page-b.js',
-              './src/scripts/page-c.js'
+              './src/scripts/page-c.js' // Invalid entry
             ], output, {
-              target: 'es2015',
-              splitting: true
+              target: 'es2015'
             });
           }
         },
