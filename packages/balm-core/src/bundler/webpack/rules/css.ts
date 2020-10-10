@@ -3,7 +3,13 @@ import { cssRegex, cssModuleRegex } from '../config/regex';
 import { RuleSetRule } from '@balm-core/index';
 
 function cssLoader(): RuleSetRule {
-  let styleLoader = require.resolve('style-loader');
+  let styleLoader: string | object = {
+    loader: require.resolve('style-loader'),
+    options: {
+      esModule: BalmJS.config.scripts.useEsModule
+    }
+  };
+
   if (BalmJS.config.env.inSSR) {
     const loadersCount: number = BalmJS.config.scripts.loaders.length;
     for (let i = 0; i < loadersCount; i++) {

@@ -5,6 +5,12 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.6.0 / 2020-10-10
+
+- update dependencies
+  - `mini-css-extract-plugin`: 0.x -> 1.x
+  - `style-loader`: 1.x -> 2.x
+
 ## v3.5.0 / 2020-09-29
 
 - update dependencies
