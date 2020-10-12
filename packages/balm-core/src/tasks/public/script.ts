@@ -38,13 +38,13 @@ class ScriptTask extends BalmJS.BalmTask {
             compiling.stop();
 
             // Handle errors here
-            // if (error) {
-            //   BalmJS.logger.error(`${this.name} task`, error.stack || err);
-            //   if (error.details) {
-            //     BalmJS.logger.error(`${this.name} task`, error.details);
-            //   }
-            //   return;
-            // }
+            if (error) {
+              BalmJS.logger.error(`${this.name} task`, error.stack || error);
+              if (error.details) {
+                BalmJS.logger.error(`${this.name} task`, error.details);
+              }
+              return;
+            }
 
             const scriptLogLevel: number = stats.hasErrors()
               ? BalmJS.LogLevel.Error

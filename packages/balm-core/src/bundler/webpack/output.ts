@@ -1,29 +1,35 @@
-import {
-  ASYNC_SCRIPTS,
-  INJECT_HASHNAME,
-  MP_ASSETS
-} from '../../config/constants';
+import { ASYNC_SCRIPTS, HASH_NAME, MP_ASSETS } from '../../config/constants';
 
 function getOutput(output: string, scripts: any, isHook = false): any {
   const outputPath: string = output || BalmJS.config.dest.base; // Absolute path
   const jsFolder: string = BalmJS.config.paths.target.js;
-  const jsFilename: string = scripts.inject
-    ? `[name].${INJECT_HASHNAME}.js`
-    : '[name].js';
+
+  let filename = '[name]';
   let chunkFilename = '[id]';
   if (BalmJS.config.env.isProd) {
-    if (scripts.inject) {
-      chunkFilename = `[name].${INJECT_HASHNAME}`;
-    } else if (BalmJS.config.assets.cache) {
-      chunkFilename = '[name].[chunkhash:8]';
+    if (BalmJS.config.assets.cache || scripts.inject) {
+      filename = `[name].${HASH_NAME}`;
+      chunkFilename = `[name].${HASH_NAME}`;
     } else {
+      filename = '[name].bundle';
       chunkFilename = '[name].chunk';
     }
   }
+  const jsFilename = `${filename}.js`;
   const jsChunkFilename = `${chunkFilename}.js`;
 
   const customLibraryConfig: object = scripts.library
-    ? { library: scripts.library }
+    ? // webpack@5 syntax
+      // {
+      //   library: {
+      //     type: scripts.libraryTarget,
+      //     name: scripts.library
+      //   }
+      // }
+      {
+        libraryTarget: scripts.libraryTarget,
+        library: scripts.library
+      }
     : {};
 
   const miniprogramConfig: object = BalmJS.config.env.isMP
@@ -48,9 +54,7 @@ function getOutput(output: string, scripts: any, isHook = false): any {
         ? jsChunkFilename
         : BalmJS.file.assetsPath(
             `${jsFolder}/${ASYNC_SCRIPTS}/${jsChunkFilename}`
-          ),
-      libraryTarget: scripts.libraryTarget
-      // ecmaVersion: scripts.ecmaVersion // NOTE: for webpack@5
+          )
     },
     customLibraryConfig,
     miniprogramConfig

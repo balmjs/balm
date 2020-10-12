@@ -17,7 +17,8 @@
     "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json TS_NODE_FILES=true nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "release": "./scripts/clone-license.sh && ./scripts/release.sh",
-    "release:all": "./scripts/clone-license.sh && ./scripts/release-all.sh"
+    "release:all": "./scripts/clone-license.sh && ./scripts/release-all.sh",
+    "release:canary": "./scripts/clone-license.sh && ./scripts/release-canary.sh"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.0",

@@ -27,7 +27,6 @@ const transformOptions: TransformOptions = {};
 // Output
 const library: string | object = '';
 const libraryTarget = 'var'; // ['var', 'this', 'window', 'global', 'commonjs', 'commonjs2', 'amd', 'umd']
-// const ecmaVersion = 5; // default value of webpack 4
 // Module
 const loaders: object[] = [];
 const defaultLoaders: Partial<BalmLoaders> = {};
@@ -149,7 +148,6 @@ export default {
   // webpack
   library,
   libraryTarget,
-  // ecmaVersion,
   loaders,
   defaultLoaders,
   includeJsResource,

@@ -47,8 +47,6 @@ function getProdConfig(scripts: any): Configuration {
       ]
     },
     plugins: [
-      // Keep module.id stable when vendor modules does not change
-      new webpack.HashedModuleIdsPlugin(), // NOTE: webpack@5 has bug
       // Extract css into its own file
       ...(scripts.extractCss.enabled
         ? [
