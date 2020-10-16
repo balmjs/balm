@@ -5,6 +5,14 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.7.0 / 2020-10-16
+
+### Features
+
+- add config `scripts.excludeUrlResource`
+- update dependencies
+  - `css-loader`: 4.x -> 5.x
+
 ## v3.6.0 / 2020-10-10
 
 - update dependencies

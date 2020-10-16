@@ -81,6 +81,7 @@ export interface BalmScripts {
   loaders: object[];
   defaultLoaders: Partial<BalmLoaders>;
   includeJsResource: string[];
+  excludeUrlResource: string[];
   useEsModule: boolean;
   urlLoaderOptions: object;
   htmlLoaderOptions: object;

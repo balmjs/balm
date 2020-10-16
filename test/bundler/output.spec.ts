@@ -54,7 +54,7 @@ describe('Bundler#getOutput()', function () {
       });
 
       const filename = 'js/[name].js';
-      const chunkFilename = 'js/async/[name].chunk.js';
+      const chunkFilename = 'js/async/[name].js';
 
       it(
         `expected output: "${filename}"`,
@@ -80,7 +80,7 @@ describe('Bundler#getOutput()', function () {
       });
 
       const filename = 'js/[name].js';
-      const chunkFilename = 'js/async/[name].[chunkhash:8].js';
+      const chunkFilename = 'js/async/[name].[contenthash:8].js';
 
       it(
         `expected output: "${filename}"`,

@@ -24,6 +24,7 @@ function urlLoader(): RuleSetRule[] {
     // A missing `test` is equivalent to a match.
     {
       test: imgRegex,
+      exclude: BalmJS.config.scripts.excludeUrlResource,
       loader: require.resolve('url-loader'),
       options
     },

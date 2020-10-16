@@ -16,7 +16,7 @@ module.exports = {
       use: [
         'vue-style-loader',
         {
-          loader: 'css-loader',
+          loader: require.resolve('css-loader'),
           options: {
             esModule: false
           }

@@ -1,5 +1,5 @@
 import getLoaders from '../loaders';
-import { INJECT_HASHNAME } from '../../../config/constants';
+import { HASH_NAME } from '../../../config/constants';
 import { Configuration } from '@balm-core/index';
 
 function getSplitChunks(): boolean | object {
@@ -10,11 +10,10 @@ function getSplitChunks(): boolean | object {
   if (scripts.extractAllVendors) {
     // All vendors
     const jsFilename = scripts.inject
-      ? `${scripts.vendorName}.${INJECT_HASHNAME}.js`
+      ? `${scripts.vendorName}.${HASH_NAME}.js`
       : `${scripts.vendorName}.js`;
 
     cacheGroups = {
-      // NOTE: `defaultVendors` for webpack@5
       vendors: {
         chunks: 'initial',
         name: jsFilename,
@@ -29,7 +28,7 @@ function getSplitChunks(): boolean | object {
       const cacheGroupKey = vendor.key;
       const cacheGroupModules = vendor.value.join('|');
       const jsFilename = scripts.inject
-        ? `${cacheGroupKey}.${INJECT_HASHNAME}.js`
+        ? `${cacheGroupKey}.${HASH_NAME}.js`
         : `${cacheGroupKey}.js`;
 
       cacheGroups[cacheGroupKey] = {
@@ -103,11 +102,6 @@ function getCommonConfig(scripts: any): Configuration {
       // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
       // You can remove this if you don't use Moment.js:
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      // NOTE: for webpack@5
-      // new webpack.IgnorePlugin({
-      //   resourceRegExp: /^\.\/locale$/,
-      //   contextRegExp: /moment$/
-      // }),
       ...scripts.plugins
     ],
     target: scripts.target,
