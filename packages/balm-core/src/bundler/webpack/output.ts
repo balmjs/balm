@@ -4,29 +4,22 @@ function getOutput(output: string, scripts: any, isHook = false): any {
   const outputPath: string = output || BalmJS.config.dest.base; // Absolute path
   const jsFolder: string = BalmJS.config.paths.target.js;
 
-  let filename = '[name]';
   let chunkFilename = '[id]';
   if (BalmJS.config.env.isProd) {
     if (BalmJS.config.assets.cache || scripts.inject) {
-      filename = `[name].${HASH_NAME}`;
       chunkFilename = `[name].${HASH_NAME}`;
     } else {
-      filename = '[name].bundle';
-      chunkFilename = '[name].chunk';
+      chunkFilename = '[name]';
     }
   }
-  const jsFilename = `${filename}.js`;
   const jsChunkFilename = `${chunkFilename}.js`;
+  const jsFilename: string = scripts.inject
+    ? `[name].${HASH_NAME}.js`
+    : '[name].js';
 
   const customLibraryConfig: object = scripts.library
-    ? // webpack@5 syntax
-      // {
-      //   library: {
-      //     type: scripts.libraryTarget,
-      //     name: scripts.library
-      //   }
-      // }
-      {
+    ? {
+        // TODO: webpack@5 `libraryTarget` has bug, https://github.com/webpack/webpack/issues/11632
         libraryTarget: scripts.libraryTarget,
         library: scripts.library
       }
