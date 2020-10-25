@@ -1,14 +1,14 @@
 const path = require('path');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const { VueLoaderPlugin } = require('vue-loader-v16');
 const balmrc = require('../balmrc');
 
 module.exports = Object.assign(balmrc, {
   roots: {
-    source: 'vue-spa'
+    source: 'vue3'
   },
   scripts: {
     entry: {
-      main: './vue-spa/scripts/main.js'
+      main: './vue3/scripts/main.js'
     },
     loaders: [
       {
@@ -22,7 +22,7 @@ module.exports = Object.assign(balmrc, {
     plugins: [new VueLoaderPlugin()],
     alias: {
       '@': path.resolve(__dirname, '..', '..', 'vue-spa', 'scripts'),
-      vue$: 'vue/dist/vue.esm.js'
+      vue$: 'vue/dist/vue.esm-bundler.js'
     }
   }
 });

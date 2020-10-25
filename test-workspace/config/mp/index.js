@@ -51,8 +51,8 @@ const getConfig = (balm) => {
       //   prefix: 'extra-'
       // },
       alias: {
-        vue$: 'vue/dist/vue.esm.js',
-        '@': path.resolve(__dirname, '..', '..', 'mp', 'scripts')
+        '@': path.resolve(__dirname, '..', '..', 'mp', 'scripts'),
+        vue$: 'vue/dist/vue.esm.js'
         // 'balm-ui': 'balm-ui/src/scripts',
         // 'balm-ui-plus': 'balm-ui/src/scripts/plus.js',
         // 'balm-ui-next': 'balm-ui/src/scripts/next.js'

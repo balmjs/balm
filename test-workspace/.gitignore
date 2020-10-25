@@ -11,6 +11,7 @@ assets
 */styles/sprites
 !vue-spa/scripts/assets
 !vue-ssr/app/scripts/assets
+!vue3/scripts/assets
 php/public/build
 php/public/web
 php/public/_index.html
