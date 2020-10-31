@@ -5,6 +5,16 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.8.0 / 2020-10-31
+
+### Features
+
+- support for `npm@7`
+- update dependencies
+  - `esbuild`: 0.7.x -> 0.8.x
+  - `gulp-useref`: 4.x -> 5.x
+  - `postcss-import`: 12.x -> 13.x
+
 ## v3.7.0 / 2020-10-16
 
 ### Features
