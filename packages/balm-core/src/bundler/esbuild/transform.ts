@@ -40,13 +40,10 @@ const esTransform = (
         const filename = entry.split('/').pop();
         if (filename && fs.existsSync(build.input)) {
           const inputCode = fs.readFileSync(build.input, 'utf8');
-          const outputCode = await service.transform(
-            inputCode,
-            transformOptions
-          );
+          const result = await service.transform(inputCode, transformOptions);
 
           fs.mkdirSync(build.output, { recursive: true });
-          fs.writeFileSync(path.join(build.output, filename), outputCode.js);
+          fs.writeFileSync(path.join(build.output, filename), result.code);
         } else {
           BalmJS.logger.warn('esbuild', `Invalid entry: ${entry}`);
         }
