@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2020.11.2",
+  "version": "2020.11.4",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -35,7 +35,7 @@
     "mp:prod": "npm run mp:build:web && npm run mp:build:mp"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "cross-env": "^7.0.2",
@@ -65,9 +65,9 @@
     "postcss-px-to-viewport": "^1.1.1",
     "postcss-pxtorem": "^5.1.1",
     "ts-loader": "^8.0.7",
-    "typescript": "^4.0.0",
+    "typescript": "^4.0.5",
     "vue-loader": "^15.9.5",
-    "vue-loader-v16": "npm:vue-loader@^16.0.0-beta.9",
+    "vue-loader-v16": "npm:vue-loader@^16.0.0-beta.10",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.12",
     "webpack": "^5.3.2",
