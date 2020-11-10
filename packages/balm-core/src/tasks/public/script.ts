@@ -45,23 +45,25 @@ class ScriptTask extends BalmJS.BalmTask {
           (error: BalmError, stats: any): void => {
             compiling.stop();
 
-            // Handle errors here
-            if (error) {
-              BalmJS.logger.error(`${this.name} task`, error.stack || error);
-              if (error.details) {
-                BalmJS.logger.error(`${this.name} task`, error.details);
+            if (stats) {
+              const scriptLogLevel: number = stats.hasErrors()
+                ? BalmJS.LogLevel.Error
+                : stats.hasWarnings()
+                ? BalmJS.LogLevel.Warn
+                : BalmJS.LogLevel.Info;
+
+              if (BalmJS.config.logs.level <= scriptLogLevel) {
+                console.log(stats.toString(BalmJS.config.scripts.stats));
               }
-              return;
-            }
-
-            const scriptLogLevel: number = stats.hasErrors()
-              ? BalmJS.LogLevel.Error
-              : stats.hasWarnings()
-              ? BalmJS.LogLevel.Warn
-              : BalmJS.LogLevel.Info;
-
-            if (BalmJS.config.logs.level <= scriptLogLevel) {
-              console.log(stats.toString(BalmJS.config.scripts.stats));
+            } else {
+              // Handle errors here
+              if (error) {
+                BalmJS.logger.error(`${this.name} task`, error.stack || error);
+                if (error.details) {
+                  BalmJS.logger.error(`${this.name} task`, error.details);
+                }
+                return;
+              }
             }
 
             // Done processing

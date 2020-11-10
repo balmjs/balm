@@ -4,11 +4,11 @@ const balmrc = require('../balmrc');
 
 module.exports = Object.assign(balmrc, {
   roots: {
-    source: 'vue-spa'
+    source: 'vue'
   },
   scripts: {
     entry: {
-      main: './vue-spa/scripts/main.js'
+      main: './vue/scripts/main.js'
     },
     loaders: [
       {
@@ -21,7 +21,7 @@ module.exports = Object.assign(balmrc, {
     },
     plugins: [new VueLoaderPlugin()],
     alias: {
-      '@': path.resolve(__dirname, '..', '..', 'vue-spa', 'scripts'),
+      '@': path.resolve(__dirname, '..', '..', 'vue', 'scripts'),
       vue$: 'vue/dist/vue.esm.js'
     }
   }
