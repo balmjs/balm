@@ -3,7 +3,10 @@ import {
   BalmLoaders,
   PostcssLoaderOptions,
   BuildOptions,
-  TransformOptions
+  TransformOptions,
+  InputOptions,
+  OutputOptions,
+  WatchOptions
 } from '@balm-core/index';
 
 // common options
@@ -19,6 +22,14 @@ const esbuild = false;
 const buildOptions: BuildOptions = {};
 const useTransform = false;
 const transformOptions: TransformOptions = {};
+
+/**
+ * Rollup bundler
+ */
+const rollup = false;
+const inputOptions: InputOptions = {};
+const outputOptions: OutputOptions | OutputOptions[] = {};
+const watchOptions: WatchOptions = {};
 
 /**
  * Webpack bundler
@@ -145,6 +156,11 @@ export default {
   buildOptions,
   useTransform,
   transformOptions,
+  // rollup
+  rollup,
+  inputOptions,
+  outputOptions,
+  watchOptions,
   // webpack
   library,
   libraryTarget,

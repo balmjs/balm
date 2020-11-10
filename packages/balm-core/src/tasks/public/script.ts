@@ -1,7 +1,13 @@
 import esbuild from '../../bundler/esbuild';
+import buildLibrary from '../../bundler/rollup';
 import webpackConfig from '../../bundler/webpack';
 import compiling from '../../utilities/compiling';
-import { BalmEntryObject, BalmError } from '@balm-core/index';
+import {
+  BalmEntryObject,
+  InputOptions,
+  OutputOptions,
+  BalmError
+} from '@balm-core/index';
 
 class ScriptTask extends BalmJS.BalmTask {
   constructor() {
@@ -13,8 +19,8 @@ class ScriptTask extends BalmJS.BalmTask {
   }
 
   recipe(
-    input?: string | string[] | BalmEntryObject,
-    output?: string,
+    input?: string | string[] | BalmEntryObject | InputOptions,
+    output?: string | OutputOptions,
     customOptions: any = {}
   ): Function {
     const balmScript = (callback: Function): void => {
@@ -27,6 +33,8 @@ class ScriptTask extends BalmJS.BalmTask {
           customOptions,
           callback
         );
+      } else if (BalmJS.config.scripts.rollup) {
+        buildLibrary(input as InputOptions, output as OutputOptions, callback);
       } else {
         compiling.start();
 

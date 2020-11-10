@@ -82,6 +82,8 @@
     "postcss-safe-parser": "^5.0.2",
     "readable-stream": "^3.6.0",
     "require-dir": "^1.2.0",
+    "rollup": "^2.33.1",
+    "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.29.0",
     "ssh2": "^0.8.9",
     "style-loader": "^2.0.0",

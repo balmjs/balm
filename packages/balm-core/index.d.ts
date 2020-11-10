@@ -65,6 +65,13 @@ export type BuildOptions = import('esbuild').BuildOptions;
 export type TransformOptions = import('esbuild').TransformOptions;
 export type TransformResult = import('esbuild').TransformResult;
 
+export type InputOptions = import('rollup').InputOption;
+export type OutputOptions = import('rollup').OutputOptions;
+export type RollupBuild = import('rollup').RollupBuild;
+export type RollupOptions = import('rollup').RollupOptions;
+export type WatchOptions = import('rollup').WatchOptions;
+export type RollupWatchOptions = import('rollup').RollupWatchOptions;
+
 export interface BalmScripts {
   // eslint
   lint: boolean;
@@ -75,6 +82,11 @@ export interface BalmScripts {
   buildOptions: BuildOptions;
   useTransform: boolean;
   transformOptions: TransformOptions;
+  // rollup
+  rollup: boolean;
+  inputOptions: InputOptions;
+  outputOptions: OutputOptions | OutputOptions[];
+  watchOptions: WatchOptions;
   // webpack
   library: string | object;
   libraryTarget: string;
