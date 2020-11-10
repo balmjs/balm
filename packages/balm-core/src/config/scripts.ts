@@ -6,7 +6,7 @@ import {
   TransformOptions,
   InputOptions,
   OutputOptions,
-  WatchOptions
+  WatcherOptions
 } from '@balm-core/index';
 
 // common options
@@ -29,7 +29,7 @@ const transformOptions: TransformOptions = {};
 const rollup = false;
 const inputOptions: InputOptions = {};
 const outputOptions: OutputOptions | OutputOptions[] = {};
-const watchOptions: WatchOptions = {};
+const watchOptions: WatcherOptions = {};
 
 /**
  * Webpack bundler
