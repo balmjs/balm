@@ -6,7 +6,7 @@ module.exports = Object.assign(balmrc, {
   },
   scripts: {
     entry: {
-      // polyfill: './esnext/scripts/polyfill.js',
+      // polyfill: './es/scripts/polyfill.js',
       main: './es/scripts/index.js'
     },
     ie8: true

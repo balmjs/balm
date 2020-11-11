@@ -113,7 +113,7 @@ const plugins: object[] = [];
 // Devtool
 const sourceMap: string | boolean = false;
 // Target
-const target = 'web';
+const target = 'es5';
 // Externals
 const externals: string | object | Function | RegExp = '';
 // Stats
