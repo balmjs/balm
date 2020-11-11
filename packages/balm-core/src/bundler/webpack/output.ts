@@ -1,6 +1,7 @@
 import { ASYNC_SCRIPTS, HASH_NAME, MP_ASSETS } from '../../config/constants';
+import { BalmScripts } from '@balm-core/index';
 
-function getOutput(output: string, scripts: any, isHook = false): any {
+function getOutput(output: string, scripts: BalmScripts, isHook = false): any {
   const outputPath: string = output || BalmJS.config.dest.base; // Absolute path
   const jsFolder: string = BalmJS.config.paths.target.js;
 

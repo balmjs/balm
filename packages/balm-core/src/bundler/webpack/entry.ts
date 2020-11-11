@@ -1,5 +1,5 @@
 import { HMR_PATH } from '../../config/constants';
-import { BalmEntryObject, BalmVendor } from '@balm-core/index';
+import { BalmEntryObject, BalmScripts, BalmVendor } from '@balm-core/index';
 
 const FILENAME_REGEX = new RegExp('[^/]+$', 'i');
 const HOT_CLIENT = 'webpack-hot-middleware/client';
@@ -34,7 +34,7 @@ function initVendors(entries: BalmEntryObject): void {
 // Relative path
 function getEntry(
   input: string | string[] | BalmEntryObject,
-  scripts: any
+  scripts: BalmScripts
 ): any {
   let webpackEntries: any = {};
 

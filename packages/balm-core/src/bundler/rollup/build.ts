@@ -1,25 +1,12 @@
-import { terser, Options } from 'rollup-plugin-terser';
+import { getOutputPlugins } from './plugins';
 import { OutputOptions, RollupBuild } from '@balm-core/index';
 
 const build = async (
   bundle: RollupBuild,
   outputOptions: OutputOptions
 ): Promise<any> => {
-  if (BalmJS.config.env.isProd) {
-    const terserOptions: Options = {
-      module: /^esm?/.test(outputOptions.format as string),
-      compress: {
-        ecma: 2015,
-        pure_getters: true
-      }
-    };
-
-    if (outputOptions.plugins) {
-      outputOptions.plugins.push(terser(terserOptions));
-    } else {
-      outputOptions.plugins = [terser(terserOptions)];
-    }
-  }
+  const outputPlugins = getOutputPlugins(outputOptions);
+  outputOptions.plugins = outputPlugins;
 
   const { output } = await bundle.generate(outputOptions);
 

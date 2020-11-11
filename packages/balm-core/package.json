@@ -40,6 +40,8 @@
     "directory": "packages/balm-core"
   },
   "dependencies": {
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
     "ansi-colors": "^4.1.1",
     "async": "^3.2.0",
     "autoprefixer": "^10.0.1",

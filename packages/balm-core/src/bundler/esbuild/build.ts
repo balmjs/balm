@@ -1,52 +1,45 @@
 import { build } from 'esbuild';
-import { BalmError } from '@balm-core/index';
-
-const minifyOptions = {
-  minify: true,
-  minifyWhitespace: true,
-  minifyIdentifiers: true,
-  minifySyntax: true
-};
+import { minifyOptions } from './options';
+import { BuildOptions, BalmError } from '@balm-core/index';
 
 const esBuild = (
-  input: string[],
+  entryPoints: string[],
   output: string,
-  customOptions: any,
+  customBuildOptions: BuildOptions,
   callback: Function
 ): void => {
   const defaultBuildOptions = {
-    entryPoints: BalmJS.file.absPaths(input),
+    entryPoints: BalmJS.file.absPaths(entryPoints),
     outdir: BalmJS.file.absPath(output),
-    bundle: true,
-    logLevel: 'silent'
+    bundle: BalmJS.config.env.isProd
   };
 
   const buildOptions = BalmJS.config.env.isProd
     ? Object.assign(defaultBuildOptions, minifyOptions)
     : defaultBuildOptions;
 
-  const esbuildOptions = Object.assign(
+  const options = Object.assign(
     buildOptions,
     BalmJS.config.scripts.buildOptions,
-    customOptions
+    customBuildOptions
   );
 
   BalmJS.logger.debug(
     'esbuild bundler - build',
     {
-      input: esbuildOptions.entryPoints,
-      output: esbuildOptions.outdir
+      input: options.entryPoints,
+      output: options.outdir
     },
     {
       pre: true
     }
   );
 
-  BalmJS.logger.success('esbuild options', esbuildOptions, {
+  BalmJS.logger.success('esbuild options', options, {
     pre: true
   });
 
-  build(esbuildOptions)
+  build(options)
     .catch((error: BalmError) => {
       BalmJS.logger.error('esbuild', error.message);
     })

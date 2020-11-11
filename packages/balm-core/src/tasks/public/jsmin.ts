@@ -1,12 +1,16 @@
-import { RenameOptions, HookOptions } from '@balm-core/index';
+import { MinifyOptions, RenameOptions, HookOptions } from '@balm-core/index';
 
 class JsminTask extends BalmJS.BalmTask {
   constructor() {
     super('jsmin');
   }
 
-  get options(): object {
-    return Object.assign({}, BalmJS.config.scripts.options, this.customOptions);
+  get options(): MinifyOptions {
+    return Object.assign(
+      {},
+      BalmJS.config.scripts.minifyOptions,
+      this.customOptions
+    );
   }
 
   recipe(

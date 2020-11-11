@@ -31,8 +31,8 @@ describe('Jsmin Task', function() {
 
     describe('options', function() {
       const defaultOptions = {
-        parse: { ecma: 8 },
-        compress: { ecma: 5, warnings: false, comparisons: false, inline: 2 },
+        parse: { ecma: 2017 },
+        compress: { ecma: 5, comparisons: false, inline: 2 },
         mangle: { safari10: true },
         output: { ecma: 5, comments: false, ascii_only: true }
       };

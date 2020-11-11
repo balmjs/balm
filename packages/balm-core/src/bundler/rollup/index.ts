@@ -1,5 +1,6 @@
 import { rollup, watch } from 'rollup';
 import build from './build';
+import { getInputPlugins } from './plugins';
 import {
   InputOptions,
   OutputOptions,
@@ -12,21 +13,22 @@ const buildLibrary = async (
   outputOptions: OutputOptions | OutputOptions[],
   callback: Function
 ): Promise<any> => {
-  const bundle = await rollup(
-    Object.assign(
-      BalmJS.config.scripts.inputOptions,
-      inputOptions
-    ) as RollupOptions
+  const inputPlugins = getInputPlugins(inputOptions);
+
+  const options = Object.assign(
+    BalmJS.config.scripts.inputOptions,
+    inputOptions
   );
+  options.plugins = inputPlugins;
+
+  const bundle = await rollup(options as RollupOptions);
 
   const watcher = watch([
     Object.assign(
-      BalmJS.config.scripts.inputOptions,
-      inputOptions,
+      options,
       BalmJS.config.scripts.watchOptions
     ) as RollupWatchOptions
   ]);
-
   watcher.on('event', (event) => {
     // event.code can be one of:
     //   START        — the watcher is (re)starting

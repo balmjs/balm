@@ -5,7 +5,7 @@ import safePostCssParser from 'postcss-safe-parser';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import getCommonConfig from './common';
-import { Configuration } from '@balm-core/index';
+import { Configuration, MinifyOptions, BalmScripts } from '@balm-core/index';
 
 // Run the build command with an extra argument to
 // View the bundle analyzer report after build finishes:
@@ -13,9 +13,9 @@ import { Configuration } from '@balm-core/index';
 // Set to `true` or `false` to always turn it on or off
 const bundleAnalyzerReport = process.env.npm_config_report || false;
 
-function getProdConfig(scripts: any): Configuration {
+function getProdConfig(scripts: BalmScripts): Configuration {
   const shouldUseSourceMap = scripts.sourceMap as boolean;
-  const terserOptions: { ie8?: boolean } = scripts.options;
+  const terserOptions: MinifyOptions = scripts.minifyOptions;
 
   if (scripts.ie8) {
     terserOptions.ie8 = true;

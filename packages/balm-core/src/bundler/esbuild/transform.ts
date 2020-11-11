@@ -1,10 +1,12 @@
 import fs from 'fs';
 import { startService } from 'esbuild';
+import { minifyOptions } from './options';
+import { TransformOptions } from '@balm-core/index';
 
 const esTransform = (
-  input: string[],
+  entryPoints: string[],
   output: string,
-  customOptions: any,
+  customTransformOptions: TransformOptions,
   callback: Function
 ): void => {
   const build: {
@@ -14,17 +16,22 @@ const esTransform = (
     output: BalmJS.file.absPath(output)
   };
 
-  const transformOptions = Object.assign(
+  const transformOptions = BalmJS.config.env.isProd
+    ? Object.assign({}, minifyOptions)
+    : {};
+
+  const options = Object.assign(
+    transformOptions,
     BalmJS.config.scripts.transformOptions,
-    customOptions
+    customTransformOptions
   );
 
   (async () => {
     const service = await startService();
 
     try {
-      for await (const entry of input) {
-        build.input = BalmJS.file.absPath(entry);
+      for await (const entryPoint of entryPoints) {
+        build.input = BalmJS.file.absPath(entryPoint);
 
         BalmJS.logger.debug(
           'esbuild bundler - transform',
@@ -37,15 +44,15 @@ const esTransform = (
           }
         );
 
-        const filename = entry.split('/').pop();
+        const filename = entryPoint.split('/').pop();
         if (filename && fs.existsSync(build.input)) {
           const inputCode = fs.readFileSync(build.input, 'utf8');
-          const result = await service.transform(inputCode, transformOptions);
+          const result = await service.transform(inputCode, options);
 
           fs.mkdirSync(build.output, { recursive: true });
           fs.writeFileSync(path.join(build.output, filename), result.code);
         } else {
-          BalmJS.logger.warn('esbuild', `Invalid entry: ${entry}`);
+          BalmJS.logger.warn('esbuild', `Invalid entry point: ${entryPoint}`);
         }
       }
     } finally {

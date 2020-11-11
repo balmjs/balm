@@ -4,6 +4,9 @@ import webpackConfig from '../../bundler/webpack';
 import compiling from '../../utilities/compiling';
 import {
   BalmEntryObject,
+  Configuration,
+  BuildOptions,
+  TransformOptions,
   InputOptions,
   OutputOptions,
   BalmError
@@ -21,7 +24,7 @@ class ScriptTask extends BalmJS.BalmTask {
   recipe(
     input?: string | string[] | BalmEntryObject | InputOptions,
     output?: string | OutputOptions,
-    customOptions: any = {}
+    customOptions: Configuration | BuildOptions | TransformOptions = {}
   ): Function {
     const balmScript = (callback: Function): void => {
       this.init(input || BalmJS.config.scripts.entry, output);
@@ -30,7 +33,7 @@ class ScriptTask extends BalmJS.BalmTask {
         esbuild(
           this.input || BalmJS.file.defaultEntry,
           this.output,
-          customOptions,
+          customOptions as BuildOptions | TransformOptions,
           callback
         );
       } else if (BalmJS.config.scripts.rollup) {
@@ -41,7 +44,12 @@ class ScriptTask extends BalmJS.BalmTask {
         const isHook = !!input;
 
         BalmJS.webpackCompiler = webpack(
-          webpackConfig(this.input, this.output, customOptions, isHook),
+          webpackConfig(
+            this.input,
+            this.output,
+            customOptions as Configuration,
+            isHook
+          ),
           (error: BalmError, stats: any): void => {
             compiling.stop();
 

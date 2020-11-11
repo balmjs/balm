@@ -1,7 +1,8 @@
 import getDevConfig from './dev';
 import getProdConfig from './prod';
+import { Configuration, BalmScripts } from '@balm-core/index';
 
-function getDefaultConfig(scripts: any): any {
+function getDefaultConfig(scripts: BalmScripts): Configuration {
   return BalmJS.config.env.isProd || scripts.ie8
     ? getProdConfig(scripts)
     : getDevConfig(scripts);

@@ -20,7 +20,7 @@ class PwaCacheTask extends BalmJS.BalmTask {
       .pipe(
         $.if(
           BalmJS.config.env.isProd,
-          BalmJS.plugins.jsmin(BalmJS.config.scripts.options)
+          BalmJS.plugins.jsmin(BalmJS.config.scripts.minifyOptions)
         )
       )
       .pipe(gulp.dest(this.output));
