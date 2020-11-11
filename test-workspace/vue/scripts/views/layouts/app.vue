@@ -8,7 +8,7 @@
 
 <script>
 import logo from '@/assets/logo.png';
-
+// import Hello from '@/views/components/hello';
 const Hello = () => import('@/views/components/hello');
 
 export default {

@@ -4,8 +4,9 @@
 </template>
 
 <script>
-import Hello from '@/views/components/hello';
 import logo from '@/assets/logo.png';
+// import Hello from '@/views/components/hello';
+const Hello = () => import('@/views/components/hello');
 
 export default {
   name: 'App',
