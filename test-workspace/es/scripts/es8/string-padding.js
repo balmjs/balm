@@ -1,6 +1,7 @@
-const str = '5';
+// String.prototype.padStart
+const str1 = '5';
 
-console.log(str.padStart(2, '0'));
+console.log(str1.padStart(2, '0'));
 // expected output: "05"
 
 const fullNumber = '2034399002125581';
@@ -10,6 +11,7 @@ const maskedNumber = last4Digits.padStart(fullNumber.length, '*');
 console.log(maskedNumber);
 // expected output: "************5581"
 
+// String.prototype.padEnd
 const str1 = 'Breaded Mushrooms';
 
 console.log(str1.padEnd(25, '.'));

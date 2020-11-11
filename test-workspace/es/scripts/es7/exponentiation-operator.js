@@ -1,9 +1,13 @@
-let squared = 3 ** 2; // 9
+console.log(3 ** 4);
+// expected output: 81
 
-console.log(squared);
+console.log(10 ** -2);
+// expected output: 0.01
 
-let num = 3;
-num **= 2;
-console.log(num); // 9
+console.log(2 ** (3 ** 2));
+// expected output: 512
+
+console.log((2 ** 3) ** 2);
+// expected output: 64
 
 console.log('---');

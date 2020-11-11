@@ -1,14 +1,18 @@
-const url = 'https://jsonplaceholder.typicode.com/todos/1';
+function resolveAfter2Seconds() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 2000);
+  });
+}
 
-(async function fetchJson() {
-  try {
-    let request = await fetch(url);
-    let text = await request.text();
-    let result = JSON.parse(text);
-    console.log(result);
-  } catch (error) {
-    console.log(`ERROR: ${error.stack}`);
-  }
-})();
+async function asyncCall() {
+  console.log('calling');
+  const result = await resolveAfter2Seconds();
+  console.log(result);
+  // expected output: "resolved"
+}
+
+asyncCall();
 
 console.log('---');

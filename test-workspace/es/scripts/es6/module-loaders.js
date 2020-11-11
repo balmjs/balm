@@ -1,7 +1,7 @@
 // Dynamic loading – ‘System’ is default loader
-System.import('./lib/math').then(function(m) {
-  console.log('2π = ' + m.sum(m.pi, m.pi));
-});
+// System.import('./lib/math').then(function(m) {
+//   console.log('2π = ' + m.sum(m.pi, m.pi));
+// });
 
 // Create execution sandboxes – new Loaders
 // var loader = new Loader({

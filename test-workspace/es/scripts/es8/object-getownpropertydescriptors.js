@@ -2,12 +2,12 @@ const object1 = {
   property1: 42
 };
 
-const descriptors1 = Object.getOwnPropertyDescriptors(object1);
+const descriptor1 = Object.getOwnPropertyDescriptor(object1, 'property1');
 
-console.log(descriptors1.property1.writable);
+console.log(descriptor1.configurable);
 // expected output: true
 
-console.log(descriptors1.property1.value);
+console.log(descriptor1.value);
 // expected output: 42
 
 console.log('---');

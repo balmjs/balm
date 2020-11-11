@@ -1,21 +1,20 @@
-var arr1 = [1, 2, [3, 4]];
+// Array.prototype.flat
+const arr1 = [0, 1, 2, [3, 4]];
+
 console.log(arr1.flat());
-// [1, 2, 3, 4]
+// expected output: [0, 1, 2, 3, 4]
 
-var arr2 = [1, 2, [3, 4, [5, 6]]];
-console.log(arr2.flat());
-// [1, 2, 3, 4, [5, 6]]
+const arr2 = [0, 1, 2, [[[3, 4]]]];
 
-var arr3 = [1, 2, [3, 4, [5, 6]]];
-console.log(arr3.flat(2));
-// [1, 2, 3, 4, 5, 6]
+console.log(arr2.flat(2));
+// expected output: [0, 1, 2, [3, 4]]
 
-let arr4 = ["it's Sunny in", '', 'California'];
+// Array.prototype.flatMap
+var arr = [1, 2, 3, 4];
 
-arr4.map(x => x.split(' '));
-// [["it's", "Sunny", "in"], [""], ["California"]]
-
-arr4.flatMap(x => x.split(' '));
-// ["it's", "Sunny", "in", "", "California"]
+arr.flatMap((x) => [x, x * 2]);
+// is equivalent to
+arr.reduce((acc, x) => acc.concat([x, x * 2]), []);
+// [1, 2, 2, 4, 3, 6, 4, 8]
 
 console.log('---');

@@ -20,4 +20,4 @@ import './promises';
 // import './reflect-api'; // NOTE: IE unsupported
 import './tail-calls';
 
-console.info('ES6');
+console.info('ES6', 'gg');
