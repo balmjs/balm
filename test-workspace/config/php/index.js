@@ -32,7 +32,6 @@ module.exports = Object.assign(balmrc, {
     }
   },
   assets: {
-    publicUrl: '/',
     root: path.resolve(__dirname, '..', '..', 'php'),
     mainDir: 'public',
     subDir: 'web',

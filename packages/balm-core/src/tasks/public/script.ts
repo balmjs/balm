@@ -1,7 +1,16 @@
 import esbuild from '../../bundler/esbuild';
+import buildLibrary from '../../bundler/rollup';
 import webpackConfig from '../../bundler/webpack';
 import compiling from '../../utilities/compiling';
-import { BalmEntryObject, BalmError } from '@balm-core/index';
+import {
+  BalmEntryObject,
+  Configuration,
+  BuildOptions,
+  TransformOptions,
+  InputOptions,
+  OutputOptions,
+  BalmError
+} from '@balm-core/index';
 
 class ScriptTask extends BalmJS.BalmTask {
   constructor() {
@@ -13,9 +22,9 @@ class ScriptTask extends BalmJS.BalmTask {
   }
 
   recipe(
-    input?: string | string[] | BalmEntryObject,
-    output?: string,
-    customOptions: any = {}
+    input?: string | string[] | BalmEntryObject | InputOptions,
+    output?: string | OutputOptions,
+    customOptions: Configuration | BuildOptions | TransformOptions = {}
   ): Function {
     const balmScript = (callback: Function): void => {
       this.init(input || BalmJS.config.scripts.entry, output);
@@ -24,36 +33,45 @@ class ScriptTask extends BalmJS.BalmTask {
         esbuild(
           this.input || BalmJS.file.defaultEntry,
           this.output,
-          customOptions,
+          customOptions as BuildOptions | TransformOptions,
           callback
         );
+      } else if (BalmJS.config.scripts.rollup) {
+        buildLibrary(input as InputOptions, output as OutputOptions, callback);
       } else {
         compiling.start();
 
         const isHook = !!input;
 
         BalmJS.webpackCompiler = webpack(
-          webpackConfig(this.input, this.output, customOptions, isHook),
+          webpackConfig(
+            this.input,
+            this.output,
+            customOptions as Configuration,
+            isHook
+          ),
           (error: BalmError, stats: any): void => {
             compiling.stop();
 
-            // Handle errors here
-            // if (error) {
-            //   BalmJS.logger.error(`${this.name} task`, error.stack || err);
-            //   if (error.details) {
-            //     BalmJS.logger.error(`${this.name} task`, error.details);
-            //   }
-            //   return;
-            // }
+            if (stats) {
+              const scriptLogLevel: number = stats.hasErrors()
+                ? BalmJS.LogLevel.Error
+                : stats.hasWarnings()
+                ? BalmJS.LogLevel.Warn
+                : BalmJS.LogLevel.Info;
 
-            const scriptLogLevel: number = stats.hasErrors()
-              ? BalmJS.LogLevel.Error
-              : stats.hasWarnings()
-              ? BalmJS.LogLevel.Warn
-              : BalmJS.LogLevel.Info;
-
-            if (BalmJS.config.logs.level <= scriptLogLevel) {
-              console.log(stats.toString(BalmJS.config.scripts.stats));
+              if (BalmJS.config.logs.level <= scriptLogLevel) {
+                console.log(stats.toString(BalmJS.config.scripts.stats));
+              }
+            } else {
+              // Handle errors here
+              if (error) {
+                BalmJS.logger.error(`${this.name} task`, error.stack || error);
+                if (error.details) {
+                  BalmJS.logger.error(`${this.name} task`, error.details);
+                }
+                return;
+              }
             }
 
             // Done processing

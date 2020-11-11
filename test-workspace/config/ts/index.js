@@ -6,9 +6,14 @@ module.exports = Object.assign(balmrc, {
     source: 'ts'
   },
   scripts: {
+    // Using esbuild
+    // esbuild: true,
+    // entry: './ts/scripts/main.ts'
+    // Using webpack
     entry: {
       main: './ts/scripts/main.ts'
     },
+    // FIXME: `ts-loader` bug - TypeError: times is not iterable
     loaders: [
       {
         test: /\.tsx?$/,

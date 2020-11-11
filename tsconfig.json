@@ -1,21 +1,25 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
+    // Project Options
     "importHelpers": true,
-    "removeComments": true,
     "lib": ["ES2018", "ESNext"],
     "module": "CommonJS",
-    "moduleResolution": "Node",
     "outDir": "packages/balm-core/tslib",
-    "strict": true,
+    "removeComments": true,
     "target": "ES2017",
+    // Strict Checks
+    "strict": true,
+    // Module Resolution
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
     "paths": {
       "@balm-core/*": ["./packages/balm-core/*"]
-    }
+    },
+    // Experimental
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "include": [
     "packages/balm-core/src/**/*",

@@ -23,7 +23,6 @@ module.exports = Object.assign(balmrc, {
     excludes: ['empty.txt']
   },
   assets: {
-    publicUrl: '/',
     subDir: 'web',
     // virtualDir: 'awesome',
     cache: true,

@@ -23,9 +23,7 @@ const options: object = {};
  *
  * @reference https://github.com/webpack/webpack-dev-middleware#options
  */
-const devOptions: object = {
-  stats: false
-};
+const devOptions: object = {};
 /**
  * Webpack hot reloading
  *

@@ -2,6 +2,11 @@ import Maker from './maker';
 import {
   BalmEnvObject,
   BalmEntryObject,
+  Configuration,
+  BuildOptions,
+  TransformOptions,
+  InputOptions,
+  OutputOptions,
   RenameOptions,
   HookOptions,
   SpriteOptions,
@@ -38,9 +43,9 @@ class BaseHooks {
 
   // JavaScript
   js(
-    input: string | string[] | BalmEntryObject,
-    output: string,
-    options?: any // esbuild or webpack options
+    input: string | string[] | BalmEntryObject | InputOptions,
+    output: string | OutputOptions,
+    options?: Configuration | BuildOptions | TransformOptions // esbuild or webpack options
   ): void {
     Maker.generate('script', [input, output, options]);
   }

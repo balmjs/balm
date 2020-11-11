@@ -41,8 +41,28 @@ interface BalmStyles {
   spriteParams: object;
 }
 
-export type Configuration = import('webpack').Configuration;
 export type RuleSetRule = import('webpack').RuleSetRule;
+export type Configuration = import('webpack').Configuration;
+// Sync webpack
+type Target = string | false | string[];
+export type ResolveAlias =
+  | {
+      alias: Target;
+      name: string;
+      onlyModule?: boolean;
+    }[]
+  | { [index: string]: Target };
+export type StatsValue =
+  | boolean
+  | 'none'
+  | 'summary'
+  | 'errors-only'
+  | 'errors-warnings'
+  | 'minimal'
+  | 'normal'
+  | 'detailed'
+  | 'verbose'
+  | any; // StatsOptions
 
 export interface BalmEntryObject {
   [entryChunkName: string]: string | string[];
@@ -61,20 +81,39 @@ export interface PostcssLoaderOptions {
   sourceMap: string | boolean;
 }
 
+export type MinifyOptions = import('terser').MinifyOptions;
+
 export type BuildOptions = import('esbuild').BuildOptions;
 export type TransformOptions = import('esbuild').TransformOptions;
 export type TransformResult = import('esbuild').TransformResult;
+
+export type RollupPlugin = import('rollup').Plugin;
+export type InputOptions = import('rollup').InputOptions;
+export type OutputOptions = import('rollup').OutputOptions;
+export type RollupBuild = import('rollup').RollupBuild;
+export type RollupOptions = import('rollup').RollupOptions;
+export type WatcherOptions = import('rollup').WatcherOptions;
+export type RollupWatchOptions = import('rollup').RollupWatchOptions;
+export type RollupNodeResolveOptions = import('@rollup/plugin-node-resolve').RollupNodeResolveOptions;
 
 export interface BalmScripts {
   // eslint
   lint: boolean;
   // common
   entry: string | string[] | BalmEntryObject;
+  minifyOptions: MinifyOptions;
   // esbuild
   esbuild: boolean;
   buildOptions: BuildOptions;
   useTransform: boolean;
   transformOptions: TransformOptions;
+  // rollup
+  rollup: boolean;
+  inputOptions: InputOptions;
+  outputOptions: OutputOptions | OutputOptions[];
+  watchOptions: WatcherOptions;
+  nodeResolveOptions: RollupNodeResolveOptions;
+  commonjsOptions: object;
   // webpack
   library: string | object;
   libraryTarget: string;
@@ -87,14 +126,13 @@ export interface BalmScripts {
   htmlLoaderOptions: object;
   postcssLoaderOptions: Partial<PostcssLoaderOptions>;
   extensions: string[];
-  alias: object; // { [key: string]: string }
+  alias: ResolveAlias;
   plugins: object[];
   sourceMap: string | boolean;
   target: string;
   externals: string | object | Function | RegExp;
-  stats: string | object;
+  stats: StatsValue;
   webpackOptions: object;
-  options: object;
   inject: boolean;
   optimization: object;
   extractAllVendors: boolean;
@@ -275,9 +313,9 @@ interface BalmRecipe {
   ) => void;
   url: (input: string | string[], output: string) => void;
   js: (
-    input: string | string[] | BalmEntryObject,
-    output: string,
-    webpackOptions?: any
+    input: string | string[] | BalmEntryObject | InputOptions,
+    output: string | OutputOptions,
+    options?: Configuration | BuildOptions | TransformOptions // esbuild or webpack options
   ) => void;
   jsmin: (
     input: string | string[],

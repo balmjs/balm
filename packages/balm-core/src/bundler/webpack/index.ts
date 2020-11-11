@@ -7,10 +7,10 @@ import { BalmEntryObject, Configuration } from '@balm-core/index';
 function webpackConfig(
   input: string | string[] | BalmEntryObject,
   output: string,
-  customOptions: any = {},
+  customWebpackOptions: Configuration = {},
   isHook = false
 ): Configuration {
-  const scripts: any = BalmJS.config.scripts;
+  const scripts = BalmJS.config.scripts;
   const defaultEntry = `./${BalmJS.file.defaultEntry}`;
 
   const baseConfig: any = {
@@ -33,13 +33,13 @@ function webpackConfig(
     baseConfig.externals = scripts.externals;
   }
 
-  const defaultConfig: any = getDefaultConfig(scripts);
+  const defaultConfig = getDefaultConfig(scripts);
 
   const configuration: Configuration = merge(
     baseConfig,
     defaultConfig,
     scripts.webpackOptions,
-    customOptions
+    customWebpackOptions
   );
 
   BalmJS.logger.success('webpack configuration', configuration, {

@@ -29,8 +29,8 @@ module.exports = {
     css: false
   },
   alias: {
-    vue$: 'vue/dist/vue.esm.js',
-    '@': resolve('vue-ssr/app/scripts')
+    '@': resolve('vue-ssr/app/scripts'),
+    vue$: 'vue/dist/vue.esm.js'
   },
   plugins: [new VueLoaderPlugin()],
   lint: false,
