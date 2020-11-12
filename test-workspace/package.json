@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2020.11.11",
+  "version": "2020.11.12",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",

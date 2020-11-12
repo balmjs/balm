@@ -97,7 +97,7 @@ const plugins: object[] = [];
 // Devtool
 const sourceMap: string | boolean = false;
 // Target
-const target = 'es5';
+const target = 'web';
 // Externals
 const externals: string | object | Function | RegExp = '';
 // Stats

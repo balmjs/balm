@@ -5,6 +5,22 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.9.0 / 2020-11-12
+
+### Features
+
+- add config `scripts.bundler`
+- add rollup bundler
+- add api `mix.webpack`, `mix.rollup`, `mix.esbuild`
+- update dependencies
+  - `webpack-bundle-analyzer`: 3.x -> 4.x
+
+### BREAKING CHANGES
+
+- remove config `esbuild`
+- rename config `options` to `minifyOptions`
+- remove api `mix.js`
+
 ## v3.8.0 / 2020-10-31
 
 ### Features
