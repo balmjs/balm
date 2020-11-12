@@ -12,17 +12,7 @@ function ban(name: string): boolean {
     BalmJS.config.env.isDev && BLOCKLIST_IN_DEV.includes(name);
   const isBan: boolean = banInProd || banInDev;
 
-  let api: string;
-  switch (name) {
-    case 'postcss':
-      api = 'css';
-      break;
-    case 'script':
-      api = 'js';
-      break;
-    default:
-      api = name;
-  }
+  const api = name === 'postcss' ? 'css' : name;
 
   if (isBan) {
     const message: string =

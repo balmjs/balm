@@ -15,10 +15,9 @@ class WebpackTask extends BalmJS.BalmTask {
     const balmScript = (callback: Function): void => {
       this.init(input || BalmJS.config.scripts.entry, output);
 
-      compiling.start();
-
       const isHook = !!input;
 
+      compiling.start();
       BalmJS.webpackCompiler = webpack(
         webpackConfig(this.input, this.output, customOptions, isHook),
         (error: BalmError, stats: any): void => {

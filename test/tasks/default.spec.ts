@@ -187,12 +187,12 @@ describe('Default Task', function() {
     });
 
     describe('mix', function() {
-      const subTasks = ['balm:postcss:0', 'balm:script:1'];
+      const subTasks = ['balm:postcss:0', 'balm:webpack:1'];
 
       before(function() {
         balm.go((mix: any) => {
           mix.css('main.css', 'dist/css');
-          mix.js('main.js', 'dist/js');
+          mix.webpack('main.js', 'dist/js');
         });
       });
 

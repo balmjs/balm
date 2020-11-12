@@ -29,6 +29,7 @@ const balmConfigDefaults = Object.assign({}, {
     sprites: []
   },
   scripts: {
+    bundler: 'webpack',
     entry: '',
     library: '',
     libraryTarget: 'var',
@@ -40,8 +41,7 @@ const balmConfigDefaults = Object.assign({}, {
     bundleAnalyzerReport: false,
     extractCss: {
       enabled: false
-    },
-    esbuild: false
+    }
   },
   extras: {
     includes: [],

@@ -65,7 +65,9 @@ class BalmTask {
       default:
     }
 
-    const useAbsPath = !(key == 'script' || key === 'sprite');
+    const useAbsPath = !['webpack', 'rollup', 'esbuild', 'sprite'].includes(
+      key
+    );
     this.input = useAbsPath
       ? BalmJS.file.absPaths(input || this.defaultInput)
       : input || this.defaultInput;

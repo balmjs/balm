@@ -27,7 +27,7 @@ describe('Bundler#getOutput()', function () {
       );
     });
 
-    describe('#mix.js()', function () {
+    describe('#mix.webpack()', function () {
       const filename = '[name].js';
       const chunkFilename = '[id].js';
 
