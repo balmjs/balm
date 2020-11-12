@@ -41,6 +41,7 @@
     "jquery": "^3.5.1",
     "kbone-api": "^0.2.1",
     "lib-flexible": "^0.3.2",
+    "ms": "^2.1.2",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.12",
     "vue-next": "npm:vue@^3.0.2",
