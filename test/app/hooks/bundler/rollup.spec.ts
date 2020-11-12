@@ -25,10 +25,12 @@ describe('Balm Hooks - rollup', function() {
           testCase: `${output}/bundle.js`,
           testHook: (mix: any) => {
             mix.rollup({
-              input: 'lib/main.js'
+              input: {
+                bundle: 'lib/main.js'
+              }
             }, {
               name: 'howLongUntilLunch',
-              file: `${output}/bundle.js`,
+              dir: output,
               format: 'umd'
             });
           }
@@ -63,6 +65,47 @@ describe('Balm Hooks - rollup', function() {
               { file: `${output}/bundle.cjs.js`, format: 'cjs', exports: 'auto' },
               { file: `${output}/bundle.esm.js`, format: 'es' }
             ]);
+          }
+        },
+        done
+      );
+    });
+  });
+
+  describe('plugins', function() {
+    before(function() {
+      balm.config = {
+        useDefaults: false,
+        scripts: {
+          bundler: 'rollup',
+          inputOptions: {
+            plugins: [{
+              name: 'hi'
+            }]
+          }
+        }
+      };
+    });
+
+    it('for custom plugins', function(done) {
+      runTest(
+        {
+          testCase: false,
+          testHook: (mix: any) => {
+            mix.rollup({
+              input: {
+                bundle: 'lib/main.js'
+              },
+              plugins: [{
+                name: 'hello'
+              }]
+            }, {
+              dir: output,
+              format: 'umd',
+              plugins: [{
+                name: 'world'
+              }]
+            });
           }
         },
         done

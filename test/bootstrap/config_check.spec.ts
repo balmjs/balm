@@ -6,7 +6,8 @@ describe('Config Compatibility Check', function () {
         postcssLoaderOptions: {}
       },
       scripts: {
-        disableDefaultLoaders: {}
+        disableDefaultLoaders: {},
+        options: {}
       },
       images: {
         defaultPlugins: {}
@@ -23,6 +24,7 @@ describe('Config Compatibility Check', function () {
     delete balm.config.styles.minified;
     delete balm.config.styles.postcssLoaderOptions;
     delete balm.config.scripts.disableDefaultLoaders;
+    delete balm.config.scripts.options;
     delete balm.config.images.defaultPlugins;
   });
 });

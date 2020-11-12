@@ -1,13 +1,6 @@
 import { getOutputPlugins } from './plugins';
 import { OutputOptions, OutputPlugin } from '@balm-core/index';
 
-function setOutputPath(
-  type: 'dir' | 'file',
-  outputOptions: OutputOptions
-): string {
-  return BalmJS.file.absPath(outputOptions[type] || BalmJS.config.dest.js);
-}
-
 function setOutput(outputOptions: OutputOptions): OutputOptions {
   const outputPlugins = getOutputPlugins(outputOptions);
 
@@ -20,9 +13,9 @@ function setOutput(outputOptions: OutputOptions): OutputOptions {
   outputOptions.plugins = outputPlugins as OutputPlugin[];
 
   if (outputOptions.dir) {
-    outputOptions.dir = setOutputPath('dir', outputOptions);
+    outputOptions.dir = BalmJS.file.absPath(outputOptions.dir);
   } else {
-    outputOptions.file = setOutputPath('file', outputOptions);
+    outputOptions.file = BalmJS.file.absPath(outputOptions.file as string);
   }
 
   return outputOptions;

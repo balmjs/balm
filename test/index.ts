@@ -34,6 +34,7 @@ const balmConfigDefaults = Object.assign({}, {
     library: '',
     libraryTarget: 'var',
     loaders: [],
+    plugins: [],
     target: 'web',
     externals: false,
     inject: false,
