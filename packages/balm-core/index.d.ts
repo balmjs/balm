@@ -83,10 +83,6 @@ export interface PostcssLoaderOptions {
 
 export type MinifyOptions = import('terser').MinifyOptions;
 
-export type BuildOptions = import('esbuild').BuildOptions;
-export type TransformOptions = import('esbuild').TransformOptions;
-export type TransformResult = import('esbuild').TransformResult;
-
 export type RollupPlugin = import('rollup').Plugin;
 export type InputOptions = import('rollup').InputOptions;
 export type OutputOptions = import('rollup').OutputOptions;
@@ -95,6 +91,10 @@ export type RollupOptions = import('rollup').RollupOptions;
 export type WatcherOptions = import('rollup').WatcherOptions;
 export type RollupWatchOptions = import('rollup').RollupWatchOptions;
 export type RollupNodeResolveOptions = import('@rollup/plugin-node-resolve').RollupNodeResolveOptions;
+
+export type BuildOptions = import('esbuild').BuildOptions;
+export type TransformOptions = import('esbuild').TransformOptions;
+export type TransformResult = import('esbuild').TransformResult;
 
 export interface BalmScripts {
   // eslint

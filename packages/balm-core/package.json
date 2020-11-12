@@ -45,7 +45,7 @@
     "ansi-colors": "^4.1.1",
     "async": "^3.2.0",
     "autoprefixer": "^10.0.1",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^8.2.1",
     "browser-sync": "^2.26.13",
     "connect-history-api-fallback": "^1.6.0",
     "css-loader": "^5.0.1",
