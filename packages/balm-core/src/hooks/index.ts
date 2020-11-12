@@ -57,7 +57,7 @@ class BaseHooks {
     Maker.generate('webpack', [input, output, options]);
   }
 
-  rollup(input: InputOptions, output: OutputOptions) {
+  rollup(input: InputOptions, output: OutputOptions | OutputOptions[]) {
     Maker.generate('rollup', [input, output]);
   }
 

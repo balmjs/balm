@@ -10,12 +10,19 @@ class RollupTask extends BalmJS.BalmTask {
     }
   }
 
-  recipe(input: InputOptions, output: OutputOptions): Function {
+  recipe(
+    input: InputOptions = {},
+    output: OutputOptions | OutputOptions[] = {}
+  ): Function {
     const balmScript = (callback: Function): void => {
       buildLibrary(input, output, callback);
     };
 
     return balmScript;
+  }
+
+  get fn(): Function {
+    return this.recipe();
   }
 }
 

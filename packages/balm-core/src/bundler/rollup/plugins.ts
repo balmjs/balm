@@ -11,7 +11,17 @@ function getInputPlugins(customInputOptions: InputOptions): RollupPlugin[] {
   } = BalmJS.config.scripts;
 
   let inputPlugins = [
-    nodeResolve(nodeResolveOptions),
+    nodeResolve(
+      Object.assign(
+        {
+          customResolveOptions: {
+            moduleDirectory: 'node_modules'
+          },
+          preferBuiltins: false
+        },
+        nodeResolveOptions
+      )
+    ),
     commonjs(commonjsOptions)
   ];
 

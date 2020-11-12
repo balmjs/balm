@@ -1,34 +1,25 @@
 import { rollup, watch } from 'rollup';
+import getEntry from './entry';
+import getOutput from './output';
 import build from './build';
-import { getInputPlugins } from './plugins';
-import {
-  InputOptions,
-  OutputOptions,
-  RollupOptions,
-  RollupWatchOptions
-} from '@balm-core/index';
+import { InputOptions, OutputOptions } from '@balm-core/index';
 
 const buildLibrary = async (
   inputOptions: InputOptions,
   outputOptions: OutputOptions | OutputOptions[],
   callback: Function
 ): Promise<any> => {
-  const inputPlugins = getInputPlugins(inputOptions);
+  inputOptions = getEntry(inputOptions);
+  outputOptions = getOutput(outputOptions);
+  const rollupOptions = Object.assign({}, inputOptions, {
+    output: outputOptions
+  });
 
-  const options = Object.assign(
-    BalmJS.config.scripts.inputOptions,
-    inputOptions
+  const bundle = await rollup(rollupOptions);
+
+  const watcher = watch(
+    Object.assign({}, rollupOptions, BalmJS.config.scripts.watchOptions)
   );
-  options.plugins = inputPlugins;
-
-  const bundle = await rollup(options as RollupOptions);
-
-  const watcher = watch([
-    Object.assign(
-      options,
-      BalmJS.config.scripts.watchOptions
-    ) as RollupWatchOptions
-  ]);
   watcher.on('event', (event) => {
     // event.code can be one of:
     //   START        — the watcher is (re)starting
@@ -41,21 +32,12 @@ const buildLibrary = async (
     }
   });
 
-  if (Array.isArray(BalmJS.config.scripts.outputOptions)) {
-    for await (const outputOption of Object.assign(
-      BalmJS.config.scripts.outputOptions,
-      outputOptions as OutputOptions[]
-    )) {
-      build(bundle, outputOption);
+  if (Array.isArray(outputOptions)) {
+    for await (const outputOption of outputOptions) {
+      await build(bundle, outputOption);
     }
   } else {
-    await build(
-      bundle,
-      Object.assign(
-        BalmJS.config.scripts.outputOptions,
-        outputOptions as OutputOptions
-      )
-    );
+    await build(bundle, outputOptions);
   }
 
   watcher.close();

@@ -140,7 +140,7 @@ const ie8 = false;
  * Rollup bundler
  */
 const inputOptions: InputOptions = {};
-const outputOptions: OutputOptions | OutputOptions[] = {};
+const outputOptions: OutputOptions = {};
 const watchOptions: WatcherOptions = {};
 const nodeResolveOptions: RollupNodeResolveOptions = {};
 const commonjsOptions: object = {};

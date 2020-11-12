@@ -85,12 +85,13 @@ export interface PostcssLoaderOptions {
 }
 
 export type RollupPlugin = import('rollup').Plugin;
+export type OutputPlugin = import('rollup').OutputPlugin;
+export type InputOption = import('rollup').InputOption;
 export type InputOptions = import('rollup').InputOptions;
 export type OutputOptions = import('rollup').OutputOptions;
+export type RollupOutput = import('rollup').RollupOutput;
 export type RollupBuild = import('rollup').RollupBuild;
-export type RollupOptions = import('rollup').RollupOptions;
 export type WatcherOptions = import('rollup').WatcherOptions;
-export type RollupWatchOptions = import('rollup').RollupWatchOptions;
 export type RollupNodeResolveOptions = import('@rollup/plugin-node-resolve').RollupNodeResolveOptions;
 
 export type BuildOptions = import('esbuild').BuildOptions;
@@ -133,7 +134,7 @@ export interface BalmScripts {
   ie8: boolean;
   // rollup
   inputOptions: InputOptions;
-  outputOptions: OutputOptions | OutputOptions[];
+  outputOptions: OutputOptions;
   watchOptions: WatcherOptions;
   nodeResolveOptions: RollupNodeResolveOptions;
   commonjsOptions: object;

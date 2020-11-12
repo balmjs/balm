@@ -1,13 +1,9 @@
-import { getOutputPlugins } from './plugins';
-import { OutputOptions, RollupBuild } from '@balm-core/index';
+import { OutputOptions, RollupOutput, RollupBuild } from '@balm-core/index';
 
 const build = async (
   bundle: RollupBuild,
   outputOptions: OutputOptions
-): Promise<any> => {
-  const outputPlugins = getOutputPlugins(outputOptions);
-  outputOptions.plugins = outputPlugins;
-
+): Promise<RollupOutput> => {
   const { output } = await bundle.generate(outputOptions);
 
   for (const chunkOrAsset of output) {
@@ -55,7 +51,7 @@ const build = async (
   }
 
   // or write the bundle to disk
-  await bundle.write(outputOptions);
+  return await bundle.write(outputOptions);
 };
 
 export default build;
