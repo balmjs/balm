@@ -3,10 +3,10 @@ import {
   BalmEnvObject,
   BalmEntryObject,
   Configuration,
-  BuildOptions,
-  TransformOptions,
   InputOptions,
   OutputOptions,
+  BuildOptions,
+  TransformOptions,
   RenameOptions,
   HookOptions,
   SpriteOptions,
@@ -42,12 +42,31 @@ class BaseHooks {
   }
 
   // JavaScript
-  js(
-    input: string | string[] | BalmEntryObject | InputOptions,
-    output: string | OutputOptions,
-    options?: Configuration | BuildOptions | TransformOptions // esbuild or webpack options
-  ): void {
-    Maker.generate('script', [input, output, options]);
+  js() {
+    BalmJS.logger.warn(
+      'balm api',
+      '`mix.js` is deprecated, please use `mix.webpack`/`mix.rollup`/`mix.esbuild` instead.'
+    );
+  }
+
+  webpack(
+    input: string | string[] | BalmEntryObject,
+    output: string,
+    options?: Configuration
+  ) {
+    Maker.generate('webpack', [input, output, options]);
+  }
+
+  rollup(input: InputOptions, output: OutputOptions) {
+    Maker.generate('rollup', [input, output]);
+  }
+
+  esbuild(
+    input: string | string[],
+    output: string,
+    options?: BuildOptions | TransformOptions
+  ) {
+    Maker.generate('esbuild', [input, output, options]);
   }
 
   jsmin(input: string | string[], output: string, options?: HookOptions): void {

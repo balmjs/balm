@@ -41,6 +41,9 @@ interface BalmStyles {
   spriteParams: object;
 }
 
+export type BalmBundler = 'webpack' | 'rollup' | 'esbuild';
+export type MinifyOptions = import('terser').MinifyOptions;
+
 export type RuleSetRule = import('webpack').RuleSetRule;
 export type Configuration = import('webpack').Configuration;
 // Sync webpack
@@ -81,8 +84,6 @@ export interface PostcssLoaderOptions {
   sourceMap: string | boolean;
 }
 
-export type MinifyOptions = import('terser').MinifyOptions;
-
 export type RollupPlugin = import('rollup').Plugin;
 export type InputOptions = import('rollup').InputOptions;
 export type OutputOptions = import('rollup').OutputOptions;
@@ -97,23 +98,11 @@ export type TransformOptions = import('esbuild').TransformOptions;
 export type TransformResult = import('esbuild').TransformResult;
 
 export interface BalmScripts {
-  // eslint
-  lint: boolean;
-  // common
-  entry: string | string[] | BalmEntryObject;
+  // base
+  bundler: BalmBundler;
   minifyOptions: MinifyOptions;
-  // esbuild
-  esbuild: boolean;
-  buildOptions: BuildOptions;
-  useTransform: boolean;
-  transformOptions: TransformOptions;
-  // rollup
-  rollup: boolean;
-  inputOptions: InputOptions;
-  outputOptions: OutputOptions | OutputOptions[];
-  watchOptions: WatcherOptions;
-  nodeResolveOptions: RollupNodeResolveOptions;
-  commonjsOptions: object;
+  lint: boolean;
+  entry: string | string[] | BalmEntryObject; // common
   // webpack
   library: string | object;
   libraryTarget: string;
@@ -142,6 +131,16 @@ export interface BalmScripts {
     prefix: string;
   };
   ie8: boolean;
+  // rollup
+  inputOptions: InputOptions;
+  outputOptions: OutputOptions | OutputOptions[];
+  watchOptions: WatcherOptions;
+  nodeResolveOptions: RollupNodeResolveOptions;
+  commonjsOptions: object;
+  // esbuild
+  buildOptions: BuildOptions;
+  useTransform: boolean;
+  transformOptions: TransformOptions;
 }
 
 export interface BalmImagesPlugins {

@@ -53,6 +53,7 @@ function checkConfig(): void {
 
   // For v3
   upgradeRenamed('3.0.0', 'styles', 'minified', 'minify');
+  upgradeRenamed('3.9.0', 'scripts', 'options', 'minifyOptions');
 }
 
 export default checkConfig;

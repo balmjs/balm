@@ -1,22 +1,21 @@
 import {
+  BalmBundler,
+  MinifyOptions,
   ResolveAlias,
   StatsValue,
   BalmEntryObject,
   BalmLoaders,
   PostcssLoaderOptions,
-  BuildOptions,
-  TransformOptions,
   InputOptions,
   OutputOptions,
   WatcherOptions,
   RollupNodeResolveOptions,
-  MinifyOptions
+  BuildOptions,
+  TransformOptions
 } from '@balm-core/index';
 
-// common options
-const lint = false;
-// Entry and Context
-const entry: string | string[] | BalmEntryObject = '';
+// Base options
+const bundler: BalmBundler = 'webpack';
 /**
  * Terser minify options
  *
@@ -55,25 +54,9 @@ const minifyOptions: MinifyOptions = {
     ascii_only: true
   }
 };
-
-/**
- * Esbuild bundler
- */
-
-const esbuild = false;
-const buildOptions: BuildOptions = {};
-const useTransform = false;
-const transformOptions: TransformOptions = {};
-
-/**
- * Rollup bundler
- */
-const rollup = false;
-const inputOptions: InputOptions = {};
-const outputOptions: OutputOptions | OutputOptions[] = {};
-const watchOptions: WatcherOptions = {};
-const nodeResolveOptions: RollupNodeResolveOptions = {};
-const commonjsOptions: object = {};
+const lint = false;
+// Entry and Context (webpack/esbuild common options)
+const entry: string | string[] | BalmEntryObject = '';
 
 /**
  * Webpack bundler
@@ -153,23 +136,28 @@ const extractCss: {
 // IE8 compatibility
 const ie8 = false;
 
+/**
+ * Rollup bundler
+ */
+const inputOptions: InputOptions = {};
+const outputOptions: OutputOptions | OutputOptions[] = {};
+const watchOptions: WatcherOptions = {};
+const nodeResolveOptions: RollupNodeResolveOptions = {};
+const commonjsOptions: object = {};
+
+/**
+ * Esbuild bundler
+ */
+const buildOptions: BuildOptions = {};
+const useTransform = false;
+const transformOptions: TransformOptions = {};
+
 export default {
-  // common
+  // base
+  bundler,
+  minifyOptions,
   lint,
   entry,
-  minifyOptions,
-  // esbuild
-  esbuild,
-  buildOptions,
-  useTransform,
-  transformOptions,
-  // rollup
-  rollup,
-  inputOptions,
-  outputOptions,
-  watchOptions,
-  nodeResolveOptions,
-  commonjsOptions,
   // webpack
   library,
   libraryTarget,
@@ -194,5 +182,15 @@ export default {
   extractAllVendors,
   vendorName,
   extractCss,
-  ie8
+  ie8,
+  // rollup
+  inputOptions,
+  outputOptions,
+  watchOptions,
+  nodeResolveOptions,
+  commonjsOptions,
+  // esbuild
+  buildOptions,
+  useTransform,
+  transformOptions
 };

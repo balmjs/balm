@@ -22,6 +22,12 @@ enum LogLevel {
   Error = 4
 }
 
+enum Bundler {
+  webpack = 'webpack',
+  rollup = 'rollup',
+  esbuild = 'esbuild'
+}
+
 const noop: Function = () => {};
 const vendors: BalmVendor[] = [];
 
@@ -57,6 +63,7 @@ const config: Omit<BalmConfig, 'src' | 'dest' | 'inDesktopApp'> = {
 BalmJS.config = config as BalmConfig;
 BalmJS.noop = noop;
 BalmJS.LogLevel = LogLevel;
+BalmJS.Bundler = Bundler;
 BalmJS.vendors = vendors;
 
 export default config;

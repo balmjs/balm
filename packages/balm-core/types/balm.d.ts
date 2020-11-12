@@ -60,6 +60,11 @@ export default interface BalmGlobal extends Balm {
     Warn: number;
     Error: number;
   };
+  Bundler: {
+    webpack: string;
+    rollup: string;
+    esbuild: string;
+  };
   vendors: BalmVendor[];
   utils: BalmUtils;
   logger: BalmLogger;
