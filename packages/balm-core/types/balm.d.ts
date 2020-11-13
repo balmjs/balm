@@ -52,6 +52,7 @@ interface BalmPlugins {
 }
 
 export default interface BalmGlobal extends Balm {
+  start: [number, number];
   noop: Function;
   LogLevel: {
     Trace: number;
@@ -71,7 +72,6 @@ export default interface BalmGlobal extends Balm {
   file: BalmFile;
   toNamespace: (taskName: string | string[]) => string | string[];
   plugins: BalmPlugins;
-  TIME_FLAG: string;
   BalmTask: any;
   BalmStyleTask: any;
   tasks: Map<string, any>;
