@@ -14,6 +14,7 @@
 - add api `mix.webpack`, `mix.rollup`, `mix.esbuild`
 - update dependencies
   - `webpack-bundle-analyzer`: 3.x -> 4.x
+  - `webpack-dev-middleware`: 3.x -> 4.x
 
 ### BREAKING CHANGES
 
