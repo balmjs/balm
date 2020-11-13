@@ -109,13 +109,7 @@ const target: Target = 'web';
 // Externals
 const externals: ExternalsElement | ExternalsElement[] = '';
 // Stats
-const stats: StatsValue = {
-  // colors: true,
-  // modules: false,
-  // children: false,
-  // chunks: false,
-  // chunkModules: false
-};
+const stats: StatsValue = 'errors-warnings';
 /**
  * Full custom webpack configuration
  *
