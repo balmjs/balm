@@ -71,6 +71,8 @@ const getConfig = (balm) => {
 const api = (mix) => {
   if (mix.env.isMP) {
     // NOTE: fuck mp
+    // For css entry
+    mix.copy('mp/index.wxss', 'dist/mp/pages/main');
   } else {
     // Clear miniprogram css
     mix.remove(['dist/web/index.wxss', 'dist/web/h5/1a/reset.css']);

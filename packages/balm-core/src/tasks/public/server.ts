@@ -64,7 +64,7 @@ class ServerTask extends BalmJS.BalmTask {
       watch(
         `${BalmJS.config.src.js}/**/*`,
         watchOptions,
-        this.#watchTask('script', true)
+        this.#watchTask(BalmJS.config.scripts.bundler, true)
       );
     }
 
