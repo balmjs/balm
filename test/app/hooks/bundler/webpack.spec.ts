@@ -58,43 +58,6 @@ describe('Balm Hooks - webpack', function() {
     );
   });
 
-  const terser = {
-    mangle: false
-  };
-  const rename = {
-    suffix: ''
-  };
-
-  it('minify amd scripts', function(done) {
-    runTest(
-      {
-        testCase: false,
-        testHook: (mix: any) => {
-          mix.jsmin(['./amd/scripts/*.js'], `${targetDir}/amd/scripts`, {
-            terser,
-            rename
-          });
-        }
-      },
-      done
-    );
-  });
-
-  it('minify cmd scripts', function(done) {
-    runTest(
-      {
-        testCase: false,
-        testHook: (mix: any) => {
-          mix.jsmin(['./cmd/scripts/*.js'], `${targetDir}/cmd/scripts`, {
-            terser,
-            rename
-          });
-        }
-      },
-      done
-    );
-  });
-
   describe('bundles a non-existent js file', function() {
     before(function() {
       balm.config = {
