@@ -1,7 +1,7 @@
 import Maker from './maker';
 import {
   BalmEnvObject,
-  BalmEntryObject,
+  BalmEntry,
   Configuration,
   InputOptions,
   OutputOptions,
@@ -49,11 +49,7 @@ class BaseHooks {
     );
   }
 
-  webpack(
-    input: string | string[] | BalmEntryObject,
-    output: string,
-    options?: Configuration
-  ) {
+  webpack(input: BalmEntry, output: string, options?: Configuration) {
     Maker.generate('webpack', [input, output, options]);
   }
 

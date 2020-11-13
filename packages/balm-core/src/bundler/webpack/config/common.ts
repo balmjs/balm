@@ -1,9 +1,14 @@
 import getLoaders from '../loaders';
 import { HASH_NAME } from '../../../config/constants';
-import { Configuration } from '@balm-core/index';
+import {
+  Configuration,
+  SplitChunksOptions,
+  Optimization,
+  BalmScripts
+} from '@balm-core/index';
 
-function getSplitChunks(): boolean | object {
-  const scripts: any = BalmJS.config.scripts;
+function getSplitChunks(): SplitChunksOptions {
+  const scripts: BalmScripts = BalmJS.config.scripts;
   const jsFolder: string = BalmJS.config.paths.target.js;
 
   let cacheGroups: any = false;
@@ -46,15 +51,15 @@ function getSplitChunks(): boolean | object {
   return cacheGroups ? { cacheGroups } : false;
 }
 
-function getCommonConfig(scripts: any): Configuration {
-  const splitChunks: any = getSplitChunks();
-  const optimization: any = splitChunks
-    ? BalmJS.utils.deepMerge(
+function getCommonConfig(scripts: BalmScripts): Configuration {
+  const splitChunks = getSplitChunks();
+  const optimization = splitChunks
+    ? (BalmJS.utils.deepMerge(
         {
           splitChunks
         },
         scripts.optimization
-      )
+      ) as Optimization)
     : scripts.optimization;
 
   return {

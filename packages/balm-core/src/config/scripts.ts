@@ -1,11 +1,19 @@
 import {
   BalmBundler,
   MinifyOptions,
-  ResolveAlias,
-  StatsValue,
-  BalmEntryObject,
+  BalmEntry,
+  Library,
+  LibraryTarget,
+  RuleSetRule,
   BalmLoaders,
   PostcssLoaderOptions,
+  ResolveAlias,
+  SourceMap,
+  Target,
+  ExternalsElement,
+  StatsValue,
+  Configuration,
+  Optimization,
   InputOptions,
   OutputOptions,
   WatcherOptions,
@@ -54,19 +62,19 @@ const minifyOptions: MinifyOptions = {
     ascii_only: true
   }
 };
-const lint = false;
 // Entry and Context (webpack/esbuild common options)
-const entry: string | string[] | BalmEntryObject = '';
+const entry: BalmEntry = '';
+const lint = false;
 
 /**
  * Webpack bundler
  */
 
 // Output
-const library: string | object = '';
-const libraryTarget = 'var'; // ['var', 'this', 'window', 'global', 'commonjs', 'commonjs2', 'amd', 'umd']
+const library: Library = '';
+const libraryTarget: LibraryTarget = 'var';
 // Module
-const loaders: object[] = [];
+const loaders: RuleSetRule[] = [];
 const defaultLoaders: Partial<BalmLoaders> = {};
 const includeJsResource: string[] = [];
 const excludeUrlResource: string[] = [];
@@ -95,25 +103,25 @@ const alias: ResolveAlias = {};
 // Plugins
 const plugins: object[] = [];
 // Devtool
-const sourceMap: string | boolean = false;
+const sourceMap: SourceMap = false;
 // Target
-const target = 'web';
+const target: Target = 'web';
 // Externals
-const externals: string | object | Function | RegExp = '';
+const externals: ExternalsElement | ExternalsElement[] = '';
 // Stats
 const stats: StatsValue = {
-  colors: true,
-  modules: false,
-  children: false,
-  chunks: false,
-  chunkModules: false
+  // colors: true,
+  // modules: false,
+  // children: false,
+  // chunks: false,
+  // chunkModules: false
 };
 /**
  * Full custom webpack configuration
  *
  * @reference https://webpack.js.org/configuration/
  */
-const webpackOptions: object = {};
+const webpackOptions: Configuration = {};
 // SSR support
 const inject = false;
 // Optimization
@@ -122,7 +130,7 @@ const inject = false;
  *
  * @reference https://webpack.js.org/configuration/optimization/
  */
-const optimization: object = {};
+const optimization: Optimization = {};
 const extractAllVendors = false; // Extract all vendors (all in one)
 const vendorName = 'vendor'; // AllInOne vendor filename or Vendors folder name
 // Extract CSS
@@ -156,8 +164,8 @@ export default {
   // base
   bundler,
   minifyOptions,
-  lint,
   entry,
+  lint,
   // webpack
   library,
   libraryTarget,

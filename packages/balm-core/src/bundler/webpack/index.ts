@@ -2,10 +2,10 @@ import merge from 'webpack-merge';
 import getEntry from './entry';
 import getOutput from './output';
 import getDefaultConfig from './config';
-import { BalmEntryObject, Configuration } from '@balm-core/index';
+import { BalmEntry, Configuration } from '@balm-core/index';
 
 function webpackConfig(
-  input: string | string[] | BalmEntryObject,
+  input: BalmEntry,
   output: string,
   customWebpackOptions: Configuration = {},
   isHook = false

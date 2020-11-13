@@ -1,6 +1,6 @@
 import webpackConfig from '../../bundler/webpack';
 import compiling from '../../utilities/compiling';
-import { BalmEntryObject, Configuration, BalmError } from '@balm-core/index';
+import { BalmEntry, Configuration, BalmError } from '@balm-core/index';
 
 class WebpackTask extends BalmJS.BalmTask {
   constructor() {
@@ -8,7 +8,7 @@ class WebpackTask extends BalmJS.BalmTask {
   }
 
   recipe(
-    input?: string | string[] | BalmEntryObject,
+    input?: BalmEntry,
     output?: string,
     customOptions: Configuration = {}
   ): Function {

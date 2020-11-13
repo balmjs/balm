@@ -72,7 +72,7 @@ function ready(config: BalmConfig): BalmConfig {
   config.server.useHMR = HMR_ENV && HMR_Enabling;
 
   // Set desktop app flag
-  config.inDesktopApp = /^electron-.*/.test(config.scripts.target);
+  config.inDesktopApp = /^electron-.*/.test(config.scripts.target as string);
 
   return config;
 }
