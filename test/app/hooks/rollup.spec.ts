@@ -127,7 +127,10 @@ describe('Balm Hooks - rollup', function () {
             );
           }
         },
-        done
+        {
+          done,
+          delay: 4000
+        }
       );
     });
   });
