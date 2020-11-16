@@ -2,19 +2,19 @@ import { cleanup, runTest } from '../test';
 
 const targetDir = '.output';
 
-describe('Balm Hooks - html', function() {
-  describe('for web', function() {
-    before(function() {
+describe('Balm Hooks - html', function () {
+  describe('for web', function () {
+    before(function () {
       balm.config = {
         useDefaults: false
       };
     });
 
-    after(function() {
+    after(function () {
       cleanup();
     });
 
-    it('#mix.html()', function(done) {
+    it('#mix.html()', function (done) {
       const input = 'src/index.html';
       const output = `${targetDir}/html`;
 
@@ -30,17 +30,17 @@ describe('Balm Hooks - html', function() {
     });
   });
 
-  describe('for desktop', function() {
-    before(function() {
+  describe('for desktop', function () {
+    before(function () {
       BalmJS.config.inDesktopApp = true;
     });
 
-    after(function() {
+    after(function () {
       BalmJS.config.inDesktopApp = false;
       cleanup();
     });
 
-    it('#mix.html()', function(done) {
+    it('#mix.html()', function (done) {
       const input = 'src/index.html';
       const output = `${targetDir}/html`;
 

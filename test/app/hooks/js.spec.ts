@@ -1,4 +1,4 @@
-import { runTest } from '../../test';
+import { runTest } from '../test';
 
 const targetDir = '.output';
 const terser = {
@@ -9,7 +9,7 @@ const rename = {
 };
 
 describe('Balm Hooks - js', function () {
-  it('#mix.js()', function(done) {
+  it('#mix.js()', function (done) {
     runTest(
       {
         testCase: false,
@@ -21,7 +21,7 @@ describe('Balm Hooks - js', function () {
     );
   });
 
-  it('minify amd scripts', function(done) {
+  it('minify amd scripts', function (done) {
     runTest(
       {
         testCase: false,
@@ -36,7 +36,7 @@ describe('Balm Hooks - js', function () {
     );
   });
 
-  it('minify cmd scripts', function(done) {
+  it('minify cmd scripts', function (done) {
     runTest(
       {
         testCase: false,

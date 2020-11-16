@@ -82,10 +82,7 @@ describe('Balm Hooks - css & sprites', function () {
               mix.sprite(input, output);
             }
           },
-          {
-            done,
-            delay: 4000
-          }
+          done
         );
       });
 

@@ -1,13 +1,13 @@
 import { runTest } from '../test';
 
-describe('Balm Hooks - ftp', function() {
-  before(function() {
+describe('Balm Hooks - ftp', function () {
+  before(function () {
     balm.config = {
       useDefaults: false
     };
   });
 
-  it('#mix.ftp()', function(done) {
+  it('#mix.ftp()', function (done) {
     const src = {
       base: ''
     };

@@ -2,18 +2,18 @@ import { cleanup, runTest } from '../test';
 
 const targetDir = '.output';
 
-describe('Balm Hooks - versioning / cache busting', function() {
-  beforeEach(function() {
+describe('Balm Hooks - versioning / cache busting', function () {
+  beforeEach(function () {
     balm.config = {
       useDefaults: false
     };
   });
 
-  after(function() {
+  after(function () {
     cleanup();
   });
 
-  it('cache css file', function(done) {
+  it('cache css file', function (done) {
     const input = 'src/compress/file.css';
     const output = `${targetDir}/cache`;
 
@@ -28,7 +28,7 @@ describe('Balm Hooks - versioning / cache busting', function() {
     );
   });
 
-  it('cache js file', function(done) {
+  it('cache js file', function (done) {
     const input = 'src/compress/file.js';
     const output = `${targetDir}/cache`;
 

@@ -1,7 +1,7 @@
 import { cleanup, runTest } from '../test';
 
-describe('Balm Hooks - others', function() {
-  beforeEach(function() {
+describe('Balm Hooks - others', function () {
+  beforeEach(function () {
     balm.config = {
       env: {
         isDev: true
@@ -10,11 +10,11 @@ describe('Balm Hooks - others', function() {
     };
   });
 
-  after(function() {
+  after(function () {
     cleanup();
   });
 
-  it(`mix.env.isDev, expected output: true`, function(done) {
+  it(`mix.env.isDev, expected output: true`, function (done) {
     runTest(
       {
         testCase: false,
@@ -26,7 +26,7 @@ describe('Balm Hooks - others', function() {
     );
   });
 
-  it('#mix.modernizr()', function(done) {
+  it('#mix.modernizr()', function (done) {
     runTest(
       {
         testCase: '.tmp/js/modernizr.js',

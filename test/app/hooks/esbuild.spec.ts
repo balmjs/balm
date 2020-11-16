@@ -2,15 +2,15 @@ import { cleanup, runTest } from '../test';
 
 const targetDir = '.output';
 
-describe('Balm Hooks - esbuild', function() {
-  after(function() {
+describe('Balm Hooks - esbuild', function () {
+  after(function () {
     cleanup();
   });
 
   const output = `${targetDir}/js`;
 
-  describe('running a build', function() {
-    beforeEach(function() {
+  describe('running a build', function () {
+    beforeEach(function () {
       balm.config = {
         useDefaults: false,
         env: {
@@ -22,7 +22,7 @@ describe('Balm Hooks - esbuild', function() {
       };
     });
 
-    it('use esbuild with error', function(done) {
+    it('use esbuild with error', function (done) {
       runTest(
         {
           testCase: false,
@@ -37,9 +37,9 @@ describe('Balm Hooks - esbuild', function() {
     });
   });
 
-  describe('transforming a file', function() {
-    describe('in development', function() {
-      before(function() {
+  describe('transforming a file', function () {
+    describe('in development', function () {
+      before(function () {
         balm.config = {
           useDefaults: false,
           scripts: {
@@ -49,18 +49,22 @@ describe('Balm Hooks - esbuild', function() {
         };
       });
 
-      it('use custom build', function(done) {
+      it('use custom build', function (done) {
         runTest(
           {
             testCase: false,
             testHook: (mix: any) => {
-              mix.esbuild([
-                './src/scripts/page-a.js',
-                './src/scripts/page-b.js',
-                './src/scripts/page-c.js' // Invalid entry
-              ], output, {
-                target: 'es2015'
-              });
+              mix.esbuild(
+                [
+                  './src/scripts/page-a.js',
+                  './src/scripts/page-b.js',
+                  './src/scripts/page-c.js' // Invalid entry
+                ],
+                output,
+                {
+                  target: 'es2015'
+                }
+              );
             }
           },
           done
@@ -69,8 +73,8 @@ describe('Balm Hooks - esbuild', function() {
     });
   });
 
-  describe('in production', function() {
-    before(function() {
+  describe('in production', function () {
+    before(function () {
       balm.config = {
         useDefaults: false,
         env: {
@@ -83,18 +87,22 @@ describe('Balm Hooks - esbuild', function() {
       };
     });
 
-    it('use custom build', function(done) {
+    it('use custom build', function (done) {
       runTest(
         {
           testCase: false,
           testHook: (mix: any) => {
-            mix.esbuild([
-              './src/scripts/page-a.js',
-              './src/scripts/page-b.js',
-              './src/scripts/page-c.js' // Invalid entry
-            ], output, {
-              target: 'es2015'
-            });
+            mix.esbuild(
+              [
+                './src/scripts/page-a.js',
+                './src/scripts/page-b.js',
+                './src/scripts/page-c.js' // Invalid entry
+              ],
+              output,
+              {
+                target: 'es2015'
+              }
+            );
           }
         },
         done

@@ -1,20 +1,20 @@
-import { cleanup, runTest } from '../../test';
+import { cleanup, runTest } from '../test';
 
 const targetDir = '.output';
 const output = `${targetDir}/js`;
 
-describe('Balm Hooks - webpack', function() {
-  beforeEach(function() {
+describe('Balm Hooks - webpack', function () {
+  beforeEach(function () {
     balm.config = {
       useDefaults: false
     };
   });
 
-  after(function() {
+  after(function () {
     cleanup();
   });
 
-  it(`bundles single js file to the "${output}" directory`, function(done) {
+  it(`bundles single js file to the "${output}" directory`, function (done) {
     runTest(
       {
         testCase: `${output}/main.js`,
@@ -26,7 +26,7 @@ describe('Balm Hooks - webpack', function() {
     );
   });
 
-  it(`bundles multiple js files to the "${output}" directory`, function(done) {
+  it(`bundles multiple js files to the "${output}" directory`, function (done) {
     runTest(
       {
         testCase: [`${output}/page-a.js`, `${output}/page-b.js`],
@@ -41,7 +41,7 @@ describe('Balm Hooks - webpack', function() {
     );
   });
 
-  it(`bundles js object to the "${output}" directory`, function(done) {
+  it(`bundles js object to the "${output}" directory`, function (done) {
     runTest(
       {
         testCase: `${output}/app.js`,
@@ -58,14 +58,14 @@ describe('Balm Hooks - webpack', function() {
     );
   });
 
-  describe('bundles a non-existent js file', function() {
-    before(function() {
+  describe('bundles a non-existent js file', function () {
+    before(function () {
       balm.config = {
         useDefaults: false
       };
     });
 
-    it('init error', function(done) {
+    it('init error', function (done) {
       runTest(
         {
           testCase: false,

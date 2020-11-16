@@ -2,18 +2,18 @@ import { cleanup, runTest } from '../test';
 
 const targetDir = '.output';
 
-describe('Balm Hooks - files & directories', function() {
-  beforeEach(function() {
+describe('Balm Hooks - files & directories', function () {
+  beforeEach(function () {
     balm.config = {
       useDefaults: false
     };
   });
 
-  after(function() {
+  after(function () {
     cleanup();
   });
 
-  it('copies a file to a new location', function(done) {
+  it('copies a file to a new location', function (done) {
     const input = 'src/copy/foo/foo.txt';
     const output = `${targetDir}/copy-dest`;
 
@@ -28,7 +28,7 @@ describe('Balm Hooks - files & directories', function() {
     );
   });
 
-  it('copies and renames a file to a new location', function(done) {
+  it('copies and renames a file to a new location', function (done) {
     const input = 'src/copy/foo/foo.txt';
     const output = `${targetDir}/copy-dest`;
     const rename = {
@@ -48,7 +48,7 @@ describe('Balm Hooks - files & directories', function() {
     );
   });
 
-  it('copies an array of folder paths to a new location', function(done) {
+  it('copies an array of folder paths to a new location', function (done) {
     const input = ['./src/copy/foo/*', './src/copy/bar/*'];
     const output = `${targetDir}/copy-dest/foobar`;
 
@@ -63,7 +63,7 @@ describe('Balm Hooks - files & directories', function() {
     );
   });
 
-  it('copies a folder with a period in its name to a new location', function(done) {
+  it('copies a folder with a period in its name to a new location', function (done) {
     const input = './src/copy/foo.bar/*';
     const output = `${targetDir}/copy-dest/some.dir`;
 
@@ -78,7 +78,7 @@ describe('Balm Hooks - files & directories', function() {
     );
   });
 
-  it('remove a file', function(done) {
+  it('remove a file', function (done) {
     const source = 'src/remove/remove-file.txt';
     const output = `${targetDir}/remove`;
     const input = `${output}/remove-file.txt`;
@@ -96,7 +96,7 @@ describe('Balm Hooks - files & directories', function() {
     );
   });
 
-  it('remove files', function(done) {
+  it('remove files', function (done) {
     const source = 'src/remove/remove-folder/*';
     const output = `${targetDir}/remove/remove-folder`;
     const input = [`${output}/a.txt`, `${output}/b.txt`];
@@ -114,7 +114,7 @@ describe('Balm Hooks - files & directories', function() {
     );
   });
 
-  it('remove a folder', function(done) {
+  it('remove a folder', function (done) {
     const source = 'src/remove/remove-folder/*';
     const output = `${targetDir}/remove/remove-folder`;
     const input = output;
@@ -132,7 +132,7 @@ describe('Balm Hooks - files & directories', function() {
     );
   });
 
-  it('replace file content', function(done) {
+  it('replace file content', function (done) {
     const input = ['src/compress/file.css', 'src/compress/file.js'];
     const output = `${targetDir}/replace-dest`;
     const replaceOptions = {
@@ -151,7 +151,7 @@ describe('Balm Hooks - files & directories', function() {
     );
   });
 
-  it('multiple replace file content', function(done) {
+  it('multiple replace file content', function (done) {
     const input = ['src/compress/file.css', 'src/compress/file.js'];
     const output = `${targetDir}/replace-dest`;
     const replaceOptions = [

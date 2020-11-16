@@ -1,16 +1,16 @@
-import { cleanup, runTest } from '../../test';
+import { cleanup, runTest } from '../test';
 
 const targetDir = '.output';
 
-describe('Balm Hooks - rollup', function() {
-  after(function() {
+describe('Balm Hooks - rollup', function () {
+  after(function () {
     cleanup();
   });
 
   const output = `${targetDir}/js`;
 
-  describe('in development', function() {
-    before(function() {
+  describe('in development', function () {
+    before(function () {
       balm.config = {
         useDefaults: false,
         scripts: {
@@ -19,20 +19,23 @@ describe('Balm Hooks - rollup', function() {
       };
     });
 
-    it('build single library', function(done) {
+    it('build single library', function (done) {
       runTest(
         {
           testCase: `${output}/bundle.js`,
           testHook: (mix: any) => {
-            mix.rollup({
-              input: {
-                bundle: 'lib/main.js'
+            mix.rollup(
+              {
+                input: {
+                  bundle: 'lib/main.js'
+                }
+              },
+              {
+                name: 'howLongUntilLunch',
+                dir: output,
+                format: 'umd'
               }
-            }, {
-              name: 'howLongUntilLunch',
-              dir: output,
-              format: 'umd'
-            });
+            );
           }
         },
         done
@@ -40,8 +43,8 @@ describe('Balm Hooks - rollup', function() {
     });
   });
 
-  describe('in production', function() {
-    before(function() {
+  describe('in production', function () {
+    before(function () {
       balm.config = {
         useDefaults: false,
         env: {
@@ -53,18 +56,25 @@ describe('Balm Hooks - rollup', function() {
       };
     });
 
-    it('build multiple libraries', function(done) {
+    it('build multiple libraries', function (done) {
       runTest(
         {
           testCase: [`${output}/bundle.cjs.js`, `${output}/bundle.esm.js`],
           testHook: (mix: any) => {
-            mix.rollup({
-              input: 'lib/main.js',
-              external: ['ms']
-            }, [
-              { file: `${output}/bundle.cjs.js`, format: 'cjs', exports: 'auto' },
-              { file: `${output}/bundle.esm.js`, format: 'es' }
-            ]);
+            mix.rollup(
+              {
+                input: 'lib/main.js',
+                external: ['ms']
+              },
+              [
+                {
+                  file: `${output}/bundle.cjs.js`,
+                  format: 'cjs',
+                  exports: 'auto'
+                },
+                { file: `${output}/bundle.esm.js`, format: 'es' }
+              ]
+            );
           }
         },
         done
@@ -72,40 +82,49 @@ describe('Balm Hooks - rollup', function() {
     });
   });
 
-  describe('plugins', function() {
-    before(function() {
+  describe('plugins', function () {
+    before(function () {
       balm.config = {
         useDefaults: false,
         scripts: {
           bundler: 'rollup',
           inputOptions: {
-            plugins: [{
-              name: 'hi'
-            }]
+            plugins: [
+              {
+                name: 'hi'
+              }
+            ]
           }
         }
       };
     });
 
-    it('for custom plugins', function(done) {
+    it('for custom plugins', function (done) {
       runTest(
         {
           testCase: false,
           testHook: (mix: any) => {
-            mix.rollup({
-              input: {
-                bundle: 'lib/main.js'
+            mix.rollup(
+              {
+                input: {
+                  bundle: 'lib/main.js'
+                },
+                plugins: [
+                  {
+                    name: 'hello'
+                  }
+                ]
               },
-              plugins: [{
-                name: 'hello'
-              }]
-            }, {
-              dir: output,
-              format: 'umd',
-              plugins: [{
-                name: 'world'
-              }]
-            });
+              {
+                dir: output,
+                format: 'umd',
+                plugins: [
+                  {
+                    name: 'world'
+                  }
+                ]
+              }
+            );
           }
         },
         done

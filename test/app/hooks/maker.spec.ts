@@ -1,4 +1,4 @@
-import { cleanup, runTest } from '../app/test';
+import { cleanup, runTest } from '../test';
 
 describe('Maker', function () {
   after(function () {

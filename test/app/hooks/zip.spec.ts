@@ -2,13 +2,13 @@ import { cleanup, runTest } from '../test';
 
 const targetDir = '.output';
 
-describe('Balm Hooks - zip', function() {
-  after(function() {
+describe('Balm Hooks - zip', function () {
+  after(function () {
     cleanup();
   });
 
-  describe('#mix.zip() with default', function() {
-    before(function() {
+  describe('#mix.zip() with default', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true
@@ -19,7 +19,7 @@ describe('Balm Hooks - zip', function() {
       };
     });
 
-    it(`expected output: "archive.zip"`, function(done) {
+    it(`expected output: "archive.zip"`, function (done) {
       runTest(
         {
           testCase: 'archive.zip',
@@ -27,16 +27,13 @@ describe('Balm Hooks - zip', function() {
             mix.zip();
           }
         },
-        {
-          done,
-          delay: 4000
-        }
+        done
       );
     });
   });
 
-  describe('#mix.zip() with custom', function() {
-    before(function() {
+  describe('#mix.zip() with custom', function () {
+    before(function () {
       balm.config = {
         useDefaults: false
       };
@@ -45,7 +42,7 @@ describe('Balm Hooks - zip', function() {
     let input = ['src/compress/*', 'src/copy/**/*'];
     let output = `${targetDir}/new-archive.zip`;
 
-    it(`expected output: "${output}"`, function(done) {
+    it(`expected output: "${output}"`, function (done) {
       runTest(
         {
           testCase: output,
@@ -53,10 +50,7 @@ describe('Balm Hooks - zip', function() {
             mix.zip(input, targetDir, 'new-archive.zip');
           }
         },
-        {
-          done,
-          delay: 4000
-        }
+        done
       );
     });
   });
