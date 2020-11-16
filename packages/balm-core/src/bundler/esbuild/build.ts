@@ -44,7 +44,6 @@ const esBuild = (
       BalmJS.logger.error('esbuild', error.message);
     })
     .finally(() => {
-      // Done processing
       callback();
     });
 };

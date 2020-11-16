@@ -53,16 +53,16 @@ class BaseHooks {
     Maker.generate('webpack', [input, output, options]);
   }
 
-  rollup(input: InputOptions, output: OutputOptions | OutputOptions[]) {
-    Maker.generate('rollup', [input, output]);
-  }
-
   esbuild(
     input: string | string[],
     output: string,
     options?: BuildOptions | TransformOptions
   ) {
     Maker.generate('esbuild', [input, output, options]);
+  }
+
+  rollup(input: InputOptions, output: OutputOptions | OutputOptions[]) {
+    Maker.generate('rollup', [input, output]);
   }
 
   jsmin(input: string | string[], output: string, options?: HookOptions): void {
