@@ -1,14 +1,14 @@
 import webpackMiddleware from '../../packages/balm-core/src/middlewares/webpack';
 
-describe('Webpack Middleware', function() {
+describe('Webpack Middleware', function () {
   let middlewares: object[];
 
-  beforeEach(function() {
+  beforeEach(function () {
     middlewares = webpackMiddleware();
   });
 
-  describe('default', function() {
-    before(function() {
+  describe('default', function () {
+    before(function () {
       BalmJS.webpackCompiler = null;
     });
 
@@ -16,14 +16,14 @@ describe('Webpack Middleware', function() {
 
     it(
       `expected output: ${middlewaresCount}`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(middlewares.length).to.equal(middlewaresCount);
       })
     );
   });
 
-  describe('dev without hot', function() {
-    before(function() {
+  describe('dev without hot', function () {
+    before(function () {
       BalmJS.webpackCompiler = webpack({});
     });
 
@@ -31,19 +31,19 @@ describe('Webpack Middleware', function() {
 
     it(
       `expected output: ${middlewaresCount}`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(middlewares.length).to.equal(middlewaresCount);
       })
     );
   });
 
-  describe('dev with hot', function() {
-    before(function() {
+  describe('dev with hot', function () {
+    before(function () {
       BalmJS.webpackCompiler = webpack({});
       BalmJS.config.server.useHMR = true;
     });
 
-    after(function() {
+    after(function () {
       BalmJS.config.server.useHMR = false;
     });
 
@@ -51,7 +51,7 @@ describe('Webpack Middleware', function() {
 
     it(
       `expected output: ${middlewaresCount}`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(middlewares.length).to.equal(middlewaresCount);
       })
     );

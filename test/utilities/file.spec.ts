@@ -1,32 +1,32 @@
 import file from '../../packages/balm-core/src/utilities/file';
 
-describe('Balm File', function() {
-  describe('.publicUrlOrPath', function() {
+describe('Balm File', function () {
+  describe('.publicUrlOrPath', function () {
     const publicUrl = '/';
 
     it(
       `expected output: "${publicUrl}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(file.publicUrlOrPath).to.equal(publicUrl);
       })
     );
   });
 
-  describe('.stylePaths', function() {
+  describe('.stylePaths', function () {
     const stylePath = path.join(balm.config.workspace, '.');
 
     it(
       `expected output: "${stylePath}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(file.stylePaths[0]).to.equal(stylePath);
       })
     );
   });
 
-  describe('.assetsSuffixPath', function() {
-    describe('in frontend', function() {
-      describe('!subDir', function() {
-        before(function() {
+  describe('.assetsSuffixPath', function () {
+    describe('in frontend', function () {
+      describe('!subDir', function () {
+        before(function () {
           balm.config = {
             inFrontend: true,
             assets: {
@@ -39,14 +39,14 @@ describe('Balm File', function() {
 
         it(
           `expected output: "${assetsSuffixPath}"`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
           })
         );
       });
 
-      describe('subDir', function() {
-        before(function() {
+      describe('subDir', function () {
+        before(function () {
           balm.config = {
             inFrontend: true,
             assets: {
@@ -59,16 +59,16 @@ describe('Balm File', function() {
 
         it(
           `expected output: "${assetsSuffixPath}"`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
           })
         );
       });
     });
 
-    describe('production with cache in backend', function() {
-      describe('!subDir', function() {
-        before(function() {
+    describe('production with cache in backend', function () {
+      describe('!subDir', function () {
+        before(function () {
           balm.config = {
             inFrontend: false,
             env: {
@@ -85,14 +85,14 @@ describe('Balm File', function() {
 
         it(
           `expected output: "${assetsSuffixPath}"`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
           })
         );
       });
 
-      describe('subDir', function() {
-        before(function() {
+      describe('subDir', function () {
+        before(function () {
           balm.config = {
             inFrontend: false,
             env: {
@@ -109,7 +109,7 @@ describe('Balm File', function() {
 
         it(
           `expected output: "${assetsSuffixPath}"`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(file.assetsSuffixPath).to.equal(assetsSuffixPath);
           })
         );
@@ -117,23 +117,27 @@ describe('Balm File', function() {
     });
   });
 
-  describe('.defaultEntry', function() {
-    const defaultEntry = path.join(balm.config.roots.source, balm.config.paths.source.js, 'index.js');
+  describe('.defaultEntry', function () {
+    const defaultEntry = path.join(
+      balm.config.roots.source,
+      balm.config.paths.source.js,
+      'index.js'
+    );
 
     it(
       `expected output: "${defaultEntry}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(file.defaultEntry).to.equal(defaultEntry);
       })
     );
   });
 
-  describe('#absPaths()', function() {
+  describe('#absPaths()', function () {
     const absPath = path.join(balm.config.workspace, 'foo');
 
     it(
       `expected output: "${absPath}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         const result = file.absPaths('foo');
 
         expect(result).to.equal(absPath);
@@ -147,7 +151,7 @@ describe('Balm File', function() {
 
     it(
       `expected output: "${absPaths}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         const result = file.absPaths(['foo', '!bar']);
 
         expect(result[0]).to.equal(absPaths[0]);
@@ -156,9 +160,9 @@ describe('Balm File', function() {
     );
   });
 
-  describe('#assetsPath()', function() {
-    describe('in development', function() {
-      before(function() {
+  describe('#assetsPath()', function () {
+    describe('in development', function () {
+      before(function () {
         balm.config = {
           inFrontend: true,
           env: {
@@ -171,7 +175,7 @@ describe('Balm File', function() {
 
       it(
         `expected output: "${assetsPath}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           const result = file.assetsPath('foo');
 
           expect(result).to.equal(assetsPath);
@@ -179,8 +183,8 @@ describe('Balm File', function() {
       );
     });
 
-    describe('in production', function() {
-      before(function() {
+    describe('in production', function () {
+      before(function () {
         balm.config = {
           inFrontend: false,
           env: {
@@ -194,7 +198,7 @@ describe('Balm File', function() {
 
       it(
         `expected output: "${path.posix.join('web', 'foo')}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           const result = file.assetsPath('foo');
           const assetsPath = path.posix.join(file.assetsSuffixPath, 'foo');
 

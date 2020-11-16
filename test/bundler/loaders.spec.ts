@@ -1,10 +1,10 @@
 import getLoaders from '../../packages/balm-core/src/bundler/webpack/loaders';
 
-describe('Bundler#getLoaders()', function() {
+describe('Bundler#getLoaders()', function () {
   let rules: any = [];
 
-  describe('use defaults', function() {
-    before(function() {
+  describe('use defaults', function () {
+    before(function () {
       balm.config = {
         env: {
           isDev: true
@@ -16,7 +16,7 @@ describe('Bundler#getLoaders()', function() {
 
     it(
       `expected output: ${rulesCount}`,
-      asyncCase(function() {
+      asyncCase(function () {
         rules = getLoaders([]);
 
         expect(rules.length).to.equal(rulesCount);
@@ -24,8 +24,8 @@ describe('Bundler#getLoaders()', function() {
     );
   });
 
-  describe('use partial defaults', function() {
-    before(function() {
+  describe('use partial defaults', function () {
+    before(function () {
       balm.config = {
         scripts: {
           defaultLoaders: {
@@ -39,7 +39,7 @@ describe('Bundler#getLoaders()', function() {
 
     it(
       `expected output: ${rulesCount}`,
-      asyncCase(function() {
+      asyncCase(function () {
         rules = getLoaders([]);
 
         expect(rules.length).to.equal(rulesCount);
@@ -47,8 +47,8 @@ describe('Bundler#getLoaders()', function() {
     );
   });
 
-  describe('do not use defaults', function() {
-    before(function() {
+  describe('do not use defaults', function () {
+    before(function () {
       balm.config = {
         scripts: {
           defaultLoaders: {
@@ -65,7 +65,7 @@ describe('Bundler#getLoaders()', function() {
 
     it(
       `expected output: ${rulesCount}`,
-      asyncCase(function() {
+      asyncCase(function () {
         rules = getLoaders([]);
 
         expect(rules.length).to.equal(rulesCount);
@@ -73,8 +73,8 @@ describe('Bundler#getLoaders()', function() {
     );
   });
 
-  describe('production', function() {
-    before(function() {
+  describe('production', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true
@@ -97,7 +97,7 @@ describe('Bundler#getLoaders()', function() {
 
     it(
       `expected output: ${rulesCount}`,
-      asyncCase(function() {
+      asyncCase(function () {
         rules = getLoaders([]);
 
         expect(rules.length).to.equal(rulesCount);
@@ -105,8 +105,8 @@ describe('Bundler#getLoaders()', function() {
     );
   });
 
-  describe('SSR', function() {
-    before(function() {
+  describe('SSR', function () {
+    before(function () {
       balm.config = {
         env: {
           inSSR: true
@@ -128,7 +128,7 @@ describe('Bundler#getLoaders()', function() {
 
     it(
       '`vue-loader` to `vue-style-loader`',
-      asyncCase(function() {
+      asyncCase(function () {
         getLoaders([]);
       })
     );

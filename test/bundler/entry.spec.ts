@@ -3,20 +3,20 @@ import getEntry from '../../packages/balm-core/src/bundler/webpack/entry';
 const HOT_CLIENT = 'webpack-hot-middleware/client';
 const HMR = `${HOT_CLIENT}?reload=true&noInfo=true&path=/__balm_hmr`;
 
-describe('Bundler#getEntry()', function() {
+describe('Bundler#getEntry()', function () {
   let entries: any = {};
 
-  describe('entry is an empty array', function() {
+  describe('entry is an empty array', function () {
     it(
       'expected output: "WARNING"',
-      asyncCase(function() {
+      asyncCase(function () {
         entries = getEntry([], balm.config.scripts);
       })
     );
   });
 
-  describe('development', function() {
-    beforeEach(function() {
+  describe('development', function () {
+    beforeEach(function () {
       balm.config = {
         env: {
           isDev: true
@@ -24,13 +24,13 @@ describe('Bundler#getEntry()', function() {
       };
     });
 
-    describe('entry is a string', function() {
+    describe('entry is a string', function () {
       const input = './src/scripts/index.js';
       const output = [input, HMR];
 
       it(
         `expected output: ${JSON.stringify(output)}`,
-        asyncCase(function() {
+        asyncCase(function () {
           entries = getEntry(input, balm.config.scripts);
 
           expect(JSON.stringify(entries)).to.equal(JSON.stringify(output));
@@ -38,7 +38,7 @@ describe('Bundler#getEntry()', function() {
       );
     });
 
-    describe('entry is an array', function() {
+    describe('entry is an array', function () {
       const input = ['./src/scripts/page-1.js', './src/scripts/page-2.js'];
       const output = {
         'page-1': [input[0], HMR],
@@ -47,7 +47,7 @@ describe('Bundler#getEntry()', function() {
 
       it(
         `expected output: ${JSON.stringify(output)}`,
-        asyncCase(function() {
+        asyncCase(function () {
           entries = getEntry(input, balm.config.scripts);
 
           expect(JSON.stringify(entries)).to.equal(JSON.stringify(output));
@@ -55,7 +55,7 @@ describe('Bundler#getEntry()', function() {
       );
     });
 
-    describe('entry is an object', function() {
+    describe('entry is an object', function () {
       const input = {
         main: './src/scripts/index.js'
       };
@@ -65,7 +65,7 @@ describe('Bundler#getEntry()', function() {
 
       it(
         `expected output: ${JSON.stringify(output)}`,
-        asyncCase(function() {
+        asyncCase(function () {
           entries = getEntry(input, balm.config.scripts);
 
           expect(JSON.stringify(entries)).to.equal(JSON.stringify(output));
@@ -73,7 +73,7 @@ describe('Bundler#getEntry()', function() {
       );
     });
 
-    describe('entry is an object with vendors', function() {
+    describe('entry is an object with vendors', function () {
       const input = {
         lib: ['jquery'],
         main: './src/scripts/index.js'
@@ -84,7 +84,7 @@ describe('Bundler#getEntry()', function() {
 
       it(
         `expected output: ${JSON.stringify(output)}`,
-        asyncCase(function() {
+        asyncCase(function () {
           entries = getEntry(input, balm.config.scripts);
 
           expect(JSON.stringify(entries)).to.equal(JSON.stringify(output));
@@ -93,8 +93,8 @@ describe('Bundler#getEntry()', function() {
     });
   });
 
-  describe('production', function() {
-    beforeEach(function() {
+  describe('production', function () {
+    beforeEach(function () {
       balm.config = {
         env: {
           isProd: true
@@ -102,13 +102,13 @@ describe('Bundler#getEntry()', function() {
       };
     });
 
-    describe('entry is a string', function() {
+    describe('entry is a string', function () {
       const input = './src/scripts/index.js';
       const output = input;
 
       it(
         `expected output: ${JSON.stringify(output)}`,
-        asyncCase(function() {
+        asyncCase(function () {
           entries = getEntry(input, balm.config.scripts);
 
           expect(JSON.stringify(entries)).to.equal(JSON.stringify(output));
@@ -116,7 +116,7 @@ describe('Bundler#getEntry()', function() {
       );
     });
 
-    describe('entry is an array', function() {
+    describe('entry is an array', function () {
       const input = ['./src/scripts/page-1.js', './src/scripts/page-2.js'];
       const output = {
         'page-1': input[0],
@@ -125,7 +125,7 @@ describe('Bundler#getEntry()', function() {
 
       it(
         `expected output: ${JSON.stringify(output)}`,
-        asyncCase(function() {
+        asyncCase(function () {
           entries = getEntry(input, balm.config.scripts);
 
           expect(JSON.stringify(entries)).to.equal(JSON.stringify(output));
@@ -133,7 +133,7 @@ describe('Bundler#getEntry()', function() {
       );
     });
 
-    describe('entry is an object', function() {
+    describe('entry is an object', function () {
       const input = {
         main: './src/scripts/index.js'
       };
@@ -141,7 +141,7 @@ describe('Bundler#getEntry()', function() {
 
       it(
         `expected output: ${JSON.stringify(output)}`,
-        asyncCase(function() {
+        asyncCase(function () {
           entries = getEntry(input, balm.config.scripts);
 
           expect(JSON.stringify(entries)).to.equal(JSON.stringify(output));
@@ -149,7 +149,7 @@ describe('Bundler#getEntry()', function() {
       );
     });
 
-    describe('entry is an object with vendors', function() {
+    describe('entry is an object with vendors', function () {
       const input = {
         lib: ['jquery'],
         main: './src/scripts/index.js'
@@ -160,7 +160,7 @@ describe('Bundler#getEntry()', function() {
 
       it(
         `expected output: ${JSON.stringify(output)}`,
-        asyncCase(function() {
+        asyncCase(function () {
           entries = getEntry(input, balm.config.scripts);
 
           expect(JSON.stringify(entries)).to.equal(JSON.stringify(output));

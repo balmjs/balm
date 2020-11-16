@@ -1,9 +1,9 @@
 import toNamespace from '../../packages/balm-core/src/utilities/namespace';
 
-describe('Balm Namespace', function() {
+describe('Balm Namespace', function () {
   it(
     'namespace with string',
-    asyncCase(function() {
+    asyncCase(function () {
       const result = toNamespace('foo');
 
       expect(result).to.equal('balm:foo');
@@ -12,7 +12,7 @@ describe('Balm Namespace', function() {
 
   it(
     'namespace with array',
-    asyncCase(function() {
+    asyncCase(function () {
       const result = toNamespace(['foo', 'bar']);
 
       expect(result[0]).to.equal('balm:foo');

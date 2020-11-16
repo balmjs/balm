@@ -129,7 +129,7 @@ describe('Bundler#getOutput()', function () {
           },
           scripts: {
             library: libraryName,
-            libraryTarget:'umd'
+            libraryTarget: 'umd'
           }
         };
       });

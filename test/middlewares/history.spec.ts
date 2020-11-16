@@ -1,28 +1,28 @@
 import historyMiddleware from '../../packages/balm-core/src/middlewares/history';
 
-describe('History Middleware', function() {
+describe('History Middleware', function () {
   let middlewares: object[];
 
-  beforeEach(function() {
+  beforeEach(function () {
     middlewares = historyMiddleware();
   });
 
-  describe('default', function() {
+  describe('default', function () {
     const middlewaresCount = 0;
 
     it(
       `expected output: ${middlewaresCount}`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(middlewares.length).to.equal(middlewaresCount);
       })
     );
   });
 
-  describe('H5 history', function() {
+  describe('H5 history', function () {
     const middlewaresCount = 1;
 
-    describe('!object', function() {
-      before(function() {
+    describe('!object', function () {
+      before(function () {
         balm.config = {
           server: {
             historyOptions: true
@@ -32,14 +32,14 @@ describe('History Middleware', function() {
 
       it(
         `expected output: ${middlewaresCount}`,
-        asyncCase(function() {
+        asyncCase(function () {
           expect(middlewares.length).to.equal(middlewaresCount);
         })
       );
     });
 
-    describe('object', function() {
-      before(function() {
+    describe('object', function () {
+      before(function () {
         balm.config = {
           server: {
             historyOptions: {
@@ -51,7 +51,7 @@ describe('History Middleware', function() {
 
       it(
         `expected output: ${middlewaresCount}`,
-        asyncCase(function() {
+        asyncCase(function () {
           expect(middlewares.length).to.equal(middlewaresCount);
         })
       );
