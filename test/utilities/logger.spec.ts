@@ -35,8 +35,8 @@ describe('Balm Logger', function () {
     it(
       'success',
       asyncCase(function () {
-        logger.success('success', 'Hello');
-        logger.success('success', 'BalmJS', {
+        logger.success('success', 'no message');
+        logger.success('success', 'message', {
           logLevel: 3
         });
       })
@@ -45,8 +45,8 @@ describe('Balm Logger', function () {
     it(
       'debug',
       asyncCase(function () {
-        logger.debug('debug', 'Hello');
-        logger.debug('debug', 'BalmJS', {
+        logger.debug('debug', 'no message');
+        logger.debug('debug', 'message', {
           logLevel: 3
         });
       })
@@ -55,8 +55,8 @@ describe('Balm Logger', function () {
     it(
       'info',
       asyncCase(function () {
-        logger.info('info', 'Hello');
-        logger.info('info', 'BalmJS', {
+        logger.info('info', 'no message');
+        logger.info('info', 'message', {
           logLevel: 3
         });
       })
@@ -65,8 +65,8 @@ describe('Balm Logger', function () {
     it(
       'warn',
       asyncCase(function () {
-        logger.warn('warn', 'Hello');
-        logger.warn('warn', 'BalmJS', {
+        logger.warn('warn', 'no message');
+        logger.warn('warn', 'message', {
           logLevel: 0
         });
       })
@@ -75,7 +75,7 @@ describe('Balm Logger', function () {
     it(
       'error',
       asyncCase(function () {
-        logger.error('error', 'Hello');
+        logger.error('error', 'no message');
         logger.error('error', 'BalmJS', {
           logLevel: 0
         });
