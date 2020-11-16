@@ -13,7 +13,7 @@ class EsbuildTask extends BalmJS.BalmTask {
     output?: string,
     customOptions: BuildOptions | TransformOptions = {}
   ): Function {
-    const balmScript = (callback: Function): void => {
+    const balmBundler = (callback: Function): void => {
       this.init(input || BalmJS.config.scripts.entry, output);
 
       esbuild(
@@ -24,7 +24,7 @@ class EsbuildTask extends BalmJS.BalmTask {
       );
     };
 
-    return balmScript;
+    return balmBundler;
   }
 
   get fn(): Function {

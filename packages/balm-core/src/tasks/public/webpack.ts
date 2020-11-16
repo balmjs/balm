@@ -12,7 +12,7 @@ class WebpackTask extends BalmJS.BalmTask {
     output?: string,
     customOptions: Configuration = {}
   ): Function {
-    const balmScript = (callback: Function): void => {
+    const balmBundler = (callback: Function): void => {
       this.init(input || BalmJS.config.scripts.entry, output);
 
       const isHook = !!input;
@@ -48,7 +48,7 @@ class WebpackTask extends BalmJS.BalmTask {
       );
     };
 
-    return balmScript;
+    return balmBundler;
   }
 
   get fn(): Function {
