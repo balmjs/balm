@@ -1,14 +1,14 @@
 import LessTask from '../../../packages/balm-core/src/tasks/public/less';
 
-describe('Less Task', function() {
+describe('Less Task', function () {
   let lessTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     lessTask = new LessTask();
   });
 
-  describe('default', function() {
-    before(function() {
+  describe('default', function () {
+    before(function () {
       balm.config = {
         styles: {
           extname: 'less'
@@ -16,11 +16,17 @@ describe('Less Task', function() {
       };
     });
 
-    const defaultInput = path.join(balm.config.workspace, 'src', 'styles', '**', '!(_*).less');
+    const defaultInput = path.join(
+      balm.config.workspace,
+      'src',
+      'styles',
+      '**',
+      '!(_*).less'
+    );
 
     it(
       `expected output: "${defaultInput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         lessTask.fn();
 
         expect(lessTask.input).to.equal(defaultInput);
@@ -28,8 +34,8 @@ describe('Less Task', function() {
     );
   });
 
-  describe('#mix.less()', function() {
-    before(function() {
+  describe('#mix.less()', function () {
+    before(function () {
       balm.config = {
         styles: {
           extname: 'less'
@@ -37,43 +43,45 @@ describe('Less Task', function() {
       };
     });
 
-    const defaultInput = [
-      path.join('less', '*.less')
-    ];
+    const defaultInput = [path.join('less', '*.less')];
     const defaultOutput = 'dist';
 
     it(
       `expected output: "${defaultInput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         lessTask.recipe(defaultInput, defaultOutput, {})();
 
         expect(JSON.stringify(lessTask.input)).to.equal(
-          JSON.stringify([
-            path.join(balm.config.workspace, 'less', '*.less')
-          ])
+          JSON.stringify([path.join(balm.config.workspace, 'less', '*.less')])
         );
-        expect(lessTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
+        expect(lessTask.output).to.equal(
+          path.join(balm.config.workspace, defaultOutput)
+        );
       })
     );
   });
 
-  describe('ERROR', function() {
-    before(function() {
-      balm.config = {
-        styles: {
-          extname: 'less'
-        }
-      };
-    });
+  // describe('with error', function () {
+  //   before(function () {
+  //     balm.config = {
+  //       styles: {
+  //         extname: 'less'
+  //       }
+  //     };
+  //   });
 
-    it(
-      'error handler',
-      asyncCase(function() {
-        lessTask.recipe(
-          path.join(balm.config.workspace, 'src/styles/error.less'),
-          'dist'
-        )();
-      })
-    );
-  });
+  //   it(
+  //     'error handler',
+  //     asyncCase(function () {
+  //       lessTask.recipe(
+  //         path.join(balm.config.workspace, 'src/styles/error.less'),
+  //         'dist'
+  //       )();
+
+  //       expect(lessTask.input).to.equal(
+  //         path.join(balm.config.workspace, 'src', 'styles', 'error.less')
+  //       );
+  //     })
+  //   );
+  // });
 });

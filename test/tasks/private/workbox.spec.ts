@@ -1,15 +1,15 @@
 import WorkboxTask from '../../../packages/balm-core/src/tasks/private/workbox-sw';
 
-describe('Workbox Task', function() {
+describe('Workbox Task', function () {
   let workboxTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     workboxTask = new WorkboxTask();
     workboxTask.fn();
   });
 
-  describe('workbox-sw', function() {
-    before(function() {
+  describe('workbox-sw', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true
@@ -21,7 +21,7 @@ describe('Workbox Task', function() {
 
     it(
       `expected output: "${defaultOutput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(workboxTask.output).to.equal(defaultOutput);
       })
     );

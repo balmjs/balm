@@ -1,15 +1,15 @@
 import BuildTask from '../../../packages/balm-core/src/tasks/private/build';
 
-describe('Build Task', function() {
+describe('Build Task', function () {
   let buildTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     buildTask = new BuildTask();
     buildTask.fn();
   });
 
-  describe('measure size', function() {
-    before(function() {
+  describe('measure size', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true
@@ -21,7 +21,7 @@ describe('Build Task', function() {
 
     it(
       `expected output: "${defaultInput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(buildTask.input).to.equal(defaultInput);
       })
     );

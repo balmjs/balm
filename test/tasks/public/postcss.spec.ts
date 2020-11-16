@@ -1,14 +1,14 @@
 import PostcssTask from '../../../packages/balm-core/src/tasks/public/postcss';
 
-describe('Postcss Task', function() {
+describe('Postcss Task', function () {
   let postcssTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     postcssTask = new PostcssTask();
   });
 
-  describe('default', function() {
-    before(function() {
+  describe('default', function () {
+    before(function () {
       balm.config = {
         styles: {
           extname: 'css'
@@ -16,11 +16,17 @@ describe('Postcss Task', function() {
       };
     });
 
-    const defaultInput = path.join(balm.config.workspace, 'src', 'styles', '**', '!(_*).css');
+    const defaultInput = path.join(
+      balm.config.workspace,
+      'src',
+      'styles',
+      '**',
+      '!(_*).css'
+    );
 
     it(
       `expected output: "${defaultInput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         postcssTask.fn();
 
         expect(postcssTask.input).to.equal(defaultInput);
@@ -28,8 +34,8 @@ describe('Postcss Task', function() {
     );
   });
 
-  describe('#mix.css()', function() {
-    before(function() {
+  describe('#mix.css()', function () {
+    before(function () {
       balm.config = {
         env: {
           isDev: true
@@ -41,22 +47,20 @@ describe('Postcss Task', function() {
       };
     });
 
-    const defaultInput = [
-      path.join('css', '/*.css')
-    ];
+    const defaultInput = [path.join('css', '/*.css')];
     const defaultOutput = 'dist';
 
     it(
       `expected output: "${defaultInput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         postcssTask.recipe(defaultInput, defaultOutput)();
 
         expect(JSON.stringify(postcssTask.input)).to.equal(
-          JSON.stringify([
-            path.join(balm.config.workspace, 'css', '/*.css')
-          ])
+          JSON.stringify([path.join(balm.config.workspace, 'css', '/*.css')])
         );
-        expect(postcssTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
+        expect(postcssTask.output).to.equal(
+          path.join(balm.config.workspace, defaultOutput)
+        );
       })
     );
   });

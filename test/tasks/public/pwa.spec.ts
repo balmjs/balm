@@ -1,9 +1,9 @@
 import PwaTask from '../../../packages/balm-core/src/tasks/public/pwa';
 
-describe('Pwa Task', function() {
+describe('Pwa Task', function () {
   let pwaTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     balm.config = {
       pwa: {
         enabled: true
@@ -13,15 +13,15 @@ describe('Pwa Task', function() {
     pwaTask = new PwaTask();
   });
 
-  it('generateSW mode', function(done) {
+  it('generateSW mode', function (done) {
     pwaTask.fn(done);
   });
 
-  it('injectManifest mode', function(done) {
+  it('injectManifest mode', function (done) {
     pwaTask.recipe('injectManifest', {})(done);
   });
 
-  it('invalid', function(done) {
+  it('invalid', function (done) {
     pwaTask.recipe('unknown')(done);
   });
 });

@@ -1,15 +1,15 @@
 import MediaTask from '../../../packages/balm-core/src/tasks/private/media';
 
-describe('Media Task', function() {
+describe('Media Task', function () {
   let mediaTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     mediaTask = new MediaTask();
     mediaTask.fn();
   });
 
-  describe('development', function() {
-    before(function() {
+  describe('development', function () {
+    before(function () {
       balm.config = {
         env: {
           isDev: true
@@ -21,14 +21,14 @@ describe('Media Task', function() {
 
     it(
       `expected output: "${defaultOutput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(mediaTask.output).to.equal(defaultOutput);
       })
     );
   });
 
-  describe('production', function() {
-    before(function() {
+  describe('production', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true
@@ -40,7 +40,7 @@ describe('Media Task', function() {
 
     it(
       `expected output: "${defaultOutput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(mediaTask.output).to.equal(defaultOutput);
       })
     );

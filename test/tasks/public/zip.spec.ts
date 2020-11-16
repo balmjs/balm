@@ -1,40 +1,44 @@
 import ZipTask from '../../../packages/balm-core/src/tasks/public/zip';
 
-describe('Zip Task', function() {
+describe('Zip Task', function () {
   let zipTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     zipTask = new ZipTask();
   });
 
-  describe('default', function() {
-    it('noop', function(done) {
+  describe('default', function () {
+    it('noop', function (done) {
       zipTask.fn(done);
     });
   });
 
-  describe('#mix.zip()', function() {
+  describe('#mix.zip()', function () {
     const defaultInput = 'dist/**/*';
     const defaultOutput = '.';
 
-    describe('!options', function() {
+    describe('!options', function () {
       it(
         `expected output: "${defaultInput}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           zipTask.recipe(defaultInput, defaultOutput)();
 
-          expect(zipTask.input).to.equal(path.join(balm.config.workspace, defaultInput));
-          expect(zipTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
+          expect(zipTask.input).to.equal(
+            path.join(balm.config.workspace, defaultInput)
+          );
+          expect(zipTask.output).to.equal(
+            path.join(balm.config.workspace, defaultOutput)
+          );
         })
       );
     });
 
-    describe('custom filename', function() {
+    describe('custom filename', function () {
       const filename = 'new-archive.zip';
 
       it(
         `expected output: "${filename}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           zipTask.recipe(defaultInput, defaultOutput, filename)();
         })
       );

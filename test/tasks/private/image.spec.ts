@@ -1,21 +1,21 @@
 import ImageTask from '../../../packages/balm-core/src/tasks/private/image';
 
-describe('Image Task', function() {
+describe('Image Task', function () {
   let imageTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     imageTask = new ImageTask();
     imageTask.fn();
   });
 
-  describe('without sprites', function() {
+  describe('without sprites', function () {
     const defaultInput = [
       path.join(balm.config.workspace, 'src', 'images', '**', '*')
     ];
 
     it(
       `expected output: "${defaultInput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(JSON.stringify(imageTask.input)).to.equal(
           JSON.stringify(defaultInput)
         );
@@ -23,8 +23,8 @@ describe('Image Task', function() {
     );
   });
 
-  describe('with sprites', function() {
-    before(function() {
+  describe('with sprites', function () {
+    before(function () {
       balm.config = {
         styles: {
           sprites: ['icons']
@@ -40,7 +40,7 @@ describe('Image Task', function() {
 
     it(
       `expected output: "${defaultInput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(JSON.stringify(imageTask.input)).to.equal(
           JSON.stringify(defaultInput)
         );
@@ -48,8 +48,8 @@ describe('Image Task', function() {
     );
   });
 
-  describe('with custom plugins', function() {
-    before(function() {
+  describe('with custom plugins', function () {
+    before(function () {
       balm.config = {
         images: {
           plugins: []
@@ -59,7 +59,7 @@ describe('Image Task', function() {
 
     it(
       'use imagemin custom plugins',
-      asyncCase(function() {})
+      asyncCase(function () {})
     );
   });
 });

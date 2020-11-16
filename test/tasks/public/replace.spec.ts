@@ -1,23 +1,20 @@
 import ReplaceTask from '../../../packages/balm-core/src/tasks/public/replace';
 
-describe('Replace Task', function() {
+describe('Replace Task', function () {
   let replaceTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     replaceTask = new ReplaceTask();
   });
 
-  describe('default', function() {
-    it('noop', function(done) {
+  describe('default', function () {
+    it('noop', function (done) {
       replaceTask.fn(done);
     });
   });
 
-  describe('#mix.replace()', function() {
-    const defaultInput = [
-      'src/compress/file.css',
-      'src/compress/file.js'
-    ];
+  describe('#mix.replace()', function () {
+    const defaultInput = ['src/compress/file.css', 'src/compress/file.js'];
     const defaultOutput = path.join(balm.config.workspace, 'dist');
     const replaceOptions = {
       substr: /bar/gi,
@@ -26,7 +23,7 @@ describe('Replace Task', function() {
 
     it(
       `expected output: "${JSON.stringify(defaultInput)}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         replaceTask.recipe(defaultInput, defaultOutput, replaceOptions)();
 
         expect(JSON.stringify(replaceTask.input)).to.equal(

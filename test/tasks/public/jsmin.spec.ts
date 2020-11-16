@@ -1,35 +1,39 @@
 import JsminTask from '../../../packages/balm-core/src/tasks/public/jsmin';
 
-describe('Jsmin Task', function() {
+describe('Jsmin Task', function () {
   let jsminTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     jsminTask = new JsminTask();
   });
 
-  describe('default', function() {
-    it('noop', function(done) {
+  describe('default', function () {
+    it('noop', function (done) {
       jsminTask.fn(done);
     });
   });
 
-  describe('#mix.jsmin()', function() {
+  describe('#mix.jsmin()', function () {
     const defaultInput = 'src/main.js';
     const defaultOutput = 'dist';
 
-    describe('!options', function() {
+    describe('!options', function () {
       it(
         `expected output: "${defaultInput}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           jsminTask.recipe(defaultInput, defaultOutput)();
 
-          expect(jsminTask.input).to.equal(path.join(balm.config.workspace, defaultInput));
-          expect(jsminTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
+          expect(jsminTask.input).to.equal(
+            path.join(balm.config.workspace, defaultInput)
+          );
+          expect(jsminTask.output).to.equal(
+            path.join(balm.config.workspace, defaultOutput)
+          );
         })
       );
     });
 
-    describe('options', function() {
+    describe('options', function () {
       const defaultOptions = {
         parse: { ecma: 2017 },
         compress: { ecma: 5, comparisons: false, inline: 2 },
@@ -46,7 +50,7 @@ describe('Jsmin Task', function() {
         `expected output: "${JSON.stringify(
           Object.assign(defaultOptions, terser)
         )}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           jsminTask.recipe(defaultInput, defaultOutput, {
             terser
           })();

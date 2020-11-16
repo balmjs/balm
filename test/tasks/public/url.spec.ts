@@ -1,14 +1,14 @@
 import UrlTask from '../../../packages/balm-core/src/tasks/public/url';
 
-describe('Url Task', function() {
+describe('Url Task', function () {
   let urlTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     urlTask = new UrlTask();
   });
 
-  describe('development', function() {
-    before(function() {
+  describe('development', function () {
+    before(function () {
       balm.config = {
         env: {
           isDev: true
@@ -24,7 +24,7 @@ describe('Url Task', function() {
 
     it(
       `expected output: "${defaultOutput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         urlTask.fn();
 
         expect(urlTask.output).to.equal(defaultOutput);
@@ -33,8 +33,8 @@ describe('Url Task', function() {
     );
   });
 
-  describe('production', function() {
-    before(function() {
+  describe('production', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true
@@ -50,7 +50,7 @@ describe('Url Task', function() {
 
     it(
       `expected output: "${defaultOutput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         urlTask.fn();
 
         expect(urlTask.output).to.equal(defaultOutput);
@@ -59,8 +59,8 @@ describe('Url Task', function() {
     );
   });
 
-  describe('#mix.url()', function() {
-    before(function() {
+  describe('#mix.url()', function () {
+    before(function () {
       balm.config = {
         styles: {
           extname: 'css'
@@ -73,11 +73,15 @@ describe('Url Task', function() {
 
     it(
       `expected output: "${defaultOutput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         urlTask.recipe(defaultInput, defaultOutput)();
 
-        expect(urlTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
-        expect(urlTask.input).to.equal(path.join(balm.config.workspace, defaultInput));
+        expect(urlTask.output).to.equal(
+          path.join(balm.config.workspace, defaultOutput)
+        );
+        expect(urlTask.input).to.equal(
+          path.join(balm.config.workspace, defaultInput)
+        );
       })
     );
   });

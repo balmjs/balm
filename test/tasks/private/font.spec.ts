@@ -1,15 +1,15 @@
 import FontTask from '../../../packages/balm-core/src/tasks/private/font';
 
-describe('Font Task', function() {
+describe('Font Task', function () {
   let fontTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     fontTask = new FontTask();
     fontTask.fn();
   });
 
-  describe('development', function() {
-    before(function() {
+  describe('development', function () {
+    before(function () {
       balm.config = {
         env: {
           isDev: true
@@ -21,14 +21,14 @@ describe('Font Task', function() {
 
     it(
       `expected output: "${defaultOutput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(fontTask.output).to.equal(defaultOutput);
       })
     );
   });
 
-  describe('production', function() {
-    before(function() {
+  describe('production', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true
@@ -40,7 +40,7 @@ describe('Font Task', function() {
 
     it(
       `expected output: "${defaultOutput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(fontTask.output).to.equal(defaultOutput);
       })
     );

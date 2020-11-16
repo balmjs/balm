@@ -23,6 +23,7 @@ import './public/pwa.spec';
 import './public/remove.spec';
 import './public/copy.spec';
 import './public/replace.spec';
+import './public/rollup.spec';
 import './public/jsmin.spec';
 import './public/version.spec';
 import './public/zip.spec';

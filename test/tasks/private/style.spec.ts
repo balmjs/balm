@@ -1,14 +1,14 @@
 import StyleTask from '../../../packages/balm-core/src/tasks/private/style';
 
-describe('Style Task', function() {
+describe('Style Task', function () {
   let styleTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     styleTask = new StyleTask();
   });
 
-  describe('development', function() {
-    before(function() {
+  describe('development', function () {
+    before(function () {
       balm.config = {
         env: {
           isDev: true
@@ -18,18 +18,18 @@ describe('Style Task', function() {
 
     it(
       `deps length expected output: 1`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(styleTask.deps.length).to.equal(1);
       })
     );
   });
 
-  describe('production', function() {
+  describe('production', function () {
     const extnames = ['postcss', 'scss', 'sass', 'less'];
 
-    extnames.forEach(function(extname) {
-      describe(extname, function() {
-        before(function() {
+    extnames.forEach(function (extname) {
+      describe(extname, function () {
+        before(function () {
           balm.config = {
             env: {
               isProd: true
@@ -42,7 +42,7 @@ describe('Style Task', function() {
 
         it(
           `expected output: "${extname}"`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(styleTask.deps[0]).to.equal(
               extname === 'scss' ? 'sass' : extname
             );
@@ -52,8 +52,8 @@ describe('Style Task', function() {
     });
   });
 
-  describe('in backend', function() {
-    before(function() {
+  describe('in backend', function () {
+    before(function () {
       balm.config = {
         inFrontend: false
       };
@@ -61,7 +61,7 @@ describe('Style Task', function() {
 
     it(
       `deps length expected output: 2`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(styleTask.deps.length).to.equal(2);
       })
     );

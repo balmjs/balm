@@ -1,38 +1,40 @@
 import FtpTask from '../../../packages/balm-core/src/tasks/public/ftp';
 
-describe('Ftp Task', function() {
+describe('Ftp Task', function () {
   let ftpTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     ftpTask = new FtpTask();
   });
 
-  describe('default', function() {
+  describe('default', function () {
     const defaultInput = undefined;
 
     it(
       `expected output: "Invalid local files"`,
-      asyncCase(function() {
+      asyncCase(function () {
         ftpTask.fn();
       })
     );
   });
 
-  describe('#mix.ftp()', function() {
+  describe('#mix.ftp()', function () {
     const defaultInput = 'dist/*';
 
-    describe('!options', function() {
+    describe('!options', function () {
       it(
         `expected output: "${defaultInput}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           ftpTask.recipe(defaultInput)();
 
-          expect(ftpTask.input).to.equal(path.join(balm.config.workspace, defaultInput));
+          expect(ftpTask.input).to.equal(
+            path.join(balm.config.workspace, defaultInput)
+          );
         })
       );
     });
 
-    describe('options', function() {
+    describe('options', function () {
       const defaultOptions = {};
       const ftp = {
         username: 'hello',
@@ -46,7 +48,7 @@ describe('Ftp Task', function() {
         `expected output: "${JSON.stringify(
           Object.assign(defaultOptions, ftp)
         )}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           ftpTask.recipe(defaultInput, {
             src,
             ftp

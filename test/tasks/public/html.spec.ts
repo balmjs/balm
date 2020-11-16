@@ -1,15 +1,15 @@
 import HtmlTask from '../../../packages/balm-core/src/tasks/public/html';
 
-describe('Html Task', function() {
+describe('Html Task', function () {
   let htmlTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     htmlTask = new HtmlTask();
     htmlTask.fn();
   });
 
-  describe('development', function() {
-    before(function() {
+  describe('development', function () {
+    before(function () {
       balm.config = {
         env: {
           isDev: true
@@ -21,14 +21,14 @@ describe('Html Task', function() {
 
     it(
       `expected output: "${defaultOutput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(htmlTask.output).to.equal(defaultOutput);
       })
     );
   });
 
-  describe('production', function() {
-    before(function() {
+  describe('production', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true
@@ -43,14 +43,14 @@ describe('Html Task', function() {
 
     it(
       `expected output: "${defaultOutput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(htmlTask.output).to.equal(defaultOutput);
       })
     );
   });
 
-  describe('production with cache', function() {
-    before(function() {
+  describe('production with cache', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true
@@ -65,7 +65,7 @@ describe('Html Task', function() {
 
     it(
       `expected output: "${defaultOutput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(htmlTask.output).to.equal(defaultOutput);
       })
     );

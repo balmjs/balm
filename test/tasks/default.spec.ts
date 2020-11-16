@@ -2,21 +2,21 @@ import './custom-tasks';
 import DefaultTask from '../../packages/balm-core/src/tasks/default';
 import balm from '../../packages/balm-core/src/index';
 
-describe('Default Task', function() {
+describe('Default Task', function () {
   let defaultTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     defaultTask = new DefaultTask();
   });
 
-  describe('start task', function() {
+  describe('start task', function () {
     const beforeTask = 'beforeTask';
     const startTask = 'balm:start';
 
-    describe('!before task', function() {
+    describe('!before task', function () {
       it(
         `tasks[0] expected output: "${startTask}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           const tasks = defaultTask.startTask;
 
           expect(tasks[0]).to.equal(startTask);
@@ -24,14 +24,14 @@ describe('Default Task', function() {
       );
     });
 
-    describe('before task', function() {
-      before(function() {
+    describe('before task', function () {
+      before(function () {
         balm.beforeTask = beforeTask;
       });
 
       it(
         `tasks[0] expected output: "${beforeTask}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           const tasks = defaultTask.startTask;
 
           expect(tasks[0]).to.equal(beforeTask);
@@ -41,9 +41,9 @@ describe('Default Task', function() {
     });
   });
 
-  describe('main tasks', function() {
-    describe('in development', function() {
-      describe('defaults', function() {
+  describe('main tasks', function () {
+    describe('in development', function () {
+      describe('defaults', function () {
         const mainTasks = [
           'balm:clean',
           'balm:style',
@@ -53,7 +53,7 @@ describe('Default Task', function() {
           'balm:serve'
         ];
 
-        before(function() {
+        before(function () {
           balm.config = {
             env: {
               isDev: true
@@ -63,7 +63,7 @@ describe('Default Task', function() {
 
         it(
           `tasks length expected output: ${mainTasks.length}`,
-          asyncCase(function() {
+          asyncCase(function () {
             const tasks = defaultTask.mainTasks;
 
             expect(JSON.stringify(tasks)).to.equal(JSON.stringify(mainTasks));
@@ -71,8 +71,8 @@ describe('Default Task', function() {
         );
       });
 
-      describe('!defaults', function() {
-        before(function() {
+      describe('!defaults', function () {
+        before(function () {
           balm.config = {
             env: {
               isDev: true
@@ -83,7 +83,7 @@ describe('Default Task', function() {
 
         it(
           'tasks length expected output: 0',
-          asyncCase(function() {
+          asyncCase(function () {
             const tasks = defaultTask.mainTasks;
 
             expect(tasks.length).to.equal(0);
@@ -92,8 +92,8 @@ describe('Default Task', function() {
       });
     });
 
-    describe('in production', function() {
-      describe('default tasks', function() {
+    describe('in production', function () {
+      describe('default tasks', function () {
         const mainTasks = [
           'balm:clean',
           'balm:style',
@@ -106,7 +106,7 @@ describe('Default Task', function() {
           'balm:build'
         ];
 
-        before(function() {
+        before(function () {
           balm.config = {
             env: {
               isProd: true
@@ -116,7 +116,7 @@ describe('Default Task', function() {
 
         it(
           `tasks length expected output: ${mainTasks.length}`,
-          asyncCase(function() {
+          asyncCase(function () {
             const tasks = defaultTask.mainTasks;
 
             expect(JSON.stringify(tasks)).to.equal(JSON.stringify(mainTasks));
@@ -124,7 +124,7 @@ describe('Default Task', function() {
         );
       });
 
-      describe('with sprites, lint, cache and pwa', function() {
+      describe('with sprites, lint, cache and pwa', function () {
         const mainTasks = [
           'balm:clean',
           'balm:sprite',
@@ -142,7 +142,7 @@ describe('Default Task', function() {
           'balm:pwa'
         ];
 
-        before(function() {
+        before(function () {
           balm.config = {
             env: {
               isProd: true
@@ -164,7 +164,7 @@ describe('Default Task', function() {
 
         it(
           `tasks length expected output: ${mainTasks.length}`,
-          asyncCase(function() {
+          asyncCase(function () {
             const tasks = defaultTask.mainTasks;
 
             expect(JSON.stringify(tasks)).to.equal(JSON.stringify(mainTasks));
@@ -174,11 +174,11 @@ describe('Default Task', function() {
     });
   });
 
-  describe('sub tasks', function() {
-    describe('!mix', function() {
+  describe('sub tasks', function () {
+    describe('!mix', function () {
       it(
         'tasks length expected output: 0',
-        asyncCase(function() {
+        asyncCase(function () {
           const tasks = defaultTask.subTasks;
 
           expect(tasks.length).to.equal(0);
@@ -186,10 +186,10 @@ describe('Default Task', function() {
       );
     });
 
-    describe('mix', function() {
+    describe('mix', function () {
       const subTasks = ['balm:postcss:0', 'balm:webpack:1'];
 
-      before(function() {
+      before(function () {
         balm.go((mix: any) => {
           mix.css('main.css', 'dist/css');
           mix.webpack('main.js', 'dist/js');
@@ -198,7 +198,7 @@ describe('Default Task', function() {
 
       it(
         'tasks length expected output: 2',
-        asyncCase(function() {
+        asyncCase(function () {
           const tasks = defaultTask.subTasks;
 
           expect(JSON.stringify(tasks)).to.equal(JSON.stringify(subTasks));
@@ -207,14 +207,14 @@ describe('Default Task', function() {
     });
   });
 
-  describe('end task', function() {
+  describe('end task', function () {
     const afterTask = 'afterTask';
     const endTask = 'balm:end';
 
-    describe('!after task', function() {
+    describe('!after task', function () {
       it(
         `tasks[0] expected output: "${endTask}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           const tasks = defaultTask.endTask;
 
           expect(tasks[0]).to.equal(endTask);
@@ -222,14 +222,14 @@ describe('Default Task', function() {
       );
     });
 
-    describe('after task', function() {
-      before(function() {
+    describe('after task', function () {
+      before(function () {
         balm.afterTask = afterTask;
       });
 
       it(
         `tasks[1] expected output: "${afterTask}"`,
-        asyncCase(function() {
+        asyncCase(function () {
           const tasks = defaultTask.endTask;
 
           expect(tasks[0]).to.equal(endTask);
@@ -239,8 +239,8 @@ describe('Default Task', function() {
     });
   });
 
-  describe('build miniprogram', function() {
-    before(function() {
+  describe('build miniprogram', function () {
+    before(function () {
       balm.config = {
         env: {
           isMP: true
@@ -250,7 +250,7 @@ describe('Default Task', function() {
 
     it(
       'tasks length expected output: 2',
-      asyncCase(function() {
+      asyncCase(function () {
         const tasks = defaultTask.mainTasks;
 
         expect(tasks.length).to.equal(2);
@@ -258,8 +258,8 @@ describe('Default Task', function() {
     );
   });
 
-  describe('build electron', function() {
-    before(function() {
+  describe('build electron', function () {
+    before(function () {
       balm.config = {
         env: {
           inDesktopApp: true
@@ -269,7 +269,7 @@ describe('Default Task', function() {
 
     it(
       'tasks length expected output: 1',
-      asyncCase(function() {
+      asyncCase(function () {
         const tasks = defaultTask.mainTasks;
 
         expect(tasks.length).to.equal(1);

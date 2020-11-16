@@ -1,16 +1,16 @@
 import CleanTask from '../../../packages/balm-core/src/tasks/private/clean';
 
-describe('Clean Task', function() {
+describe('Clean Task', function () {
   let cleanTask: any;
 
-  beforeEach(function(done) {
+  beforeEach(function (done) {
     cleanTask = new CleanTask();
     cleanTask.fn(done);
   });
 
-  describe('in frontend', function() {
-    describe('development', function() {
-      before(function() {
+  context('in frontend', function () {
+    describe('development', function () {
+      before(function () {
         balm.config = {
           env: {
             isDev: true
@@ -22,7 +22,7 @@ describe('Clean Task', function() {
 
       it(
         `expected output: ${dirInFrontend}`,
-        asyncCase(function() {
+        asyncCase(function () {
           expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
             JSON.stringify(dirInFrontend)
           );
@@ -30,10 +30,10 @@ describe('Clean Task', function() {
       );
     });
 
-    describe('production', function() {
-      describe('with local', function() {
-        describe('!subDir', function() {
-          before(function() {
+    describe('production', function () {
+      context('with local', function () {
+        describe('!subDir', function () {
+          before(function () {
             balm.config = {
               env: {
                 isProd: true
@@ -52,7 +52,7 @@ describe('Clean Task', function() {
 
           it(
             `expected output: ${dirInFrontend}`,
-            asyncCase(function() {
+            asyncCase(function () {
               expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
                 JSON.stringify(dirInFrontend)
               );
@@ -60,8 +60,8 @@ describe('Clean Task', function() {
           );
         });
 
-        describe('subDir', function() {
-          before(function() {
+        describe('subDir', function () {
+          before(function () {
             balm.config = {
               env: {
                 isProd: true
@@ -80,7 +80,7 @@ describe('Clean Task', function() {
 
           it(
             `expected output: ${dirInFrontend}`,
-            asyncCase(function() {
+            asyncCase(function () {
               expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
                 JSON.stringify(dirInFrontend)
               );
@@ -89,8 +89,8 @@ describe('Clean Task', function() {
         });
       });
 
-      describe('with empty remote', function() {
-        before(function() {
+      describe('with empty remote', function () {
+        before(function () {
           balm.config = {
             env: {
               isProd: true
@@ -105,7 +105,7 @@ describe('Clean Task', function() {
 
         it(
           `expected output: ${dirInFrontend}`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
               JSON.stringify(dirInFrontend)
             );
@@ -113,9 +113,9 @@ describe('Clean Task', function() {
         );
       });
 
-      describe('with remote', function() {
-        describe('!subDir', function() {
-          before(function() {
+      context('with remote', function () {
+        describe('!subDir', function () {
+          before(function () {
             balm.config = {
               env: {
                 isProd: true
@@ -138,7 +138,7 @@ describe('Clean Task', function() {
 
           it(
             `expected output: ${dirInFrontend}`,
-            asyncCase(function() {
+            asyncCase(function () {
               expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
                 JSON.stringify(dirInFrontend)
               );
@@ -146,8 +146,8 @@ describe('Clean Task', function() {
           );
         });
 
-        describe('subDir', function() {
-          before(function() {
+        describe('subDir', function () {
+          before(function () {
             balm.config = {
               env: {
                 isProd: true
@@ -166,7 +166,7 @@ describe('Clean Task', function() {
 
           it(
             `expected output: ${dirInFrontend}`,
-            asyncCase(function() {
+            asyncCase(function () {
               expect(JSON.stringify(cleanTask.dirInFrontend)).to.equal(
                 JSON.stringify(dirInFrontend)
               );
@@ -177,10 +177,10 @@ describe('Clean Task', function() {
     });
   });
 
-  describe('in backend', function() {
-    describe('development', function() {
-      describe('!subDir', function() {
-        before(function() {
+  describe('in backend', function () {
+    context('development', function () {
+      describe('!subDir', function () {
+        before(function () {
           balm.config = {
             inFrontend: false,
             env: {
@@ -200,7 +200,7 @@ describe('Clean Task', function() {
         ];
         it(
           `expected output: ${dirInBackend}`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(JSON.stringify(cleanTask.dirInBackend)).to.equal(
               JSON.stringify(dirInBackend)
             );
@@ -208,8 +208,8 @@ describe('Clean Task', function() {
         );
       });
 
-      describe('subDir', function() {
-        before(function() {
+      describe('subDir', function () {
+        before(function () {
           balm.config = {
             inFrontend: false,
             env: {
@@ -229,7 +229,7 @@ describe('Clean Task', function() {
         ];
         it(
           `expected output: ${dirInBackend}`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(JSON.stringify(cleanTask.dirInBackend)).to.equal(
               JSON.stringify(dirInBackend)
             );
@@ -238,10 +238,10 @@ describe('Clean Task', function() {
       });
     });
 
-    describe('production', function() {
-      describe('non-cache', function() {
-        describe('!subDir', function() {
-          before(function() {
+    context('production', function () {
+      describe('non-cache', function () {
+        describe('!subDir', function () {
+          before(function () {
             balm.config = {
               inFrontend: false,
               env: {
@@ -263,7 +263,7 @@ describe('Clean Task', function() {
 
           it(
             `expected output: ${dirInBackend}`,
-            asyncCase(function() {
+            asyncCase(function () {
               expect(JSON.stringify(cleanTask.dirInBackend)).to.equal(
                 JSON.stringify(dirInBackend)
               );
@@ -271,8 +271,8 @@ describe('Clean Task', function() {
           );
         });
 
-        describe('subDir', function() {
-          before(function() {
+        describe('subDir', function () {
+          before(function () {
             balm.config = {
               inFrontend: false,
               env: {
@@ -289,7 +289,7 @@ describe('Clean Task', function() {
 
           it(
             `expected output: ${dirInBackend}`,
-            asyncCase(function() {
+            asyncCase(function () {
               expect(JSON.stringify(cleanTask.dirInBackend)).to.equal(
                 JSON.stringify(dirInBackend)
               );
@@ -298,9 +298,9 @@ describe('Clean Task', function() {
         });
       });
 
-      describe('cache', function() {
-        describe('!subDir', function() {
-          before(function() {
+      describe('cache', function () {
+        describe('!subDir', function () {
+          before(function () {
             balm.config = {
               inFrontend: false,
               env: {
@@ -317,7 +317,7 @@ describe('Clean Task', function() {
 
           it(
             `expected output: ${dirInBackend}`,
-            asyncCase(function() {
+            asyncCase(function () {
               expect(JSON.stringify(cleanTask.dirInBackend)).to.equal(
                 JSON.stringify(dirInBackend)
               );
@@ -325,8 +325,8 @@ describe('Clean Task', function() {
           );
         });
 
-        describe('subDir', function() {
-          before(function() {
+        describe('subDir', function () {
+          before(function () {
             balm.config = {
               inFrontend: false,
               env: {
@@ -344,7 +344,7 @@ describe('Clean Task', function() {
 
           it(
             `expected output: ${dirInBackend}`,
-            asyncCase(function() {
+            asyncCase(function () {
               expect(JSON.stringify(cleanTask.dirInBackend)).to.equal(
                 JSON.stringify(dirInBackend)
               );
@@ -353,8 +353,8 @@ describe('Clean Task', function() {
         });
       });
 
-      describe('duplicated paths', function() {
-        before(function() {
+      describe('duplicated paths', function () {
+        before(function () {
           balm.config = {
             inFrontend: false,
             env: {
@@ -380,7 +380,7 @@ describe('Clean Task', function() {
 
         it(
           `expected output: ${dirInBackend}`,
-          asyncCase(function() {
+          asyncCase(function () {
             expect(JSON.stringify(cleanTask.dirInBackend)).to.equal(
               JSON.stringify(dirInBackend)
             );

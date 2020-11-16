@@ -1,41 +1,35 @@
 import StartTask from '../../../packages/balm-core/src/tasks/private/start';
 
-describe('Start Task', function() {
+describe('Start Task', function () {
   let startTask: any;
 
-  describe('!before task', function() {
-    before(function(done) {
+  describe('!before task', function () {
+    before(function (done) {
       startTask = new StartTask();
-      startTask.fn(function() {
-        console.timeEnd('BalmJS Time');
-        done();
-      });
+      startTask.fn(done);
     });
 
     it(
       `expected output: "undefined"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(typeof BalmJS.beforeTask).to.equal('undefined');
       })
     );
   });
 
-  describe('before task', function() {
-    before(function(done) {
-      balm.beforeTask = function() {
+  describe('before task', function () {
+    before(function (done) {
+      balm.beforeTask = function () {
         console.log('Hello BalmJS');
-        done();
       };
 
       startTask = new StartTask();
-      startTask.fn(function() {
-        console.timeEnd('BalmJS Time');
-      });
+      startTask.fn(done);
     });
 
     it(
       `expected output: "function"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(typeof BalmJS.beforeTask).to.equal('function');
       })
     );

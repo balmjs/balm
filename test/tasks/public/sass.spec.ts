@@ -16,7 +16,13 @@ describe('Sass Task', function () {
       };
     });
 
-    const defaultInput = path.join(balm.config.workspace, 'src', 'styles', '**', '!(_*).{scss,sass}');
+    const defaultInput = path.join(
+      balm.config.workspace,
+      'src',
+      'styles',
+      '**',
+      '!(_*).{scss,sass}'
+    );
 
     it(
       `expected output: "${defaultInput}"`,
@@ -55,7 +61,9 @@ describe('Sass Task', function () {
             path.join(balm.config.workspace, 'scss', '*.scss')
           ])
         );
-        expect(sassTask.output).to.equal(path.join(balm.config.workspace, defaultOutput));
+        expect(sassTask.output).to.equal(
+          path.join(balm.config.workspace, defaultOutput)
+        );
       })
     );
   });
@@ -74,7 +82,12 @@ describe('Sass Task', function () {
       };
     });
 
-    const defaultOutput = path.join(balm.config.workspace, 'dist', 'common', 'css');
+    const defaultOutput = path.join(
+      balm.config.workspace,
+      'dist',
+      'common',
+      'css'
+    );
 
     it(
       `expected output: "${defaultOutput}"`,

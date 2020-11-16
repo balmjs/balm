@@ -1,12 +1,12 @@
 import ExtraTask from '../../../packages/balm-core/src/tasks/private/extra';
 
-describe('Extra Task', function() {
+describe('Extra Task', function () {
   let extraTask: any;
 
   const srcBase = path.join(balm.config.workspace, 'src');
 
-  describe('without extra input', function() {
-    before(function() {
+  describe('without extra input', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true
@@ -25,7 +25,7 @@ describe('Extra Task', function() {
 
     it(
       `expected output: "${defaultInput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(JSON.stringify(extraTask.input)).to.equal(
           JSON.stringify(defaultInput)
         );
@@ -33,8 +33,8 @@ describe('Extra Task', function() {
     );
   });
 
-  describe('with extra input', function() {
-    before(function() {
+  describe('with extra input', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true
@@ -59,7 +59,7 @@ describe('Extra Task', function() {
 
     it(
       `expected output: "${defaultInput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(JSON.stringify(extraTask.input)).to.equal(
           JSON.stringify(defaultInput)
         );

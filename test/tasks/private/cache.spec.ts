@@ -1,15 +1,15 @@
 import CacheTask from '../../../packages/balm-core/src/tasks/private/cache';
 
-describe('Cache Task', function() {
+describe('Cache Task', function () {
   let cacheTask: any;
 
-  beforeEach(function() {
+  beforeEach(function () {
     cacheTask = new CacheTask();
     cacheTask.fn();
   });
 
-  describe('in frontend', function() {
-    before(function() {
+  describe('in frontend', function () {
+    before(function () {
       balm.config = {
         inFrontend: true,
         env: {
@@ -37,7 +37,7 @@ describe('Cache Task', function() {
 
     it(
       `expected output: ${defaultOutput}`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(JSON.stringify(cacheTask.input)).to.equal(
           JSON.stringify(defaultInput)
         );
@@ -46,8 +46,8 @@ describe('Cache Task', function() {
     );
   });
 
-  describe('in backend', function() {
-    before(function() {
+  describe('in backend', function () {
+    before(function () {
       balm.config = {
         inFrontend: false,
         env: {
@@ -80,7 +80,7 @@ describe('Cache Task', function() {
 
     it(
       `expected output: "${defaultOutput}"`,
-      asyncCase(function() {
+      asyncCase(function () {
         expect(JSON.stringify(cacheTask.input)).to.equal(
           JSON.stringify(defaultInput)
         );
