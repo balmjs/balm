@@ -3,15 +3,15 @@ import { cleanup, runTest } from '../test';
 const targetDir = '.output';
 
 describe('Balm Hooks - html', function () {
+  afterEach(function () {
+    cleanup();
+  });
+
   describe('for web', function () {
     before(function () {
       balm.config = {
         useDefaults: false
       };
-    });
-
-    after(function () {
-      cleanup();
     });
 
     it('#mix.html()', function (done) {
@@ -33,11 +33,6 @@ describe('Balm Hooks - html', function () {
   describe('for desktop', function () {
     before(function () {
       BalmJS.config.inDesktopApp = true;
-    });
-
-    after(function () {
-      BalmJS.config.inDesktopApp = false;
-      cleanup();
     });
 
     it('#mix.html()', function (done) {
