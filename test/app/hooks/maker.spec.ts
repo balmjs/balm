@@ -1,12 +1,12 @@
 import { cleanup, runTest } from '../app/test';
 
-describe('Maker', function() {
-  after(function() {
+describe('Maker', function () {
+  after(function () {
     cleanup();
   });
 
-  describe('blocklist in production', function() {
-    before(function() {
+  describe('blocklist in production', function () {
+    before(function () {
       balm.config = {
         env: {
           isProd: true
@@ -15,7 +15,7 @@ describe('Maker', function() {
       };
     });
 
-    it('expected output: "WARNING"', function(done) {
+    it('expected output: "WARNING"', function (done) {
       runTest(
         {
           testCase: false,
@@ -28,8 +28,8 @@ describe('Maker', function() {
     });
   });
 
-  describe('blocklist in development', function() {
-    before(function() {
+  describe('blocklist in development', function () {
+    before(function () {
       balm.config = {
         env: {
           isDev: true
@@ -38,7 +38,7 @@ describe('Maker', function() {
       };
     });
 
-    it('expected output: "WARNING"', function(done) {
+    it('expected output: "WARNING"', function (done) {
       runTest(
         {
           testCase: false,

@@ -32,7 +32,7 @@ describe('App Test in production', function () {
       let testCase = [
         'dist/index.html',
         'dist/favicon.ico',
-        'dist/rev-manifest.json',
+        'dist/rev-manifest.json'
         // 'dist/a/main.7ad32811.css',
         // 'dist/b/main.3faa14e5.js',
         // 'dist/c/logo.bae9298c.svg',
@@ -78,10 +78,7 @@ describe('App Test in production', function () {
             ]);
           }
         },
-        {
-          done,
-          delay: 4000
-        }
+        done
       );
     });
   });
@@ -90,7 +87,7 @@ describe('App Test in production', function () {
     before(function () {
       balm.config = {
         useDefaults: false
-      }
+      };
     });
 
     after(function () {
@@ -102,7 +99,7 @@ describe('App Test in production', function () {
         'assets/public/a/main.7ad32811.css',
         'assets/public/b/main.3faa14e5.js',
         'assets/views/home.blade.php',
-        'assets/views/a/page-a.phtml',
+        'assets/views/a/page-a.phtml'
         // 'assets/views/b/page-b.phtml'
       ];
 

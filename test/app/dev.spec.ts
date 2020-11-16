@@ -1,7 +1,7 @@
 import { cleanup, runTest } from './test';
 
-describe('App Test in development', function() {
-  before(function() {
+describe('App Test in development', function () {
+  before(function () {
     balm.config = {
       env: {
         isDev: true
@@ -9,7 +9,7 @@ describe('App Test in development', function() {
     };
   });
 
-  after(function() {
+  after(function () {
     cleanup();
   });
 
@@ -20,16 +20,13 @@ describe('App Test in development', function() {
     '.tmp/js/modernizr.js'
   ];
 
-  it('expected output: ".tmp"', function(done) {
+  it('expected output: ".tmp"', function (done) {
     runTest(
       {
         testCase,
         testHook: () => {}
       },
-      {
-        done,
-        delay: 4000
-      }
+      done
     );
   });
 });
