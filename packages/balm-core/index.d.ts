@@ -275,9 +275,9 @@ export interface HookOptions {
   src?: object;
   sass?: object;
   less?: object;
-  terser?: object;
+  terser?: MinifyOptions;
   rename?: string | Function | RenameOptions;
-  ftp?: object;
+  ftp?: BalmFtpConfig;
 }
 
 export interface SpriteOptions {

@@ -30,6 +30,7 @@ const bundler: BalmBundler = 'webpack';
  * @reference https://github.com/terser/terser#minify-options
  */
 const minifyOptions: MinifyOptions = {
+  ecma: 5,
   parse: {
     // We want terser to parse ecma 8 code. However, we don't want it
     // to apply any minfication steps that turns valid ecma 5 code
@@ -39,7 +40,6 @@ const minifyOptions: MinifyOptions = {
     ecma: 2017
   },
   compress: {
-    ecma: 5,
     // Disabled because of an issue with Uglify breaking seemingly valid code:
     // https://github.com/facebook/create-react-app/issues/2376
     // Pending further investigation:
@@ -55,7 +55,6 @@ const minifyOptions: MinifyOptions = {
     safari10: true
   },
   output: {
-    ecma: 5,
     comments: false,
     // Turned on because emoji and regex is not minified properly using default
     // https://github.com/facebook/create-react-app/issues/2488

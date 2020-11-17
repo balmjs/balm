@@ -6,11 +6,12 @@ class JsminTask extends BalmJS.BalmTask {
   }
 
   get options(): MinifyOptions {
-    return Object.assign(
+    const defaultOptions = Object.assign(
       {},
-      BalmJS.config.scripts.minifyOptions,
-      this.customOptions
+      BalmJS.config.scripts.minifyOptions
     );
+
+    return BalmJS.utils.deepMerge(defaultOptions, this.customOptions);
   }
 
   recipe(

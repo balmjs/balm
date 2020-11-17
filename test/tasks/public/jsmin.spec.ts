@@ -1,4 +1,5 @@
 import JsminTask from '../../../packages/balm-core/src/tasks/public/jsmin';
+import utils from '../../../packages/balm-core/src/utilities/utils';
 
 describe('Jsmin Task', function () {
   let jsminTask: any;
@@ -35,12 +36,23 @@ describe('Jsmin Task', function () {
 
     describe('options', function () {
       const defaultOptions = {
-        parse: { ecma: 2017 },
-        compress: { ecma: 5, comparisons: false, inline: 2 },
-        mangle: { safari10: true },
-        output: { ecma: 5, comments: false, ascii_only: true }
+        ecma: 5,
+        parse: {
+          ecma: 2017
+        },
+        compress: {
+          comparisons: false,
+          inline: 2
+        },
+        mangle: {
+          safari10: true
+        },
+        output: {
+          comments: false,
+          ascii_only: true
+        }
       };
-      const terser = {
+      const customOptions = {
         compress: {
           drop_console: false
         }
@@ -48,15 +60,15 @@ describe('Jsmin Task', function () {
 
       it(
         `expected output: "${JSON.stringify(
-          Object.assign(defaultOptions, terser)
+          utils.deepMerge(defaultOptions, customOptions)
         )}"`,
         asyncCase(function () {
           jsminTask.recipe(defaultInput, defaultOutput, {
-            terser
+            terser: customOptions
           })();
 
           expect(JSON.stringify(jsminTask.options)).to.equal(
-            JSON.stringify(Object.assign(defaultOptions, terser))
+            JSON.stringify(utils.deepMerge(defaultOptions, customOptions))
           );
         })
       );
