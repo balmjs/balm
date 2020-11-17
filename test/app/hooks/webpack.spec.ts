@@ -23,7 +23,12 @@ describe('Balm Hooks - webpack', function () {
             mix.webpack('./src/scripts/index.js', output);
           }
         },
-        done
+        isWin
+          ? {
+              done,
+              delay: 3000
+            }
+          : done
       );
     });
   });
@@ -40,7 +45,12 @@ describe('Balm Hooks - webpack', function () {
             );
           }
         },
-        done
+        isWin
+          ? {
+              done,
+              delay: 3000
+            }
+          : done
       );
     });
   });
@@ -59,7 +69,12 @@ describe('Balm Hooks - webpack', function () {
             );
           }
         },
-        done
+        isWin
+          ? {
+              done,
+              delay: 3000
+            }
+          : done
       );
     });
   });
