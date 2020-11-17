@@ -18,7 +18,7 @@ describe('History Middleware', function () {
     );
   });
 
-  describe('H5 history', function () {
+  context('H5 history', function () {
     const middlewaresCount = 1;
 
     describe('!object', function () {

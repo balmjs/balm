@@ -24,7 +24,7 @@ describe('Balm File', function () {
   });
 
   describe('.assetsSuffixPath', function () {
-    describe('in frontend', function () {
+    context('in frontend', function () {
       describe('!subDir', function () {
         before(function () {
           balm.config = {
@@ -66,7 +66,7 @@ describe('Balm File', function () {
       });
     });
 
-    describe('production with cache in backend', function () {
+    context('production with cache in backend', function () {
       describe('!subDir', function () {
         before(function () {
           balm.config = {

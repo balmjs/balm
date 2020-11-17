@@ -1,5 +1,5 @@
 describe('Bootstrap', function () {
-  describe('#checkTask()', function () {
+  context('#checkTask()', function () {
     describe('before task', function () {
       before(function () {
         balm.beforeTask = 1024;
@@ -23,7 +23,7 @@ describe('Bootstrap', function () {
     });
   });
 
-  describe('#go()', function () {
+  context('#go()', function () {
     describe('function', function () {
       before(function () {
         balm.go();

@@ -19,7 +19,7 @@ describe('Http Proxy Middleware', function () {
   });
 
   describe('proxy', function () {
-    describe('config is an object', function () {
+    context('config is an object', function () {
       describe('correct', function () {
         before(function () {
           balm.config = {
@@ -64,7 +64,7 @@ describe('Http Proxy Middleware', function () {
       });
     });
 
-    describe('config is an array', function () {
+    context('config is an array', function () {
       describe('correct', function () {
         before(function () {
           balm.config = {

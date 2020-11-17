@@ -1,7 +1,7 @@
 import webpackConfig from '../../packages/balm-core/src/bundler/webpack';
 
 describe('Bundler#webpackConfig()', function () {
-  describe('web', function () {
+  context('web', function () {
     describe('with externals', function () {
       before(function () {
         balm.config = {
@@ -67,7 +67,7 @@ describe('Bundler#webpackConfig()', function () {
     });
   });
 
-  describe('vendor extraction', function () {
+  context('vendor extraction', function () {
     describe('default', function () {
       before(function () {
         balm.config = {

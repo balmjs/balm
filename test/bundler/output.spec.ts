@@ -3,7 +3,7 @@ import getOutput from '../../packages/balm-core/src/bundler/webpack/output';
 describe('Bundler#getOutput()', function () {
   let result: any = {};
 
-  describe('development', function () {
+  context('development', function () {
     beforeEach(function () {
       balm.config = {
         env: {
@@ -43,7 +43,7 @@ describe('Bundler#getOutput()', function () {
     });
   });
 
-  describe('production', function () {
+  context('production', function () {
     describe('default', function () {
       before(function () {
         balm.config = {

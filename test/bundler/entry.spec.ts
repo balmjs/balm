@@ -15,7 +15,7 @@ describe('Bundler#getEntry()', function () {
     );
   });
 
-  describe('development', function () {
+  context('development', function () {
     beforeEach(function () {
       balm.config = {
         env: {
@@ -93,7 +93,7 @@ describe('Bundler#getEntry()', function () {
     });
   });
 
-  describe('production', function () {
+  context('production', function () {
     beforeEach(function () {
       balm.config = {
         env: {
