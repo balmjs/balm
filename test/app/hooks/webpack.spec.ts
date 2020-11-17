@@ -14,8 +14,8 @@ describe('Balm Hooks - webpack', function () {
     cleanup();
   });
 
-  describe('bundles js file(s)', function () {
-    it(`bundles single js file to the "${output}" directory`, function (done) {
+  describe('bundles single js file', function () {
+    it(`expected output: "${output}"`, function (done) {
       runTest(
         {
           testCase: `${output}/main.js`,
@@ -26,8 +26,10 @@ describe('Balm Hooks - webpack', function () {
         done
       );
     });
+  });
 
-    it(`bundles multiple js files to the "${output}" directory`, function (done) {
+  describe('bundles multiple js files', function () {
+    it(`expected output: "${output}"`, function (done) {
       runTest(
         {
           testCase: [`${output}/page-a.js`, `${output}/page-b.js`],
@@ -41,8 +43,10 @@ describe('Balm Hooks - webpack', function () {
         done
       );
     });
+  });
 
-    it(`bundles js object to the "${output}" directory`, function (done) {
+  describe('bundles multiple js files', function () {
+    it(`expected output: "${output}"`, function (done) {
       runTest(
         {
           testCase: `${output}/app.js`,

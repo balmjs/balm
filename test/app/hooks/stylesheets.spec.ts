@@ -11,12 +11,6 @@ describe('Balm Hooks - css & sprites', function () {
     const extnames = ['css', 'sass', 'less'];
 
     extnames.forEach(function (extname) {
-      before(function () {
-        balm.config = {
-          useDefaults: false
-        };
-      });
-
       const api = extname;
       const input = `src/styles/main.${extname === 'sass' ? 'scss' : extname}`;
       const output = `${targetDir}/${extname}`;
@@ -24,6 +18,12 @@ describe('Balm Hooks - css & sprites', function () {
       describe(`compiles ${
         extname === 'css' ? 'postcss' : extname
       } files`, function () {
+        before(function () {
+          balm.config = {
+            useDefaults: false
+          };
+        });
+
         it(`expected output: "${output}"`, function (done) {
           runTest(
             {
