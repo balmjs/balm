@@ -7,7 +7,7 @@ module.exports = Object.assign(balmrc, {
   },
   scripts: {
     // Using esbuild
-    // esbuild: true,
+    // bundler: 'esbuild',
     // entry: './ts/scripts/main.ts'
     // Using webpack
     entry: {

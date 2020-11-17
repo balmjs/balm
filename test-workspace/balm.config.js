@@ -19,7 +19,7 @@ const config = {
     // sprites: ['icons', 'mdi']
   },
   scripts: {
-    esbuild: true,
+    bundler: 'esbuild',
     lint: true
   },
   // images: {
