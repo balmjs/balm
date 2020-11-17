@@ -27,10 +27,7 @@ describe('Balm Hooks - zip', function () {
             mix.zip();
           }
         },
-        {
-          done,
-          delay: 4000
-        }
+        done
       );
     });
   });

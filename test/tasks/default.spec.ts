@@ -41,8 +41,8 @@ describe('Default Task', function () {
     });
   });
 
-  describe('main tasks', function () {
-    describe('in development', function () {
+  context('main tasks', function () {
+    context('in development', function () {
       describe('defaults', function () {
         const mainTasks = [
           'balm:clean',
@@ -92,7 +92,7 @@ describe('Default Task', function () {
       });
     });
 
-    describe('in production', function () {
+    context('in production', function () {
       describe('default tasks', function () {
         const mainTasks = [
           'balm:clean',
@@ -174,7 +174,7 @@ describe('Default Task', function () {
     });
   });
 
-  describe('sub tasks', function () {
+  context('sub tasks', function () {
     describe('!mix', function () {
       it(
         'tasks length expected output: 0',

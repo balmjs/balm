@@ -3,10 +3,6 @@ import WebpackTask from '../../../packages/balm-core/src/tasks/public/webpack';
 describe('Webpack Task', function () {
   let webpackTask: any;
 
-  beforeEach(function () {
-    webpackTask = new WebpackTask();
-  });
-
   describe('default', function () {
     before(function () {
       balm.config = {
@@ -14,6 +10,8 @@ describe('Webpack Task', function () {
           entry: './src/scripts/index.js'
         }
       };
+
+      webpackTask = new WebpackTask();
     });
 
     const defaultInput = './src/scripts/index.js';
@@ -32,6 +30,8 @@ describe('Webpack Task', function () {
           level: 2
         }
       };
+
+      webpackTask = new WebpackTask();
     });
 
     const defaultInput = './src/scripts/index.js';

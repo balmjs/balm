@@ -60,28 +60,4 @@ describe('Less Task', function () {
       })
     );
   });
-
-  // describe('with error', function () {
-  //   before(function () {
-  //     balm.config = {
-  //       styles: {
-  //         extname: 'less'
-  //       }
-  //     };
-  //   });
-
-  //   it(
-  //     'error handler',
-  //     asyncCase(function () {
-  //       lessTask.recipe(
-  //         path.join(balm.config.workspace, 'src/styles/error.less'),
-  //         'dist'
-  //       )();
-
-  //       expect(lessTask.input).to.equal(
-  //         path.join(balm.config.workspace, 'src', 'styles', 'error.less')
-  //       );
-  //     })
-  //   );
-  // });
 });

@@ -32,7 +32,11 @@ describe('Balm Hooks - html', function () {
 
   describe('for desktop', function () {
     before(function () {
-      BalmJS.config.inDesktopApp = true;
+      balm.config = {
+        useDefaults: false
+      };
+
+      BalmJS.config.inDesktopApp = true; // specific field
     });
 
     it('#mix.html()', function (done) {

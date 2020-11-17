@@ -82,10 +82,7 @@ describe('App Test in production', function () {
             ]);
           }
         },
-        {
-          done,
-          delay: 4000
-        }
+        done
       );
     });
   });

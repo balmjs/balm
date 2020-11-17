@@ -81,12 +81,12 @@ async function runTest(
 
     await gulp.parallel('balm:default')();
   } else {
-    assertCase(testObj, checkExist);
+    await assertCase(testObj, checkExist);
   }
 
   if (typeof timeout === 'object') {
     setTimeout(timeout.done, timeout.delay as number);
-  } else if (typeof timeout === 'function') {
+  } else {
     setTimeout(timeout, 2000);
   }
 }
