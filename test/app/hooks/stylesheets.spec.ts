@@ -7,30 +7,34 @@ describe('Balm Hooks - css & sprites', function () {
     cleanup();
   });
 
-  describe('stylesheets', function () {
-    beforeEach(function () {
-      balm.config = {
-        useDefaults: false
-      };
-    });
+  context('stylesheets', function () {
+    const extnames = ['css', 'sass', 'less'];
 
-    ['css', 'sass', 'less'].forEach((extname) => {
+    extnames.forEach(function (extname) {
+      before(function () {
+        balm.config = {
+          useDefaults: false
+        };
+      });
+
       const api = extname;
       const input = `src/styles/main.${extname === 'sass' ? 'scss' : extname}`;
       const output = `${targetDir}/${extname}`;
 
-      it(`compiles ${
+      describe(`compiles ${
         extname === 'css' ? 'postcss' : extname
-      } files to the "${output}" directory`, function (done) {
-        runTest(
-          {
-            testCase: `${output}/main.css`,
-            testHook: (mix: any) => {
-              mix[api](input, output);
-            }
-          },
-          done
-        );
+      } files`, function () {
+        it(`expected output: "${output}"`, function (done) {
+          runTest(
+            {
+              testCase: `${output}/main.css`,
+              testHook: (mix: any) => {
+                mix[api](input, output);
+              }
+            },
+            done
+          );
+        });
       });
     });
   });

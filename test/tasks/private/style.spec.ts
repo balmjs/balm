@@ -24,7 +24,7 @@ describe('Style Task', function () {
     );
   });
 
-  describe('production', function () {
+  context('production', function () {
     const extnames = ['postcss', 'scss', 'sass', 'less'];
 
     extnames.forEach(function (extname) {

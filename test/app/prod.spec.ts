@@ -1,6 +1,10 @@
 import { cleanup, runTest } from './test';
 
 describe('App Test in production', function () {
+  after(function () {
+    cleanup();
+  });
+
   describe('build tasks', function () {
     before(function () {
       balm.config = {
@@ -91,10 +95,6 @@ describe('App Test in production', function () {
       balm.config = {
         useDefaults: false
       };
-    });
-
-    after(function () {
-      cleanup();
     });
 
     it('expected output: "assets"', function (done) {

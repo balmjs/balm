@@ -67,7 +67,7 @@ function assertCase(
   }
 }
 
-function runTest(
+async function runTest(
   testObj: string | false | string[] | TestObj,
   timeout: Function | timeoutObj,
   checkExist: string | boolean = true
@@ -77,9 +77,9 @@ function runTest(
       assertCase((testObj as TestObj).testCase, checkExist);
     };
 
-    balm.go((testObj as TestObj).testHook || function () {});
+    await balm.go((testObj as TestObj).testHook || function () {});
 
-    gulp.parallel('balm:default')();
+    await gulp.parallel('balm:default')();
   } else {
     assertCase(testObj, checkExist);
   }
