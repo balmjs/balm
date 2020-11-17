@@ -7,30 +7,32 @@ describe('Balm Hooks - zip', function () {
     cleanup();
   });
 
-  describe('#mix.zip() with default', function () {
-    before(function () {
-      balm.config = {
-        env: {
-          isProd: true
-        },
-        logs: {
-          level: 2
-        }
-      };
-    });
-
-    it(`expected output: "archive.zip"`, function (done) {
-      runTest(
-        {
-          testCase: 'archive.zip',
-          testHook: (mix: any) => {
-            mix.zip();
+  if (!isWin) {
+    describe('#mix.zip() with default', function () {
+      before(function () {
+        balm.config = {
+          env: {
+            isProd: true
+          },
+          logs: {
+            level: 2
           }
-        },
-        done
-      );
+        };
+      });
+
+      it(`expected output: "archive.zip"`, function (done) {
+        runTest(
+          {
+            testCase: 'archive.zip',
+            testHook: (mix: any) => {
+              mix.zip();
+            }
+          },
+          done
+        );
+      });
     });
-  });
+  }
 
   describe('#mix.zip() with custom', function () {
     before(function () {
