@@ -66,9 +66,8 @@ function ready(config: BalmConfig): BalmConfig {
     config.env.isDev &&
     !config.env.inSSR &&
     !config.env.isMP;
-  const HMR_Enabling = !(
-    config.scripts.ie8 || config.scripts.bundler === BalmJS.Bundler.esbuild
-  );
+  const HMR_Enabling =
+    config.scripts.bundler === BalmJS.Bundler.webpack && !config.scripts.ie8;
   config.server.useHMR = HMR_ENV && HMR_Enabling;
 
   // Set desktop app flag
