@@ -4,8 +4,8 @@ import './middlewares';
 import './bundler';
 import './bootstrap/config_check.spec';
 import './bootstrap/index.spec';
-import './app/hooks';
 import './app';
+import './app/hooks';
 
 const balmConfigDefaults = Object.assign(
   {},
