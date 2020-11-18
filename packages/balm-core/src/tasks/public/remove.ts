@@ -16,7 +16,7 @@ class RemoveTask extends BalmJS.BalmTask {
   };
 
   recipe(input: string | string[]): Function {
-    const balmRemove = async (callback: Function): Promise<any> => {
+    const balmRemove = async (callback: Function): Promise<void> => {
       const canDel = !!(
         (BalmJS.utils.isString(input) && (input as string).trim()) ||
         (BalmJS.utils.isArray(input) && input.length)

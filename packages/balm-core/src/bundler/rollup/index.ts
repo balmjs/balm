@@ -8,7 +8,7 @@ const buildLibrary = async (
   inputOptions: InputOptions,
   outputOptions: OutputOptions | OutputOptions[],
   callback: Function
-): Promise<any> => {
+): Promise<void> => {
   inputOptions = getEntry(inputOptions);
   outputOptions = getOutput(outputOptions);
   const rollupOptions = Object.assign({}, inputOptions, {

@@ -12,7 +12,7 @@ class EndTask extends BalmJS.BalmTask {
     });
   }
 
-  fn = async (callback: Function): Promise<any> => {
+  fn = async (callback: Function): Promise<void> => {
     if (BalmJS.utils.isFunction(BalmJS.afterTask)) {
       await (BalmJS.afterTask as Function)();
     }

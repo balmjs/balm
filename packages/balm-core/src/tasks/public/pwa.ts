@@ -6,7 +6,7 @@ class PwaTask extends BalmJS.BalmTask {
   }
 
   recipe(customMode?: string, customOptions: object = {}): Function {
-    const balmPwa = async (callback: Function): Promise<any> => {
+    const balmPwa = async (callback: Function): Promise<void> => {
       const mode: string = customMode || BalmJS.config.pwa.mode;
 
       let options: object = {};

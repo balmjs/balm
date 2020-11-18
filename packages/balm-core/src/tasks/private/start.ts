@@ -3,7 +3,7 @@ class StartTask extends BalmJS.BalmTask {
     super('start');
   }
 
-  fn = async (callback: Function): Promise<any> => {
+  fn = async (callback: Function): Promise<void> => {
     BalmJS.start = process.hrtime();
 
     if (BalmJS.utils.isFunction(BalmJS.beforeTask)) {

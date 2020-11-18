@@ -42,7 +42,7 @@ class ModernizrTask extends BalmJS.BalmTask {
     });
   };
 
-  fn = async (callback: Function): Promise<any> => {
+  fn = async (callback: Function): Promise<void> => {
     this.init();
 
     if (fs.existsSync(this.input)) {
