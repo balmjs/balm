@@ -9,7 +9,7 @@ describe('Balm Hooks - esbuild', function () {
 
   const output = `${targetDir}/js`;
 
-  describe('running a build', function () {
+  context('running a build', function () {
     describe('in development', function () {
       before(function () {
         balm.config = {

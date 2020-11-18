@@ -1,37 +1,37 @@
 import { cleanup, runTest } from './test';
 
 describe('App Test in production', function () {
-  before(function () {
-    balm.config = {
-      env: {
-        isProd: true
-      },
-      paths: {
-        target: {
-          css: 'a',
-          js: 'b',
-          img: 'c',
-          font: 'd',
-          media: 'e'
-        }
-      },
-      styles: {
-        sprites: ['icons', 'mdi']
-      },
-      assets: {
-        cache: true
-      },
-      pwa: {
-        enabled: true
-      }
-    };
-  });
-
   after(function () {
     cleanup();
   });
 
   describe('build tasks', function () {
+    before(function () {
+      balm.config = {
+        env: {
+          isProd: true
+        },
+        paths: {
+          target: {
+            css: 'a',
+            js: 'b',
+            img: 'c',
+            font: 'd',
+            media: 'e'
+          }
+        },
+        styles: {
+          sprites: ['icons', 'mdi']
+        },
+        assets: {
+          cache: true
+        },
+        pwa: {
+          enabled: true
+        }
+      };
+    });
+
     it('expected output: "dist"', function (done) {
       let testCase = [
         'dist/index.html',
@@ -82,15 +82,18 @@ describe('App Test in production', function () {
             ]);
           }
         },
-        {
-          done,
-          delay: 4000
-        }
+        done
       );
     });
   });
 
   describe('publish tasks', function () {
+    before(function () {
+      balm.config = {
+        useDefaults: false
+      };
+    });
+
     it('expected output: "assets"', function (done) {
       let testCase = [
         'assets/public/a/main.7ad32811.css',

@@ -12,7 +12,7 @@ balm.config = {
 };
 
 function asyncCase(fn: Function) {
-  return function(done: Function) {
+  return function (done: Function) {
     try {
       fn();
       done();

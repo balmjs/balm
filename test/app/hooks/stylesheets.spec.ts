@@ -7,35 +7,72 @@ describe('Balm Hooks - css & sprites', function () {
     cleanup();
   });
 
-  context('stylesheets', function () {
-    const extnames = ['css', 'sass', 'less'];
+  describe('compiles sass', function () {
+    before(function () {
+      balm.config = {
+        useDefaults: false
+      };
+    });
 
-    extnames.forEach(function (extname) {
-      const api = extname;
-      const input = `src/styles/main.${extname === 'sass' ? 'scss' : extname}`;
-      const output = `${targetDir}/${extname}`;
+    const input = `src/styles/main.scss`;
+    const output = `${targetDir}/sass`;
 
-      describe(`compiles ${
-        extname === 'css' ? 'postcss' : extname
-      } files`, function () {
-        before(function () {
-          balm.config = {
-            useDefaults: false
-          };
-        });
+    it(`expected output: ${output}`, function (done) {
+      runTest(
+        {
+          testCase: `${output}/main.css`,
+          testHook: (mix: any) => {
+            mix.sass(input, output);
+          }
+        },
+        done
+      );
+    });
+  });
 
-        it(`expected output: "${output}"`, function (done) {
-          runTest(
-            {
-              testCase: `${output}/main.css`,
-              testHook: (mix: any) => {
-                mix[api](input, output);
-              }
-            },
-            done
-          );
-        });
-      });
+  describe('compiles less', function () {
+    before(function () {
+      balm.config = {
+        useDefaults: false
+      };
+    });
+
+    const input = `src/styles/main.less`;
+    const output = `${targetDir}/less`;
+
+    it(`expected output: ${output}`, function (done) {
+      runTest(
+        {
+          testCase: `${output}/main.css`,
+          testHook: (mix: any) => {
+            mix.less(input, output);
+          }
+        },
+        done
+      );
+    });
+  });
+
+  describe('compiles postcss', function () {
+    before(function () {
+      balm.config = {
+        useDefaults: false
+      };
+    });
+
+    const input = `src/styles/main.css`;
+    const output = `${targetDir}/css`;
+
+    it(`expected output: ${output}`, function (done) {
+      runTest(
+        {
+          testCase: `${output}/main.css`,
+          testHook: (mix: any) => {
+            mix.css(input, output);
+          }
+        },
+        done
+      );
     });
   });
 

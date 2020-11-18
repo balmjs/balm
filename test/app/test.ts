@@ -77,17 +77,33 @@ async function runTest(
       assertCase((testObj as TestObj).testCase, checkExist);
     };
 
-    await balm.go((testObj as TestObj).testHook || function () {});
+    try {
+      await balm.go((testObj as TestObj).testHook || function () {});
 
-    await gulp.parallel('balm:default')();
+      await gulp.parallel('balm:default')();
+    } catch (err) {
+      if (typeof timeout === 'object') {
+        setTimeout(() => {
+          timeout.done(err);
+        }, timeout.delay as number);
+      } else {
+        setTimeout(() => {
+          timeout(err);
+        }, 2000);
+      }
+    }
   } else {
     await assertCase(testObj, checkExist);
   }
 
   if (typeof timeout === 'object') {
-    setTimeout(timeout.done, timeout.delay as number);
+    setTimeout(() => {
+      timeout.done();
+    }, timeout.delay as number);
   } else {
-    setTimeout(timeout, 2000);
+    setTimeout(() => {
+      timeout();
+    }, 2000);
   }
 }
 
