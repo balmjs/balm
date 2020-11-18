@@ -5,7 +5,7 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
-## v3.9.0 / 2020-11-17
+## v3.9.0 / 2020-11-18
 
 ### Features
 
@@ -15,6 +15,7 @@
 - update dependencies
   - `webpack-bundle-analyzer`: 3.x -> 4.x
   - `webpack-dev-middleware`: 3.x -> 4.x
+- test: update runtime tests
 
 ### BREAKING CHANGES
 
