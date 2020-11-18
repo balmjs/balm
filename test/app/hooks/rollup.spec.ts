@@ -94,6 +94,13 @@ describe('Balm Hooks - rollup', function () {
                 name: 'hi'
               }
             ]
+          },
+          outputOptions: {
+            plugins: [
+              {
+                name: 'hello'
+              }
+            ]
           }
         }
       };

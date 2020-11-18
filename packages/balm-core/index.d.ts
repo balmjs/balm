@@ -93,7 +93,6 @@ export type OutputOptions = import('rollup').OutputOptions;
 export type RollupOutput = import('rollup').RollupOutput;
 export type RollupBuild = import('rollup').RollupBuild;
 export type WatcherOptions = import('rollup').WatcherOptions;
-export type RollupNodeResolveOptions = import('@rollup/plugin-node-resolve').RollupNodeResolveOptions;
 
 // Esbuild
 export type BuildOptions = import('esbuild').BuildOptions;
@@ -143,8 +142,6 @@ export interface BalmScripts {
   inputOptions: InputOptions;
   outputOptions: OutputOptions;
   watchOptions: WatcherOptions;
-  nodeResolveOptions: RollupNodeResolveOptions;
-  commonjsOptions: object;
   // esbuild
   buildOptions: BuildOptions;
   useTransform: boolean;

@@ -31,6 +31,10 @@ function getEntry(inputOptions: InputOptions): InputOptions {
 
   options.input = rollupEntries;
 
+  BalmJS.logger.debug('rollup input options', options, {
+    pre: true
+  });
+
   return options;
 }
 

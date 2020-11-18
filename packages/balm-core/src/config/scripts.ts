@@ -17,7 +17,6 @@ import {
   InputOptions,
   OutputOptions,
   WatcherOptions,
-  RollupNodeResolveOptions,
   BuildOptions,
   TransformOptions
 } from '@balm-core/index';
@@ -149,8 +148,6 @@ const ie8 = false;
 const inputOptions: InputOptions = {};
 const outputOptions: OutputOptions = {};
 const watchOptions: WatcherOptions = {};
-const nodeResolveOptions: RollupNodeResolveOptions = {};
-const commonjsOptions: object = {};
 
 /**
  * Esbuild bundler
@@ -194,8 +191,6 @@ export default {
   inputOptions,
   outputOptions,
   watchOptions,
-  nodeResolveOptions,
-  commonjsOptions,
   // esbuild
   buildOptions,
   useTransform,

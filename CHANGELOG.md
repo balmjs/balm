@@ -5,6 +5,13 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.9.1 / 2020-11-18
+
+### Chore
+
+- remove rollup input default plugins
+- add log for rollup entry and output
+
 ## v3.9.0 / 2020-11-18
 
 ### Features

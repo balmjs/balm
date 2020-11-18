@@ -24,9 +24,15 @@ function setOutput(outputOptions: OutputOptions): OutputOptions {
 function getOutput(
   outputOptions: OutputOptions | OutputOptions[]
 ): OutputOptions | OutputOptions[] {
-  return Array.isArray(outputOptions)
+  const options = Array.isArray(outputOptions)
     ? outputOptions.map((outputOption) => setOutput(outputOption))
     : setOutput(outputOptions);
+
+  BalmJS.logger.debug('rollup output options', options, {
+    pre: true
+  });
+
+  return options;
 }
 
 export default getOutput;
