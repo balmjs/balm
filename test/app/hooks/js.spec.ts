@@ -9,6 +9,12 @@ const rename = {
 };
 
 describe('Balm Hooks - js', function () {
+  beforeEach(function () {
+    balm.config = {
+      useDefaults: false
+    };
+  });
+
   it('#mix.js()', function (done) {
     runTest(
       {

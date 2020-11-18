@@ -4,7 +4,7 @@ const targetDir = '.output';
 const output = `${targetDir}/js`;
 
 describe('Balm Hooks - webpack', function () {
-  before(function () {
+  beforeEach(function () {
     balm.config = {
       useDefaults: false
     };
