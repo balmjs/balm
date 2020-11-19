@@ -33,13 +33,14 @@ describe('Balm Hooks - html', function () {
   describe('for desktop', function () {
     before(function () {
       balm.config = {
-        useDefaults: false
+        useDefaults: false,
+        scripts: {
+          target: 'electron-main'
+        }
       };
-      BalmJS.config.inDesktopApp = true;
     });
 
     after(function () {
-      BalmJS.config.inDesktopApp = false;
       cleanup();
     });
 

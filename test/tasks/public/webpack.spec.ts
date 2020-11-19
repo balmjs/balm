@@ -26,6 +26,9 @@ describe('Webpack Task', function () {
   describe('#mix.webpack()', function () {
     before(function () {
       balm.config = {
+        scripts: {
+          sourceMap: 'source-map'
+        },
         logs: {
           level: 2
         }
