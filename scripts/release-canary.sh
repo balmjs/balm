@@ -1,4 +1,4 @@
 #!/bin/bash
 
 npm run build
-lerna publish --canary
+lerna publish --canary --no-git-tag-version --no-push --dist-tag next --force-publish balm-core
