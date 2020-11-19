@@ -1,4 +1,4 @@
 #!/bin/bash
 
 npm run build
-lerna publish --canary --force-publish *
+lerna publish --canary
