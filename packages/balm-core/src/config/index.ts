@@ -41,7 +41,7 @@ const workspace = process.env.BALM_CWD as string;
 const inFrontend = true;
 const useDefaults = true; // Use balm default task
 
-const config: Omit<BalmConfig, 'src' | 'dest' | 'inDesktopApp'> = {
+const config: Omit<BalmConfig, 'src' | 'dest'> = {
   env,
   workspace,
   inFrontend,

@@ -1,13 +1,8 @@
 import getLoaders from '../loaders';
 import { HASH_NAME } from '../../../config/constants';
-import {
-  Configuration,
-  SplitChunksOptions,
-  Optimization,
-  BalmScripts
-} from '@balm-core/index';
+import { Configuration, BalmScripts } from '@balm-core/index';
 
-function getSplitChunks(): SplitChunksOptions {
+function getSplitChunks(): any {
   const scripts: BalmScripts = BalmJS.config.scripts;
   const jsFolder: string = BalmJS.config.paths.target.js;
 
@@ -19,7 +14,7 @@ function getSplitChunks(): SplitChunksOptions {
       : `${scripts.vendorName}.js`;
 
     cacheGroups = {
-      vendors: {
+      defaultVendors: {
         chunks: 'initial',
         name: jsFilename,
         test: /[\\/](node_modules|bower_components)[\\/]/,
@@ -54,12 +49,12 @@ function getSplitChunks(): SplitChunksOptions {
 function getCommonConfig(scripts: BalmScripts): Configuration {
   const splitChunks = getSplitChunks();
   const optimization = splitChunks
-    ? (BalmJS.utils.deepMerge(
+    ? BalmJS.utils.deepMerge(
         {
           splitChunks
         },
         scripts.optimization
-      ) as Optimization)
+      )
     : scripts.optimization;
 
   return {
@@ -93,7 +88,7 @@ function getCommonConfig(scripts: BalmScripts): Configuration {
         ...scripts.extensions
       ],
       // These aliasing is used when trying to resolve a module
-      alias: scripts.alias,
+      alias: scripts.alias as any,
       // These JSON files are read in directories
       descriptionFiles: ['package.json', 'bower.json'],
       // These fields in the description files are looked up when trying to resolve the package directory
@@ -106,11 +101,14 @@ function getCommonConfig(scripts: BalmScripts): Configuration {
       // solution that requires the user to opt into importing specific locales.
       // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
       // You can remove this if you don't use Moment.js:
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/locale$/,
+        contextRegExp: /moment$/
+      }),
       ...scripts.plugins
     ],
     target: scripts.target,
-    stats: scripts.stats
+    stats: scripts.stats as object
   };
 }
 

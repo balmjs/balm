@@ -42,35 +42,9 @@ interface BalmStyles {
 }
 
 // Webpack
-export type Configuration = import('webpack').Configuration;
 export type WebpackEntry = import('webpack').Entry;
-type EntryFunc = import('webpack').EntryFunc;
-export type WebpackOutput = import('webpack').Output;
-export type Library = string | string[] | { [key: string]: string };
-export type LibraryTarget = import('webpack').LibraryTarget;
-// export type Module = import('webpack').Module;
-// export type Resolve = import('webpack').Resolve;
-export type ResolveAlias = { [key: string]: string };
-export type ExternalsElement = import('webpack').ExternalsElement;
+export type Configuration = import('webpack').Configuration;
 export type RuleSetRule = import('webpack').RuleSetRule;
-export type SourceMap = import('webpack').Options.Devtool;
-export type StatsValue = boolean | import('webpack').Options.Stats;
-export type Optimization = import('webpack').Options.Optimization;
-export type SplitChunksOptions =
-  | import('webpack').Options.SplitChunksOptions
-  | false;
-export type Target =
-  | 'web'
-  | 'webworker'
-  | 'node'
-  | 'async-node'
-  | 'node-webkit'
-  | 'atom'
-  | 'electron'
-  | 'electron-renderer'
-  | 'electron-preload'
-  | 'electron-main'
-  | ((compiler?: any) => void);
 
 export interface BalmLoaders {
   html: boolean;
@@ -102,7 +76,7 @@ export type TransformResult = import('esbuild').TransformResult;
 // Bundler base
 export type BalmBundler = 'webpack' | 'rollup' | 'esbuild';
 export type MinifyOptions = import('terser').MinifyOptions;
-export type BalmEntry = string | string[] | WebpackEntry | EntryFunc;
+export type BalmEntry = string | string[] | WebpackEntry;
 
 export interface BalmScripts {
   // base
@@ -111,8 +85,8 @@ export interface BalmScripts {
   entry: BalmEntry;
   lint: boolean;
   // webpack
-  library: Library;
-  libraryTarget: LibraryTarget;
+  library: string | object;
+  libraryTarget: string;
   loaders: RuleSetRule[];
   defaultLoaders: Partial<BalmLoaders>;
   includeJsResource: string[];
@@ -122,15 +96,15 @@ export interface BalmScripts {
   htmlLoaderOptions: object;
   postcssLoaderOptions: Partial<PostcssLoaderOptions>;
   extensions: string[];
-  alias: ResolveAlias;
+  alias: object;
   plugins: object[];
-  sourceMap: SourceMap;
-  target: Target;
-  externals: ExternalsElement | ExternalsElement[];
-  stats: StatsValue;
+  sourceMap: string | boolean;
+  target: string | string[] | false;
+  externals: string | string[] | object | Function | RegExp;
+  stats: object | string;
   webpackOptions: Configuration;
   inject: boolean;
-  optimization: Optimization;
+  optimization: object;
   extractAllVendors: boolean;
   vendorName: string;
   extractCss: {
@@ -252,7 +226,6 @@ export interface BalmConfig {
   };
   src: BalmPath;
   dest: BalmAssetsPath;
-  inDesktopApp: boolean;
 }
 
 export interface BalmVendor {
@@ -365,7 +338,7 @@ interface BalmRecipe {
 export type BalmRecipeFunction = (parameters: Partial<BalmRecipe>) => {};
 
 export interface Balm {
-  config: DeepPartial<Omit<BalmConfig, 'src' | 'dest'>>;
+  config: Partial<Omit<BalmConfig, 'src' | 'dest'>>;
   beforeTask?: string | Function;
   afterTask?: string | Function;
   go: (recipe?: BalmRecipeFunction) => void;

@@ -2,7 +2,6 @@ import checkConfig from './check_config';
 import { ASSETS_KEYS } from '../config/constants';
 import {
   LooseObject,
-  DeepPartial,
   BalmConfig,
   BalmPath,
   BalmAssetsPath
@@ -71,7 +70,9 @@ function ready(config: BalmConfig): BalmConfig {
   config.server.useHMR = HMR_ENV && HMR_Enabling;
 
   // Set desktop app flag
-  config.inDesktopApp = /^electron-.*/.test(config.scripts.target as string);
+  if (/^electron-.*/.test(config.scripts.target as string)) {
+    config.env.inDesktopApp = true;
+  }
 
   return config;
 }
@@ -83,7 +84,7 @@ function resetConfig(): BalmConfig {
   return BalmJS.config;
 }
 
-function setConfig(customConfig: DeepPartial<BalmConfig>): BalmConfig {
+function setConfig(customConfig: Partial<BalmConfig>): BalmConfig {
   const defaultConfig: BalmConfig = resetConfig();
 
   // 1. Overwrite config

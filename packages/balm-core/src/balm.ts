@@ -4,7 +4,7 @@ import './plugins';
 import registerTasks from './tasks';
 import { setConfig, setTask } from './bootstrap';
 import loading from './utilities/loading';
-import { DeepPartial, BalmConfig } from '@balm-core/index';
+import { BalmConfig } from '@balm-core/index';
 
 class Balm {
   #config: BalmConfig;
@@ -15,10 +15,10 @@ class Balm {
     this.#config = BalmJS.config;
   }
 
-  get config(): DeepPartial<BalmConfig> {
+  get config(): Partial<BalmConfig> {
     return this.#config;
   }
-  set config(value: DeepPartial<BalmConfig>) {
+  set config(value: Partial<BalmConfig>) {
     this.#config = setConfig(value);
     BalmJS.config = this.#config;
   }

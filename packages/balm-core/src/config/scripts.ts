@@ -2,18 +2,10 @@ import {
   BalmBundler,
   MinifyOptions,
   BalmEntry,
-  Library,
-  LibraryTarget,
   RuleSetRule,
   BalmLoaders,
   PostcssLoaderOptions,
-  ResolveAlias,
-  SourceMap,
-  Target,
-  ExternalsElement,
-  StatsValue,
   Configuration,
-  Optimization,
   InputOptions,
   OutputOptions,
   WatcherOptions,
@@ -69,8 +61,8 @@ const lint = false;
  */
 
 // Output
-const library: Library = '';
-const libraryTarget: LibraryTarget = 'var';
+const library: string | object = '';
+const libraryTarget = 'var';
 // Module
 const loaders: RuleSetRule[] = [];
 const defaultLoaders: Partial<BalmLoaders> = {};
@@ -97,17 +89,17 @@ const htmlLoaderOptions: object = {};
 const postcssLoaderOptions: Partial<PostcssLoaderOptions> = {};
 // Resolve
 const extensions: string[] = [];
-const alias: ResolveAlias = {};
+const alias: object = {};
 // Plugins
 const plugins: object[] = [];
 // Devtool
-const sourceMap: SourceMap = false;
+const sourceMap: string | boolean = false;
 // Target
-const target: Target = 'web';
+const target: string | string[] | false = ['web', 'es5'];
 // Externals
-const externals: ExternalsElement | ExternalsElement[] = '';
+const externals: string | string[] | object | Function | RegExp = '';
 // Stats
-const stats: StatsValue = {
+const stats: object | string = {
   colors: true,
   chunks: false,
   chunkModules: false,
@@ -128,7 +120,7 @@ const inject = false;
  *
  * @reference https://webpack.js.org/configuration/optimization/
  */
-const optimization: Optimization = {};
+const optimization: object = {};
 const extractAllVendors = false; // Extract all vendors (all in one)
 const vendorName = 'vendor'; // AllInOne vendor filename or Vendors folder name
 // Extract CSS

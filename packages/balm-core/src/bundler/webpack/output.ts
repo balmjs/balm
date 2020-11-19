@@ -1,11 +1,7 @@
 import { ASYNC_SCRIPTS, HASH_NAME, MP_ASSETS } from '../../config/constants';
-import { WebpackOutput, BalmScripts } from '@balm-core/index';
+import { BalmScripts } from '@balm-core/index';
 
-function getOutput(
-  output: string,
-  scripts: BalmScripts,
-  isHook = false
-): WebpackOutput {
+function getOutput(output: string, scripts: BalmScripts, isHook = false): any {
   const outputPath: string = output || BalmJS.config.dest.base; // Absolute path
   const jsFolder: string = BalmJS.config.paths.target.js;
 
@@ -23,7 +19,11 @@ function getOutput(
     : '[name].js';
 
   const customLibraryConfig: object = scripts.library
-    ? { library: scripts.library }
+    ? {
+        // TODO: webpack@5 `libraryTarget` has bug, https://github.com/webpack/webpack/issues/11632
+        libraryTarget: scripts.libraryTarget,
+        library: scripts.library
+      }
     : {};
 
   const miniprogramConfig: object = BalmJS.config.env.isMP
@@ -48,8 +48,7 @@ function getOutput(
         ? jsChunkFilename
         : BalmJS.file.assetsPath(
             `${jsFolder}/${ASYNC_SCRIPTS}/${jsChunkFilename}`
-          ),
-      libraryTarget: scripts.libraryTarget
+          )
     },
     customLibraryConfig,
     miniprogramConfig

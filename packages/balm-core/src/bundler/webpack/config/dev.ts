@@ -9,7 +9,9 @@ function getDevConfig(scripts: BalmScripts): Configuration {
       // This is necessary to emit hot updates
       new webpack.HotModuleReplacementPlugin()
     ],
-    devtool: scripts.sourceMap || 'cheap-module-eval-source-map'
+    devtool: scripts.sourceMap
+      ? (scripts.sourceMap as string)
+      : 'eval-cheap-module-source-map'
   });
 }
 
