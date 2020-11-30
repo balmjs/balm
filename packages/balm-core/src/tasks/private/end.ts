@@ -5,7 +5,7 @@ class EndTask extends BalmJS.BalmTask {
 
   time(): void {
     const end = process.hrtime(BalmJS.start);
-    const timeInMs = (end[0] * 1000000000 + end[1]) / 1000000;
+    const timeInMs = Math.ceil((end[0] * 1000000000 + end[1]) / 1000000);
 
     BalmJS.logger.info('execution time', `${timeInMs}ms`, {
       logLevel: BalmJS.LogLevel.Error
