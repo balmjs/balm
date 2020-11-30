@@ -10,7 +10,7 @@ class ModernizrTask extends BalmJS.BalmTask {
   }
 
   #readConfig = (): Promise<any> => {
-    return new Promise((resolve, reject): void => {
+    return new Promise((resolve, reject) => {
       fs.readFile(this.input, 'utf8', (err: any, data: any) => {
         if (err) reject(err);
         resolve(JSON.parse(data));
@@ -19,7 +19,7 @@ class ModernizrTask extends BalmJS.BalmTask {
   };
 
   #createDir = (): Promise<any> => {
-    return new Promise((resolve, reject): void => {
+    return new Promise<void>((resolve, reject) => {
       fs.mkdir(
         BalmJS.file.absPath(BalmJS.config.dest.js),
         { recursive: true },
@@ -32,7 +32,7 @@ class ModernizrTask extends BalmJS.BalmTask {
   };
 
   #generateScript = (config: object): Promise<any> => {
-    return new Promise((resolve, reject): void => {
+    return new Promise((resolve, reject) => {
       Modernizr.build(config, (content: any) => {
         fs.writeFile(this.output, content, (err: any) => {
           if (err) reject(err);
