@@ -50,7 +50,7 @@
     "gulp": "^4.0.2",
     "semver": "^7.3.4",
     "webpack-hot-middleware": "^2.25.0",
-    "workbox-sw": "^6.0.0",
+    "workbox-sw": "^5.1.4",
     "yargs": "^16.1.1"
   },
   "engines": {
