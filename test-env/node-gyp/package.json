@@ -1,5 +1,5 @@
 {
-  "name": "test-windows",
+  "name": "node-gyp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
