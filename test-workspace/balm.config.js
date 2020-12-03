@@ -22,12 +22,6 @@ const config = {
     bundler: 'esbuild',
     lint: true
   },
-  // images: {
-  //   plugins: {
-  //     jpeg: false,
-  //     png: false
-  //   }
-  // },
   assets: {
     cache: true
   },
