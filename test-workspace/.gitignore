@@ -19,6 +19,5 @@ php/public/_index.html
 !php/resources/assets
 
 # Others
-balm.env.js
 package-lock.json
 yarn.lock

@@ -75,7 +75,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "parents": "^1.0.1",
     "plugin-error": "^1.0.1",
-    "postcss": "^8.1.10",
+    "postcss": "^8.1.13",
     "postcss-import": "^13.0.0",
     "postcss-loader": "^4.1.0",
     "postcss-preset-env": "^6.7.0",
@@ -93,11 +93,11 @@
     "tslib": "^2.0.3",
     "url-loader": "^4.1.1",
     "webpack": "^4.44.2",
-    "webpack-bundle-analyzer": "^4.1.0",
+    "webpack-bundle-analyzer": "^4.2.0",
     "webpack-dev-middleware": "^4.0.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^5.4.0",
-    "workbox-build": "^5.1.4"
+    "workbox-build": "^6.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.9",
