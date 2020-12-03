@@ -56,7 +56,8 @@ describe('Balm Hooks - pwa', function () {
                 balm.config.workspace,
                 'pwa',
                 'service-worker.js'
-              )
+              ),
+              globIgnores: ['test.js']
             });
           }
         },
