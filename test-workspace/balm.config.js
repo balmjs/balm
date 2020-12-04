@@ -1,4 +1,5 @@
 const path = require('path');
+// const imageminPngquant = require('imagemin-pngquant');
 
 console.info('balm@zero');
 
@@ -22,6 +23,11 @@ const config = {
     bundler: 'esbuild',
     lint: true
   },
+  // images: {
+  //   plugins: {
+  //     png: imageminPngquant()
+  //   }
+  // },
   assets: {
     cache: true
   },

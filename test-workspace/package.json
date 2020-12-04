@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2020.12.3",
+  "version": "2020.12.4",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -71,6 +71,9 @@
     "vue-template-compiler": "^2.6.12",
     "webpack": "^4.44.2",
     "webpack-node-externals": "^2.5.2"
+  },
+  "optionalDependencies": {
+    "imagemin-pngquant": "^9.0.0"
   },
   "private": true
 }
