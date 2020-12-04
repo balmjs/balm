@@ -1,11 +1,5 @@
 import { BalmImagesPlugins, BalmError } from '@balm-core/index';
-
-const IMAGEMIN_PLUGINS: { [key: string]: Function } = {
-  gif: $.imagemin.gifsicle,
-  jpeg: $.imagemin.mozjpeg,
-  png: $.imagemin.optipng,
-  svg: $.imagemin.svgo
-};
+import { gifsicle, mozjpeg, optipng, svgo } from '../../plugins/imagemin';
 
 class ImageTask extends BalmJS.BalmTask {
   constructor() {
@@ -26,22 +20,29 @@ class ImageTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.dest.img;
 
     if (BalmJS.utils.isArray(BalmJS.config.images.plugins)) {
-      this.plugins = BalmJS.config.images.plugins;
+      this.plugins = BalmJS.config.images.plugins; // Using custom imagemin plugins
     } else {
-      const enablePlugins: { [key: string]: boolean } = Object.assign(
+      const enablePlugins: {
+        [key: string]: boolean | Function;
+      } = Object.assign(
         {
-          gif: true,
-          jpeg: true,
-          png: true,
-          svg: true
+          gif: gifsicle(),
+          jpeg: mozjpeg(),
+          png: optipng(),
+          svg: svgo()
         },
         BalmJS.config.images.plugins as Partial<BalmImagesPlugins>
       );
 
       this.plugins = Object.keys(enablePlugins)
         .filter((key) => enablePlugins[key])
-        .map((key) => IMAGEMIN_PLUGINS[key]());
+        .map((key) => enablePlugins[key]);
     }
+
+    BalmJS.logger.debug(
+      `${this.name} task - plugins`,
+      Object.keys(this.plugins)
+    );
   }
 
   fn = (): any => {
@@ -54,10 +55,10 @@ class ImageTask extends BalmJS.BalmTask {
         })
         .pipe(
           BalmJS.plugins.plumber((error: BalmError): void => {
-            BalmJS.logger.error(`${this.name} task`, error.message);
+            BalmJS.logger.error(`${this.name} task`, error);
           })
         )
-        .pipe($.if(this.plugins.length, $.imagemin(this.plugins)))
+        .pipe(BalmJS.plugins.imagemin(this.plugins))
         .pipe(gulp.dest(this.output));
     };
 
