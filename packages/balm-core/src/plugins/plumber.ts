@@ -1,10 +1,10 @@
 // Reference `gulp-plumber@1.2.1`
-import events from 'events';
+import { EventEmitter } from 'events';
 import { BalmError } from '@balm-core/index';
 
 const PLUGIN_NAME = 'plumber';
 
-const EE = events.EventEmitter;
+const emitter = new EventEmitter();
 
 function removeDefaultHandler(stream: any, event: string): boolean | Function {
   let found: boolean | Function = false;
@@ -24,7 +24,7 @@ function wrapPanicOnErrorHandler(stream: any): void {
 
   if (oldHandler) {
     stream.on('error', function onerror2(this: any, error: BalmError) {
-      if (EE.listenerCount(stream, 'error') === 1) {
+      if (emitter.listenerCount('error') === 1) {
         this.removeListener('error', onerror2);
         (oldHandler as Function).call(stream, error);
       }
@@ -34,7 +34,7 @@ function wrapPanicOnErrorHandler(stream: any): void {
 
 function defaultErrorHandler(this: any, error: BalmError): any {
   // onerror2 and this handler
-  if (EE.listenerCount(this, 'error') < 3) {
+  if (emitter.listenerCount('error') < 3) {
     BalmJS.logger.error(
       `${PLUGIN_NAME} - found unhandled error`,
       error.toString()
