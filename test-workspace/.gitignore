@@ -9,9 +9,9 @@ assets
 
 # Test Projects
 */styles/sprites
-!vue-spa/scripts/assets
-!vue-ssr/app/scripts/assets
+!vue/scripts/assets
 !vue3/scripts/assets
+!vue-ssr/app/scripts/assets
 !lib
 php/public/build
 php/public/web

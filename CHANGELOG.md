@@ -5,6 +5,17 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.9.2 / 2020-12-05
+
+### Features
+
+- update dependencies
+  - `workbox-build`: 5.x -> 6.x
+
+### Bug Fixes
+
+- fix imagemin some compatibility bug on Windows
+
 ## v3.9.1 / 2020-11-18
 
 ### Chore
