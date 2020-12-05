@@ -6,8 +6,7 @@ import { InputOptions, OutputOptions } from '@balm-core/index';
 
 const buildLibrary = async (
   inputOptions: InputOptions,
-  outputOptions: OutputOptions | OutputOptions[],
-  callback: Function
+  outputOptions: OutputOptions | OutputOptions[]
 ): Promise<void> => {
   inputOptions = getEntry(inputOptions);
   outputOptions = getOutput(outputOptions);
@@ -41,8 +40,6 @@ const buildLibrary = async (
   }
 
   watcher.close();
-
-  callback();
 };
 
 export default buildLibrary;
