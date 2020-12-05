@@ -1,6 +1,6 @@
 {
   "name": "balm-core",
-  "version": "3.9.1",
+  "version": "3.9.2",
   "description": "BalmJS compiler core",
   "keywords": [
     "balm",
@@ -75,12 +75,12 @@
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "parents": "^1.0.1",
     "plugin-error": "^1.0.1",
-    "pretty-bytes": "^5.4.1",
     "postcss": "^8.1.14",
     "postcss-import": "^13.0.0",
     "postcss-loader": "^4.1.0",
     "postcss-preset-env": "^6.7.0",
     "postcss-safe-parser": "^5.0.2",
+    "pretty-bytes": "^5.4.1",
     "readable-stream": "^3.6.0",
     "require-dir": "^1.2.0",
     "rollup": "^2.34.1",
