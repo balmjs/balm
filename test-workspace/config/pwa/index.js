@@ -1,8 +1,7 @@
 const balmrc = require('../balmrc');
 const pkg = require('../../package.json');
 
-const workboxSw =
-  '../packages/balm/node_modules/workbox-sw/build/workbox-sw.js';
+const workboxSw = '../node_modules/workbox-sw/build/workbox-sw.js';
 const config = Object.assign(balmrc, {
   roots: {
     source: 'pwa'

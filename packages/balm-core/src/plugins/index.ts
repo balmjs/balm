@@ -1,4 +1,5 @@
 import htmlmin from './htmlmin';
+import imagemin from './imagemin';
 import jsmin from './jsmin';
 import plumber from './plumber';
 import postcss from './postcss';
@@ -8,6 +9,7 @@ import sftp from './sftp';
 
 const plugins: any = {
   htmlmin,
+  imagemin,
   jsmin,
   plumber,
   postcss,

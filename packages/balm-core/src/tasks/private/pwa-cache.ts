@@ -1,3 +1,5 @@
+import del from 'del';
+
 class PwaCacheTask extends BalmJS.BalmTask {
   constructor() {
     super('pwa-cache');
@@ -9,13 +11,21 @@ class PwaCacheTask extends BalmJS.BalmTask {
     );
   }
 
+  clear(): void {
+    const swOrigin = BalmJS.file.absPath(
+      path.join(BalmJS.config.dest.base, BalmJS.config.pwa.swSrcFilename)
+    );
+
+    del(swOrigin, { force: true });
+  }
+
   fn = (): any => {
     this.init();
 
     const newVersion = BalmJS.config.pwa.version || Date.now().toString();
     BalmJS.logger.info('pwa - version', newVersion);
 
-    return this.src
+    const stream = this.src
       .pipe(BalmJS.plugins.replace('{{ version }}', newVersion))
       .pipe(
         $.if(
@@ -24,6 +34,10 @@ class PwaCacheTask extends BalmJS.BalmTask {
         )
       )
       .pipe(gulp.dest(this.output));
+
+    this.clear();
+
+    return stream;
   };
 }
 

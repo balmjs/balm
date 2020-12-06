@@ -1,0 +1,15 @@
+{
+  "name": "fibers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node sleep.js && node generator.js && node fibonacci.js && node error.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "fibers": "^5.0.0"
+  }
+}

@@ -41,6 +41,7 @@ interface BalmPlugins {
   postcss: (isPostCSS?: boolean) => object[];
   plumber: (options?: any) => any;
   htmlmin: (options: object) => any;
+  imagemin: (plugins?: Function[]) => any;
   jsmin: (options: object) => any;
   rename: (options: string | Function | object) => any;
   sftp: (options: object) => any;

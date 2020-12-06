@@ -123,14 +123,14 @@ export interface BalmScripts {
 }
 
 export interface BalmImagesPlugins {
-  gif: boolean;
-  jpeg: boolean;
-  png: boolean;
-  svg: boolean;
+  gif: boolean | Function;
+  jpeg: boolean | Function;
+  png: boolean | Function;
+  svg: boolean | Function;
 }
 
 interface BalmImages {
-  plugins: Partial<BalmImagesPlugins> | object[];
+  plugins: Partial<BalmImagesPlugins> | Function[];
 }
 
 export interface BalmAssetsPath extends BalmPath {

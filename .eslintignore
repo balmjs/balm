@@ -4,6 +4,7 @@ lib
 tslib
 coverage
 test
+test-env
 test-workspace
 gulpfile.esm.js
 !.eslintrc.js

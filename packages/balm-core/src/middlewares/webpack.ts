@@ -10,7 +10,8 @@ function webpackMiddleware(): object[] {
       webpackDev(
         BalmJS.webpackCompiler,
         Object.assign({}, BalmJS.config.server.devOptions, {
-          publicPath: BalmJS.file.publicUrlOrPath
+          publicPath: BalmJS.file.publicUrlOrPath,
+          stats: false
         })
       )
     );

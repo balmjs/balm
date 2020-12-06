@@ -71,10 +71,11 @@ workbox.routing.registerRoute(
 
 // Cache Resources from a Specific Subdirectory
 workbox.routing.registerRoute(function (context) {
-  return (
-    context.url.origin === self.location.origin &&
-    context.url.pathname.startsWith('/static/')
-  );
+  // In v5:
+  // const sameOrigin = context.url.origin === self.location.origin;
+  // In v6:
+  const sameOrigin = context.sameOrigin;
+  return sameOrigin && context.url.pathname.startsWith('/static/');
 }, new workbox.strategies.StaleWhileRevalidate());
 
 // Cache Others

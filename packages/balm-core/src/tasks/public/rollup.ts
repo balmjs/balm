@@ -10,8 +10,9 @@ class RollupTask extends BalmJS.BalmTask {
     input: InputOptions,
     output: OutputOptions | OutputOptions[]
   ): Function {
-    const balmBundler = (callback: Function): void => {
-      buildLibrary(input, output, callback);
+    const balmBundler = async (callback: Function): Promise<void> => {
+      await buildLibrary(input, output);
+      callback();
     };
 
     return balmBundler;

@@ -5,6 +5,18 @@ class PwaTask extends BalmJS.BalmTask {
     super('pwa');
   }
 
+  setIgnores(options: { globIgnores?: string[] }): object {
+    const defaultIgnores = [BalmJS.config.pwa.swSrcFilename];
+
+    if (options.globIgnores) {
+      options.globIgnores = options.globIgnores.concat(defaultIgnores);
+    } else {
+      options.globIgnores = defaultIgnores;
+    }
+
+    return options;
+  }
+
   recipe(customMode?: string, customOptions: object = {}): Function {
     const balmPwa = async (callback: Function): Promise<void> => {
       const mode: string = customMode || BalmJS.config.pwa.mode;
@@ -48,6 +60,8 @@ class PwaTask extends BalmJS.BalmTask {
       }
 
       if (valid) {
+        options = this.setIgnores(options);
+
         BalmJS.logger.debug(`pwa - ${mode}`, options, {
           pre: true
         });

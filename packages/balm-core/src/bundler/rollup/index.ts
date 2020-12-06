@@ -6,8 +6,7 @@ import { InputOptions, OutputOptions } from '@balm-core/index';
 
 const buildLibrary = async (
   inputOptions: InputOptions,
-  outputOptions: OutputOptions | OutputOptions[],
-  callback: Function
+  outputOptions: OutputOptions | OutputOptions[]
 ): Promise<void> => {
   inputOptions = getEntry(inputOptions);
   outputOptions = getOutput(outputOptions);
@@ -27,13 +26,8 @@ const buildLibrary = async (
     //   BUNDLE_END   — finished building a bundle
     //   END          — finished building all bundles
     //   ERROR        — encountered an error while bundling
-    switch (event.code) {
-      case 'END':
-        callback();
-        break;
-      case 'ERROR':
-        BalmJS.logger.error('rollup', event.error.message);
-        break;
+    if (event.code === 'ERROR') {
+      BalmJS.logger.error('rollup', event.error.message);
     }
   });
 

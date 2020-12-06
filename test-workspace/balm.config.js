@@ -1,4 +1,5 @@
 const path = require('path');
+// const imageminPngquant = require('imagemin-pngquant');
 
 console.info('balm@zero');
 
@@ -24,8 +25,7 @@ const config = {
   },
   // images: {
   //   plugins: {
-  //     jpeg: false,
-  //     png: false
+  //     png: imageminPngquant()
   //   }
   // },
   assets: {
