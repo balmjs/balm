@@ -31,12 +31,12 @@ module.exports = Object.assign(balmrc, {
       {
         '@': path.resolve(__dirname, '..', '..', 'vue3', 'scripts'),
         vue$: 'vue-next/dist/vue.esm-bundler.js'
-      },
-      // fix(vue@3.0.1+): __VUE_HMR_RUNTIME__ is not defined in development
-      {
-        '@vue/runtime-core':
-          '@vue/runtime-core/dist/runtime-core.esm-bundler.js'
       }
+      // fix(vue@3.0.1+): __VUE_HMR_RUNTIME__ is not defined in development
+      // {
+      //   '@vue/runtime-core':
+      //     '@vue/runtime-core/dist/runtime-core.esm-bundler.js'
+      // }
     )
   }
 });

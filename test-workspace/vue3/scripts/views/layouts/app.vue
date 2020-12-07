@@ -6,7 +6,8 @@
 <script>
 import logo from '@/assets/logo.png';
 // import Hello from '@/views/components/hello';
-const Hello = () => import('@/views/components/hello');
+import { defineAsyncComponent } from 'vue';
+const Hello = defineAsyncComponent(() => import('@/views/components/hello'));
 
 export default {
   name: 'App',
