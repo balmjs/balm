@@ -5,6 +5,17 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.9.3 / 2020-12-15
+
+### Features
+
+- update dependencies
+  - `postcss-import`: 13.x -> 14.x
+
+### Bug Fixes
+
+- fix vendors path bug for MiniProgram on Windows
+
 ## v3.9.2 / 2020-12-05
 
 ### Features
