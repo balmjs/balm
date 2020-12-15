@@ -41,7 +41,7 @@ function getSplitChunks(): SplitChunksOptions {
         name: jsFilename,
         test: new RegExp(`[\\\\/](${cacheGroupModules})[\\\\/]`),
         filename: BalmJS.file.assetsPath(
-          path.join(jsFolder, scripts.vendorName, jsFilename)
+          `${jsFolder}/${scripts.vendorName}/${jsFilename}`
         ), // Output: `js/vendor/customVendorName.js`
         enforce: true
       };
