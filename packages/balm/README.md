@@ -13,7 +13,7 @@
 [![Coverage Percentage][cover-image]][cover-url]
 
   <h1>BalmJS</h1>
-  <p>A flexible Front-End workflow for webapps</p>
+  <p>An universal Front-End workflow for webapps</p>
 </div>
 
 ## Introduction
