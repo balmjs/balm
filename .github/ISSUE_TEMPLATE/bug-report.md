@@ -1,13 +1,12 @@
 ---
-name: Custom issue template
-about: Describe this issue template's purpose here.
+name: Bug report
+about: Create a bug report to help us improve.
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
-**Development  Relevant Information:**
+**Development Relevant Information:**
 
 - Operating System:
 - Node.js Version (run `node -v`):
@@ -15,6 +14,5 @@ assignees: ''
 - Balm Version (run `balm -V`, if command not found, you need `npm i -g balm-cli`):
 
 ### Description:
-
 
 ### Steps To Reproduce:
