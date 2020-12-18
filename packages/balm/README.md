@@ -13,7 +13,7 @@
 [![Coverage Percentage][cover-image]][cover-url]
 
   <h1>BalmJS</h1>
-  <p>A flexible Front-End workflow for webapps</p>
+  <p>An universal Front-End workflow for webapps</p>
 </div>
 
 ## Introduction
@@ -181,8 +181,8 @@ Please, don't hesitate to [file an issue](https://github.com/balmjs/balm/issues/
 [license-url]: https://www.npmjs.com/package/balm-core
 [deps-image]: https://david-dm.org/balmjs/balm.svg?path=packages/balm&theme=shields.io
 [deps-url]: https://david-dm.org/balmjs/balm?path=packages/balm
-[travis-image]: https://travis-ci.org/balmjs/balm.svg?branch=master
-[travis-url]: https://travis-ci.org/balmjs/balm
+[travis-image]: https://travis-ci.com/balmjs/balm.svg?branch=master
+[travis-url]: https://travis-ci.com/balmjs/balm
 [appveyor-image]: https://ci.appveyor.com/api/projects/status/github/balmjs/balm?svg=true
 [appveyor-url]: https://ci.appveyor.com/project/balmjs/balm
 [cover-image]: https://coveralls.io/repos/balmjs/balm/badge.svg
