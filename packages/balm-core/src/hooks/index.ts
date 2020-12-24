@@ -49,8 +49,13 @@ class BaseHooks {
     );
   }
 
-  webpack(input: BalmEntry, output: string, options?: Configuration) {
-    Maker.generate('webpack', [input, output, options]);
+  webpack(
+    input: BalmEntry,
+    output: string,
+    options?: Configuration,
+    fn?: Function
+  ) {
+    Maker.generate('webpack', [input, output, options, fn]);
   }
 
   esbuild(

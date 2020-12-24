@@ -10,7 +10,8 @@ class WebpackTask extends BalmJS.BalmTask {
   recipe(
     input?: BalmEntry,
     output?: string,
-    customOptions: Configuration = {}
+    customOptions: Configuration = {},
+    fn?: Function
   ): Function {
     const balmBundler = (callback: Function): void => {
       this.init(input || BalmJS.config.scripts.entry, output);
@@ -41,6 +42,8 @@ class WebpackTask extends BalmJS.BalmTask {
           if (BalmJS.config.logs.level <= scriptLogLevel) {
             console.log(stats.toString(BalmJS.config.scripts.stats));
           }
+
+          fn && fn();
 
           // Done processing
           callback();
