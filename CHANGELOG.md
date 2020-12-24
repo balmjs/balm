@@ -5,6 +5,13 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.9.4 / 2020-12-24
+
+### Features
+
+- add config `scripts.minify`
+- update api `webpack`
+
 ## v3.9.3 / 2020-12-15
 
 ### Features
