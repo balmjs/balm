@@ -41,7 +41,9 @@ describe('Webpack Task', function () {
     const defaultOutput = 'dist/js';
 
     it(`expected output: "${defaultInput}"`, function (done) {
-      webpackTask.recipe(defaultInput, defaultOutput, {})(done);
+      webpackTask.recipe(defaultInput, defaultOutput, {}, function () {
+        console.log('sync wxss');
+      })(done);
 
       expect(webpackTask.input).to.equal(defaultInput);
       expect(webpackTask.output).to.equal(defaultOutput);

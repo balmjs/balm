@@ -15,6 +15,7 @@ import {
 
 // Base options
 const bundler: BalmBundler = 'webpack';
+const minify = false;
 /**
  * Terser minify options
  *
@@ -151,6 +152,7 @@ const transformOptions: TransformOptions = {};
 export default {
   // base
   bundler,
+  minify,
   minifyOptions,
   entry,
   lint,

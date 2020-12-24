@@ -81,6 +81,7 @@ export type BalmEntry = string | string[] | WebpackEntry;
 export interface BalmScripts {
   // base
   bundler: BalmBundler;
+  minify: boolean;
   minifyOptions: MinifyOptions;
   entry: BalmEntry;
   lint: boolean;
