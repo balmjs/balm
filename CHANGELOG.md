@@ -5,6 +5,12 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.9.5 / 2020-12-31
+
+### Features
+
+- add cache require paths by `.balm-core-cache.json` (or custom cache file by `process.env.BALM_CORE_CACHE`)
+
 ## v3.9.4 / 2020-12-24
 
 ### Features

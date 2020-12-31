@@ -163,9 +163,9 @@ To download [example](https://balm.js.org/balm-example.zip) and try it, visit [b
 | **[balm-ui](https://github.com/balmjs/ui-vue)**       | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Next Generation Material UI for Vue.js            |
 | [balm-scroll](https://github.com/balmjs/balm-scroll)  | [![NPM version][balm-scroll-image]][balm-scroll-url]   | :scroll: Smooth scrolling for Vue.js                         |
 
-## Support
+## Contributing
 
-Please, don't hesitate to [file an issue](https://github.com/balmjs/balm/issues/new) if you have questions.
+We'd love for you to contribute and make BalmJS even better than it is today! Please make sure to read the [Contributing Guide](https://github.com/balmjs/balm/blob/master/CONTRIBUTING.md) before making a [pull request](https://github.com/balmjs/balm/pulls). You can submit any ideas as pull requests or as [GitHub issues](https://github.com/balmjs/balm/issues).
 
 ## License
 
