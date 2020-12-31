@@ -14,6 +14,7 @@
     "!packages/balm-core/src/middlewares/index.ts",
     "!packages/balm-core/src/plugins/*.ts",
     "!packages/balm-core/src/utilities/address.ts",
+    "!packages/balm-core/src/utilities/cache-core.ts",
     "!packages/balm-core/src/utilities/compiling.ts",
     "!packages/balm-core/src/utilities/detect-port.ts",
     "!packages/balm-core/src/utilities/escape-string-regexp.ts",
