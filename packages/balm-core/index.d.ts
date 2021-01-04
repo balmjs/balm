@@ -120,8 +120,9 @@ export interface BalmScripts {
   excludeUrlResource: string[];
   useEsModule: boolean;
   urlLoaderOptions: object;
-  htmlLoaderOptions: object;
+  babelLoaderOptions: object;
   postcssLoaderOptions: Partial<PostcssLoaderOptions>;
+  htmlLoaderOptions: object;
   extensions: string[];
   alias: ResolveAlias;
   plugins: object[];
