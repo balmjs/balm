@@ -1,24 +1,4 @@
 {
-  "presets": [
-    [
-      "@babel/env",
-      {
-        "modules": false,
-        // "loose": true,
-        // "modules": "commonjs",
-        // "debug": true,
-        "useBuiltIns": "entry",
-        "corejs": 3
-      }
-    ]
-  ],
-  "plugins": [
-    [
-      "@babel/transform-runtime",
-      {
-        "corejs": 3
-      }
-    ]
-    // "@babel/plugin-syntax-dynamic-import"
-  ]
+  "presets": [["@babel/env", { "modules": false }]],
+  "plugins": [["@babel/transform-runtime", { "corejs": 3 }]]
 }
