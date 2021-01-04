@@ -2,7 +2,7 @@ const jsConfig = require('./_test');
 let balmrc = require('../balmrc'); // Note: Imported Variables Are Read-only
 
 const scripts = Object.assign(jsConfig, {
-  options: {
+  minifyOptions: {
     compress: {
       drop_console: false
     }
