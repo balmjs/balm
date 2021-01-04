@@ -77,17 +77,23 @@ const useEsModule = true;
  */
 const urlLoaderOptions: object = {};
 /**
- * Templating: html-loader options
+ * Scripts: babel-loader options
  *
- * @reference https://github.com/webpack-contrib/html-loader#options
+ * @reference https://github.com/babel/babel-loader#options
  */
-const htmlLoaderOptions: object = {};
+const babelLoaderOptions: object = {};
 /**
  * Styling: postcss-loader options
  *
  * @reference https://github.com/postcss/postcss-loader#options
  */
 const postcssLoaderOptions: Partial<PostcssLoaderOptions> = {};
+/**
+ * Templating: html-loader options
+ *
+ * @reference https://github.com/webpack-contrib/html-loader#options
+ */
+const htmlLoaderOptions: object = {};
 // Resolve
 const extensions: string[] = [];
 const alias: object = {};
@@ -165,8 +171,9 @@ export default {
   excludeUrlResource,
   useEsModule,
   urlLoaderOptions,
-  htmlLoaderOptions,
+  babelLoaderOptions,
   postcssLoaderOptions,
+  htmlLoaderOptions,
   extensions,
   alias,
   plugins,
