@@ -1,4 +1,4 @@
 {
   "presets": [["@babel/env", { "modules": false }]],
-  "plugins": [["@babel/transform-runtime", { "corejs": 3 }]]
+  "plugins": ["@babel/transform-runtime"]
 }
