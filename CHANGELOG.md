@@ -5,6 +5,18 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.9.7 / 2020-01-07
+
+### Chore
+
+- optimize core cache
+
+## v3.9.6 / 2020-01-04
+
+### Features
+
+- add config `scripts.babelLoaderOptions`
+
 ## v3.9.5 / 2020-12-31
 
 ### Features
