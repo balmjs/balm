@@ -13,11 +13,14 @@ const SAVE_FILE = path.join(
 
 function cacheBalmCore(): void {
   let nameCache: LooseObject;
+  let originLastFilename: string;
 
   try {
     nameCache = existsSync(SAVE_FILE)
       ? JSON.parse(readFileSync(SAVE_FILE, 'utf-8'))
       : {};
+
+    originLastFilename = nameCache.lastFilename || '';
   } catch (err) {
     nameCache = {};
   }
@@ -30,7 +33,10 @@ function cacheBalmCore(): void {
 
     if (!currentModuleCache) {
       currentModuleCache = {};
-      nameCache[this.filename] = currentModuleCache;
+      if (/\/balm(-core)?/.test(this.filename)) {
+        nameCache[this.filename] = currentModuleCache;
+        nameCache.lastFilename = this.filename;
+      }
     }
 
     if (
@@ -64,11 +70,13 @@ function cacheBalmCore(): void {
   //   });
   // }
 
-  process.once('exit', function () {
-    try {
-      writeFileSync(SAVE_FILE, JSON.stringify(nameCache, null, 2), 'utf-8');
-    } catch (err) {
-      console.error(`BalmJS: Failed saving cache: ${err.toString()}`);
+  BalmJS.emitter.once('exit', function () {
+    if (nameCache.lastFilename !== originLastFilename) {
+      try {
+        writeFileSync(SAVE_FILE, JSON.stringify(nameCache, null, 2), 'utf-8');
+      } catch (err) {
+        console.error(`BalmJS: Failed saving cache: ${err.toString()}`);
+      }
     }
   });
 }
