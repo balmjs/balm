@@ -83,4 +83,5 @@ export default interface BalmGlobal extends Balm {
   watching: boolean;
   webpackCompiler: any;
   loading: boolean;
+  emitter: NodeJS.EventEmitter;
 }

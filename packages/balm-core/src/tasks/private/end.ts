@@ -19,6 +19,8 @@ class EndTask extends BalmJS.BalmTask {
 
     this.time();
 
+    BalmJS.emitter.emit('exit');
+
     callback();
   };
 }

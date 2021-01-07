@@ -1,6 +1,9 @@
+import { EventEmitter } from 'events';
 import cacheBalmCore from './utilities/cache-core';
 
-global.BalmJS = {} as any;
+global.BalmJS = {
+  emitter: new EventEmitter()
+} as any;
 BalmJS.loading = true;
 
 cacheBalmCore();
