@@ -33,7 +33,7 @@ function cacheBalmCore(): void {
 
     if (!currentModuleCache) {
       currentModuleCache = {};
-      if (/\/balm(-core)?/.test(this.filename)) {
+      if (/\/balm-core\//.test(this.filename)) {
         nameCache[this.filename] = currentModuleCache;
         nameCache.lastFilename = this.filename;
       }
