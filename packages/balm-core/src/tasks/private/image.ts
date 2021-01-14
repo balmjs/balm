@@ -22,7 +22,7 @@ class ImageTask extends BalmJS.BalmTask {
     if (BalmJS.utils.isArray(BalmJS.config.images.plugins)) {
       this.plugins = BalmJS.config.images.plugins; // Using custom imagemin plugins
     } else {
-      const enablePlugins: {
+      const defaultPlugins: {
         [key: string]: boolean | Function;
       } = Object.assign(
         {
@@ -34,15 +34,14 @@ class ImageTask extends BalmJS.BalmTask {
         BalmJS.config.images.plugins as Partial<BalmImagesPlugins>
       );
 
-      this.plugins = Object.keys(enablePlugins)
-        .filter((key) => enablePlugins[key])
-        .map((key) => enablePlugins[key]);
-    }
+      const enablePlugins = Object.keys(defaultPlugins).filter(
+        (key) => defaultPlugins[key]
+      );
 
-    BalmJS.logger.debug(
-      `${this.name} task - plugins`,
-      Object.keys(this.plugins)
-    );
+      this.plugins = enablePlugins.map((key) => defaultPlugins[key]);
+
+      BalmJS.logger.debug(`${this.name} task - plugins`, enablePlugins);
+    }
   }
 
   fn = (): any => {
