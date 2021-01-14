@@ -106,6 +106,9 @@
     "@types/node": "^14.14.20",
     "@types/webpack": "^4.41.26"
   },
+  "peerDependencies": {
+    "postcss": "^8.0.0"
+  },
   "optionalDependencies": {
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
