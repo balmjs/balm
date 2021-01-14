@@ -107,7 +107,7 @@
     "@types/webpack": "^4.41.26"
   },
   "peerDependencies": {
-    "postcss": "^8.0.0"
+    "postcss": "^8.1.0"
   },
   "optionalDependencies": {
     "imagemin-gifsicle": "^7.0.0",
