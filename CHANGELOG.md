@@ -5,13 +5,19 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
-## v3.9.8 / 2020-01-07
+## v3.9.9 / 2021-01-14
+
+### Chore
+
+- optimize `postcss@8` tips for `balm-core` local dependencies usage
+
+## v3.9.8 / 2021-01-07
 
 ### Chore
 
 - optimize core cache
 
-## v3.9.6 / 2020-01-04
+## v3.9.6 / 2021-01-04
 
 ### Features
 
