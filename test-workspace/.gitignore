@@ -1,4 +1,5 @@
 # BalmJS build output
+.mp
 .tmp
 dist
 assets

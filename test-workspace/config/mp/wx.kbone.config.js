@@ -1,12 +1,12 @@
 module.exports = {
   origin: 'https://mp.balmjs.com',
-  entry: '/(home|index)?',
+  entry: '/',
   router: {
-    index: ['/']
+    main: ['/'] // NOTE: `main` 必须与 `balmrc.js` 中的 `scripts.entry` 入口文件输出名保持一致
   },
   redirect: {
-    notFound: 'index',
-    accessDenied: 'index'
+    notFound: 'main',
+    accessDenied: 'main'
   },
   generate: {
     globalVars: [
