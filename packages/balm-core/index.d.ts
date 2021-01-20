@@ -189,6 +189,7 @@ interface BalmServer {
   open: string | boolean;
   proxy: string | boolean | object;
   serveStatic: string[];
+  next: Function;
   options: any;
   devOptions: object;
   hotOptions: object;

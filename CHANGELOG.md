@@ -5,6 +5,16 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.10.0 / 2021-01-20
+
+### Features
+
+- add config `server.next`
+
+### Bug Fixes
+
+- update api operations to using series
+
 ## v3.9.9 / 2021-01-14
 
 ### Chore

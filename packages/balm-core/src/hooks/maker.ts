@@ -1,5 +1,7 @@
 const BLOCKLIST_IN_PROD = ['serve'];
 
+let compiling = false;
+
 function ban(name: string): boolean {
   const BLOCKLIST_IN_DEV = [
     'publish',
@@ -67,7 +69,13 @@ class Maker {
     }
 
     if (BalmJS.watching) {
-      gulp.parallel(balmTask)();
+      if (!compiling) {
+        compiling = true;
+        gulp.series(balmTask, (done: Function): void => {
+          compiling = false;
+          done();
+        })();
+      }
     } else {
       gulp.task(BalmJS.toNamespace(taskName) as string, balmTask);
 

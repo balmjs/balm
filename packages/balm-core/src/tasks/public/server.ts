@@ -106,6 +106,19 @@ class ServerTask extends BalmJS.BalmTask {
           port: serverConfig.port,
           host: serverConfig.host,
           https: serverConfig.https,
+          callbacks: {
+            ready() {
+              if (BalmJS.config.env.isMP) {
+                BalmJS.logger.info(
+                  '提示',
+                  `请使用微信开发者工具打开 ${BalmJS.config.roots.tmp} 预览小程序`,
+                  { logLevel: BalmJS.LogLevel.Error }
+                );
+              }
+
+              serverConfig.next();
+            }
+          },
           open: serverConfig.open,
           localOnly: BalmJS.config.inDesktopApp,
           scriptPath: BalmJS.config.scripts.ie8 ? (): string => '' : undefined
