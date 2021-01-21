@@ -17,6 +17,7 @@ const serveStatic: string[] = [
  * @reference https://browsersync.io/docs/options
  */
 const options: object = {};
+const next: Function = () => {};
 // Middleware
 /**
  * A development middleware for webpack
@@ -82,6 +83,7 @@ export default {
   proxy,
   serveStatic,
   options,
+  next,
   devOptions,
   hotOptions,
   proxyConfig,

@@ -2,15 +2,27 @@ const path = require('path');
 const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MpPlugin = require('mp-webpack-plugin');
+const { src, dest, parallel } = require('gulp');
+const { spawn } = require('child_process');
 const balmrc = require('../balmrc');
 // const pxtorem = require('postcss-pxtorem');
 const publish = require('./balm.publish');
 
 const getConfig = (balm) => {
-  return Object.assign(balmrc, {
+  let { isMP, isDev } = balm.config.env;
+
+  let config = Object.assign(balmrc, {
+    server: {
+      next: () => {
+        if (!isMP) {
+          spawn('npm', ['run', 'mp:dev'], { stdio: 'inherit' });
+        }
+      }
+    },
     roots: {
       source: 'mp',
-      target: balm.config.env.isMP ? 'dist/mp' : 'dist/web'
+      tmp: isMP ? '.mp' : '.tmp',
+      target: isMP ? 'dist/mp' : 'dist/web'
     },
     styles: {
       extname: 'scss',
@@ -24,10 +36,8 @@ const getConfig = (balm) => {
     },
     scripts: {
       entry: {
-        lib: ['vue'],
-        main: balm.config.env.isMP
-          ? './mp/scripts/main.mp.js'
-          : './mp/scripts/main.js'
+        lib: ['vue', 'kbone-api'],
+        main: isMP ? './mp/scripts/main.mp.js' : './mp/scripts/main.js'
       },
       loaders: [
         {
@@ -37,7 +47,7 @@ const getConfig = (balm) => {
       ],
       plugins: [
         new VueLoaderPlugin(),
-        ...(balm.config.env.isMP
+        ...(isMP
           ? [
               new webpack.DefinePlugin({
                 'process.env.isMiniprogram': process.env.isMiniprogram // 注入环境变量，用于业务代码判断
@@ -47,7 +57,7 @@ const getConfig = (balm) => {
           : [])
       ],
       // extractCss: {
-      //   enabled: balm.config.env.isProd,
+      //   enabled: env.isProd,
       //   prefix: 'extra-'
       // },
       alias: {
@@ -58,7 +68,7 @@ const getConfig = (balm) => {
         // 'balm-ui-next': 'balm-ui/src/scripts/next.js'
       }
     },
-    assets: balm.config.env.isMP
+    assets: isMP
       ? {}
       : {
           subDir: 'h5',
@@ -66,13 +76,60 @@ const getConfig = (balm) => {
           excludes: ['dist/web/h5/1a/reset.css']
         }
   });
+
+  if (isMP && isDev) {
+    config.useDefaults = false;
+    config.styles.minify = true; // Fuck MP sourcemap bug
+    config.styles.options = {
+      minifySelectors: false // 因为 wxss 编译器不支持 .some>:first-child 这样格式的代码，所以暂时禁掉这个
+    };
+    config.scripts.minify = true; // 开发者工具可能无法完美支持业务代码使用到的 es 特性，建议自己做代码压缩
+  }
+
+  return config;
 };
 
+const tmpRoot = '.mp';
+const wxssEntry = './mp/wx-pages/main/index.wxss';
+
+function syncWxss() {
+  return src(wxssEntry).pipe(dest(`${tmpRoot}/pages/main`));
+}
+
 const api = (mix) => {
-  if (mix.env.isMP) {
-    // NOTE: fuck mp
-    // For css entry
-    mix.copy('mp/index.wxss', 'dist/mp/pages/main');
+  let { isMP, isDev, isProd } = mix.env;
+
+  if (isMP) {
+    const mpDir = isProd ? './dist/mp' : tmpRoot;
+    const mpCommonDir = `${mpDir}/common`;
+
+    // sync wxss entry
+    mix.copy(wxssEntry, `${mpDir}/pages/main`);
+
+    if (isDev) {
+      mix.serve((watcher, reload) => {
+        watcher.on('change', (file) => {
+          const extname = file.split('.')[1];
+
+          if (extname === 'scss') {
+            mix.sass('mp/styles/main.scss', `${mpCommonDir}/1a`);
+          }
+
+          if (extname === 'js' || extname === 'vue') {
+            mix.webpack(
+              {
+                main: './mp/scripts/main.mp.js'
+              },
+              `${mpCommonDir}/2b`,
+              {},
+              () => {
+                parallel(syncWxss)();
+              }
+            );
+          }
+        });
+      });
+    }
   } else {
     // Clear miniprogram css
     mix.remove(['dist/web/index.wxss', 'dist/web/h5/1a/reset.css']);
