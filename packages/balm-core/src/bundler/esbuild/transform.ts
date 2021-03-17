@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { startService } from 'esbuild';
+import { transform } from 'esbuild';
 import { minifyOptions } from './options';
 import { TransformOptions } from '@balm-core/index';
 
@@ -27,8 +27,6 @@ const esTransform = (
   );
 
   (async () => {
-    const service = await startService();
-
     try {
       for await (const entryPoint of entryPoints) {
         build.input = BalmJS.file.absPath(entryPoint);
@@ -47,7 +45,7 @@ const esTransform = (
         const filename = entryPoint.split('/').pop();
         if (filename && fs.existsSync(build.input)) {
           const inputCode = fs.readFileSync(build.input, 'utf8');
-          const result = await service.transform(inputCode, options);
+          const result = await transform(inputCode, options);
 
           fs.mkdirSync(build.output, { recursive: true });
           fs.writeFileSync(path.join(build.output, filename), result.code);
@@ -56,7 +54,6 @@ const esTransform = (
         }
       }
     } finally {
-      service.stop();
       callback();
     }
   })();
