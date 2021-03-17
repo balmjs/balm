@@ -30,7 +30,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
-    'prettier/@typescript-eslint'
+    'prettier'
   ],
   rules: {
     'prettier/prettier': 'error',
