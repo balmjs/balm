@@ -10,7 +10,6 @@
 ### Features
 
 - update dependencies
-  - `cssnano`: 4.x -> 5.x
   - `esbuild`: 0.10.x -> 0.11.x
   - `gulp-rev-all`: 2.x -> 3.x
 
