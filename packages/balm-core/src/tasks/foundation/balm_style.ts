@@ -1,5 +1,4 @@
 import BalmTask from './balm';
-import cssnano from 'cssnano';
 import sass from 'sass';
 import Fiber from 'fibers';
 import { MP_ASSETS } from '../../config/constants';
@@ -87,18 +86,6 @@ class BalmStyleTask extends BalmTask {
 
     return stream
       .pipe($.postcss(BalmJS.plugins.postcss(style === 'postcss')))
-      .pipe(
-        $.if(
-          BalmJS.config.env.isProd || BalmJS.config.styles.minify,
-          $.postcss([
-            cssnano(
-              Object.assign(BalmJS.config.styles.options, {
-                autoprefixer: false
-              })
-            )
-          ])
-        )
-      )
       .pipe(
         $.if(
           BalmJS.config.env.isMP,
