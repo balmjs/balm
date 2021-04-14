@@ -1,4 +1,5 @@
 import webpackMiddleware from '../../packages/balm-core/src/middlewares/webpack';
+import { webpack } from '../../packages/balm-core/src/bundler/webpack';
 
 describe('Webpack Middleware', function () {
   let middlewares: object[];
