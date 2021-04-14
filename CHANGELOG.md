@@ -5,12 +5,22 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
-## v3.14.0 / 2021-04-12
+## v3.15.0 / 2021-04-14
 
 ### Features
 
 - update dependencies
   - `cssnano`: 4.x -> 5.x
+
+### Refactor
+
+- `require` is dog slow
+
+## v3.14.0 / 2021-04-12
+
+### Features
+
+- update dependencies
   - `esbuild`: 0.10.x -> 0.11.x
   - `gulp-rev-all`: 2.x -> 3.x
 

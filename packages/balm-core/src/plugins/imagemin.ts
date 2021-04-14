@@ -1,7 +1,5 @@
 // Reference `gulp-imagemin@7.1.0`
 import { TransformCallback } from 'stream';
-import through2Concurrent from 'through2-concurrent';
-import imagemin from 'imagemin';
 import prettyBytes from 'pretty-bytes';
 
 const PLUGIN_NAME = 'imagemin';
@@ -69,7 +67,7 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
 
     (async () => {
       try {
-        const data = await imagemin.buffer(file.contents, {
+        const data = await require('imagemin').buffer(file.contents, {
           plugins
         });
         const originalSize = file.contents.length;
@@ -112,7 +110,11 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
     callback();
   }
 
-  return through2Concurrent.obj({ maxConcurrency: 8 }, transform, flush);
+  return require('through2-concurrent').obj(
+    { maxConcurrency: 8 },
+    transform,
+    flush
+  );
 };
 
 const gifsicle = exposePlugin('gifsicle');
@@ -120,5 +122,14 @@ const mozjpeg = exposePlugin('mozjpeg');
 const optipng = exposePlugin('optipng');
 const svgo = exposePlugin('svgo');
 
+const getDefaultImagePlugins = (): {
+  [key: string]: Function;
+} => ({
+  gif: gifsicle(),
+  jpeg: mozjpeg(),
+  png: optipng(),
+  svg: svgo()
+});
+
 export default gulpImagemin;
-export { gifsicle, mozjpeg, optipng, svgo };
+export { getDefaultImagePlugins };

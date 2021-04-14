@@ -1,4 +1,3 @@
-import { rollup, watch } from 'rollup';
 import getEntry from './entry';
 import getOutput from './output';
 import build from './build';
@@ -8,18 +7,20 @@ const buildLibrary = async (
   inputOptions: InputOptions,
   outputOptions: OutputOptions | OutputOptions[]
 ): Promise<void> => {
+  const rollup = require('rollup');
+
   inputOptions = getEntry(inputOptions);
   outputOptions = getOutput(outputOptions);
   const rollupOptions = Object.assign({}, inputOptions, {
     output: outputOptions
   });
 
-  const bundle = await rollup(rollupOptions);
+  const bundle = await rollup.rollup(rollupOptions);
 
-  const watcher = watch(
+  const watcher = rollup.watch(
     Object.assign({}, rollupOptions, BalmJS.config.scripts.watchOptions)
   );
-  watcher.on('event', (event) => {
+  watcher.on('event', (event: any) => {
     // event.code can be one of:
     //   START        — the watcher is (re)starting
     //   BUNDLE_START — building an individual bundle

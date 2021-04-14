@@ -1,4 +1,4 @@
-import webpackConfig from '../../bundler/webpack';
+import { webpack, webpackConfig } from '../../bundler/webpack';
 import compiling from '../../utilities/compiling';
 import { BalmEntry, Configuration, BalmError } from '@balm-core/index';
 

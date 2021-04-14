@@ -30,7 +30,7 @@ class Balm {
     BalmJS.afterTask = setTask(name);
   }
 
-  go(recipe: Function = BalmJS.noop): void {
+  go(recipe: Function = NOOP): void {
     if (BalmJS.utils.isFunction(recipe)) {
       registerTasks(recipe);
     } else {

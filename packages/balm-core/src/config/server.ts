@@ -17,7 +17,7 @@ const serveStatic: string[] = [
  * @reference https://browsersync.io/docs/options
  */
 const options: object = {};
-const next: Function = () => {};
+const next: Function = NOOP;
 // Middleware
 /**
  * A development middleware for webpack

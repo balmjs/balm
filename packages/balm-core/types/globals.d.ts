@@ -11,9 +11,9 @@ declare global {
       gulp: Gulp;
       $: GulpPlugin;
       server: any;
-      webpack: any;
       through2: any;
       PluginError: PluginError;
+      NOOP: Function;
       BalmJS: BalmGlobal;
     }
   }
@@ -22,8 +22,8 @@ declare global {
   var gulp: Gulp;
   var $: GulpPlugin;
   var server: any;
-  var webpack: any;
   var through2: any;
   var PluginError: PluginError;
+  var NOOP: Function;
   var BalmJS: BalmGlobal;
 }

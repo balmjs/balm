@@ -1,9 +1,8 @@
 import BalmTask from './balm';
-import cssnano from 'cssnano';
-import sass from 'sass';
-import Fiber from 'fibers';
 import { MP_ASSETS } from '../../config/constants';
 import { BalmError } from '@balm-core/index';
+
+let fiber: any;
 
 class BalmStyleTask extends BalmTask {
   constructor(name: string) {
@@ -15,7 +14,8 @@ class BalmStyleTask extends BalmTask {
         extname = '{scss,sass}';
 
         if (BalmJS.config.styles.dartSass) {
-          $.sass.compiler = sass;
+          $.sass.compiler = require('sass');
+          fiber = require('fibers');
         }
         break;
       case 'less':
@@ -73,7 +73,7 @@ class BalmStyleTask extends BalmTask {
       case 'sass':
         if (BalmJS.config.styles.dartSass) {
           options = Object.assign({}, options, {
-            fiber: Fiber
+            fiber
           });
         }
 
@@ -87,18 +87,6 @@ class BalmStyleTask extends BalmTask {
 
     return stream
       .pipe($.postcss(BalmJS.plugins.postcss(style === 'postcss')))
-      .pipe(
-        $.if(
-          BalmJS.config.env.isProd || BalmJS.config.styles.minify,
-          $.postcss([
-            cssnano(
-              Object.assign(BalmJS.config.styles.options, {
-                autoprefixer: false
-              })
-            )
-          ])
-        )
-      )
       .pipe(
         $.if(
           BalmJS.config.env.isMP,

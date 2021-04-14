@@ -28,7 +28,6 @@ enum Bundler {
   esbuild = 'esbuild'
 }
 
-const noop: Function = () => {};
 const vendors: BalmVendor[] = [];
 
 const workspace = process.env.BALM_CWD as string;
@@ -61,7 +60,6 @@ const config: Omit<BalmConfig, 'src' | 'dest'> = {
 };
 
 BalmJS.config = config as BalmConfig;
-BalmJS.noop = noop;
 BalmJS.LogLevel = LogLevel;
 BalmJS.Bundler = Bundler;
 BalmJS.vendors = vendors;

@@ -1,5 +1,5 @@
 import { BalmImagesPlugins, BalmError } from '@balm-core/index';
-import { gifsicle, mozjpeg, optipng, svgo } from '../../plugins/imagemin';
+import { getDefaultImagePlugins } from '../../plugins/imagemin';
 
 class ImageTask extends BalmJS.BalmTask {
   constructor() {
@@ -25,12 +25,7 @@ class ImageTask extends BalmJS.BalmTask {
       const defaultPlugins: {
         [key: string]: boolean | Function;
       } = Object.assign(
-        {
-          gif: gifsicle(),
-          jpeg: mozjpeg(),
-          png: optipng(),
-          svg: svgo()
-        },
+        getDefaultImagePlugins(),
         BalmJS.config.images.plugins as Partial<BalmImagesPlugins>
       );
 
