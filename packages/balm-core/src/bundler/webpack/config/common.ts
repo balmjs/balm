@@ -51,7 +51,7 @@ function getSplitChunks(): SplitChunksOptions {
   return cacheGroups ? { cacheGroups } : false;
 }
 
-function getCommonConfig(scripts: BalmScripts): Configuration {
+function getCommonConfig(webpack: any, scripts: BalmScripts): Configuration {
   const splitChunks = getSplitChunks();
   const optimization = splitChunks
     ? (BalmJS.utils.deepMerge(

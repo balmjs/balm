@@ -1,9 +1,9 @@
-import postcssPresetEnv from 'postcss-preset-env';
-import atImport from 'postcss-import';
-import autoprefixer from 'autoprefixer';
-import cssnano from 'cssnano';
-
 function getDefaultPostcssPlugins(isPostCSS = false): object[] {
+  const postcssPresetEnv = require('postcss-preset-env');
+  const atImport = require('postcss-import');
+  const autoprefixer = require('autoprefixer');
+  const cssnano = require('cssnano');
+
   const defaultPostcssPlugins =
     isPostCSS || BalmJS.config.styles.extname === 'css'
       ? [

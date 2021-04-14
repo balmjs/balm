@@ -1,5 +1,3 @@
-import workboxBuild from 'workbox-build';
-
 class PwaTask extends BalmJS.BalmTask {
   constructor() {
     super('pwa');
@@ -66,7 +64,8 @@ class PwaTask extends BalmJS.BalmTask {
           pre: true
         });
 
-        await workboxBuild[mode](options)
+        await require('workbox-build')
+          [mode](options)
           .then(
             ({
               count,

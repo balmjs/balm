@@ -4,6 +4,10 @@ import getOutput from './output';
 import getDefaultConfig from './config';
 import { BalmEntry, Configuration } from '@balm-core/index';
 
+const webpackModule = process.env.WEBPACK || require.resolve('webpack');
+
+const webpack = require(webpackModule);
+
 function webpackConfig(
   input: BalmEntry,
   output: string,
@@ -33,7 +37,7 @@ function webpackConfig(
     baseConfig.externals = scripts.externals;
   }
 
-  const defaultConfig = getDefaultConfig(scripts);
+  const defaultConfig = getDefaultConfig(webpack, scripts);
 
   const configuration: Configuration = merge(
     baseConfig,
@@ -49,4 +53,5 @@ function webpackConfig(
   return configuration;
 }
 
-export default webpackConfig;
+// export default webpackConfig;
+export { webpack, webpackConfig };

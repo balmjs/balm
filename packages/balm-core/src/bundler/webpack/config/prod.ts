@@ -1,9 +1,4 @@
 import merge from 'webpack-merge';
-import TerserPlugin from 'terser-webpack-plugin';
-import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import safePostCssParser from 'postcss-safe-parser';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import getCommonConfig from './common';
 import { Configuration, MinifyOptions, BalmScripts } from '@balm-core/index';
 
@@ -13,7 +8,13 @@ import { Configuration, MinifyOptions, BalmScripts } from '@balm-core/index';
 // Set to `true` or `false` to always turn it on or off
 const bundleAnalyzerReport = process.env.npm_config_report || false;
 
-function getProdConfig(scripts: BalmScripts): Configuration {
+function getProdConfig(webpack: any, scripts: BalmScripts): Configuration {
+  const TerserPlugin = require('terser-webpack-plugin');
+  const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+  const safePostCssParser = require('postcss-safe-parser');
+  const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+  const webpackBundleAnalyzer = require('webpack-bundle-analyzer');
+
   const shouldUseSourceMap = scripts.sourceMap as boolean;
   const terserOptions: MinifyOptions = scripts.minifyOptions;
 
@@ -21,7 +22,7 @@ function getProdConfig(scripts: BalmScripts): Configuration {
     terserOptions.ie8 = true;
   }
 
-  return merge(getCommonConfig(scripts), {
+  return merge(getCommonConfig(webpack, scripts), {
     mode: 'production',
     optimization: {
       minimizer: [
@@ -63,7 +64,9 @@ function getProdConfig(scripts: BalmScripts): Configuration {
           ]
         : []),
       // View the bundle analyzer report
-      ...(bundleAnalyzerReport ? [new BundleAnalyzerPlugin()] : [])
+      ...(bundleAnalyzerReport
+        ? [new webpackBundleAnalyzer.BundleAnalyzerPlugin()]
+        : [])
     ],
     devtool: shouldUseSourceMap ? 'source-map' : false
   });

@@ -1,7 +1,5 @@
 // Reference `gulp-replace@1.0.0`
 import { TransformCallback } from 'stream';
-import { Transform } from 'readable-stream';
-import { isText } from 'istextorbinary';
 import rs from '../utilities/replacestream';
 
 interface GulpReplaceOptions {
@@ -13,11 +11,13 @@ function gulpReplace(
   _replacement: string | Function,
   options: GulpReplaceOptions = {}
 ): any {
+  const readableStream = require('readable-stream');
+
   if (options.skipBinary === undefined) {
     options.skipBinary = true;
   }
 
-  return new Transform({
+  return new readableStream.Transform({
     objectMode: true,
     transform: (
       file: Buffer | string | any,
@@ -79,7 +79,7 @@ function gulpReplace(
       }
 
       if (options && options.skipBinary) {
-        if (isText(file.path, file.contents)) {
+        if (require('istextorbinary').isText(file.path, file.contents)) {
           doReplace();
         } else {
           callback(null, file);
