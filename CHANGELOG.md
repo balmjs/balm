@@ -5,6 +5,17 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.15.0 / 2021-04-14
+
+### Features
+
+- update dependencies
+  - `cssnano`: 4.x -> 5.x
+
+### Refactor
+
+- `require` is dog slow
+
 ## v3.14.0 / 2021-04-12
 
 ### Features
