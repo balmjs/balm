@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const imageminPngquant = require('imagemin-pngquant');
 
 console.info('balm@zero');
@@ -9,19 +10,29 @@ const workspace = path.join(projectRoot, 'test-workspace');
 const config = {
   workspace,
   // useDefaults: false,
-  // paths: {
-  //   source: {
-  //     html: 'tpl'
-  //   }
-  // },
+  paths: {
+    source: {
+      html: 'templates'
+    }
+  },
   styles: {
-    extname: 'scss',
-    dartSass: true
+    // extname: 'scss',
+    // dartSass: true
     // sprites: ['icons', 'mdi']
   },
   scripts: {
-    bundler: 'esbuild',
-    lint: true
+    // bundler: 'esbuild',
+    lint: true,
+    // entry: {
+    //   index: './src/scripts/index.js',
+    //   'page-a': './src/scripts/page-a.js',
+    //   'page-b': './src/scripts/page-b.js'
+    // },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: 'src/templates/index.html'
+      })
+    ]
   },
   // images: {
   //   plugins: {
