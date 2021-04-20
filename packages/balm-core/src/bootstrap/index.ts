@@ -73,6 +73,11 @@ function ready(config: BalmConfig): BalmConfig {
   // Set desktop app flag
   config.inDesktopApp = /^electron-.*/.test(config.scripts.target as string);
 
+  // Fix html task with HtmlWebpackPlugin bug
+  BalmJS.hasHtmlWebpackPlugin = config.scripts.plugins.some(
+    (plugin: any) => plugin.constructor.name === 'HtmlWebpackPlugin'
+  );
+
   return config;
 }
 

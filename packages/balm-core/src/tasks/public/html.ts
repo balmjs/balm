@@ -4,8 +4,12 @@ class HtmlTask extends BalmJS.BalmTask {
   constructor() {
     super('html');
 
+    const templatePath = BalmJS.hasHtmlWebpackPlugin
+      ? BalmJS.config.dest.base
+      : BalmJS.config.src.html;
+
     this.defaultInput = [
-      path.join(BalmJS.config.src.html, '*.html'),
+      path.join(templatePath, '*.html'),
       path.join(BalmJS.config.src.html, BalmJS.config.pwa.manifest)
     ];
     this.defaultOutput = BalmJS.config.dest.base;
