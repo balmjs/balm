@@ -47,7 +47,7 @@ describe('Publish Task', function () {
       it(
         'publish one template',
         asyncCase(function () {
-          publishTask.recipe('index.html', 'dist', {
+          publishTask.recipe('default.html', 'dist', {
             basename: 'home',
             suffix: '.blade',
             extname: '.php'

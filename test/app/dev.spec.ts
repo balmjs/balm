@@ -14,7 +14,7 @@ describe('App Test in development', function () {
   });
 
   const testCase = [
-    '.tmp/index.html',
+    '.tmp/default.html',
     '.tmp/css/main.css',
     '.tmp/js/main.js',
     '.tmp/js/modernizr.js'

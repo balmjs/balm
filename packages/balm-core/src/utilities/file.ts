@@ -42,6 +42,12 @@ class File {
     return path.join(BalmJS.config.src.js, 'index.js');
   }
 
+  get templateBasePath(): string {
+    return BalmJS.hasHtmlWebpackPlugin
+      ? BalmJS.config.src.base
+      : BalmJS.config.src.html;
+  }
+
   absPath(_path: string): string {
     return path.resolve(BalmJS.config.workspace, _path);
   }

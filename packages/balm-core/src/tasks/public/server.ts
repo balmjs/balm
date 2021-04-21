@@ -49,7 +49,7 @@ class ServerTask extends BalmJS.BalmTask {
     ).on('change', server.reload);
 
     watch(
-      `${BalmJS.config.src.html}/*.html`,
+      `${BalmJS.file.templateBasePath}/*.html`,
       watchOptions,
       this.#watchTask('html', true)
     );
