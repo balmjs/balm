@@ -63,5 +63,6 @@ BalmJS.config = config as BalmConfig;
 BalmJS.LogLevel = LogLevel;
 BalmJS.Bundler = Bundler;
 BalmJS.vendors = vendors;
+BalmJS.hasHtmlWebpackPlugin = false;
 
 export default config;
