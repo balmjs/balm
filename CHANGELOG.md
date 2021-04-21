@@ -5,6 +5,12 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.15.2 / 2021-04-21
+
+### Bug Fixes
+
+- fix server task with HtmlWebpackPlugin bug
+
 ## v3.15.1 / 2021-04-20
 
 ### Bug Fixes
