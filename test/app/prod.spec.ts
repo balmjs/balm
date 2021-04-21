@@ -34,7 +34,7 @@ describe('App Test in production', function () {
 
     it('expected output: "dist"', function (done) {
       let testCase = [
-        'dist/index.html',
+        'dist/default.html',
         'dist/favicon.ico',
         'dist/rev-manifest.json'
         // 'dist/a/main.7ad32811.css',
@@ -48,7 +48,7 @@ describe('App Test in production', function () {
         // 'assets/views/b/page-b.phtml'
       ];
 
-      const input = 'index.html';
+      const input = 'default.html';
       const output = 'views';
       const renameOptions = {
         basename: 'home',

@@ -15,12 +15,12 @@ describe('Balm Hooks - html', function () {
     });
 
     it('#mix.html()', function (done) {
-      const input = 'src/index.html';
+      const input = 'src/default.html';
       const output = `${targetDir}/html`;
 
       runTest(
         {
-          testCase: `${output}/index.html`,
+          testCase: `${output}/default.html`,
           testHook: (mix: any) => {
             mix.html(input, output);
           }
@@ -44,12 +44,12 @@ describe('Balm Hooks - html', function () {
     });
 
     it('#mix.html()', function (done) {
-      const input = 'src/index.html';
+      const input = 'src/default.html';
       const output = `${targetDir}/html`;
 
       runTest(
         {
-          testCase: `${output}/index.html`,
+          testCase: `${output}/default.html`,
           testHook: (mix: any) => {
             mix.html(input, output);
           }
