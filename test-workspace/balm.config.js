@@ -30,7 +30,8 @@ const config = {
     // },
     plugins: [
       new HtmlWebpackPlugin({
-        template: 'src/templates/index.html'
+        template: 'src/templates/default.html',
+        filename: '../src/index.html'
       })
     ]
   },
