@@ -30,6 +30,7 @@ interface BalmFile {
   stylePaths: string[];
   assetsSuffixPath: string;
   defaultEntry: string;
+  templateBasePath: string;
   absPath: (path: string) => string;
   absPaths: (paths: string | string[]) => string | string[];
   matchAllFiles: (path: string, file?: string) => string;
