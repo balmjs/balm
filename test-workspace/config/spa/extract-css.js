@@ -10,8 +10,5 @@ module.exports = {
   //     filename: '[name].html'
   //   })
   // ],
-  extractCss: {
-    enabled: true
-    // prefix: 'prefix-'
-  }
+  extractCss: true
 };

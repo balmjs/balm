@@ -1,5 +1,6 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const balmrc = require('../balmrc');
 
 module.exports = Object.assign(balmrc, {
@@ -8,6 +9,8 @@ module.exports = Object.assign(balmrc, {
   },
   scripts: {
     entry: {
+      lib: ['vue'],
+      ui: ['balm-ui'],
       main: './vue/scripts/main.js'
     },
     loaders: [
@@ -19,10 +22,17 @@ module.exports = Object.assign(balmrc, {
     urlLoaderOptions: {
       esModule: false
     },
-    plugins: [new VueLoaderPlugin()],
+    plugins: [
+      new VueLoaderPlugin(),
+      new HtmlWebpackPlugin({
+        template: 'vue/index.html',
+        filename: '../vue/test.html'
+      })
+    ],
     alias: {
       '@': path.resolve(__dirname, '..', '..', 'vue', 'scripts'),
       vue$: 'vue/dist/vue.esm.js'
-    }
+    },
+    extractCss: true
   }
 });
