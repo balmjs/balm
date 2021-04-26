@@ -7,11 +7,28 @@ import {
   BalmScripts
 } from '@balm-core/index';
 
+const defaultOptimization = {
+  // Automatically split vendor and commons
+  // https://twitter.com/wSokra/status/969633336732905474
+  // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
+  splitChunks: {
+    chunks: 'all',
+    name: BalmJS.config.env.isDev
+  },
+  // Keep the runtime chunk separated to enable long term caching
+  // https://twitter.com/wSokra/status/969679223278505985
+  // https://github.com/facebook/create-react-app/issues/5358
+  runtimeChunk: {
+    name: (entrypoint: any) => `runtime-${entrypoint.name}`
+  }
+};
+
 function getSplitChunks(): SplitChunksOptions {
   const scripts: BalmScripts = BalmJS.config.scripts;
   const jsFolder: string = BalmJS.config.paths.target.js;
 
-  let cacheGroups: any = false;
+  let cacheGroups: { [key: string]: object } = {};
+
   if (scripts.extractAllVendors) {
     // All vendors
     const jsFilename = scripts.inject
@@ -20,10 +37,10 @@ function getSplitChunks(): SplitChunksOptions {
 
     cacheGroups = {
       vendors: {
-        chunks: 'initial',
-        name: jsFilename,
+        name: 'vendors',
+        chunks: 'all',
         test: /[\\/](node_modules|bower_components)[\\/]/,
-        filename: BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`) // Output: `js/vendors.js`
+        filename: BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`) // Output: `js/vendor.js`
       }
     };
   } else if (BalmJS.vendors.length) {
@@ -37,9 +54,11 @@ function getSplitChunks(): SplitChunksOptions {
         : `${cacheGroupKey}.js`;
 
       cacheGroups[cacheGroupKey] = {
+        name: cacheGroupKey,
         chunks: 'initial',
-        name: jsFilename,
-        test: new RegExp(`[\\\\/](${cacheGroupModules})[\\\\/]`),
+        test: new RegExp(
+          `[\\\\/]node_modules[\\\\/](${cacheGroupModules})[\\\\/].*(?<!\\.css)$`
+        ),
         filename: BalmJS.file.assetsPath(
           `${jsFolder}/${scripts.vendorName}/${jsFilename}`
         ), // Output: `js/vendor/customVendorName.js`
@@ -48,7 +67,17 @@ function getSplitChunks(): SplitChunksOptions {
     }
   }
 
-  return cacheGroups ? { cacheGroups } : false;
+  if (BalmJS.config.env.isProd && BalmJS.config.scripts.extractCss) {
+    // Custom styles in scripts
+    cacheGroups.css = {
+      name: 'css',
+      chunks: 'all',
+      test: /\.css$/,
+      enforce: true
+    };
+  }
+
+  return Object.keys(cacheGroups).length ? { cacheGroups } : false;
 }
 
 function getCommonConfig(webpack: any, scripts: BalmScripts): Configuration {

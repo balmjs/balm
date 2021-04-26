@@ -23,6 +23,7 @@ class CacheTask extends BalmJS.BalmTask {
     const defaultExcludes: string[] = [
       path.join(`!${BalmJS.config.dest.js}`, ASYNC_SCRIPTS, '*'),
       path.join(`!${BalmJS.config.dest.js}`, STATIC_ASSETS, '*'),
+      path.join(`!${BalmJS.config.dest.css}`, ASYNC_SCRIPTS, '*'),
       path.join(`!${BalmJS.config.dest.base}`, BalmJS.config.pwa.manifest)
     ];
 

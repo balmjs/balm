@@ -1,26 +1,31 @@
 import { ASYNC_SCRIPTS, HASH_NAME, MP_ASSETS } from '../../config/constants';
 import { WebpackOutput, BalmScripts } from '@balm-core/index';
 
+function getFilename(scripts: BalmScripts, isChunk = false): string {
+  let filename: string;
+
+  if (isChunk) {
+    filename = BalmJS.config.env.isProd
+      ? BalmJS.config.assets.cache || scripts.inject
+        ? `[name].${HASH_NAME}`
+        : '[name]'
+      : '[id]';
+  } else {
+    filename = scripts.inject ? `[name].${HASH_NAME}` : '[name]';
+  }
+
+  return `${filename}.js`;
+}
+
 function getOutput(
   output: string,
   scripts: BalmScripts,
   isHook = false
 ): WebpackOutput {
-  const outputPath: string = output || BalmJS.config.dest.base; // Absolute path
-  const jsFolder: string = BalmJS.config.paths.target.js;
-
-  let chunkFilename = '[id]';
-  if (BalmJS.config.env.isProd) {
-    if (BalmJS.config.assets.cache || scripts.inject) {
-      chunkFilename = `[name].${HASH_NAME}`;
-    } else {
-      chunkFilename = '[name]';
-    }
-  }
-  const jsChunkFilename = `${chunkFilename}.js`;
-  const jsFilename: string = scripts.inject
-    ? `[name].${HASH_NAME}.js`
-    : '[name].js';
+  const outputPath = output || BalmJS.config.dest.base; // Absolute path
+  const jsFolder = BalmJS.config.paths.target.js;
+  const jsFilename = getFilename(scripts);
+  const jsChunkFilename = getFilename(scripts, true);
 
   const customLibraryConfig: object = scripts.library
     ? { library: scripts.library }

@@ -135,10 +135,7 @@ export interface BalmScripts {
   optimization: Optimization;
   extractAllVendors: boolean;
   vendorName: string;
-  extractCss: {
-    enabled: boolean;
-    prefix: string;
-  };
+  extractCss: boolean;
   ie8: boolean;
   // rollup
   inputOptions: InputOptions;

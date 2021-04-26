@@ -139,13 +139,7 @@ const optimization: Optimization = {};
 const extractAllVendors = false; // Extract all vendors (all in one)
 const vendorName = 'vendor'; // AllInOne vendor filename or Vendors folder name
 // Extract CSS
-const extractCss: {
-  enabled: boolean;
-  prefix: string;
-} = {
-  enabled: false,
-  prefix: ''
-};
+const extractCss = false;
 // IE8 compatibility
 const ie8 = false;
 
