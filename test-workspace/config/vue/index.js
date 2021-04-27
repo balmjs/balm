@@ -1,11 +1,15 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const balmrc = require('../balmrc');
 
 module.exports = Object.assign(balmrc, {
   roots: {
     source: 'vue'
+  },
+  paths: {
+    source: {
+      html: 'templates'
+    }
   },
   scripts: {
     entry: {
@@ -22,16 +26,14 @@ module.exports = Object.assign(balmrc, {
     urlLoaderOptions: {
       esModule: false
     },
-    plugins: [
-      new VueLoaderPlugin(),
-      new HtmlWebpackPlugin({
-        template: 'vue/index.html',
-        filename: '../vue/test.html'
-      })
-    ],
+    plugins: [new VueLoaderPlugin()],
     alias: {
       '@': path.resolve(__dirname, '..', '..', 'vue', 'scripts'),
       vue$: 'vue/dist/vue.esm.js'
+    },
+    injectHtml: true,
+    htmlPluginOptions: {
+      template: 'vue/templates/auto.html'
     },
     extractCss: true
   }

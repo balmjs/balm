@@ -1,3 +1,5 @@
+// import '../styles/main.css';
+
 // NOTE: test for ES6
 // import 'core-js/fn/array/includes'; // core-js@2
 // import 'core-js/features/array/includes'; // core-js@3

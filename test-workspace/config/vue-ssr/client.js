@@ -2,12 +2,18 @@ const webpack = require('webpack');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const base = require('./base');
 const balmrc = require('../balmrc');
+const serve = require('./http-server');
 
 const scripts = Object.assign(base, {
   entry: {
     lib: ['vue', 'vue-router', 'vuex', 'axios'],
     client: './vue-ssr/app/scripts/entry-client.js'
-  }
+  },
+  injectHtml: true,
+  htmlPluginOptions: {
+    template: './vue-ssr/app/server.html'
+  },
+  extractCss: true
 });
 
 const getConfig = (balm) => {
@@ -20,8 +26,10 @@ const getConfig = (balm) => {
           changeOrigin: true
         }
       },
-      historyOptions: {
-        index: '/server.html' // NOTE: entry template
+      next() {
+        if (balm.config.env.isDev) {
+          serve();
+        }
       }
     },
     roots: {
@@ -43,23 +51,16 @@ const getConfig = (balm) => {
       }),
       new VueSSRClientPlugin()
     ]);
-    balmConfig.scripts.inject = true;
+    balmConfig.scripts.useCache = true;
   }
 
-  console.log('client config', balmConfig);
+  // console.log('client config', balmConfig);
 
   return balmConfig;
 };
 
-const api = (mix) => {
-  if (mix.env.isProd) {
-    mix.remove('dist/server.html');
-  }
-};
-
 module.exports = (balm) => {
   return {
-    config: getConfig(balm),
-    api
+    config: getConfig(balm)
   };
 };

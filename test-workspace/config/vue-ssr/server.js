@@ -39,6 +39,6 @@ balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
   new VueSSRServerPlugin()
 ]);
 
-console.log('server config', balmConfig);
+// console.log('server config', balmConfig);
 
 module.exports = balmConfig;
