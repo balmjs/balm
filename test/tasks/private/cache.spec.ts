@@ -30,6 +30,7 @@ describe('Cache Task', function () {
       path.join(dist, 'media', '**', '*'),
       '!' + path.join(dist, 'js', 'async', '*'),
       '!' + path.join(dist, 'js', 'assets', '*'),
+      '!' + path.join(dist, 'css', 'async', '*'),
       '!' + path.join(dist, 'manifest.json'),
       path.join(dist, '*.html')
     ];
@@ -54,7 +55,7 @@ describe('Cache Task', function () {
           isProd: true
         },
         scripts: {
-          inject: true
+          useCache: true
         },
         assets: {
           cache: true,
@@ -72,6 +73,7 @@ describe('Cache Task', function () {
       path.join(dist, 'build', 'media', '**', '*'),
       '!' + path.join(dist, 'build', 'js', 'async', '*'),
       '!' + path.join(dist, 'build', 'js', 'assets', '*'),
+      '!' + path.join(dist, 'build', 'css', 'async', '*'),
       '!' + path.join(dist, 'manifest.json'),
       path.join(balm.config.workspace, 'dist', 'foo.txt'),
       '!' + path.join(balm.config.workspace, 'dist', 'bar.txt')

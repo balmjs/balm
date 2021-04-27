@@ -86,9 +86,7 @@ describe('Bundler#getLoaders()', function () {
             js: true,
             url: true
           },
-          extractCss: {
-            enabled: true
-          }
+          extractCss: true
         }
       };
     });

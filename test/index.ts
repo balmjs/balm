@@ -40,12 +40,10 @@ const balmConfigDefaults = Object.assign(
       plugins: [],
       target: 'web',
       externals: false,
-      inject: false,
       extractAllVendors: false,
       bundleAnalyzerReport: false,
-      extractCss: {
-        enabled: false
-      }
+      extractCss: false,
+      useCache: false
     },
     extras: {
       includes: [],

@@ -100,7 +100,7 @@ describe('Bundler#getOutput()', function () {
             isProd: true
           },
           scripts: {
-            inject: true
+            useCache: true
           }
         };
       });

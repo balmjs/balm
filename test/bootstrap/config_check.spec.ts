@@ -7,7 +7,8 @@ describe('Config Compatibility Check', function () {
       },
       scripts: {
         disableDefaultLoaders: {},
-        options: {}
+        options: {},
+        inject: true
       },
       images: {
         defaultPlugins: {}
@@ -26,5 +27,6 @@ describe('Config Compatibility Check', function () {
     delete balm.config.scripts.disableDefaultLoaders;
     delete balm.config.scripts.options;
     delete balm.config.images.defaultPlugins;
+    delete balm.config.scripts.inject;
   });
 });
