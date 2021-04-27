@@ -10,6 +10,7 @@ import {
   ResolveAlias,
   SourceMap,
   Target,
+  Plugin,
   ExternalsElement,
   StatsValue,
   Configuration,
@@ -106,7 +107,9 @@ const htmlLoaderOptions: object = {};
 const extensions: string[] = [];
 const alias: ResolveAlias = {};
 // Plugins
-const plugins: object[] = [];
+const plugins: Plugin[] = [];
+const injectHtml = false;
+const htmlPluginOptions: object = {};
 // Devtool
 const sourceMap: SourceMap = false;
 // Target
@@ -127,8 +130,6 @@ const stats: StatsValue = {
  * @reference https://webpack.js.org/configuration/
  */
 const webpackOptions: Configuration = {};
-// SSR support
-const inject = false;
 // Optimization
 /**
  * Webpack optimizations for manual configuration and overrides
@@ -138,8 +139,9 @@ const inject = false;
 const optimization: Optimization = {};
 const extractAllVendors = false; // Extract all vendors (all in one)
 const vendorName = 'vendor'; // AllInOne vendor filename or Vendors folder name
-// Extract CSS
 const extractCss = false;
+// Cache
+const useCache = false;
 // IE8 compatibility
 const ie8 = false;
 
@@ -179,16 +181,18 @@ export default {
   extensions,
   alias,
   plugins,
+  injectHtml,
+  htmlPluginOptions,
   sourceMap,
   target,
   externals,
   stats,
   webpackOptions,
-  inject,
   optimization,
   extractAllVendors,
   vendorName,
   extractCss,
+  useCache,
   ie8,
   // rollup
   inputOptions,

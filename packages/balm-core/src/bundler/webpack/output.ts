@@ -6,12 +6,12 @@ function getFilename(scripts: BalmScripts, isChunk = false): string {
 
   if (isChunk) {
     filename = BalmJS.config.env.isProd
-      ? BalmJS.config.assets.cache || scripts.inject
+      ? BalmJS.config.assets.cache || scripts.useCache
         ? `[name].${HASH_NAME}`
         : '[name]'
       : '[id]';
   } else {
-    filename = scripts.inject ? `[name].${HASH_NAME}` : '[name]';
+    filename = scripts.useCache ? `[name].${HASH_NAME}` : '[name]';
   }
 
   return `${filename}.js`;

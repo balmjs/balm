@@ -71,6 +71,7 @@ export type Target =
   | 'electron-preload'
   | 'electron-main'
   | ((compiler?: any) => void);
+export type Plugin = import('webpack').Plugin;
 
 export interface BalmLoaders {
   html: boolean;
@@ -125,17 +126,19 @@ export interface BalmScripts {
   htmlLoaderOptions: object;
   extensions: string[];
   alias: ResolveAlias;
-  plugins: object[];
+  plugins: Plugin[];
+  injectHtml: boolean;
+  htmlPluginOptions: object;
   sourceMap: SourceMap;
   target: Target;
   externals: ExternalsElement | ExternalsElement[];
   stats: StatsValue;
   webpackOptions: Configuration;
-  inject: boolean;
   optimization: Optimization;
   extractAllVendors: boolean;
   vendorName: string;
   extractCss: boolean;
+  useCache: boolean;
   ie8: boolean;
   // rollup
   inputOptions: InputOptions;

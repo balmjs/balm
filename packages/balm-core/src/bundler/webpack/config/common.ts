@@ -4,24 +4,52 @@ import {
   Configuration,
   SplitChunksOptions,
   Optimization,
+  Plugin,
   BalmScripts
 } from '@balm-core/index';
 
-const defaultOptimization = {
-  // Automatically split vendor and commons
-  // https://twitter.com/wSokra/status/969633336732905474
-  // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
-  splitChunks: {
-    chunks: 'all',
-    name: BalmJS.config.env.isDev
-  },
-  // Keep the runtime chunk separated to enable long term caching
-  // https://twitter.com/wSokra/status/969679223278505985
-  // https://github.com/facebook/create-react-app/issues/5358
-  runtimeChunk: {
-    name: (entrypoint: any) => `runtime-${entrypoint.name}`
+function getDefaultPlugins(webpack: any, scripts: BalmScripts): Plugin[] {
+  const plugins: Plugin[] = [
+    // Moment.js is an extremely popular library that bundles large locale files
+    // by default due to how webpack interprets its code. This is a practical
+    // solution that requires the user to opt into importing specific locales.
+    // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
+    // You can remove this if you don't use Moment.js:
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+  ];
+
+  if (scripts.injectHtml) {
+    const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+    const isSPA = BalmJS.entries.length === 1;
+    const titles: string | string[] = (scripts.htmlPluginOptions as {
+      title?: string | string[];
+    }).title || ['BalmJS App'];
+
+    for (const index in BalmJS.entries) {
+      const entryName = isSPA ? 'index' : BalmJS.entries[index].key;
+      const chunks = isSPA ? '?' : [entryName];
+      const title = titles[index];
+
+      const options = Object.assign(
+        {
+          filename: BalmJS.file.absPath(
+            `${BalmJS.config.src.base}/${entryName}.html`
+          ),
+          chunks
+        },
+        scripts.htmlPluginOptions,
+        {
+          title
+        }
+      );
+
+      plugins.push(new HtmlWebpackPlugin(options));
+    }
   }
-};
+
+  return plugins;
+}
 
 function getSplitChunks(): SplitChunksOptions {
   const scripts: BalmScripts = BalmJS.config.scripts;
@@ -31,7 +59,7 @@ function getSplitChunks(): SplitChunksOptions {
 
   if (scripts.extractAllVendors) {
     // All vendors
-    const jsFilename = scripts.inject
+    const jsFilename = scripts.useCache
       ? `${scripts.vendorName}.${HASH_NAME}.js`
       : `${scripts.vendorName}.js`;
 
@@ -49,7 +77,7 @@ function getSplitChunks(): SplitChunksOptions {
     for (const vendor of BalmJS.vendors) {
       const cacheGroupKey = vendor.key;
       const cacheGroupModules = vendor.value.join('|');
-      const jsFilename = scripts.inject
+      const jsFilename = scripts.useCache
         ? `${cacheGroupKey}.${HASH_NAME}.js`
         : `${cacheGroupKey}.js`;
 
@@ -129,15 +157,7 @@ function getCommonConfig(webpack: any, scripts: BalmScripts): Configuration {
       mainFields: ['main', 'browser', 'module']
     },
     optimization,
-    plugins: [
-      // Moment.js is an extremely popular library that bundles large locale files
-      // by default due to how webpack interprets its code. This is a practical
-      // solution that requires the user to opt into importing specific locales.
-      // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
-      // You can remove this if you don't use Moment.js:
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      ...scripts.plugins
-    ],
+    plugins: [...getDefaultPlugins(webpack, scripts), ...scripts.plugins],
     target: scripts.target,
     stats: scripts.stats
   };

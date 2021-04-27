@@ -17,21 +17,6 @@ const buildLibrary = async (
 
   const bundle = await rollup.rollup(rollupOptions);
 
-  const watcher = rollup.watch(
-    Object.assign({}, rollupOptions, BalmJS.config.scripts.watchOptions)
-  );
-  watcher.on('event', (event: any) => {
-    // event.code can be one of:
-    //   START        — the watcher is (re)starting
-    //   BUNDLE_START — building an individual bundle
-    //   BUNDLE_END   — finished building a bundle
-    //   END          — finished building all bundles
-    //   ERROR        — encountered an error while bundling
-    if (event.code === 'ERROR') {
-      BalmJS.logger.error('rollup', event.error.message);
-    }
-  });
-
   if (Array.isArray(outputOptions)) {
     for await (const outputOption of outputOptions) {
       await build(bundle, outputOption);
@@ -39,8 +24,6 @@ const buildLibrary = async (
   } else {
     await build(bundle, outputOptions);
   }
-
-  watcher.close();
 };
 
 export default buildLibrary;

@@ -10,30 +10,28 @@ const FILENAME_REGEX = new RegExp('[^/]+$', 'i');
 const HOT_CLIENT = 'webpack-hot-middleware/client';
 
 function initVendors(entries: WebpackEntry): void {
-  const vendors: BalmVendor[] = [];
+  const jsVendors: BalmVendor[] = [];
+  const jsEntries: {
+    key: string;
+    value: string;
+  }[] = [];
 
   for (const [key, value] of Object.entries(entries)) {
     if (BalmJS.utils.isArray(value)) {
-      vendors.push({
+      jsVendors.push({
         key,
         value: value as string[]
+      });
+    } else {
+      jsEntries.push({
+        key,
+        value: value as string
       });
     }
   }
 
-  // if (vendors.length) {
-  //   const vendorKeys: string[] = Array.from(
-  //     new Set(vendors.map(vendor => vendor.key))
-  //   );
-
-  //   if (vendorKeys.length === vendors.length) {
-  //     BalmJS.vendors = vendors;
-  //   } else {
-  //     BalmJS.logger.warn('webpack entry', 'conflicting vendors key');
-  //   }
-  // }
-
-  BalmJS.vendors = vendors.length ? vendors : [];
+  BalmJS.vendors = jsVendors;
+  BalmJS.entries = jsEntries;
 }
 
 // Relative path

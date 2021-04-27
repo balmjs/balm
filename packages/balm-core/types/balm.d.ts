@@ -69,6 +69,10 @@ export default interface BalmGlobal extends Balm {
     esbuild: string;
   };
   vendors: BalmVendor[];
+  entries: {
+    key: string;
+    value: string;
+  }[];
   hasHtmlWebpackPlugin: boolean;
   utils: BalmUtils;
   logger: BalmLogger;

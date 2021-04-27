@@ -8,6 +8,7 @@ declare module 'fibers';
 declare module 'gulp';
 declare module 'gulp-load-plugins';
 declare module 'html-minifier';
+declare module 'html-webpack-plugin';
 declare module 'imagemin';
 declare module 'mini-css-extract-plugin';
 declare module 'modernizr';
