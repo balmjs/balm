@@ -3,7 +3,7 @@
     // Project Options
     "importHelpers": true,
     "lib": ["ES2018", "ESNext"],
-    "module": "CommonJS",
+    "module": "ES2020",
     "outDir": "packages/balm-core/tslib",
     "removeComments": true,
     "target": "ES2017",

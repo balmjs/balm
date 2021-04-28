@@ -34,7 +34,7 @@ module.exports = {
   },
   plugins: [new VueLoaderPlugin()],
   lint: false,
-  options: {
+  minifyOptions: {
     compress: {
       drop_console: false
     }

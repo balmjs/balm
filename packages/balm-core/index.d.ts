@@ -100,19 +100,18 @@ export interface BalmScripts {
   extensions: string[];
   alias: object;
   plugins: object[];
+  injectHtml: boolean;
+  htmlPluginOptions: object;
   sourceMap: string | boolean;
   target: string | string[] | false;
   externals: string | string[] | object | Function | RegExp;
   stats: object | string;
   webpackOptions: Configuration;
-  inject: boolean;
   optimization: object;
   extractAllVendors: boolean;
   vendorName: string;
-  extractCss: {
-    enabled: boolean;
-    prefix: string;
-  };
+  extractCss: boolean;
+  useCache: boolean;
   ie8: boolean;
   // rollup
   inputOptions: InputOptions;

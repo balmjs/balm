@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "3.15.0",
+  "version": "3.16.0",
   "description": "BalmJS runtime core",
   "keywords": [
     "balm",
@@ -54,6 +54,6 @@
     "yargs": "^16.2.0"
   },
   "engines": {
-    "node": ">=10.13.0"
+    "node": ">=12"
   }
 }

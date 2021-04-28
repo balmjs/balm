@@ -5,6 +5,18 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.16.0 / 2021-04-27
+
+### Features
+
+- add auto inject html and optimize webpack bundler
+- add config `scripts.injectHtml` and `scripts.htmlPluginOptions`
+- update config `scripts.extractCss: boolean`
+
+### BREAKING CHANGES
+
+- rename config `scripts.inject` to `scripts.useCache`
+
 ## v3.15.2 / 2021-04-21
 
 ### Bug Fixes

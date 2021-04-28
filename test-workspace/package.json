@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2021.4.21",
+  "version": "2021.4.27",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "balm-ui": "^8.35.0",
     "core-js": "^3.10.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
@@ -58,7 +59,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.8.0",
     "@babel/runtime-corejs3": "^7.13.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "balm": "^3.15.0",
+    "balm": "^3.16.0",
     "html-webpack-plugin": "^5.3.0",
     "less": "^4.1.0",
     "less-loader": "^8.1.0",

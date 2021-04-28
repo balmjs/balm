@@ -1,5 +1,6 @@
 import merge from 'webpack-merge';
 import getCommonConfig from './common';
+import { ASYNC_SCRIPTS, HASH_NAME } from '../../../config/constants';
 import { Configuration, MinifyOptions, BalmScripts } from '@balm-core/index';
 
 // Run the build command with an extra argument to
@@ -7,6 +8,18 @@ import { Configuration, MinifyOptions, BalmScripts } from '@balm-core/index';
 // `npm run prod --report`
 // Set to `true` or `false` to always turn it on or off
 const bundleAnalyzerReport = process.env.npm_config_report || false;
+
+function getCssFilename(isChunk = false): string {
+  let filename: string;
+
+  if (isChunk) {
+    filename = BalmJS.config.env.isProd ? `[id].${HASH_NAME}` : '[id]';
+  } else {
+    filename = BalmJS.config.env.isProd ? `[name].${HASH_NAME}` : '[name]';
+  }
+
+  return `${BalmJS.config.paths.target.css}/${ASYNC_SCRIPTS}/${filename}.css`;
+}
 
 function getProdConfig(webpack: any, scripts: BalmScripts): Configuration {
   const TerserPlugin = require('terser-webpack-plugin');
@@ -43,21 +56,20 @@ function getProdConfig(webpack: any, scripts: BalmScripts): Configuration {
                   annotation: true
                 }
               : false
+          },
+          cssProcessorPluginOptions: {
+            preset: ['default', { minifyFontValues: { removeQuotes: false } }]
           }
         })
       ]
     },
     plugins: [
       // Extract css into its own file
-      ...(scripts.extractCss.enabled
+      ...(scripts.extractCss
         ? [
             new MiniCssExtractPlugin({
-              filename: BalmJS.file.assetsPath(
-                `${BalmJS.config.paths.target.css}/${scripts.extractCss.prefix}[name].css`
-              ),
-              chunkFilename: BalmJS.file.assetsPath(
-                `${BalmJS.config.paths.target.css}/[id].css`
-              )
+              filename: BalmJS.file.assetsPath(getCssFilename()),
+              chunkFilename: BalmJS.file.assetsPath(getCssFilename(true))
             })
           ]
         : []),

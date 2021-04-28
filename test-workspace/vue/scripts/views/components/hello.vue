@@ -5,6 +5,7 @@
       thx
       <a href="//balm.js.org/">BalmJS</a>
     </p>
+    <ui-button outlined>Test</ui-button>
   </div>
 </template>
 

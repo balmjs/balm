@@ -11,14 +11,14 @@ const routes = require('./routes/index');
 const server = express();
 server.use(cors());
 server.use('/', routes);
-server.on('error', err => console.log(err));
+server.on('error', (err) => console.log(err));
 server.listen(8088, () => {
   console.log(`server started at localhost:8088`);
 });
 
 if (isProd) {
   const app = express();
-  const resolve = file => path.resolve(__dirname, file);
+  const resolve = (file) => path.resolve(__dirname, file);
   // 生成服务端渲染函数
   const renderer = createBundleRenderer(
     require('../dist/vue-ssr-server-bundle.json'),
@@ -26,10 +26,7 @@ if (isProd) {
       // 推荐
       runInNewContext: false,
       // 模板html文件
-      template: fs.readFileSync(
-        resolve('../dist/index.template.html'),
-        'utf-8'
-      ),
+      template: fs.readFileSync(resolve('../dist/server.html'), 'utf-8'),
       // client manifest
       clientManifest: require('../dist/vue-ssr-client-manifest.json'),
       basedir: resolve('../dist')
@@ -43,7 +40,7 @@ if (isProd) {
   app.get('*', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
 
-    const handleError = err => {
+    const handleError = (err) => {
       if (err.url) {
         res.redirect(err.url);
       } else if (err.code === 404) {
@@ -57,7 +54,7 @@ if (isProd) {
     };
 
     const context = {
-      title: 'Hello BalmJS - Vue SSR', // default title
+      title: 'Hello BalmJS - Vue SSR', // For {{title}} placeholder
       url: req.url
     };
     renderer.renderToString(context, (err, html) => {
@@ -69,7 +66,7 @@ if (isProd) {
     });
   });
 
-  app.on('error', err => console.log(err));
+  app.on('error', (err) => console.log(err));
   app.listen(3000, () => {
     console.log(`vue ssr started at http://localhost:3000`);
   });

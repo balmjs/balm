@@ -99,6 +99,8 @@ const extensions: string[] = [];
 const alias: object = {};
 // Plugins
 const plugins: object[] = [];
+const injectHtml = false;
+const htmlPluginOptions: object = {};
 // Devtool
 const sourceMap: string | boolean = false;
 // Target
@@ -119,8 +121,6 @@ const stats: object | string = {
  * @reference https://webpack.js.org/configuration/
  */
 const webpackOptions: Configuration = {};
-// SSR support
-const inject = false;
 // Optimization
 /**
  * Webpack optimizations for manual configuration and overrides
@@ -130,14 +130,8 @@ const inject = false;
 const optimization: object = {};
 const extractAllVendors = false; // Extract all vendors (all in one)
 const vendorName = 'vendor'; // AllInOne vendor filename or Vendors folder name
-// Extract CSS
-const extractCss: {
-  enabled: boolean;
-  prefix: string;
-} = {
-  enabled: false,
-  prefix: ''
-};
+const extractCss = false;
+const useCache = false;
 // IE8 compatibility
 const ie8 = false;
 
@@ -177,16 +171,18 @@ export default {
   extensions,
   alias,
   plugins,
+  injectHtml,
+  htmlPluginOptions,
   sourceMap,
   target,
   externals,
   stats,
   webpackOptions,
-  inject,
   optimization,
   extractAllVendors,
   vendorName,
   extractCss,
+  useCache,
   ie8,
   // rollup
   inputOptions,

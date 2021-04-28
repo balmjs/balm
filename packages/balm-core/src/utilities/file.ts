@@ -43,7 +43,7 @@ class File {
   }
 
   get templateBasePath(): string {
-    return BalmJS.hasHtmlWebpackPlugin
+    return BalmJS.config.scripts.injectHtml
       ? BalmJS.config.src.base
       : BalmJS.config.src.html;
   }

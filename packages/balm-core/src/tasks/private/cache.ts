@@ -9,7 +9,7 @@ class CacheTask extends BalmJS.BalmTask {
   constructor() {
     super('cache');
 
-    const defaultIncludes: string[] = BalmJS.config.scripts.inject
+    const defaultIncludes: string[] = BalmJS.config.scripts.useCache
       ? ASSETS_KEYS.filter((assetKey) => assetKey !== 'js').map((assetKey) =>
           BalmJS.file.matchAllFiles(
             (BalmJS.config.dest as LooseObject)[assetKey]
@@ -23,6 +23,7 @@ class CacheTask extends BalmJS.BalmTask {
     const defaultExcludes: string[] = [
       path.join(`!${BalmJS.config.dest.js}`, ASYNC_SCRIPTS, '*'),
       path.join(`!${BalmJS.config.dest.js}`, STATIC_ASSETS, '*'),
+      path.join(`!${BalmJS.config.dest.css}`, ASYNC_SCRIPTS, '*'),
       path.join(`!${BalmJS.config.dest.base}`, BalmJS.config.pwa.manifest)
     ];
 

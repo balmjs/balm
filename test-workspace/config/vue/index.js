@@ -6,8 +6,15 @@ module.exports = Object.assign(balmrc, {
   roots: {
     source: 'vue'
   },
+  paths: {
+    source: {
+      html: 'templates'
+    }
+  },
   scripts: {
     entry: {
+      lib: ['vue'],
+      ui: ['balm-ui'],
       main: './vue/scripts/main.js'
     },
     loaders: [
@@ -23,6 +30,11 @@ module.exports = Object.assign(balmrc, {
     alias: {
       '@': path.resolve(__dirname, '..', '..', 'vue', 'scripts'),
       vue$: 'vue/dist/vue.esm.js'
-    }
+    },
+    injectHtml: true,
+    htmlPluginOptions: {
+      template: 'vue/templates/auto.html'
+    },
+    extractCss: true
   }
 });

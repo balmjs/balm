@@ -37,7 +37,7 @@ function cssLoader(): RuleSetRule {
     test: cssRegex,
     exclude: cssModuleRegex,
     use: [
-      BalmJS.config.env.isProd && BalmJS.config.scripts.extractCss.enabled
+      BalmJS.config.env.isProd && BalmJS.config.scripts.extractCss
         ? {
             loader: require('mini-css-extract-plugin').loader,
             options: {
@@ -50,6 +50,9 @@ function cssLoader(): RuleSetRule {
         options: {
           importLoaders: 1,
           sourceMap,
+          modules: {
+            compileType: 'icss'
+          },
           esModule: BalmJS.config.scripts.useEsModule
         }
       },

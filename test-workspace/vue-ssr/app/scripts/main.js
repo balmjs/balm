@@ -22,12 +22,8 @@ export function createApp() {
     // 注入 router 到根 Vue 实例
     router,
     store,
-    render: h => h(App)
+    render: (h) => h(App)
   };
-
-  if (!isProd) {
-    options.el = '#dev';
-  }
 
   const app = new Vue(options);
   // 返回 app 和 router

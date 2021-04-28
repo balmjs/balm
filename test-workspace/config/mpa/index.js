@@ -14,7 +14,7 @@ module.exports = Object.assign(balmrc, {
       'page-b': './mpa/scripts/page-2.js',
       'page-c': './mpa/scripts/page-3.js'
     },
-    options: {
+    minifyOptions: {
       compress: {
         drop_console: false
       }

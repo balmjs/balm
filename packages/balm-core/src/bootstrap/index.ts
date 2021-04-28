@@ -75,11 +75,6 @@ function ready(config: BalmConfig): BalmConfig {
     config.env.inDesktopApp = true;
   }
 
-  // Fix html task with HtmlWebpackPlugin bug
-  BalmJS.hasHtmlWebpackPlugin = config.scripts.plugins.some(
-    (plugin: any) => plugin.constructor.name === 'HtmlWebpackPlugin'
-  );
-
   return config;
 }
 
