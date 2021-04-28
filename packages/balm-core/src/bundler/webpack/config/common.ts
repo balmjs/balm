@@ -26,8 +26,8 @@ function getDefaultPlugins(webpack: any, scripts: BalmScripts): Plugin[] {
       title?: string | string[];
     }).title || ['BalmJS App'];
 
-    for (const index in BalmJS.entries) {
-      const entryName = isSPA ? 'index' : BalmJS.entries[index].key;
+    BalmJS.entries.forEach((entry, index) => {
+      const entryName = isSPA ? 'index' : entry.key;
       const chunks = isSPA ? '?' : [entryName];
       const title = titles[index];
 
@@ -45,7 +45,7 @@ function getDefaultPlugins(webpack: any, scripts: BalmScripts): Plugin[] {
       );
 
       plugins.push(new HtmlWebpackPlugin(options));
-    }
+    });
   }
 
   return plugins;
