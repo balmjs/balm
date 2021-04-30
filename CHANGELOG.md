@@ -5,6 +5,12 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.16.1 / 2021-04-30
+
+### Bug Fixes
+
+- fix splitChunks bug for custom vendors
+
 ## v3.16.0 / 2021-04-27
 
 ### Features
