@@ -1,26 +1,12 @@
-import fs from 'fs';
-import colors from 'ansi-colors';
-import {
-  BALM_CORE_PACKAGE_NAME,
-  localModule,
-  npmGlobalModule,
-  yarnGlobalModule
-} from './balm-core-module';
+import getBalmCoreModule from './balm-core-module.js';
+import checkVersion from '../check-version.js';
 
-let balmCore;
+const getBalmCore = async () => {
+  const balmCoreModule = await import(getBalmCoreModule()); // Load `balm-core`
 
-if (fs.existsSync(localModule)) {
-  balmCore = localModule;
-} else if (fs.existsSync(npmGlobalModule)) {
-  balmCore = npmGlobalModule;
-} else if (fs.existsSync(yarnGlobalModule)) {
-  balmCore = yarnGlobalModule;
-} else {
-  console.error(
-    colors.bgBlueBright('BalmJS'),
-    colors.yellow(`\`${BALM_CORE_PACKAGE_NAME}\` module not found :(`)
-  );
-  process.exit(1);
-}
+  checkVersion(balmCoreModule.version);
 
-export default balmCore;
+  return balmCoreModule.default;
+};
+
+export default getBalmCore;

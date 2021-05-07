@@ -1,9 +1,9 @@
-import './config';
-import './utilities';
-import './plugins';
-import registerTasks from './tasks';
-import { setConfig, setTask } from './bootstrap';
-import loading from './utilities/loading';
+import './config/index.js';
+import './utilities/index.js';
+import './plugins/index.js';
+import registerTasks from './tasks/index.js';
+import { setConfig, setTask } from './bootstrap/index.js';
+import loading from './utilities/loading.js';
 import { DeepPartial, BalmConfig } from '@balm-core/index';
 
 class Balm {

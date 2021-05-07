@@ -1,13 +1,13 @@
-import getEntry from './entry';
-import getOutput from './output';
-import build from './build';
+import getEntry from './entry.js';
+import getOutput from './output.js';
+import build from './build.js';
 import { InputOptions, OutputOptions } from '@balm-core/index';
 
 const buildLibrary = async (
   inputOptions: InputOptions,
   outputOptions: OutputOptions | OutputOptions[]
 ): Promise<void> => {
-  const rollup = require('rollup');
+  const rollup = requireModule('rollup');
 
   inputOptions = getEntry(inputOptions);
   outputOptions = getOutput(outputOptions);

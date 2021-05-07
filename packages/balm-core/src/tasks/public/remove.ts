@@ -33,7 +33,7 @@ class RemoveTask extends BalmJS.BalmTask {
           }
         );
 
-        const deletedPaths: string[] = await require('del')(files, {
+        const deletedPaths: string[] = await requireModule('del')(files, {
           force: true
         });
 

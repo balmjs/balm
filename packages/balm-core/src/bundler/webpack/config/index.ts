@@ -1,5 +1,5 @@
-import getDevConfig from './dev';
-import getProdConfig from './prod';
+import getDevConfig from './dev.js';
+import getProdConfig from './prod.js';
 import { Configuration, BalmScripts } from '@balm-core/index';
 
 function getDefaultConfig(webpack: any, scripts: BalmScripts): Configuration {

@@ -1,5 +1,5 @@
-import getLoaders from '../loaders';
-import { HASH_NAME } from '../../../config/constants';
+import getLoaders from '../loaders.js';
+import { HASH_NAME } from '../../../config/constants.js';
 import { Configuration, BalmScripts } from '@balm-core/index';
 
 function getDefaultPlugins(webpack: any, scripts: BalmScripts): object[] {
@@ -16,7 +16,7 @@ function getDefaultPlugins(webpack: any, scripts: BalmScripts): object[] {
   ];
 
   if (scripts.injectHtml) {
-    const HtmlWebpackPlugin = require('html-webpack-plugin');
+    const HtmlWebpackPlugin = requireModule('html-webpack-plugin');
 
     const isSPA = BalmJS.entries.length === 1;
     const titles: string | string[] = (scripts.htmlPluginOptions as {

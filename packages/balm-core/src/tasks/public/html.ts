@@ -1,4 +1,4 @@
-import { PUBLIC_URL } from '../../config/constants';
+import { PUBLIC_URL } from '../../config/constants.js';
 
 class HtmlTask extends BalmJS.BalmTask {
   constructor() {

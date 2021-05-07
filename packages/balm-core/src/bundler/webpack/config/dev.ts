@@ -1,5 +1,5 @@
-import merge from 'webpack-merge';
-import getCommonConfig from './common';
+import { merge } from 'webpack-merge';
+import getCommonConfig from './common.js';
 import { Configuration, BalmScripts } from '@balm-core/index';
 
 function getDevConfig(webpack: any, scripts: BalmScripts): Configuration {

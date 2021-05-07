@@ -1,4 +1,4 @@
-import { ASYNC_SCRIPTS, HASH_NAME, MP_ASSETS } from '../../config/constants';
+import { ASYNC_SCRIPTS, HASH_NAME, MP_ASSETS } from '../../config/constants.js';
 import { BalmScripts } from '@balm-core/index';
 
 function getFilename(scripts: BalmScripts, isChunk = false): string {

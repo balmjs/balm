@@ -1,4 +1,4 @@
-import loading from './loading';
+import loading from './loading.js';
 
 class BalmCompiling {
   #firstCompile = true;

@@ -1,4 +1,4 @@
-import mergeStream from '../../utilities/merge-stream';
+import mergeStream from '../../utilities/merge-stream.js';
 import { SpriteOptions, BalmError } from '@balm-core/index';
 
 interface SpriteItem {

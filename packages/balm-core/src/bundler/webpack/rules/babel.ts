@@ -1,4 +1,4 @@
-import { jsRegex } from '../config/regex';
+import { jsRegex } from '../config/regex.js';
 import { RuleSetRule } from '@balm-core/index';
 
 function jsLoader(): RuleSetRule {
@@ -12,7 +12,7 @@ function jsLoader(): RuleSetRule {
       BalmJS.file.absPaths(BalmJS.config.src.js),
       ...BalmJS.config.scripts.includeJsResource
     ],
-    loader: require.resolve('babel-loader'),
+    loader: requireModule.resolve('babel-loader'),
     options
   };
 }

@@ -1,5 +1,5 @@
 function historyMiddleware(): object[] {
-  const history = require('connect-history-api-fallback');
+  const history = requireModule('connect-history-api-fallback');
 
   const historyOptions = BalmJS.config.server.historyOptions;
 

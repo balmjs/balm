@@ -1,5 +1,5 @@
-import { STATIC_ASSETS } from '../../../config/constants';
-import { imgRegex, fontRegex, mediaRegex } from '../config/regex';
+import { STATIC_ASSETS } from '../../../config/constants.js';
+import { imgRegex, fontRegex, mediaRegex } from '../config/regex.js';
 import { RuleSetRule } from '@balm-core/index';
 
 const imageInlineSizeLimit = parseInt(
@@ -24,18 +24,18 @@ function urlLoader(): RuleSetRule[] {
     // A missing `test` is equivalent to a match.
     {
       test: imgRegex,
-      loader: require.resolve('url-loader'),
+      loader: requireModule.resolve('url-loader'),
       exclude: BalmJS.config.scripts.excludeUrlResource,
       options
     },
     {
       test: mediaRegex,
-      loader: require.resolve('url-loader'),
+      loader: requireModule.resolve('url-loader'),
       options
     },
     {
       test: fontRegex,
-      loader: require.resolve('url-loader'),
+      loader: requireModule.resolve('url-loader'),
       options
     }
   ];

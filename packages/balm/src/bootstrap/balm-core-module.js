@@ -1,28 +1,32 @@
-import path from 'path';
-import globalDirectories from 'global-dirs';
+import fs from 'node:fs';
+import colors from 'ansi-colors';
+import getBalmCoreModulePath from './balm-core-module-path.js';
 
-const BALM_CORE_PACKAGE_NAME = 'balm-core';
+const getBalmCoreModule = () => {
+  let balmCore;
 
-const useTslib = process.env.BALM_TS || process.argv.includes('--balm-ts');
-const lib = useTslib ? 'tslib' : 'lib';
+  const {
+    BALM_CORE_PACKAGE_NAME,
+    localModule,
+    npmGlobalModule,
+    yarnGlobalModule
+  } = getBalmCoreModulePath();
 
-const localModule = process.env.BALM_CORE
-  ? path.join(process.env.BALM_CORE, lib)
-  : path.join(process.cwd(), 'node_modules', BALM_CORE_PACKAGE_NAME, lib);
-const npmGlobalModule = path.join(
-  globalDirectories.npm.packages,
-  BALM_CORE_PACKAGE_NAME,
-  lib
-);
-const yarnGlobalModule = path.join(
-  globalDirectories.yarn.packages,
-  BALM_CORE_PACKAGE_NAME,
-  lib
-);
+  if (fs.existsSync(localModule)) {
+    balmCore = localModule;
+  } else if (fs.existsSync(npmGlobalModule)) {
+    balmCore = npmGlobalModule;
+  } else if (fs.existsSync(yarnGlobalModule)) {
+    balmCore = yarnGlobalModule;
+  } else {
+    console.error(
+      colors.bgBlueBright('BalmJS'),
+      colors.yellow(`\`${BALM_CORE_PACKAGE_NAME}\` module not found :(`)
+    );
+    process.exit(1);
+  }
 
-export {
-  BALM_CORE_PACKAGE_NAME,
-  localModule,
-  npmGlobalModule,
-  yarnGlobalModule
+  return balmCore;
 };
+
+export default getBalmCoreModule;

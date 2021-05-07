@@ -1,6 +1,6 @@
-import util from 'util';
+import util from 'node:util';
 import fancyLog from 'fancy-log';
-import color from './color';
+import color from './color.js';
 
 interface LogOptions {
   logLevel: number;

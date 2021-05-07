@@ -1,5 +1,5 @@
-import net from 'net';
-import address from './address';
+import net from 'node:net';
+import address from './address.js';
 import { BalmError } from '@balm-core/index';
 
 const UTIL_NAME = 'detect port';

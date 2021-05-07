@@ -1,9 +1,9 @@
-import { TransformCallback } from 'stream';
+import { TransformCallback } from 'node:stream';
 
 const PLUGIN_NAME = 'jsmin';
 
 async function jsMinify(file: any, opts: object, cb: Function): Promise<any> {
-  const terser = require('terser');
+  const terser = requireModule('terser');
 
   const extname = path.extname(file.path);
 

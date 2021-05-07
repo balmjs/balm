@@ -1,5 +1,5 @@
-import detectPort from '../../utilities/detect-port';
-import getMiddlewares from '../../middlewares';
+import detectPort from '../../utilities/detect-port.js';
+import getMiddlewares from '../../middlewares/index.js';
 
 class ServerTask extends BalmJS.BalmTask {
   constructor() {

@@ -27,7 +27,7 @@ function getOutputPlugins(customOutputOptions: OutputOptions): RollupPlugin[] {
 
   if (BalmJS.config.env.isProd) {
     outputPlugins.push(
-      require('rollup-plugin-terser').terser(
+      requireModule('rollup-plugin-terser').terser(
         BalmJS.config.scripts.minifyOptions
       )
     );

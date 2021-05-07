@@ -14,7 +14,7 @@ class PwaCacheTask extends BalmJS.BalmTask {
       path.join(BalmJS.config.dest.base, BalmJS.config.pwa.swSrcFilename)
     );
 
-    require('del')(swOrigin, { force: true });
+    requireModule('del')(swOrigin, { force: true });
   }
 
   fn = (): any => {

@@ -1,6 +1,6 @@
-import merge from 'webpack-merge';
-import getCommonConfig from './common';
-import { ASYNC_SCRIPTS, HASH_NAME } from '../../../config/constants';
+import { merge } from 'webpack-merge';
+import getCommonConfig from './common.js';
+import { ASYNC_SCRIPTS, HASH_NAME } from '../../../config/constants.js';
 import { Configuration, MinifyOptions, BalmScripts } from '@balm-core/index';
 
 // Run the build command with an extra argument to
@@ -22,11 +22,13 @@ function getCssFilename(isChunk = false): string {
 }
 
 function getProdConfig(webpack: any, scripts: BalmScripts): Configuration {
-  const TerserPlugin = require('terser-webpack-plugin');
-  const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-  const safePostCssParser = require('postcss-safe-parser');
-  const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-  const webpackBundleAnalyzer = require('webpack-bundle-analyzer');
+  const TerserPlugin = requireModule('terser-webpack-plugin');
+  const OptimizeCSSAssetsPlugin = requireModule(
+    'optimize-css-assets-webpack-plugin'
+  );
+  const safePostCssParser = requireModule('postcss-safe-parser');
+  const MiniCssExtractPlugin = requireModule('mini-css-extract-plugin');
+  const webpackBundleAnalyzer = requireModule('webpack-bundle-analyzer');
 
   const shouldUseSourceMap = scripts.sourceMap as boolean;
   const terserOptions: MinifyOptions = scripts.minifyOptions;

@@ -1,12 +1,12 @@
-import merge from 'webpack-merge';
-import getEntry from './entry';
-import getOutput from './output';
-import getDefaultConfig from './config';
+import { merge } from 'webpack-merge';
+import getEntry from './entry.js';
+import getOutput from './output.js';
+import getDefaultConfig from './config/index.js';
 import { BalmEntry, Configuration } from '@balm-core/index';
 
-const webpackModule = process.env.WEBPACK || require.resolve('webpack');
+const webpackModule = process.env.WEBPACK || requireModule.resolve('webpack');
 
-const webpack = require(webpackModule);
+const webpack = requireModule(webpackModule);
 
 function webpackConfig(
   input: BalmEntry,

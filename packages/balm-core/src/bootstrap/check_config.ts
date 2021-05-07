@@ -1,4 +1,4 @@
-import { DOMAIN } from '../config/constants';
+import { DOMAIN } from '../config/constants.js';
 import { LooseObject } from '@balm-core/index';
 
 const docsBaseURL = `${DOMAIN}/docs/config`;

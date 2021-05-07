@@ -1,9 +1,9 @@
-import { cssRegex, cssModuleRegex } from '../config/regex';
+import { cssRegex, cssModuleRegex } from '../config/regex.js';
 import { RuleSetRule } from '@balm-core/index';
 
 function cssLoader(): RuleSetRule {
   let styleLoader: string | object = {
-    loader: require.resolve('style-loader'),
+    loader: requireModule.resolve('style-loader'),
     options: {
       esModule: BalmJS.config.scripts.useEsModule
     }
@@ -39,14 +39,14 @@ function cssLoader(): RuleSetRule {
     use: [
       BalmJS.config.env.isProd && BalmJS.config.scripts.extractCss
         ? {
-            loader: require('mini-css-extract-plugin').loader,
+            loader: requireModule('mini-css-extract-plugin').loader,
             options: {
               esModule: BalmJS.config.scripts.useEsModule
             }
           }
         : styleLoader,
       {
-        loader: require.resolve('css-loader'),
+        loader: requireModule.resolve('css-loader'),
         options: {
           importLoaders: 1,
           sourceMap,
@@ -57,7 +57,7 @@ function cssLoader(): RuleSetRule {
         }
       },
       {
-        loader: require.resolve('postcss-loader'),
+        loader: requireModule.resolve('postcss-loader'),
         options: Object.assign(
           {
             postcssOptions: {

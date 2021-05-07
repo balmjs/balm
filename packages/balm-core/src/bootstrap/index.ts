@@ -1,5 +1,5 @@
-import checkConfig from './check_config';
-import { ASSETS_KEYS } from '../config/constants';
+import checkConfig from './check_config.js';
+import { ASSETS_KEYS } from '../config/constants.js';
 import {
   LooseObject,
   DeepPartial,

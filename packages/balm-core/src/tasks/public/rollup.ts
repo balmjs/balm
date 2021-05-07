@@ -1,4 +1,4 @@
-import buildLibrary from '../../bundler/rollup';
+import buildLibrary from '../../bundler/rollup/index.js';
 import { InputOptions, OutputOptions } from '@balm-core/index';
 
 class RollupTask extends BalmJS.BalmTask {

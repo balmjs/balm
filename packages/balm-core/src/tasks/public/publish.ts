@@ -1,4 +1,4 @@
-import mergeStream from '../../utilities/merge-stream';
+import mergeStream from '../../utilities/merge-stream.js';
 import { RenameOptions, TemplateOption } from '@balm-core/index';
 
 class PublishTask extends BalmJS.BalmTask {

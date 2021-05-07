@@ -1,47 +1,33 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import './bootstrap/balm-env'; // Load `balm.env.js`
-import path from 'path';
-import { argv } from 'yargs';
-import fs from 'fs';
-import gulp from 'gulp';
-import { title, message } from './config';
+import { getBalmEnv, setBalmConfig, getBalmCore } from './bootstrap/index.js';
+import { title, message } from './config.js';
 
-const balmCwd = process.env.BALM_CWD || process.cwd();
-const balmConfigFile = path.join(balmCwd, argv.config || 'balm.config.js');
+(async () => {
+  await getBalmEnv();
 
-function run() {
-  gulp.parallel('balm:default')();
-}
+  setBalmConfig(async (balmConfig) => {
+    const balm = await getBalmCore(); // Get `balm-core`
 
-if (balmConfigFile && fs.existsSync(balmConfigFile)) {
-  const balmConfig = require(balmConfigFile); // Load `balm.config.js`
-  const balm = require('./bootstrap/balm').default; // Get `balm-core`
+    if (typeof balmConfig === 'function') {
+      let { config, beforeTask, afterTask, api } = balmConfig(balm);
 
-  if (typeof balmConfig === 'function') {
-    let { config, beforeTask, afterTask, api } = balmConfig(balm);
+      if (config) {
+        balm.config = config;
 
-    if (config) {
-      balm.config = config;
+        if (beforeTask) {
+          balm.beforeTask = beforeTask;
+        }
+        if (afterTask) {
+          balm.afterTask = afterTask;
+        }
 
-      if (beforeTask) {
-        balm.beforeTask = beforeTask;
+        api ? balm.go(api) : balm.go();
+      } else {
+        console.warn(title, message.config);
       }
-      if (afterTask) {
-        balm.afterTask = afterTask;
-      }
-
-      api ? balm.go(api) : balm.go();
-      run();
     } else {
-      console.warn(title, message.config);
-    }
-  } else {
-    balm.config = balmConfig || {};
+      balm.config = balmConfig || {};
 
-    balm.go();
-    run();
-  }
-} else {
-  console.error(title, message.notFound);
-  process.exit(1);
-}
+      balm.go();
+    }
+  });
+})();

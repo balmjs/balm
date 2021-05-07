@@ -15,6 +15,7 @@ declare global {
       PluginError: PluginError;
       NOOP: Function;
       BalmJS: BalmGlobal;
+      requireModule: NodeRequire;
     }
   }
 
@@ -26,4 +27,5 @@ declare global {
   var PluginError: PluginError;
   var NOOP: Function;
   var BalmJS: BalmGlobal;
+  var requireModule: NodeRequire;
 }

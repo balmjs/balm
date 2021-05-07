@@ -1,5 +1,5 @@
 // Reference `gulp-htmlmin@5.0.1`
-import { TransformCallback } from 'stream';
+import { TransformCallback } from 'node:stream';
 
 const PLUGIN_NAME = 'htmlmin';
 
@@ -19,7 +19,7 @@ function gulpHtmlmin(options: object): any {
     function minify(buf: any, enc: string | null, cb: TransformCallback): void {
       try {
         const contents = Buffer.from(
-          require('html-minifier').minify(buf.toString(), options)
+          requireModule('html-minifier').minify(buf.toString(), options)
         );
         if (cb === callback) {
           file.contents = contents;

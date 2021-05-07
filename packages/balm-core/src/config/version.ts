@@ -1,3 +1,9 @@
-import pkg from '../../package.json';
+import fs from 'node:fs';
 
-export default pkg.version;
+const balmCorePkg: {
+  version: string;
+} = JSON.parse(
+  fs.readFileSync(new URL('../../package.json', import.meta.url), 'utf8')
+);
+
+export default balmCorePkg.version;

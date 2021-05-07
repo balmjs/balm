@@ -1,4 +1,4 @@
-import { HMR_PATH } from '../../config/constants';
+import { HMR_PATH } from '../../config/constants.js';
 import {
   WebpackEntry,
   BalmEntry,

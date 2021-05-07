@@ -1,5 +1,5 @@
 // Reference `gulp-imagemin@7.1.0`
-import { TransformCallback } from 'stream';
+import { TransformCallback } from 'node:stream';
 import prettyBytes from 'pretty-bytes';
 
 const PLUGIN_NAME = 'imagemin';
@@ -7,8 +7,7 @@ const defaultPlugins = ['gifsicle', 'mozjpeg', 'optipng', 'svgo'];
 
 const loadPlugin = (plugin: string, ...args: any) => {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    return require(`imagemin-${plugin}`)(...args);
+    return requireModule(`imagemin-${plugin}`)(...args);
   } catch (_) {
     BalmJS.logger.error(
       PLUGIN_NAME,
@@ -67,7 +66,7 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
 
     (async () => {
       try {
-        const data = await require('imagemin').buffer(file.contents, {
+        const data = await requireModule('imagemin').buffer(file.contents, {
           plugins
         });
         const originalSize = file.contents.length;
@@ -110,7 +109,7 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
     callback();
   }
 
-  return require('through2-concurrent').obj(
+  return requireModule('through2-concurrent').obj(
     { maxConcurrency: 8 },
     transform,
     flush

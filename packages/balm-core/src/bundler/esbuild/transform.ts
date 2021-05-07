@@ -1,5 +1,5 @@
-import fs from 'fs';
-import { minifyOptions } from './options';
+import fs from 'node:fs';
+import { minifyOptions } from './options.js';
 import { TransformOptions } from '@balm-core/index';
 
 const esTransform = (
@@ -44,7 +44,10 @@ const esTransform = (
         const filename = entryPoint.split('/').pop();
         if (filename && fs.existsSync(build.input)) {
           const inputCode = fs.readFileSync(build.input, 'utf8');
-          const result = await require('esbuild').transform(inputCode, options);
+          const result = await requireModule('esbuild').transform(
+            inputCode,
+            options
+          );
 
           fs.mkdirSync(build.output, { recursive: true });
           fs.writeFileSync(path.join(build.output, filename), result.code);

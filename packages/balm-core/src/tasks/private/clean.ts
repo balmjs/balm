@@ -1,4 +1,4 @@
-import { ASSETS_KEYS } from '../../config/constants';
+import { ASSETS_KEYS } from '../../config/constants.js';
 
 function unique(arr: string[]): string[] {
   const obj: any = {};
@@ -93,7 +93,7 @@ class CleanTask extends BalmJS.BalmTask {
       }
     );
 
-    const deletedPaths: string[] = await require('del')(directories, {
+    const deletedPaths: string[] = await requireModule('del')(directories, {
       force: true
     });
 

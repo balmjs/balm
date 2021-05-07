@@ -101,6 +101,7 @@ const alias: object = {};
 const plugins: object[] = [];
 const injectHtml = false;
 const htmlPluginOptions: object = {};
+const extractCss = false;
 // Devtool
 const sourceMap: string | boolean = false;
 // Target
@@ -130,7 +131,6 @@ const webpackOptions: Configuration = {};
 const optimization: object = {};
 const extractAllVendors = false; // Extract all vendors (all in one)
 const vendorName = 'vendor'; // AllInOne vendor filename or Vendors folder name
-const extractCss = false;
 const useCache = false;
 // IE8 compatibility
 const ie8 = false;
@@ -173,6 +173,7 @@ export default {
   plugins,
   injectHtml,
   htmlPluginOptions,
+  extractCss,
   sourceMap,
   target,
   externals,
@@ -181,7 +182,6 @@ export default {
   optimization,
   extractAllVendors,
   vendorName,
-  extractCss,
   useCache,
   ie8,
   // rollup

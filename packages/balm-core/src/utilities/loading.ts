@@ -1,6 +1,6 @@
-import readline from 'readline';
-import spinner from '../config/spinner';
-import version from '../config/version';
+import readline from 'node:readline';
+import spinner from '../config/spinner.js';
+import version from '../config/version.js';
 
 class BalmLoading {
   #stream: NodeJS.WriteStream & {

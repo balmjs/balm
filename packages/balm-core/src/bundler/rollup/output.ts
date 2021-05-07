@@ -1,4 +1,4 @@
-import { getOutputPlugins } from './plugins';
+import { getOutputPlugins } from './plugins.js';
 import { OutputOptions, OutputPlugin } from '@balm-core/index';
 
 function setOutput(outputOptions: OutputOptions): OutputOptions {

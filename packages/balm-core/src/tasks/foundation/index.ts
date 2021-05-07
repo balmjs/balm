@@ -1,5 +1,5 @@
-import BalmTask from './balm';
-import BalmStyleTask from './balm_style';
+import BalmTask from './balm.js';
+import BalmStyleTask from './balm_style.js';
 
 BalmJS.BalmTask = BalmTask;
 BalmJS.BalmStyleTask = BalmStyleTask;

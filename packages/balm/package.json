@@ -31,6 +31,7 @@
     "bin",
     "lib"
   ],
+  "type": "module",
   "main": "lib/index.js",
   "bin": {
     "balm": "./bin/balm.js"
@@ -54,6 +55,6 @@
     "yargs": "^16.2.0"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=12.17"
   }
 }

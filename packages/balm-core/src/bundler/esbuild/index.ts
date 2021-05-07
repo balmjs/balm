@@ -1,5 +1,5 @@
-import build from './build';
-import transform from './transform';
+import build from './build.js';
+import transform from './transform.js';
 import { BuildOptions, TransformOptions } from '@balm-core/index';
 
 const esbuild = (

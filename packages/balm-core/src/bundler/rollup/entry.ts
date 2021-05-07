@@ -1,4 +1,4 @@
-import { getInputPlugins } from './plugins';
+import { getInputPlugins } from './plugins.js';
 import { InputOption, InputOptions } from '@balm-core/index';
 
 function getEntry(inputOptions: InputOptions): InputOptions {

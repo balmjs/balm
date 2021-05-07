@@ -64,7 +64,7 @@ class PwaTask extends BalmJS.BalmTask {
           pre: true
         });
 
-        await require('workbox-build')
+        await requireModule('workbox-build')
           [mode](options)
           .then(
             ({

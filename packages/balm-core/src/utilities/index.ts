@@ -1,7 +1,7 @@
-import utils from './utils';
-import logger from './logger';
-import file from './file';
-import toNamespace from './namespace';
+import utils from './utils.js';
+import logger from './logger.js';
+import file from './file.js';
+import toNamespace from './namespace.js';
 
 BalmJS.utils = utils;
 BalmJS.logger = logger;

@@ -1,17 +1,17 @@
-import './globals';
-import env from './env';
-import roots from './roots';
-import paths from './paths';
-import html from './html';
-import styles from './styles';
-import scripts from './scripts';
-import images from './images';
-import extras from './extras';
-import assets from './assets';
-import server from './server';
-import ftp from './ftp';
-import pwa from './pwa';
-import logs from './logs';
+import './globals.js';
+import env from './env.js';
+import roots from './roots.js';
+import paths from './paths.js';
+import html from './html.js';
+import styles from './styles.js';
+import scripts from './scripts.js';
+import images from './images.js';
+import extras from './extras.js';
+import assets from './assets.js';
+import server from './server.js';
+import ftp from './ftp.js';
+import pwa from './pwa.js';
+import logs from './logs.js';
 import { BalmConfig, BalmVendor } from '@balm-core/index';
 
 enum LogLevel {

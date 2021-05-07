@@ -1,6 +1,6 @@
-import webpackMiddleware from './webpack';
-import httpProxyMiddleware from './proxy';
-import historyMiddleware from './history';
+import webpackMiddleware from './webpack.js';
+import httpProxyMiddleware from './proxy.js';
+import historyMiddleware from './history.js';
 
 function getMiddlewares(): object[] {
   const canOverride = BalmJS.config.server.middlewares.every(

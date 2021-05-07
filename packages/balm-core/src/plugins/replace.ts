@@ -1,6 +1,6 @@
 // Reference `gulp-replace@1.0.0`
-import { TransformCallback } from 'stream';
-import rs from '../utilities/replacestream';
+import { TransformCallback } from 'node:stream';
+import rs from '../utilities/replacestream.js';
 
 interface GulpReplaceOptions {
   skipBinary?: boolean;
@@ -11,7 +11,7 @@ function gulpReplace(
   _replacement: string | Function,
   options: GulpReplaceOptions = {}
 ): any {
-  const readableStream = require('readable-stream');
+  const readableStream = requireModule('readable-stream');
 
   if (options.skipBinary === undefined) {
     options.skipBinary = true;
@@ -79,7 +79,7 @@ function gulpReplace(
       }
 
       if (options && options.skipBinary) {
-        if (require('istextorbinary').isText(file.path, file.contents)) {
+        if (requireModule('istextorbinary').isText(file.path, file.contents)) {
           doReplace();
         } else {
           callback(null, file);

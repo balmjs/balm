@@ -1,5 +1,5 @@
-import BalmTask from './balm';
-import { MP_ASSETS } from '../../config/constants';
+import BalmTask from './balm.js';
+import { MP_ASSETS } from '../../config/constants.js';
 import { BalmError } from '@balm-core/index';
 
 let fiber: any;
@@ -14,8 +14,8 @@ class BalmStyleTask extends BalmTask {
         extname = '{scss,sass}';
 
         if (BalmJS.config.styles.dartSass) {
-          $.sass.compiler = require('sass');
-          fiber = require('fibers');
+          $.sass.compiler = requireModule('sass');
+          fiber = requireModule('fibers');
         }
         break;
       case 'less':

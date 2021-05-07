@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import colors from 'ansi-colors';
 
 // Set env var for ORIGINAL cwd before anything touches it
@@ -23,9 +23,9 @@ if (process.cwd() !== process.env.BALM_CWD) {
 }
 
 global.path = path;
-global.gulp = require(gulpModule);
-global.$ = require('gulp-load-plugins')();
-global.server = require('browser-sync').create();
-global.through2 = require('through2');
-global.PluginError = require('plugin-error');
+global.gulp = requireModule(gulpModule);
+global.$ = requireModule('gulp-load-plugins')();
+global.server = requireModule('browser-sync').create();
+global.through2 = requireModule('through2');
+global.PluginError = requireModule('plugin-error');
 global.NOOP = () => {};

@@ -1,4 +1,4 @@
-import Maker from './maker';
+import Maker from './maker.js';
 import {
   BalmEnvObject,
   BalmEntry,

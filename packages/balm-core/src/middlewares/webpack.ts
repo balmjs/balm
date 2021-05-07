@@ -1,11 +1,11 @@
-import { HMR_PATH } from '../config/constants';
+import { HMR_PATH } from '../config/constants.js';
 
 function webpackMiddleware(): object[] {
   const middleware: object[] = [];
 
   if (BalmJS.webpackCompiler) {
     middleware.push(
-      require('webpack-dev-middleware')(
+      requireModule('webpack-dev-middleware')(
         BalmJS.webpackCompiler,
         Object.assign({}, BalmJS.config.server.devOptions, {
           publicPath: BalmJS.file.publicUrlOrPath
@@ -15,7 +15,7 @@ function webpackMiddleware(): object[] {
 
     if (BalmJS.config.server.useHMR) {
       middleware.push(
-        require('webpack-hot-middleware')(BalmJS.webpackCompiler, {
+        requireModule('webpack-hot-middleware')(BalmJS.webpackCompiler, {
           log: false,
           path: HMR_PATH
         })

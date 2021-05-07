@@ -1,5 +1,5 @@
-import { URL } from 'url';
-import { DOMAIN } from '../config/constants';
+import { URL } from 'node:url';
+import { DOMAIN } from '../config/constants.js';
 
 /**
  * Returns a URL or a path with slash at the end

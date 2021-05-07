@@ -1,5 +1,5 @@
-import { TransformCallback } from 'stream';
-import escapeRegExp from './escape-string-regexp';
+import { TransformCallback } from 'node:stream';
+import escapeRegExp from './escape-string-regexp.js';
 
 interface ReplaceStreamOptions {
   limit: number;
@@ -67,7 +67,7 @@ function replaceStream(
   replace: string | Function,
   opts?: object
 ): any {
-  const readableStream = require('readable-stream');
+  const readableStream = requireModule('readable-stream');
 
   const options: ReplaceStreamOptions = Object.assign(
     {

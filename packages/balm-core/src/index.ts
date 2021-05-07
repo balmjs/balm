@@ -1,6 +1,6 @@
-import version from './config/version';
-import './hello';
-import Balm from './balm';
+import './hello.js';
+import Balm from './balm.js';
+import version from './config/version.js';
 
 const balm = new Balm();
 

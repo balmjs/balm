@@ -10,7 +10,7 @@ function handleProxyConfigError(): void {
 }
 
 function httpProxyMiddleware(): object[] {
-  const httpProxy = require('http-proxy-middleware');
+  const httpProxy = requireModule('http-proxy-middleware');
 
   const middleware: object[] = [];
   const proxyConfig = BalmJS.config.server.proxyConfig;

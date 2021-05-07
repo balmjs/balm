@@ -1,11 +1,11 @@
-import htmlmin from './htmlmin';
-import imagemin from './imagemin';
-import jsmin from './jsmin';
-import plumber from './plumber';
-import postcss from './postcss';
-import rename from './rename';
-import replace from './replace';
-import sftp from './sftp';
+import htmlmin from './htmlmin.js';
+import imagemin from './imagemin.js';
+import jsmin from './jsmin.js';
+import plumber from './plumber.js';
+import postcss from './postcss.js';
+import rename from './rename.js';
+import replace from './replace.js';
+import sftp from './sftp.js';
 
 const plugins: any = {
   htmlmin,

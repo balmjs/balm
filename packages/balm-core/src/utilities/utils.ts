@@ -1,4 +1,4 @@
-import getType from './typeof';
+import getType from './typeof.js';
 
 function isString(str: unknown): boolean {
   return getType(str) === 'string';

@@ -1,5 +1,5 @@
+import { getDefaultImagePlugins } from '../../plugins/imagemin.js';
 import { BalmImagesPlugins, BalmError } from '@balm-core/index';
-import { getDefaultImagePlugins } from '../../plugins/imagemin';
 
 class ImageTask extends BalmJS.BalmTask {
   constructor() {
