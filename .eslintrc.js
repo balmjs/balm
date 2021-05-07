@@ -22,7 +22,8 @@ module.exports = {
     through2: true,
     PluginError: true,
     NOOP: true,
-    BalmJS: true
+    BalmJS: true,
+    requireModule: true
   },
   plugins: ['@typescript-eslint', 'prettier'],
   extends: [
