@@ -39,7 +39,7 @@ class CleanTask extends BalmJS.BalmTask {
   }
 
   get dirInFrontend(): string[] {
-    const isLocal = !path.isAbsolute(BalmJS.config.assets.root);
+    const isLocal = !node.path.isAbsolute(BalmJS.config.assets.root);
 
     BalmJS.logger.info(
       `${this.name} task`,
@@ -64,7 +64,12 @@ class CleanTask extends BalmJS.BalmTask {
       : [];
 
     const buildDirInDev: string[] = hasBuildDir
-      ? [path.join(BalmJS.config.dest.static, BalmJS.config.assets.buildDir)] // NOTE: fix for `BalmJS.file.assetsSuffixPath` in development
+      ? [
+          node.path.join(
+            BalmJS.config.dest.static,
+            BalmJS.config.assets.buildDir
+          )
+        ] // NOTE: fix for `BalmJS.file.assetsSuffixPath` in development
       : [];
 
     return [

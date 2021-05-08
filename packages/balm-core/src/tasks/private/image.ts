@@ -7,9 +7,11 @@ class ImageTask extends BalmJS.BalmTask {
 
     const excludeGlobs: string[] = [];
     for (const imageFolder of BalmJS.config.styles.sprites) {
-      excludeGlobs.push(path.join(`!${BalmJS.config.src.img}`, imageFolder));
       excludeGlobs.push(
-        path.join(`!${BalmJS.config.src.img}`, imageFolder, '*.png')
+        node.path.join(`!${BalmJS.config.src.img}`, imageFolder)
+      );
+      excludeGlobs.push(
+        node.path.join(`!${BalmJS.config.src.img}`, imageFolder, '*.png')
       );
     }
 

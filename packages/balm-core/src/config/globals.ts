@@ -1,5 +1,5 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import path from 'path';
+import fs from 'fs';
 import colors from 'ansi-colors';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import { create } from 'browser-sync';
@@ -31,7 +31,10 @@ if (fs.existsSync(gulpModule)) {
   process.exit(1);
 }
 
-global.path = path;
+global.node = {
+  path,
+  fs
+};
 global.$ = gulpLoadPlugins();
 global.server = create();
 global.through2 = through2;

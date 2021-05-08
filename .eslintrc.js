@@ -15,8 +15,8 @@ module.exports = {
     es6: true
   },
   globals: {
+    node: true,
     gulp: true,
-    path: true,
     $: true,
     server: true,
     through2: true,

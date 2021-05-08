@@ -60,8 +60,8 @@ function getEntry(input: BalmEntry, scripts: BalmScripts): BalmEntry {
 
       // Key
       const entryKey: string = isVendor
-        ? path.join(scripts.vendorName, key)
-        : path.join(key);
+        ? node.path.join(scripts.vendorName, key)
+        : node.path.join(key);
 
       // Value
       const hotValue: string[] = BalmJS.utils.isString(value)

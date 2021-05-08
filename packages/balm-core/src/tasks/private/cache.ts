@@ -21,10 +21,10 @@ class CacheTask extends BalmJS.BalmTask {
           )
         );
     const defaultExcludes: string[] = [
-      path.join(`!${BalmJS.config.dest.js}`, ASYNC_SCRIPTS, '*'),
-      path.join(`!${BalmJS.config.dest.js}`, STATIC_ASSETS, '*'),
-      path.join(`!${BalmJS.config.dest.css}`, ASYNC_SCRIPTS, '*'),
-      path.join(`!${BalmJS.config.dest.base}`, BalmJS.config.pwa.manifest)
+      node.path.join(`!${BalmJS.config.dest.js}`, ASYNC_SCRIPTS, '*'),
+      node.path.join(`!${BalmJS.config.dest.js}`, STATIC_ASSETS, '*'),
+      node.path.join(`!${BalmJS.config.dest.css}`, ASYNC_SCRIPTS, '*'),
+      node.path.join(`!${BalmJS.config.dest.base}`, BalmJS.config.pwa.manifest)
     ];
 
     const customIncludes: string[] = BalmJS.config.assets.includes;
@@ -38,7 +38,7 @@ class CacheTask extends BalmJS.BalmTask {
       ...defaultIncludes,
       ...defaultExcludes,
       ...(BalmJS.config.inFrontend
-        ? [path.join(BalmJS.config.dest.base, '*.html')]
+        ? [node.path.join(BalmJS.config.dest.base, '*.html')]
         : []),
       ...customIncludes,
       ...customExcludes

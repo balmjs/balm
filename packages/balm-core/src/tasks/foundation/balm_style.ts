@@ -24,13 +24,13 @@ class BalmStyleTask extends BalmTask {
         extname = 'css';
     }
 
-    this.defaultInput = path.join(
+    this.defaultInput = node.path.join(
       BalmJS.config.src.css,
       '**',
       `!(_*).${extname}`
     );
     this.defaultOutput = BalmJS.config.env.isMP
-      ? path.join(
+      ? node.path.join(
           BalmJS.config.dest.base,
           MP_ASSETS,
           BalmJS.config.paths.target.css

@@ -1,11 +1,10 @@
-import fs from 'node:fs';
 import getPublicUrlOrPath from './public-url.js';
 import { PUBLIC_URL } from '../config/constants.js';
 
 // Make sure any symlinks in the project folder are resolved
-const appDirectory = fs.realpathSync(process.cwd());
+const appDirectory = node.fs.realpathSync(process.cwd());
 const resolveApp = (relativePath: string): string =>
-  path.resolve(appDirectory, relativePath);
+  node.path.resolve(appDirectory, relativePath);
 
 class File {
   get publicUrlOrPath(): string {
@@ -23,8 +22,8 @@ class File {
 
   get stylePaths(): string[] {
     return [
-      path.resolve(BalmJS.config.workspace, '.'),
-      path.resolve(BalmJS.config.workspace, 'node_modules'),
+      node.path.resolve(BalmJS.config.workspace, '.'),
+      node.path.resolve(BalmJS.config.workspace, 'node_modules'),
       ...BalmJS.config.styles.atImportPaths
     ];
   }
@@ -33,12 +32,15 @@ class File {
     return !BalmJS.config.inFrontend &&
       BalmJS.config.env.isProd &&
       BalmJS.config.assets.cache // Back-end project in production with cache
-      ? path.join(BalmJS.config.assets.subDir, BalmJS.config.assets.buildDir)
+      ? node.path.join(
+          BalmJS.config.assets.subDir,
+          BalmJS.config.assets.buildDir
+        )
       : BalmJS.config.assets.subDir;
   }
 
   get defaultEntry(): string {
-    return path.join(BalmJS.config.src.js, 'index.js');
+    return node.path.join(BalmJS.config.src.js, 'index.js');
   }
 
   get templateBasePath(): string {
@@ -48,7 +50,7 @@ class File {
   }
 
   absPath(_path: string): string {
-    return path.resolve(BalmJS.config.workspace, _path);
+    return node.path.resolve(BalmJS.config.workspace, _path);
   }
 
   absPaths(_paths: string | string[]): string | string[] {
@@ -74,12 +76,12 @@ class File {
   }
 
   matchAllFiles(_path: string, _file?: string): string {
-    return path.join(_path, '**', _file || '*');
+    return node.path.join(_path, '**', _file || '*');
   }
 
   assetsPath(_path: string): string {
     return BalmJS.config.env.isProd || !BalmJS.config.inFrontend
-      ? path.posix.join(
+      ? node.path.posix.join(
           BalmJS.config.assets.virtualDir,
           this.assetsSuffixPath,
           _path

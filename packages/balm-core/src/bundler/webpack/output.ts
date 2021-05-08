@@ -34,7 +34,7 @@ function getOutput(output: string, scripts: BalmScripts, isHook = false): any {
   const miniprogramConfig: object = BalmJS.config.env.isMP
     ? {
         path: BalmJS.file.absPath(
-          path.join(BalmJS.config.dest.base, MP_ASSETS)
+          node.path.join(BalmJS.config.dest.base, MP_ASSETS)
         ),
         library: 'createApp',
         libraryExport: 'default',

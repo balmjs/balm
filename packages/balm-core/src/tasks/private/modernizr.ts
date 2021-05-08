@@ -1,4 +1,3 @@
-import fs from 'node:fs';
 import { build } from 'modernizr';
 
 class ModernizrTask extends BalmJS.BalmTask {
@@ -6,12 +5,15 @@ class ModernizrTask extends BalmJS.BalmTask {
     super('modernizr');
 
     this.defaultInput = `${this.name}.json`;
-    this.defaultOutput = path.join(BalmJS.config.dest.js, `${this.name}.js`);
+    this.defaultOutput = node.path.join(
+      BalmJS.config.dest.js,
+      `${this.name}.js`
+    );
   }
 
   #readConfig = (): Promise<any> => {
     return new Promise((resolve, reject) => {
-      fs.readFile(this.input, 'utf8', (err: any, data: any) => {
+      node.fs.readFile(this.input, 'utf8', (err: any, data: any) => {
         if (err) reject(err);
         resolve(JSON.parse(data));
       });
@@ -20,7 +22,7 @@ class ModernizrTask extends BalmJS.BalmTask {
 
   #createDir = (): Promise<any> => {
     return new Promise<void>((resolve, reject) => {
-      fs.mkdir(
+      node.fs.mkdir(
         BalmJS.file.absPath(BalmJS.config.dest.js),
         { recursive: true },
         (err: any) => {
@@ -34,7 +36,7 @@ class ModernizrTask extends BalmJS.BalmTask {
   #generateScript = (config: object): Promise<any> => {
     return new Promise((resolve, reject) => {
       build(config, (content: any) => {
-        fs.writeFile(this.output, content, (err: any) => {
+        node.fs.writeFile(this.output, content, (err: any) => {
           if (err) reject(err);
           resolve(content);
         });
@@ -45,7 +47,7 @@ class ModernizrTask extends BalmJS.BalmTask {
   fn = async (callback: Function): Promise<void> => {
     this.init();
 
-    if (fs.existsSync(this.input)) {
+    if (node.fs.existsSync(this.input)) {
       const [config] = await Promise.all([
         this.#readConfig(),
         this.#createDir()

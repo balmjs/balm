@@ -1,4 +1,3 @@
-import fs from 'node:fs';
 import { transform } from 'esbuild';
 import { minifyOptions } from './options.js';
 import { TransformOptions } from '@balm-core/index';
@@ -43,12 +42,15 @@ const esTransform = (
         );
 
         const filename = entryPoint.split('/').pop();
-        if (filename && fs.existsSync(build.input)) {
-          const inputCode = fs.readFileSync(build.input, 'utf8');
+        if (filename && node.fs.existsSync(build.input)) {
+          const inputCode = node.fs.readFileSync(build.input, 'utf8');
           const result = await transform(inputCode, options);
 
-          fs.mkdirSync(build.output, { recursive: true });
-          fs.writeFileSync(path.join(build.output, filename), result.code);
+          node.fs.mkdirSync(build.output, { recursive: true });
+          node.fs.writeFileSync(
+            node.path.join(build.output, filename),
+            result.code
+          );
         } else {
           BalmJS.logger.warn('esbuild', `Invalid entry point: ${entryPoint}`);
         }

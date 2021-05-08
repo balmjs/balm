@@ -1,4 +1,4 @@
-import { TransformCallback } from 'node:stream';
+import { TransformCallback } from 'stream';
 import { Transform } from 'readable-stream';
 import escapeRegExp from './escape-string-regexp.js';
 

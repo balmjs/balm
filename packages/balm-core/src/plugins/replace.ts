@@ -1,5 +1,5 @@
 // Reference `gulp-replace@1.0.0`
-import { TransformCallback } from 'node:stream';
+import { TransformCallback } from 'stream';
 import { Transform } from 'readable-stream';
 import { isText } from 'istextorbinary';
 import rs from '../utilities/replacestream.js';

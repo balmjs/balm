@@ -1,5 +1,5 @@
 // Reference `gulp-htmlmin@5.0.1`
-import { TransformCallback } from 'node:stream';
+import { TransformCallback } from 'stream';
 import { minify } from 'html-minifier';
 
 const PLUGIN_NAME = 'htmlmin';

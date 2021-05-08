@@ -19,13 +19,13 @@ function createQuickPath(
     const pathValue: string = (config.paths as LooseObject)[rootKey][pathKey];
     result[pathKey] =
       rootKey === 'target' && ASSETS_KEYS.includes(pathKey)
-        ? path.join(
+        ? node.path.join(
             rootValue,
             BalmJS.config.assets.virtualDir,
             BalmJS.file.assetsSuffixPath,
             pathValue
           )
-        : path.join(rootValue, pathValue);
+        : node.path.join(rootValue, pathValue);
   }
 
   return rootKey === 'source'
@@ -41,20 +41,20 @@ function ready(config: BalmConfig): BalmConfig {
     config.env.isProd || !config.inFrontend ? 'target' : 'tmp'
   ) as BalmAssetsPath;
 
-  config.dest.static = path.join(
+  config.dest.static = node.path.join(
     config.dest.base,
     BalmJS.config.assets.virtualDir,
     BalmJS.file.assetsSuffixPath
   );
 
   // Create remote quick directories
-  config.assets.static = path.join(
+  config.assets.static = node.path.join(
     config.assets.root,
     config.assets.mainDir,
     BalmJS.file.assetsSuffixPath
   );
   for (const assetKey of ASSETS_KEYS) {
-    (config.assets as LooseObject)[assetKey] = path.join(
+    (config.assets as LooseObject)[assetKey] = node.path.join(
       config.assets.static,
       (config.paths.target as LooseObject)[assetKey]
     );

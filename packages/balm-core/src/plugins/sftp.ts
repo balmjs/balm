@@ -1,6 +1,5 @@
 // Reference `gulp-sftp@0.1.5`
-import { TransformCallback } from 'node:stream';
-import fs from 'node:fs';
+import { TransformCallback } from 'stream';
 import ssh2 from 'ssh2';
 import parents from 'parents';
 import { whilst } from 'async-es';
@@ -28,7 +27,7 @@ function resolveHomePath(key: any): object {
 
     for (let i = 0, len = key.location.length; i < len; i++) {
       if (key.location[i].substr(0, 2) === '~/') {
-        key.location[i] = path.resolve(
+        key.location[i] = node.path.resolve(
           HOME,
           key.location[i].replace(/^~\//, '')
         );
@@ -36,8 +35,8 @@ function resolveHomePath(key: any): object {
     }
 
     for (let i = 0, keyPath; (keyPath = key.location[i++]); ) {
-      if (fs.existsSync(keyPath)) {
-        key.contents = fs.readFileSync(keyPath);
+      if (node.fs.existsSync(keyPath)) {
+        key.contents = node.fs.readFileSync(keyPath);
         break;
       }
     }
@@ -110,9 +109,11 @@ function gulpSftp(options: LooseObject): any {
 
   options.authKey = options.authKey || options.auth;
   const authFilePath = options.authFile || '.ftppass';
-  const authFile = path.join('./', authFilePath);
-  if (options.authKey && fs.existsSync(authFile)) {
-    let auth = JSON.parse(fs.readFileSync(authFile, 'utf8'))[options.authKey];
+  const authFile = node.path.join('./', authFilePath);
+  if (options.authKey && node.fs.existsSync(authFile)) {
+    let auth = JSON.parse(node.fs.readFileSync(authFile, 'utf8'))[
+      options.authKey
+    ];
     if (!auth) {
       throw new PluginError(PLUGIN_NAME, 'Could not find authkey in .ftppass');
     }
@@ -246,7 +247,9 @@ function gulpSftp(options: LooseObject): any {
     }
 
     // Have to create a new connection for each file otherwise they conflict, pulled from sindresorhus
-    const finalRemotePath = normalizePath(path.join(remotePath, file.relative));
+    const finalRemotePath = normalizePath(
+      node.path.join(remotePath, file.relative)
+    );
 
     // Connection pulled from pool
     _pool.call(this, (sftp: any) => {
@@ -255,7 +258,7 @@ function gulpSftp(options: LooseObject): any {
        */
 
       // Get dir name from file path
-      const dirname = path.dirname(finalRemotePath);
+      const dirname = node.path.dirname(finalRemotePath);
       // Get parents of the target dir
 
       let fileDirs: string[] = parents(dirname)

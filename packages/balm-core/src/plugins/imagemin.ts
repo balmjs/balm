@@ -1,5 +1,5 @@
 // Reference `gulp-imagemin@7.1.0`
-import { TransformCallback } from 'node:stream';
+import { TransformCallback } from 'stream';
 import imagemin from 'imagemin';
 import prettyBytes from 'pretty-bytes';
 import through2Concurrent from 'through2-concurrent';
@@ -54,7 +54,7 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
       return;
     }
 
-    if (!validExtensions.includes(path.extname(file.path).toLowerCase())) {
+    if (!validExtensions.includes(node.path.extname(file.path).toLowerCase())) {
       BalmJS.logger.info(
         PLUGIN_NAME,
         `Skipping unsupported image "${file.relative}"`

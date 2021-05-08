@@ -1,7 +1,7 @@
-import Module from 'node:module';
-import path from 'node:path';
-import { homedir } from 'node:os';
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import Module from 'module';
+import path from 'path';
+import { homedir } from 'os';
+import { existsSync, readFileSync, writeFileSync } from 'fs';
 import loading from './loading.js';
 import { LooseObject } from '@balm-core/index';
 

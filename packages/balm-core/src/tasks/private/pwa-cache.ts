@@ -5,7 +5,7 @@ class PwaCacheTask extends BalmJS.BalmTask {
     super('pwa-cache');
 
     this.defaultOutput = BalmJS.config.dest.base;
-    this.defaultInput = path.join(
+    this.defaultInput = node.path.join(
       this.defaultOutput,
       BalmJS.config.pwa.swDestFilename
     );
@@ -13,7 +13,7 @@ class PwaCacheTask extends BalmJS.BalmTask {
 
   clear(): void {
     const swOrigin = BalmJS.file.absPath(
-      path.join(BalmJS.config.dest.base, BalmJS.config.pwa.swSrcFilename)
+      node.path.join(BalmJS.config.dest.base, BalmJS.config.pwa.swSrcFilename)
     );
 
     del(swOrigin, { force: true });

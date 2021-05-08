@@ -1,5 +1,5 @@
 // Reference `gulp-rename@2.0.0`
-import { Transform, TransformCallback } from 'node:stream';
+import { Transform, TransformCallback } from 'stream';
 import { RenameOptions } from '@balm-core/index';
 
 interface GulpRenameOptions {
@@ -20,12 +20,12 @@ function gulpRename(
 
   const parsePath = (_path: string): GulpRenamePath => {
     const extname = options.multiExt
-      ? path.basename(_path).slice(path.basename(_path).indexOf('.'))
-      : path.extname(_path);
+      ? node.path.basename(_path).slice(node.path.basename(_path).indexOf('.'))
+      : node.path.extname(_path);
 
     return {
-      dirname: path.dirname(_path),
-      basename: path.basename(_path, extname),
+      dirname: node.path.dirname(_path),
+      basename: node.path.basename(_path, extname),
       extname: extname
     };
   };
@@ -49,7 +49,7 @@ function gulpRename(
         parsedPath = newParsedPath;
       }
 
-      _path = path.join(
+      _path = node.path.join(
         parsedPath.dirname,
         parsedPath.basename + parsedPath.extname
       );
@@ -63,7 +63,7 @@ function gulpRename(
 
       const filename = prefix + basename + suffix + extname;
 
-      _path = path.join(dirname, filename);
+      _path = node.path.join(dirname, filename);
     } else {
       callback(
         new Error('Unsupported renaming parameter type supplied'),
@@ -72,7 +72,7 @@ function gulpRename(
       return;
     }
 
-    file.path = path.join(file.base, _path);
+    file.path = node.path.join(file.base, _path);
 
     // Rename sourcemap if present
     if (file.sourceMap) {

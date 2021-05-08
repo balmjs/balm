@@ -2,12 +2,17 @@ import { Path } from './node';
 import { Gulp, GulpPlugin } from './gulp';
 import BalmGlobal from './balm';
 
+type BalmNode = {
+  path: Path;
+  fs: any;
+};
+
 type PluginError = import('plugin-error').Constructor;
 
 declare global {
   namespace NodeJS {
     interface Global {
-      path: Path;
+      node: BalmNode;
       gulp: Gulp;
       $: GulpPlugin;
       server: any;
@@ -19,7 +24,7 @@ declare global {
     }
   }
 
-  var path: Path;
+  var node: BalmNode;
   var gulp: Gulp;
   var $: GulpPlugin;
   var server: any;

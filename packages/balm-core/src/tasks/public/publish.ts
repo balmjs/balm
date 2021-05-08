@@ -7,7 +7,7 @@ class PublishTask extends BalmJS.BalmTask {
 
     this.defaultInput = [
       BalmJS.file.matchAllFiles(BalmJS.config.dest.static), // Assets
-      path.join(`!${BalmJS.config.dest.base}`, '*.*') // HTML
+      node.path.join(`!${BalmJS.config.dest.base}`, '*.*') // HTML
     ];
     this.defaultOutput = BalmJS.config.assets.static; // Remote dir
   }
@@ -19,8 +19,8 @@ class PublishTask extends BalmJS.BalmTask {
   ): any => {
     if (input && output) {
       this.init(
-        path.join(BalmJS.config.dest.base, input),
-        path.join(BalmJS.config.assets.root, output) // Remote dir
+        node.path.join(BalmJS.config.dest.base, input),
+        node.path.join(BalmJS.config.assets.root, output) // Remote dir
       );
     } else {
       this.init();

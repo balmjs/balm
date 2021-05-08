@@ -1,5 +1,5 @@
-import { createRequire } from 'node:module';
-import { EventEmitter } from 'node:events';
+import { createRequire } from 'module';
+import { EventEmitter } from 'events';
 import cacheBalmCore from './utilities/cache-core.js';
 
 const requireModule = createRequire(import.meta.url);

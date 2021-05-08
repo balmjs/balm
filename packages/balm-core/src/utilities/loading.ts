@@ -1,4 +1,4 @@
-import readline from 'node:readline';
+import readline from 'readline';
 import spinner from '../config/spinner.js';
 import version from '../config/version.js';
 
