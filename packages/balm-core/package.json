@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "ansi-colors": "^4.1.1",
-    "async-es": "^3.2.0",
+    "async": "^3.2.0",
     "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
     "browser-sync": "^2.26.14",

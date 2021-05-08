@@ -1,4 +1,4 @@
-declare module 'async-es';
+declare module 'async';
 declare module 'autoprefixer';
 declare module 'browser-sync';
 declare module 'connect-history-api-fallback';

@@ -1,7 +1,6 @@
 import path from 'path';
 import fs from 'fs';
 import colors from 'ansi-colors';
-import gulpLoadPlugins from 'gulp-load-plugins';
 import { create } from 'browser-sync';
 import through2 from 'through2';
 import PluginError from 'plugin-error';
@@ -23,6 +22,7 @@ if (fs.existsSync(gulpModule)) {
   }
 
   global.gulp = requireModule(gulpModule);
+  global.$ = requireModule('gulp-load-plugins')();
 } else {
   console.error(
     colors.bgBlueBright('BalmJS'),
@@ -35,7 +35,6 @@ global.node = {
   path,
   fs
 };
-global.$ = gulpLoadPlugins();
 global.server = create();
 global.through2 = through2;
 global.PluginError = PluginError;

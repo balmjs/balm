@@ -2,7 +2,7 @@
 import { TransformCallback } from 'stream';
 import ssh2 from 'ssh2';
 import parents from 'parents';
-import { whilst } from 'async-es';
+import async from 'async';
 import { LooseObject, BalmError } from '@balm-core/index';
 
 interface SshConfig {
@@ -279,7 +279,7 @@ function gulpSftp(options: LooseObject): any {
 
       // While there are dirs to create, create them
       // https://github.com/caolan/async#whilst - not the most commonly used async control flow
-      whilst(
+      async.whilst(
         // https://github.com/caolan/async/issues/1668
         (cb: Function) => cb(null, fileDirs && fileDirs.length),
         (cb: Function) => {
