@@ -1,3 +1,5 @@
+import del from 'del';
+
 class RemoveTask extends BalmJS.BalmTask {
   constructor() {
     super('remove');
@@ -33,7 +35,7 @@ class RemoveTask extends BalmJS.BalmTask {
           }
         );
 
-        const deletedPaths: string[] = await requireModule('del')(files, {
+        const deletedPaths: string[] = await del(files, {
           force: true
         });
 

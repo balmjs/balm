@@ -1,3 +1,5 @@
+import del from 'del';
+
 class PwaCacheTask extends BalmJS.BalmTask {
   constructor() {
     super('pwa-cache');
@@ -14,7 +16,7 @@ class PwaCacheTask extends BalmJS.BalmTask {
       path.join(BalmJS.config.dest.base, BalmJS.config.pwa.swSrcFilename)
     );
 
-    requireModule('del')(swOrigin, { force: true });
+    del(swOrigin, { force: true });
   }
 
   fn = (): any => {

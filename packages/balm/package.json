@@ -52,7 +52,7 @@
     "semver": "^7.3.5",
     "webpack-hot-middleware": "^2.25.0",
     "workbox-sw": "^6.1.5",
-    "yargs": "^16.2.0"
+    "yargs": "^17.0.1"
   },
   "engines": {
     "node": ">=12"

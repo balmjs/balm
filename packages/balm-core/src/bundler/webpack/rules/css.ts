@@ -1,3 +1,4 @@
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { cssRegex, cssModuleRegex } from '../config/regex.js';
 import { RuleSetRule } from '@balm-core/index';
 
@@ -39,7 +40,7 @@ function cssLoader(): RuleSetRule {
     use: [
       BalmJS.config.env.isProd && BalmJS.config.scripts.extractCss
         ? {
-            loader: requireModule('mini-css-extract-plugin').loader,
+            loader: MiniCssExtractPlugin.loader,
             options: {
               esModule: BalmJS.config.scripts.useEsModule
             }

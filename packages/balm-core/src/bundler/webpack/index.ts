@@ -5,7 +5,6 @@ import getDefaultConfig from './config/index.js';
 import { BalmEntry, Configuration } from '@balm-core/index';
 
 const webpackModule = process.env.WEBPACK || requireModule.resolve('webpack');
-
 const webpack = requireModule(webpackModule);
 
 function webpackConfig(

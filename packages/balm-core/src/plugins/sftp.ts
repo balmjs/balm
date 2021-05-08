@@ -1,6 +1,9 @@
 // Reference `gulp-sftp@0.1.5`
 import { TransformCallback } from 'node:stream';
 import fs from 'node:fs';
+import ssh2 from 'ssh2';
+import parents from 'parents';
+import { whilst } from 'async-es';
 import { LooseObject, BalmError } from '@balm-core/index';
 
 interface SshConfig {
@@ -150,8 +153,6 @@ function gulpSftp(options: LooseObject): any {
   let connCache: any = null; // SSH connection cache
 
   function _pool(this: any, uploader: any): any {
-    const ssh2 = requireModule('ssh2');
-
     // Method to get cache or create connection
     if (sftpCache) {
       return uploader(sftpCache);
@@ -257,7 +258,7 @@ function gulpSftp(options: LooseObject): any {
       const dirname = path.dirname(finalRemotePath);
       // Get parents of the target dir
 
-      let fileDirs: string[] = requireModule('parents')(dirname)
+      let fileDirs: string[] = parents(dirname)
         .map((d: string) => d.replace(/^\/~/, '~'))
         .map(normalizePath);
 
@@ -275,7 +276,7 @@ function gulpSftp(options: LooseObject): any {
 
       // While there are dirs to create, create them
       // https://github.com/caolan/async#whilst - not the most commonly used async control flow
-      requireModule('async').whilst(
+      whilst(
         // https://github.com/caolan/async/issues/1668
         (cb: Function) => cb(null, fileDirs && fileDirs.length),
         (cb: Function) => {

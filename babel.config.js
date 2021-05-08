@@ -1,18 +1,20 @@
 module.exports = {
   presets: [
-    '@babel/preset-typescript',
     [
       '@babel/preset-env',
       {
         targets: {
           node: '12'
         },
-        loose: true,
         modules: false
       }
-    ]
+    ],
+    '@babel/preset-typescript'
   ],
-  plugins: ['@babel/plugin-proposal-class-properties'],
+  plugins: [
+    '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-proposal-object-rest-spread'
+  ],
   env: {
     test: {
       plugins: ['istanbul']

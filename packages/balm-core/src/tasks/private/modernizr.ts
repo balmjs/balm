@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { build } from 'modernizr';
 
 class ModernizrTask extends BalmJS.BalmTask {
   constructor() {
@@ -32,7 +33,7 @@ class ModernizrTask extends BalmJS.BalmTask {
 
   #generateScript = (config: object): Promise<any> => {
     return new Promise((resolve, reject) => {
-      requireModule('modernizr').build(config, (content: any) => {
+      build(config, (content: any) => {
         fs.writeFile(this.output, content, (err: any) => {
           if (err) reject(err);
           resolve(content);

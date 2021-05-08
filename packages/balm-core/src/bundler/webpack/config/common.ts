@@ -1,3 +1,4 @@
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import getLoaders from '../loaders.js';
 import { HASH_NAME } from '../../../config/constants.js';
 import { Configuration, BalmScripts } from '@balm-core/index';
@@ -16,8 +17,6 @@ function getDefaultPlugins(webpack: any, scripts: BalmScripts): object[] {
   ];
 
   if (scripts.injectHtml) {
-    const HtmlWebpackPlugin = requireModule('html-webpack-plugin');
-
     const isSPA = BalmJS.entries.length === 1;
     const titles: string | string[] = (scripts.htmlPluginOptions as {
       title?: string | string[];

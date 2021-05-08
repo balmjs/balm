@@ -1,3 +1,4 @@
+import { createProxyMiddleware } from 'http-proxy-middleware';
 import { BalmProxyConfig } from '@balm-core/index';
 
 function handleProxyConfigError(): void {
@@ -10,8 +11,6 @@ function handleProxyConfigError(): void {
 }
 
 function httpProxyMiddleware(): object[] {
-  const httpProxy = requireModule('http-proxy-middleware');
-
   const middleware: object[] = [];
   const proxyConfig = BalmJS.config.server.proxyConfig;
 
@@ -22,7 +21,7 @@ function httpProxyMiddleware(): object[] {
         const config = proxyConfig as BalmProxyConfig;
         if (config.context && config.options) {
           middleware.push(
-            httpProxy.createProxyMiddleware(config.context, config.options)
+            createProxyMiddleware(config.context, config.options)
           );
         } else {
           handleProxyConfigError();
@@ -32,7 +31,7 @@ function httpProxyMiddleware(): object[] {
         for (const config of proxyConfig as BalmProxyConfig[]) {
           if (config.context && config.options) {
             middleware.push(
-              httpProxy.createProxyMiddleware(config.context, config.options)
+              createProxyMiddleware(config.context, config.options)
             );
           } else {
             handleProxyConfigError();

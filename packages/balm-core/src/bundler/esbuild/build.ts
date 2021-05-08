@@ -1,3 +1,4 @@
+import { build } from 'esbuild';
 import { minifyOptions } from './options.js';
 import { BuildOptions, BalmError } from '@balm-core/index';
 
@@ -38,8 +39,7 @@ const esBuild = (
     pre: true
   });
 
-  requireModule('esbuild')
-    .build(options)
+  build(options)
     .catch((error: BalmError) => {
       BalmJS.logger.error('esbuild', error.message);
     })

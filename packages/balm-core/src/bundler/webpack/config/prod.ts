@@ -1,3 +1,8 @@
+import TerserPlugin from 'terser-webpack-plugin';
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import safePostCssParser from 'postcss-safe-parser';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import webpackBundleAnalyzer from 'webpack-bundle-analyzer';
 import { merge } from 'webpack-merge';
 import getCommonConfig from './common.js';
 import { ASYNC_SCRIPTS, HASH_NAME } from '../../../config/constants.js';
@@ -22,14 +27,6 @@ function getCssFilename(isChunk = false): string {
 }
 
 function getProdConfig(webpack: any, scripts: BalmScripts): Configuration {
-  const TerserPlugin = requireModule('terser-webpack-plugin');
-  const OptimizeCSSAssetsPlugin = requireModule(
-    'optimize-css-assets-webpack-plugin'
-  );
-  const safePostCssParser = requireModule('postcss-safe-parser');
-  const MiniCssExtractPlugin = requireModule('mini-css-extract-plugin');
-  const webpackBundleAnalyzer = requireModule('webpack-bundle-analyzer');
-
   const shouldUseSourceMap = scripts.sourceMap as boolean;
   const terserOptions: MinifyOptions = scripts.minifyOptions;
 

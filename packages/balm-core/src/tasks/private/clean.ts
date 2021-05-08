@@ -1,3 +1,4 @@
+import del from 'del';
 import { ASSETS_KEYS } from '../../config/constants.js';
 
 function unique(arr: string[]): string[] {
@@ -93,7 +94,7 @@ class CleanTask extends BalmJS.BalmTask {
       }
     );
 
-    const deletedPaths: string[] = await requireModule('del')(directories, {
+    const deletedPaths: string[] = await del(directories, {
       force: true
     });
 
