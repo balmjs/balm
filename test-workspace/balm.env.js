@@ -1,6 +1,4 @@
 const BALM_ROOT = '/Users/elf-mouse/www/balmjs/balm-webpack5';
 
 process.env.BALM_CORE = `${BALM_ROOT}/packages/balm-core`;
-
-// process.env.USE_LOCAL_WEBPACK = true;
-// process.env.WEBPACK = require.resolve('webpack');
+process.env.BALM = `${BALM_ROOT}`;
