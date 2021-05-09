@@ -80,9 +80,7 @@ function getSplitChunks(): any {
       cacheGroups[cacheGroupKey] = {
         name: cacheGroupKey,
         chunks: 'initial',
-        test: new RegExp(
-          `[\\\\/]node_modules[\\\\/](${cacheGroupModules})[\\\\/].*(?<!\\.css)$`
-        ),
+        test: new RegExp(`[\\\\/](${cacheGroupModules})[\\\\/].*(?<!\\.css)$`),
         filename: BalmJS.file.assetsPath(
           `${jsFolder}/${scripts.vendorName}/${jsFilename}`
         ), // Output: `js/vendor/customVendorName.js`
