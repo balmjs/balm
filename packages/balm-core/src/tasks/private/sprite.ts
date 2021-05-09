@@ -51,7 +51,7 @@ class SpriteTask extends BalmJS.BalmTask {
         },
         cssSpritesheetName: `${spriteItem.folderName}-spritesheet`, // E.g. "awesome-spritesheet"
         cssOpts: {
-          cssSelector: (sprite: { name: string }): string => `.${sprite.name}` // Classname in css file: '.icon-awesome'
+          cssSelector: (sprite: { name: string }): string => `.${sprite.name}` // className in css file: '.icon-awesome'
         }
       }
     );

@@ -11,7 +11,7 @@ class HtmlTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.dest.base;
   }
 
-  #updateAssetsPath = (type: any): any => {
+  #updateAssetsPath = (type: string): any => {
     const isManifest: boolean = type === 'manifest';
     const assetsType: string = isManifest ? 'img' : type;
     const from: string = (BalmJS.config.paths.source as any)[assetsType];
