@@ -1,6 +1,6 @@
 {
   "name": "balm-core",
-  "version": "3.16.0",
+  "version": "4.0.0-beta",
   "description": "BalmJS compiler core",
   "keywords": [
     "balm",
@@ -74,7 +74,7 @@
     "istextorbinary": "^5.12.0",
     "mini-css-extract-plugin": "^1.6.0",
     "modernizr": "^3.11.7",
-    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "css-minimizer-webpack-plugin": "^2.0.0",
     "parents": "^1.0.1",
     "plugin-error": "^1.0.1",
     "postcss": "^8.2.14",
