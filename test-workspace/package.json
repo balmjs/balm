@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2021.5.8",
+  "version": "2021.5.12",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -36,7 +36,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "balm-ui": "^8.35.0",
-    "core-js": "^3.10.0",
+    "core-js": "^3.12.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
@@ -59,21 +59,21 @@
     "@babel/plugin-syntax-dynamic-import": "^7.8.0",
     "@babel/runtime-corejs3": "^7.13.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "balm": "^3.16.0",
+    "@vue/server-renderer": "^3.0.0",
     "html-webpack-plugin": "^5.3.0",
     "less": "^4.1.0",
     "less-loader": "^8.1.0",
     "mp-webpack-plugin": "^1.3.0",
     "postcss-px-to-viewport": "^1.1.1",
     "postcss-pxtorem": "^6.0.0",
-    "ts-loader": "^9.0.0",
+    "ts-loader": "^9.1.0",
     "typescript": "^4.2.0",
     "vue-loader": "15",
     "vue-loader-next": "npm:vue-loader@^16.0.0",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "2",
     "webpack": "5",
-    "webpack-node-externals": "^2.5.2"
+    "webpack-node-externals": "^3.0.0"
   },
   "optionalDependencies": {
     "imagemin-pngquant": "^9.0.0"

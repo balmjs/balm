@@ -16,10 +16,15 @@ const scripts = Object.assign(base, {
   libraryTarget: 'commonjs2',
   // https://webpack.js.org/configuration/externals/#externals
   // https://github.com/liady/webpack-node-externals
-  externals: nodeExternals({
-    // do not externalize CSS files in case we need to import it from a dep
-    allowlist: /\.css$/
-  })
+  externals: [
+    nodeExternals({
+      // do not externalize CSS files in case we need to import it from a dep
+      allowlist: /\.css$/
+    })
+  ],
+  webpackOptions: {
+    externalsPresets: { node: true } // in order to ignore built-in modules like path, fs, etc.
+  }
 });
 
 const balmConfig = Object.assign(balmrc, {
