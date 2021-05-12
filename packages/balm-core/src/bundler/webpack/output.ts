@@ -23,15 +23,17 @@ function getOutput(output: string, scripts: BalmScripts, isHook = false): any {
   const jsFilename = getFilename(scripts);
   const jsChunkFilename = getFilename(scripts, true);
 
-  const customLibraryConfig: object = scripts.library
+  const customLibraryConfig: object = ['module', 'commonjs2'].includes(
+    scripts.libraryTarget
+  )
     ? {
         library: {
-          name: scripts.library,
           type: scripts.libraryTarget
         }
       }
     : {
         library: {
+          name: scripts.library || 'MyLibrary',
           type: scripts.libraryTarget
         }
       };
