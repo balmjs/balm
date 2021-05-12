@@ -10,9 +10,14 @@ class Balm {
   #config: any;
 
   constructor() {
+    this.#config = setConfig({});
+
     BalmJS.loading = false;
     loading.succeed();
-    this.#config = BalmJS.config;
+  }
+
+  get version(): string {
+    return BalmJS.version;
   }
 
   get config(): DeepPartial<BalmConfig> {

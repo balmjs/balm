@@ -2,9 +2,8 @@ import { createRequire } from 'node:module';
 import semver from 'semver';
 import { title, message } from './config.js';
 
-const require = createRequire(import.meta.url);
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const balmPkg = require('../package.json');
+const requireModule = createRequire(import.meta.url);
+const balmPkg = requireModule('../package.json');
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function checkVersion(balmCoreVersion) {

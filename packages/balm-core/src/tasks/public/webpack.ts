@@ -21,15 +21,15 @@ class WebpackTask extends BalmJS.BalmTask {
         webpackConfig(this.input, this.output, customOptions, isHook),
         (error: BalmError, stats: any): void => {
           // Handle errors here
-          // if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
-          //   if (error) {
-          //     BalmJS.logger.error(`${this.name} task`, error.stack || error);
-          //     if (error.details) {
-          //       BalmJS.logger.error(`${this.name} task`, error.details);
-          //     }
-          //     return;
-          //   }
-          // }
+          if (BalmJS.config.logs.level === BalmJS.LogLevel.Debug) {
+            if (error) {
+              BalmJS.logger.error(`${this.name} task`, error.stack || error);
+              if (error.details) {
+                BalmJS.logger.error(`${this.name} task`, error.details);
+              }
+              return;
+            }
+          }
 
           const scriptLogLevel: number = stats.hasErrors()
             ? BalmJS.LogLevel.Error

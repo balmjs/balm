@@ -1,6 +1,5 @@
 import readline from 'readline';
 import spinner from '../config/spinner.js';
-import version from '../config/version.js';
 
 class BalmLoading {
   #stream: NodeJS.WriteStream & {
@@ -29,7 +28,7 @@ class BalmLoading {
 
   succeed() {
     this.clear();
-    console.log(`BalmJS version: ${version}`);
+    console.log(`BalmJS version: ${BalmJS.version}`);
   }
 }
 

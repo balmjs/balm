@@ -1,12 +1,24 @@
+import { createRequire } from 'node:module';
 import getBalmCoreModule from './balm-core-module.js';
 import checkVersion from '../check-version.js';
 
 const getBalmCore = async () => {
-  const balmCoreModule = await import(getBalmCoreModule()); // Load `balm-core`
+  const balmCoreModule = getBalmCoreModule();
+  let balmCore;
 
-  checkVersion(balmCoreModule.version);
+  try {
+    balmCore = await import(balmCoreModule); // Load `balm-core`
+  } catch (e) {
+    // For `balm-core < 4`
+    const requireModule = createRequire(import.meta.url);
+    balmCore = requireModule(balmCoreModule);
+  }
 
-  return balmCoreModule.default;
+  const balm = balmCore.default;
+
+  checkVersion(balm.version);
+
+  return balm;
 };
 
 export default getBalmCore;

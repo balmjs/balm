@@ -25,20 +25,27 @@ function getOutput(output: string, scripts: BalmScripts, isHook = false): any {
 
   const customLibraryConfig: object = scripts.library
     ? {
-        // TODO: webpack@5 `libraryTarget` has bug, https://github.com/webpack/webpack/issues/11632
-        libraryTarget: scripts.libraryTarget,
-        library: scripts.library
+        library: {
+          name: scripts.library,
+          type: scripts.libraryTarget
+        }
       }
-    : {};
+    : {
+        library: {
+          type: scripts.libraryTarget
+        }
+      };
 
   const miniprogramConfig: object = BalmJS.config.env.isMP
     ? {
         path: BalmJS.file.absPath(
           node.path.join(BalmJS.config.dest.base, MP_ASSETS)
         ),
-        library: 'createApp',
-        libraryExport: 'default',
-        libraryTarget: 'window'
+        library: {
+          name: 'createApp',
+          type: 'window',
+          export: 'default'
+        }
       }
     : {};
 
