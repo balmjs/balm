@@ -16,10 +16,6 @@ class Balm {
     loading.succeed();
   }
 
-  get version(): string {
-    return BalmJS.version;
-  }
-
   get config(): DeepPartial<BalmConfig> {
     return this.#config;
   }

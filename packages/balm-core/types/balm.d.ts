@@ -1,7 +1,6 @@
 import { BalmConfig, BalmRecipeFunction, BalmVendor } from '../index';
 
 interface Balm {
-  version: string;
   config: BalmConfig;
   beforeTask?: string | Function;
   afterTask?: string | Function;

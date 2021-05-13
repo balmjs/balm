@@ -5,7 +5,7 @@ import { title, message } from './config.js';
   await getBalmEnv();
 
   setBalmConfig(async (balmConfig) => {
-    const balm = await getBalmCore(); // Get `balm-core`
+    const { balm, run } = await getBalmCore(); // Get `balm-core`
 
     if (typeof balmConfig === 'function') {
       let { config, beforeTask, afterTask, api } = balmConfig(balm);
@@ -21,6 +21,7 @@ import { title, message } from './config.js';
         }
 
         api ? balm.go(api) : balm.go();
+        run();
       } else {
         console.warn(title, message.config);
       }
@@ -28,6 +29,7 @@ import { title, message } from './config.js';
       balm.config = balmConfig || {};
 
       balm.go();
+      run();
     }
   });
 })();

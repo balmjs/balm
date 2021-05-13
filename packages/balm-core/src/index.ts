@@ -1,7 +1,7 @@
-import './hello.js';
+import version from './hello.js';
 import Balm from './balm.js';
 
 const balm = new Balm();
 
 export default balm;
-export { Balm };
+export { Balm, version };

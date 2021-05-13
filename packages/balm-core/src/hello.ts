@@ -20,3 +20,5 @@ global.BalmJS = {
 BalmJS.loading = true;
 
 cacheBalmCore();
+
+export default balmCorePkg.version;
