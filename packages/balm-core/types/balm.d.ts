@@ -54,6 +54,7 @@ interface BalmPlugins {
 }
 
 export default interface BalmGlobal extends Balm {
+  version: string;
   start: [number, number];
   noop: Function;
   LogLevel: {
