@@ -1,5 +1,4 @@
 import { createRequire } from 'node:module';
-import semver from 'semver';
 import gulp from 'gulp';
 import getBalmCoreModule from './balm-core-module.js';
 import checkVersion from '../check-version.js';
@@ -11,15 +10,15 @@ const getBalmCore = async () => {
   const version = balmCore.version;
   checkVersion(version);
 
-  const isCommonJS = semver.lt(version, '4.0.0');
-  if (isCommonJS) {
+  const isESM = /^4\.0\.0-/.test(version);
+  if (!isESM) {
     // Compatibility For `balm-core < 4`
     const requireModule = createRequire(import.meta.url);
     balmCore = requireModule(balmCoreModule);
   }
 
   const balm = balmCore.default;
-  const run = () => isCommonJS && gulp.parallel('balm:default')();
+  const run = () => !isESM && gulp.parallel('balm:default')();
 
   return {
     balm,
