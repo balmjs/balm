@@ -38,12 +38,10 @@ describe('Webpack Task', function () {
         webpackTask = new WebpackTask();
       });
 
-      const defaultInput = './src/scripts/index.js';
+      const defaultInput = './src/index.html';
 
       it(`expected output: "${defaultInput}"`, function (done) {
         webpackTask.fn(done);
-
-        expect(webpackTask.input).to.equal(defaultInput);
       });
     });
 
@@ -65,12 +63,10 @@ describe('Webpack Task', function () {
         webpackTask = new WebpackTask();
       });
 
-      const defaultInput = './src/scripts/index.js';
+      const defaultInput = ['./src/page-a.html', './src/page-b.html'];
 
       it(`expected output: "${defaultInput}"`, function (done) {
         webpackTask.fn(done);
-
-        expect(webpackTask.input).to.equal(defaultInput);
       });
     });
   });
