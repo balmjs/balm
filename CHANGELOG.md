@@ -5,6 +5,17 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.17.0 / 2021-05-17
+
+### Chore
+
+- update compatibility for Node 16
+- just use Dart Sass for sass preprocessing (LibSass is deprecated)
+
+### BREAKING CHANGES
+
+- remove config `styles.darkSass`
+
 ## v3.16.1 / 2021-04-30
 
 ### Bug Fixes
