@@ -38,11 +38,13 @@ const balmConfigDefaults = Object.assign(
       libraryTarget: 'var',
       loaders: [],
       plugins: [],
+      injectHtml: false,
+      htmlPluginOptions: {},
+      extractCss: false,
       target: 'web',
       externals: false,
       extractAllVendors: false,
       bundleAnalyzerReport: false,
-      extractCss: false,
       useCache: false
     },
     extras: {
