@@ -2,8 +2,6 @@ import BalmTask from './balm';
 import { MP_ASSETS } from '../../config/constants';
 import { BalmError } from '@balm-core/index';
 
-let fiber: any;
-
 class BalmStyleTask extends BalmTask {
   constructor(name: string) {
     super(name);
@@ -12,11 +10,6 @@ class BalmStyleTask extends BalmTask {
     switch (name) {
       case 'sass':
         extname = '{scss,sass}';
-
-        if (BalmJS.config.styles.dartSass) {
-          $.sass.compiler = require('sass');
-          fiber = require('fibers');
-        }
         break;
       case 'less':
         extname = 'less';
@@ -71,13 +64,7 @@ class BalmStyleTask extends BalmTask {
 
     switch (style) {
       case 'sass':
-        if (BalmJS.config.styles.dartSass) {
-          options = Object.assign({}, options, {
-            fiber
-          });
-        }
-
-        stream = stream.pipe($.sass.sync(options));
+        stream = stream.pipe(BalmJS.plugins.sass.sync(options));
         break;
       case 'less':
         stream = stream.pipe($.less(options));
