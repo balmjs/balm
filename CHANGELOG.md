@@ -5,11 +5,11 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
-## v3.17.1 / 2021-05-18
+## v3.17.2 / 2021-05-18
 
 ### Bug Fixes
 
-- fix source map bug for sass
+- fix source map bug for sass/less/postcss
 
 ## v3.17.0 / 2021-05-17
 
