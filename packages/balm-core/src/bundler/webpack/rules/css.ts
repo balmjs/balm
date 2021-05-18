@@ -62,7 +62,7 @@ function cssLoader(): RuleSetRule {
         options: Object.assign(
           {
             postcssOptions: {
-              plugins: BalmJS.plugins.postcss(true)
+              plugins: BalmJS.plugins.postcssPlugins(true)
             },
             sourceMap
           },

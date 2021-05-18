@@ -67,13 +67,17 @@ class BalmStyleTask extends BalmTask {
         stream = stream.pipe(BalmJS.plugins.sass.sync(options));
         break;
       case 'less':
-        stream = stream.pipe($.less(options));
+        stream = stream.pipe(BalmJS.plugins.less(options));
         break;
       default:
     }
 
     return stream
-      .pipe($.postcss(BalmJS.plugins.postcss(style === 'postcss')))
+      .pipe(
+        BalmJS.plugins.postcss(
+          BalmJS.plugins.postcssPlugins(style === 'postcss')
+        )
+      )
       .pipe(
         $.if(
           BalmJS.config.env.isMP,
