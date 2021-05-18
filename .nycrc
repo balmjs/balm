@@ -21,7 +21,6 @@
     "!packages/balm-core/src/utilities/merge-stream.ts",
     "!packages/balm-core/src/utilities/public-url.ts",
     "!packages/balm-core/src/utilities/replacestream.ts",
-    "!packages/balm-core/src/utilities/vinyl-sourcemaps-apply.ts",
     "!packages/balm-core/src/bundler/webpack/rules/file.ts",
     "!packages/balm-core/src/bundler/rollup/build.ts"
   ],

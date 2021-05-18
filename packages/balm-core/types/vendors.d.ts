@@ -21,7 +21,6 @@ declare module 'replace-ext';
 declare module 'require-dir';
 declare module 'sass';
 declare module 'ssh2';
-declare module 'strip-ansi';
 declare module 'terser-webpack-plugin';
 declare module 'through2';
 declare module 'through2-concurrent';
