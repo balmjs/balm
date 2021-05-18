@@ -23,6 +23,7 @@ declare module 'ssh2';
 declare module 'terser-webpack-plugin';
 declare module 'through2';
 declare module 'through2-concurrent';
+declare module 'vinyl-sourcemaps-apply';
 declare module 'webpack-bundle-analyzer';
 declare module 'webpack-dev-middleware';
 declare module 'webpack-hot-middleware';

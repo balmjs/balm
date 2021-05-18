@@ -1,7 +1,7 @@
 import { Transform } from 'stream';
 import postcss from 'postcss';
 import postcssLoadConfig from 'postcss-load-config';
-import applySourceMap from '../utilities/vinyl-sourcemaps-apply.js';
+import applySourceMap from 'vinyl-sourcemaps-apply';
 import { LooseObject } from '@balm-core/index';
 
 const PLUGIN_NAME = 'postcss';

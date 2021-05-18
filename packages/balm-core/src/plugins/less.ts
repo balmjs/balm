@@ -1,7 +1,7 @@
 import { TransformCallback } from 'stream';
 import less from 'less';
 import replaceExtension from 'replace-ext';
-import applySourceMap from '../utilities/vinyl-sourcemaps-apply.js';
+import applySourceMap from 'vinyl-sourcemaps-apply';
 import { LooseObject } from '@balm-core/index';
 
 const PLUGIN_NAME = 'less';
