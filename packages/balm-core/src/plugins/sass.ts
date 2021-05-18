@@ -2,7 +2,7 @@ import { TransformCallback } from 'stream';
 import sass from 'sass';
 import replaceExtension from 'replace-ext';
 import stripAnsi from 'strip-ansi';
-import applySourceMap from '../utilities/vinyl-sourcemaps-apply';
+import applySourceMap from '../utilities/vinyl-sourcemaps-apply.js';
 
 const PLUGIN_NAME = 'sass';
 
