@@ -24,7 +24,7 @@ const gulpSass = (options: object): any =>
         return cb(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
       }
 
-      if (path.basename(file.path).indexOf('_') === 0) {
+      if (node.path.basename(file.path).indexOf('_') === 0) {
         return cb();
       }
 
@@ -40,7 +40,7 @@ const gulpSass = (options: object): any =>
       opts.file = file.path;
 
       // Ensure `indentedSyntax` is true if a `.sass` file
-      if (path.extname(file.path) === '.sass') {
+      if (node.path.extname(file.path) === '.sass') {
         opts.indentedSyntax = true;
       }
 
@@ -53,7 +53,7 @@ const gulpSass = (options: object): any =>
         opts.includePaths = [];
       }
 
-      opts.includePaths.unshift(path.dirname(file.path));
+      opts.includePaths.unshift(node.path.dirname(file.path));
 
       // Generate Source Maps if plugin source-map present
       if (file.sourceMap) {
@@ -81,7 +81,7 @@ const gulpSass = (options: object): any =>
           // Grab the base file name that's being worked on
           sassFileSrc = file.relative;
           // Grab the path portion of the file that's being worked on
-          sassFileSrcPath = path.dirname(sassFileSrc);
+          sassFileSrcPath = node.path.dirname(sassFileSrc);
           if (sassFileSrcPath) {
             // Prepend the path to all files in the sources array except the file that's being worked on
             sourceFileIndex = sassMap.sources.indexOf(sassMapFile);
@@ -89,7 +89,7 @@ const gulpSass = (options: object): any =>
               (source: string, index: number) => {
                 return index === sourceFileIndex
                   ? source
-                  : path.join(sassFileSrcPath, source);
+                  : node.path.join(sassFileSrcPath, source);
               }
             );
           }
@@ -121,7 +121,7 @@ const gulpSass = (options: object): any =>
       const errorM = (error: any) => {
         const filePath =
           (error.file === 'stdin' ? file.path : error.file) || file.path;
-        const relativePath = path.relative(process.cwd(), filePath);
+        const relativePath = node.path.relative(process.cwd(), filePath);
         const message = [relativePath, error.formatted].join('\n');
 
         error.messageFormatted = message;
