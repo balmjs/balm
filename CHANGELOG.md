@@ -5,6 +5,13 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.18.0 / 2021-05-18
+
+### Features
+
+- update dependencies
+  - `esbuild`: 0.11.x -> 0.12.x
+
 ## v3.17.4 / 2021-05-18
 
 ### Bug Fixes
