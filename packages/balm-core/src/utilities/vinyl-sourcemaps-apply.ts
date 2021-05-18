@@ -8,7 +8,7 @@ function assertProperty(sourceMap: object, propertyName: string) {
   }
 }
 
-function applySourceMap(file: any, sourceMap: any) {
+async function applySourceMap(file: any, sourceMap: any): Promise<void> {
   if (typeof sourceMap === 'string' || sourceMap instanceof String) {
     sourceMap = JSON.parse(sourceMap as string);
   }
@@ -32,10 +32,10 @@ function applySourceMap(file: any, sourceMap: any) {
   );
 
   if (file.sourceMap && file.sourceMap.mappings !== '') {
-    const generator = SourceMapGenerator.fromSourceMap(
-      new SourceMapConsumer(sourceMap) as any
-    );
-    generator.applySourceMap(new SourceMapConsumer(file.sourceMap) as any);
+    const sourceMapConsumer = await new SourceMapConsumer(sourceMap);
+    const generator = SourceMapGenerator.fromSourceMap(sourceMapConsumer);
+    const fileSourceMapConsumer = await new SourceMapConsumer(file.sourceMap);
+    generator.applySourceMap(fileSourceMapConsumer);
     file.sourceMap = JSON.parse(generator.toString());
   } else {
     file.sourceMap = sourceMap;

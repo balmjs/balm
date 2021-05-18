@@ -9,7 +9,7 @@ const PLUGIN_NAME = 'sass';
 //////////////////////////////
 // Main Gulp Sass function
 //////////////////////////////
-const gulpSass = (options: object) =>
+const gulpSass = (options: object): any =>
   through2.obj(
     (
       file: Buffer | string | any,
