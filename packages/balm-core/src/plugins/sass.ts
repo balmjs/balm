@@ -1,8 +1,7 @@
 import { TransformCallback } from 'stream';
 import sass from 'sass';
 import replaceExtension from 'replace-ext';
-import stripAnsi from 'strip-ansi';
-import applySourceMap from '../utilities/vinyl-sourcemaps-apply';
+import applySourceMap from 'vinyl-sourcemaps-apply';
 
 const PLUGIN_NAME = 'sass';
 
@@ -126,7 +125,7 @@ const gulpSass = (options: object): any =>
 
         error.messageFormatted = message;
         error.messageOriginal = error.message;
-        error.message = stripAnsi(message);
+        error.message = require('strip-ansi')(message);
         error.relativePath = relativePath;
 
         return cb(new PluginError(PLUGIN_NAME, error));

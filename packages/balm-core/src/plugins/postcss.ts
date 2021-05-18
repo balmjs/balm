@@ -1,5 +1,5 @@
 import { Transform } from 'stream';
-import applySourceMap from '../utilities/vinyl-sourcemaps-apply';
+import applySourceMap from 'vinyl-sourcemaps-apply';
 import { LooseObject } from '@balm-core/index';
 
 const PLUGIN_NAME = 'postcss';
