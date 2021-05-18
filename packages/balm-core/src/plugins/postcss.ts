@@ -1,7 +1,7 @@
 import { Transform } from 'stream';
 import postcss from 'postcss';
 import postcssLoadConfig from 'postcss-load-config';
-import applySourceMap from '../utilities/vinyl-sourcemaps-apply';
+import applySourceMap from '../utilities/vinyl-sourcemaps-apply.js';
 import { LooseObject } from '@balm-core/index';
 
 const PLUGIN_NAME = 'postcss';
@@ -30,13 +30,12 @@ function gulpPostcss(cb: Function): any {
         } else {
           configPath = file.dirname;
         }
-        return postcssLoadConfig(
-          {
-            file: file,
-            options: contextOptions
-          },
-          configPath
-        );
+
+        const ctx = {
+          file,
+          options: contextOptions
+        } as any;
+        return postcssLoadConfig(ctx, configPath);
       });
     }
   };
