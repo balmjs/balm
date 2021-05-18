@@ -1,6 +1,5 @@
-// Reference `gulp-replace@1.0.0`
-import { TransformCallback } from 'stream';
-import { Transform } from 'readable-stream';
+// Reference `gulp-replace@1.1.3`
+import { Transform, TransformCallback } from 'stream';
 import { isText } from 'istextorbinary';
 import rs from '../utilities/replacestream.js';
 
@@ -8,17 +7,29 @@ interface GulpReplaceOptions {
   skipBinary?: boolean;
 }
 
+const defaultOptions = {
+  skipBinary: true
+};
+
 function gulpReplace(
   search: string | RegExp,
   _replacement: string | Function,
   options: GulpReplaceOptions = {}
 ): any {
-  if (options.skipBinary === undefined) {
-    options.skipBinary = true;
-  }
+  // merge options
+  options = {
+    ...defaultOptions,
+    ...options
+  };
 
   return new Transform({
     objectMode: true,
+    /**
+     * transformation
+     * @param {import("vinyl")} file
+     * @param {BufferEncoding} enc
+     * @param {(error?: Error | null, data?: any) => void} callback
+     */
     transform: (
       file: Buffer | string | any,
       encoding: BufferEncoding,
@@ -78,11 +89,17 @@ function gulpReplace(
         callback(null, file);
       }
 
-      if (options && options.skipBinary) {
-        if (isText(file.path, file.contents)) {
+      if (options.skipBinary) {
+        // fix@istextorbinary: "editions-autoloader-none-broadened: Unable to determine a suitable edition, even after broadening."
+        const isNode16 = process.version.split('.')[0] === 'v16';
+        if (isNode16) {
           doReplace();
         } else {
-          callback(null, file);
+          if (isText(file.path, file.contents)) {
+            doReplace();
+          } else {
+            callback(null, file);
+          }
         }
 
         return;

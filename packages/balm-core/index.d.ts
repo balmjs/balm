@@ -27,7 +27,6 @@ export interface BalmPath {
 
 interface BalmStyles {
   extname: string;
-  dartSass: boolean;
   minify: boolean;
   atImportPaths: string[];
   options: object;

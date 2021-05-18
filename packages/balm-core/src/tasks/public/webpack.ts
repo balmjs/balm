@@ -1,4 +1,5 @@
 import { webpack, webpackConfig } from '../../bundler/webpack/index.js';
+import compiling from '../../utilities/compiling.js';
 import { BalmEntry, Configuration, BalmError } from '@balm-core/index';
 
 class WebpackTask extends BalmJS.BalmTask {
@@ -17,9 +18,12 @@ class WebpackTask extends BalmJS.BalmTask {
 
       const isHook = !!input;
 
+      compiling.start();
       BalmJS.webpackCompiler = webpack(
         webpackConfig(this.input, this.output, customOptions, isHook),
         (error: BalmError, stats: any): void => {
+          compiling.stop();
+
           try {
             const scriptLogLevel: number = stats.hasErrors()
               ? BalmJS.LogLevel.Error

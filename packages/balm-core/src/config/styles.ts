@@ -1,5 +1,4 @@
 const extname = 'css';
-const dartSass = false;
 const minify = false;
 const atImportPaths: string[] = [];
 /**
@@ -53,7 +52,6 @@ const spriteParams: object = {};
 
 export default {
   extname,
-  dartSass,
   minify,
   atImportPaths,
   options,

@@ -1,5 +1,3 @@
-import sass from 'sass';
-import fiber from 'fibers';
 import BalmTask from './balm.js';
 import { MP_ASSETS } from '../../config/constants.js';
 import { BalmError } from '@balm-core/index';
@@ -12,10 +10,6 @@ class BalmStyleTask extends BalmTask {
     switch (name) {
       case 'sass':
         extname = '{scss,sass}';
-
-        if (BalmJS.config.styles.dartSass) {
-          $.sass.compiler = sass;
-        }
         break;
       case 'less':
         extname = 'less';
@@ -70,13 +64,7 @@ class BalmStyleTask extends BalmTask {
 
     switch (style) {
       case 'sass':
-        if (BalmJS.config.styles.dartSass) {
-          options = Object.assign({}, options, {
-            fiber
-          });
-        }
-
-        stream = stream.pipe($.sass.sync(options));
+        stream = stream.pipe(BalmJS.plugins.sass.sync(options));
         break;
       case 'less':
         stream = stream.pipe($.less(options));

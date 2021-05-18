@@ -23,6 +23,54 @@ describe('Webpack Task', function () {
     });
   });
 
+  describe('inject html', function () {
+    describe('one entry', function () {
+      before(function () {
+        balm.config = {
+          scripts: {
+            entry: {
+              index: './src/scripts/index.js'
+            },
+            injectHtml: true
+          }
+        };
+
+        webpackTask = new WebpackTask();
+      });
+
+      const defaultInput = './src/index.html';
+
+      it(`expected output: "${defaultInput}"`, function (done) {
+        webpackTask.fn(done);
+      });
+    });
+
+    describe('multi entries', function () {
+      before(function () {
+        balm.config = {
+          scripts: {
+            entry: {
+              'page-a': './src/scripts/page-a.js',
+              'page-b': './src/scripts/page-b.js'
+            },
+            injectHtml: true,
+            htmlPluginOptions: {
+              template: './src/templates/default.html'
+            }
+          }
+        };
+
+        webpackTask = new WebpackTask();
+      });
+
+      const defaultInput = ['./src/page-a.html', './src/page-b.html'];
+
+      it(`expected output: "${defaultInput}"`, function (done) {
+        webpackTask.fn(done);
+      });
+    });
+  });
+
   describe('#mix.webpack()', function () {
     before(function () {
       balm.config = {

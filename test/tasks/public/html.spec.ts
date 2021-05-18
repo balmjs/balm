@@ -70,4 +70,19 @@ describe('Html Task', function () {
       })
     );
   });
+
+  describe('inject html', function () {
+    before(function () {
+      balm.config = {
+        scripts: {
+          injectHtml: true
+        }
+      };
+    });
+
+    it(
+      `expected output: "index.html"`,
+      asyncCase(function () {})
+    );
+  });
 });

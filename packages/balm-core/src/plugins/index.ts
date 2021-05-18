@@ -5,6 +5,7 @@ import plumber from './plumber.js';
 import postcss from './postcss.js';
 import rename from './rename.js';
 import replace from './replace.js';
+import sass from './sass.js';
 import sftp from './sftp.js';
 
 const plugins: any = {
@@ -15,6 +16,7 @@ const plugins: any = {
   postcss,
   rename,
   replace,
+  sass,
   sftp
 };
 
