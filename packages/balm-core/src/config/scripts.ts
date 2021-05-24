@@ -63,7 +63,6 @@ const lint = false;
 
 // Output
 const library: string | object = '';
-const libraryTarget = 'var';
 // Module
 const loaders: RuleSetRule[] = [];
 const defaultLoaders: Partial<BalmLoaders> = {};
@@ -158,7 +157,6 @@ export default {
   lint,
   // webpack
   library,
-  libraryTarget,
   loaders,
   defaultLoaders,
   includeJsResource,

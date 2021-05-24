@@ -86,7 +86,6 @@ export interface BalmScripts {
   lint: boolean;
   // webpack
   library: string | object;
-  libraryTarget: string;
   loaders: RuleSetRule[];
   defaultLoaders: Partial<BalmLoaders>;
   includeJsResource: string[];

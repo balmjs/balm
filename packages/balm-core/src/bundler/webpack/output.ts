@@ -1,4 +1,5 @@
 import { ASYNC_SCRIPTS, HASH_NAME, MP_ASSETS } from '../../config/constants.js';
+import getType from '../../utilities/typeof.js';
 import { BalmScripts } from '@balm-core/index';
 
 function getFilename(scripts: BalmScripts, isChunk = false): string {
@@ -23,20 +24,11 @@ function getOutput(output: string, scripts: BalmScripts, isHook = false): any {
   const jsFilename = getFilename(scripts);
   const jsChunkFilename = getFilename(scripts, true);
 
-  const customLibraryConfig: object = ['module', 'commonjs2'].includes(
-    scripts.libraryTarget
-  )
+  const customLibraryConfig: object = scripts.library
     ? {
-        library: {
-          type: scripts.libraryTarget
-        }
+        library: scripts.library
       }
-    : {
-        library: {
-          name: scripts.library || 'MyLibrary',
-          type: scripts.libraryTarget
-        }
-      };
+    : {};
 
   const miniprogramConfig: object = BalmJS.config.env.isMP
     ? {
