@@ -18,9 +18,11 @@ function getDefaultPlugins(webpack: any, scripts: BalmScripts): object[] {
 
   if (scripts.injectHtml) {
     const isSPA = BalmJS.entries.length === 1;
-    const titles: string | string[] = (scripts.htmlPluginOptions as {
-      title?: string | string[];
-    }).title || ['BalmJS App'];
+    const titles: string | string[] = (
+      scripts.htmlPluginOptions as {
+        title?: string | string[];
+      }
+    ).title || ['BalmJS App'];
 
     BalmJS.entries.forEach((entry, index) => {
       const entryName = isSPA ? 'index' : entry.key;
