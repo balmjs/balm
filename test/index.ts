@@ -44,8 +44,7 @@ const balmConfigDefaults = Object.assign(
       target: 'web',
       externals: false,
       extractAllVendors: false,
-      bundleAnalyzerReport: false,
-      useCache: false
+      bundleAnalyzerReport: false
     },
     extras: {
       includes: [],
