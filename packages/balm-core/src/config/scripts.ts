@@ -140,8 +140,6 @@ const optimization: Optimization = {};
 const extractAllVendors = false; // Extract all vendors (all in one)
 const vendorName = 'vendor'; // AllInOne vendor filename or Vendors folder name
 const extractCss = false;
-// Cache
-const useCache = false;
 // IE8 compatibility
 const ie8 = false;
 
@@ -192,7 +190,6 @@ export default {
   extractAllVendors,
   vendorName,
   extractCss,
-  useCache,
   ie8,
   // rollup
   inputOptions,

@@ -1,4 +1,4 @@
-import { STATIC_ASSETS } from '../../../config/constants';
+import { STATIC_ASSETS, HASH_NAME_DEV } from '../../../config/constants';
 import { imgRegex, fontRegex, mediaRegex } from '../config/regex';
 import { RuleSetRule } from '@balm-core/index';
 
@@ -8,7 +8,7 @@ const imageInlineSizeLimit = parseInt(
 
 function urlLoader(): RuleSetRule[] {
   const PATHNAME = `${BalmJS.config.paths.target.js}/${STATIC_ASSETS}/`;
-  const FILENAME = '[name].[hash:8].[ext]';
+  const FILENAME = `[name].${HASH_NAME_DEV}.[ext]`;
   const options = Object.assign(
     {
       limit: imageInlineSizeLimit, // Loads files as `base64` encoded URL

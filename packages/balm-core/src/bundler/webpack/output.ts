@@ -1,17 +1,17 @@
-import { ASYNC_SCRIPTS, HASH_NAME, MP_ASSETS } from '../../config/constants';
+import {
+  ASYNC_SCRIPTS,
+  HASH_NAME_PROD,
+  MP_ASSETS
+} from '../../config/constants';
 import { WebpackOutput, BalmScripts } from '@balm-core/index';
 
 function getFilename(scripts: BalmScripts, isChunk = false): string {
   let filename: string;
 
   if (isChunk) {
-    filename = BalmJS.config.env.isProd
-      ? BalmJS.config.assets.cache || scripts.useCache
-        ? `[name].${HASH_NAME}`
-        : '[name]'
-      : '[id]';
+    filename = BalmJS.config.env.isProd ? `[name].${HASH_NAME_PROD}` : '[name]';
   } else {
-    filename = scripts.useCache ? `[name].${HASH_NAME}` : '[name]';
+    filename = BalmJS.useCache ? `[name].${HASH_NAME_PROD}` : '[name]';
   }
 
   return `${filename}.js`;

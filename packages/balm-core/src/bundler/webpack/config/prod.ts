@@ -1,6 +1,6 @@
 import merge from 'webpack-merge';
 import getCommonConfig from './common';
-import { ASYNC_SCRIPTS, HASH_NAME } from '../../../config/constants';
+import { ASYNC_SCRIPTS, HASH_NAME_PROD } from '../../../config/constants';
 import { Configuration, MinifyOptions, BalmScripts } from '@balm-core/index';
 
 // Run the build command with an extra argument to
@@ -13,9 +13,9 @@ function getCssFilename(isChunk = false): string {
   let filename: string;
 
   if (isChunk) {
-    filename = BalmJS.config.env.isProd ? `[id].${HASH_NAME}` : '[id]';
+    filename = BalmJS.config.env.isProd ? `[name].${HASH_NAME_PROD}` : '[name]';
   } else {
-    filename = BalmJS.config.env.isProd ? `[name].${HASH_NAME}` : '[name]';
+    filename = BalmJS.useCache ? `[name].${HASH_NAME_PROD}` : '[name]';
   }
 
   return `${BalmJS.config.paths.target.css}/${ASYNC_SCRIPTS}/${filename}.css`;

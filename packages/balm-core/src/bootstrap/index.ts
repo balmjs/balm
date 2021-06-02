@@ -73,6 +73,12 @@ function ready(config: BalmConfig): BalmConfig {
   // Set desktop app flag
   config.inDesktopApp = /^electron-.*/.test(config.scripts.target as string);
 
+  // Set use cache for webpack
+  if (!BalmJS.useCache) {
+    BalmJS.useCache =
+      config.env.isProd && config.assets.cache && config.scripts.injectHtml;
+  }
+
   return config;
 }
 
