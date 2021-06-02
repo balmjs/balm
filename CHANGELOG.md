@@ -5,6 +5,20 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.19.0 / 2021-06-02
+
+### Chore
+
+- optimize hash name for cache
+
+### Bug Fixes
+
+- fix injectHtml bug for default entry
+
+### BREAKING CHANGES
+
+- remove config `scripts.useCache`
+
 ## v3.18.0 / 2021-05-18
 
 ### Features

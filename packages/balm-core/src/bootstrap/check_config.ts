@@ -52,7 +52,7 @@ function upgradeDeprecated(
   if ((BalmJS.config as LooseObject)[configCategory][configName]) {
     BalmJS.logger.warn(
       `balm@${version}+ config`,
-      `The '${configCategory}.${configName}' was deprecated.`
+      `'${configCategory}.${configName}' was deprecated.`
     );
   }
 }
