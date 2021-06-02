@@ -11,7 +11,10 @@ const scripts = Object.assign(base, {
   },
   injectHtml: true,
   htmlPluginOptions: {
-    template: './vue-ssr/app/server.html'
+    template: './vue-ssr/app/templates/index.html',
+    minify: {
+      removeComments: false
+    }
   },
   extractCss: true
 });
@@ -35,6 +38,11 @@ const getConfig = (balm) => {
     roots: {
       source: 'vue-ssr/app'
     },
+    html: {
+      options: {
+        removeComments: false
+      }
+    },
     scripts,
     assets: {
       cache: true
@@ -42,7 +50,6 @@ const getConfig = (balm) => {
   });
 
   if (balm.config.env.isProd) {
-    balm.config.html.options.removeComments = false;
     // This plugins generates `vue-ssr-client-manifest.json` in the
     // output directory.
     balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
@@ -51,7 +58,6 @@ const getConfig = (balm) => {
       }),
       new VueSSRClientPlugin()
     ]);
-    balmConfig.scripts.useCache = true;
   }
 
   // console.log('client config', balmConfig);

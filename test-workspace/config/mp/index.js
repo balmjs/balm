@@ -25,8 +25,7 @@ const getConfig = (balm) => {
       target: isMP ? 'dist/mp' : 'dist/web'
     },
     styles: {
-      extname: 'scss',
-      dartSass: true
+      extname: 'scss'
       // postcssPlugins: [
       //   pxtorem({
       //     rootValue: 37.5,

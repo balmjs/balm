@@ -11,7 +11,6 @@ const config = {
   // useDefaults: false,
   styles: {
     extname: 'scss'
-    // dartSass: true
     // sprites: ['icons', 'mdi']
   },
   scripts: {
@@ -25,7 +24,7 @@ const config = {
     // injectHtml: true,
     // htmlPluginOptions: {
     //   template: 'src/templates/default.html'
-    // },
+    // }
     // extractCss: true
   },
   // images: {

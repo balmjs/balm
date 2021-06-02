@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2021.5.18",
+  "version": "2021.6.2",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -23,9 +23,9 @@
     "vue3:dev": "balm --config config/vue3",
     "vue3:prod": "balm -p --config config/vue3",
     "ssr:dev": "balm --config config/vue-ssr/client.js",
-    "ssr:build:client": "balm -p --config config/vue-ssr/client.js",
-    "ssr:build:server": "balm -p -ssr --config config/vue-ssr/server.js",
-    "ssr:prod": "npm run ssr:build:client && npm run ssr:build:server",
+    "ssr:client:prod": "balm -p --config config/vue-ssr/client.js",
+    "ssr:server:prod": "balm -p -ssr --config config/vue-ssr/server.js",
+    "ssr:prod": "npm run ssr:client:prod && npm run ssr:server:prod",
     "ssr:start": "cross-env NODE_ENV=production node vue-ssr/server.js",
     "web:dev": "balm --config config/mp",
     "mp:dev": "balm -mp --config config/mp",

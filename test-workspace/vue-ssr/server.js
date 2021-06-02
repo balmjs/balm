@@ -26,7 +26,7 @@ if (isProd) {
       // 推荐
       runInNewContext: false,
       // 模板html文件
-      template: fs.readFileSync(resolve('../dist/server.html'), 'utf-8'),
+      template: fs.readFileSync(resolve('../dist/index.html'), 'utf-8'),
       // client manifest
       clientManifest: require('../dist/vue-ssr-client-manifest.json'),
       basedir: resolve('../dist')
