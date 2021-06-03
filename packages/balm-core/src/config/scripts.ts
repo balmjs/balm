@@ -130,7 +130,6 @@ const webpackOptions: Configuration = {};
 const optimization: object = {};
 const extractAllVendors = false; // Extract all vendors (all in one)
 const vendorName = 'vendor'; // AllInOne vendor filename or Vendors folder name
-const useCache = false;
 // IE8 compatibility
 const ie8 = false;
 
@@ -180,7 +179,6 @@ export default {
   optimization,
   extractAllVendors,
   vendorName,
-  useCache,
   ie8,
   // rollup
   inputOptions,

@@ -28,18 +28,31 @@ function upgradeRenamed(
 
 function upgradeMigrated(
   version: string,
-  configCategory: string,
+  configName: string,
   from: string,
   to: string
 ) {
-  if ((BalmJS.config as LooseObject)[from][configCategory]) {
+  if ((BalmJS.config as LooseObject)[from][configName]) {
     BalmJS.logger.warn(
       `balm@${version}+ config`,
       upgradeGuide(
         to,
-        configCategory,
-        `'${from}.${configCategory}' was migrated to '${to}.${configCategory}'.`
+        configName,
+        `'${from}.${configName}' was migrated to '${to}.${configName}'.`
       )
+    );
+  }
+}
+
+function upgradeDeprecated(
+  version: string,
+  configCategory: string,
+  configName: string
+) {
+  if ((BalmJS.config as LooseObject)[configCategory][configName]) {
+    BalmJS.logger.warn(
+      `balm@${version}+ config`,
+      `'${configCategory}.${configName}' was deprecated.`
     );
   }
 }
@@ -55,6 +68,8 @@ function checkConfig(): void {
   upgradeRenamed('3.0.0', 'styles', 'minified', 'minify');
   upgradeRenamed('3.9.0', 'scripts', 'options', 'minifyOptions');
   upgradeRenamed('3.16.0', 'scripts', 'inject', 'useCache');
+  upgradeDeprecated('3.17.0', 'styles', 'darkSass');
+  upgradeDeprecated('3.19.0', 'scripts', 'useCache');
 }
 
 export default checkConfig;

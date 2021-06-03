@@ -54,9 +54,6 @@ describe('Cache Task', function () {
         env: {
           isProd: true
         },
-        scripts: {
-          useCache: true
-        },
         assets: {
           cache: true,
           includes: ['dist/foo.txt'],
@@ -68,6 +65,7 @@ describe('Cache Task', function () {
     const dist = path.join(balm.config.workspace, 'public');
     const defaultInput = [
       path.join(dist, 'build', 'css', '**', '*'),
+      path.join(dist, 'build', 'js', '**', '*'),
       path.join(dist, 'build', 'img', '**', '*'),
       path.join(dist, 'build', 'font', '**', '*'),
       path.join(dist, 'build', 'media', '**', '*'),

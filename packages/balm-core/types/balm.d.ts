@@ -79,6 +79,7 @@ export default interface BalmGlobal extends Balm {
     key: string;
     value: string;
   }[];
+  useCache: boolean;
   hasHtmlWebpackPlugin: boolean;
   utils: BalmUtils;
   logger: BalmLogger;

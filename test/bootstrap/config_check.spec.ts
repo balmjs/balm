@@ -3,12 +3,14 @@ describe('Config Compatibility Check', function () {
     balm.config = {
       styles: {
         minified: true,
-        postcssLoaderOptions: {}
+        postcssLoaderOptions: {},
+        darkSass: true
       },
       scripts: {
         disableDefaultLoaders: {},
         options: {},
-        inject: true
+        inject: true,
+        useCache: true
       },
       images: {
         defaultPlugins: {}
@@ -28,5 +30,7 @@ describe('Config Compatibility Check', function () {
     delete balm.config.scripts.options;
     delete balm.config.images.defaultPlugins;
     delete balm.config.scripts.inject;
+    delete balm.config.styles.darkSass;
+    delete balm.config.scripts.useCache;
   });
 });

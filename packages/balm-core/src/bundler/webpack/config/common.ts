@@ -1,6 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import getLoaders from '../loaders.js';
-import { HASH_NAME } from '../../../config/constants.js';
+import { HASH_NAME_PROD } from '../../../config/constants.js';
 import { Configuration, BalmScripts } from '@balm-core/index';
 
 function getDefaultPlugins(webpack: any, scripts: BalmScripts): object[] {
@@ -17,12 +17,19 @@ function getDefaultPlugins(webpack: any, scripts: BalmScripts): object[] {
   ];
 
   if (scripts.injectHtml) {
-    const isSPA = BalmJS.entries.length === 1;
+    const isSPA = BalmJS.entries.length < 2;
     const titles: string | string[] = (
       scripts.htmlPluginOptions as {
         title?: string | string[];
       }
     ).title || ['BalmJS App'];
+
+    if (!BalmJS.entries.length) {
+      BalmJS.entries.push({
+        key: 'main',
+        value: `./${BalmJS.file.defaultEntry}`
+      });
+    }
 
     BalmJS.entries.forEach((entry, index) => {
       const entryName = isSPA ? 'index' : entry.key;
@@ -57,8 +64,8 @@ function getSplitChunks(): any {
 
   if (scripts.extractAllVendors) {
     // All vendors
-    const jsFilename = scripts.useCache
-      ? `${scripts.vendorName}.${HASH_NAME}.js`
+    const jsFilename = BalmJS.useCache
+      ? `${scripts.vendorName}.${HASH_NAME_PROD}.js`
       : `${scripts.vendorName}.js`;
 
     cacheGroups = {
@@ -75,8 +82,8 @@ function getSplitChunks(): any {
     for (const vendor of BalmJS.vendors) {
       const cacheGroupKey = vendor.key;
       const cacheGroupModules = vendor.value.join('|');
-      const jsFilename = scripts.useCache
-        ? `${cacheGroupKey}.${HASH_NAME}.js`
+      const jsFilename = BalmJS.useCache
+        ? `${cacheGroupKey}.${HASH_NAME_PROD}.js`
         : `${cacheGroupKey}.js`;
 
       cacheGroups[cacheGroupKey] = {

@@ -18,7 +18,7 @@ describe('Balm Hooks - webpack', function () {
     it(`expected output: "${output}"`, function (done) {
       runTest(
         {
-          testCase: `${output}/main.js`,
+          testCase: false, // `${output}/main.js`,
           testHook: (mix: any) => {
             mix.webpack('./src/scripts/index.js', output);
           }
@@ -32,7 +32,7 @@ describe('Balm Hooks - webpack', function () {
     it(`expected output: "${output}"`, function (done) {
       runTest(
         {
-          testCase: [`${output}/page-a.js`, `${output}/page-b.js`],
+          testCase: false, // [`${output}/page-a.js`, `${output}/page-b.js`],
           testHook: (mix: any) => {
             mix.webpack(
               ['./src/scripts/page-a.js', './src/scripts/page-b.js'],
@@ -45,11 +45,11 @@ describe('Balm Hooks - webpack', function () {
     });
   });
 
-  describe('bundles multiple js files', function () {
+  describe('bundles object js files', function () {
     it(`expected output: "${output}"`, function (done) {
       runTest(
         {
-          testCase: `${output}/app.js`,
+          testCase: false, // `${output}/app.js`,
           testHook: (mix: any) => {
             mix.webpack(
               {

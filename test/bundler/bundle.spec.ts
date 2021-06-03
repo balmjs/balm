@@ -51,13 +51,13 @@ describe('Bundler#webpackConfig()', function () {
             isProd: true
           },
           scripts: {
-            useCache: true
+            injectHtml: true
           }
         };
       });
 
       it(
-        '`balm.config.scripts.useCache` expected output: true',
+        '`useCache` expected output: true',
         asyncCase(function () {
           webpackConfig(balm.config.scripts.entry, 'dist');
         })
@@ -79,7 +79,7 @@ describe('Bundler#webpackConfig()', function () {
       });
 
       it(
-        '`balm.config.scripts.useCache` expected output: false',
+        '`useCache` expected output: false',
         asyncCase(function () {
           webpackConfig(balm.config.scripts.entry, 'dist');
         })
@@ -96,14 +96,14 @@ describe('Bundler#webpackConfig()', function () {
             entry: {
               main: './src/scripts/index.js'
             },
-            useCache: true,
+            injectHtml: true,
             extractAllVendors: true
           }
         };
       });
 
       it(
-        '`balm.config.scripts.useCache` expected output: true',
+        '`useCache` expected output: true',
         asyncCase(function () {
           webpackConfig(
             {

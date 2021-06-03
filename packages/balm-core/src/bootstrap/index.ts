@@ -75,6 +75,12 @@ function ready(config: BalmConfig): BalmConfig {
     config.env.inDesktopApp = true;
   }
 
+  // Set use cache for webpack
+  if (!BalmJS.useCache) {
+    BalmJS.useCache =
+      config.env.isProd && config.assets.cache && config.scripts.injectHtml;
+  }
+
   return config;
 }
 

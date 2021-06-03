@@ -109,10 +109,9 @@ export interface BalmScripts {
   extractAllVendors: boolean;
   vendorName: string;
   extractCss: boolean;
-  useCache: boolean;
   ie8: boolean;
   // rollup
-  inputOptions: InputOptions;
+  inputOptions: Omit<InputOptions, 'acorn'>; // incompatible
   outputOptions: OutputOptions;
   watchOptions: WatcherOptions;
   // esbuild

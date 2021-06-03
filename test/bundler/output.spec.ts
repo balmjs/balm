@@ -14,7 +14,7 @@ describe('Bundler#getOutput()', function () {
 
     describe('default', function () {
       const filename = 'js/[name].js';
-      const chunkFilename = 'js/async/[id].js';
+      const chunkFilename = 'js/async/[name].js';
 
       it(
         `expected output: "${filename}"`,
@@ -29,7 +29,7 @@ describe('Bundler#getOutput()', function () {
 
     describe('#mix.webpack()', function () {
       const filename = '[name].js';
-      const chunkFilename = '[id].js';
+      const chunkFilename = '[name].js';
 
       it(
         `expected output: "${filename}"`,
@@ -49,12 +49,15 @@ describe('Bundler#getOutput()', function () {
         balm.config = {
           env: {
             isProd: true
+          },
+          assets: {
+            cache: true
           }
         };
       });
 
       const filename = 'js/[name].js';
-      const chunkFilename = 'js/async/[name].js';
+      const chunkFilename = 'js/async/[name].[contenthash:8].js';
 
       it(
         `expected output: "${filename}"`,
@@ -100,7 +103,10 @@ describe('Bundler#getOutput()', function () {
             isProd: true
           },
           scripts: {
-            useCache: true
+            injectHtml: true
+          },
+          assets: {
+            cache: true
           }
         };
       });
