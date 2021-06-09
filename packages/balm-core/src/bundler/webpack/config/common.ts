@@ -68,7 +68,7 @@ function getSplitChunks(): SplitChunksOptions {
 
   if (scripts.extractAllVendors) {
     // All vendors
-    const jsFilename = BalmJS.useCache
+    const jsFilename = scripts.useCache
       ? `${scripts.vendorName}.${HASH_NAME_PROD}.js`
       : `${scripts.vendorName}.js`;
 
@@ -86,7 +86,7 @@ function getSplitChunks(): SplitChunksOptions {
     for (const vendor of BalmJS.vendors) {
       const cacheGroupKey = vendor.key;
       const cacheGroupModules = vendor.value.join('|');
-      const jsFilename = BalmJS.useCache
+      const jsFilename = scripts.useCache
         ? `${cacheGroupKey}.${HASH_NAME_PROD}.js`
         : `${cacheGroupKey}.js`;
 

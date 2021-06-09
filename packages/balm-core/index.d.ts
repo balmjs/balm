@@ -146,6 +146,8 @@ export interface BalmScripts {
   buildOptions: BuildOptions;
   useTransform: boolean;
   transformOptions: TransformOptions;
+  // extra
+  useCache?: boolean;
 }
 
 export interface BalmImagesPlugins {
@@ -195,6 +197,7 @@ interface BalmServer {
   historyOptions: boolean | object;
   middlewares: Function[] | object[];
   extraWatchFiles: string[];
+  // extra
   useHMR?: boolean;
 }
 

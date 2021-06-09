@@ -74,10 +74,8 @@ function ready(config: BalmConfig): BalmConfig {
   config.inDesktopApp = /^electron-.*/.test(config.scripts.target as string);
 
   // Set use cache for webpack
-  if (!BalmJS.useCache) {
-    BalmJS.useCache =
-      config.env.isProd && config.assets.cache && config.scripts.injectHtml;
-  }
+  config.scripts.useCache =
+    config.env.isProd && config.assets.cache && config.scripts.injectHtml;
 
   return config;
 }

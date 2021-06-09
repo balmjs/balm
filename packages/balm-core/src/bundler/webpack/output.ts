@@ -11,7 +11,7 @@ function getFilename(scripts: BalmScripts, isChunk = false): string {
   if (isChunk) {
     filename = BalmJS.config.env.isProd ? `[name].${HASH_NAME_PROD}` : '[name]';
   } else {
-    filename = BalmJS.useCache ? `[name].${HASH_NAME_PROD}` : '[name]';
+    filename = scripts.useCache ? `[name].${HASH_NAME_PROD}` : '[name]';
   }
 
   return `${filename}.js`;
