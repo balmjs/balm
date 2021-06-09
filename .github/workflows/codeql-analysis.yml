@@ -20,6 +20,9 @@ on:
     paths:
       - packages/balm/src
       - packages/balm-core/src
+    paths-ignore:
+      - test-workspace/amd/**/*
+      - test-workspace/cmd/**/*
   # schedule:
   #   - cron: '22 17 * * 0'
 
