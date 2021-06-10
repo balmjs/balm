@@ -162,7 +162,7 @@ describe('Bundler#getOutput()', function () {
     });
 
     const mp = {
-      path: path.join(balm.config.workspace, 'dist', 'common'),
+      path: node.path.join(balm.config.workspace, 'dist', 'common'),
       library: 'createApp',
       libraryTarget: 'window',
       libraryExport: 'default'

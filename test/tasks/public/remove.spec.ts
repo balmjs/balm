@@ -16,7 +16,7 @@ describe('Remove Task', function () {
   describe('#mix.remove()', function () {
     describe('input is a string', function () {
       const defaultInput = 'src/foo.txt';
-      // const defaultOutput = path.join(balm.config.workspace, defaultInput);
+      // const defaultOutput = node.path.join(balm.config.workspace, defaultInput);
 
       it(`expected output: "${defaultInput}"`, function (done) {
         removeTask.recipe(defaultInput)(done);
@@ -26,8 +26,8 @@ describe('Remove Task', function () {
     describe('input is an array', function () {
       const defaultInput = ['src/foo.txt', 'src/bar.txt'];
       // const defaultOutput = [
-      //   path.join(balm.config.workspace, defaultInput[0]),
-      //   path.join(balm.config.workspace, defaultInput[1])
+      //   node.path.join(balm.config.workspace, defaultInput[0]),
+      //   node.path.join(balm.config.workspace, defaultInput[1])
       // ];
 
       it(`expected output: "${defaultInput}"`, function (done) {

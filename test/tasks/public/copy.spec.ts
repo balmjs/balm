@@ -25,12 +25,12 @@ describe('Copy Task', function () {
 
           expect(JSON.stringify(copyTask.input)).to.equal(
             JSON.stringify([
-              path.join(balm.config.workspace, 'src/foo.txt'),
-              path.join(balm.config.workspace, 'src/bar.txt')
+              node.path.join(balm.config.workspace, 'src/foo.txt'),
+              node.path.join(balm.config.workspace, 'src/bar.txt')
             ])
           );
           expect(copyTask.output).to.equal(
-            path.join(balm.config.workspace, defaultOutput)
+            node.path.join(balm.config.workspace, defaultOutput)
           );
         })
       );

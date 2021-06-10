@@ -52,7 +52,7 @@ describe('Balm Hooks - pwa', function () {
           testCase: output,
           testHook: (mix: any) => {
             mix.injectManifest({
-              swSrc: path.join(
+              swSrc: node.path.join(
                 balm.config.workspace,
                 'pwa',
                 'service-worker.js'

@@ -1,8 +1,14 @@
 {
   "extends": "../tsconfig",
   "compilerOptions": {
+    "lib": ["ES2020"],
     "types": ["node", "mocha", "chai"]
   },
   "include": ["./**/*.ts"],
-  "files": ["index.d.ts"]
+  "files": ["index.d.ts"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
 }

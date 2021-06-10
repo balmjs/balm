@@ -13,7 +13,7 @@ describe('Balm File', function () {
   });
 
   describe('.stylePaths', function () {
-    const stylePath = path.join(balm.config.workspace, '.');
+    const stylePath = node.path.join(balm.config.workspace, '.');
 
     it(
       `expected output: "${stylePath}"`,
@@ -105,7 +105,7 @@ describe('Balm File', function () {
           };
         });
 
-        const assetsSuffixPath = path.join('web', 'build');
+        const assetsSuffixPath = node.path.join('web', 'build');
 
         it(
           `expected output: "${assetsSuffixPath}"`,
@@ -118,7 +118,7 @@ describe('Balm File', function () {
   });
 
   describe('.defaultEntry', function () {
-    const defaultEntry = path.join(
+    const defaultEntry = node.path.join(
       balm.config.roots.source,
       balm.config.paths.source.js,
       'index.js'
@@ -133,7 +133,7 @@ describe('Balm File', function () {
   });
 
   describe('#absPaths()', function () {
-    const absPath = path.join(balm.config.workspace, 'foo');
+    const absPath = node.path.join(balm.config.workspace, 'foo');
 
     it(
       `expected output: "${absPath}"`,
@@ -145,8 +145,8 @@ describe('Balm File', function () {
     );
 
     const absPaths = [
-      path.join(balm.config.workspace, 'foo'),
-      '!' + path.join(balm.config.workspace, 'bar')
+      node.path.join(balm.config.workspace, 'foo'),
+      '!' + node.path.join(balm.config.workspace, 'bar')
     ];
 
     it(
@@ -197,10 +197,10 @@ describe('Balm File', function () {
       });
 
       it(
-        `expected output: "${path.posix.join('web', 'foo')}"`,
+        `expected output: "${node.path.posix.join('web', 'foo')}"`,
         asyncCase(function () {
           const result = file.assetsPath('foo');
-          const assetsPath = path.posix.join(file.assetsSuffixPath, 'foo');
+          const assetsPath = node.path.posix.join(file.assetsSuffixPath, 'foo');
 
           expect(result).to.equal(assetsPath);
         })

@@ -17,7 +17,7 @@ describe('Font Task', function () {
       };
     });
 
-    const defaultOutput = path.join(balm.config.workspace, '.tmp', 'font');
+    const defaultOutput = node.path.join(balm.config.workspace, '.tmp', 'font');
 
     it(
       `expected output: "${defaultOutput}"`,
@@ -36,7 +36,7 @@ describe('Font Task', function () {
       };
     });
 
-    const defaultOutput = path.join(balm.config.workspace, 'dist', 'font');
+    const defaultOutput = node.path.join(balm.config.workspace, 'dist', 'font');
 
     it(
       `expected output: "${defaultOutput}"`,

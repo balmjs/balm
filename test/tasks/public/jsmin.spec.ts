@@ -25,10 +25,10 @@ describe('Jsmin Task', function () {
           jsminTask.recipe(defaultInput, defaultOutput)();
 
           expect(jsminTask.input).to.equal(
-            path.join(balm.config.workspace, defaultInput)
+            node.path.join(balm.config.workspace, defaultInput)
           );
           expect(jsminTask.output).to.equal(
-            path.join(balm.config.workspace, defaultOutput)
+            node.path.join(balm.config.workspace, defaultOutput)
           );
         })
       );

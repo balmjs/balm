@@ -1,6 +1,6 @@
 import path from 'path';
-import balm from '../packages/balm-core/src/index';
 import { expect } from 'chai';
+import balm from '../packages/balm-core/src/index';
 
 const isWin = process.platform === 'win32';
 
@@ -11,8 +11,8 @@ balm.config = {
   workspace
 };
 
-function asyncCase(fn: Function) {
-  return function (done: Function) {
+function asyncCase(fn: Function): Function {
+  return (done: Function): void => {
     try {
       fn();
       done();

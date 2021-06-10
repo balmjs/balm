@@ -28,7 +28,7 @@ describe('Ftp Task', function () {
           ftpTask.recipe(defaultInput)();
 
           expect(ftpTask.input).to.equal(
-            path.join(balm.config.workspace, defaultInput)
+            node.path.join(balm.config.workspace, defaultInput)
           );
         })
       );

@@ -15,7 +15,7 @@ describe('Replace Task', function () {
 
   describe('#mix.replace()', function () {
     const defaultInput = ['src/compress/file.css', 'src/compress/file.js'];
-    const defaultOutput = path.join(balm.config.workspace, 'dist');
+    const defaultOutput = node.path.join(balm.config.workspace, 'dist');
     const replaceOptions = {
       substr: /bar/gi,
       replacement: 'balm'
@@ -28,8 +28,8 @@ describe('Replace Task', function () {
 
         expect(JSON.stringify(replaceTask.input)).to.equal(
           JSON.stringify([
-            path.join(balm.config.workspace, 'src/compress/file.css'),
-            path.join(balm.config.workspace, 'src/compress/file.js')
+            node.path.join(balm.config.workspace, 'src/compress/file.css'),
+            node.path.join(balm.config.workspace, 'src/compress/file.js')
           ])
         );
       })

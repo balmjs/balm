@@ -19,8 +19,8 @@ describe('Url Task', function () {
       };
     });
 
-    const defaultOutput = path.join(balm.config.workspace, '.tmp', 'css');
-    const defaultInput = path.join(defaultOutput, '**', '*.css');
+    const defaultOutput = node.path.join(balm.config.workspace, '.tmp', 'css');
+    const defaultInput = node.path.join(defaultOutput, '**', '*.css');
 
     it(
       `expected output: "${defaultOutput}"`,
@@ -45,8 +45,8 @@ describe('Url Task', function () {
       };
     });
 
-    const defaultOutput = path.join(balm.config.workspace, 'dist', 'css');
-    const defaultInput = path.join(defaultOutput, '**', '*.css');
+    const defaultOutput = node.path.join(balm.config.workspace, 'dist', 'css');
+    const defaultInput = node.path.join(defaultOutput, '**', '*.css');
 
     it(
       `expected output: "${defaultOutput}"`,
@@ -69,7 +69,7 @@ describe('Url Task', function () {
     });
 
     const defaultOutput = 'dist';
-    const defaultInput = path.join(defaultOutput, '**', '*.css');
+    const defaultInput = node.path.join(defaultOutput, '**', '*.css');
 
     it(
       `expected output: "${defaultOutput}"`,
@@ -77,10 +77,10 @@ describe('Url Task', function () {
         urlTask.recipe(defaultInput, defaultOutput)();
 
         expect(urlTask.output).to.equal(
-          path.join(balm.config.workspace, defaultOutput)
+          node.path.join(balm.config.workspace, defaultOutput)
         );
         expect(urlTask.input).to.equal(
-          path.join(balm.config.workspace, defaultInput)
+          node.path.join(balm.config.workspace, defaultInput)
         );
       })
     );

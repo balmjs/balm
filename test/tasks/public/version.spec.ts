@@ -24,10 +24,10 @@ describe('Version Task', function () {
           versionTask.recipe(defaultInput, defaultOutput)();
 
           expect(versionTask.input).to.equal(
-            path.join(balm.config.workspace, defaultInput)
+            node.path.join(balm.config.workspace, defaultInput)
           );
           expect(versionTask.output).to.equal(
-            path.join(balm.config.workspace, defaultOutput)
+            node.path.join(balm.config.workspace, defaultOutput)
           );
         })
       );

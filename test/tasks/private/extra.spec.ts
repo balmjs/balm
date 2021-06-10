@@ -3,7 +3,7 @@ import ExtraTask from '../../../packages/balm-core/src/tasks/private/extra';
 describe('Extra Task', function () {
   let extraTask: any;
 
-  const srcBase = path.join(balm.config.workspace, 'src');
+  const srcBase = node.path.join(balm.config.workspace, 'src');
 
   describe('without extra input', function () {
     before(function () {
@@ -18,9 +18,9 @@ describe('Extra Task', function () {
     });
 
     const defaultInput = [
-      path.join(srcBase, '*.*'),
-      '!' + path.join(srcBase, '*.html'),
-      '!' + path.join(srcBase, 'manifest.json')
+      node.path.join(srcBase, '*.*'),
+      '!' + node.path.join(srcBase, '*.html'),
+      '!' + node.path.join(srcBase, 'manifest.json')
     ];
 
     it(
@@ -50,11 +50,11 @@ describe('Extra Task', function () {
     });
 
     const defaultInput = [
-      path.join(srcBase, '*.*'),
-      '!' + path.join(srcBase, '*.html'),
-      '!' + path.join(srcBase, 'manifest.json'),
-      path.join(srcBase, 'foo.txt'),
-      '!' + path.join(srcBase, 'bar.txt')
+      node.path.join(srcBase, '*.*'),
+      '!' + node.path.join(srcBase, '*.html'),
+      '!' + node.path.join(srcBase, 'manifest.json'),
+      node.path.join(srcBase, 'foo.txt'),
+      '!' + node.path.join(srcBase, 'bar.txt')
     ];
 
     it(

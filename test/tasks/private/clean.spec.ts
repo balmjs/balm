@@ -18,7 +18,7 @@ describe('Clean Task', function () {
         };
       });
 
-      const dirInFrontend = [path.join(balm.config.workspace, '.tmp')];
+      const dirInFrontend = [node.path.join(balm.config.workspace, '.tmp')];
 
       it(
         `expected output: ${dirInFrontend}`,
@@ -46,7 +46,7 @@ describe('Clean Task', function () {
           });
 
           const dirInFrontend = [
-            path.join(balm.config.workspace, 'dist'),
+            node.path.join(balm.config.workspace, 'dist'),
             'assets'
           ];
 
@@ -74,7 +74,7 @@ describe('Clean Task', function () {
           });
 
           const dirInFrontend = [
-            path.join(balm.config.workspace, 'dist'),
+            node.path.join(balm.config.workspace, 'dist'),
             'assets'
           ];
 
@@ -101,7 +101,7 @@ describe('Clean Task', function () {
           };
         });
 
-        const dirInFrontend = [path.join(balm.config.workspace, 'dist')];
+        const dirInFrontend = [node.path.join(balm.config.workspace, 'dist')];
 
         it(
           `expected output: ${dirInFrontend}`,
@@ -128,7 +128,7 @@ describe('Clean Task', function () {
           });
 
           const dirInFrontend = [
-            path.join(balm.config.workspace, 'dist'),
+            node.path.join(balm.config.workspace, 'dist'),
             '/assets/public/css',
             '/assets/public/js',
             '/assets/public/img',
@@ -160,8 +160,8 @@ describe('Clean Task', function () {
           });
 
           const dirInFrontend = [
-            path.join(balm.config.workspace, 'dist'),
-            path.join('/', 'assets', 'public', 'web')
+            node.path.join(balm.config.workspace, 'dist'),
+            node.path.join('/', 'assets', 'public', 'web')
           ];
 
           it(
@@ -285,7 +285,7 @@ describe('Clean Task', function () {
             };
           });
 
-          const dirInBackend = [path.join('public', 'web', 'build')];
+          const dirInBackend = [node.path.join('public', 'web', 'build')];
 
           it(
             `expected output: ${dirInBackend}`,
@@ -313,7 +313,7 @@ describe('Clean Task', function () {
             };
           });
 
-          const dirInBackend = [path.join('public', 'build')];
+          const dirInBackend = [node.path.join('public', 'build')];
 
           it(
             `expected output: ${dirInBackend}`,
@@ -340,7 +340,7 @@ describe('Clean Task', function () {
             };
           });
 
-          const dirInBackend = [path.join('public', 'web')];
+          const dirInBackend = [node.path.join('public', 'web')];
 
           it(
             `expected output: ${dirInBackend}`,

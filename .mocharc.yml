@@ -7,6 +7,8 @@ extension:
 require:
   - 'ts-node/register'
   - 'test/setup.ts'
+loader:
+  - 'ts-node/esm'
 watch-ignore:
   - '.*'
   - 'node_modules'

@@ -24,10 +24,10 @@ describe('Zip Task', function () {
           zipTask.recipe(defaultInput, defaultOutput)();
 
           expect(zipTask.input).to.equal(
-            path.join(balm.config.workspace, defaultInput)
+            node.path.join(balm.config.workspace, defaultInput)
           );
           expect(zipTask.output).to.equal(
-            path.join(balm.config.workspace, defaultOutput)
+            node.path.join(balm.config.workspace, defaultOutput)
           );
         })
       );

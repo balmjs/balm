@@ -17,7 +17,11 @@ describe('Media Task', function () {
       };
     });
 
-    const defaultOutput = path.join(balm.config.workspace, '.tmp', 'media');
+    const defaultOutput = node.path.join(
+      balm.config.workspace,
+      '.tmp',
+      'media'
+    );
 
     it(
       `expected output: "${defaultOutput}"`,
@@ -36,7 +40,11 @@ describe('Media Task', function () {
       };
     });
 
-    const defaultOutput = path.join(balm.config.workspace, 'dist', 'media');
+    const defaultOutput = node.path.join(
+      balm.config.workspace,
+      'dist',
+      'media'
+    );
 
     it(
       `expected output: "${defaultOutput}"`,

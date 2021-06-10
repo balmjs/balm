@@ -10,7 +10,7 @@ describe('Image Task', function () {
 
   describe('without sprites', function () {
     const defaultInput = [
-      path.join(balm.config.workspace, 'src', 'images', '**', '*')
+      node.path.join(balm.config.workspace, 'src', 'images', '**', '*')
     ];
 
     it(
@@ -33,9 +33,10 @@ describe('Image Task', function () {
     });
 
     const defaultInput = [
-      path.join(balm.config.workspace, 'src', 'images', '**', '*'),
-      '!' + path.join(balm.config.workspace, 'src', 'images', 'icons'),
-      '!' + path.join(balm.config.workspace, 'src', 'images', 'icons', '*.png')
+      node.path.join(balm.config.workspace, 'src', 'images', '**', '*'),
+      '!' + node.path.join(balm.config.workspace, 'src', 'images', 'icons'),
+      '!' +
+        node.path.join(balm.config.workspace, 'src', 'images', 'icons', '*.png')
     ];
 
     it(
