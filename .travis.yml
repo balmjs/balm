@@ -4,6 +4,9 @@ branches:
 
 language: node_js
 
+install:
+  - yarn
+
 node_js:
   - '16'
   - '14'
