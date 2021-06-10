@@ -28,9 +28,6 @@ describe('Webpack Task', function () {
       before(function () {
         balm.config = {
           scripts: {
-            entry: {
-              index: './src/scripts/index.js'
-            },
             injectHtml: true
           }
         };

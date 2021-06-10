@@ -14,17 +14,8 @@ import { Configuration, MinifyOptions, BalmScripts } from '@balm-core/index';
 // Set to `true` or `false` to always turn it on or off
 const bundleAnalyzerReport = process.env.npm_config_report || false;
 
-function getCssFilename(isChunk = false): string {
-  let filename: string;
-
-  if (isChunk) {
-    filename = BalmJS.config.env.isProd ? `[name].${HASH_NAME_PROD}` : '[name]';
-  } else {
-    filename = BalmJS.useCache ? `[name].${HASH_NAME_PROD}` : '[name]';
-  }
-
-  return `${BalmJS.config.paths.target.css}/${ASYNC_SCRIPTS}/${filename}.css`;
-}
+const getCssFilename = (): string =>
+  `${BalmJS.config.paths.target.css}/${ASYNC_SCRIPTS}/[name].${HASH_NAME_PROD}.css`;
 
 function getProdConfig(webpack: any, scripts: BalmScripts): Configuration {
   const shouldUseSourceMap = scripts.sourceMap as boolean;
@@ -68,7 +59,7 @@ function getProdConfig(webpack: any, scripts: BalmScripts): Configuration {
         ? [
             new MiniCssExtractPlugin({
               filename: BalmJS.file.assetsPath(getCssFilename()),
-              chunkFilename: BalmJS.file.assetsPath(getCssFilename(true))
+              chunkFilename: BalmJS.file.assetsPath(getCssFilename())
             })
           ]
         : []),

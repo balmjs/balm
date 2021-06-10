@@ -76,10 +76,8 @@ function ready(config: BalmConfig): BalmConfig {
   }
 
   // Set use cache for webpack
-  if (!BalmJS.useCache) {
-    BalmJS.useCache =
-      config.env.isProd && config.assets.cache && config.scripts.injectHtml;
-  }
+  config.scripts.useCache =
+    config.env.isProd && config.assets.cache && config.scripts.injectHtml;
 
   return config;
 }

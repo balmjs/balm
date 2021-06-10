@@ -64,6 +64,5 @@ BalmJS.LogLevel = LogLevel;
 BalmJS.Bundler = Bundler;
 BalmJS.vendors = vendors;
 BalmJS.entries = [];
-BalmJS.useCache = false;
 
 export default config;

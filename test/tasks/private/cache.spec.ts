@@ -19,12 +19,17 @@ describe('Cache Task', function () {
           cache: true
         }
       };
+      BalmJS.config.scripts.useCache = true;
+    });
+
+    after(function () {
+      BalmJS.config.scripts.useCache = false;
     });
 
     const dist = path.join(balm.config.workspace, 'dist');
     const defaultInput = [
       path.join(dist, 'css', '**', '*'),
-      path.join(dist, 'js', '**', '*'),
+      // path.join(dist, 'js', '**', '*'),
       path.join(dist, 'img', '**', '*'),
       path.join(dist, 'font', '**', '*'),
       path.join(dist, 'media', '**', '*'),

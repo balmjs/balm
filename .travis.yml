@@ -1,10 +1,11 @@
-sudo: false
-
 branches:
   only:
     - master
 
 language: node_js
+
+install:
+  - yarn
 
 node_js:
   - '16'
@@ -18,7 +19,6 @@ before_script:
   - cd ../..
 
 script:
-  - node --version && npm --version
-  - npm test
+  - yarn test
 
-after_success: npm run coverage
+after_success: yarn coverage

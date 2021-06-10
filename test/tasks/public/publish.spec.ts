@@ -60,14 +60,14 @@ describe('Publish Task', function () {
         asyncCase(function () {
           publishTask.recipe([
             {
-              input: 'page-1.html',
+              input: 'page-a.html',
               output: 'dist/page1',
               options: {
                 extname: '.php'
               }
             },
             {
-              input: 'page-2.html',
+              input: 'page-b.html',
               output: 'dist/page2',
               options: {
                 extname: '.php'

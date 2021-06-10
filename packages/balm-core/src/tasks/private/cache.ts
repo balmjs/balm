@@ -9,7 +9,7 @@ class CacheTask extends BalmJS.BalmTask {
   constructor() {
     super('cache');
 
-    const defaultIncludes: string[] = BalmJS.useCache
+    const defaultIncludes: string[] = BalmJS.config.scripts.useCache
       ? ASSETS_KEYS.filter((assetKey) => assetKey !== 'js').map((assetKey) =>
           BalmJS.file.matchAllFiles(
             (BalmJS.config.dest as LooseObject)[assetKey]

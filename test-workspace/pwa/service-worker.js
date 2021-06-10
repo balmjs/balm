@@ -110,5 +110,5 @@ self.addEventListener('activate', function (event) {
 
 // Test ws
 self.addEventListener('message', function (event) {
-  console.log(event.data, 'gg');
+  console.log(event.data);
 });

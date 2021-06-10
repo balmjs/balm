@@ -52,6 +52,9 @@ describe('Bundler#webpackConfig()', function () {
           },
           scripts: {
             injectHtml: true
+          },
+          assets: {
+            cache: true
           }
         };
       });
@@ -98,8 +101,16 @@ describe('Bundler#webpackConfig()', function () {
             },
             injectHtml: true,
             extractAllVendors: true
+          },
+          assets: {
+            cache: true
           }
         };
+        BalmJS.config.scripts.useCache = true;
+      });
+
+      after(function () {
+        BalmJS.config.scripts.useCache = false;
       });
 
       it(
