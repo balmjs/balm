@@ -3,6 +3,7 @@ import PRIVATE_TASKS from './private/index.js';
 import PUBLIC_TASKS from './public/index.js';
 import DefaultTask from './default.js';
 import BalmHooks from '../hooks/index.js';
+import { BalmError } from '@balm-core/index';
 
 function registerTasks(recipe: Function): void {
   const AwesomeTasks = BalmJS.utils.deepMerge(PRIVATE_TASKS, PUBLIC_TASKS);
@@ -41,7 +42,8 @@ function registerTasks(recipe: Function): void {
   try {
     recipe(new BalmHooks());
   } catch (error) {
-    BalmJS.logger.error('balm hook', error.message);
+    const { message } = error as BalmError;
+    BalmJS.logger.error('balm hook', message);
   }
 
   // 3. Register balm default task

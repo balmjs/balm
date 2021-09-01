@@ -1,24 +1,27 @@
 {
   "compilerOptions": {
-    // Project Options
-    "importHelpers": true,
-    "module": "ES2020",
-    "outDir": "packages/balm-core/tslib",
-    "removeComments": true,
-    "target": "ES2020",
-    // Strict Checks
+    // Type Checking
     "strict": true,
-    // Module Resolution
-    "allowSyntheticDefaultImports": true,
+    // Modules
     "baseUrl": ".",
-    "esModuleInterop": true,
+    "module": "ES2020",
     "moduleResolution": "Node",
     "paths": {
       "@balm-core/*": ["./packages/balm-core/*"]
     },
-    // Experimental
+    // Project Options
+    "importHelpers": true,
+    "lib": ["esnext", "webworker"],
+    // Emit
+    "outDir": "packages/balm-core/tslib",
+    "removeComments": true,
+    // Language and Environment
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "target": "ES2020",
+    // Interop Constraints
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "include": [
     "packages/balm-core/src/**/*",

@@ -1,5 +1,6 @@
-import { TransformCallback } from 'stream';
+import { TransformCallback } from 'node:stream';
 import { minify } from 'terser';
+import { BalmError } from '@balm-core/index';
 
 const PLUGIN_NAME = 'jsmin';
 
@@ -19,7 +20,7 @@ async function jsMinify(file: any, opts: object, cb: Function): Promise<any> {
       file.contents = Buffer.from(content);
       cb(null, file);
     } catch (e) {
-      const error = new PluginError(PLUGIN_NAME, e);
+      const error = new PluginError(PLUGIN_NAME, e as BalmError);
       cb(error);
     }
   } else {

@@ -2,7 +2,7 @@ import { mergeWithRules, CustomizeRule } from 'webpack-merge';
 import LOADERS from './rules/index.js';
 import { RuleSetRule, BalmLoaders } from '@balm-core/index';
 
-function getLoaders(customLoaders: any): RuleSetRule[] {
+function getLoaders(customLoaders: RuleSetRule[]): RuleSetRule[] {
   const enableDefaultLoaders: BalmLoaders = Object.assign(
     {
       html: true,
@@ -18,11 +18,12 @@ function getLoaders(customLoaders: any): RuleSetRule[] {
 
   let defaultLoaders: RuleSetRule[] = [];
   if (useDefaultLoaders) {
-    Object.values(LOADERS).forEach((Loader: any) => {
-      const key: 'html' | 'css' | 'js' | 'url' = Loader.name.replace(
-        'Loader',
-        ''
-      );
+    Object.values(LOADERS).forEach((Loader: Function) => {
+      const key = Loader.name.replace('Loader', '') as
+        | 'html'
+        | 'css'
+        | 'js'
+        | 'url';
       if (enableDefaultLoaders[key]) {
         const loader: RuleSetRule | RuleSetRule[] = Loader();
         if (BalmJS.utils.isArray(loader)) {

@@ -22,10 +22,8 @@ class JsminTask extends BalmJS.BalmTask {
     const balmJsmin = (): any => {
       this.init(input, output, options);
 
-      const renameOptions:
-        | string
-        | Function
-        | RenameOptions = options.rename || { suffix: '.min' };
+      const renameOptions: string | Function | RenameOptions =
+        options.rename || { suffix: '.min' };
 
       return this.src
         .pipe(BalmJS.plugins.jsmin(this.options))

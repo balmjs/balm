@@ -1,8 +1,11 @@
 import { merge } from 'webpack-merge';
 import getCommonConfig from './common.js';
-import { Configuration, BalmScripts } from '@balm-core/index';
+import { LooseObject, Configuration, BalmScripts } from '@balm-core/index';
 
-function getDevConfig(webpack: any, scripts: BalmScripts): Configuration {
+function getDevConfig(
+  webpack: LooseObject,
+  scripts: BalmScripts
+): Configuration {
   return merge(getCommonConfig(webpack, scripts), {
     mode: 'development',
     plugins: [

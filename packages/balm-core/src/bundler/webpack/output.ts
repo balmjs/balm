@@ -3,8 +3,7 @@ import {
   HASH_NAME_PROD,
   MP_ASSETS
 } from '../../config/constants.js';
-import getType from '../../utilities/typeof.js';
-import { BalmScripts } from '@balm-core/index';
+import { LooseObject, BalmScripts } from '@balm-core/index';
 
 function getFilename(scripts: BalmScripts, isChunk = false): string {
   let filename: string;
@@ -18,16 +17,18 @@ function getFilename(scripts: BalmScripts, isChunk = false): string {
   return `${filename}.js`;
 }
 
-function getOutput(output: string, scripts: BalmScripts, isHook = false): any {
+function getOutput(
+  output: string,
+  scripts: BalmScripts,
+  isHook = false
+): LooseObject {
   const outputPath: string = output || BalmJS.config.dest.base; // Absolute path
   const jsFolder: string = BalmJS.config.paths.target.js;
   const jsFilename = getFilename(scripts);
   const jsChunkFilename = getFilename(scripts, true);
 
   const customLibraryConfig: object = scripts.library
-    ? {
-        library: scripts.library
-      }
+    ? { library: scripts.library }
     : {};
 
   const miniprogramConfig: object = BalmJS.config.env.isMP

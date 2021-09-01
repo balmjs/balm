@@ -1,4 +1,4 @@
-import { PassThrough } from 'stream';
+import { PassThrough } from 'node:stream';
 
 function mergeStream(...args: any): any {
   let sources: any = [];

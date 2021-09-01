@@ -1,5 +1,5 @@
 // Reference `gulp-sftp@0.1.5`
-import { TransformCallback } from 'stream';
+import { TransformCallback } from 'node:stream';
 import ssh2 from 'ssh2';
 import parents from 'parents';
 import async from 'async';

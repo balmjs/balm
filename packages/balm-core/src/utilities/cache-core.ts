@@ -1,7 +1,7 @@
-import Module from 'module';
-import path from 'path';
-import { homedir } from 'os';
-import { existsSync, readFileSync, writeFileSync } from 'fs';
+import Module from 'node:module';
+import path from 'node:path';
+import { homedir } from 'node:os';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import loading from './loading.js';
 import { LooseObject } from '@balm-core/index';
 
@@ -74,7 +74,8 @@ function cacheBalmCore(): void {
     if (nameCache.lastFilename !== originLastFilename) {
       try {
         writeFileSync(SAVE_FILE, JSON.stringify(nameCache, null, 2), 'utf-8');
-      } catch (err) {
+      } catch (error) {
+        const err = error as Error;
         console.error(`BalmJS: Failed saving cache: ${err.toString()}`);
       }
     }

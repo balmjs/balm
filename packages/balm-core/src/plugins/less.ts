@@ -1,4 +1,4 @@
-import { TransformCallback } from 'stream';
+import { TransformCallback } from 'node:stream';
 import less from 'less';
 import replaceExtension from 'replace-ext';
 import applySourceMap from 'vinyl-sourcemaps-apply';

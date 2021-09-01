@@ -1,4 +1,4 @@
-import os from 'os';
+import os from 'node:os';
 
 const platform = os.platform();
 
@@ -16,9 +16,8 @@ function getInterfaceName(): string | null {
 }
 
 function getInterface(family: string): os.NetworkInterfaceInfo | undefined {
-  const interfaces: NodeJS.Dict<
-    os.NetworkInterfaceInfo[]
-  > = os.networkInterfaces();
+  const interfaces: NodeJS.Dict<os.NetworkInterfaceInfo[]> =
+    os.networkInterfaces();
   const name = getInterfaceName();
   family = family || 'IPv4';
 

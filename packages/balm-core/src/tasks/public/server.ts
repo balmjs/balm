@@ -1,5 +1,6 @@
 import detectPort from '../../utilities/detect-port.js';
 import getMiddlewares from '../../middlewares/index.js';
+import { BalmError } from '@balm-core/index';
 
 class ServerTask extends BalmJS.BalmTask {
   constructor() {
@@ -171,7 +172,8 @@ class ServerTask extends BalmJS.BalmTask {
             try {
               customHandler && customHandler(watcher, server.reload);
             } catch (error) {
-              BalmJS.logger.error('balm hook', error.message);
+              const { message } = error as BalmError;
+              BalmJS.logger.error('balm hook', message);
             }
           }
         }

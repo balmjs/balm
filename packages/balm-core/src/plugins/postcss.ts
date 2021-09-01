@@ -1,4 +1,4 @@
-import { Transform } from 'stream';
+import { Transform } from 'node:stream';
 import postcss from 'postcss';
 import postcssLoadConfig from 'postcss-load-config';
 import applySourceMap from 'vinyl-sourcemaps-apply';

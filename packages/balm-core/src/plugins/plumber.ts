@@ -1,5 +1,5 @@
 // Reference `gulp-plumber@1.2.1`
-import { EventEmitter } from 'events';
+import { EventEmitter } from 'node:events';
 import { BalmError } from '@balm-core/index';
 
 const PLUGIN_NAME = 'plumber';

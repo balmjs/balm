@@ -7,11 +7,11 @@ function getInputPlugins(customInputOptions: InputOptions): RollupPlugin[] {
   const inputPlugins: RollupPlugin[] = [];
 
   if (inputOptions.plugins) {
-    inputPlugins.push(...inputOptions.plugins);
+    inputPlugins.push(...(inputOptions.plugins as RollupPlugin[]));
   }
 
   if (customInputOptions.plugins) {
-    inputPlugins.push(...customInputOptions.plugins);
+    inputPlugins.push(...(customInputOptions.plugins as RollupPlugin[]));
   }
 
   return inputPlugins;
@@ -23,7 +23,7 @@ function getOutputPlugins(customOutputOptions: OutputOptions): RollupPlugin[] {
   const outputPlugins: RollupPlugin[] = [];
 
   if (outputOptions.plugins) {
-    outputPlugins.push(...outputOptions.plugins);
+    outputPlugins.push(...(outputOptions.plugins as RollupPlugin[]));
   }
 
   if (BalmJS.config.env.isProd) {
@@ -31,7 +31,7 @@ function getOutputPlugins(customOutputOptions: OutputOptions): RollupPlugin[] {
   }
 
   if (customOutputOptions.plugins) {
-    outputPlugins.push(...customOutputOptions.plugins);
+    outputPlugins.push(...(customOutputOptions.plugins as RollupPlugin[]));
   }
 
   return outputPlugins;

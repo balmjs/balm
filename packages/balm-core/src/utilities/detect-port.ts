@@ -1,4 +1,4 @@
-import net from 'net';
+import net from 'node:net';
 import address from './address.js';
 import { BalmError } from '@balm-core/index';
 

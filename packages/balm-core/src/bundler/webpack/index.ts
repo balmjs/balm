@@ -2,7 +2,7 @@ import { merge } from 'webpack-merge';
 import getEntry from './entry.js';
 import getOutput from './output.js';
 import getDefaultConfig from './config/index.js';
-import { BalmEntry, Configuration } from '@balm-core/index';
+import { LooseObject, BalmEntry, Configuration } from '@balm-core/index';
 
 const webpackModule = process.env.WEBPACK || requireModule.resolve('webpack');
 const webpack = requireModule(webpackModule);
@@ -16,7 +16,7 @@ function webpackConfig(
   const scripts = BalmJS.config.scripts;
   const defaultEntry = `./${BalmJS.file.defaultEntry}`;
 
-  const baseConfig: any = {
+  const baseConfig: LooseObject = {
     entry: input ? getEntry(input, scripts) : defaultEntry,
     output: getOutput(output, scripts, isHook)
   };

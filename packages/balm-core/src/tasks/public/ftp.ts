@@ -1,4 +1,4 @@
-import { HookOptions } from '@balm-core/index';
+import { HookOptions, BalmError } from '@balm-core/index';
 
 class FtpTask extends BalmJS.BalmTask {
   constructor() {
@@ -28,7 +28,8 @@ class FtpTask extends BalmJS.BalmTask {
         try {
           stream = stream.pipe(BalmJS.plugins.sftp(this.options));
         } catch (error) {
-          BalmJS.logger.error(taskName, error.message);
+          const { message } = error as BalmError;
+          BalmJS.logger.error(taskName, message);
         }
 
         return stream;

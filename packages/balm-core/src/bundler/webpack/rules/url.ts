@@ -8,7 +8,7 @@ const imageInlineSizeLimit = parseInt(
 
 function urlLoader(): RuleSetRule[] {
   const PATHNAME = `${BalmJS.config.paths.target.js}/${STATIC_ASSETS}/`;
-  const FILENAME = `[name].${HASH_NAME_DEV}.[ext]`;
+  const FILENAME = `[name].${HASH_NAME_DEV}[ext]`;
   const options = Object.assign(
     {
       limit: imageInlineSizeLimit, // Loads files as `base64` encoded URL

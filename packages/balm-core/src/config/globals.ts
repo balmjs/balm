@@ -1,5 +1,5 @@
-import path from 'path';
-import fs from 'fs';
+import path from 'node:path';
+import fs from 'node:fs';
 import colors from 'ansi-colors';
 import { create } from 'browser-sync';
 import through2 from 'through2';

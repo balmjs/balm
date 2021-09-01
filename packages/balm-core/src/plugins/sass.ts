@@ -1,4 +1,4 @@
-import { TransformCallback } from 'stream';
+import { TransformCallback } from 'node:stream';
 import sass from 'sass';
 import replaceExtension from 'replace-ext';
 import stripAnsi from 'strip-ansi';

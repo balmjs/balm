@@ -6,7 +6,12 @@ import webpackBundleAnalyzer from 'webpack-bundle-analyzer';
 import { merge } from 'webpack-merge';
 import getCommonConfig from './common.js';
 import { ASYNC_SCRIPTS, HASH_NAME_PROD } from '../../../config/constants.js';
-import { Configuration, MinifyOptions, BalmScripts } from '@balm-core/index';
+import {
+  LooseObject,
+  Configuration,
+  MinifyOptions,
+  BalmScripts
+} from '@balm-core/index';
 
 // Run the build command with an extra argument to
 // View the bundle analyzer report after build finishes:
@@ -17,7 +22,10 @@ const bundleAnalyzerReport = process.env.npm_config_report || false;
 const getCssFilename = (): string =>
   `${BalmJS.config.paths.target.css}/${ASYNC_SCRIPTS}/[name].${HASH_NAME_PROD}.css`;
 
-function getProdConfig(webpack: any, scripts: BalmScripts): Configuration {
+function getProdConfig(
+  webpack: LooseObject,
+  scripts: BalmScripts
+): Configuration {
   const shouldUseSourceMap = scripts.sourceMap as boolean;
   const terserOptions: MinifyOptions = scripts.minifyOptions;
 

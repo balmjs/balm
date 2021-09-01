@@ -1,9 +1,12 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import getLoaders from '../loaders.js';
 import { HASH_NAME_PROD } from '../../../config/constants.js';
-import { Configuration, BalmScripts } from '@balm-core/index';
+import { LooseObject, Configuration, BalmScripts } from '@balm-core/index';
 
-function getDefaultPlugins(webpack: any, scripts: BalmScripts): object[] {
+function getDefaultPlugins(
+  webpack: LooseObject,
+  scripts: BalmScripts
+): object[] {
   const plugins: object[] = [
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how webpack interprets its code. This is a practical
@@ -56,7 +59,7 @@ function getDefaultPlugins(webpack: any, scripts: BalmScripts): object[] {
   return plugins;
 }
 
-function getSplitChunks(): any {
+function getSplitChunks(): object | boolean {
   const scripts: BalmScripts = BalmJS.config.scripts;
   const jsFolder: string = BalmJS.config.paths.target.js;
 
@@ -111,12 +114,15 @@ function getSplitChunks(): any {
   return Object.keys(cacheGroups).length ? { cacheGroups } : false;
 }
 
-function getCommonConfig(webpack: any, scripts: BalmScripts): Configuration {
+function getCommonConfig(
+  webpack: LooseObject,
+  scripts: BalmScripts
+): Configuration {
   const splitChunks = getSplitChunks();
-  const optimization = splitChunks
+  const optimization = (splitChunks as boolean)
     ? BalmJS.utils.deepMerge(
         {
-          splitChunks
+          splitChunks: splitChunks as object
         },
         scripts.optimization
       )
