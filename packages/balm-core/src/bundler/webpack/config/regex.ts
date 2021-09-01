@@ -1,6 +1,8 @@
 const htmlRegex = /\.html$/;
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
+const sassRegex = /\.(scss|sass)$/;
+const sassModuleRegex = /\.module\.(scss|sass)$/;
 const jsRegex = /\.(js|mjs|jsx|ts|tsx)$/;
 const imgRegex = /\.(bmp|gif|jpe?g|png|svg)(\?.*)?$/;
 const fontRegex = /\.(woff2?|eot|ttf|otf)(\?.*)?$/;
@@ -10,6 +12,8 @@ export {
   htmlRegex,
   cssRegex,
   cssModuleRegex,
+  sassRegex,
+  sassModuleRegex,
   jsRegex,
   imgRegex,
   fontRegex,
