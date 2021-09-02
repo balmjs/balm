@@ -44,7 +44,7 @@ const getStyleLoaders = (
   ].filter(Boolean);
   if (preProcessor) {
     loaders.push({
-      loader: require.resolve(preProcessor),
+      loader: requireModule.resolve(preProcessor),
       options: Object.assign(
         {
           sourceMap: true
@@ -121,7 +121,7 @@ function cssLoader(): RuleSetRule[] {
             mode: 'icss'
           }
         },
-        requireModule.resolve('sass-loader'),
+        'sass-loader',
         {
           // Prefer `dart-sass`
           implementation: requireModule.resolve('sass')
