@@ -46,16 +46,23 @@ function getOutput(
 
   return Object.assign(
     {
+      // The build folder.
       path: BalmJS.file.absPath(outputPath),
+      // There will be one main bundle, and one file per asynchronous chunk.
+      // In development, it does not produce real files.
       filename: isHook
         ? jsFilename
         : BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`),
-      publicPath: BalmJS.file.publicUrlOrPath,
+      // There are also additional JS chunk files if you use code splitting.
       chunkFilename: isHook
         ? jsChunkFilename
         : BalmJS.file.assetsPath(
             `${jsFolder}/${ASYNC_SCRIPTS}/${jsChunkFilename}`
-          )
+          ),
+      // webpack uses `publicPath` to determine where the app is being served from.
+      // It requires a trailing slash, or the file assets will get an incorrect path.
+      // We inferred the "public path" (such as / or /my-project) from homepage.
+      publicPath: BalmJS.file.publicUrlOrPath
     },
     customLibraryConfig,
     miniprogramConfig

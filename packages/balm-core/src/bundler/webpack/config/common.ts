@@ -131,9 +131,11 @@ function getCommonConfig(
   return {
     context: BalmJS.config.workspace,
     mode: 'none',
+    // Stop compilation early in production
+    bail: BalmJS.config.env.isProd,
     module: {
-      rules: getLoaders(scripts.loaders),
-      strictExportPresence: true
+      strictExportPresence: true,
+      rules: getLoaders(scripts.loaders)
     },
     resolve: {
       // (was split into `root`, `modulesDirectories` and `fallback` in the old options)
@@ -163,7 +165,7 @@ function getCommonConfig(
       // These JSON files are read in directories
       descriptionFiles: ['package.json', 'bower.json'],
       // These fields in the description files are looked up when trying to resolve the package directory
-      mainFields: ['main', 'browser', 'module']
+      mainFields: ['browser', 'module', 'main']
     },
     optimization,
     plugins: [

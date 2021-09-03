@@ -96,7 +96,7 @@ function cssLoader(): RuleSetRule[] {
         importLoaders: 1,
         sourceMap,
         modules: {
-          compileType: 'icss'
+          mode: 'icss'
         },
         esModule: BalmJS.config.scripts.useEsModule
       }),

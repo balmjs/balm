@@ -15,7 +15,6 @@ declare module 'modernizr';
 declare module 'parents';
 declare module 'postcss-import';
 declare module 'postcss-preset-env';
-declare module 'postcss-safe-parser';
 declare module 'readable-stream';
 declare module 'replace-ext';
 declare module 'sass';

@@ -1,6 +1,5 @@
 import TerserPlugin from 'terser-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
-import safePostCssParser from 'postcss-safe-parser';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpackBundleAnalyzer from 'webpack-bundle-analyzer';
 import { merge } from 'webpack-merge';
@@ -41,24 +40,7 @@ function getProdConfig(
           terserOptions,
           extractComments: false
         }),
-        new CssMinimizerPlugin({
-          minimizerOptions: {
-            preset: ['default', { minifyFontValues: { removeQuotes: false } }],
-            processorOptions: {
-              parser: safePostCssParser,
-              map: shouldUseSourceMap
-                ? {
-                    // `inline: false` forces the sourcemap to be output into a
-                    // separate file
-                    inline: false,
-                    // `annotation: true` appends the sourceMappingURL to the end of
-                    // the css file, helping the browser find the sourcemap
-                    annotation: true
-                  }
-                : false
-            }
-          }
-        })
+        new CssMinimizerPlugin()
       ]
     },
     plugins: [
