@@ -1,6 +1,6 @@
 {
   "name": "balm-core",
-  "version": "4.0.0-canary",
+  "version": "4.0.0",
   "description": "BalmJS compiler core",
   "keywords": [
     "balm",
@@ -48,6 +48,7 @@
     "browser-sync": "^2.27.5",
     "connect-history-api-fallback": "^1.6.0",
     "css-loader": "^6.3.0",
+    "css-minimizer-webpack-plugin": "^3.1.1",
     "cssnano": "^5.0.8",
     "del": "^6.0.0",
     "esbuild": "^0.13.0",
@@ -71,7 +72,6 @@
     "less": "^4.1.2",
     "mini-css-extract-plugin": "^2.4.2",
     "modernizr": "^3.11.8",
-    "css-minimizer-webpack-plugin": "^3.1.1",
     "parents": "^1.0.1",
     "plugin-error": "^1.0.1",
     "postcss": "^8.3.9",
@@ -107,8 +107,8 @@
     "@swc/core": "^1.2.95",
     "@types/express": "^4.17.13",
     "@types/node": "^16.10.0",
-    "@types/webpack": "^5.28.0",
-    "@types/uglify-js": "^3.13.1"
+    "@types/uglify-js": "^3.13.1",
+    "@types/webpack": "^5.28.0"
   },
   "optionalDependencies": {
     "imagemin-gifsicle": "^7.0.0",

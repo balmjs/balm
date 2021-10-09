@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "4.0.0-canary",
+  "version": "4.0.0",
   "description": "BalmJS runtime core",
   "keywords": [
     "balm",
