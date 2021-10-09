@@ -50,9 +50,9 @@
     "global-dirs": "^3.0.0",
     "gulp": "^4.0.2",
     "semver": "^7.3.5",
-    "webpack-hot-middleware": "^2.25.0",
-    "workbox-sw": "^6.2.4",
-    "yargs": "^17.1.1"
+    "webpack-hot-middleware": "^2.25.1",
+    "workbox-sw": "^6.3.0",
+    "yargs": "^17.2.1"
   },
   "engines": {
     "node": ">=12.13.0"

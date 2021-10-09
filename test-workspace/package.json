@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2021.9.1",
+  "version": "2021.10.9",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -34,9 +34,9 @@
     "mp:prod": "npm run mp:build:web && npm run mp:build:mp"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.22.0",
     "balm-ui": "^8.46.2",
-    "core-js": "^3.16.0",
+    "core-js": "^3.18.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
@@ -55,7 +55,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.14.0",
     "@babel/plugin-proposal-numeric-separator": "^7.14.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.14.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.15.0",
     "@babel/plugin-syntax-dynamic-import": "^7.8.0",
     "@babel/runtime-corejs3": "^7.15.0",
     "@vue/compiler-sfc": "^3.0.0",

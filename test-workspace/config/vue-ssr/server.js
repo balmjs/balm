@@ -19,7 +19,7 @@ const scripts = Object.assign(base, {
   externals: [
     nodeExternals({
       // do not externalize CSS files in case we need to import it from a dep
-      allowlist: /\.css$/
+      allowlist: [/\.css$/]
     })
   ],
   webpackOptions: {
