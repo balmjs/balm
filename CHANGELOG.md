@@ -5,6 +5,13 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.20.0 / 2021-10-09
+
+### Chore
+
+- Node v10.16.0 or newer
+- update dependencies
+
 ## v3.19.1 / 2021-06-09
 
 ### Chore

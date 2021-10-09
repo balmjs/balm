@@ -11,6 +11,9 @@ module.exports = Object.assign(balmrc, {
       html: 'templates'
     }
   },
+  styles: {
+    extname: 'scss'
+  },
   scripts: {
     entry: {
       lib: ['vue'],

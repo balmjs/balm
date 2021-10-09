@@ -7,7 +7,7 @@ console.info('balm@ftp');
 
 const config = {
   workspace,
-  // useDefaults: false,
+  useDefaults: false,
   roots: {
     source: 'ftp/awesome'
   },
@@ -29,10 +29,10 @@ const config = {
 };
 
 const api = (mix) => {
-  // mix.ftp([
-  //   'ftp/awesome/application/modules/views/**/*',
-  //   'ftp/awesome/www/modules/user/**/*'
-  // ]);
+  mix.ftp([
+    'ftp/awesome/application/modules/views/**/*',
+    'ftp/awesome/www/modules/user/**/*'
+  ]);
 };
 
 module.exports = () => {
