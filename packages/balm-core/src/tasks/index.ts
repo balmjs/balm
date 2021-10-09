@@ -2,6 +2,7 @@ import './foundation';
 import requireDir from 'require-dir';
 import DefaultTask from './default';
 import BalmHooks from '../hooks';
+import { BalmError } from '@balm-core/index';
 
 const PRIVATE_TASKS = requireDir('./private');
 const PUBLIC_TASKS = requireDir('./public');
@@ -43,7 +44,8 @@ function registerTasks(recipe: Function): void {
   try {
     recipe(new BalmHooks());
   } catch (error) {
-    BalmJS.logger.error('balm hook', error.message);
+    const { message } = error as BalmError;
+    BalmJS.logger.error('balm hook', message);
   }
 
   // 3. Register balm default task

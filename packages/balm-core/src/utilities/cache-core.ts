@@ -74,7 +74,8 @@ function cacheBalmCore(): void {
     if (nameCache.lastFilename !== originLastFilename) {
       try {
         writeFileSync(SAVE_FILE, JSON.stringify(nameCache, null, 2), 'utf-8');
-      } catch (err) {
+      } catch (error) {
+        const err = error as Error;
         console.error(`BalmJS: Failed saving cache: ${err.toString()}`);
       }
     }

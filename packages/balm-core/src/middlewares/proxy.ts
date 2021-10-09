@@ -1,4 +1,4 @@
-import { BalmProxyConfig } from '@balm-core/index';
+import { BalmError, BalmProxyConfig } from '@balm-core/index';
 
 function handleProxyConfigError(): void {
   const configuration = '{ context: string | array, options: object }';
@@ -42,7 +42,8 @@ function httpProxyMiddleware(): object[] {
         handleProxyConfigError();
       }
     } catch (error) {
-      BalmJS.logger.error('proxy middleware', error.message);
+      const { message } = error as BalmError;
+      BalmJS.logger.error('proxy middleware', message);
     }
   }
 

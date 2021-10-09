@@ -1,5 +1,6 @@
 // Reference `gulp-htmlmin@5.0.1`
 import { TransformCallback } from 'stream';
+import { BalmError } from '@balm-core/index';
 
 const PLUGIN_NAME = 'htmlmin';
 
@@ -30,7 +31,7 @@ function gulpHtmlmin(options: object): any {
         }
       } catch (e) {
         const opts = Object.assign(options, { fileName: file.path });
-        const error = new PluginError(PLUGIN_NAME, e, opts);
+        const error = new PluginError(PLUGIN_NAME, e as BalmError, opts);
         cb === callback ? cb(error) : callback(error);
       }
     }

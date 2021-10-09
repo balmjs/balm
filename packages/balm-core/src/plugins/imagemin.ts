@@ -1,6 +1,7 @@
 // Reference `gulp-imagemin@7.1.0`
 import { TransformCallback } from 'stream';
 import prettyBytes from 'pretty-bytes';
+import { BalmError } from '@balm-core/index';
 
 const PLUGIN_NAME = 'imagemin';
 const defaultPlugins = ['gifsicle', 'mozjpeg', 'optipng', 'svgo'];
@@ -92,7 +93,11 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
         file.contents = data;
         callback(null, file);
       } catch (error) {
-        callback(new PluginError(PLUGIN_NAME, error, { fileName: file.path }));
+        callback(
+          new PluginError(PLUGIN_NAME, error as BalmError, {
+            fileName: file.path
+          })
+        );
       }
     })();
   }
