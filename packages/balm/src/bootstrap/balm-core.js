@@ -3,6 +3,9 @@ import gulp from 'gulp';
 import getBalmCoreModule from './balm-core-module.js';
 import checkVersion from '../check-version.js';
 
+const canaryVersion = /^4\.0\.0-/;
+const nextVersion = /^4\.[0-9]+\.[0-9]+$/;
+
 const getBalmCore = async () => {
   const balmCoreModule = getBalmCoreModule();
   let balmCore = await import(balmCoreModule); // Load `balm-core`
@@ -10,7 +13,7 @@ const getBalmCore = async () => {
   const version = balmCore.version;
   checkVersion(version);
 
-  const isESM = /^4\.0\.0/.test(version);
+  const isESM = nextVersion.test(version) || canaryVersion.test(version);
   if (!isESM) {
     // Compatibility For `balm-core < 4`
     const requireModule = createRequire(import.meta.url);
