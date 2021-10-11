@@ -10,7 +10,7 @@ const getBalmCore = async () => {
   const version = balmCore.version;
   checkVersion(version);
 
-  const isESM = /^4\.0\.0-/.test(version);
+  const isESM = /^4\.0\.0/.test(version);
   if (!isESM) {
     // Compatibility For `balm-core < 4`
     const requireModule = createRequire(import.meta.url);
