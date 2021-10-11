@@ -5,6 +5,12 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v4.0.1 / 2021-10-11
+
+### Bug Fixes
+
+- `balm`: fix version detection bug
+
 ## v4.0.0 / 2021-10-09
 
 ### Features
