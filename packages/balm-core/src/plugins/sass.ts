@@ -6,10 +6,15 @@ import applySourceMap from 'vinyl-sourcemaps-apply';
 
 const PLUGIN_NAME = 'sass';
 
+interface GulpSass {
+  (options: object): any;
+  compiler?: any;
+}
+
 //////////////////////////////
 // Main Gulp Sass function
 //////////////////////////////
-const gulpSass = (options: object): any =>
+const gulpSass: GulpSass = (options: object): any =>
   through2.obj(
     (
       file: Buffer | string | any,
@@ -136,21 +141,14 @@ const gulpSass = (options: object): any =>
       // Sync Sass render
       //////////////////////////////
       try {
-        filePush(gulpSass.compiler.renderSync(opts));
+        gulpSass.compiler && filePush(gulpSass.compiler.renderSync(opts));
       } catch (error) {
         return errorM(error);
       }
     }
   );
 
-//////////////////////////////
-// Sync Sass render
-//////////////////////////////
-gulpSass.sync = (options: object) => gulpSass(options);
-
-//////////////////////////////
-// Store compiler in a prop
-//////////////////////////////
-gulpSass.compiler = sass;
-
-export default gulpSass;
+export default (options: object) => {
+  gulpSass.compiler = sass;
+  return gulpSass(options);
+};

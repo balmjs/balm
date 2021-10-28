@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2021.10.9",
+  "version": "2021.10.28",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "preinstall": "bower install",
@@ -34,9 +34,9 @@
     "mp:prod": "npm run mp:build:web && npm run mp:build:mp"
   },
   "dependencies": {
-    "axios": "^0.22.0",
+    "axios": "^0.24.0",
     "balm-ui": "^8.46.2",
-    "core-js": "^3.18.0",
+    "core-js": "^3.19.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "express": "^4.17.1",

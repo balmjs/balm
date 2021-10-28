@@ -5,6 +5,14 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v4.1.0 / 2021-10-28
+
+### Chore
+
+- update css plugins
+- update dependencies
+  - `html-loader`: 2.x -> 3.x
+
 ## v4.0.2 / 2021-10-11
 
 ### Bug Fixes

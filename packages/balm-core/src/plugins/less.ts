@@ -6,6 +6,81 @@ import { LooseObject } from '@balm-core/index';
 
 const PLUGIN_NAME = 'less';
 
+interface LessResultSourcemap {
+  sourcesContent: any;
+  file: string;
+  sources: string[];
+}
+
+interface LessResult {
+  result: string;
+  imports: string[];
+  sourcemap?: LessResultSourcemap;
+  css?: string;
+}
+
+function inlineSources(sourcemap: LessResultSourcemap) {
+  if (sourcemap.sourcesContent) {
+    return Promise.resolve(sourcemap);
+  }
+
+  return Promise.all(
+    sourcemap.sources.map((source: string) => {
+      return new Promise((resolve, reject) => {
+        node.fs.readFile(source, 'utf8', (err, data) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(data);
+          }
+        });
+      });
+    })
+  ).then(
+    (contents) => {
+      sourcemap.sourcesContent = contents;
+      return sourcemap;
+    },
+    () => sourcemap
+  );
+}
+
+function renderLess(str: string, opts: LooseObject) {
+  return new Promise((resolve, reject) => {
+    less.render(
+      str,
+      opts,
+      (
+        err: any,
+        res: {
+          css: string;
+          imports: string[];
+          map: string; // JSON string
+        }
+      ) => {
+        if (err) {
+          reject(err);
+        } else {
+          const obj: LessResult = {
+            result: res.css,
+            imports: res.imports
+          };
+
+          if (opts.sourceMap && res.map) {
+            obj.sourcemap = JSON.parse(res.map) as LessResultSourcemap;
+            inlineSources(obj.sourcemap).then((map) => {
+              obj.sourcemap = map;
+              resolve(obj);
+            });
+          } else {
+            resolve(obj);
+          }
+        }
+      }
+    );
+  });
+}
+
 function gulpLess(options: object): any {
   // Mixes in default options.
   const opts: LooseObject = Object.assign(
@@ -41,8 +116,7 @@ function gulpLess(options: object): any {
         opts.sourcemap = true;
       }
 
-      less
-        .render(str, opts)
+      renderLess(str, opts)
         .then((res: any) => {
           file.contents = Buffer.from(res.css);
           file.path = replaceExtension(file.path, '.css');
