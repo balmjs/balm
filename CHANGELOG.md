@@ -5,6 +5,12 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.20.1 / 2021-10-28
+
+### Chore
+
+- update css plugins
+
 ## v3.20.0 / 2021-10-09
 
 ### Chore
