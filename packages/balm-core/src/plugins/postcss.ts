@@ -1,6 +1,7 @@
+// Reference `gulp-postcss@9.0.1`
 import { Transform } from 'stream';
 import applySourceMap from 'vinyl-sourcemaps-apply';
-import { LooseObject } from '@balm-core/index';
+import { LooseObject, BalmError } from '@balm-core/index';
 
 const PLUGIN_NAME = 'postcss';
 
@@ -130,7 +131,7 @@ export default gulpPostcss((loadConfig: Function) => {
       // Prevent stream’s unhandled exception from
       // being suppressed by Promise
       setImmediate(function () {
-        cb(new PluginError('gulp-postcss', error, errorOptions));
+        cb(new PluginError('gulp-postcss', error as BalmError, errorOptions));
       });
     }
   };
