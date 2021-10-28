@@ -3,7 +3,7 @@ import { Transform } from 'node:stream';
 import postcss from 'postcss';
 import postcssLoadConfig from 'postcss-load-config';
 import applySourceMap from 'vinyl-sourcemaps-apply';
-import { LooseObject } from '@balm-core/index';
+import { LooseObject, BalmError } from '@balm-core/index';
 
 const PLUGIN_NAME = 'postcss';
 
@@ -128,7 +128,7 @@ export default gulpPostcss((loadConfig: Function) => {
       // Prevent stream’s unhandled exception from
       // being suppressed by Promise
       setImmediate(function () {
-        cb(new PluginError('gulp-postcss', error, errorOptions));
+        cb(new PluginError('gulp-postcss', error as BalmError, errorOptions));
       });
     }
   };

@@ -3,6 +3,7 @@ import sass from 'sass';
 import replaceExtension from 'replace-ext';
 import stripAnsi from 'strip-ansi';
 import applySourceMap from 'vinyl-sourcemaps-apply';
+import { BalmError } from '@balm-core/index';
 
 const PLUGIN_NAME = 'sass';
 
@@ -29,7 +30,7 @@ const gulpSass: GulpSass = (options: object): any =>
         return cb(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
       }
 
-      if (node.path.basename(file.path).indexOf('_') === 0) {
+      if (node.path.basename(file.path as string).indexOf('_') === 0) {
         return cb();
       }
 
@@ -45,7 +46,7 @@ const gulpSass: GulpSass = (options: object): any =>
       opts.file = file.path;
 
       // Ensure `indentedSyntax` is true if a `.sass` file
-      if (node.path.extname(file.path) === '.sass') {
+      if (node.path.extname(file.path as string) === '.sass') {
         opts.indentedSyntax = true;
       }
 
@@ -58,7 +59,7 @@ const gulpSass: GulpSass = (options: object): any =>
         opts.includePaths = [];
       }
 
-      opts.includePaths.unshift(node.path.dirname(file.path));
+      opts.includePaths.unshift(node.path.dirname(file.path as string));
 
       // Generate Source Maps if plugin source-map present
       if (file.sourceMap) {
@@ -80,7 +81,7 @@ const gulpSass: GulpSass = (options: object): any =>
         // Build Source Maps!
         if (sassObj.map) {
           // Transform map into JSON
-          sassMap = JSON.parse(sassObj.map.toString());
+          sassMap = JSON.parse(sassObj.map.toString() as string);
           // Grab the stdout and transform it into stdin
           sassMapFile = sassMap.file.replace(/^stdout$/, 'stdin');
           // Grab the base file name that's being worked on
@@ -124,8 +125,8 @@ const gulpSass: GulpSass = (options: object): any =>
       // Handles error message
       //////////////////////////////
       const errorM = (error: any) => {
-        const filePath =
-          (error.file === 'stdin' ? file.path : error.file) || file.path;
+        const filePath = ((error.file === 'stdin' ? file.path : error.file) ||
+          file.path) as string;
         const relativePath = node.path.relative(process.cwd(), filePath);
         const message = [relativePath, error.formatted].join('\n');
 
@@ -134,7 +135,7 @@ const gulpSass: GulpSass = (options: object): any =>
         error.message = stripAnsi(message);
         error.relativePath = relativePath;
 
-        return cb(new PluginError(PLUGIN_NAME, error));
+        return cb(new PluginError(PLUGIN_NAME, error as BalmError));
       };
 
       //////////////////////////////

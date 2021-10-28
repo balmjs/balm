@@ -2,7 +2,7 @@ import { TransformCallback } from 'node:stream';
 import less from 'less';
 import replaceExtension from 'replace-ext';
 import applySourceMap from 'vinyl-sourcemaps-apply';
-import { LooseObject } from '@balm-core/index';
+import { LooseObject, BalmError } from '@balm-core/index';
 
 const PLUGIN_NAME = 'less';
 
@@ -27,7 +27,7 @@ function inlineSources(sourcemap: LessResultSourcemap) {
   return Promise.all(
     sourcemap.sources.map((source: string) => {
       return new Promise((resolve, reject) => {
-        node.fs.readFile(source, 'utf8', (err, data) => {
+        node.fs.readFile(source, 'utf8', (err: any, data: any) => {
           if (err) {
             reject(err);
           } else {
@@ -106,24 +106,25 @@ function gulpLess(options: object): any {
         return cb(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
       }
 
-      const str = file.contents.toString();
+      const str = file.contents.toString() as string;
 
       // Injects the path of the current file
       opts.filename = file.path;
 
       // Bootstrap source maps
-      if (file.sourceMap) {
-        opts.sourcemap = true;
+      if (file.sourceMap || opts.sourcemap) {
+        opts.sourceMap = true;
       }
 
       renderLess(str, opts)
         .then((res: any) => {
-          file.contents = Buffer.from(res.css);
+          file.contents = Buffer.from(res.result as string);
           file.path = replaceExtension(file.path, '.css');
           if (res.sourcemap) {
             res.sourcemap.file = file.relative;
             res.sourcemap.sources = res.sourcemap.sources.map(
-              (source: string) => node.path.relative(file.base, source)
+              (source: string) =>
+                node.path.relative(file.base as string, source)
             );
 
             applySourceMap(file, res.sourcemap);
@@ -133,14 +134,14 @@ function gulpLess(options: object): any {
         .then((file: any) => {
           cb(null, file);
         })
-        .catch((err: any) => {
+        .catch((err) => {
           // Convert the keys so PluginError can read them
           err.lineNumber = err.line;
           err.fileName = err.filename;
 
           // Add a better error message
           err.message = `${err.message} in file ${err.fileName} line no.${err.lineNumber}`;
-          return cb(new PluginError(PLUGIN_NAME, err));
+          return cb(new PluginError(PLUGIN_NAME, err as BalmError));
         });
     }
   );
