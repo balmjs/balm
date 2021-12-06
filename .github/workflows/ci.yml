@@ -39,4 +39,4 @@ jobs:
         run: yarn test
 
       - name: coverage
-        ran: yarn coverage
+        run: yarn coverage
