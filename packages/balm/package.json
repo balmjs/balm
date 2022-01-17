@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "3.20.0",
+  "version": "3.21.0",
   "description": "BalmJS runtime core",
   "keywords": [
     "balm",
@@ -41,19 +41,19 @@
     "directory": "packages/balm"
   },
   "dependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/plugin-transform-runtime": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
-    "@babel/runtime": "^7.15.0",
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/runtime": "^7.16.0",
     "ansi-colors": "^4.1.1",
     "global-dirs": "^3.0.0",
     "gulp": "^4.0.2",
     "semver": "^7.3.5",
     "webpack-hot-middleware": "^2.25.1",
-    "workbox-sw": "^6.3.0",
+    "workbox-sw": "^6.4.2",
     "yargs": "16"
   },
   "engines": {
-    "node": ">=10.16.0"
+    "node": ">=10.13.0"
   }
 }
