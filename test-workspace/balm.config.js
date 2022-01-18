@@ -10,7 +10,7 @@ const config = {
   workspace,
   // useDefaults: false,
   styles: {
-    // extname: 'scss'
+    extname: 'scss'
     // dartSass: true
     // sprites: ['icons', 'mdi']
   },

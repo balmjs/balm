@@ -9,6 +9,8 @@ module.exports = Object.assign(balmrc, {
   },
   scripts: {
     entry: {
+      lib: ['vue'],
+      ui: ['balm-ui'],
       main: './vue3/scripts/main.js'
     },
     loaders: [
@@ -37,6 +39,11 @@ module.exports = Object.assign(balmrc, {
       //   '@vue/runtime-core':
       //     '@vue/runtime-core/dist/runtime-core.esm-bundler.js'
       // }
-    )
+    ),
+    injectHtml: true,
+    htmlPluginOptions: {
+      template: 'vue3/templates/auto.html'
+    },
+    extractCss: true
   }
 });

@@ -18,6 +18,8 @@ php/public/build
 php/public/web
 php/public/_index.html
 !php/resources/assets
+vue/index.html
+vue3/index.html
 
 # Others
 package-lock.json
