@@ -5,6 +5,17 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v4.2.0 / 2022-01-18
+
+### Chore
+
+- update dependencies
+  - `esbuild`: 0.13 -> 0.14
+  - `fancy-log`: 1.x -> 2.x
+  - `postcss-preset-env`: 6.x -> 7.x
+  - `sass`: 1.39.x -> 1.40+
+  - `ssh`: 0.x -> 1.x
+
 ## v4.1.0 / 2021-10-28
 
 ### Chore
