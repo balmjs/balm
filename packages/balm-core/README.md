@@ -5,11 +5,8 @@
   <br>
   <br>
 
-[![NPM version][balm-image]][balm-url]
+[![NPM version][balm-core-image]][balm-core-url]
 [![License][license-image]][license-url]
-[![Dependency Status][deps-image]][deps-url]
-[![Build Status][travis-image]][travis-url]
-[![Build Status][appveyor-image]][appveyor-url]
 [![Coverage Percentage][cover-image]][cover-url]
 
   <h1>BalmJS</h1>
@@ -87,15 +84,15 @@ npm init -y
 ### 1. Installing `balm`
 
 ```sh
-yarn global add balm-core
-yarn add -D balm
+yarn global add balm-core@next
+yarn add -D balm@next
 ```
 
 OR
 
 ```sh
-npm install -g balm-core
-npm install -D balm
+npm install -g balm-core@next
+npm install -D balm@next
 ```
 
 > We currently recommend using [Yarn](https://yarnpkg.com/en/docs/install) instead of npm.
@@ -153,15 +150,15 @@ To download [example](https://balm.js.org/balm-example.zip) and try it, visit [b
 
 ## Ecosystem
 
-| Project                                               | Status                                                 | Description                                                  |
-| ----------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------ |
-| **[balm-core](https://github.com/balmjs/balm)**       | [![NPM version][balm-core-image]][balm-core-url]       | :black_joker: BalmJS compiler core (required for `balm 3.0`) |
-| **[balm](https://github.com/balmjs/balm)**            | [![NPM version][balm-image]][balm-url]                 | :black_joker: BalmJS runtime core                            |
-| **[balm-cli](https://github.com/balmjs/balm-cli)**    | [![NPM version][balm-cli-image]][balm-cli-url]         | :spades: BalmJS scaffolding tool                             |
-| [balm-gui](https://github.com/balmjs/balm-gui)        | N/A                                                    | :clubs: GUI for BalmJS                                       |
-| [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue                          |
-| **[balm-ui](https://github.com/balmjs/ui-vue)**       | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Next Generation Material UI for Vue.js            |
-| [balm-scroll](https://github.com/balmjs/balm-scroll)  | [![NPM version][balm-scroll-image]][balm-scroll-url]   | :scroll: Smooth scrolling for Vue.js                         |
+| Project                                               | Status                                                 | Description                                                   |
+| ----------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------- |
+| **[balm-core](https://github.com/balmjs/balm)**       | [![NPM version][balm-core-image]][balm-core-url]       | :black_joker: BalmJS compiler core (required for `balm 3.0+`) |
+| **[balm](https://github.com/balmjs/balm)**            | [![NPM version][balm-image]][balm-url]                 | :black_joker: BalmJS runtime core                             |
+| **[balm-cli](https://github.com/balmjs/balm-cli)**    | [![NPM version][balm-cli-image]][balm-cli-url]         | :spades: BalmJS scaffolding tool                              |
+| [balm-gui](https://github.com/balmjs/balm-gui)        | N/A                                                    | :clubs: GUI for BalmJS                                        |
+| [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue                           |
+| **[balm-ui](https://github.com/balmjs/ui-vue)**       | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Next Generation Material UI for Vue.js             |
+| [balm-scroll](https://github.com/balmjs/balm-scroll)  | [![NPM version][balm-scroll-image]][balm-scroll-url]   | :scroll: Smooth scrolling for Vue.js                          |
 
 ## Contributing
 
@@ -173,25 +170,19 @@ We'd love for you to contribute and make BalmJS even better than it is today! Pl
 
 © 2016-present, [Elf-mousE](http://elf-mouse.me/)
 
-[balm-core-image]: https://badge.fury.io/js/balm-core.svg
+[balm-core-image]: https://img.shields.io/npm/v/balm-core/next.svg
 [balm-core-url]: https://npmjs.org/package/balm-core
-[balm-image]: https://badge.fury.io/js/balm.svg
+[balm-image]: https://img.shields.io/npm/v/balm/next.svg
 [balm-url]: https://npmjs.org/package/balm
 [license-image]: https://img.shields.io/npm/l/balm-core.svg?sanitize=true
 [license-url]: https://www.npmjs.com/package/balm-core
-[deps-image]: https://david-dm.org/balmjs/balm.svg?path=packages/balm-core&theme=shields.io
-[deps-url]: https://david-dm.org/balmjs/balm?path=packages/balm-core
-[travis-image]: https://travis-ci.com/balmjs/balm.svg?branch=master
-[travis-url]: https://travis-ci.com/balmjs/balm
-[appveyor-image]: https://ci.appveyor.com/api/projects/status/github/balmjs/balm?svg=true
-[appveyor-url]: https://ci.appveyor.com/project/balmjs/balm
 [cover-image]: https://coveralls.io/repos/balmjs/balm/badge.svg
 [cover-url]: https://coveralls.io/r/balmjs/balm
-[balm-cli-image]: https://badge.fury.io/js/balm-cli.svg
+[balm-cli-image]: https://img.shields.io/npm/v/balm-cli.svg
 [balm-cli-url]: https://npmjs.org/package/balm-cli
-[balm-ui-lite-image]: https://badge.fury.io/js/balm-ui-lite.svg
+[balm-ui-lite-image]: https://img.shields.io/npm/v/balm-ui-lite.svg
 [balm-ui-lite-url]: https://npmjs.org/package/balm-ui-lite
-[balm-ui-image]: https://badge.fury.io/js/balm-ui.svg
+[balm-ui-image]: https://img.shields.io/npm/v/balm-ui.svg
 [balm-ui-url]: https://npmjs.org/package/balm-ui
-[balm-scroll-image]: https://badge.fury.io/js/balm-scroll.svg
+[balm-scroll-image]: https://img.shields.io/npm/v/balm-scroll.svg
 [balm-scroll-url]: https://npmjs.org/package/balm-scroll
