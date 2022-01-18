@@ -1,4 +1,4 @@
-// Reference `gulp-imagemin@7.1.0`
+// Reference `gulp-imagemin@8.0.0`
 import { TransformCallback } from 'node:stream';
 import imagemin from 'imagemin';
 import prettyBytes from 'pretty-bytes';
@@ -25,18 +25,10 @@ const exposePlugin =
     loadPlugin(plugin, ...args);
 
 const getDefaultPlugins = () =>
-  defaultPlugins.reduce((plugins, plugin) => {
-    const instance = loadPlugin(plugin);
-
-    if (!instance) {
-      return plugins;
-    }
-
-    return plugins.concat(instance);
-  }, []);
+  defaultPlugins.flatMap((plugin) => loadPlugin(plugin));
 
 const gulpImagemin = (customPlugins?: Function[]): any => {
-  const validExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.svg'];
+  const validExtensions = new Set(['.jpg', '.jpeg', '.png', '.gif', '.svg']);
 
   let totalBytes = 0;
   let totalSavedBytes = 0;
@@ -57,7 +49,9 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
       return;
     }
 
-    if (!validExtensions.includes(node.path.extname(file.path).toLowerCase())) {
+    if (
+      !validExtensions.has(node.path.extname(file.path as string).toLowerCase())
+    ) {
       BalmJS.logger.info(
         PLUGIN_NAME,
         `Skipping unsupported image "${file.relative}"`
@@ -78,10 +72,10 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
         const optimizedSize = data.length;
         const saved = originalSize - optimizedSize;
         const percent = originalSize > 0 ? (saved / originalSize) * 100 : 0;
-        const savedMsg = `saved ${prettyBytes(saved)} - ${percent
+        const savedMessage = `saved ${prettyBytes(saved)} - ${percent
           .toFixed(1)
           .replace(/\.0$/, '')}%`;
-        const msg = saved > 0 ? savedMsg : 'already optimized';
+        const message = saved > 0 ? savedMessage : 'already optimized';
 
         if (saved > 0) {
           totalBytes += originalSize;
@@ -89,7 +83,7 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
           totalFiles++;
         }
 
-        BalmJS.logger.debug(PLUGIN_NAME, `${file.relative} (${msg})`);
+        BalmJS.logger.debug(PLUGIN_NAME, `${file.relative} (${message})`);
 
         file.contents = data;
         callback(null, file);
@@ -105,15 +99,15 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
 
   function flush(callback: TransformCallback): void {
     const percent = totalBytes > 0 ? (totalSavedBytes / totalBytes) * 100 : 0;
-    let msg = `Minified ${totalFiles} image${totalFiles > 1 ? 's' : ''}`;
+    let message = `Minified ${totalFiles} image${totalFiles > 1 ? 's' : ''}`;
 
     if (totalFiles > 0) {
-      msg += ` (saved ${prettyBytes(totalSavedBytes)} - ${percent
+      message += ` (saved ${prettyBytes(totalSavedBytes)} - ${percent
         .toFixed(1)
         .replace(/\.0$/, '')}%)`;
     }
 
-    BalmJS.logger.info(PLUGIN_NAME, msg);
+    BalmJS.logger.info(PLUGIN_NAME, message);
 
     callback();
   }

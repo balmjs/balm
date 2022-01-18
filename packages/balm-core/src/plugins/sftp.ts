@@ -1,6 +1,6 @@
 // Reference `gulp-sftp@0.1.5`
 import { TransformCallback } from 'node:stream';
-import ssh2 from 'ssh2';
+import { Client } from 'ssh2';
 import parents from 'parents';
 import async from 'async';
 import { LooseObject, BalmError } from '@balm-core/index';
@@ -15,9 +15,35 @@ interface SshConfig {
   privateKey?: string | Buffer;
   passphrase?: string;
   readyTimeout?: number;
+  algorithms?: {
+    cipher?: string[];
+    compress?: string[];
+    hmac?: string[];
+    kex?: string[];
+    serverHostKey?: string[];
+  };
 }
 
 const PLUGIN_NAME = 'sftp';
+
+const DefaultAlgorithms = {
+  kex: [
+    'curve25519-sha256',
+    'curve25519-sha256@libssh.org',
+    'ecdh-sha2-nistp256',
+    'ecdh-sha2-nistp384',
+    'ecdh-sha2-nistp521',
+    'diffie-hellman-group-exchange-sha256',
+    'diffie-hellman-group14-sha256',
+    'diffie-hellman-group15-sha512',
+    'diffie-hellman-group16-sha512',
+    'diffie-hellman-group17-sha512',
+    'diffie-hellman-group18-sha512',
+    'diffie-hellman-group-exchange-sha1',
+    'diffie-hellman-group14-sha1',
+    'diffie-hellman-group1-sha1'
+  ]
+};
 
 const normalizePath = (_path: string): string => _path.replace(/\\/g, '/');
 
@@ -171,7 +197,8 @@ function gulpSftp(options: LooseObject): any {
     const connectionOptions: SshConfig = {
       host: options.host,
       port: options.port || 22,
-      username
+      username,
+      algorithms: options.algorithms || DefaultAlgorithms
     };
 
     if (password) {
@@ -188,11 +215,11 @@ function gulpSftp(options: LooseObject): any {
       connectionOptions.readyTimeout = options.timeout;
     }
 
-    const conn = new ssh2.Client();
+    const conn = new Client();
     connCache = conn;
 
     conn.on('ready', () => {
-      BalmJS.logger.debug(PLUGIN_NAME, 'Connection :: ready');
+      BalmJS.logger.debug(PLUGIN_NAME, 'Client :: ready');
 
       conn.sftp((err: any, sftp: any) => {
         if (err) {
@@ -220,7 +247,7 @@ function gulpSftp(options: LooseObject): any {
     });
 
     conn.on('end', () => {
-      BalmJS.logger.debug(PLUGIN_NAME, 'Connection :: end');
+      BalmJS.logger.debug(PLUGIN_NAME, 'Client :: end');
     });
 
     conn.on('close', () => {

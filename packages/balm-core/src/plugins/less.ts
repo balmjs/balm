@@ -1,3 +1,4 @@
+// Reference `gulp-less@5.0.0`
 import { TransformCallback } from 'node:stream';
 import less from 'less';
 import replaceExtension from 'replace-ext';
