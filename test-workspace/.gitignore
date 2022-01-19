@@ -22,5 +22,6 @@ vue/index.html
 vue3/index.html
 
 # Others
-package-lock.json
 yarn.lock
+package-lock.json
+pnpm-lock.yaml

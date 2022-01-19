@@ -7,6 +7,9 @@ module.exports = Object.assign(balmrc, {
   roots: {
     source: 'vue3'
   },
+  styles: {
+    extname: 'scss'
+  },
   scripts: {
     entry: {
       lib: ['vue'],
