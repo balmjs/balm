@@ -162,7 +162,7 @@ To download [example](https://balm.js.org/balm-example.zip) and try it, visit [b
 
 ## Contributing
 
-We'd love for you to contribute and make BalmJS even better than it is today! Please make sure to read the [Contributing Guide](https://github.com/balmjs/balm/blob/master/CONTRIBUTING.md) before making a [pull request](https://github.com/balmjs/balm/pulls). You can submit any ideas as pull requests or as [GitHub issues](https://github.com/balmjs/balm/issues).
+We'd love for you to contribute and make BalmJS even better than it is today! Please make sure to read the [Contributing Guide](https://github.com/balmjs/balm/blob/main/CONTRIBUTING.md) before making a [pull request](https://github.com/balmjs/balm/pulls). You can submit any ideas as pull requests or as [GitHub issues](https://github.com/balmjs/balm/issues).
 
 ## License
 
