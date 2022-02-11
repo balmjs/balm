@@ -119,10 +119,10 @@ const externals: ExternalsElement | ExternalsElement[] = '';
 // Stats
 const stats: StatsValue = {
   colors: true,
+  assets: true,
+  children: false,
   chunks: false,
-  chunkModules: false,
-  modules: false,
-  children: false
+  modules: false
 };
 /**
  * Full custom webpack configuration
