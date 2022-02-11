@@ -10,7 +10,6 @@ declare module 'html-minifier';
 declare module 'html-webpack-plugin';
 declare module 'imagemin';
 declare module 'less';
-declare module 'mini-css-extract-plugin';
 declare module 'modernizr';
 declare module 'parents';
 declare module 'postcss-import';

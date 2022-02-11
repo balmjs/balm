@@ -5,6 +5,12 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v4.3.0 / 2022-02-11
+
+### Chore
+
+- optimize sass and webpack info
+
 ## v4.2.0 / 2022-01-18
 
 ### Chore
