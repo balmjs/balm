@@ -5,6 +5,18 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v3.22.0 / 2022-02-11
+
+### Chore
+
+- optimize sass and webpack info
+
+## v3.21.0 / 2022-01-17
+
+### Reverts
+
+- restore Node v10.13.0 or newer
+
 ## v3.20.1 / 2021-10-28
 
 ### Chore
