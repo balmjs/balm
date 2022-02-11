@@ -110,10 +110,10 @@ const externals: string | string[] | object | Function | RegExp = '';
 // Stats
 const stats: object | string = {
   colors: true,
+  assets: true,
+  children: false,
   chunks: false,
-  chunkModules: false,
-  modules: false,
-  children: false
+  modules: false
 };
 /**
  * Full custom webpack configuration
