@@ -10,7 +10,7 @@ class SassTask extends BalmJS.BalmStyleTask {
       {
         includePaths: BalmJS.file.stylePaths,
         outputStyle: 'expanded',
-        quietDeps: BalmJS.config.logs.level <= BalmJS.LogLevel.Warn
+        quietDeps: BalmJS.config.logs.level < BalmJS.LogLevel.Warn
       },
       BalmJS.config.styles.sassOptions,
       this.customOptions
