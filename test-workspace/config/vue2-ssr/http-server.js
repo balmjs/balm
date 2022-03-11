@@ -1,7 +1,7 @@
 const { spawn } = require('child_process');
 
 function serve() {
-  const egg = spawn('node', ['vue-ssr/server.js']);
+  const egg = spawn('node', ['vue2-ssr/server.js']);
 
   egg.stdout.on('data', (data) => {
     console.log(`stdout: ${data}`);

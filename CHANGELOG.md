@@ -5,6 +5,15 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v4.4.0 / 2022-03-11
+
+> support webpack 5 in ts-loader - thanks @einatbar
+
+### Chore
+
+- update dependencies
+  - `pretty-bytes`: 5.x -> 6.x
+
 ## v4.3.0 / 2022-02-11
 
 ### Chore

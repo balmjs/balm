@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 const MpPlugin = require('mp-webpack-plugin');
 const { src, dest, parallel } = require('gulp');
 const { spawn } = require('child_process');
@@ -62,9 +62,9 @@ const getConfig = (balm) => {
       alias: {
         '@': path.resolve(__dirname, '..', '..', 'mp', 'scripts'),
         vue$: 'vue/dist/vue.esm.js'
-        // 'balm-ui': 'balm-ui/src/scripts',
-        // 'balm-ui-plus': 'balm-ui/src/scripts/plus.js',
-        // 'balm-ui-next': 'balm-ui/src/scripts/next.js'
+        // 'balm-ui': 'balm-ui/src/scripts/balm-ui.js',
+        // 'balm-ui-plus': 'balm-ui/src/scripts/balm-ui-plus.js',
+        // 'balm-ui-next': 'balm-ui/src/scripts/balm-ui-next.js'
       }
     },
     assets: isMP

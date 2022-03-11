@@ -1,14 +1,10 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
 import App from '@/views/layouts/app';
 import BalmUI from 'balm-ui';
 // import 'balm-ui/dist/balm-ui.css';
 
-Vue.config.productionTip = false;
+const app = createApp(App);
 
-Vue.use(BalmUI);
+app.use(BalmUI);
 
-new Vue({
-  el: '#app',
-  components: { App },
-  template: '<app/>'
-});
+app.mount('#app');

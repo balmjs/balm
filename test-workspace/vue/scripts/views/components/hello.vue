@@ -1,20 +1,24 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      thx
-      <a href="//balm.js.org/">BalmJS</a>
-    </p>
-    <ui-button outlined>Test</ui-button>
-  </div>
+  <h1>{{ msg }}</h1>
+  <p>
+    thx
+    <a href="//balm.js.org/">BalmJS</a>
+  </p>
+  <ui-button outlined>Test</ui-button>
 </template>
 
 <script>
+import { ref } from 'vue';
+
 export default {
-  name: 'hello',
-  data() {
+  name: 'Hello',
+  setup() {
+    const msg = ref('');
+
+    msg.value = 'Hello Vue 3.0 App';
+
     return {
-      msg: 'Hello Vue App'
+      msg
     };
   }
 };

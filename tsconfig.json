@@ -11,7 +11,7 @@
     },
     // Project Options
     "importHelpers": true,
-    "lib": ["esnext", "webworker"],
+    "lib": ["ESNext", "WebWorker"],
     // Emit
     "outDir": "packages/balm-core/tslib",
     "removeComments": true,

@@ -1,22 +1,20 @@
 <template>
-  <div class="container">
-    <img :src="logo" alt />
-    <!-- <img :src="require('@/assets/logo.png')" alt /> -->
-    <hello></hello>
-  </div>
+  <img :src="logo" alt />
+  <hello></hello>
 </template>
 
 <script>
 import logo from '@/assets/logo.png';
 // import Hello from '@/views/components/hello';
-const Hello = () => import('@/views/components/hello');
+import { defineAsyncComponent } from 'vue';
+const Hello = defineAsyncComponent(() => import('@/views/components/hello'));
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     Hello
   },
-  data() {
+  setup() {
     return {
       logo
     };

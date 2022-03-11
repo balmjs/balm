@@ -7,11 +7,11 @@ const serve = require('./http-server');
 const scripts = Object.assign(base, {
   entry: {
     lib: ['vue', 'vue-router', 'vuex', 'axios'],
-    client: './vue-ssr/app/scripts/entry-client.js'
+    client: './vue2-ssr/app/scripts/entry-client.js'
   },
   injectHtml: true,
   htmlPluginOptions: {
-    template: './vue-ssr/app/templates/index.html',
+    template: './vue2-ssr/app/templates/index.html',
     minify: {
       removeComments: false
     }
@@ -36,7 +36,7 @@ const getConfig = (balm) => {
       }
     },
     roots: {
-      source: 'vue-ssr/app'
+      source: 'vue2-ssr/app'
     },
     html: {
       options: {

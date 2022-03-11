@@ -11,15 +11,15 @@ assets
 # Test Projects
 */styles/sprites
 !vue/scripts/assets
-!vue3/scripts/assets
-!vue-ssr/app/scripts/assets
+!vue2/scripts/assets
+!vue2-ssr/app/scripts/assets
 !lib
 php/public/build
 php/public/web
 php/public/_index.html
 !php/resources/assets
 vue/index.html
-vue3/index.html
+vue2/index.html
 
 # Others
 yarn.lock
