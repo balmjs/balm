@@ -5,6 +5,12 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+## v4.4.1 / 2022-03-23
+
+### Reverts
+
+- revert `mini-css-extract-plugin@2.4.7` for some bug
+
 ## v4.4.0 / 2022-03-11
 
 > support webpack 5 in ts-loader - thanks @einatbar
