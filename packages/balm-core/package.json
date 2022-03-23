@@ -70,7 +70,7 @@
     "imagemin": "^8.0.1",
     "istextorbinary": "^6.0.0",
     "less": "^4.1.2",
-    "mini-css-extract-plugin": "2.5.1",
+    "mini-css-extract-plugin": "2.4.5",
     "modernizr": "^3.12.0",
     "parents": "^1.0.1",
     "plugin-error": "^1.0.1",
