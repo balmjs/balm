@@ -5,7 +5,7 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
-## v4.4.2 / 2022-03-23
+## v4.4.3 / 2022-03-23
 
 ### Reverts
 
