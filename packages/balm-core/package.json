@@ -51,7 +51,7 @@
     "css-loader": "^6.7.1",
     "cssnano": "^5.1.7",
     "del": "^6.0.0",
-    "esbuild": "^0.14.34",
+    "esbuild": "^0.14.0",
     "fancy-log": "^2.0.0",
     "gulp-eslint": "^6.0.0",
     "gulp-if": "^3.0.0",

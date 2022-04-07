@@ -37,7 +37,7 @@ class Balm {
     } else {
       BalmJS.logger.error(
         'initialization',
-        'BalmJS API: `balm.go(function(mix) {});`'
+        'BalmJS API: `balm.go(mix => {});`'
       );
     }
   }
