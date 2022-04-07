@@ -5,11 +5,29 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
-## v4.4.3 / 2022-03-23
+## v4.5.0 / 2022-04-02
 
-### Reverts
+### Features
 
-- revert `mini-css-extract-plugin@2.4.5` for some bug
+- remove `file-loader` and `url-loader`, update to asset modules for webpack 5
+
+### Chore
+
+- remove `mini-css-extract-plugin` for `HTMLLinkElement` compiler bug
+
+### BREAKING CHANGES
+
+- remove config: `scripts.excludeUrlResource`, `scripts.urlLoaderOptions` and `scripts.extractCss`
+- update config: `script.defaultLoaders: BalmLoaders`
+
+  ```ts
+  interface BalmLoaders {
+    js?: boolean;
+    css?: boolean;
+    html?: boolean;
+    asset?: boolean; // old name is `url`
+  }
+  ```
 
 ## v4.4.0 / 2022-03-11
 
