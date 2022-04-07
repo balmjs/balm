@@ -41,6 +41,7 @@
     "directory": "packages/balm-core"
   },
   "dependencies": {
+    "ajv": "^8",
     "ansi-colors": "^4.1.1",
     "async": "^3.2.3",
     "autoprefixer": "^10.4.4",
@@ -113,9 +114,6 @@
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^9.0.0"
-  },
-  "resolutions": {
-    "ajv": "^8.0.0"
   },
   "engines": {
     "node": ">=12.13.0"
