@@ -1,3 +1,5 @@
+const NODE_ENV = process.env.NODE_ENV;
+const argv = process.argv;
 const ENV = {
   // standard
   PROD: 'production',
@@ -10,16 +12,16 @@ const ENV = {
 };
 
 const isProd: boolean =
-  process.env.NODE_ENV === ENV.PROD ||
-  process.argv.includes(`--${ENV.PROD}`) ||
-  process.argv.includes('-p');
+  NODE_ENV === ENV.PROD ||
+  argv.includes(`--${ENV.PROD}`) ||
+  argv.includes('-p');
 const isTest: boolean =
-  process.env.NODE_ENV === ENV.TEST ||
-  process.argv.includes(`--${ENV.TEST}`) ||
-  process.argv.includes('-t');
+  NODE_ENV === ENV.TEST ||
+  argv.includes(`--${ENV.TEST}`) ||
+  argv.includes('-t');
 const isDev: boolean = !isProd && !isTest;
 
-if (!process.env.NODE_ENV) {
+if (!NODE_ENV) {
   if (isProd) {
     process.env.NODE_ENV = ENV.PROD;
   } else if (isTest) {
@@ -30,19 +32,17 @@ if (!process.env.NODE_ENV) {
 }
 
 const inSSR: boolean =
-  process.env.NODE_ENV === ENV.SSR ||
-  process.argv.includes(`--${ENV.SSR}`) ||
-  process.argv.includes('-ssr');
+  NODE_ENV === ENV.SSR ||
+  argv.includes(`--${ENV.SSR}`) ||
+  argv.includes('-ssr');
 
 const isMP: boolean =
-  process.env.NODE_ENV === ENV.MP ||
-  process.argv.includes(`--${ENV.MP}`) ||
-  process.argv.includes('-mp');
+  NODE_ENV === ENV.MP || argv.includes(`--${ENV.MP}`) || argv.includes('-mp');
 
 const inDesktopApp: boolean =
-  process.env.NODE_ENV === ENV.DESKTOP_APP ||
-  process.argv.includes(`--${ENV.DESKTOP_APP}`) ||
-  process.argv.includes('-electron');
+  NODE_ENV === ENV.DESKTOP_APP ||
+  argv.includes(`--${ENV.DESKTOP_APP}`) ||
+  argv.includes('-electron');
 
 export default {
   isProd,

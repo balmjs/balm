@@ -2,7 +2,7 @@ import getPublicUrlOrPath from './public-url.js';
 import { PUBLIC_URL } from '../config/constants.js';
 
 // Make sure any symlinks in the project folder are resolved
-const appDirectory = node.fs.realpathSync(process.cwd());
+const appDirectory = node.fs.realpathSync(process.cwd()) as string;
 const resolveApp = (relativePath: string): string =>
   node.path.resolve(appDirectory, relativePath);
 
@@ -15,8 +15,8 @@ class File {
     // We can't use a relative path in HTML because we don't want to load something
     // like /todos/42/static/js/bundle.7289d.js. We have to know the root.
     return getPublicUrlOrPath(
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
-      requireModule(resolveApp('package.json')).homepage,
+      (requireModule(resolveApp('package.json')) as { homepage?: string })
+        .homepage,
       process.env.PUBLIC_URL
     );
   }

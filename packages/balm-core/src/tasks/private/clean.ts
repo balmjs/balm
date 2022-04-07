@@ -1,5 +1,5 @@
 import del from 'del';
-import { ASSETS_KEYS } from '../../config/constants.js';
+import { ASSETS_TYPES } from '../../config/constants.js';
 
 function unique(arr: string[]): string[] {
   const obj: any = {};
@@ -22,7 +22,9 @@ class CleanTask extends BalmJS.BalmTask {
 
   #getAssetsDir = (rootKey = 'assets'): string[] => {
     return unique(
-      ASSETS_KEYS.map((assetKey) => (BalmJS.config as any)[rootKey][assetKey])
+      ASSETS_TYPES.map(
+        (assetType) => (BalmJS.config as any)[rootKey][assetType]
+      )
     );
   };
 

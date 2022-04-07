@@ -1,17 +1,13 @@
-import {
-  ASYNC_SCRIPTS,
-  HASH_NAME_PROD,
-  MP_ASSETS
-} from '../../config/constants.js';
+import { CHUNK, ASSET } from '../../config/constants.js';
 import { LooseObject, BalmScripts } from '@balm-core/index';
 
-function getFilename(scripts: BalmScripts, isChunk = false): string {
+function getJsFilename(scripts: BalmScripts, isChunk = false): string {
   let filename: string;
 
   if (isChunk) {
-    filename = BalmJS.config.env.isProd ? `[name].${HASH_NAME_PROD}` : '[name]';
+    filename = BalmJS.config.env.isProd ? `[name].${CHUNK.hash}` : '[name]';
   } else {
-    filename = scripts.useCache ? `[name].${HASH_NAME_PROD}` : '[name]';
+    filename = scripts.useCache ? `[name].${CHUNK.hash}` : '[name]';
   }
 
   return `${filename}.js`;
@@ -22,10 +18,10 @@ function getOutput(
   scripts: BalmScripts,
   isHook = false
 ): LooseObject {
-  const outputPath: string = output || BalmJS.config.dest.base; // Absolute path
+  const outputDirectory: string = output || BalmJS.config.dest.base;
   const jsFolder: string = BalmJS.config.paths.target.js;
-  const jsFilename = getFilename(scripts);
-  const jsChunkFilename = getFilename(scripts, true);
+  const bundleFilename = getJsFilename(scripts);
+  const chunkFilename = getJsFilename(scripts, true);
 
   const customLibraryConfig: object = scripts.library
     ? { library: scripts.library }
@@ -34,7 +30,7 @@ function getOutput(
   const miniprogramConfig: object = BalmJS.config.env.isMP
     ? {
         path: BalmJS.file.absPath(
-          node.path.join(BalmJS.config.dest.base, MP_ASSETS)
+          node.path.join(BalmJS.config.dest.base, ASSET.mpDir)
         ),
         library: {
           name: 'createApp',
@@ -47,18 +43,16 @@ function getOutput(
   return Object.assign(
     {
       // The build folder.
-      path: BalmJS.file.absPath(outputPath),
+      path: BalmJS.file.absPath(outputDirectory),
       // There will be one main bundle, and one file per asynchronous chunk.
       // In development, it does not produce real files.
       filename: isHook
-        ? jsFilename
-        : BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`),
+        ? bundleFilename
+        : BalmJS.file.assetsPath(`${jsFolder}/${bundleFilename}`),
       // There are also additional JS chunk files if you use code splitting.
       chunkFilename: isHook
-        ? jsChunkFilename
-        : BalmJS.file.assetsPath(
-            `${jsFolder}/${ASYNC_SCRIPTS}/${jsChunkFilename}`
-          ),
+        ? chunkFilename
+        : BalmJS.file.assetsPath(`${jsFolder}/${CHUNK.dir}/${chunkFilename}`),
       // webpack uses `publicPath` to determine where the app is being served from.
       // It requires a trailing slash, or the file assets will get an incorrect path.
       // We inferred the "public path" (such as / or /my-project) from homepage.

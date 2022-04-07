@@ -70,6 +70,11 @@ function checkConfig(): void {
   upgradeRenamed('3.16.0', 'scripts', 'inject', 'useCache');
   upgradeDeprecated('3.17.0', 'styles', 'darkSass');
   upgradeDeprecated('3.19.0', 'scripts', 'useCache');
+
+  // For v4
+  upgradeDeprecated('4.5.0', 'scripts', 'excludeUrlResource');
+  upgradeDeprecated('4.5.0', 'scripts', 'urlLoaderOptions');
+  upgradeDeprecated('4.5.0', 'scripts', 'extractCss');
 }
 
 export default checkConfig;

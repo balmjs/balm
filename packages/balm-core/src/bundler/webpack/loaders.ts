@@ -5,10 +5,10 @@ import { RuleSetRule, BalmLoaders } from '@balm-core/index';
 function getLoaders(customLoaders: RuleSetRule[]): RuleSetRule[] {
   const enableDefaultLoaders: BalmLoaders = Object.assign(
     {
-      html: true,
-      css: true,
       js: true,
-      url: true
+      css: true,
+      html: true,
+      asset: true
     },
     BalmJS.config.scripts.defaultLoaders
   );
@@ -20,10 +20,10 @@ function getLoaders(customLoaders: RuleSetRule[]): RuleSetRule[] {
   if (useDefaultLoaders) {
     Object.values(LOADERS).forEach((Loader: Function) => {
       const key = Loader.name.replace('Loader', '') as
-        | 'html'
-        | 'css'
         | 'js'
-        | 'url';
+        | 'css'
+        | 'html'
+        | 'asset';
       if (enableDefaultLoaders[key]) {
         const loader: RuleSetRule | RuleSetRule[] = Loader();
         if (BalmJS.utils.isArray(loader)) {

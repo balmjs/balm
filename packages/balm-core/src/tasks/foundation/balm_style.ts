@@ -1,5 +1,5 @@
 import BalmTask from './balm.js';
-import { MP_ASSETS } from '../../config/constants.js';
+import { ASSET } from '../../config/constants.js';
 import { BalmError } from '@balm-core/index';
 
 class BalmStyleTask extends BalmTask {
@@ -26,7 +26,7 @@ class BalmStyleTask extends BalmTask {
     this.defaultOutput = BalmJS.config.env.isMP
       ? node.path.join(
           BalmJS.config.dest.base,
-          MP_ASSETS,
+          ASSET.mpDir,
           BalmJS.config.paths.target.css
         )
       : BalmJS.config.dest.css;

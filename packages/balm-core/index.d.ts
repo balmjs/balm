@@ -46,10 +46,10 @@ export type Configuration = import('webpack').Configuration;
 export type RuleSetRule = import('webpack').RuleSetRule;
 
 export interface BalmLoaders {
-  html: boolean;
-  css: boolean;
   js: boolean;
-  url: boolean;
+  css: boolean;
+  html: boolean;
+  asset: boolean;
 }
 export interface PostcssLoaderOptions {
   exec?: boolean;
@@ -89,9 +89,7 @@ export interface BalmScripts {
   loaders: RuleSetRule[];
   defaultLoaders: Partial<BalmLoaders>;
   includeJsResource: string[];
-  excludeUrlResource: string[];
   useEsModule: boolean;
-  urlLoaderOptions: object;
   babelLoaderOptions: object;
   postcssLoaderOptions: Partial<PostcssLoaderOptions>;
   htmlLoaderOptions: object;
@@ -108,7 +106,6 @@ export interface BalmScripts {
   optimization: object;
   extractAllVendors: boolean;
   vendorName: string;
-  extractCss: boolean;
   ie8: boolean;
   // rollup
   inputOptions: Omit<InputOptions, 'acorn'>; // incompatible

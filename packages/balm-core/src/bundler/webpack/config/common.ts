@@ -1,6 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import getLoaders from '../loaders.js';
-import { HASH_NAME_PROD } from '../../../config/constants.js';
+import { CHUNK } from '../../../config/constants.js';
 import { LooseObject, Configuration, BalmScripts } from '@balm-core/index';
 
 function getDefaultPlugins(
@@ -67,8 +67,8 @@ function getSplitChunks(): object | boolean {
 
   if (scripts.extractAllVendors) {
     // All vendors
-    const jsFilename = scripts.useCache
-      ? `${scripts.vendorName}.${HASH_NAME_PROD}.js`
+    const vendorsFilename = scripts.useCache
+      ? `${scripts.vendorName}.${CHUNK.hash}.js`
       : `${scripts.vendorName}.js`;
 
     cacheGroups = {
@@ -76,7 +76,7 @@ function getSplitChunks(): object | boolean {
         name: 'vendors',
         chunks: 'all',
         test: /[\\/](node_modules|bower_components)[\\/]/,
-        filename: BalmJS.file.assetsPath(`${jsFolder}/${jsFilename}`) // Output: `js/vendors.js`
+        filename: BalmJS.file.assetsPath(`${jsFolder}/${vendorsFilename}`) // Output: `js/vendors.js`
       }
     };
   } else if (BalmJS.vendors.length) {
@@ -85,8 +85,8 @@ function getSplitChunks(): object | boolean {
     for (const vendor of BalmJS.vendors) {
       const cacheGroupKey = vendor.key;
       const cacheGroupModules = vendor.value.join('|');
-      const jsFilename = scripts.useCache
-        ? `${cacheGroupKey}.${HASH_NAME_PROD}.js`
+      const vendorFilename = scripts.useCache
+        ? `${cacheGroupKey}.${CHUNK.hash}.js`
         : `${cacheGroupKey}.js`;
 
       cacheGroups[cacheGroupKey] = {
@@ -94,22 +94,25 @@ function getSplitChunks(): object | boolean {
         chunks: 'initial',
         test: new RegExp(`[\\\\/](${cacheGroupModules})[\\\\/].*(?<!\\.css)$`),
         filename: BalmJS.file.assetsPath(
-          `${jsFolder}/${scripts.vendorName}/${jsFilename}`
+          `${jsFolder}/${scripts.vendorName}/${vendorFilename}`
         ), // Output: `js/vendor/customVendorName.js`
         enforce: true
       };
     }
   }
 
-  if (BalmJS.config.env.isProd && BalmJS.config.scripts.extractCss) {
-    // Custom styles in scripts
-    cacheGroups.css = {
-      name: 'css',
-      chunks: 'all',
-      test: /\.css$/,
-      enforce: true
-    };
-  }
+  // if (BalmJS.config.env.isProd && BalmJS.config.scripts.extractCss) {
+  //   // Custom styles in scripts
+  //   for (const entry of BalmJS.entries) {
+  //     const name = entry.key;
+  //     cacheGroups[`${name}Styles`] = {
+  //       type: 'css/mini-extract',
+  //       name,
+  //       chunks: (chunk: { name: string }) => chunk.name === name,
+  //       enforce: true
+  //     };
+  //   }
+  // }
 
   return Object.keys(cacheGroups).length ? { cacheGroups } : false;
 }

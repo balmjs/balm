@@ -67,14 +67,7 @@ const library: string | object = '';
 const loaders: RuleSetRule[] = [];
 const defaultLoaders: Partial<BalmLoaders> = {};
 const includeJsResource: string[] = [];
-const excludeUrlResource: string[] = [];
 const useEsModule = true;
-/**
- * Files: url-loader options
- *
- * @reference https://github.com/webpack-contrib/url-loader#options
- */
-const urlLoaderOptions: object = {};
 /**
  * Scripts: babel-loader options
  *
@@ -100,7 +93,7 @@ const alias: object = {};
 const plugins: object[] = [];
 const injectHtml = false;
 const htmlPluginOptions: object = {};
-const extractCss = false;
+// const extractCss = false;
 // Devtool
 const sourceMap: string | boolean = false;
 // Target
@@ -159,9 +152,7 @@ export default {
   loaders,
   defaultLoaders,
   includeJsResource,
-  excludeUrlResource,
   useEsModule,
-  urlLoaderOptions,
   babelLoaderOptions,
   postcssLoaderOptions,
   htmlLoaderOptions,
@@ -170,7 +161,7 @@ export default {
   plugins,
   injectHtml,
   htmlPluginOptions,
-  extractCss,
+  // extractCss,
   sourceMap,
   target,
   externals,

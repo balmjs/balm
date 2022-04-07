@@ -1,4 +1,4 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+// import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import {
   cssRegex,
   cssModuleRegex,
@@ -8,23 +8,24 @@ import {
 import { RuleSetRule } from '@balm-core/index';
 
 // common function to get style loaders
-const getStyleLoaders = (
+function getStyleLoaders(
   styleLoader: string | object,
   cssOptions: object,
   preProcessor = '',
   sassOptions = {}
-) => {
+) {
   const { sourceMap } = cssOptions as { sourceMap: Boolean };
 
   const loaders = [
-    BalmJS.config.env.isProd && BalmJS.config.scripts.extractCss
-      ? {
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-            esModule: BalmJS.config.scripts.useEsModule
-          }
-        }
-      : styleLoader,
+    // BalmJS.config.env.isProd && BalmJS.config.scripts.extractCss
+    //   ? {
+    //       loader: MiniCssExtractPlugin.loader,
+    //       options: {
+    //         esModule: BalmJS.config.scripts.useEsModule
+    //       }
+    //     }
+    //   : styleLoader,
+    styleLoader,
     {
       loader: requireModule.resolve('css-loader'),
       options: cssOptions
@@ -54,7 +55,7 @@ const getStyleLoaders = (
     });
   }
   return loaders;
-};
+}
 
 function cssLoader(): RuleSetRule[] {
   let styleLoader: string | object = {

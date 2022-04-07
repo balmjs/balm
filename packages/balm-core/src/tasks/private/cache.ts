@@ -1,8 +1,4 @@
-import {
-  ASSETS_KEYS,
-  ASYNC_SCRIPTS,
-  STATIC_ASSETS
-} from '../../config/constants.js';
+import { ASSETS_TYPES, CHUNK, ASSET } from '../../config/constants.js';
 import { LooseObject } from '@balm-core/index';
 
 class CacheTask extends BalmJS.BalmTask {
@@ -10,20 +6,20 @@ class CacheTask extends BalmJS.BalmTask {
     super('cache');
 
     const defaultIncludes: string[] = BalmJS.config.scripts.useCache
-      ? ASSETS_KEYS.filter((assetKey) => assetKey !== 'js').map((assetKey) =>
-          BalmJS.file.matchAllFiles(
-            (BalmJS.config.dest as LooseObject)[assetKey]
-          )
+      ? ASSETS_TYPES.filter((assetType) => assetType !== 'js').map(
+          (assetType) =>
+            BalmJS.file.matchAllFiles(
+              (BalmJS.config.dest as LooseObject)[assetType]
+            )
         )
-      : ASSETS_KEYS.map((assetKey) =>
+      : ASSETS_TYPES.map((assetType) =>
           BalmJS.file.matchAllFiles(
-            (BalmJS.config.dest as LooseObject)[assetKey]
+            (BalmJS.config.dest as LooseObject)[assetType]
           )
         );
     const defaultExcludes: string[] = [
-      node.path.join(`!${BalmJS.config.dest.js}`, ASYNC_SCRIPTS, '*'),
-      node.path.join(`!${BalmJS.config.dest.js}`, STATIC_ASSETS, '*'),
-      node.path.join(`!${BalmJS.config.dest.css}`, ASYNC_SCRIPTS, '*'),
+      node.path.join(`!${BalmJS.config.dest.js}`, CHUNK.dir, '*'),
+      node.path.join(`!${BalmJS.config.dest.js}`, ASSET.dir, '*'),
       node.path.join(`!${BalmJS.config.dest.base}`, BalmJS.config.pwa.manifest)
     ];
 

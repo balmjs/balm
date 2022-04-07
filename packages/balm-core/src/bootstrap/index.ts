@@ -1,5 +1,5 @@
 import checkConfig from './check_config.js';
-import { ASSETS_KEYS } from '../config/constants.js';
+import { ASSETS_TYPES } from '../config/constants.js';
 import {
   LooseObject,
   DeepPartial,
@@ -18,7 +18,7 @@ function createQuickPath(
   for (const pathKey of Object.keys((config.paths as LooseObject)[rootKey])) {
     const pathValue: string = (config.paths as LooseObject)[rootKey][pathKey];
     result[pathKey] =
-      rootKey === 'target' && ASSETS_KEYS.includes(pathKey)
+      rootKey === 'target' && ASSETS_TYPES.includes(pathKey)
         ? node.path.join(
             rootValue,
             BalmJS.config.assets.virtualDir,
@@ -53,10 +53,10 @@ function ready(config: BalmConfig): BalmConfig {
     config.assets.mainDir,
     BalmJS.file.assetsSuffixPath
   );
-  for (const assetKey of ASSETS_KEYS) {
-    (config.assets as LooseObject)[assetKey] = node.path.join(
+  for (const assetType of ASSETS_TYPES) {
+    (config.assets as LooseObject)[assetType] = node.path.join(
       config.assets.static,
-      (config.paths.target as LooseObject)[assetKey]
+      (config.paths.target as LooseObject)[assetType]
     );
   }
 

@@ -1,11 +1,11 @@
-import htmlLoader from './html.js';
-import babelLoader from './babel.js';
+import jsLoader from './babel.js';
 import cssLoader from './css.js';
-import urlLoader from './url.js';
+import htmlLoader from './html.js';
+import assetLoader from './asset.js';
 
 export default {
-  htmlLoader,
-  babelLoader,
+  jsLoader,
   cssLoader,
-  urlLoader
+  htmlLoader,
+  assetLoader
 };
