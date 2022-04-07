@@ -1,10 +1,7 @@
-const path = require('path');
-
-const projectRoot = path.resolve(__dirname, '..', '..');
-const workspace = path.join(projectRoot, 'test-workspace');
+const env = require('./env');
 
 const balmBaseConfig = {
-  workspace,
+  workspace: env.workspace,
   paths: {
     source: {
       css: 'styles',

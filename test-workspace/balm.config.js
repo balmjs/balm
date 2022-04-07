@@ -1,31 +1,27 @@
-const path = require('path');
+const env = require('./config/env');
 // const imageminPngquant = require('imagemin-pngquant');
 
 console.info('balm@zero');
 
-const projectRoot = path.resolve(__dirname, '..');
-const workspace = path.join(projectRoot, 'test-workspace');
-
 const config = {
-  workspace,
+  workspace: env.workspace,
   // useDefaults: false,
   styles: {
-    extname: 'scss'
-    // dartSass: true
+    extname: 'css'
     // sprites: ['icons', 'mdi']
   },
   scripts: {
     // bundler: 'esbuild',
-    lint: true
+    lint: true,
     // entry: {
     //   index: './src/scripts/index.js',
     //   'page-a': './src/scripts/page-a.js',
     //   'page-b': './src/scripts/page-b.js'
     // },
-    // injectHtml: true,
-    // htmlPluginOptions: {
-    //   template: 'src/templates/default.html'
-    // },
+    injectHtml: true,
+    htmlPluginOptions: {
+      template: 'src/templates/default.html'
+    }
     // extractCss: true
   },
   // images: {

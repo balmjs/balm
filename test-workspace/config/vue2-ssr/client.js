@@ -15,8 +15,8 @@ const scripts = Object.assign(base, {
     minify: {
       removeComments: false
     }
-  },
-  extractCss: true
+  }
+  // extractCss: true
 });
 
 const getConfig = (balm) => {

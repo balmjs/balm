@@ -7,10 +7,10 @@ const hello = () => import('./main-hello');
 
   greet();
 
-  console.info('[Async]', 'after');
-
-  ['c', 'd', 'e', 'f', 'g', 'a', 'b'].forEach((item) => {
+  ['c', 'd', 'e', 'f', 'g', 'a', 'b'].forEach(async (item) => {
     console.log(`Loading ${item}`);
-    import(`./async/${item}`);
+    await import(`./async/${item}`);
   });
+
+  console.info('[Async]', 'after');
 })();

@@ -1,12 +1,14 @@
-export class C {
-  private x = 10;
+import Student from './student';
 
-  getX = () => this.x;
-
-  setX = (newVal: number) => {
-    this.x = newVal;
-  };
+interface Person {
+  firstName: string;
+  lastName: string;
 }
 
-export let x = new C();
-export let y = { ...{ some: 'value' } };
+function greeter(person: Person) {
+  return 'Hello, ' + person.firstName + ' ' + person.lastName;
+}
+
+let user = new Student('Jane', 'M.', 'User');
+
+document.body.textContent = greeter(user);

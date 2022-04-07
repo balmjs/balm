@@ -4,10 +4,10 @@ module.exports = {
     'vendor-b': ['lodash'],
     'vendor-c': ['moment'],
     main: './spa/scripts/vendor-main.js'
-  },
-  optimization: {
-    splitChunks: {
-      maxInitialRequests: 4
-    }
   }
+  // optimization: {
+  //   splitChunks: {
+  //     maxInitialRequests: 4
+  //   }
+  // }
 };

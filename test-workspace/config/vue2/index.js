@@ -1,5 +1,5 @@
-const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
+const env = require('../env');
 const balmrc = require('../balmrc');
 
 module.exports = Object.assign(balmrc, {
@@ -26,18 +26,15 @@ module.exports = Object.assign(balmrc, {
         loader: 'vue-loader'
       }
     ],
-    urlLoaderOptions: {
-      esModule: false
-    },
     plugins: [new VueLoaderPlugin()],
     alias: {
-      '@': path.resolve(__dirname, '..', '..', 'vue2', 'scripts'),
+      '@': env.resolve('vue2/scripts'),
       vue$: 'vue/dist/vue.esm.js'
     },
     injectHtml: true,
     htmlPluginOptions: {
       template: 'vue2/templates/auto.html'
-    },
-    extractCss: true
+    }
+    // extractCss: true
   }
 });

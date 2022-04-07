@@ -1,9 +1,9 @@
-const path = require('path');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const MpPlugin = require('mp-webpack-plugin');
 const { src, dest, parallel } = require('gulp');
 const { spawn } = require('child_process');
+const env = require('../env');
 const balmrc = require('../balmrc');
 // const pxtorem = require('postcss-pxtorem');
 const publish = require('./balm.publish');
@@ -60,7 +60,7 @@ const getConfig = (balm) => {
       //   prefix: 'extra-'
       // },
       alias: {
-        '@': path.resolve(__dirname, '..', '..', 'mp', 'scripts'),
+        '@': env.resolve('mp/scripts'),
         vue$: 'vue/dist/vue.esm.js'
         // 'balm-ui': 'balm-ui/src/scripts/balm-ui.js',
         // 'balm-ui-plus': 'balm-ui/src/scripts/balm-ui-plus.js',

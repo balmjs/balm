@@ -1,4 +1,4 @@
-const path = require('path');
+const env = require('../env');
 const balmrc = require('../balmrc');
 
 module.exports = Object.assign(balmrc, {
@@ -8,12 +8,12 @@ module.exports = Object.assign(balmrc, {
   scripts: {
     // Using esbuild
     // bundler: 'esbuild',
-    // entry: './ts/scripts/main.ts'
+    // entry: './ts/scripts/index.ts'
     // Using webpack
     entry: {
-      main: './ts/scripts/main.ts'
+      main: './ts/scripts/index.ts'
     },
-    // FIXME: `ts-loader` bug - TypeError: times is not iterable
+    // NOTE: `ts-loader` < 9.2.8 bug - TypeError: times is not iterable
     loaders: [
       {
         test: /\.tsx?$/,
@@ -22,7 +22,7 @@ module.exports = Object.assign(balmrc, {
       }
     ],
     alias: {
-      '@': path.resolve(__dirname, '..', '..', 'ts', 'scripts')
+      '@': env.resolve('ts/scripts')
     }
   }
 });

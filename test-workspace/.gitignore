@@ -9,6 +9,7 @@ assets
 *.zip
 
 # Test Projects
+src/index.html
 */styles/sprites
 !vue/scripts/assets
 !vue2/scripts/assets

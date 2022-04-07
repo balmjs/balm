@@ -1,6 +1,6 @@
-const path = require('path');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader-next');
+const env = require('../env');
 const balmrc = require('../balmrc');
 
 module.exports = Object.assign(balmrc, {
@@ -22,9 +22,6 @@ module.exports = Object.assign(balmrc, {
         loader: 'vue-loader-next'
       }
     ],
-    urlLoaderOptions: {
-      esModule: false
-    },
     plugins: [
       new VueLoaderPlugin(),
       new webpack.DefinePlugin({
@@ -34,7 +31,7 @@ module.exports = Object.assign(balmrc, {
     ],
     alias: Object.assign(
       {
-        '@': path.resolve(__dirname, '..', '..', 'vue', 'scripts'),
+        '@': env.resolve('vue/scripts'),
         vue$: 'vue-next/dist/vue.esm-bundler.js'
       }
       // fix(vue@3.0.1+): __VUE_HMR_RUNTIME__ is not defined in development
@@ -46,7 +43,7 @@ module.exports = Object.assign(balmrc, {
     injectHtml: true,
     htmlPluginOptions: {
       template: 'vue/templates/auto.html'
-    },
-    extractCss: true
+    }
+    // extractCss: true
   }
 });

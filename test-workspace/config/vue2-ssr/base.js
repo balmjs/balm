@@ -1,9 +1,5 @@
-const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
-
-function resolve(dir) {
-  return path.join(__dirname, '..', '..', dir);
-}
+const env = require('../env');
 
 module.exports = {
   loaders: [
@@ -29,7 +25,7 @@ module.exports = {
     css: false
   },
   alias: {
-    '@': resolve('vue2-ssr/app/scripts'),
+    '@': env.resolve('vue2-ssr/app/scripts'),
     vue$: 'vue/dist/vue.esm.js'
   },
   plugins: [new VueLoaderPlugin()],

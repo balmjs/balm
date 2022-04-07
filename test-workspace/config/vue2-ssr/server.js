@@ -13,7 +13,10 @@ const scripts = Object.assign(base, {
   // compiling Vue components.
   target: 'node',
   // This tells the server bundle to use Node-style exports
-  libraryTarget: 'commonjs2',
+  library: {
+    // note there's no `name` here
+    type: 'commonjs2'
+  },
   // https://webpack.js.org/configuration/externals/#externals
   // https://github.com/liady/webpack-node-externals
   externals: [
