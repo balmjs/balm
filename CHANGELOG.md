@@ -5,11 +5,11 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
-## v4.5.1 / 2022-04-02
+## v4.5.2 / 2022-04-02
 
-### Chore
+### Bug Fixes
 
-- remove `css-minimizer-webpack-plugin` for `Ajv` bug
+- fix some bug for `Ajv`
 
 ## v4.5.0 / 2022-04-02
 
