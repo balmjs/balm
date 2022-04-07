@@ -1,5 +1,5 @@
 import TerserPlugin from 'terser-webpack-plugin';
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+// import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 // import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpackBundleAnalyzer from 'webpack-bundle-analyzer';
 import { merge } from 'webpack-merge';
@@ -39,8 +39,8 @@ function getProdConfig(
         new TerserPlugin({
           terserOptions,
           extractComments: false
-        }),
-        new CssMinimizerPlugin()
+        })
+        // new CssMinimizerPlugin()
       ]
     },
     plugins: [
