@@ -2,7 +2,7 @@ declare module 'async';
 declare module 'autoprefixer';
 declare module 'browser-sync';
 declare module 'connect-history-api-fallback';
-// declare module 'css-minimizer-webpack-plugin';
+declare module 'css-minimizer-webpack-plugin';
 declare module 'cssnano';
 declare module 'fancy-log';
 declare module 'gulp-load-plugins';

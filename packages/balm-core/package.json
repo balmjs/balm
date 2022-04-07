@@ -47,6 +47,7 @@
     "babel-loader": "^8.2.4",
     "browser-sync": "^2.27.9",
     "connect-history-api-fallback": "^1.6.0",
+    "css-minimizer-webpack-plugin": "^3.4.1",
     "css-loader": "^6.7.1",
     "cssnano": "^5.1.7",
     "del": "^6.0.0",
@@ -112,6 +113,9 @@
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^9.0.0"
+  },
+  "resolutions": {
+    "ajv": "^8.0.0"
   },
   "engines": {
     "node": ">=12.13.0"
