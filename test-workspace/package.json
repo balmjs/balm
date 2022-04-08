@@ -1,6 +1,6 @@
 {
   "name": "balm-test",
-  "version": "2022.4.7",
+  "version": "2022.4.8",
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "dev": "../packages/balm/bin/balm.js",
@@ -34,9 +34,9 @@
     "ftp:test": "../packages/balm/bin/balm.js --config config/ftp.js"
   },
   "dependencies": {
-    "axios": "^0.26",
+    "axios": "^0.26.0",
     "balm-ui": "^8",
-    "core-js": "^3.21",
+    "core-js": "^3.21.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "express": "^4.17.3",
@@ -44,7 +44,7 @@
     "kbone-api": "^0.2.1",
     "lib-flexible": "^0.3.2",
     "lodash": "^4.17.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.0",
     "ms": "^2.1.0",
     "normalize.css": "^8.0.1",
     "vue": "2",
@@ -66,7 +66,6 @@
     "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.0",
     "less-loader": "^10.2.0",
-    "mini-css-extract-plugin": "^2.6.0",
     "mp-webpack-plugin": "^1.6.0",
     "postcss-px-to-viewport": "^1.1.1",
     "postcss-pxtorem": "^6.0.0",
