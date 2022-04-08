@@ -91,7 +91,7 @@ yarn add -D balm@next
 OR
 
 ```sh
-npm install -g balm-core@next
+npm install -g balm-core@next # Not supported for now (npm bug)
 npm install -D balm@next
 ```
 
