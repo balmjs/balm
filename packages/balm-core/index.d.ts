@@ -98,6 +98,7 @@ export interface BalmScripts {
   plugins: object[];
   injectHtml: boolean;
   htmlPluginOptions: object;
+  extractCss: boolean;
   sourceMap: string | boolean;
   target: string | string[] | false;
   externals: string | string[] | object | Function | RegExp;

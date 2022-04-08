@@ -8,7 +8,7 @@ import PluginError from 'plugin-error';
 // Set env var for ORIGINAL cwd before anything touches it
 process.env.BALM_CWD = process.env.INIT_CWD || process.cwd();
 const gulpModule = path.join(
-  process.env.BALM || process.env.BALM_CWD,
+  process.env.BALM_ROOT || process.env.BALM_CWD,
   'node_modules',
   'gulp',
   'index.js'

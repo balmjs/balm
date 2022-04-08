@@ -72,7 +72,7 @@ function getSplitChunks(): object | boolean {
       : `${scripts.vendorName}.js`;
 
     cacheGroups = {
-      defaultVendors: {
+      allVendors: {
         name: 'vendors',
         chunks: 'all',
         test: /[\\/](node_modules|bower_components)[\\/]/,
@@ -83,14 +83,14 @@ function getSplitChunks(): object | boolean {
     // Custom vendors
     cacheGroups = {};
     for (const vendor of BalmJS.vendors) {
-      const cacheGroupKey = vendor.key;
+      const name = vendor.key;
       const cacheGroupModules = vendor.value.join('|');
       const vendorFilename = scripts.useCache
-        ? `${cacheGroupKey}.${CHUNK.hash}.js`
-        : `${cacheGroupKey}.js`;
+        ? `${name}.${CHUNK.hash}.js`
+        : `${name}.js`;
 
-      cacheGroups[cacheGroupKey] = {
-        name: cacheGroupKey,
+      cacheGroups[`${name}Scripts`] = {
+        name,
         chunks: 'initial',
         test: new RegExp(`[\\\\/](${cacheGroupModules})[\\\\/].*(?<!\\.css)$`),
         filename: BalmJS.file.assetsPath(
@@ -101,18 +101,19 @@ function getSplitChunks(): object | boolean {
     }
   }
 
-  // if (BalmJS.config.env.isProd && BalmJS.config.scripts.extractCss) {
-  //   // Custom styles in scripts
-  //   for (const entry of BalmJS.entries) {
-  //     const name = entry.key;
-  //     cacheGroups[`${name}Styles`] = {
-  //       type: 'css/mini-extract',
-  //       name,
-  //       chunks: (chunk: { name: string }) => chunk.name === name,
-  //       enforce: true
-  //     };
-  //   }
-  // }
+  if (BalmJS.config.env.isProd && BalmJS.config.scripts.extractCss) {
+    // Custom styles in scripts
+    for (const entry of BalmJS.entries) {
+      const name = entry.key;
+
+      cacheGroups[`${name}Styles`] = {
+        type: 'css/mini-extract',
+        name,
+        chunks: (chunk: { name: string }) => chunk.name === name,
+        enforce: true
+      };
+    }
+  }
 
   return Object.keys(cacheGroups).length ? { cacheGroups } : false;
 }

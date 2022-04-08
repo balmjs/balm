@@ -93,7 +93,7 @@ const alias: object = {};
 const plugins: object[] = [];
 const injectHtml = false;
 const htmlPluginOptions: object = {};
-// const extractCss = false;
+const extractCss = false;
 // Devtool
 const sourceMap: string | boolean = false;
 // Target
@@ -161,7 +161,7 @@ export default {
   plugins,
   injectHtml,
   htmlPluginOptions,
-  // extractCss,
+  extractCss,
   sourceMap,
   target,
   externals,

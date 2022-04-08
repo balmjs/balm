@@ -74,7 +74,6 @@ function checkConfig(): void {
   // For v4
   upgradeDeprecated('4.5.0', 'scripts', 'excludeUrlResource');
   upgradeDeprecated('4.5.0', 'scripts', 'urlLoaderOptions');
-  upgradeDeprecated('4.5.0', 'scripts', 'extractCss');
 }
 
 export default checkConfig;
