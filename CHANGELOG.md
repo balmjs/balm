@@ -5,13 +5,13 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
-## v4.5.3 / 2022-04-02
+## v4.5.4 / 2022-04-08
 
 ### Bug Fixes
 
 - fix some bug for `Ajv`
 
-## v4.5.0 / 2022-04-02
+## v4.5.0 / 2022-04-07
 
 ### Features
 

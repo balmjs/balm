@@ -41,7 +41,6 @@
     "directory": "packages/balm-core"
   },
   "dependencies": {
-    "ajv": "^8",
     "ansi-colors": "^4.1.1",
     "async": "^3.2.3",
     "autoprefixer": "^10.4.4",
@@ -95,7 +94,7 @@
     "through2-concurrent": "^2.0.0",
     "tslib": "^2.3.1",
     "vinyl-sourcemaps-apply": "^0.2.1",
-    "webpack": "^5.71.0",
+    "webpack": "^5.72.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-dev-middleware": "^5.3.1",
     "webpack-hot-middleware": "^2.25.1",
