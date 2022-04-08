@@ -5,11 +5,11 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
-## v4.5.4 / 2022-04-08
+## v4.5.5 / 2022-04-08
 
 ### Bug Fixes
 
-- fix some bug for `Ajv`
+- fix npm bug for `Ajv`
 
 ## v4.5.0 / 2022-04-07
 
@@ -23,7 +23,7 @@
 
 ### BREAKING CHANGES
 
-- remove config: `scripts.excludeUrlResource`, `scripts.urlLoaderOptions` and `scripts.extractCss`
+- remove config: `scripts.excludeUrlResource`, `scripts.urlLoaderOptions`
 - update config: `script.defaultLoaders: BalmLoaders`
 
   ```ts
