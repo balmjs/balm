@@ -72,6 +72,7 @@ function checkConfig(): void {
   upgradeDeprecated('3.19.0', 'scripts', 'useCache');
 
   // For v4
+  upgradeDeprecated('4.0.0', 'scripts', 'libraryTarget');
   upgradeDeprecated('4.5.0', 'scripts', 'excludeUrlResource');
   upgradeDeprecated('4.5.0', 'scripts', 'urlLoaderOptions');
 }

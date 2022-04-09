@@ -8,7 +8,6 @@ import {
   Configuration,
   InputOptions,
   OutputOptions,
-  WatcherOptions,
   BuildOptions,
   TransformOptions
 } from '@balm-core/index';
@@ -131,7 +130,6 @@ const ie8 = false;
  */
 const inputOptions: InputOptions = {};
 const outputOptions: OutputOptions = {};
-const watchOptions: WatcherOptions = {};
 
 /**
  * Esbuild bundler
@@ -174,7 +172,6 @@ export default {
   // rollup
   inputOptions,
   outputOptions,
-  watchOptions,
   // esbuild
   buildOptions,
   useTransform,

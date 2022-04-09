@@ -65,7 +65,6 @@ export type InputOptions = import('rollup').InputOptions;
 export type OutputOptions = import('rollup').OutputOptions;
 export type RollupOutput = import('rollup').RollupOutput;
 export type RollupBuild = import('rollup').RollupBuild;
-export type WatcherOptions = import('rollup').WatcherOptions;
 
 // Esbuild
 export type BuildOptions = import('esbuild').BuildOptions;
@@ -111,7 +110,6 @@ export interface BalmScripts {
   // rollup
   inputOptions: Omit<InputOptions, 'acorn'>; // incompatible
   outputOptions: OutputOptions;
-  watchOptions: WatcherOptions;
   // esbuild
   buildOptions: BuildOptions;
   useTransform: boolean;
