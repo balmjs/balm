@@ -13,6 +13,8 @@
   <p>An universal Front-End workflow for webapps</p>
 </div>
 
+> [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
+
 ## Introduction
 
 BalmJS prescribes best practices and tools to help you stay productive.
@@ -91,7 +93,7 @@ yarn add -D balm@next
 OR
 
 ```sh
-npm install -g balm-core@next
+npm install -g balm-core@next # Not supported for now (npm bug)
 npm install -D balm@next
 ```
 

@@ -1,4 +1,4 @@
-// Reference `gulp-rename@5.1.0`
+// Reference `gulp-sass@5.1.0`
 import { Transform, TransformCallback } from 'node:stream';
 import sass from 'sass';
 import replaceExtension from 'replace-ext';
@@ -52,7 +52,7 @@ const filePush = (
       );
     }
 
-    // Remove 'stdin' from souces and replace with filenames!
+    // Remove 'stdin' from sources and replace with filenames!
     sassMap.sources = sassMap.sources.filter(
       (src: string) => src !== 'stdin' && src
     );

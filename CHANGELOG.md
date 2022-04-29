@@ -5,6 +5,14 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+> [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
+
+## v4.6.0 / 2022-04-29
+
+### Chore
+
+- update all dependencies for `node@12+`, `postcss@8`, `webpack@5`
+
 ## v4.5.5 / 2022-04-08
 
 ### Bug Fixes

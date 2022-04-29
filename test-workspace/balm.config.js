@@ -7,7 +7,7 @@ const config = {
   workspace: env.workspace,
   // useDefaults: false,
   styles: {
-    extname: 'css'
+    extname: 'scss'
     // sprites: ['icons', 'mdi']
   },
   scripts: {
