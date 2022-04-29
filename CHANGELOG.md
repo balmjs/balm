@@ -5,6 +5,14 @@
 - `balm-core`: globally for workflow compiler
 - `balm`: locally for workflow runtime
 
+> :tada: [`balm-core@next`](https://github.com/balmjs/balm/tree/main)(v4) supports for `node@12+`, `sass@latest`, `postcss@8`, `webpack@5`
+
+## v3.23.0 / 2022-04-29
+
+### Chore
+
+- update all dependencies for `node@10.13.0+`, `postcss@7`, `webpack@4`
+
 ## v3.22.0 / 2022-02-11
 
 ### Chore

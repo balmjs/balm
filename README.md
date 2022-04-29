@@ -13,6 +13,8 @@
   <p>An universal Front-End workflow for webapps</p>
 </div>
 
+> :tada: [`balm@next`](https://github.com/balmjs/balm/tree/main)(v4) supports for `node@12+`, `sass@latest`, `postcss@8`, `webpack@5`
+
 ## Introduction
 
 BalmJS prescribes best practices and tools to help you stay productive.

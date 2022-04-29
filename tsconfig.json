@@ -2,7 +2,7 @@
   "compilerOptions": {
     // Project Options
     "importHelpers": true,
-    "lib": ["ES2018", "ESNext"],
+    "lib": ["DOM", "ES2018", "ESNext"],
     "module": "CommonJS",
     "outDir": "packages/balm-core/tslib",
     "removeComments": true,

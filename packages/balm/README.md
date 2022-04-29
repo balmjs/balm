@@ -7,14 +7,13 @@
 
 [![NPM version][balm-image]][balm-url]
 [![License][license-image]][license-url]
-[![Dependency Status][deps-image]][deps-url]
-[![Build Status][travis-image]][travis-url]
-[![Build Status][appveyor-image]][appveyor-url]
 [![Coverage Percentage][cover-image]][cover-url]
 
   <h1>BalmJS</h1>
   <p>An universal Front-End workflow for webapps</p>
 </div>
+
+> :tada: [`balm@next`](https://github.com/balmjs/balm/tree/main)(v4) supports for `node@12+`, `sass@latest`, `postcss@8`, `webpack@5`
 
 ## Introduction
 
@@ -173,25 +172,19 @@ We'd love for you to contribute and make BalmJS even better than it is today! Pl
 
 © 2016-present, [Elf-mousE](http://elf-mouse.me/)
 
-[balm-core-image]: https://badge.fury.io/js/balm-core.svg
+[balm-core-image]: https://img.shields.io/npm/v/balm-core.svg
 [balm-core-url]: https://npmjs.org/package/balm-core
-[balm-image]: https://badge.fury.io/js/balm.svg
+[balm-image]: https://img.shields.io/npm/v/balm.svg
 [balm-url]: https://npmjs.org/package/balm
 [license-image]: https://img.shields.io/npm/l/balm-core.svg?sanitize=true
 [license-url]: https://www.npmjs.com/package/balm-core
-[deps-image]: https://david-dm.org/balmjs/balm.svg?path=packages/balm&theme=shields.io
-[deps-url]: https://david-dm.org/balmjs/balm?path=packages/balm
-[travis-image]: https://travis-ci.com/balmjs/balm.svg?branch=master
-[travis-url]: https://travis-ci.com/balmjs/balm
-[appveyor-image]: https://ci.appveyor.com/api/projects/status/github/balmjs/balm?svg=true
-[appveyor-url]: https://ci.appveyor.com/project/balmjs/balm
 [cover-image]: https://coveralls.io/repos/balmjs/balm/badge.svg
 [cover-url]: https://coveralls.io/r/balmjs/balm
-[balm-cli-image]: https://badge.fury.io/js/balm-cli.svg
+[balm-cli-image]: https://img.shields.io/npm/v/balm-cli.svg
 [balm-cli-url]: https://npmjs.org/package/balm-cli
-[balm-ui-lite-image]: https://badge.fury.io/js/balm-ui-lite.svg
+[balm-ui-lite-image]: https://img.shields.io/npm/v/balm-ui-lite.svg
 [balm-ui-lite-url]: https://npmjs.org/package/balm-ui-lite
-[balm-ui-image]: https://badge.fury.io/js/balm-ui.svg
+[balm-ui-image]: https://img.shields.io/npm/v/balm-ui.svg
 [balm-ui-url]: https://npmjs.org/package/balm-ui
-[balm-scroll-image]: https://badge.fury.io/js/balm-scroll.svg
+[balm-scroll-image]: https://img.shields.io/npm/v/balm-scroll.svg
 [balm-scroll-url]: https://npmjs.org/package/balm-scroll

@@ -1,4 +1,4 @@
-// Reference `gulp-rename@5.1.0`
+// Reference `gulp-sass@5.1.0`
 import { Transform, TransformCallback } from 'stream';
 import sass from 'sass';
 import replaceExtension from 'replace-ext';
