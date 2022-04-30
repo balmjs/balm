@@ -1,5 +1,7 @@
-$rootFontSize: 375 / 10;
+@use 'sass:math';
+
+$rootFontSize: 37.5;
 
 @function px2rem($size) {
-  @return ($size / $rootFontSize) + rem;
+  @return math.div($size, $rootFontSize) + rem;
 }
