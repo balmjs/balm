@@ -70,7 +70,7 @@
     "less": "^4.1.2",
     "mini-css-extract-plugin": "1",
     "modernizr": "^3.12.0",
-    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "optimize-css-assets-webpack-plugin": "5",
     "parents": "^1.0.1",
     "plugin-error": "^1.0.1",
     "postcss": "7",
@@ -78,7 +78,7 @@
     "postcss-load-config": "2",
     "postcss-loader": "4",
     "postcss-preset-env": "6",
-    "postcss-safe-parser": "5",
+    "postcss-safe-parser": "4",
     "pretty-bytes": "5",
     "readable-stream": "^3.6.0",
     "replace-ext": "^2.0.0",
@@ -109,10 +109,10 @@
     "@types/webpack": "4"
   },
   "optionalDependencies": {
-    "imagemin-gifsicle": "^7.0.0",
-    "imagemin-mozjpeg": "^9.0.0",
-    "imagemin-optipng": "^8.0.0",
-    "imagemin-svgo": "^9.0.0"
+    "imagemin-gifsicle": "7",
+    "imagemin-mozjpeg": "9",
+    "imagemin-optipng": "8",
+    "imagemin-svgo": "9"
   },
   "engines": {
     "node": ">=10.13.0"
