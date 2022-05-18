@@ -1,3 +1,3 @@
-@import 'global/index';
-@import 'layouts/main';
-@import 'pages/home';
+@use './global';
+@use './layouts';
+@use './pages';

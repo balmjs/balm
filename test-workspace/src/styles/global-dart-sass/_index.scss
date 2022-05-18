@@ -1,4 +1,4 @@
 /*! license */
-@forward './var';
-@forward './vendor';
+@forward './vars';
 @forward './mixins';
+@use './vendors';
