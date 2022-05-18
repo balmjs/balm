@@ -1,1 +1,1 @@
-export const isMP = process.env.isMiniprogram;
+export const isMP = !!process.env.isMiniprogram;

@@ -4,7 +4,7 @@
     thx
     <a href="//balm.js.org/">BalmJS</a>
   </p>
-  <ui-button outlined>Test</ui-button>
+  <!-- <ui-button outlined>Test</ui-button> -->
 </template>
 
 <script>

@@ -1,4 +1,5 @@
 const env = require('./config/env');
+const webpack = require('webpack');
 // const imageminPngquant = require('imagemin-pngquant');
 
 console.info('balm@zero');
@@ -8,6 +9,7 @@ const config = {
   // useDefaults: false,
   styles: {
     extname: 'scss'
+    // entry: 'main.dart.scss' // ['main.scss', 'main.dart.scss']
     // sprites: ['icons', 'mdi']
   },
   scripts: {
@@ -21,7 +23,26 @@ const config = {
     injectHtml: true,
     htmlPluginOptions: {
       template: 'src/templates/default.html'
-    }
+    },
+    // alias: {
+    //   process: 'process/browser'
+    // },
+    plugins: [
+      // new webpack.ProvidePlugin({
+      //   process: require.resolve('process/browser')
+      // }),
+      new webpack.DefinePlugin({
+        PRODUCTION: JSON.stringify(true),
+        VERSION: JSON.stringify('5fa3b9'),
+        BROWSER_SUPPORTS_HTML5: true,
+        TWO: '1+1',
+        'typeof window': JSON.stringify('object'),
+        'process.env.DEBUG': JSON.stringify(process.env.DEBUG)
+      })
+      // new webpack.EnvironmentPlugin({
+      //   DEBUG: false
+      // })
+    ]
     // extractCss: true
   },
   // images: {

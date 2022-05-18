@@ -1,3 +1,4 @@
+const devWithMP = process.argv.includes('--with-mp');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const MpPlugin = require('mp-webpack-plugin');
@@ -9,12 +10,12 @@ const balmrc = require('../balmrc');
 const publish = require('./balm.publish');
 
 const getConfig = (balm) => {
-  let { isMP, isDev } = balm.config.env;
+  const { isMP, isDev } = balm.config.env;
 
-  let config = Object.assign(balmrc, {
+  const config = Object.assign(balmrc, {
     server: {
       next: () => {
-        if (!isMP) {
+        if (!isMP && devWithMP) {
           spawn('npm', ['run', 'mp:dev'], { stdio: 'inherit' });
         }
       }
@@ -49,7 +50,9 @@ const getConfig = (balm) => {
         ...(isMP
           ? [
               new webpack.DefinePlugin({
-                'process.env.isMiniprogram': process.env.isMiniprogram // 注入环境变量，用于业务代码判断
+                'process.env': {
+                  isMiniprogram: process.env.isMiniprogram
+                }
               }),
               new MpPlugin(require('./wx.kbone.config'))
             ]

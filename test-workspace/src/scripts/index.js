@@ -1,3 +1,4 @@
+import './config';
 // import '../styles/main.css';
 
 // NOTE: test for ES6
