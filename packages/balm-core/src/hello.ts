@@ -1,3 +1,4 @@
+import { versions } from 'node:process';
 import { createRequire } from 'node:module';
 import fs from 'node:fs';
 import { URL } from 'node:url';
@@ -15,11 +16,13 @@ const balmCorePkg: {
 global.requireModule = requireModule;
 global.BalmJS = {
   version: balmCorePkg.version,
-  emitter: new EventEmitter()
+  emitter: new EventEmitter(),
+  useCacache: +versions.node.split('.')[0] >= 18
 } as any;
 
-BalmJS.loading = true;
-
-cacheBalmCore();
+if (!BalmJS.useCacache) {
+  BalmJS.loading = true;
+  cacheBalmCore();
+}
 
 export default balmCorePkg.version;

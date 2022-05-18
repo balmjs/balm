@@ -12,8 +12,10 @@ class Balm {
   constructor() {
     this.#config = setConfig({});
 
-    BalmJS.loading = false;
-    loading.succeed();
+    if (!BalmJS.useCacache) {
+      BalmJS.loading = false;
+      loading.succeed();
+    }
   }
 
   get config(): DeepPartial<BalmConfig> {

@@ -29,6 +29,7 @@ interface BalmStyles {
   extname: string;
   minify: boolean;
   atImportPaths: string[];
+  entry: string | string[];
   options: object;
   sassOptions: object;
   lessOptions: object;
@@ -92,6 +93,8 @@ export interface BalmScripts {
   babelLoaderOptions: object;
   postcssLoaderOptions: Partial<PostcssLoaderOptions>;
   htmlLoaderOptions: object;
+  imageAssetType: string;
+  imageInlineSizeLimit: number;
   extensions: string[];
   alias: object;
   plugins: object[];

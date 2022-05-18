@@ -80,11 +80,13 @@ const babelLoaderOptions: object = {};
  */
 const postcssLoaderOptions: Partial<PostcssLoaderOptions> = {};
 /**
- * Templating: html-loader options
+ * Template: html-loader options
  *
  * @reference https://github.com/webpack-contrib/html-loader#options
  */
 const htmlLoaderOptions: object = {};
+const imageAssetType = 'asset';
+const imageInlineSizeLimit = 8096; // 8kb
 // Resolve
 const extensions: string[] = [];
 const alias: object = {};
@@ -154,6 +156,8 @@ export default {
   babelLoaderOptions,
   postcssLoaderOptions,
   htmlLoaderOptions,
+  imageAssetType,
+  imageInlineSizeLimit,
   extensions,
   alias,
   plugins,

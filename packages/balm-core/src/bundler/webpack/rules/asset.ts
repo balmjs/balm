@@ -9,7 +9,12 @@ function assetLoader(): RuleSetRule[] {
     // A missing `test` is equivalent to a match.
     {
       test: imgRegex,
-      type: 'asset/resource',
+      type: BalmJS.config.scripts.imageAssetType,
+      parser: {
+        dataUrlCondition: {
+          maxSize: BalmJS.config.scripts.imageInlineSizeLimit
+        }
+      },
       generator: {
         filename: BalmJS.file.assetsPath(
           `${ASSET.dir}/${BalmJS.config.paths.target.img}/[name].${ASSET.hash}[ext]`

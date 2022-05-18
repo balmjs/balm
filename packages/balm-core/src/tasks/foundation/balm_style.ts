@@ -18,11 +18,25 @@ class BalmStyleTask extends BalmTask {
         extname = 'css';
     }
 
-    this.defaultInput = node.path.join(
-      BalmJS.config.src.css,
-      '**',
-      `!(_*).${extname}`
-    );
+    if (Array.isArray(BalmJS.config.styles.entry)) {
+      this.defaultInput = BalmJS.config.styles.entry.map((styleEntry) =>
+        node.path.join(BalmJS.config.src.css, styleEntry)
+      );
+    } else {
+      if (BalmJS.config.styles.entry) {
+        this.defaultInput = node.path.join(
+          BalmJS.config.src.css,
+          BalmJS.config.styles.entry
+        );
+      } else {
+        this.defaultInput = node.path.join(
+          BalmJS.config.src.css,
+          '**',
+          `!(_*).${extname}`
+        );
+      }
+    }
+
     this.defaultOutput = BalmJS.config.env.isMP
       ? node.path.join(
           BalmJS.config.dest.base,
@@ -33,6 +47,10 @@ class BalmStyleTask extends BalmTask {
   }
 
   handleStyle(style: string, output: string, options?: object): any {
+    BalmJS.logger.debug(`${this.name} entry`, this.defaultInput, {
+      pre: true
+    });
+
     const taskName = `${this.name} task`;
     const shouldUseSourceMap = !(
       BalmJS.config.env.isProd || BalmJS.config.styles.minify

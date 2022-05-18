@@ -1,6 +1,7 @@
 const extname = 'css';
 const minify = false;
 const atImportPaths: string[] = [];
+const entry: string | string[] = '';
 /**
  * Cssnano optimisations
  *
@@ -54,6 +55,7 @@ export default {
   extname,
   minify,
   atImportPaths,
+  entry,
   options,
   sassOptions,
   lessOptions,

@@ -9,11 +9,6 @@ function getDevConfig(
   return merge(getCommonConfig(webpack, scripts), {
     mode: 'development',
     plugins: [
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(
-          process.env.NODE_ENV || 'development'
-        )
-      }),
       // This is necessary to emit hot updates
       new webpack.HotModuleReplacementPlugin()
     ],

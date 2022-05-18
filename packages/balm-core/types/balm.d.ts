@@ -26,6 +26,7 @@ interface BalmLogger {
 }
 
 interface BalmFile {
+  resolveApp: (relativePath: string) => string;
   publicUrlOrPath: string;
   stylePaths: string[];
   assetsSuffixPath: string;
@@ -94,4 +95,5 @@ export default interface BalmGlobal extends Balm {
   webpackCompiler: any;
   loading: boolean;
   emitter: NodeJS.EventEmitter;
+  useCacache: boolean;
 }

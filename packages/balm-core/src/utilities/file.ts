@@ -3,10 +3,12 @@ import { PUBLIC_URL } from '../config/constants.js';
 
 // Make sure any symlinks in the project folder are resolved
 const appDirectory = node.fs.realpathSync(process.cwd()) as string;
-const resolveApp = (relativePath: string): string =>
-  node.path.resolve(appDirectory, relativePath);
 
 class File {
+  resolveApp(relativePath: string): string {
+    return node.path.resolve(appDirectory, relativePath);
+  }
+
   get publicUrlOrPath(): string {
     // We use `PUBLIC_URL` environment variable or "homepage" field to infer
     // "public path" at which the app is served.
@@ -15,7 +17,7 @@ class File {
     // We can't use a relative path in HTML because we don't want to load something
     // like /todos/42/static/js/bundle.7289d.js. We have to know the root.
     return getPublicUrlOrPath(
-      (requireModule(resolveApp('package.json')) as { homepage?: string })
+      (requireModule(this.resolveApp('package.json')) as { homepage?: string })
         .homepage,
       process.env.PUBLIC_URL
     );

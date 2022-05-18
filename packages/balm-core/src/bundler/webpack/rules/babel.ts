@@ -2,7 +2,15 @@ import { jsRegex } from '../config/regex.js';
 import { RuleSetRule } from '@balm-core/index';
 
 function jsLoader(): RuleSetRule {
-  const options = Object.assign({}, BalmJS.config.scripts.babelLoaderOptions);
+  const options = Object.assign(
+    {
+      // This is a feature of `babel-loader` for webpack (not Babel itself).
+      // It enables caching results in ./node_modules/.cache/babel-loader/
+      // directory for faster rebuilds.
+      cacheDirectory: true
+    },
+    BalmJS.config.scripts.babelLoaderOptions
+  );
 
   // Process application JS with Babel.
   // The preset includes JSX, Flow, TypeScript, and some ESnext features.
