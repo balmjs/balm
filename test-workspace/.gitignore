@@ -10,6 +10,7 @@ assets
 
 # Test Projects
 */styles/sprites
+src/index.html
 !vue/scripts/assets
 !vue3/scripts/assets
 !vue-ssr/app/scripts/assets

@@ -11,6 +11,7 @@ const config = {
   // useDefaults: false,
   styles: {
     extname: 'scss'
+    // entry: 'main.dart.scss' // ['main.scss', 'main.dart.scss']
     // sprites: ['icons', 'mdi']
   },
   scripts: {
