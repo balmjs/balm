@@ -29,6 +29,7 @@ interface BalmStyles {
   extname: string;
   minify: boolean;
   atImportPaths: string[];
+  entry: string | string[];
   options: object;
   sassOptions: object;
   lessOptions: object;

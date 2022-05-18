@@ -7,12 +7,15 @@ import loading from './utilities/loading';
 import { DeepPartial, BalmConfig } from '@balm-core/index';
 
 class Balm {
-  #config: BalmConfig;
+  #config: any;
 
   constructor() {
     BalmJS.loading = false;
-    loading.succeed();
-    this.#config = BalmJS.config;
+
+    if (!BalmJS.useCacache) {
+      loading.succeed();
+      this.#config = BalmJS.config;
+    }
   }
 
   get config(): DeepPartial<BalmConfig> {

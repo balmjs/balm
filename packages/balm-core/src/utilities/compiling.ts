@@ -4,13 +4,13 @@ class BalmCompiling {
   #firstCompile = true;
 
   start(): void {
-    if (this.#firstCompile) {
+    if (!BalmJS.useCacache && this.#firstCompile) {
       loading.render('Compiling to JS...');
     }
   }
 
   stop(): void {
-    if (this.#firstCompile) {
+    if (!BalmJS.useCacache && this.#firstCompile) {
       this.#firstCompile = false;
       loading.clear();
     }

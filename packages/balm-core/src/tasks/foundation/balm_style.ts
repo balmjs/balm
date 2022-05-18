@@ -18,11 +18,25 @@ class BalmStyleTask extends BalmTask {
         extname = 'css';
     }
 
-    this.defaultInput = path.join(
-      BalmJS.config.src.css,
-      '**',
-      `!(_*).${extname}`
-    );
+    if (Array.isArray(BalmJS.config.styles.entry)) {
+      this.defaultInput = BalmJS.config.styles.entry.map((styleEntry) =>
+        path.join(BalmJS.config.src.css, styleEntry)
+      );
+    } else {
+      if (BalmJS.config.styles.entry) {
+        this.defaultInput = path.join(
+          BalmJS.config.src.css,
+          BalmJS.config.styles.entry
+        );
+      } else {
+        this.defaultInput = path.join(
+          BalmJS.config.src.css,
+          '**',
+          `!(_*).${extname}`
+        );
+      }
+    }
+
     this.defaultOutput = BalmJS.config.env.isMP
       ? path.join(
           BalmJS.config.dest.base,
