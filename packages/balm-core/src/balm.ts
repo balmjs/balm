@@ -10,11 +10,11 @@ class Balm {
   #config: any;
 
   constructor() {
-    BalmJS.loading = false;
+    this.#config = BalmJS.config;
 
     if (!BalmJS.useCacache) {
+      BalmJS.loading = false;
       loading.succeed();
-      this.#config = BalmJS.config;
     }
   }
 
