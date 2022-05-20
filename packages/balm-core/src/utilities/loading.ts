@@ -29,7 +29,7 @@ class BalmLoading {
 
   succeed() {
     this.clear();
-    console.log(`BalmJS version: ${version}`);
+    console.log(`BalmJS core version: ${version}`);
   }
 }
 
