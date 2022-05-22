@@ -56,12 +56,12 @@ function getLoaders(customLoaders: RuleSetRule[]): RuleSetRule[] {
       module: {
         rules: customLoaders
       }
+    },
+    {
+      module: {
+        rules: [fileLoader()]
+      }
     }
-    // {
-    //   module: {
-    //     rules: [fileLoader()]
-    //   }
-    // }
   );
   const defaultModule = (result as any).module;
 
