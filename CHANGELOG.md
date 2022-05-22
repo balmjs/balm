@@ -7,6 +7,29 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.7.0 / 2022-05-22
+
+### Features
+
+- add dotenv files support
+- add custom file loader for webpack
+- update config
+  - `styles.entry`: string | string[];
+  - `scripts.imageAssetType`: string;
+  - `scripts.imageInlineSizeLimit`: number;
+  - `scripts.nodeEnv`: object;
+
+### Chore
+
+- update dependencies
+  - `css-minimizer-webpack-plugin`: 3.x -> 4.x
+  - `postcss-loader`: 6.x -> 7.x
+  - `sass-loader`: 12.x -> 13.x
+
+### BREAKING CHANGES
+
+- minimum supported Node.js version is `14.15.0`
+
 ## v4.6.0 / 2022-04-29
 
 ### Chore
