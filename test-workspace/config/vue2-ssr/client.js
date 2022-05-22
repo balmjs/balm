@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const base = require('./base');
 const balmrc = require('../balmrc');
@@ -53,11 +52,11 @@ const getConfig = (balm) => {
     // This plugins generates `vue-ssr-client-manifest.json` in the
     // output directory.
     balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
-      new webpack.DefinePlugin({
-        'process.env.VUE_ENV': '"client"'
-      }),
       new VueSSRClientPlugin()
     ]);
+    balmConfig.scripts.nodeEnv = {
+      VUE_ENV: 'client'
+    };
   }
 
   // console.log('client config', balmConfig);

@@ -1,5 +1,4 @@
 const devWithMP = process.argv.includes('--with-mp');
-const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const MpPlugin = require('mp-webpack-plugin');
 const { src, dest, parallel } = require('gulp');
@@ -47,17 +46,13 @@ const getConfig = (balm) => {
       ],
       plugins: [
         new VueLoaderPlugin(),
-        ...(isMP
-          ? [
-              new webpack.DefinePlugin({
-                'process.env': {
-                  isMiniprogram: process.env.isMiniprogram
-                }
-              }),
-              new MpPlugin(require('./wx.kbone.config'))
-            ]
-          : [])
+        ...(isMP ? [new MpPlugin(require('./wx.kbone.config'))] : [])
       ],
+      nodeEnv: isMP
+        ? {
+            isMiniprogram: process.env.isMiniprogram
+          }
+        : {},
       // extractCss: {
       //   enabled: env.isProd,
       //   prefix: 'extra-'

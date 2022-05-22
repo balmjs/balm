@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const base = require('./base');
@@ -41,11 +40,11 @@ const balmConfig = Object.assign(balmrc, {
 // into a single JSON file. The default file name will be
 // `vue-ssr-server-bundle.json`
 balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
-  new webpack.DefinePlugin({
-    'process.env.VUE_ENV': '"server"'
-  }),
   new VueSSRServerPlugin()
 ]);
+balmConfig.scripts.nodeEnv = {
+  VUE_ENV: 'server'
+};
 
 // console.log('server config', balmConfig);
 
