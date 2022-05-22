@@ -48,8 +48,8 @@
     "browser-sync": "^2.27.10",
     "connect-history-api-fallback": "^1.6.0",
     "css-loader": "^6.7.1",
-    "css-minimizer-webpack-plugin": "^3.4.1",
-    "cssnano": "^5.1.8",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "cssnano": "^5.1.9",
     "del": "^6.1.0",
     "dotenv": "^16.0.1",
     "dotenv-expand": "^8.0.3",
@@ -75,19 +75,19 @@
     "modernizr": "^3.12.0",
     "parents": "^1.0.1",
     "plugin-error": "^1.0.1",
-    "postcss": "^8.4.13",
+    "postcss": "^8.4.14",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.1.0",
     "postcss-load-config": "^3.1.4",
-    "postcss-loader": "6.2.1",
-    "postcss-preset-env": "^7.5.0",
+    "postcss-loader": "7.0.0",
+    "postcss-preset-env": "^7.6.0",
     "pretty-bytes": "^6.0.0",
     "readable-stream": "^3.6.0",
     "replace-ext": "^2.0.0",
-    "rollup": "^2.73.0",
+    "rollup": "^2.74.1",
     "rollup-plugin-terser": "^7.0.2",
-    "sass": "^1.51.0",
-    "sass-loader": "^12.6.0",
+    "sass": "^1.52.1",
+    "sass-loader": "^13.0.0",
     "ssh2": "^1.10.0",
     "strip-ansi": "^7.0.1",
     "style-loader": "^3.3.1",
@@ -99,7 +99,7 @@
     "vinyl-sourcemaps-apply": "^0.2.1",
     "webpack": "^5.72.1",
     "webpack-bundle-analyzer": "^4.5.0",
-    "webpack-dev-middleware": "^5.3.2",
+    "webpack-dev-middleware": "^5.3.3",
     "webpack-hot-middleware": "^2.25.1",
     "webpack-merge": "^5.8.0",
     "workbox-build": "^6.5.3"
@@ -118,6 +118,6 @@
     "imagemin-svgo": "^9.0.0"
   },
   "engines": {
-    "node": ">=12.13.0"
+    "node": ">=14.15.0"
   }
 }

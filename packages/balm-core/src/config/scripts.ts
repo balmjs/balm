@@ -92,6 +92,7 @@ const extensions: string[] = [];
 const alias: object = {};
 // Plugins
 const plugins: object[] = [];
+const nodeEnv: object = {};
 const injectHtml = false;
 const htmlPluginOptions: object = {};
 const extractCss = false;
@@ -161,6 +162,7 @@ export default {
   extensions,
   alias,
   plugins,
+  nodeEnv,
   injectHtml,
   htmlPluginOptions,
   extractCss,

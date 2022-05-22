@@ -98,6 +98,7 @@ export interface BalmScripts {
   extensions: string[];
   alias: object;
   plugins: object[];
+  nodeEnv: object;
   injectHtml: boolean;
   htmlPluginOptions: object;
   extractCss: boolean;
