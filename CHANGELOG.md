@@ -7,6 +7,12 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.7.1 / 2022-05-28
+
+### Bug Fixes
+
+- remove custom file loader for webpack
+
 ## v4.7.0 / 2022-05-22
 
 ### Features

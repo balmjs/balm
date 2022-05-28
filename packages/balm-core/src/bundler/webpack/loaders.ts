@@ -1,6 +1,5 @@
 import { mergeWithRules, CustomizeRule } from 'webpack-merge';
 import LOADERS from './rules/index.js';
-import fileLoader from './rules/file.js';
 import { RuleSetRule, BalmLoaders } from '@balm-core/index';
 
 function getLoaders(customLoaders: RuleSetRule[]): RuleSetRule[] {
@@ -55,11 +54,6 @@ function getLoaders(customLoaders: RuleSetRule[]): RuleSetRule[] {
     {
       module: {
         rules: customLoaders
-      }
-    },
-    {
-      module: {
-        rules: [fileLoader()]
       }
     }
   );
