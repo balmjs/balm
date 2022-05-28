@@ -7,7 +7,12 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
-## v4.7.1 / 2022-05-28
+## v4.8.0 / 2022-05-28
+
+### Chore
+
+- update dependencies
+  - `postcss-load-config`: 3.x -> 4.x
 
 ### Bug Fixes
 
