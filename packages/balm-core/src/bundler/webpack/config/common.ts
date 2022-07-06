@@ -49,7 +49,7 @@ function getDefaultPlugins(
 
     BalmJS.entries.forEach((entry, index) => {
       const entryName = isSPA ? 'index' : entry.key;
-      const chunks = isSPA ? '?' : [entryName];
+      const chunks = isSPA ? 'all' : [entryName];
       const title = titles[index];
 
       const options = Object.assign(
@@ -63,7 +63,7 @@ function getDefaultPlugins(
         {
           title
         }
-      );
+      ) as HtmlWebpackPlugin.Options;
 
       plugins.push(new HtmlWebpackPlugin(options));
     });

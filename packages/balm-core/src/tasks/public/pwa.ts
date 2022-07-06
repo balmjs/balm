@@ -1,4 +1,9 @@
-import workboxBuild from 'workbox-build';
+import {
+  generateSW,
+  injectManifest,
+  GenerateSWOptions,
+  InjectManifestOptions
+} from 'workbox-build';
 
 class PwaTask extends BalmJS.BalmTask {
   constructor() {
@@ -66,7 +71,12 @@ class PwaTask extends BalmJS.BalmTask {
           pre: true
         });
 
-        await workboxBuild[mode](options)
+        const workboxBuild =
+          mode === 'generateSW'
+            ? generateSW(options as GenerateSWOptions)
+            : injectManifest(options as InjectManifestOptions);
+
+        await workboxBuild
           .then(
             ({
               count,

@@ -16,13 +16,7 @@ function getDefaultPostcssPlugins(isPostCSS = false): object[] {
 
   const cssnanoPlugin =
     BalmJS.config.env.isProd || BalmJS.config.styles.minify
-      ? [
-          cssnano(
-            Object.assign(BalmJS.config.styles.options, {
-              autoprefixer: false
-            })
-          )
-        ]
+      ? [cssnano(BalmJS.config.styles.options)]
       : [];
 
   return defaultPostcssPlugins.concat([
