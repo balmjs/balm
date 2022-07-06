@@ -7,6 +7,16 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.9.0 / 2022-07-06
+
+### Chore
+
+- update dependencies
+  - `connect-history-api-fallback`: 1.x -> 2.x
+  - `mini-css-extract-plugin`: 2.5.2 -> 2.6.x
+  - `plugin-error`: 1.x -> 2.x
+  - `readable-stream`: 3.x -> 4.x
+
 ## v4.8.0 / 2022-05-28
 
 ### Chore
