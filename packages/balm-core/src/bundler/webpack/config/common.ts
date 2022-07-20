@@ -87,7 +87,7 @@ function getSplitChunks(): object | boolean {
     cacheGroups = {
       allVendors: {
         name: 'vendors',
-        chunks: 'all',
+        chunks: 'initial',
         test: /[\\/](node_modules|bower_components)[\\/]/,
         filename: BalmJS.file.assetsPath(`${jsFolder}/${vendorsFilename}`) // Output: `js/vendors.js`
       }
