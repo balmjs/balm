@@ -1,4 +1,4 @@
-import del from 'del';
+import { deleteAsync } from 'del';
 
 class RemoveTask extends BalmJS.BalmTask {
   constructor() {
@@ -35,7 +35,7 @@ class RemoveTask extends BalmJS.BalmTask {
           }
         );
 
-        const deletedPaths: string[] = await del(files, {
+        const deletedPaths: string[] = await deleteAsync(files, {
           force: true
         });
 

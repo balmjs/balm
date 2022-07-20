@@ -1,4 +1,4 @@
-import del from 'del';
+import { deleteAsync } from 'del';
 
 class PwaCacheTask extends BalmJS.BalmTask {
   constructor() {
@@ -16,7 +16,7 @@ class PwaCacheTask extends BalmJS.BalmTask {
       node.path.join(BalmJS.config.dest.base, BalmJS.config.pwa.swSrcFilename)
     );
 
-    del(swOrigin, { force: true });
+    deleteAsync(swOrigin, { force: true });
   }
 
   fn = (): any => {

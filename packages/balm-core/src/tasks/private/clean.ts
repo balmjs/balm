@@ -1,4 +1,4 @@
-import del from 'del';
+import { deleteAsync } from 'del';
 import { ASSETS_TYPES } from '../../config/constants.js';
 
 function unique(arr: string[]): string[] {
@@ -101,7 +101,7 @@ class CleanTask extends BalmJS.BalmTask {
       }
     );
 
-    const deletedPaths: string[] = await del(directories, {
+    const deletedPaths: string[] = await deleteAsync(directories, {
       force: true
     });
 
