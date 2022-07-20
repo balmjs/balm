@@ -7,6 +7,12 @@
 
 > :tada: [`balm-core@next`](https://github.com/balmjs/balm/tree/main)(v4) supports for `node@12+`, `sass@latest`, `postcss@8`, `webpack@5`
 
+## v3.26.1 / 2022-07-20
+
+### Bug Fixes
+
+- fix `extractAllVendors` chunks bug
+
 ## v3.26.0 / 2022-07-06
 
 ### Features
