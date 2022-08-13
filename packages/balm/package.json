@@ -49,8 +49,8 @@
     "global-dirs": "^3.0.0",
     "gulp": "^4.0.2",
     "semver": "^7.3.7",
-    "webpack-hot-middleware": "^2.25.1",
-    "workbox-sw": "^6.5.3",
+    "webpack-hot-middleware": "^2.25.2",
+    "workbox-sw": "^6.5.4",
     "yargs": "16"
   },
   "engines": {

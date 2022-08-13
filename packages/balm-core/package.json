@@ -49,7 +49,7 @@
     "css-loader": "5",
     "cssnano": "4",
     "del": "6",
-    "esbuild": "^0.14.0",
+    "esbuild": "^0.15.0",
     "fancy-log": "^2.0.0",
     "file-loader": "^6.2.0",
     "gulp-eslint": "^6.0.0",
@@ -99,9 +99,9 @@
     "webpack": "4",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-dev-middleware": "3",
-    "webpack-hot-middleware": "^2.25.1",
+    "webpack-hot-middleware": "^2.25.2",
     "webpack-merge": "^5.8.0",
-    "workbox-build": "^6.5.3"
+    "workbox-build": "^6.5.4"
   },
   "devDependencies": {
     "@types/express": "4",
