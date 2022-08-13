@@ -34,6 +34,9 @@ const config = {
   //   }
   // },
   assets: {
+    // mainDir: 'public',
+    // subDir: 'sub',
+    // virtualDir: 'virtual',
     cache: true
   },
   logs: {
@@ -46,6 +49,19 @@ const api = (mix) => {
 
   if (mix.env.isProd) {
     console.log('prod');
+
+    // mix.publish();
+    // mix.publish([
+    //   {
+    //     input: 'default.html',
+    //     output: 'views',
+    //     renameOptions: {
+    //       basename: 'new-filename',
+    //       suffix: '.blade',
+    //       extname: '.php'
+    //     }
+    //   }
+    // ]);
   } else {
     console.log('dev');
 
