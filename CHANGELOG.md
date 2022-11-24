@@ -7,6 +7,19 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.12.0 / 2022-11-24
+
+### Chore
+
+- update dependencies
+  - `babel-loader`: 8.x -> 9.x
+  - `rollup`: 2.x -> 3.x
+  - `webpack-dev-middleware`: 5.x -> 6.x
+
+### BREAKING CHANGES
+
+- minimum supported Node.js version is `14.18.0`
+
 ## v4.11.0 / 2022-09-20
 
 ### Chore
