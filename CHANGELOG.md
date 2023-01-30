@@ -7,6 +7,16 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.13.0 / 2023-01-30
+
+### Chore
+
+- update dependencies
+  - `dotenv-expand`: 9.x -> 10.x
+  - `esbuild`: 0.15 -> 0.17
+  - `gulp-rev-all`: 3.x -> 4.x
+  - `postcss-preset-env`: 7.x -> 8.x
+
 ## v4.12.0 / 2022-11-24
 
 ### Chore
