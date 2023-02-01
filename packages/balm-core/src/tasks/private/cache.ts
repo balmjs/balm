@@ -1,3 +1,4 @@
+import revAll from 'gulp-rev-all';
 import { ASSETS_TYPES, CHUNK, ASSET } from '../../config/constants.js';
 import { LooseObject } from '@balm-core/index';
 
@@ -49,11 +50,11 @@ class CacheTask extends BalmJS.BalmTask {
     this.init();
 
     return this.src
-      .pipe($.revAll.revision(BalmJS.config.assets.options))
+      .pipe(revAll.revision(BalmJS.config.assets.options))
       .pipe($.if(/\.html$/, BalmJS.file.setPublicPath()))
       .pipe(gulp.dest(this.output))
       .pipe($.revDeleteOriginal())
-      .pipe($.revAll.manifestFile())
+      .pipe(revAll.manifestFile())
       .pipe(gulp.dest(this.output));
   };
 }

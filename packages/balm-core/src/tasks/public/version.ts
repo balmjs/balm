@@ -1,3 +1,5 @@
+import revAll from 'gulp-rev-all';
+
 class VersionTask extends BalmJS.BalmTask {
   constructor() {
     super('version');
@@ -20,9 +22,9 @@ class VersionTask extends BalmJS.BalmTask {
       });
 
       return this.src
-        .pipe($.revAll.revision(this.options))
+        .pipe(revAll.revision(this.options))
         .pipe(gulp.dest(this.output))
-        .pipe($.revAll.versionFile())
+        .pipe(revAll.versionFile())
         .pipe(gulp.dest(this.output));
     };
 
