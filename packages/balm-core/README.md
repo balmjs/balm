@@ -86,15 +86,15 @@ npm init -y
 ### 1. Installing `balm`
 
 ```sh
-yarn global add balm-core
-yarn add -D balm
+yarn global add balm-core@legacy
+yarn add -D balm@legacy
 ```
 
 OR
 
 ```sh
-npm install -g balm-core
-npm install -D balm
+npm install -g balm-core@legacy
+npm install -D balm@legacy
 ```
 
 > We currently recommend using [Yarn](https://yarnpkg.com/en/docs/install) instead of npm.
