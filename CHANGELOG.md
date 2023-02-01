@@ -7,6 +7,22 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.15.0 / 2023-02-01
+
+- For balm v4
+
+```sh
+yarn global add balm-core
+yarn add -D balm
+```
+
+OR
+
+```sh
+npm install -g balm-core
+npm install -D balm
+```
+
 ## v4.13.0 / 2023-01-30
 
 ### Chore
