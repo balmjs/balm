@@ -89,7 +89,7 @@
     "ssh2": "0.8.9",
     "strip-ansi": "6",
     "style-loader": "2",
-    "terser": "^5.16.1",
+    "terser": "^5.16.2",
     "terser-webpack-plugin": "4",
     "through2": "^4.0.2",
     "through2-concurrent": "^2.0.0",
