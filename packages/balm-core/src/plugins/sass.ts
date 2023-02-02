@@ -1,3 +1,5 @@
+import path from 'node:path';
+import fs from 'node:fs';
 // Reference `gulp-sass@5.1.0`
 import { Transform, TransformCallback } from 'node:stream';
 import sass from 'sass';
@@ -6,6 +8,18 @@ import stripAnsi from 'strip-ansi';
 import applySourceMap from 'vinyl-sourcemaps-apply';
 import { BalmError } from '@balm-core/index';
 import ansiColors from 'ansi-colors';
+
+// Just for `npm i -D sass@1.39.2`
+process.env.BALM_CWD = process.env.INIT_CWD || process.cwd();
+const localSassModule = path.join(
+  process.env.BALM_ROOT || process.env.BALM_CWD,
+  'node_modules',
+  'sass',
+  'sass.dart.js'
+);
+const sassModule = fs.existsSync(localSassModule)
+  ? requireModule(localSassModule)
+  : sass;
 
 const PLUGIN_NAME = 'sass';
 
@@ -166,6 +180,6 @@ const gulpSass: GulpSass = (options: object): any =>
     }
   );
 
-gulpSass.compiler = sass;
+gulpSass.compiler = sassModule;
 
 export default gulpSass;
