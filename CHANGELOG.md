@@ -41,6 +41,10 @@ npm install -D balm
   - `gulp-rev-all`: 3.x -> 4.x
   - `postcss-preset-env`: 7.x -> 8.x
 
+### BREAKING CHANGES
+
+- minimum supported Node.js version is `16`
+
 ## v4.12.0 / 2022-11-24
 
 ### Chore

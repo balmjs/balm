@@ -68,7 +68,7 @@ You need to set up your development environment before you can do anything.
 
 Install [Node.js® and npm](https://nodejs.org/en/download/) if they are not already on your machine.
 
-> **Verify that you are running at least node `14.18.0` and npm `6.14.15`** by running `node -v` and `npm -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
+> **Verify that you are running at least node `16`** by running `node -v` in a terminal/console window. Older versions maybe produce errors, but newer versions are fine.
 
 You develop apps in the context of an [Balm workspace](https://balm.js.org/docs/guide/structure.html).
 
