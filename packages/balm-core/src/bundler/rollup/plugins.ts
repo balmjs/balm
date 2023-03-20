@@ -1,4 +1,4 @@
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import { InputOptions, OutputOptions, RollupPlugin } from '@balm-core/index';
 
 function getInputPlugins(customInputOptions: InputOptions): RollupPlugin[] {

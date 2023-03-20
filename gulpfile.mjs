@@ -1,4 +1,4 @@
-import { task, src, dest, series } from 'gulp';
+import gulp from 'gulp';
 import del from 'del';
 import babel from 'gulp-babel';
 import eslint from 'gulp-eslint';
@@ -14,6 +14,8 @@ const BALM = {
     dest: 'packages/balm/lib'
   }
 };
+
+const { task, src, dest, series } = gulp;
 
 function clean() {
   return del([BALM.compiler.dest, BALM.runtime.dest]);
