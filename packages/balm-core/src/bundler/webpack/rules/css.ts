@@ -124,7 +124,15 @@ function cssLoader(): RuleSetRule[] {
         'sass-loader',
         {
           // Prefer `dart-sass`
-          implementation: requireModule.resolve('sass')
+          implementation: requireModule.resolve('sass'),
+          sassOptions: Object.assign(
+            {
+              includePaths: BalmJS.file.stylePaths,
+              outputStyle: 'expanded',
+              quietDeps: BalmJS.config.logs.level < BalmJS.LogLevel.Warn
+            },
+            BalmJS.config.styles.sassOptions
+          )
         }
       ),
       // Don't consider CSS imports dead code even if the
