@@ -7,6 +7,12 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.17.1 / 2023-03-22
+
+### Bug Fixes
+
+- fix: local sass module loading bug
+
 ## v4.17.0 / 2023-03-20
 
 ### Chore

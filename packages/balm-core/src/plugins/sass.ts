@@ -9,16 +9,18 @@ import applySourceMap from 'vinyl-sourcemaps-apply';
 import { BalmError } from '@balm-core/index';
 import ansiColors from 'ansi-colors';
 
-// Just for `npm i -D sass@1.39.2`
 process.env.BALM_CWD = process.env.INIT_CWD || process.cwd();
 const localSassModule = path.join(
   process.env.BALM_ROOT || process.env.BALM_CWD,
   'node_modules',
-  'sass',
-  'sass.dart.js'
+  'sass'
 );
-const sassModule = fs.existsSync(localSassModule)
-  ? requireModule(localSassModule)
+const newLocalSassModule = path.join(localSassModule, 'sass.default.js');
+const oldLocalSassModule = path.join(localSassModule, 'sass.dart.js'); // Just for `npm i -D sass@1.39.2`
+const sassModule = fs.existsSync(newLocalSassModule)
+  ? requireModule(newLocalSassModule)
+  : fs.existsSync(oldLocalSassModule)
+  ? requireModule(oldLocalSassModule)
   : sass;
 
 const PLUGIN_NAME = 'sass';
