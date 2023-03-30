@@ -2,13 +2,16 @@ import { createRequire } from 'node:module';
 import gulp from 'gulp';
 import getBalmCoreModule from './balm-core-module.js';
 import checkVersion from '../check-version.js';
+import { isWindows, dynamicImport } from './utils.js';
 
 const canaryVersion = /^4\.0\.0-/;
 const nextVersion = /^4\.[0-9]+\.[0-9]+$/;
 
 const getBalmCore = async () => {
   const balmCoreModule = getBalmCoreModule();
-  let balmCore = await import(balmCoreModule); // Load `balm-core`
+  let balmCore = isWindows
+    ? await dynamicImport(balmCoreModule)
+    : await import(balmCoreModule); // Load `balm-core`
 
   const version = balmCore.version;
   checkVersion(version);

@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { title, message } from '../config.js';
+import { isWindows, dynamicImport } from './utils.js';
 
 const balmCwd = process.env.BALM_CWD || process.cwd();
 const balmConfigFile = path.join(
@@ -12,7 +13,9 @@ const balmConfigFile = path.join(
 
 const setBalmConfig = async (callback) => {
   if (balmConfigFile && fs.existsSync(balmConfigFile)) {
-    const balmConfig = await import(balmConfigFile); // Load `balm.config.js`
+    const balmConfig = isWindows
+      ? await dynamicImport(balmConfigFile)
+      : await import(balmConfigFile); // Load `balm.config.js`
 
     callback(balmConfig.default);
   } else {

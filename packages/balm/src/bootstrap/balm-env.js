@@ -1,5 +1,6 @@
 import path from 'node:path';
 import fs from 'node:fs';
+import { isWindows, dynamicImport } from './utils.js';
 
 const balmEnvFile = path.join(process.cwd(), 'balm.env.js');
 const webpackLocalModule = path.resolve(
@@ -10,7 +11,7 @@ const webpackLocalModule = path.resolve(
 
 const getBalmEnv = async () => {
   if (fs.existsSync(balmEnvFile)) {
-    await import(balmEnvFile);
+    isWindows ? await dynamicImport(balmEnvFile) : await import(balmEnvFile);
 
     if (fs.existsSync(webpackLocalModule)) {
       process.env.WEBPACK = webpackLocalModule;
