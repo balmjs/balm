@@ -10,7 +10,7 @@ const nextVersion = /^4\.[0-9]+\.[0-9]+$/;
 const getBalmCore = async () => {
   const balmCoreModule = getBalmCoreModule();
   let balmCore = isWindows
-    ? await dynamicImport(balmCoreModule)
+    ? await dynamicImport(balmCoreModule, false)
     : await import(balmCoreModule); // Load `balm-core`
 
   const version = balmCore.version;

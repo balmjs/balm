@@ -3,5 +3,7 @@ import { pathToFileURL } from 'node:url';
 
 export const isWindows = platform === 'win32';
 
-export const dynamicImport = (path) =>
-  import(pathToFileURL(path)).then((module) => module.default);
+export const dynamicImport = (path, useDefault = true) =>
+  import(pathToFileURL(path)).then((module) =>
+    useDefault ? module.default : module
+  );
