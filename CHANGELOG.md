@@ -7,6 +7,12 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.18.0 / 2023-03-31
+
+### Features
+
+- balm runtime compatible with Windows
+
 ## v4.17.2 / 2023-03-22
 
 ### Chore
