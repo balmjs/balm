@@ -172,9 +172,9 @@ We'd love for you to contribute and make BalmJS even better than it is today! Pl
 
 © 2016-present, [Elf-mousE](http://elf-mouse.me/)
 
-[balm-core-image]: https://img.shields.io/npm/v/balm-core/next.svg
+[balm-core-image]: https://img.shields.io/npm/v/balm-core.svg
 [balm-core-url]: https://npmjs.org/package/balm-core
-[balm-image]: https://img.shields.io/npm/v/balm/next.svg
+[balm-image]: https://img.shields.io/npm/v/balm.svg
 [balm-url]: https://npmjs.org/package/balm
 [license-image]: https://img.shields.io/npm/l/balm-core.svg?sanitize=true
 [license-url]: https://www.npmjs.com/package/balm-core
