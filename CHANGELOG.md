@@ -7,6 +7,14 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.19.0 / 2023-04-23
+
+### Chore
+
+- update dependencies
+  - `css-minimizer-webpack-plugin`: 4.x -> 5.x
+  - `cssnano`: 5.x -> 6.x
+
 ## v4.18.0 / 2023-03-31
 
 ### Features
