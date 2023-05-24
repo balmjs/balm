@@ -32,6 +32,7 @@ module.exports = Object.assign(balmrc, {
     plugins: [new VueLoaderPlugin()],
     alias: {
       '@': path.resolve(__dirname, '..', '..', 'vue', 'scripts'),
+      '@styles': path.resolve(__dirname, '..', '..', 'vue', 'styles'),
       vue$: 'vue/dist/vue.esm.js'
     },
     injectHtml: true,
