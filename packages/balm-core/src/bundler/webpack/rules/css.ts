@@ -1,5 +1,11 @@
+import fs from 'fs';
 import { cssRegex, cssModuleRegex } from '../config/regex';
 import { RuleSetRule } from '@balm-core/index';
+
+// Check if Tailwind config exists
+const useTailwind = fs.existsSync(
+  path.join(BalmJS.config.workspace, 'tailwind.config.js')
+);
 
 function cssLoader(): RuleSetRule {
   let styleLoader: string | object = {
@@ -61,7 +67,7 @@ function cssLoader(): RuleSetRule {
         options: Object.assign(
           {
             postcssOptions: {
-              plugins: BalmJS.plugins.postcssPlugins(true)
+              plugins: BalmJS.plugins.postcssPlugins(true, useTailwind)
             },
             sourceMap
           },
