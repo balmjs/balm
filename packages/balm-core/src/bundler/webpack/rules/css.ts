@@ -10,7 +10,7 @@ import { RuleSetRule } from '@balm-core/index';
 
 // Check if Tailwind config exists
 const useTailwind = fs.existsSync(
-  path.join(BalmJS.config.workspace, 'tailwind.config.js')
+  node.path.join(BalmJS.config.workspace, 'tailwind.config.js')
 );
 
 // common function to get style loaders

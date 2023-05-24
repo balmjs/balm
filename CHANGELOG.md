@@ -7,6 +7,12 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.20.0 / 2023-05-24
+
+### Features
+
+- support tailwindcss
+
 ## v4.19.0 / 2023-04-23
 
 ### Chore
