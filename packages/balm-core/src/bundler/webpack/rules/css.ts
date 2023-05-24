@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import {
   cssRegex,
@@ -6,6 +7,11 @@ import {
   sassModuleRegex
 } from '../config/regex.js';
 import { RuleSetRule } from '@balm-core/index';
+
+// Check if Tailwind config exists
+const useTailwind = fs.existsSync(
+  path.join(BalmJS.config.workspace, 'tailwind.config.js')
+);
 
 // common function to get style loaders
 function getStyleLoaders(
@@ -34,7 +40,7 @@ function getStyleLoaders(
       options: Object.assign(
         {
           postcssOptions: {
-            plugins: BalmJS.plugins.postcssPlugins(true)
+            plugins: BalmJS.plugins.postcssPlugins(true, useTailwind)
           },
           sourceMap
         },
