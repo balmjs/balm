@@ -1,14 +1,20 @@
-function getDefaultPostcssPlugins(isPostCSS = false): object[] {
-  const postcssPresetEnv = require('postcss-preset-env');
+function getDefaultPostcssPlugins(
+  isPostCSS = false,
+  useTailwind = false
+): object[] {
   const atImport = require('postcss-import');
+  const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
+  const postcssPresetEnv = require('postcss-preset-env');
   const autoprefixer = require('autoprefixer');
   const cssnano = require('cssnano');
 
   const defaultPostcssPlugins =
     isPostCSS || BalmJS.config.styles.extname === 'css'
       ? [
-          postcssPresetEnv(BalmJS.config.styles.postcssEnvOptions),
-          atImport({ path: BalmJS.file.stylePaths })
+          ...(useTailwind ? ['tailwindcss'] : []),
+          atImport({ path: BalmJS.file.stylePaths }),
+          postcssFlexbugsFixes(),
+          postcssPresetEnv(BalmJS.config.styles.postcssEnvOptions)
         ]
       : [];
 

@@ -40,7 +40,7 @@ interface BalmFile {
 
 interface BalmPlugins {
   postcss: (plugins: object[]) => any;
-  postcssPlugins: (isPostCSS?: boolean) => object[];
+  postcssPlugins: (isPostCSS?: boolean, useTailwind?: boolean) => object[];
   plumber: (options?: any) => any;
   htmlmin: (options: object) => any;
   imagemin: (plugins?: Function[]) => any;

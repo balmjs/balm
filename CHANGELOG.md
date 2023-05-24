@@ -7,6 +7,12 @@
 
 > :tada: [`balm-core`](https://github.com/balmjs/balm/tree/main)(v4) supports for `node@12+`, `sass@latest`, `postcss@8`, `webpack@5`
 
+## v3.31.0 / 2023-05-24
+
+### Features
+
+- support tailwindcss
+
 ## v3.30.0 / 2023-02-01
 
 - For balm v3
