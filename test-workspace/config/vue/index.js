@@ -32,6 +32,7 @@ module.exports = Object.assign(balmrc, {
     alias: Object.assign(
       {
         '@': env.resolve('vue/scripts'),
+        '@styles': env.resolve('vue/styles'),
         vue$: 'vue-next/dist/vue.esm-bundler.js'
       }
       // fix(vue@3.0.1+): __VUE_HMR_RUNTIME__ is not defined in development

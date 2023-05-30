@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "4.19.0",
+  "version": "4.20.0",
   "description": "BalmJS runtime core",
   "keywords": [
     "balm",
@@ -49,10 +49,10 @@
     "ansi-colors": "^4.1.3",
     "global-dirs": "^3.0.1",
     "gulp": "^4.0.2",
-    "semver": "^7.5.0",
+    "semver": "^7.5.1",
     "webpack-hot-middleware": "^2.25.3",
     "workbox-sw": "^6.5.4",
-    "yargs": "^17.7.1"
+    "yargs": "^17.7.2"
   },
   "engines": {
     "node": ">=16"

@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from '@/views/layouts/app';
 // import BalmUI from 'balm-ui';
 // import 'balm-ui/dist/balm-ui.css';
+import '@styles/tailwind.css';
 
 const app = createApp(App);
 

@@ -4,10 +4,14 @@ import postcssPresetEnv from 'postcss-preset-env';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 
-function getDefaultPostcssPlugins(isPostCSS = false): object[] {
+function getDefaultPostcssPlugins(
+  isPostCSS = false,
+  useTailwind = false
+): object[] {
   const defaultPostcssPlugins =
     isPostCSS || BalmJS.config.styles.extname === 'css'
       ? [
+          ...(useTailwind ? ['tailwindcss'] : []),
           atImport({ path: BalmJS.file.stylePaths }),
           postcssFlexbugsFixes(),
           postcssPresetEnv(BalmJS.config.styles.postcssEnvOptions)
