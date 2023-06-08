@@ -7,6 +7,14 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.21.0 / 2023-06-08
+
+### Chore
+
+- update dependencies
+  - `workbox-sw`: 6.x -> 7.x
+  - `sass`: 1.62.1
+
 ## v4.20.0 / 2023-05-24
 
 ### Features
