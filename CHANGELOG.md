@@ -7,6 +7,13 @@
 
 > :tada: [`balm-core`](https://github.com/balmjs/balm/tree/main)(v4) supports for `node@12+`, `sass@latest`, `postcss@8`, `webpack@5`
 
+## v3.32.0 / 2023-07-28
+
+- update dependencies
+  - `babel`: 7.21 -> 7.22
+  - `esbuild`: 0.17 -> 0.18
+  - `workbox-build`: 6.x -> 7.x
+
 ## v3.31.0 / 2023-05-24
 
 ### Features
