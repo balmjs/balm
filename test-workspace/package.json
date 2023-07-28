@@ -37,7 +37,7 @@
   "dependencies": {
     "axios": "^1.4.0",
     "balm-ui": "8",
-    "core-js": "^3.30.0",
+    "core-js": "^3.32.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "express": "^4.18.2",
@@ -60,7 +60,7 @@
     "@babel/plugin-proposal-numeric-separator": "7",
     "@babel/plugin-proposal-object-rest-spread": "7",
     "@babel/plugin-syntax-dynamic-import": "7",
-    "@babel/runtime-corejs3": "7",
+    "@babel/runtime-corejs3": "7.22",
     "@vue/compiler-sfc": "^3.2.30",
     "@vue/server-renderer": "^3.2.30",
     "css-loader": "^6.8.0",
@@ -76,7 +76,7 @@
     "vue-loader-next": "npm:vue-loader@^16",
     "vue-style-loader": "4",
     "vue-template-compiler": "2",
-    "webpack": "^5.76.0",
+    "webpack": "^5.88.0",
     "webpack-node-externals": "^3.0.0"
   },
   "optionalDependencies": {
