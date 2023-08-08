@@ -43,7 +43,7 @@
     "del": "6",
     "eslint": "8",
     "eslint-config-prettier": "8",
-    "eslint-plugin-prettier": "5",
+    "eslint-plugin-prettier": "4",
     "esm": "^3.2.25",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
@@ -54,7 +54,7 @@
     "lint-staged": "^13.2.0",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
-    "prettier": "^3.0.0",
+    "prettier": "2",
     "rimraf": "4",
     "ts-node": "^10.9.1",
     "typescript": "4"
