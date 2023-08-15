@@ -14,10 +14,9 @@ interface LessResultSourcemap {
 }
 
 interface LessResult {
-  result: string;
+  css: string;
   imports: string[];
   sourcemap?: LessResultSourcemap;
-  css?: string;
 }
 
 function inlineSources(sourcemap: LessResultSourcemap) {
@@ -46,35 +45,36 @@ function inlineSources(sourcemap: LessResultSourcemap) {
   );
 }
 
-function renderLess(str: string, opts: LooseObject) {
+function renderLess(input: string, options: LooseObject) {
   return new Promise((resolve, reject) => {
     less.render(
-      str,
-      opts,
+      input,
+      options,
       (
-        err: any,
-        res: {
+        error: any,
+        output: {
           css: string;
           imports: string[];
           map: string; // JSON string
         }
       ) => {
-        if (err) {
-          reject(err);
+        if (error) {
+          reject(error);
         } else {
-          const obj: LessResult = {
-            result: res.css,
-            imports: res.imports
+          const { css, imports } = output;
+          const result: LessResult = {
+            css,
+            imports
           };
 
-          if (opts.sourceMap && res.map) {
-            obj.sourcemap = JSON.parse(res.map) as LessResultSourcemap;
-            inlineSources(obj.sourcemap).then((map) => {
-              obj.sourcemap = map;
-              resolve(obj);
+          if (options.sourceMap && output.map) {
+            result.sourcemap = JSON.parse(output.map) as LessResultSourcemap;
+            inlineSources(result.sourcemap).then((map) => {
+              result.sourcemap = map;
+              resolve(result);
             });
           } else {
-            resolve(obj);
+            resolve(result);
           }
         }
       }
@@ -82,15 +82,15 @@ function renderLess(str: string, opts: LooseObject) {
   });
 }
 
-function gulpLess(options: object): any {
+function gulpLess(customOptions: object): any {
   // Mixes in default options.
-  const opts: LooseObject = Object.assign(
+  const options: LooseObject = Object.assign(
     {},
     {
       compress: false,
       paths: []
     },
-    options
+    customOptions
   );
 
   return through2.obj(
@@ -107,28 +107,28 @@ function gulpLess(options: object): any {
         return cb(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
       }
 
-      const str = file.contents.toString() as string;
+      const input = file.contents.toString() as string;
 
       // Injects the path of the current file
-      opts.filename = file.path;
+      options.filename = file.path;
 
       // Bootstrap source maps
-      if (file.sourceMap || opts.sourcemap) {
-        opts.sourceMap = true;
+      if (file.sourceMap || options.sourcemap) {
+        options.sourceMap = true;
       }
 
-      renderLess(str, opts)
-        .then((res: any) => {
-          file.contents = Buffer.from(res.result as string);
+      renderLess(input, options)
+        .then((output: any) => {
+          file.contents = Buffer.from(output.css as string);
           file.path = replaceExtension(file.path, '.css');
-          if (res.sourcemap) {
-            res.sourcemap.file = file.relative;
-            res.sourcemap.sources = res.sourcemap.sources.map(
+          if (output.sourcemap) {
+            output.sourcemap.file = file.relative;
+            output.sourcemap.sources = output.sourcemap.sources.map(
               (source: string) =>
                 node.path.relative(file.base as string, source)
             );
 
-            applySourceMap(file, res.sourcemap);
+            applySourceMap(file, output.sourcemap);
           }
           return file;
         })

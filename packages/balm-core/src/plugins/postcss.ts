@@ -128,7 +128,7 @@ export default gulpPostcss((loadConfig: Function) => {
       // Prevent stream’s unhandled exception from
       // being suppressed by Promise
       setImmediate(function () {
-        cb(new PluginError('gulp-postcss', error as BalmError, errorOptions));
+        cb(new PluginError(PLUGIN_NAME, error as BalmError, errorOptions));
       });
     }
   };
