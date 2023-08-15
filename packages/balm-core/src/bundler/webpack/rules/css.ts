@@ -133,8 +133,8 @@ function cssLoader(): RuleSetRule[] {
           implementation: requireModule.resolve('sass'),
           sassOptions: Object.assign(
             {
-              includePaths: BalmJS.file.stylePaths,
-              outputStyle: 'expanded',
+              loadPaths: BalmJS.file.stylePaths,
+              sourceMap: true,
               quietDeps: BalmJS.config.logs.level < BalmJS.LogLevel.Warn
             },
             BalmJS.config.styles.sassOptions

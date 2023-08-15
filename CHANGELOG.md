@@ -7,6 +7,12 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.22.0 / 2023-08-15
+
+### Features
+
+- update dart sass 2.0
+
 ## v4.21.0 / 2023-06-08
 
 ### Chore

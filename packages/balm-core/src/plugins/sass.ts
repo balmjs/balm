@@ -15,12 +15,15 @@ const localSassModule = path.join(
   'node_modules',
   'sass'
 );
-const newLocalSassModule = path.join(localSassModule, 'sass.default.js');
-const oldLocalSassModule = path.join(localSassModule, 'sass.dart.js'); // Just for `npm i -D sass@1.39.2`
-const sassModule = fs.existsSync(newLocalSassModule)
-  ? requireModule(newLocalSassModule)
-  : fs.existsSync(oldLocalSassModule)
-  ? requireModule(oldLocalSassModule)
+const nodeLocalSassModule = path.join(localSassModule, 'sass.node.js');
+const defaultLocalSassModule = path.join(localSassModule, 'sass.default.js'); // For `npm i -D sass <= 1.62.1`
+const dartLocalSassModule = path.join(localSassModule, 'sass.dart.js'); // For `npm i -D sass <= 1.39.2`
+const sassModule = fs.existsSync(nodeLocalSassModule)
+  ? requireModule(nodeLocalSassModule)
+  : fs.existsSync(defaultLocalSassModule)
+  ? requireModule(defaultLocalSassModule)
+  : fs.existsSync(dartLocalSassModule)
+  ? requireModule(dartLocalSassModule)
   : sass;
 
 const PLUGIN_NAME = 'sass';
@@ -28,6 +31,26 @@ const PLUGIN_NAME = 'sass';
 interface GulpSass {
   (options: object): any;
   compiler?: any;
+}
+
+interface RawSourceMap {
+  version: number;
+  sources: string[];
+  names: string[];
+  sourceRoot?: string;
+  sourcesContent?: string[];
+  mappings: string;
+  file: string;
+}
+
+interface CompileResult {
+  css: string;
+  loadedUrls: URL[];
+  sourceMap?: RawSourceMap;
+}
+
+interface SassModule {
+  compile: (path: string, options: object) => CompileResult;
 }
 
 const transformObj = (
@@ -44,42 +67,19 @@ const transformObj = (
  */
 const filePush = (
   file: Buffer | string | any,
-  sassObject: any,
+  result: CompileResult,
   callback: TransformCallback
 ) => {
   // Build Source Maps!
-  if (sassObject.map) {
-    // Transform map into JSON
-    const sassMap = JSON.parse(sassObject.map.toString() as string);
-    // Grab the stdout and transform it into stdin
-    const sassMapFile = sassMap.file.replace(/^stdout$/, 'stdin');
-    // Grab the base filename that's being worked on
-    const sassFileSrc = file.relative as string;
-    // Grab the path portion of the file that's being worked on
-    const sassFileSrcPath = node.path.dirname(sassFileSrc);
-
-    if (sassFileSrcPath) {
-      const sourceFileIndex = sassMap.sources.indexOf(sassMapFile);
-      // Prepend the path to all files in the sources array except the file that's being worked on
-      sassMap.sources = sassMap.sources.map((source: string, index: number) =>
-        index === sourceFileIndex
-          ? source
-          : node.path.join(sassFileSrcPath, source)
-      );
-    }
-
-    // Remove 'stdin' from sources and replace with filenames!
-    sassMap.sources = sassMap.sources.filter(
-      (src: string) => src !== 'stdin' && src
-    );
-
+  if (result.sourceMap) {
+    const sassMap = result.sourceMap;
     // Replace the map file with the original filename (but new extension)
-    sassMap.file = replaceExtension(sassFileSrc, '.css');
+    sassMap.file = replaceExtension(file.relative, '.css');
     // Apply the map
     applySourceMap(file, sassMap);
   }
 
-  file.contents = sassObject.css;
+  file.contents = Buffer.from(result.css);
   file.path = replaceExtension(file.path, '.css');
 
   if (file.stat) {
@@ -97,15 +97,10 @@ const handleError = (
   file: Buffer | string | any,
   callback: TransformCallback
 ) => {
-  const filePath = ((error.file === 'stdin' ? file.path : error.file) ||
-    file.path) as string;
-  const relativePath = node.path.relative(process.cwd(), filePath);
-  const message = `${ansiColors.underline(relativePath)}\n${error.formatted}`;
+  const relativePath = node.path.relative(process.cwd(), file.path as string);
+  const message = `${ansiColors.underline(relativePath)}\n${error.message}`;
 
-  error.messageFormatted = message;
-  error.messageOriginal = error.message;
   error.message = stripAnsi(message);
-  error.relativePath = relativePath;
 
   return callback(new PluginError(PLUGIN_NAME, error as BalmError));
 };
@@ -121,67 +116,36 @@ const gulpSass: GulpSass = (options: object): any =>
       callback: TransformCallback
     ) => {
       if (file.isNull()) {
-        callback(null, file);
-        return;
+        return callback(null, file);
       }
 
       if (file.isStream()) {
-        callback(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
-        return;
+        return callback(
+          new PluginError(PLUGIN_NAME, 'Streaming not supported')
+        );
       }
 
       if (node.path.basename(file.path as string).startsWith('_')) {
-        callback();
-        return;
+        return callback();
       }
 
       if (!file.contents.length) {
         file.path = replaceExtension(file.path, '.css');
-        callback(null, file);
-        return;
+        return callback(null, file);
       }
 
-      const opts = (options || {}) as any;
-      opts.data = file.contents.toString();
+      const path = file.path;
 
-      // We set the file path here so that libsass can correctly resolve import paths
-      opts.file = file.path;
-
-      // Ensure `indentedSyntax` is true if a `.sass` file
-      if (node.path.extname(file.path as string) === '.sass') {
-        opts.indentedSyntax = true;
-      }
-
-      // Ensure file's parent directory in the include path
-      if (opts.includePaths) {
-        if (typeof opts.includePaths === 'string') {
-          opts.includePaths = [opts.includePaths];
-        }
-      } else {
-        opts.includePaths = [];
-      }
-
-      opts.includePaths.unshift(node.path.dirname(file.path as string));
-
-      // Generate Source Maps if the source-map plugin is present
-      if (file.sourceMap) {
-        opts.sourceMap = file.path;
-        opts.omitSourceMapUrl = true;
-        opts.sourceMapContents = true;
-      }
-
-      //////////////////////////////
-      // Sync Sass render
-      //////////////////////////////
       try {
-        gulpSass.compiler &&
-          filePush(file, gulpSass.compiler.renderSync(opts), callback);
+        filePush(
+          file,
+          (sassModule as SassModule).compile(path as string, options),
+          callback
+        );
       } catch (error) {
         handleError(error, file, callback);
       }
     }
   );
-
-gulpSass.compiler = sassModule;
 
 export default gulpSass;
