@@ -2,7 +2,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 // Reference `gulp-sass@5.1.0`
 import { Transform, TransformCallback } from 'node:stream';
-import sass from 'sass';
+import * as sass from 'sass';
 import replaceExtension from 'replace-ext';
 import stripAnsi from 'strip-ansi';
 import applySourceMap from 'vinyl-sourcemaps-apply';

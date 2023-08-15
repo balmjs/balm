@@ -4,7 +4,7 @@ const balmrc = require('../balmrc');
 
 module.exports = Object.assign(balmrc, {
   roots: {
-    source: 'vue'
+    source: 'vue2'
   },
   paths: {
     source: {
