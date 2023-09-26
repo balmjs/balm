@@ -148,18 +148,20 @@ const gulpSass: GulpSass = (options: SassOptions): any =>
         )) {
           options.importers.push({
             findFileUrl(url: string) {
-              if (!url.startsWith(key)) return null;
+              if (url.startsWith(key)) {
+                const newUrl = url.replace(
+                  new RegExp(`^${key}`),
+                  value as string
+                );
+                BalmJS.logger.debug(
+                  `${PLUGIN_NAME} alias`,
+                  `${url} -> ${newUrl}`
+                );
 
-              const newUrl = url.replace(
-                new RegExp(`^${key}`),
-                value as string
-              );
-              BalmJS.logger.debug(
-                `${PLUGIN_NAME} alias`,
-                `${url} -> ${newUrl}`
-              );
-
-              return pathToFileURL(newUrl);
+                return pathToFileURL(newUrl);
+              } else {
+                return pathToFileURL(url);
+              }
             }
           } as SassImporter);
         }
