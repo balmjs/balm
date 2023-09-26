@@ -1,8 +1,12 @@
+const path = require('path');
 const env = require('./config/env');
 const webpack = require('webpack');
 // const imageminPngquant = require('imagemin-pngquant');
 
 console.info('balm@zero');
+
+const projectRoot = path.resolve(__dirname, '..');
+const workspace = path.join(projectRoot, 'test-workspace');
 
 const config = {
   workspace: env.workspace,
@@ -24,9 +28,10 @@ const config = {
     htmlPluginOptions: {
       template: 'src/templates/default.html'
     },
-    // alias: {
-    //   process: 'process/browser'
-    // },
+    alias: {
+      // process: 'process/browser',
+      '@balm-ui': path.join(workspace, 'node_modules/balm-ui')
+    },
     plugins: [
       // new webpack.ProvidePlugin({
       //   process: require.resolve('process/browser')
@@ -54,7 +59,7 @@ const config = {
     cache: true
   },
   logs: {
-    level: 2
+    level: 1
   }
 };
 

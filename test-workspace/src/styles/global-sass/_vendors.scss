@@ -1,11 +1,17 @@
-// @import 'normalize.scss/normalize';
+// 'node_modules/normalize.css/normalize.css'
+@import 'normalize.css/normalize';
+
+// alias test
+// @import '@balm-ui/dist/balm-ui.scss';
 
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
   src: url(https://example.com/fonts/MaterialIcons-Regular.eot);
-  src: local('Material Icons'), local('MaterialIcons-Regular'),
+  src:
+    local('Material Icons'),
+    local('MaterialIcons-Regular'),
     url(//example.com/fonts/MaterialIcons-Regular.woff2) format('woff2'),
     url(/fonts/MaterialIcons-Regular.woff) format('woff'),
     url(fonts/MaterialIcons-Regular.ttf) format('truetype');

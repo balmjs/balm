@@ -1,12 +1,18 @@
-// @use 'normalize.css/normalize.css' as npm-css; // 'node_modules/normalize.css/normalize.css'
+// 'node_modules/normalize.css/normalize.css'
+@use 'normalize.css/normalize.css' as npm-css;
 // @use 'bower_components/normalize-css/normalize.css' as bower-css;
+
+// alias test
+// @use '@balm-ui/dist/balm-ui.scss';
 
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
   src: url(https://example.com/fonts/MaterialIcons-Regular.eot);
-  src: local('Material Icons'), local('MaterialIcons-Regular'),
+  src:
+    local('Material Icons'),
+    local('MaterialIcons-Regular'),
     url(//example.com/fonts/MaterialIcons-Regular.woff2) format('woff2'),
     url(/fonts/MaterialIcons-Regular.woff) format('woff'),
     url(fonts/MaterialIcons-Regular.ttf) format('truetype');
