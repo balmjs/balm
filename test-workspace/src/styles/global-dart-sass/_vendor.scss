@@ -1,5 +1,9 @@
-// @use 'normalize.css/normalize.css' as npm-css; // 'node_modules/normalize.css/normalize.css'
+// 'node_modules/normalize.css/normalize.css'
+@use 'normalize.css/normalize.css' as npm-css;
 // @use 'bower_components/normalize-css/normalize.css' as bower-css;
+
+// alias test
+@use '@balm-ui/dist/balm-ui.scss';
 
 @font-face {
   font-family: 'Material Icons';

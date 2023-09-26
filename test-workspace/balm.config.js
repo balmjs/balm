@@ -16,7 +16,7 @@ const config = {
   },
   scripts: {
     // bundler: 'esbuild',
-    lint: true
+    lint: true,
     // entry: {
     //   index: './src/scripts/index.js',
     //   'page-a': './src/scripts/page-a.js',
@@ -26,7 +26,10 @@ const config = {
     // htmlPluginOptions: {
     //   template: 'src/templates/default.html'
     // }
-    // extractCss: true
+    // extractCss: true,
+    alias: {
+      '@balm-ui': path.join(workspace, 'node_modules/balm-ui')
+    }
   },
   // images: {
   //   plugins: {
@@ -40,7 +43,7 @@ const config = {
     cache: true
   },
   logs: {
-    level: 2
+    level: 1
   }
 };
 
