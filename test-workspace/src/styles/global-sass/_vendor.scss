@@ -1,4 +1,8 @@
-// @import 'normalize.scss/normalize';
+// 'node_modules/normalize.css/normalize.css'
+@import 'normalize.css/normalize';
+
+// alias test
+@import '@balm-ui/dist/balm-ui.scss';
 
 @font-face {
   font-family: 'Material Icons';

@@ -37,15 +37,15 @@
   "dependencies": {
     "axios": "^0.27.2",
     "balm-ui": "8",
-    "core-js": "^3.32.0",
-    "cors": "^2.8.5",
-    "cross-env": "^7.0.3",
-    "express": "^4.18.0",
-    "jquery": "^3.7.0",
+    "core-js": "3",
+    "cors": "2",
+    "cross-env": "7",
+    "express": "4",
+    "jquery": "3",
     "kbone-api": "^0.2.1",
     "lib-flexible": "^0.3.2",
-    "ms": "^2.1.0",
-    "normalize.css": "^8.0.1",
+    "ms": "2",
+    "normalize.css": "8",
     "vue": "2",
     "vue-next": "npm:vue@^3.2.30",
     "vue-router": "3",
@@ -54,16 +54,16 @@
     "vuex-router-sync": "5"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7",
-    "@babel/plugin-proposal-numeric-separator": "^7",
-    "@babel/plugin-proposal-object-rest-spread": "^7",
-    "@babel/plugin-syntax-dynamic-import": "^7",
+    "@babel/plugin-proposal-class-properties": "7",
+    "@babel/plugin-proposal-numeric-separator": "7",
+    "@babel/plugin-proposal-object-rest-spread": "7",
+    "@babel/plugin-syntax-dynamic-import": "7",
     "@babel/runtime-corejs3": "7.22",
     "@vue/compiler-sfc": "^3.2.30",
-    "less": "^4.1.0",
+    "less": "4",
     "less-loader": "7",
     "mp-webpack-plugin": "^1.6.0",
-    "postcss-px-to-viewport": "^1.1.1",
+    "postcss-px-to-viewport": "1",
     "postcss-pxtorem": "5",
     "ts-loader": "8",
     "typescript": "4",
@@ -72,10 +72,10 @@
     "vue-style-loader": "4",
     "vue-template-compiler": "2",
     "webpack": "4",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-node-externals": "3"
   },
   "optionalDependencies": {
-    "imagemin-pngquant": "^9.0.0"
+    "imagemin-pngquant": "9"
   },
   "private": true
 }
