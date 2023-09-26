@@ -1,4 +1,4 @@
-import terser from '@rollup/plugin-terser';
+import terser, { Options } from '@rollup/plugin-terser';
 import { InputOptions, OutputOptions, RollupPlugin } from '@balm-core/index';
 
 function getInputPlugins(customInputOptions: InputOptions): RollupPlugin[] {
@@ -27,7 +27,7 @@ function getOutputPlugins(customOutputOptions: OutputOptions): RollupPlugin[] {
   }
 
   if (BalmJS.config.env.isProd) {
-    outputPlugins.push(terser(BalmJS.config.scripts.minifyOptions));
+    outputPlugins.push(terser(BalmJS.config.scripts.minifyOptions as Options));
   }
 
   if (customOutputOptions.plugins) {

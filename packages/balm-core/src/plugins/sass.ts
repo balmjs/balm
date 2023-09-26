@@ -1,12 +1,13 @@
 import path from 'node:path';
 import fs from 'node:fs';
+import { pathToFileURL } from 'node:url';
 // Reference `gulp-sass@5.1.0`
 import { Transform, TransformCallback } from 'node:stream';
 import * as sass from 'sass';
 import replaceExtension from 'replace-ext';
 import stripAnsi from 'strip-ansi';
 import applySourceMap from 'vinyl-sourcemaps-apply';
-import { BalmError } from '@balm-core/index';
+import { BalmError, SassOptions, SassImporter } from '@balm-core/index';
 import ansiColors from 'ansi-colors';
 
 process.env.BALM_CWD = process.env.INIT_CWD || process.cwd();
@@ -50,7 +51,7 @@ interface CompileResult {
 }
 
 interface SassModule {
-  compile: (path: string, options: object) => CompileResult;
+  compile: (path: string, options?: SassOptions) => CompileResult;
 }
 
 const transformObj = (
@@ -108,7 +109,7 @@ const handleError = (
 //////////////////////////////
 // Main Gulp Sass function
 //////////////////////////////
-const gulpSass: GulpSass = (options: object): any =>
+const gulpSass: GulpSass = (options: SassOptions): any =>
   transformObj(
     (
       file: Buffer | string | any,
@@ -135,6 +136,34 @@ const gulpSass: GulpSass = (options: object): any =>
       }
 
       const path = file.path;
+
+      // Create alias
+      if (
+        !options.importers &&
+        Object.keys(BalmJS.config.scripts.alias).length
+      ) {
+        options.importers = [];
+        for (const [key, value] of Object.entries(
+          BalmJS.config.scripts.alias
+        )) {
+          options.importers.push({
+            findFileUrl(url: string) {
+              if (!url.startsWith(key)) return null;
+
+              const newUrl = url.replace(
+                new RegExp(`^${key}`),
+                value as string
+              );
+              BalmJS.logger.debug(
+                `${PLUGIN_NAME} alias`,
+                `${url} -> ${newUrl}`
+              );
+
+              return pathToFileURL(newUrl);
+            }
+          } as SassImporter);
+        }
+      }
 
       try {
         filePush(

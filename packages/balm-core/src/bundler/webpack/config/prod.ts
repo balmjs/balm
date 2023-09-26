@@ -1,16 +1,11 @@
-import TerserPlugin from 'terser-webpack-plugin';
+import TerserPlugin, { MinimizerOptions } from 'terser-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpackBundleAnalyzer from 'webpack-bundle-analyzer';
 import { merge } from 'webpack-merge';
 import getCommonConfig from './common.js';
 import { CHUNK } from '../../../config/constants.js';
-import {
-  LooseObject,
-  Configuration,
-  MinifyOptions,
-  BalmScripts
-} from '@balm-core/index';
+import { LooseObject, Configuration, BalmScripts } from '@balm-core/index';
 
 // Run the build command with an extra argument to
 // View the bundle analyzer report after build finishes:
@@ -26,7 +21,9 @@ function getProdConfig(
   scripts: BalmScripts
 ): Configuration {
   const shouldUseSourceMap = scripts.sourceMap as boolean;
-  const terserOptions: MinifyOptions = scripts.minifyOptions;
+  const terserOptions = scripts.minifyOptions as MinimizerOptions<{
+    ie8?: boolean;
+  }>;
 
   if (scripts.ie8) {
     terserOptions.ie8 = true;
