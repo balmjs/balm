@@ -152,6 +152,28 @@ const gulpSass: GulpSass = (options: object): any =>
         opts.sourceMapContents = true;
       }
 
+      // Create alias
+      if (!opts.importer && Object.keys(BalmJS.config.scripts.alias).length) {
+        opts.importer = [];
+        for (const [key, value] of Object.entries(
+          BalmJS.config.scripts.alias
+        )) {
+          opts.importer.push(function (url: string, prev: string) {
+            if (new RegExp(`^${key}`).test(url)) {
+              const importerPaths = url.split('/');
+              importerPaths[0] = value;
+              BalmJS.logger.debug(
+                `${PLUGIN_NAME} alias`,
+                `${key} -> ${importerPaths.join('/')}`
+              );
+              return {
+                file: importerPaths.join('/')
+              };
+            }
+          });
+        }
+      }
+
       //////////////////////////////
       // Sync Sass render
       //////////////////////////////
