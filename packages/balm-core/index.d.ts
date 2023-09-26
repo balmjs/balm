@@ -41,6 +41,10 @@ interface BalmStyles {
   spriteParams: object;
 }
 
+// Sass
+export type SassOptions = import('sass').Options<'sync'>;
+export type SassImporter = import('sass').FileImporter<'sync'>;
+
 // Webpack
 export type WebpackEntry = import('webpack').Entry;
 export type Configuration = import('webpack').Configuration;
