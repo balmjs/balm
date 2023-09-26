@@ -158,17 +158,14 @@ const gulpSass: GulpSass = (options: object): any =>
         for (const [key, value] of Object.entries(
           BalmJS.config.scripts.alias
         )) {
-          opts.importer.push(function (url: string, prev: string) {
-            if (new RegExp(`^${key}`).test(url)) {
-              const importerPaths = url.split('/');
-              importerPaths[0] = value;
-              BalmJS.logger.debug(
-                `${PLUGIN_NAME} alias`,
-                `${key} -> ${importerPaths.join('/')}`
-              );
-              return {
-                file: importerPaths.join('/')
-              };
+          opts.importer.push(function (url: string) {
+            if (url.startsWith(key)) {
+              const file = url.replace(new RegExp(`^${key}`), value);
+              BalmJS.logger.debug(`${PLUGIN_NAME} alias`, `${url} -> ${file}`);
+
+              return { file };
+            } else {
+              return { file: url };
             }
           });
         }
