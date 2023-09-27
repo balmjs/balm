@@ -140,7 +140,7 @@ const gulpSass: GulpSass = (options: SassOptions): any =>
       // Create alias
       if (!options.importers) {
         const aliasKeys = Object.keys(BalmJS.config.scripts.alias).filter(
-          (key) => /^@\w+/.test(key)
+          (key) => /^@[a-z0-9-]{1,213}/.test(key)
         );
 
         if (aliasKeys.length) {
