@@ -138,32 +138,39 @@ const gulpSass: GulpSass = (options: SassOptions): any =>
       const path = file.path;
 
       // Create alias
-      if (
-        !options.importers &&
-        Object.keys(BalmJS.config.scripts.alias).length
-      ) {
-        options.importers = [];
-        for (const [key, value] of Object.entries(
-          BalmJS.config.scripts.alias
-        )) {
-          options.importers.push({
-            findFileUrl(url: string) {
-              if (url.startsWith(key)) {
-                const newUrl = url.replace(
-                  new RegExp(`^${key}`),
-                  value as string
-                );
-                BalmJS.logger.debug(
-                  `${PLUGIN_NAME} alias`,
-                  `${url} -> ${newUrl}`
-                );
+      if (!options.importers) {
+        const aliasKeys = Object.keys(BalmJS.config.scripts.alias).filter(
+          (key) => /^@\w+/.test(key)
+        );
 
-                return pathToFileURL(newUrl);
-              } else {
-                return pathToFileURL(url);
+        if (aliasKeys.length) {
+          const aliasKeyRegex = new RegExp(`^${aliasKeys.join('|')}`);
+
+          options.importers = [
+            {
+              findFileUrl(url: string) {
+                let file = url;
+
+                const result = url.match(aliasKeyRegex);
+                const key = result ? result[0] : null;
+                if (key) {
+                  file = url.replace(
+                    aliasKeyRegex,
+                    (BalmJS.config.scripts.alias as { [key: string]: string })[
+                      key
+                    ]
+                  );
+
+                  BalmJS.logger.debug(
+                    `${PLUGIN_NAME} alias`,
+                    `${url} -> ${file}`
+                  );
+                }
+
+                return pathToFileURL(file);
               }
             }
-          } as SassImporter);
+          ];
         }
       }
 
