@@ -144,7 +144,7 @@ const gulpSass: GulpSass = (options: SassOptions): any =>
         );
 
         if (aliasKeys.length) {
-          const aliasKeyRegex = new RegExp(`^${aliasKeys.join('|')}`);
+          const aliasKeyRegex = new RegExp(`^(${aliasKeys.join('|')})/`);
 
           options.importers = [
             {
@@ -152,10 +152,10 @@ const gulpSass: GulpSass = (options: SassOptions): any =>
                 let file = url;
 
                 const result = url.match(aliasKeyRegex);
-                const key = result ? result[0] : null;
+                const key = result ? result[1] : null;
                 if (key) {
                   file = url.replace(
-                    aliasKeyRegex,
+                    key,
                     (BalmJS.config.scripts.alias as { [key: string]: string })[
                       key
                     ]
@@ -163,7 +163,7 @@ const gulpSass: GulpSass = (options: SassOptions): any =>
 
                   BalmJS.logger.debug(
                     `${PLUGIN_NAME} alias`,
-                    `${url} -> ${file}`
+                    `${key} -> ${url} => ${file}`
                   );
                 }
 
