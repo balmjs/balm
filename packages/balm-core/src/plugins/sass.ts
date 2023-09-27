@@ -153,24 +153,35 @@ const gulpSass: GulpSass = (options: object): any =>
       }
 
       // Create alias
-      if (!opts.importer && Object.keys(BalmJS.config.scripts.alias).length) {
-        opts.importer = [];
-        for (const [key, value] of Object.entries(
-          BalmJS.config.scripts.alias
-        )) {
-          opts.importer.push(function (url: string, prev: string) {
-            if (new RegExp(`^${key}`).test(url)) {
-              const importerPaths = url.split('/');
-              importerPaths[0] = value;
-              BalmJS.logger.debug(
-                `${PLUGIN_NAME} alias`,
-                `${key} -> ${importerPaths.join('/')}`
-              );
-              return {
-                file: importerPaths.join('/')
-              };
+      if (!opts.importer) {
+        const aliasKeys = Object.keys(BalmJS.config.scripts.alias).filter(
+          (key) => /^@\w+/.test(key)
+        );
+
+        if (aliasKeys.length) {
+          const aliasKeyRegex = new RegExp(`^${aliasKeys.join('|')}`);
+
+          opts.importer = [
+            function (url: string) {
+              let file = url;
+
+              const result = url.match(aliasKeyRegex);
+              const key = result ? result[0] : null;
+              if (key) {
+                file = url.replace(
+                  aliasKeyRegex,
+                  BalmJS.config.scripts.alias[key]
+                );
+
+                BalmJS.logger.debug(
+                  `${PLUGIN_NAME} alias`,
+                  `${url} -> ${file}`
+                );
+              }
+
+              return { file };
             }
-          });
+          ];
         }
       }
 
