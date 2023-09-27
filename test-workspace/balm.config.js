@@ -30,6 +30,7 @@ const config = {
     },
     alias: {
       // process: 'process/browser',
+      '@': workspace,
       '@balm-ui': path.join(workspace, 'node_modules/balm-ui')
     },
     plugins: [
