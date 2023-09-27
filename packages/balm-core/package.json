@@ -1,6 +1,6 @@
 {
   "name": "balm-core",
-  "version": "3.33.2",
+  "version": "3.33.3",
   "description": "BalmJS compiler core",
   "keywords": [
     "balm",
