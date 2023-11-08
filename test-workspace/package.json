@@ -35,8 +35,8 @@
     "ftp:test": "../packages/balm/bin/balm.js --config config/ftp.js"
   },
   "dependencies": {
-    "axios": "^1.5.0",
-    "balm-ui": "8",
+    "axios": "^1.6.0",
+    "balm-ui": "^8.63.1",
     "core-js": "3",
     "cors": "2",
     "cross-env": "7",
@@ -70,13 +70,13 @@
     "mp-webpack-plugin": "^1.6.0",
     "postcss-px-to-viewport": "^1.1.1",
     "postcss-pxtorem": "^6.0.0",
-    "ts-loader": "^9.4.0",
+    "ts-loader": "^9.5.0",
     "typescript": "^5.0.0",
     "vue-loader": "15",
     "vue-loader-next": "npm:vue-loader@^16",
     "vue-style-loader": "4",
     "vue-template-compiler": "2",
-    "webpack": "^5.88.0",
+    "webpack": "^5.89.0",
     "webpack-node-externals": "^3.0.0"
   },
   "optionalDependencies": {

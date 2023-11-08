@@ -3,6 +3,7 @@ declare module 'browser-sync';
 declare module 'connect-history-api-fallback';
 declare module 'fancy-log';
 declare module 'gulp-rev-all';
+declare module 'gulp-size';
 declare module 'html-minifier';
 declare module 'imagemin';
 declare module 'less';

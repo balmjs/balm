@@ -1,4 +1,4 @@
-// Reference `gulp-replace@1.1.3`
+// Reference `gulp-replace@1.1.4`
 import { Transform, TransformCallback } from 'node:stream';
 import { isText } from 'istextorbinary';
 import rs from '../utilities/replacestream.js';

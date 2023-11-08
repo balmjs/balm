@@ -1,4 +1,4 @@
-// Reference `gulp-imagemin@8.0.0`
+// Reference `gulp-imagemin@9.0.0`
 import { TransformCallback } from 'node:stream';
 import imagemin from 'imagemin';
 import prettyBytes from 'pretty-bytes';
@@ -14,7 +14,7 @@ const loadPlugin = (plugin: string, ...args: any) => {
   } catch (_) {
     BalmJS.logger.error(
       PLUGIN_NAME,
-      `Couldn't load default plugin "${plugin}"`
+      `Could not load default plugin \`${plugin}\``
     );
   }
 };
@@ -27,7 +27,11 @@ const exposePlugin =
 const getDefaultPlugins = () =>
   defaultPlugins.flatMap((plugin) => loadPlugin(plugin));
 
-const gulpImagemin = (customPlugins?: Function[]): any => {
+function gulpImagemin(customPlugins?: Function[]): any {
+  if (typeof customPlugins === 'object' && !Array.isArray(customPlugins)) {
+    customPlugins = undefined;
+  }
+
   const validExtensions = new Set(['.jpg', '.jpeg', '.png', '.gif', '.svg']);
 
   let totalBytes = 0;
@@ -61,7 +65,7 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
       return;
     }
 
-    const plugins = customPlugins || getDefaultPlugins();
+    const plugins = customPlugins ?? getDefaultPlugins();
 
     (async () => {
       try {
@@ -86,6 +90,7 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
         BalmJS.logger.debug(PLUGIN_NAME, `${file.relative} (${message})`);
 
         file.contents = data;
+
         callback(null, file);
       } catch (error) {
         callback(
@@ -113,7 +118,7 @@ const gulpImagemin = (customPlugins?: Function[]): any => {
   }
 
   return through2Concurrent.obj({ maxConcurrency: 8 }, transform, flush);
-};
+}
 
 const gifsicle = exposePlugin('gifsicle');
 const mozjpeg = exposePlugin('mozjpeg');

@@ -7,6 +7,21 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.24.0 / 2023-11-08
+
+### Features
+
+- update dependencies
+  - `global-dirs`: 3.x -> 4.x
+  - `gulp-size`: 4.x -> 5.x
+  - `gulp-zip`: 5.x -> 6.x
+  - `istextorbinary`: 6.x -> 7.x
+  - `rollup`: 3.x -> 4.x
+
+### BREAKING CHANGES
+
+- minimum supported Node.js version is `18`
+
 ## v4.23.4 / 2023-09-27
 
 ### Bug Fixes
