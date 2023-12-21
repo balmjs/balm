@@ -7,6 +7,11 @@
 
 > :tada: [`balm-core`](https://github.com/balmjs/balm/tree/main)(v4) supports for `node@12+`, `sass@latest`, `postcss@8`, `webpack@5`
 
+## v3.34.0 / 2023-12-21
+
+- update dependencies
+  - `babel`: 7.22 -> 7.23
+
 ## v3.33.4 / 2023-09-27
 
 ### Bug Fixes
