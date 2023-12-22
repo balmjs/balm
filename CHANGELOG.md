@@ -7,7 +7,7 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
-## v4.24.0 / 2023-11-08
+## v4.24.0 / 2023-12-22
 
 ### Features
 
@@ -15,7 +15,7 @@
   - `global-dirs`: 3.x -> 4.x
   - `gulp-size`: 4.x -> 5.x
   - `gulp-zip`: 5.x -> 6.x
-  - `istextorbinary`: 6.x -> 7.x
+  - `istextorbinary`: 6.x -> 9.x
   - `rollup`: 3.x -> 4.x
 
 ### BREAKING CHANGES
