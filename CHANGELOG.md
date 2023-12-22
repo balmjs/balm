@@ -11,6 +11,7 @@
 
 ### Features
 
+- revert `postcss-preset-env` to 7.x
 - update dependencies
   - `global-dirs`: 3.x -> 4.x
   - `gulp-size`: 4.x -> 5.x
