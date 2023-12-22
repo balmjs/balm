@@ -1,3 +1,5 @@
+import gulpSize from 'gulp-size';
+
 class BuildTask extends BalmJS.BalmTask {
   constructor() {
     super('build');
@@ -9,7 +11,7 @@ class BuildTask extends BalmJS.BalmTask {
     this.init();
 
     return this.src.pipe(
-      $.size({
+      gulpSize({
         title: this.name,
         gzip: true
       })

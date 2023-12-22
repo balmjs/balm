@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { sync as del } from 'rimraf';
+import { rimrafSync } from 'rimraf';
 
 // https://github.com/Microsoft/TypeScript/issues/20007
 interface Function {
@@ -17,13 +17,13 @@ interface timeoutObj {
 }
 
 function cleanup() {
-  del(`${balm.config.workspace}/.output`);
-  del(`${balm.config.workspace}/.tmp`);
-  del(`${balm.config.workspace}/dist`);
-  del(`${balm.config.workspace}/assets`);
-  del(`${balm.config.workspace}/src/styles/sprites`);
-  del(`${balm.config.workspace}/archive.zip`);
-  del(`${balm.config.workspace}/new-archive.zip`);
+  rimrafSync(`${balm.config.workspace}/.output`);
+  rimrafSync(`${balm.config.workspace}/.tmp`);
+  rimrafSync(`${balm.config.workspace}/dist`);
+  rimrafSync(`${balm.config.workspace}/assets`);
+  rimrafSync(`${balm.config.workspace}/src/styles/sprites`);
+  rimrafSync(`${balm.config.workspace}/archive.zip`);
+  rimrafSync(`${balm.config.workspace}/new-archive.zip`);
 }
 
 function shouldExist(file: string, contents?: string) {
