@@ -1,5 +1,5 @@
 import path from 'node:path';
-import globalDirectories from 'global-dirs';
+import globalDirectory from 'global-directory';
 
 const BALM_CORE_PACKAGE_NAME = 'balm-core';
 
@@ -11,12 +11,12 @@ const getBalmCoreModulePath = () => {
     ? path.join(process.env.BALM_CORE, lib)
     : path.join(process.cwd(), 'node_modules', BALM_CORE_PACKAGE_NAME, lib);
   const npmGlobalModule = path.join(
-    globalDirectories.npm.packages,
+    globalDirectory.npm.packages,
     BALM_CORE_PACKAGE_NAME,
     lib
   );
   const yarnGlobalModule = path.join(
-    globalDirectories.yarn.packages,
+    globalDirectory.yarn.packages,
     BALM_CORE_PACKAGE_NAME,
     lib
   );
