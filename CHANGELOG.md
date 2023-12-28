@@ -7,6 +7,19 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.25.0 / 2023-12-28
+
+### Features
+
+- rename `global-dirs` to `global-directory`
+- update dependencies
+  - `browser-sync`: 2.x -> 3.x
+  - `webpack-dev-middleware`: 6.x -> 7.x
+
+### BREAKING CHANGES
+
+- minimum supported Node.js version is `18.12.0`
+
 ## v4.24.0 / 2023-12-22
 
 ### Features
