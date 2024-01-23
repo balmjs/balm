@@ -27,7 +27,7 @@
     "@babel/plugin-transform-runtime": "7.23",
     "@babel/preset-env": "7.23",
     "@babel/preset-typescript": "7.23",
-    "@babel/register": "7.22",
+    "@babel/register": "7.23",
     "@commitlint/cli": "18",
     "@commitlint/config-conventional": "18",
     "@types/chai": "4",
