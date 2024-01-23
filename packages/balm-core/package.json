@@ -1,6 +1,6 @@
 {
   "name": "balm-core",
-  "version": "3.34.0",
+  "version": "3.35.0",
   "description": "BalmJS compiler core",
   "keywords": [
     "balm",
@@ -44,7 +44,7 @@
     "async": "^3.2.5",
     "autoprefixer": "9",
     "babel-loader": "8",
-    "browser-sync": "^2.29.3",
+    "browser-sync": "^3.0.2",
     "connect-history-api-fallback": "^2.0.0",
     "css-loader": "5",
     "cssnano": "4",
@@ -91,7 +91,7 @@
     "strip-ansi": "6",
     "style-loader": "2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
-    "terser": "^5.26.0",
+    "terser": "^5.27.0",
     "terser-webpack-plugin": "4",
     "through2": "^4.0.2",
     "through2-concurrent": "^2.0.0",
@@ -101,7 +101,7 @@
     "webpack": "4",
     "webpack-bundle-analyzer": "^4.10.1",
     "webpack-dev-middleware": "3",
-    "webpack-hot-middleware": "^2.25.4",
+    "webpack-hot-middleware": "^2.26.0",
     "webpack-merge": "^5.10.0",
     "workbox-build": "^7.0.0"
   },
