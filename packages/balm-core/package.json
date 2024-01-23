@@ -90,7 +90,7 @@
     "ssh2": "0.8.9",
     "strip-ansi": "6",
     "style-loader": "2",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.1.4",
     "terser": "^5.27.0",
     "terser-webpack-plugin": "4",
     "through2": "^4.0.2",
