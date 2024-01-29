@@ -54,7 +54,7 @@ function getProdConfig(
       ...(bundleAnalyzerReport
         ? [new webpackBundleAnalyzer.BundleAnalyzerPlugin()]
         : [])
-    ],
+    ] as any[],
     devtool: shouldUseSourceMap ? 'source-map' : false
   });
 }
