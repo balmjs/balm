@@ -43,7 +43,9 @@ interface BalmStyles {
 
 // Sass
 export type SassOptions = import('sass').Options<'sync'>;
-export type SassImporter = import('sass').FileImporter<'sync'>;
+export type CompileResult = import('sass').CompileResult;
+export type LegacyOptions = import('sass').LegacyOptions<'sync'>;
+export type LegacyResult = import('sass').LegacyResult;
 
 // Webpack
 export type WebpackEntry = import('webpack').Entry;
