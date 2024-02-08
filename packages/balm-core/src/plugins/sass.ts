@@ -3,7 +3,7 @@ import { pathToFileURL } from 'node:url';
 // Reference `gulp-sass@5.1.0`
 import { Transform, TransformCallback } from 'node:stream';
 import semver from 'semver';
-import sass from 'sass';
+import * as sass from 'sass';
 import replaceExtension from 'replace-ext';
 import stripAnsi from 'strip-ansi';
 import applySourceMap from 'vinyl-sourcemaps-apply';
@@ -22,8 +22,13 @@ const localSassModule = node.path.join(
   'node_modules',
   'sass'
 );
-const sassPkg = requireModule(node.path.join(localSassModule, 'package.json'));
-export const isLegacy = semver.lt(sassPkg.version, '1.40.0');
+let isLegacy = false;
+try {
+  const sassPkg = requireModule(
+    node.path.join(localSassModule, 'package.json')
+  );
+  isLegacy = semver.lt(sassPkg.version, '1.40.0');
+} catch (_) {}
 
 const nodeLocalSassModule = node.path.join(localSassModule, 'sass.node.js');
 const defaultLocalSassModule = node.path.join(
@@ -321,3 +326,4 @@ const gulpSass: GulpSass = (options: SassOptions): any =>
   );
 
 export default gulpSass;
+export { isLegacy };
