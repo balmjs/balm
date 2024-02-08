@@ -9,9 +9,11 @@
 
 ## v4.27.0 / 2024-02-08
 
-### Chore
+### Features
 
 - update sass compatibility for legacy
+- update dependencies
+  - `esbuild`: 0.19 -> 0.20
 
 ## v4.26.0 / 2024-01-23
 
