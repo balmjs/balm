@@ -1,4 +1,5 @@
 import { HookOptions } from '@balm-core/index';
+import { isLegacy } from '../../plugins/sass.js';
 
 class SassTask extends BalmJS.BalmStyleTask {
   constructor() {
@@ -7,11 +8,16 @@ class SassTask extends BalmJS.BalmStyleTask {
 
   get options(): object {
     return Object.assign(
-      {
-        loadPaths: BalmJS.file.stylePaths,
-        sourceMap: true,
-        quietDeps: BalmJS.config.logs.level < BalmJS.LogLevel.Warn
-      },
+      isLegacy
+        ? {
+            includePaths: BalmJS.file.stylePaths,
+            outputStyle: 'expanded'
+          }
+        : {
+            loadPaths: BalmJS.file.stylePaths,
+            sourceMap: true
+          },
+      { quietDeps: BalmJS.config.logs.level < BalmJS.LogLevel.Warn },
       BalmJS.config.styles.sassOptions,
       this.customOptions
     );

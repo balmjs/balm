@@ -21,7 +21,9 @@
     "target": "ES2020",
     // Interop Constraints
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    // Completeness
+    "skipLibCheck": true
   },
   "include": [
     "packages/balm-core/src/**/*",

@@ -7,6 +7,14 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.27.0 / 2024-02-08
+
+### Features
+
+- update sass compatibility for legacy
+- update dependencies
+  - `esbuild`: 0.19 -> 0.20
+
 ## v4.26.0 / 2024-01-23
 
 - update dependencies
