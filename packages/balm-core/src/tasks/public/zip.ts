@@ -1,3 +1,5 @@
+import zip from 'gulp-zip';
+
 class ZipTask extends BalmJS.BalmTask {
   constructor() {
     super('zip');
@@ -14,7 +16,7 @@ class ZipTask extends BalmJS.BalmTask {
     const balmZip = (): any => {
       this.init(input, output);
 
-      return this.src.pipe($.zip(filename)).pipe(gulp.dest(this.output));
+      return this.src.pipe(zip(filename)).pipe(gulp.dest(this.output));
     };
 
     return balmZip;

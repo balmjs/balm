@@ -7,6 +7,12 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.27.2 / 2024-02-23
+
+### Bug Fixes
+
+- fix zip module bug
+
 ## v4.27.0 / 2024-02-08
 
 ### Features

@@ -152,15 +152,17 @@ To download [example](https://balm.js.org/balm-example.zip) and try it, visit [b
 
 ## Ecosystem
 
-| Project                                               | Status                                                 | Description                                                   |
-| ----------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------- |
-| **[balm-core](https://github.com/balmjs/balm)**       | [![NPM version][balm-core-image]][balm-core-url]       | :black_joker: BalmJS compiler core (required for `balm 3.0+`) |
-| **[balm](https://github.com/balmjs/balm)**            | [![NPM version][balm-image]][balm-url]                 | :black_joker: BalmJS runtime core                             |
-| **[balm-cli](https://github.com/balmjs/balm-cli)**    | [![NPM version][balm-cli-image]][balm-cli-url]         | :spades: BalmJS scaffolding tool                              |
-| [balm-gui](https://github.com/balmjs/balm-gui)        | N/A                                                    | :clubs: GUI for BalmJS                                        |
-| [balm-ui-lite](https://github.com/balmjs/ui-vue-lite) | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url] | :hearts: Material Design Lite + Vue                           |
-| **[balm-ui](https://github.com/balmjs/ui-vue)**       | [![NPM version][balm-ui-image]][balm-ui-url]           | :diamonds: Next Generation Material UI for Vue.js             |
-| [balm-scroll](https://github.com/balmjs/balm-scroll)  | [![NPM version][balm-scroll-image]][balm-scroll-url]   | :scroll: Smooth scrolling for Vue.js                          |
+| Project                                                    | Status                                                   | Description                                                        |
+| ---------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------ |
+| **[balm-core](https://github.com/balmjs/balm)**            | [![NPM version][balm-core-image]][balm-core-url]         | :black_joker: BalmJS compiler core (required for `balm 3.0+`)      |
+| **[balm](https://github.com/balmjs/balm)**                 | [![NPM version][balm-image]][balm-url]                   | :black_joker: BalmJS runtime core                                  |
+| **[balm-cli](https://github.com/balmjs/balm-cli)**         | [![NPM version][balm-cli-image]][balm-cli-url]           | :spades: BalmJS scaffolding tool                                   |
+| [balm-gui](https://github.com/balmjs/balm-gui)             | N/A                                                      | :clubs: GUI for BalmJS                                             |
+| [balm-ui-lite](https://github.com/balmjs/ui-vue-lite)      | [![NPM version][balm-ui-lite-image]][balm-ui-lite-url]   | :hearts: Material Design Lite + Vue                                |
+| **[balm-ui](https://github.com/balmjs/ui-vue)**            | [![NPM version][balm-ui-image]][balm-ui-url]             | :diamonds: Next Generation Material UI for Vue.js                  |
+| [balm-scroll](https://github.com/balmjs/balm-scroll)       | [![NPM version][balm-scroll-image]][balm-scroll-url]     | :scroll: Smooth scrolling for Vue.js                               |
+| **[balm-ui-pro](https://github.com/balmjs/balm-ui-pro)**   | [![NPM version][balm-ui-pro-image]][balm-ui-pro-url]     | More configuration definition, less code implementation for Vue.js |
+| **[balm-git-flow](https://github.com/balmjs/balm-ui-pro)** | [![NPM version][balm-git-flow-image]][balm-git-flow-url] | The best practices for front-end git flow                          |
 
 ## Contributing
 
@@ -188,3 +190,7 @@ We'd love for you to contribute and make BalmJS even better than it is today! Pl
 [balm-ui-url]: https://npmjs.org/package/balm-ui
 [balm-scroll-image]: https://img.shields.io/npm/v/balm-scroll.svg
 [balm-scroll-url]: https://npmjs.org/package/balm-scroll
+[balm-ui-pro-image]: https://badge.fury.io/js/balm-ui-pro.svg
+[balm-ui-pro-url]: https://npmjs.org/package/balm-ui-pro
+[balm-git-flow-image]: https://badge.fury.io/js/balm-git-flow.svg
+[balm-git-flow-url]: https://npmjs.org/package/balm-git-flow
