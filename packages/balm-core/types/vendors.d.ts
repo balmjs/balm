@@ -1,6 +1,7 @@
 declare module 'connect-history-api-fallback';
 declare module 'gulp-rev-all';
 declare module 'gulp-size';
+declare module 'gulp-zip';
 declare module 'less';
 declare module 'modernizr';
 declare module 'postcss-import';
