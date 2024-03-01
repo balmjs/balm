@@ -57,6 +57,8 @@ const config = {
   //   }
   // },
   assets: {
+    // subDir: 'web',
+    // virtualDir: 'awesome',
     cache: true
   },
   logs: {
