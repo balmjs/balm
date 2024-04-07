@@ -75,6 +75,7 @@ function checkConfig(): void {
   upgradeDeprecated('4.0.0', 'scripts', 'libraryTarget');
   upgradeDeprecated('4.5.0', 'scripts', 'excludeUrlResource');
   upgradeDeprecated('4.5.0', 'scripts', 'urlLoaderOptions');
+  upgradeRenamed('4.29.0', 'server', 'proxyConfig', 'proxyOptions');
 }
 
 export default checkConfig;
