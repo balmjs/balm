@@ -155,10 +155,7 @@ export interface BalmAssets extends Partial<BalmAssetsPath> {
   excludes: string[];
 }
 
-export interface BalmProxyConfig {
-  context: string | string[];
-  options: object;
-}
+export type BalmProxyOptions = import('http-proxy-middleware').Options;
 
 interface BalmServer {
   port: number;
@@ -171,7 +168,7 @@ interface BalmServer {
   options: any;
   devOptions: object;
   hotOptions: object;
-  proxyConfig: boolean | BalmProxyConfig | BalmProxyConfig[];
+  proxyOptions: boolean | BalmProxyOptions | BalmProxyOptions[];
   historyOptions: boolean | object;
   middlewares: Function[] | object[];
   extraWatchFiles: string[];

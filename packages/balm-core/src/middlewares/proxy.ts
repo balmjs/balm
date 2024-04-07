@@ -1,44 +1,26 @@
 import { createProxyMiddleware } from 'http-proxy-middleware';
-import { BalmError, BalmProxyConfig } from '@balm-core/index';
-
-function handleProxyConfigError(): void {
-  const configuration = '{ context: string | array, options: object }';
-
-  BalmJS.logger.error(
-    'proxy middleware',
-    `Proxy config must be an object (${configuration}) or array ([${configuration}])`
-  );
-}
+import { BalmError, BalmProxyOptions } from '@balm-core/index';
 
 function httpProxyMiddleware(): object[] {
   const middleware: object[] = [];
-  const proxyConfig = BalmJS.config.server.proxyConfig;
+  const proxyOptions = BalmJS.config.server.proxyOptions;
 
-  if (proxyConfig) {
+  if (proxyOptions) {
     try {
-      if (BalmJS.utils.isObject(proxyConfig)) {
+      if (BalmJS.utils.isObject(proxyOptions)) {
         // Single proxy
-        const config = proxyConfig as BalmProxyConfig;
-        if (config.context && config.options) {
-          middleware.push(
-            createProxyMiddleware(config.context, config.options)
-          );
-        } else {
-          handleProxyConfigError();
-        }
-      } else if (BalmJS.utils.isArray(proxyConfig)) {
+        const options = proxyOptions as BalmProxyOptions;
+        middleware.push(createProxyMiddleware(options));
+      } else if (BalmJS.utils.isArray(proxyOptions)) {
         // Multiple proxies
-        for (const config of proxyConfig as BalmProxyConfig[]) {
-          if (config.context && config.options) {
-            middleware.push(
-              createProxyMiddleware(config.context, config.options)
-            );
-          } else {
-            handleProxyConfigError();
-          }
+        for (const options of proxyOptions as BalmProxyOptions[]) {
+          middleware.push(createProxyMiddleware(options));
         }
       } else {
-        handleProxyConfigError();
+        BalmJS.logger.error(
+          'proxy middleware',
+          `Proxy options (https://github.com/chimurai/http-proxy-middleware#options) must be an object or array`
+        );
       }
     } catch (error) {
       const { message } = error as BalmError;
