@@ -7,6 +7,18 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.29.0 / 2024-04-07
+
+### Features
+
+- update dependencies
+  - `css-loader`: 6.x -> 7.x
+  - `http-proxy-middleware`: 2.x -> 3.x
+
+### BREAKING CHANGES
+
+- update config: `server.proxyConfig` is deprecated, use `server.proxyOptions` instead
+
 ## v4.28.0 / 2024-03-01
 
 ### Features

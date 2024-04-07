@@ -1,4 +1,4 @@
-import { BalmProxyConfig } from '@balm-core/index';
+import { BalmProxyOptions } from '@balm-core/index';
 
 const port = 3000;
 const host: string | null = null;
@@ -37,35 +37,28 @@ const hotOptions: object = {
 /**
  * Http-proxy middleware
  *
- * @reference https://github.com/chimurai/http-proxy-middleware#context-matching
  * @reference https://github.com/chimurai/http-proxy-middleware#options
  *
  * @example
  * Single proxy example
  * {
- *   context: '/api',
- *   options: {
- *     target: 'http://www.example.org',
- *     changeOrigin: true
- *   }
+ *   target: 'http://www.example.org',
+ *   changeOrigin: true,
+ *   pathFilter: '/api'
  * }
  * @example
  * Multiple proxies example
  * [{
- *   context: '/api',
- *   options: {
- *     target: 'http://www.example.org',
- *     changeOrigin: true
- *   }
+ *   target: 'http://www.example.org',
+ *   changeOrigin: true,
+ *   pathFilter: '/api'
  * }, {
- *   context: ['/api2', '/api3'],
- *   options: {
- *     target: 'http://www.example2.org',
- *     changeOrigin: true
- *   }
+ *   target: 'http://www.example2.org',
+ *   changeOrigin: true,
+ *   pathFilter: ['/api2', '/api3']
  * }]
  */
-const proxyConfig: boolean | BalmProxyConfig | BalmProxyConfig[] = false;
+const proxyOptions: boolean | BalmProxyOptions | BalmProxyOptions[] = false;
 /**
  * HTML 5 history API
  *
@@ -86,7 +79,7 @@ export default {
   next,
   devOptions,
   hotOptions,
-  proxyConfig,
+  proxyOptions,
   historyOptions,
   middlewares,
   extraWatchFiles
