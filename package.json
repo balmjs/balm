@@ -41,7 +41,7 @@
     "eslint-config-prettier": "9",
     "eslint-plugin-prettier": "5",
     "esm": "^3.2.25",
-    "gulp": "4",
+    "gulp": "^5.0.0",
     "gulp-babel": "8",
     "gulp-eslint": "6",
     "gulp-exclude-gitignore": "1",
