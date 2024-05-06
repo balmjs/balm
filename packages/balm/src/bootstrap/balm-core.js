@@ -4,8 +4,8 @@ import getBalmCoreModule from './balm-core-module.js';
 import checkVersion from '../check-version.js';
 import { isWindows, dynamicImport } from './utils.js';
 
-const canaryVersion = /^4\.0\.0-/;
-const nextVersion = /^4\.[0-9]+\.[0-9]+$/;
+const canaryVersion = /^[4-5]\.0\.0-/;
+const nextVersion = /^[4-5]\.[0-9]+\.[0-9]+$/;
 
 const getBalmCore = async () => {
   const balmCoreModule = getBalmCoreModule();
