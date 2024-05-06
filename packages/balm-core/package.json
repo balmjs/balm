@@ -1,6 +1,6 @@
 {
   "name": "balm-core",
-  "version": "4.29.1",
+  "version": "5.0.0",
   "description": "BalmJS compiler core",
   "keywords": [
     "balm",
