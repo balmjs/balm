@@ -7,14 +7,14 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
-## v5.0.0 / 2024-05-06
+## v4.30.0 / 2024-05-07
 
 ### Features
 
 - update dependencies
-  - `gulp`: 4.x -> 5.x
   - `cssnano`: 6.x -> 7.x
   - `style-loader`: 3.x -> 4.x
+  - `imagemin`: 8.x -> 9.x
 
 ## v4.29.0 / 2024-04-07
 
