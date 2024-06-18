@@ -48,8 +48,8 @@
     "@babel/runtime": "^7.24",
     "ansi-colors": "^4.1.3",
     "global-directory": "^4.0.1",
-    "gulp": "4",
-    "semver": "^7.6.0",
+    "gulp": "^5.0.0",
+    "semver": "^7.6.2",
     "webpack-hot-middleware": "^2.26.1",
     "workbox-sw": "^7.1.0",
     "yargs": "^17.7.2"
