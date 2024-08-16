@@ -44,6 +44,11 @@ class CacheTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.inFrontend
       ? BalmJS.config.dest.base
       : BalmJS.config.dest.static;
+
+    // fix for gulp@5
+    this.gulpSrcOptions = {
+      base: BalmJS.config.dest.base
+    };
   }
 
   fn = (): any => {

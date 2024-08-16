@@ -99,7 +99,7 @@ class SpriteTask extends BalmJS.BalmTask {
 
       gulp.task(BalmJS.toNamespace(spriteTaskName) as string, () => {
         const spriteData = gulp
-          .src(spriteConfig.input)
+          .src(spriteConfig.input, { encoding: false })
           .pipe(
             BalmJS.plugins.plumber((error: BalmError): void => {
               BalmJS.logger.error(`${this.name} task`, error.message);
