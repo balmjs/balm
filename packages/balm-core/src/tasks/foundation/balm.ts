@@ -41,6 +41,7 @@ class BalmTask {
         this.input,
         Object.assign(
           {
+            encoding: false,
             allowEmpty: true
           },
           this.gulpSrcOptions

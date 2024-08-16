@@ -61,6 +61,7 @@ class BalmStyleTask extends BalmTask {
         this.input,
         Object.assign(
           {
+            encoding: false,
             sourcemaps: shouldUseSourceMap,
             allowEmpty: true
           },

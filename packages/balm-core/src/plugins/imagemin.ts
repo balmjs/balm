@@ -69,9 +69,11 @@ function gulpImagemin(customPlugins?: Function[]): any {
 
     (async () => {
       try {
-        const data = await imagemin.buffer(file.contents, {
-          plugins
-        });
+        const data = Buffer.from(
+          await imagemin.buffer(file.contents, {
+            plugins
+          })
+        );
         const originalSize = file.contents.length;
         const optimizedSize = data.length;
         const saved = originalSize - optimizedSize;
