@@ -7,11 +7,16 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
-## v5.0.0 / 2024-08-16
+## v4.31.0 / 2024-11-11
 
-### Features
-
-upgrade gulp@5
+- update dependencies
+  - `css-minimizer-webpack-plugin`: 6.x -> 7.x
+  - `del`: 7.x -> 8.x
+  - `esbuild`: 0.20 -> 0.24
+  - `postcss-load-config`: 5.x -> 6.x
+  - `postcss-preset-env`: 9.x -> 10.x
+  - `sass-loader`: 14.x -> 16.x
+  - `webpack-merge`: 5.x -> 6.x
 
 ## v4.30.0 / 2024-05-07
 
