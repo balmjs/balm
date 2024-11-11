@@ -35,7 +35,7 @@
     "ftp:test": "../packages/balm/bin/balm.js --config config/ftp.js"
   },
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^0.28.1",
     "balm-ui": "8",
     "core-js": "3",
     "cors": "2",
@@ -54,11 +54,11 @@
     "vuex-router-sync": "5"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "7",
-    "@babel/plugin-proposal-numeric-separator": "7",
-    "@babel/plugin-proposal-object-rest-spread": "7",
+    "@babel/plugin-transform-class-properties": "7.25",
+    "@babel/plugin-transform-numeric-separator": "7.25",
+    "@babel/plugin-transform-object-rest-spread": "7.25",
     "@babel/plugin-syntax-dynamic-import": "7",
-    "@babel/runtime-corejs3": "7.23",
+    "@babel/runtime-corejs3": "7.25",
     "@vue/compiler-sfc": "^3.2.30",
     "less": "4",
     "less-loader": "7",
