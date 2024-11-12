@@ -1,7 +1,6 @@
 import { Watcher } from './node';
 
 interface GulpOptions {
-  encoding?: string | boolean;
   since?: Date | number | Function;
   sourcemaps?: boolean | Function;
   cwd?: string;
