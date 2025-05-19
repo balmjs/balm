@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://balm.js.org/">
-    <img width="128" heigth="128" src="https://balm.js.org/logo.png" alt="BalmJS">
+    <img width="128" height="128" src="https://balm.js.org/logo.png" alt="BalmJS">
   </a>
   <br>
   <br>

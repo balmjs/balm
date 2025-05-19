@@ -5,6 +5,8 @@ import BalmGlobal from './balm';
 type BalmNode = {
   path: Path;
   fs: any;
+  isLegacySass: boolean;
+  getSassModule: Function;
 };
 
 type PluginError = import('plugin-error').Constructor;

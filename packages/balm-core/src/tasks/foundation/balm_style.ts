@@ -82,7 +82,11 @@ class BalmStyleTask extends BalmTask {
 
     switch (style) {
       case 'sass':
-        stream = stream.pipe(BalmJS.plugins.sass(options));
+        stream = stream.pipe(
+          node.isLegacySass
+            ? BalmJS.plugins.legacySass(options)
+            : BalmJS.plugins.sass(options)
+        );
         break;
       case 'less':
         stream = stream.pipe(BalmJS.plugins.less(options));

@@ -1,16 +1,22 @@
-// Reference `gulp-sass@6.0.1`
+// Reference `gulp-sass@5.1.0`
 import { Transform, TransformCallback } from 'node:stream';
 import semver from 'semver';
 import * as sass from 'sass';
 import replaceExtension from 'replace-ext';
 import stripAnsi from 'strip-ansi';
 import applySourceMap from 'vinyl-sourcemaps-apply';
-import { BalmError, SassOptions, CompileResult } from '@balm-core/index';
+import {
+  BalmError,
+  SassOptions,
+  CompileResult,
+  LegacyOptions,
+  LegacyResult
+} from '@balm-core/index';
 import ansiColors from 'ansi-colors';
 
 const sassModule = node.getSassModule(sass);
 
-const PLUGIN_NAME = 'sass';
+const PLUGIN_NAME = 'sass-legacy';
 
 interface GulpSass {
   (options: object): any;
@@ -31,62 +37,43 @@ const transformObj = (
  */
 function filePush(
   file: Buffer | string | any,
-  result: CompileResult,
+  sassObject: LegacyResult,
   callback: TransformCallback
 ) {
-  file.contents = Buffer.from(result.css);
-  file.path = replaceExtension(file.path, '.css');
-
   // Build Source Maps!
-  if (result.sourceMap) {
-    const proto = /^file:\/\/?/;
-    const leadingSlash = /^\//;
-    const sassMap = result.sourceMap;
-    const base = node.path.resolve(file.cwd, file.base);
+  if (sassObject.map) {
+    // Transform map into JSON
+    const sassMap = JSON.parse(sassObject.map.toString() as string);
+    // Grab the stdout and transform it into stdin
+    const sassMapFile = sassMap.file.replace(/^stdout$/, 'stdin');
+    // Grab the base filename that's being worked on
+    const sassFileSrc = file.relative as string;
+    // Grab the path portion of the file that's being worked on
+    const sassFileSrcPath = node.path.dirname(sassFileSrc);
 
-    if (!sassMap.file) {
-      // Convert from absolute path to relative as in gulp-sass 5.0.0
-      sassMap.file = file.history[0]
-        .replace(base + node.path.sep, '')
-        .replace(proto, '');
+    if (sassFileSrcPath) {
+      const sourceFileIndex = sassMap.sources.indexOf(sassMapFile);
+      // Prepend the path to all files in the sources array except the file that's being worked on
+      sassMap.sources = sassMap.sources.map((source: string, index: number) =>
+        index === sourceFileIndex
+          ? source
+          : node.path.join(sassFileSrcPath, source)
+      );
     }
 
-    // Transform to relative file paths as in gulp-sass 5.0.0
-    sassMap.sources = sassMap.sources.map((src) => {
-      // file uses Windows-style path separators, source is a URL.
-      const baseUri = base.replace(/\\/g, '/');
-      // The current file and its content is included
-      // as data:<encoded file contents> in the new Sass JS API.
-      // Map it to the original file name (first history entry).
-      if (src.startsWith('data:')) {
-        return file.history[0]
-          .replace(/\\/g, '/')
-          .replace(`${baseUri}/`, '')
-          .replace(proto, '')
-          .replace(leadingSlash, '');
-      }
-      return src
-        .replace(proto, '')
-        .replace(`${baseUri}/`, '')
-        .replace(leadingSlash, '');
-    });
+    // Remove 'stdin' from sources and replace with filenames!
+    sassMap.sources = sassMap.sources.filter(
+      (src: string) => src !== 'stdin' && src
+    );
 
-    // Grab the base filename that's being worked on
-    const sassFileSrc = file.relative;
     // Replace the map file with the original filename (but new extension)
     sassMap.file = replaceExtension(sassFileSrc, '.css');
-
-    if (
-      file.sourceMap &&
-      file.sourceMap.sourcesContent &&
-      !sassMap.sourcesContent
-    ) {
-      sassMap.sourcesContent = file.sourceMap.sourcesContent;
-    }
-
     // Apply the map
     applySourceMap(file, sassMap);
   }
+
+  file.contents = sassObject.css;
+  file.path = replaceExtension(file.path, '.css');
 
   if (file.stat) {
     file.stat.atime = file.stat.mtime = file.stat.ctime = new Date();
@@ -106,9 +93,12 @@ function handleError(
   const filePath =
     (error.file === 'stdin' ? file.path : error.file) || file.path;
   const relativePath = node.path.relative(process.cwd(), filePath);
-  const message = `${ansiColors.underline(relativePath)}\n${error.message}`;
+  const message = `${ansiColors.underline(relativePath)}\n${error.formatted}`;
 
+  error.messageFormatted = message;
+  error.messageOriginal = error.message;
   error.message = stripAnsi(message);
+  error.relativePath = relativePath;
 
   return callback(new PluginError(PLUGIN_NAME, error as BalmError));
 }
@@ -143,52 +133,52 @@ const gulpSass: GulpSass = (options: SassOptions, sync = false): any =>
       }
 
       const opts = (options || {}) as any;
+      opts.data = file.contents.toString();
 
-      // Ensure `indented` if a `.sass` file
+      // We set the file path here so that libsass can correctly resolve import paths
+      opts.file = file.path;
+
+      // Ensure `indentedSyntax` is true if a `.sass` file
       if (node.path.extname(file.path) === '.sass') {
-        opts.syntax = 'indented';
+        opts.indentedSyntax = true;
       }
 
       // Ensure file's parent directory in the include path
-      if (opts.loadPaths) {
-        if (typeof opts.loadPaths === 'string') {
-          opts.loadPaths = [opts.loadPaths];
+      if (opts.includePaths) {
+        if (typeof opts.includePaths === 'string') {
+          opts.includePaths = [opts.includePaths];
         }
       } else {
-        opts.loadPaths = [];
+        opts.includePaths = [];
       }
 
-      opts.loadPaths.unshift(node.path.dirname(file.path));
+      opts.includePaths.unshift(node.path.dirname(file.path));
 
       // Generate Source Maps if the source-map plugin is present
       if (file.sourceMap) {
-        opts.sourceMap = true;
-        opts.sourceMapIncludeSources = true;
+        opts.sourceMap = file.path;
+        opts.omitSourceMapUrl = true;
+        opts.sourceMapContents = true;
       }
 
-      const fileContents = file.contents.toString();
       if (sync !== true) {
         /**
-         * Async Sass compile
+         * Async Sass render
          */
-        sassModule
-          .compileStringAsync(fileContents, opts)
-          .then((compileResult: CompileResult) => {
-            filePush(file, compileResult, callback);
-          })
-          .catch((error: any) => {
+        sassModule.render(opts, (error: any, obj: any) => {
+          if (error) {
             handleError(error, file, callback);
-          });
+            return;
+          }
+
+          filePush(file, obj, callback);
+        });
       } else {
         /**
-         * Sync Sass compile
+         * Sync Sass render
          */
         try {
-          filePush(
-            file,
-            sassModule.compileString(fileContents, opts),
-            callback
-          );
+          filePush(file, sassModule.renderSync(opts), callback);
         } catch (error: any) {
           handleError(error, file, callback);
         }

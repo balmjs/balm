@@ -1,4 +1,4 @@
-// Reference `gulp-postcss@9.0.1`
+// Reference `gulp-postcss@10.0.0`
 import { Transform } from 'node:stream';
 import postcss from 'postcss';
 import postcssLoadConfig from 'postcss-load-config';
@@ -34,7 +34,7 @@ function gulpPostcss(cb: Function): any {
 
         const ctx = {
           file,
-          options: contextOptions
+          options: contextOptions // @TODO: The options property is deprecated and should be removed
         } as any;
         return postcssLoadConfig(ctx, configPath);
       });

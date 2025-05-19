@@ -8,6 +8,7 @@ import postcssPlugins from './postcss-plugins.js';
 import rename from './rename.js';
 import replace from './replace.js';
 import sass from './sass.js';
+import legacySass from './sass-legacy.js';
 import sftp from './sftp.js';
 
 const plugins: any = {
@@ -21,6 +22,7 @@ const plugins: any = {
   rename,
   replace,
   sass,
+  legacySass,
   sftp
 };
 
