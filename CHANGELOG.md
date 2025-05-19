@@ -7,6 +7,20 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.32.0 / 2025-05-19
+
+### Features
+
+- update dependencies
+  - `babel-loader`: 9.x -> 10.x
+  - `esbuild`: 0.24 -> 0.25
+  - `pretty-bytes`: 6.x -> 7.x
+  - `tailwindcss`: 3.x -> 4.x
+
+### BREAKING CHANGES
+
+- minimum supported Node.js version is `20.10.0`
+
 ## v4.31.0 / 2024-11-11
 
 - update dependencies

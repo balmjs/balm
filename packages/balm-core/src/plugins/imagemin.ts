@@ -1,4 +1,4 @@
-// Reference `gulp-imagemin@9.0.0`
+// Reference `gulp-imagemin@9.1.0`
 import { TransformCallback } from 'node:stream';
 import imagemin from 'imagemin';
 import prettyBytes from 'pretty-bytes';
@@ -89,7 +89,7 @@ function gulpImagemin(customPlugins?: Function[]): any {
 
         BalmJS.logger.debug(PLUGIN_NAME, `${file.relative} (${message})`);
 
-        file.contents = data;
+        file.contents = Buffer.from(data);
 
         callback(null, file);
       } catch (error) {

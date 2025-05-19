@@ -54,7 +54,8 @@ interface BalmPlugins {
     replacement: string | Function,
     options?: any
   ) => any;
-  sass: (options?: object) => any;
+  sass: (options?: object, sync?: boolean) => any;
+  legacySass: (options?: object, sync?: boolean) => any;
 }
 
 export default interface BalmGlobal extends Balm {
