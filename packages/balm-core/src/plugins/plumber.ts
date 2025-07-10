@@ -1,6 +1,10 @@
-// Reference `gulp-plumber@1.2.1`
+// This module provides functionality similar to `gulp-plumber@1.2.1`.
+// It is a custom implementation used within BalmJS to prevent Gulp streams
+// from crashing on errors, allowing for more robust error handling during builds.
 import { EventEmitter } from 'events';
-import { BalmError } from '@balm-core/index';
+import { BalmError, BalmUtils } from '@balm-core/index'; // Added BalmUtils for type check
+import through2 from 'through2'; // Explicitly import through2
+import PluginError from 'plugin-error'; // Explicitly import PluginError
 
 const PLUGIN_NAME = 'plumber';
 

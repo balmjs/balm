@@ -4,9 +4,14 @@ import getOutput from './output';
 import getDefaultConfig from './config';
 import { BalmEntry, Configuration } from '@balm-core/index';
 
-const webpackModule = process.env.WEBPACK || require.resolve('webpack');
+// Allow overriding the webpack module path via an environment variable.
+// This is intended for advanced use cases or internal testing by BalmJS developers.
+// For typical user projects, it's recommended to rely on the standard `require.resolve('webpack')`
+// to ensure the project's installed version of Webpack is used.
+// Misuse of `process.env.WEBPACK` can lead to unexpected Webpack versions or build failures.
+const webpackModulePath = process.env.WEBPACK || require.resolve('webpack');
 
-const webpack = require(webpackModule);
+const webpack = require(webpackModulePath);
 
 function webpackConfig(
   input: BalmEntry,

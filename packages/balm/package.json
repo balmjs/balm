@@ -51,7 +51,7 @@
     "semver": "^7.6.3",
     "webpack-hot-middleware": "^2.26.1",
     "workbox-sw": "^7.3.0",
-    "yargs": "16"
+    "yargs": "^16.2.0"
   },
   "engines": {
     "node": ">=10.13.0"

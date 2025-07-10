@@ -1,6 +1,11 @@
-// Reference `gulp-postcss@9.0.1`
+// This module provides functionality similar to `gulp-postcss@9.0.1`.
+// It is a custom Gulp plugin wrapper for PostCSS used within BalmJS.
+// It handles loading PostCSS configuration (including from postcss-load-config),
+// processing CSS files, applying source maps, and error handling.
 import { Transform } from 'stream';
+import path from 'path'; // Explicitly import path
 import applySourceMap from 'vinyl-sourcemaps-apply';
+import PluginError from 'plugin-error'; // Explicitly import PluginError
 import { LooseObject, BalmError } from '@balm-core/index';
 
 const PLUGIN_NAME = 'postcss';
