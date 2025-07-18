@@ -1,0 +1,23 @@
+{
+  "name": "balm-basic-webpack-example",
+  "version": "1.0.0",
+  "description": "Basic BalmJS 4.0 example with Webpack",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "balm serve",
+    "build": "balm build",
+    "preview": "balm preview"
+  },
+  "dependencies": {
+    "balm": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.0",
+    "@babel/preset-env": "^7.22.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

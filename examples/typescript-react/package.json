@@ -1,0 +1,30 @@
+{
+  "name": "balm-typescript-react-example",
+  "version": "1.0.0",
+  "description": "BalmJS 4.0 example with TypeScript and React",
+  "type": "module",
+  "scripts": {
+    "dev": "balm serve",
+    "build": "balm build",
+    "preview": "balm preview",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.0",
+    "balm": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "typescript": "^5.1.0",
+    "sass": "^1.63.0"
+  }
+}
