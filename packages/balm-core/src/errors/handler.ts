@@ -3,7 +3,7 @@
  * Provides centralized error handling, formatting, and reporting
  */
 
-import { BalmError, ErrorSeverity, isBalmError } from './types.js';
+import { BalmError, ErrorSeverity, ErrorSeverityType, isBalmError } from './types.js';
 import { createErrorFromAny } from './factory.js';
 
 /**
@@ -118,7 +118,7 @@ export class ErrorHandler {
   /**
    * Get errors by severity
    */
-  getErrorsBySeverity(severity: ErrorSeverity): BalmError[] {
+  getErrorsBySeverity(severity: ErrorSeverityType): BalmError[] {
     return this.errors.filter(error => error.severity === severity);
   }
   
@@ -236,8 +236,8 @@ export class ErrorHandler {
     lines.push(`${severityIcon} [${error.code}] ${error.message}`);
     
     // Details if available
-    if (error.details) {
-      lines.push(`   ${error.details}`);
+    if (error.metadata?.details) {
+      lines.push(`   ${error.metadata.details}`);
     }
     
     // Location if available
@@ -253,9 +253,9 @@ export class ErrorHandler {
     }
     
     // Code snippet if available
-    if (error.location?.snippet) {
+    if (error.location?.source) {
       lines.push('');
-      lines.push(error.location.snippet);
+      lines.push(error.location.source);
     }
     
     // Solutions if available
@@ -282,7 +282,7 @@ export class ErrorHandler {
   /**
    * Get severity icon for console output
    */
-  private getSeverityIcon(severity: ErrorSeverity): string {
+  private getSeverityIcon(severity: ErrorSeverityType): string {
     switch (severity) {
       case ErrorSeverity.FATAL:
         return '💥';

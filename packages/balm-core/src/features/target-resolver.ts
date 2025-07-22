@@ -327,9 +327,9 @@ export class TargetConfigResolver {
       const browserCaps = this.getBrowserESSupport(name, versionNum);
       
       // Take intersection of capabilities
-      Object.keys(capabilities).forEach(key => {
-        capabilities[key] = capabilities[key] && browserCaps[key];
-      });
+      for (const key of Object.keys(capabilities)) {
+        (capabilities as any)[key] = (capabilities as any)[key] && (browserCaps as any)[key];
+      }
     }
     
     return capabilities;
@@ -465,8 +465,8 @@ export class TargetConfigResolver {
 
   private detectProjectType(): 'modern' | 'legacy' | 'library' {
     // Detect based on configuration
-    if (this.balmConfig.library) return 'library';
-    if (this.balmConfig.features?.legacySupport) return 'legacy';
+    if ((this.balmConfig as any).library) return 'library';
+    if ((this.balmConfig.features as any)?.legacySupport) return 'legacy';
     if (this.balmConfig.features?.modernSyntax) return 'modern';
     
     // Default to modern
@@ -474,8 +474,8 @@ export class TargetConfigResolver {
   }
 
   private isNodeProject(): boolean {
-    return this.balmConfig.target?.platform === 'node' || 
-           this.balmConfig.library?.target === 'node';
+    return (this.balmConfig.target as any)?.platform === 'node' || 
+           (this.balmConfig as any).library?.target === 'node';
   }
 
   private detectNodeVersion(): string {

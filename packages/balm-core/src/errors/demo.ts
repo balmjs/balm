@@ -23,7 +23,7 @@ function demoBasicErrorHandling() {
   
   // Create a configuration error
   const configError = createConfigError('CONFIG-SYNTAX-001', 
-    { file: 'balm.config.js' }, 
+    'Invalid configuration syntax in balm.config.js', 
     {
       config: { output: { path: 'dist' } },
       configPath: '/project/balm.config.js',
@@ -105,10 +105,9 @@ function MyComponent() {
 }`;
 
   // Create compilation error
-  const compilationError = createCompilationError('COMPILATION-MODULE-001', {
-    module: 'useState',
-    file: 'MyComponent.jsx',
-  }, {
+  const compilationError = createCompilationError('COMPILATION-MODULE-001', 
+    'Module "useState" not found in MyComponent.jsx', 
+    {
     location: {
       filePath: '/src/components/MyComponent.jsx',
       line: 4,
@@ -138,9 +137,9 @@ async function demoSuggestionEngine() {
   console.log('\n=== Suggestion Engine Demo ===');
   
   // Create a module not found error
-  const moduleError = createCompilationError('COMPILATION-MODULE-001', {
-    module: 'reac', // Typo for 'react'
-  }, {
+  const moduleError = createCompilationError('COMPILATION-MODULE-001', 
+    'Module "reac" not found. Did you mean "react"?', 
+    {
     location: { filePath: '/src/App.js' },
   });
   
@@ -180,12 +179,11 @@ function demoMultipleErrorsHandling() {
   console.log('\n=== Multiple Errors Handling Demo ===');
   
   const errors = [
-    createBalmError('CONFIG-SYNTAX-001', { file: 'balm.config.js' }),
-    createBalmError('CONFIG-DEPRECATED-001', { property: 'oldOption' }),
-    createCompilationError('COMPILATION-SYNTAX-001', {
-      file: 'index.js',
-      message: 'Unexpected token',
-    }, {
+    createBalmError('CONFIG-SYNTAX-001', 'Configuration syntax error in balm.config.js'),
+    createBalmError('CONFIG-DEPRECATED-001', 'Deprecated property "oldOption" used'),
+    createCompilationError('COMPILATION-SYNTAX-001', 
+      'Unexpected token in index.js', 
+      {
       location: { filePath: '/src/index.js', line: 5, column: 10 },
     }),
   ];
@@ -238,7 +236,7 @@ async function demoCustomErrorRule() {
     },
   });
   
-  const configError = createBalmError('CONFIG-SYNTAX-001', { file: 'balm.config.js' });
+  const configError = createBalmError('CONFIG-SYNTAX-001', 'Configuration syntax error in balm.config.js');
   const suggestions = await suggestionEngine.suggest(configError);
   
   console.log('Custom suggestions for config error:');

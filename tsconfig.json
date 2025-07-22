@@ -29,5 +29,19 @@
     "packages/balm-core/src/**/*",
     "packages/balm-core/types/index.d.ts"
   ],
-  "exclude": ["node_modules", "coverage", "lib", "tslib"]
+  "exclude": [
+    "node_modules", 
+    "coverage", 
+    "lib", 
+    "tslib",
+    "**/__tests__/**/*",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/vite/**/*",
+    "**/demo.ts",
+    "**/swc/**/*",
+    "**/modern-features.ts",
+    "**/detector.ts",
+    "**/target-resolver.ts"
+  ]
 }

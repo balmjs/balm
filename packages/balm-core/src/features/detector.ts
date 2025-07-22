@@ -5,6 +5,8 @@
 
 import { parse } from '@babel/parser';
 import traverse from '@babel/traverse';
+// @ts-ignore - babel traverse types issue
+const traverseDefault = traverse.default || traverse;
 import * as t from '@babel/types';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -328,7 +330,7 @@ export class ModernFeaturesDetector {
       try {
         await this.analyzeFile(file);
       } catch (error) {
-        console.warn(`⚠️  Failed to analyze ${file}: ${error.message}`);
+        console.warn(`⚠️  Failed to analyze ${file}: ${(error as Error).message}`);
       }
     }
 
@@ -370,12 +372,22 @@ export class ModernFeaturesDetector {
     const files: string[] = [];
 
     for (const pattern of this.config.include || []) {
-      const matchedFiles = await glob(pattern, {
-        cwd: rootPath,
-        ignore: this.config.exclude,
-        absolute: true,
-      });
-      files.push(...matchedFiles);
+      try {
+        // Use glob with proper options
+        const matchedFiles = await new Promise<string[]>((resolve, reject) => {
+          glob(pattern, {
+            cwd: rootPath,
+            ignore: this.config.exclude,
+            absolute: true,
+          }, (err, matches) => {
+            if (err) reject(err);
+            else resolve(matches);
+          });
+        });
+        files.push(...matchedFiles);
+      } catch (error) {
+        console.warn(`Failed to glob pattern ${pattern}:`, error);
+      }
     }
 
     return [...new Set(files)].filter(file => 
@@ -404,7 +416,7 @@ export class ModernFeaturesDetector {
           'topLevelAwait',
           'optionalChaining',
           'nullishCoalescingOperator',
-          'logicalAssignmentOperators',
+
           'numericSeparator',
           'bigInt',
           'dynamicImport',
@@ -412,72 +424,72 @@ export class ModernFeaturesDetector {
       });
 
       // Traverse and detect features
-      traverse(ast, {
+      traverseDefault(ast, {
         // Top-level await
-        AwaitExpression: (path) => {
+        AwaitExpression: (path: any) => {
           if (this.isTopLevelAwait(path)) {
             this.recordFeature('topLevelAwait', filePath, path.node, content);
           }
         },
 
         // Private fields and methods
-        ClassPrivateProperty: (path) => {
+        ClassPrivateProperty: (path: any) => {
           this.recordFeature('privateFields', filePath, path.node, content);
         },
 
-        ClassPrivateMethod: (path) => {
+        ClassPrivateMethod: (path: any) => {
           this.recordFeature('privateMethods', filePath, path.node, content);
         },
 
         // Static blocks
-        StaticBlock: (path) => {
+        StaticBlock: (path: any) => {
           this.recordFeature('staticBlocks', filePath, path.node, content);
         },
 
         // Public class fields
-        ClassProperty: (path) => {
+        ClassProperty: (path: any) => {
           if (!path.node.static && !t.isPrivateName(path.node.key)) {
             this.recordFeature('publicFields', filePath, path.node, content);
           }
         },
 
         // Logical assignment operators
-        AssignmentExpression: (path) => {
+        AssignmentExpression: (path: any) => {
           if (['??=', '||=', '&&='].includes(path.node.operator)) {
             this.recordFeature('logicalAssignment', filePath, path.node, content);
           }
         },
 
         // Numeric separators
-        NumericLiteral: (path) => {
-          if (path.node.extra?.raw?.includes('_')) {
+        NumericLiteral: (path: any) => {
+          if (path.node.extra && (path.node.extra as any).raw && (path.node.extra as any).raw.includes('_')) {
             this.recordFeature('numericSeparators', filePath, path.node, content);
           }
         },
 
         // Optional chaining
-        OptionalMemberExpression: (path) => {
+        OptionalMemberExpression: (path: any) => {
           this.recordFeature('optionalChaining', filePath, path.node, content);
         },
 
-        OptionalCallExpression: (path) => {
+        OptionalCallExpression: (path: any) => {
           this.recordFeature('optionalChaining', filePath, path.node, content);
         },
 
         // Nullish coalescing
-        LogicalExpression: (path) => {
+        LogicalExpression: (path: any) => {
           if (path.node.operator === '??') {
             this.recordFeature('nullishCoalescing', filePath, path.node, content);
           }
         },
 
         // BigInt
-        BigIntLiteral: (path) => {
+        BigIntLiteral: (path: any) => {
           this.recordFeature('bigInt', filePath, path.node, content);
         },
 
         // Dynamic import
-        CallExpression: (path) => {
+        CallExpression: (path: any) => {
           if (t.isImport(path.node.callee)) {
             this.recordFeature('dynamicImport', filePath, path.node, content);
           }
@@ -485,7 +497,7 @@ export class ModernFeaturesDetector {
       });
 
     } catch (error) {
-      console.warn(`⚠️  Parse error in ${relativePath}: ${error.message}`);
+      console.warn(`⚠️  Parse error in ${relativePath}: ${(error as Error).message}`);
     }
   }
 

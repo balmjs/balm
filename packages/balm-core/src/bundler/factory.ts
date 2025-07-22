@@ -87,7 +87,7 @@ export class DefaultBundlerFactory implements BundlerFactory {
       this.instances.set(cacheKey, bundler);
       return bundler;
     } catch (error) {
-      throw new Error(`Failed to create bundler '${type}': ${error.message}`);
+      throw new Error(`Failed to create bundler '${type}': ${(error as Error).message}`);
     }
   }
 

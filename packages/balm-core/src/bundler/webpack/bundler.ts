@@ -69,7 +69,7 @@ export class WebpackBundler extends BaseBundler {
           });
         });
       } catch (error) {
-        reject(new Error(`Webpack build failed: ${error.message}`));
+        reject(new Error(`Webpack build failed: ${(error as Error).message}`));
       }
     });
   }
@@ -100,7 +100,7 @@ export class WebpackBundler extends BaseBundler {
               resolve();
             });
           } catch (error) {
-            reject(new Error(`Failed to start Webpack dev server: ${error.message}`));
+            reject(new Error(`Failed to start Webpack dev server: ${(error as Error).message}`));
           }
         });
       },
@@ -198,7 +198,7 @@ export class WebpackBundler extends BaseBundler {
     const output = this.options.output?.path || 'dist';
     
     // Use existing webpackConfig function
-    return webpackConfig(input, output, {
+    return webpackConfig(input || 'src/index.js', output, {
       mode: this.options.mode,
       devtool: this.options.sourceMap ? 'source-map' : false,
       resolve: this.options.resolve,

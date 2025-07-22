@@ -36,7 +36,7 @@ export class BabelCompiler extends BaseCompiler {
         map: result.map ? JSON.stringify(result.map) : undefined,
       };
     } catch (error) {
-      throw new Error(`Babel transform failed: ${error.message}`);
+      throw new Error(`Babel transform failed: ${(error as Error).message}`);
     }
   }
 
@@ -45,7 +45,7 @@ export class BabelCompiler extends BaseCompiler {
       const code = fs.readFileSync(filename, 'utf-8');
       return await this.transform(code, filename);
     } catch (error) {
-      throw new Error(`Failed to transform file ${filename}: ${error.message}`);
+      throw new Error(`Failed to transform file ${filename}: ${(error as Error).message}`);
     }
   }
 
@@ -67,7 +67,7 @@ export class BabelCompiler extends BaseCompiler {
         map: result.map ? JSON.stringify(result.map) : undefined,
       };
     } catch (error) {
-      throw new Error(`Babel minify failed: ${error.message}`);
+      throw new Error(`Babel minify failed: ${(error as Error).message}`);
     }
   }
 

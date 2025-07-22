@@ -4,18 +4,18 @@ import { SWCWebpackLoader } from '../loaders/swc-loader.js';
 
 function jsLoader(): RuleSetRule {
   // Check if SWC should be used instead of Babel
-  const shouldUseSWC = BalmJS.config.compiler?.type === 'swc' || 
-                       BalmJS.config.scripts.useSWC === true;
+  const shouldUseSWC = (BalmJS.config as any).compiler?.type === 'swc' || 
+                       (BalmJS.config.scripts as any).useSWC === true;
 
   if (shouldUseSWC) {
     try {
       // Use SWC loader if available and configured
-      return SWCWebpackLoader.getLoaderRule(BalmJS.config, {
+      return SWCWebpackLoader.getLoaderRule(BalmJS.config as any, {
         test: jsRegex,
-        include: [
+        include: ([] as string[]).concat(
           BalmJS.file.absPaths(BalmJS.config.src.js),
-          ...BalmJS.config.scripts.includeJsResource
-        ],
+          BalmJS.config.scripts.includeJsResource
+        ),
       });
     } catch (error) {
       // Fall back to Babel if SWC is not available
@@ -38,10 +38,10 @@ function jsLoader(): RuleSetRule {
   // The preset includes JSX, Flow, TypeScript, and some ESnext features.
   return {
     test: jsRegex,
-    include: [
+    include: ([] as string[]).concat(
       BalmJS.file.absPaths(BalmJS.config.src.js),
-      ...BalmJS.config.scripts.includeJsResource
-    ],
+      BalmJS.config.scripts.includeJsResource
+    ),
     loader: requireModule.resolve('babel-loader'),
     options
   };

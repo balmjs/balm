@@ -3,7 +3,7 @@
  * Provides context-aware suggestions and solutions for common errors
  */
 
-import { BalmError, ErrorCategory, ErrorSeverity } from './types.js';
+import { BalmError, ErrorCategory, ErrorSeverity, ErrorCategoryType } from './types.js';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -69,7 +69,7 @@ export interface SuggestionRule {
   /**
    * Error categories this rule applies to
    */
-  categories: ErrorCategory[];
+  categories: ErrorCategoryType[];
   
   /**
    * Error codes this rule applies to (optional, if empty applies to all in categories)
@@ -539,7 +539,7 @@ async function gatherContext(cwd: string = process.cwd()): Promise<SuggestionCon
   const context: SuggestionContext = {
     cwd,
     nodeVersion: process.version,
-    env: process.env,
+    env: process.env as Record<string, string>,
   };
   
   try {

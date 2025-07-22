@@ -225,7 +225,7 @@ export class ModernFeaturesCompilerSupport {
         coreJs: typeof this.featuresConfig.corejs === 'string' 
           ? this.featuresConfig.corejs 
           : this.featuresConfig.corejs?.version,
-        shippedProposals: this.featuresConfig.corejs?.proposals || false,
+        shippedProposals: (typeof this.featuresConfig.corejs === 'object' ? this.featuresConfig.corejs?.proposals : false) || false,
         forceAllTransforms: false,
       };
     }
@@ -276,7 +276,7 @@ export class ModernFeaturesCompilerSupport {
         include: this.featuresConfig.features,
         exclude: this.featuresConfig.exclude,
         modules: false, // Let bundler handle modules
-        shippedProposals: this.featuresConfig.corejs?.proposals || false,
+        shippedProposals: (typeof this.featuresConfig.corejs === 'object' ? this.featuresConfig.corejs?.proposals : false) || false,
       },
     ]);
 
@@ -395,8 +395,8 @@ export class ModernFeaturesCompilerSupport {
   }> {
     try {
       // Detect features in the test code
-      const features = await this.detector.detectFeaturesInCode(code);
-      const featureNames = features.map(f => f.feature.name);
+      const features = await this.detector.detectFeatures(process.cwd());
+      const featureNames = features.featuresUsed.map((f: any) => f.feature.name);
 
       let output: string;
       let success = true;
@@ -417,7 +417,7 @@ export class ModernFeaturesCompilerSupport {
     } catch (error) {
       return {
         success: false,
-        error: error.message,
+        error: (error as Error).message,
         features: [],
       };
     }
@@ -549,14 +549,14 @@ export class ModernFeaturesCompilerSupport {
       );
     }
 
-    if (featureDetection.modernFeatureUsage > 0.8) {
+    if (featureDetection.featuresUsed.length / featureDetection.totalFeatures > 0.8) {
       recommendations.push(
         'High modern feature usage detected - consider updating target browsers for better performance'
       );
     }
 
     // Generate warnings
-    if (featureDetection.compatibilityScore < 0.7) {
+    if (featureDetection.compatibility.score < 0.7) {
       warnings.push(
         'Low compatibility score detected - some features may not work in target browsers'
       );

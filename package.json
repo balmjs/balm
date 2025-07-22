@@ -29,6 +29,8 @@
     "@babel/register": "^7.27",
     "@commitlint/cli": "19",
     "@commitlint/config-conventional": "19",
+    "@types/babel__traverse": "^7.20.7",
+    "@types/glob": "^8.1.0",
     "@types/node": "22",
     "@typescript-eslint/eslint-plugin": "8",
     "@typescript-eslint/parser": "8",

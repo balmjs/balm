@@ -202,7 +202,7 @@ export class SWCBenchmark {
 
         processedFiles++;
       } catch (error) {
-        console.warn(`❌ Failed to process ${testFile.name}: ${error.message}`);
+        console.warn(`❌ Failed to process ${testFile.name}: ${(error as Error).message}`);
         failedFiles++;
       }
     }

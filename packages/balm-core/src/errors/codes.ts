@@ -1,0 +1,41 @@
+/**
+ * Error codes for BalmJS
+ */
+
+export const ERROR_CODES = {
+  // Configuration errors (CONFIG-*)
+  CONFIG_SYNTAX_001: 'CONFIG-SYNTAX-001',
+  CONFIG_VALIDATION_001: 'CONFIG-VALIDATION-001',
+  CONFIG_MIGRATION_001: 'CONFIG-MIGRATION-001',
+  
+  // Compilation errors (COMPILATION-*)
+  COMPILATION_SYNTAX_001: 'COMPILATION-SYNTAX-001',
+  COMPILATION_TYPE_001: 'COMPILATION-TYPE-001',
+  COMPILATION_MODULE_001: 'COMPILATION-MODULE-001',
+  
+  // File system errors (FS-*)
+  FS_READ_001: 'FS-READ-001',
+  FS_WRITE_001: 'FS-WRITE-001',
+  FS_PERMISSION_001: 'FS-PERMISSION-001',
+  
+  // Plugin errors (PLUGIN-*)
+  PLUGIN_LOAD_001: 'PLUGIN-LOAD-001',
+  PLUGIN_EXECUTE_001: 'PLUGIN-EXECUTE-001',
+  
+  // Network errors (NETWORK-*)
+  NETWORK_TIMEOUT_001: 'NETWORK-TIMEOUT-001',
+  NETWORK_CONNECTION_001: 'NETWORK-CONNECTION-001',
+  
+  // Dependency errors (DEPENDENCY-*)
+  DEPENDENCY_MISSING_001: 'DEPENDENCY-MISSING-001',
+  DEPENDENCY_VERSION_001: 'DEPENDENCY-VERSION-001',
+} as const;
+
+export type ErrorCode = typeof ERROR_CODES[keyof typeof ERROR_CODES];
+
+export interface ErrorCodeDefinition {
+  code: ErrorCode;
+  message: string;
+  category: string;
+  severity: string;
+}

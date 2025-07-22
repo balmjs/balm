@@ -3,7 +3,7 @@
  * Provides various formatting options for error display
  */
 
-import { BalmError, ErrorSeverity } from './types.js';
+import { BalmError, ErrorSeverity, ErrorSeverityType } from './types.js';
 
 /**
  * Formatting options
@@ -77,7 +77,7 @@ function colorize(text: string, color: string, options: FormatOptions): string {
 /**
  * Get severity color
  */
-function getSeverityColor(severity: ErrorSeverity): string {
+function getSeverityColor(severity: ErrorSeverityType): string {
   switch (severity) {
     case ErrorSeverity.FATAL:
       return colors.red;
@@ -95,7 +95,7 @@ function getSeverityColor(severity: ErrorSeverity): string {
 /**
  * Get severity icon
  */
-function getSeverityIcon(severity: ErrorSeverity): string {
+function getSeverityIcon(severity: ErrorSeverityType): string {
   switch (severity) {
     case ErrorSeverity.FATAL:
       return '💥';
@@ -165,10 +165,10 @@ export function formatErrorForConsole(error: BalmError, options: FormatOptions =
   lines.push(colorize(header, severityColor + colors.bright, opts));
   
   // Details
-  if (error.details) {
+  if (error.metadata?.details) {
     const details = opts.maxWidth 
-      ? wrapText(error.details, opts.maxWidth - opts.indent!.length, opts.indent)
-      : opts.indent + error.details;
+      ? wrapText(error.metadata.details, opts.maxWidth - opts.indent!.length, opts.indent)
+      : opts.indent + error.metadata.details;
     lines.push(colorize(details, colors.dim, opts));
   }
   
@@ -185,20 +185,20 @@ export function formatErrorForConsole(error: BalmError, options: FormatOptions =
   }
   
   // Code snippet
-  if (error.location?.snippet) {
+  if (error.location?.source) {
     lines.push('');
-    const snippetLines = error.location.snippet.split('\n');
-    snippetLines.forEach(line => {
+    const snippetLines = error.location.source.split('\n');
+    snippetLines.forEach((line: string) => {
       lines.push(colorize(`${opts.indent}${line}`, colors.gray, opts));
     });
   }
   
   // Stack trace
-  if (opts.includeStack && error.cause?.stack) {
+  if (opts.includeStack && error.stack) {
     lines.push('');
     lines.push(colorize('Stack trace:', colors.dim, opts));
-    const stackLines = error.cause.stack.split('\n');
-    stackLines.forEach(line => {
+    const stackLines = error.stack.split('\n');
+    stackLines.forEach((line: string) => {
       lines.push(colorize(`${opts.indent}${line}`, colors.gray, opts));
     });
   }
@@ -267,9 +267,9 @@ export function formatErrorForHTML(error: BalmError): string {
   lines.push(`  </div>`);
   
   // Details
-  if (error.details) {
+  if (error.metadata?.details) {
     lines.push(`  <div class="error-details">`);
-    lines.push(`    <pre>${escapeHtml(error.details)}</pre>`);
+    lines.push(`    <pre>${escapeHtml(error.metadata.details)}</pre>`);
     lines.push(`  </div>`);
   }
   
@@ -288,9 +288,9 @@ export function formatErrorForHTML(error: BalmError): string {
   }
   
   // Code snippet
-  if (error.location?.snippet) {
+  if (error.location?.source) {
     lines.push(`  <div class="error-snippet">`);
-    lines.push(`    <pre><code>${escapeHtml(error.location.snippet)}</code></pre>`);
+    lines.push(`    <pre><code>${escapeHtml(error.location.source)}</code></pre>`);
     lines.push(`  </div>`);
   }
   

@@ -81,7 +81,7 @@ export class DefaultCompilerFactory implements CompilerFactory {
       this.instances.set(cacheKey, compiler);
       return compiler;
     } catch (error) {
-      throw new Error(`Failed to create compiler '${type}': ${error.message}`);
+      throw new Error(`Failed to create compiler '${type}': ${(error as Error).message}`);
     }
   }
 
