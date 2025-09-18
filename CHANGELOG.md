@@ -7,6 +7,18 @@
 
 > [`balm-core@3`](https://github.com/balmjs/balm/tree/master)(v3) supports for `node@10.13.0+`, `postcss@7`, `webpack@4`
 
+## v4.33.0 / 2025-09-18
+
+### Features
+
+- update dependencies
+  - `yargs`: 17.x -> 18.x
+  - `dotenv`: 16.x -> 17.x
+
+### BREAKING CHANGES
+
+- minimum supported Node.js version is `20.19.0`
+
 ## v4.32.0 / 2025-05-19
 
 ### Features
