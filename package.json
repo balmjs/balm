@@ -20,17 +20,18 @@
     "release:all": "./scripts/clone-license.sh && ./scripts/release-all.sh"
   },
   "devDependencies": {
-    "@babel/cli": "7.25",
-    "@babel/core": "7.25",
-    "@babel/plugin-transform-class-properties": "7.25",
-    "@babel/plugin-transform-object-rest-spread": "7.25",
-    "@babel/plugin-transform-runtime": "7.25",
-    "@babel/preset-env": "7.25",
-    "@babel/preset-typescript": "7.25",
-    "@babel/register": "7.25",
+    "@babel/cli": "7.28",
+    "@babel/core": "7.28",
+    "@babel/plugin-transform-class-properties": "7.28",
+    "@babel/plugin-transform-object-rest-spread": "7.28",
+    "@babel/plugin-transform-runtime": "7.28",
+    "@babel/preset-env": "7.28",
+    "@babel/preset-typescript": "7.28",
+    "@babel/register": "7.28",
     "@commitlint/cli": "18",
     "@commitlint/config-conventional": "18",
     "@types/chai": "4",
+    "@types/glob": "^8.1.0",
     "@types/mocha": "10",
     "@types/node": "20",
     "@types/rimraf": "4",
@@ -57,7 +58,7 @@
     "prettier": "2",
     "rimraf": "4",
     "ts-node": "10",
-    "typescript": "4"
+    "typescript": "^5.9.3"
   },
   "private": true,
   "workspaces": [
