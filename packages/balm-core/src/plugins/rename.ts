@@ -1,6 +1,6 @@
 // Reference `gulp-rename@2.0.0`
 import { Transform, TransformCallback } from 'node:stream';
-import { RenameOptions } from '@balm-core/index';
+import { RenameOptions } from '@balm-core/index.js';
 
 interface GulpRenameOptions {
   multiExt?: boolean;

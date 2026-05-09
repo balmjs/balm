@@ -3,7 +3,7 @@ import path from 'node:path';
 import { homedir } from 'node:os';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import loading from './loading.js';
-import { LooseObject } from '@balm-core/index';
+import { LooseObject } from '@balm-core/index.js';
 
 const _require = Module.prototype.require;
 const SAVE_FILE = path.join(

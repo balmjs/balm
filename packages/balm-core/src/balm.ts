@@ -4,7 +4,7 @@ import './plugins/index.js';
 import registerTasks from './tasks/index.js';
 import { setConfig, setTask } from './bootstrap/index.js';
 import loading from './utilities/loading.js';
-import { DeepPartial, BalmConfig } from '@balm-core/index';
+import { DeepPartial, BalmConfig } from '@balm-core/index.js';
 
 class Balm {
   #config: any;

@@ -10,7 +10,7 @@ import {
   OutputOptions,
   BuildOptions,
   TransformOptions
-} from '@balm-core/index';
+} from '@balm-core/index.js';
 
 // Base options
 const bundler: BalmBundler = 'webpack';

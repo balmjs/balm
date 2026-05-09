@@ -1,3 +1,10 @@
+export * from './types/vendors';
+export * from './types/globals';
+export * from './types/webworker';
+export * from './types/balm';
+export * from './types/gulp';
+export * from './types/node';
+
 export interface LooseObject {
   [key: string]: any;
 }

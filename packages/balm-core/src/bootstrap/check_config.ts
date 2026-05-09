@@ -1,5 +1,5 @@
 import { DOMAIN } from '../config/constants.js';
-import { LooseObject } from '@balm-core/index';
+import { LooseObject } from '@balm-core/index.js';
 
 const docsBaseURL = `${DOMAIN}/docs/config`;
 

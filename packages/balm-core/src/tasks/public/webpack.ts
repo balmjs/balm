@@ -1,6 +1,6 @@
 import { webpack, webpackConfig } from '../../bundler/webpack/index.js';
 import compiling from '../../utilities/compiling.js';
-import { BalmEntry, Configuration, BalmError } from '@balm-core/index';
+import { BalmEntry, Configuration, BalmError } from '@balm-core/index.js';
 
 class WebpackTask extends BalmJS.BalmTask {
   constructor() {

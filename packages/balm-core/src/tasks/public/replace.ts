@@ -1,4 +1,4 @@
-import { ReplaceOptions } from '@balm-core/index';
+import { ReplaceOptions } from '@balm-core/index.js';
 
 class ReplaceTask extends BalmJS.BalmTask {
   constructor() {

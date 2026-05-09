@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import dotenvExpand from 'dotenv-expand';
-import { LooseObject } from '@balm-core/index';
+import { LooseObject } from '@balm-core/index.js';
 
 const NODE_ENV = process.env.NODE_ENV;
 if (!NODE_ENV) {

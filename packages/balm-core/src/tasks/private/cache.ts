@@ -1,6 +1,6 @@
 import revAll from 'gulp-rev-all';
 import { ASSETS_TYPES, CHUNK, ASSET } from '../../config/constants.js';
-import { LooseObject } from '@balm-core/index';
+import { LooseObject } from '@balm-core/index.js';
 
 class CacheTask extends BalmJS.BalmTask {
   constructor() {

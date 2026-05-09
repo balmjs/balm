@@ -1,5 +1,5 @@
 import { htmlRegex } from '../config/regex.js';
-import { RuleSetRule } from '@balm-core/index';
+import { RuleSetRule } from '@balm-core/index.js';
 
 function htmlLoader(): RuleSetRule {
   const options = Object.assign(

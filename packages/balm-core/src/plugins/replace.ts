@@ -1,7 +1,10 @@
 // Reference `gulp-replace@1.1.4`
 import { Transform, TransformCallback } from 'node:stream';
-import { isText } from 'istextorbinary';
+// @ts-ignore
+import * as isTextModule from 'istextorbinary';
 import rs from '../utilities/replacestream.js';
+
+const isText = (isTextModule as any).isText || isTextModule;
 
 interface GulpReplaceOptions {
   skipBinary?: boolean;

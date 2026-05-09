@@ -3,7 +3,7 @@ import PRIVATE_TASKS from './private/index.js';
 import PUBLIC_TASKS from './public/index.js';
 import DefaultTask from './default.js';
 import BalmHooks from '../hooks/index.js';
-import { BalmError } from '@balm-core/index';
+import { BalmError } from '@balm-core/index.js';
 
 function registerTasks(recipe: Function): void {
   const AwesomeTasks = BalmJS.utils.deepMerge(PRIVATE_TASKS, PUBLIC_TASKS);

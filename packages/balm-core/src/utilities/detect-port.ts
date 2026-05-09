@@ -1,6 +1,6 @@
 import net from 'node:net';
 import address from './address.js';
-import { BalmError } from '@balm-core/index';
+import { BalmError } from '@balm-core/index.js';
 
 const UTIL_NAME = 'detect port';
 const MAX_PORT = 65535;

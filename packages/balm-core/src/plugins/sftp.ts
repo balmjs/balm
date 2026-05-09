@@ -3,7 +3,7 @@ import { TransformCallback } from 'node:stream';
 import { Client } from 'ssh2';
 import parents from 'parents';
 import async from 'async';
-import { LooseObject, BalmError } from '@balm-core/index';
+import { LooseObject, BalmError } from '@balm-core/index.js';
 
 interface SshConfig {
   host: string;

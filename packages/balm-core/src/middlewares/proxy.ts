@@ -1,5 +1,5 @@
 import { createProxyMiddleware } from 'http-proxy-middleware';
-import { BalmError, BalmProxyOptions } from '@balm-core/index';
+import { BalmError, BalmProxyOptions } from '@balm-core/index.js';
 
 function httpProxyMiddleware(): object[] {
   const middleware: object[] = [];

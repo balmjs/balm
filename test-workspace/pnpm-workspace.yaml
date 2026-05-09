@@ -1,0 +1,14 @@
+packages:
+  - '.'
+
+allowBuilds:
+  core-js: true
+  core-js-pure: true
+  pngquant-bin: true
+
+publicHoistPattern:
+  - '*deepmerge*'
+  - '*flatpickr*'
+  - '*material-components-web*'
+  - '@material/*'
+  - '*quill*'

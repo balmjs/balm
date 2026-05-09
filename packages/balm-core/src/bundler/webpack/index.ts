@@ -2,7 +2,7 @@ import { merge } from 'webpack-merge';
 import getEntry from './entry.js';
 import getOutput from './output.js';
 import getDefaultConfig from './config/index.js';
-import { LooseObject, BalmEntry, Configuration } from '@balm-core/index';
+import { LooseObject, BalmEntry, Configuration } from '@balm-core/index.js';
 
 const webpackModule = process.env.WEBPACK || requireModule.resolve('webpack');
 const webpack = requireModule(webpackModule);

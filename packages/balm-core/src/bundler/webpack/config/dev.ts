@@ -1,6 +1,6 @@
 import { merge } from 'webpack-merge';
 import getCommonConfig from './common.js';
-import { LooseObject, Configuration, BalmScripts } from '@balm-core/index';
+import { LooseObject, Configuration, BalmScripts } from '@balm-core/index.js';
 
 function getDevConfig(
   webpack: LooseObject,
