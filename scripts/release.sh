@@ -1,4 +1,4 @@
 #!/bin/bash
 
 npm run build
-lerna publish
+lerna publish --dist-tag next
