@@ -9,14 +9,19 @@ const PLUGIN_NAME = 'imagemin';
 const defaultPlugins = ['gifsicle', 'mozjpeg', 'optipng', 'svgo'];
 
 const loadPlugin = (plugin: string, ...args: any) => {
-  try {
-    return requireModule(`imagemin-${plugin}`)(...args);
-  } catch (_) {
-    BalmJS.logger.error(
-      PLUGIN_NAME,
-      `Could not load default plugin \`${plugin}\``
-    );
-  }
+  return async (input: Uint8Array) => {
+    try {
+      const m = await import(`imagemin-${plugin}`);
+      const pluginFn = m.default(...args);
+      return pluginFn(input);
+    } catch (_) {
+      BalmJS.logger.error(
+        PLUGIN_NAME,
+        `Could not load default plugin \`${plugin}\``
+      );
+      return input;
+    }
+  };
 };
 
 const exposePlugin =
@@ -70,7 +75,7 @@ function gulpImagemin(customPlugins?: Function[]): any {
     (async () => {
       try {
         const data = await imagemin.buffer(file.contents, {
-          plugins
+          plugins: plugins as any[]
         });
         const originalSize = file.contents.length;
         const optimizedSize = data.length;

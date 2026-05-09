@@ -4,9 +4,8 @@ timeout: 8000
 
 extension:
   - 'ts'
-require:
-  - 'ts-node/register'
-  - 'test/setup.ts'
+node-option:
+  - 'import=./test/setup.ts'
 loader:
   - 'ts-node/esm'
 watch-ignore:

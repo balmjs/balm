@@ -47,8 +47,9 @@ class ImageTask extends BalmJS.BalmTask {
     const balmImage = () => {
       return gulp
         .src(BalmJS.file.absPaths(this.input), {
-          since: gulp.lastRun(balmImage)
-        })
+          since: gulp.lastRun(balmImage),
+          encoding: false
+        } as any)
         .pipe(
           BalmJS.plugins.plumber((error: BalmError): void => {
             BalmJS.logger.error(`${this.name} task`, error);

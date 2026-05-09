@@ -35,7 +35,7 @@ function gulpRename(
     unused: BufferEncoding,
     callback: TransformCallback
   ): void => {
-    const file = chunk.clone({ contents: false });
+    const file = chunk.clone();
     let parsedPath = parsePath(file.relative);
     let _path: string;
 
