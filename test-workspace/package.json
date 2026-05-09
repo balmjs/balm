@@ -56,10 +56,10 @@
     "vuex-router-sync": "5"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "7",
     "@babel/plugin-transform-class-properties": "7",
     "@babel/plugin-transform-numeric-separator": "7",
     "@babel/plugin-transform-object-rest-spread": "7",
-    "@babel/plugin-syntax-dynamic-import": "7",
     "@babel/runtime-corejs3": "7",
     "@vue/compiler-sfc": "^3.4.0",
     "@vue/server-renderer": "^3.4.0",
@@ -83,5 +83,13 @@
   "optionalDependencies": {
     "imagemin-pngquant": "^9.0.0"
   },
-  "private": true
+  "private": true,
+  "overrides": {
+    "@vue/compiler-sfc": {
+      "vue": "$vue-next"
+    },
+    "@vue/server-renderer": {
+      "vue": "$vue-next"
+    }
+  }
 }
