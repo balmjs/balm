@@ -2,7 +2,7 @@ import { rollup } from 'rollup';
 import getEntry from './entry.js';
 import getOutput from './output.js';
 import build from './build.js';
-import { InputOptions, OutputOptions } from '@balm-core/index';
+import { InputOptions, OutputOptions } from '@balm-core/index.js';
 
 const buildLibrary = async (
   inputOptions: InputOptions,

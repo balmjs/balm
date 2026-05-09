@@ -5,7 +5,7 @@ import * as sass from 'sass';
 import replaceExtension from 'replace-ext';
 import stripAnsi from 'strip-ansi';
 import applySourceMap from 'vinyl-sourcemaps-apply';
-import { BalmError, SassOptions, CompileResult } from '@balm-core/index';
+import { BalmError, SassOptions, CompileResult } from '@balm-core/index.js';
 import ansiColors from 'ansi-colors';
 
 const sassModule = node.getSassModule(sass);

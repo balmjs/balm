@@ -1,4 +1,4 @@
-import { HookOptions } from '@balm-core/index';
+import { HookOptions } from '@balm-core/index.js';
 
 class SassTask extends BalmJS.BalmStyleTask {
   constructor() {

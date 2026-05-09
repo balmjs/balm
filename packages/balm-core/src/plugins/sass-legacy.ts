@@ -11,7 +11,7 @@ import {
   CompileResult,
   LegacyOptions,
   LegacyResult
-} from '@balm-core/index';
+} from '@balm-core/index.js';
 import ansiColors from 'ansi-colors';
 
 const sassModule = node.getSassModule(sass);

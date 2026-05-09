@@ -3,7 +3,7 @@ import { TransformCallback } from 'node:stream';
 import imagemin from 'imagemin';
 import prettyBytes from 'pretty-bytes';
 import through2Concurrent from 'through2-concurrent';
-import { BalmError } from '@balm-core/index';
+import { BalmError } from '@balm-core/index.js';
 
 const PLUGIN_NAME = 'imagemin';
 const defaultPlugins = ['gifsicle', 'mozjpeg', 'optipng', 'svgo'];

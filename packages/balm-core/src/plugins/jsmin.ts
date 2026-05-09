@@ -1,6 +1,6 @@
 import { TransformCallback } from 'node:stream';
 import { minify } from 'terser';
-import { BalmError } from '@balm-core/index';
+import { BalmError } from '@balm-core/index.js';
 
 const PLUGIN_NAME = 'jsmin';
 

@@ -1,6 +1,6 @@
 import { build } from 'esbuild';
 import { minifyOptions } from './options.js';
-import { BuildOptions, BalmError } from '@balm-core/index';
+import { BuildOptions, BalmError } from '@balm-core/index.js';
 
 const esBuild = (
   entryPoints: string[],

@@ -1,6 +1,6 @@
 import getDevConfig from './dev.js';
 import getProdConfig from './prod.js';
-import { LooseObject, Configuration, BalmScripts } from '@balm-core/index';
+import { LooseObject, Configuration, BalmScripts } from '@balm-core/index.js';
 
 function getDefaultConfig(
   webpack: LooseObject,

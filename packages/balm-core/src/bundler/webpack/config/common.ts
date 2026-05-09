@@ -2,7 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import getLoaders from '../loaders.js';
 import { CHUNK } from '../../../config/constants.js';
 import getClientEnvironment from './env.js';
-import { LooseObject, Configuration, BalmScripts } from '@balm-core/index';
+import { LooseObject, Configuration, BalmScripts } from '@balm-core/index.js';
 
 function getDefaultPlugins(
   webpack: LooseObject,
@@ -47,7 +47,7 @@ function getDefaultPlugins(
       });
     }
 
-    BalmJS.entries.forEach((entry, index) => {
+    BalmJS.entries.forEach((entry: { key: string; value: string }, index: number) => {
       const entryName = isSPA ? 'index' : entry.key;
       const chunks = isSPA ? 'all' : [entryName];
       const title = titles[index];

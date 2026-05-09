@@ -3,22 +3,23 @@
     // Type Checking
     "strict": true,
     // Modules
-    "baseUrl": ".",
-    "module": "ES2020",
-    "moduleResolution": "Node",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "paths": {
-      "@balm-core/*": ["./packages/balm-core/*"]
+      "@balm-core/index.js": ["./packages/balm-core/index.d.ts"],
+      "@balm-core/*": ["./packages/balm-core/src/*"]
     },
     // Project Options
     "importHelpers": true,
     "lib": ["ESNext", "DOM"],
     // Emit
+    "rootDir": "packages/balm-core/src",
     "outDir": "packages/balm-core/tslib",
     "removeComments": true,
     // Language and Environment
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "ES2020",
+    "target": "ESNext",
     // Interop Constraints
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -27,7 +28,8 @@
   },
   "include": [
     "packages/balm-core/src/**/*",
-    "packages/balm-core/types/index.d.ts"
+    "packages/balm-core/index.d.ts",
+    "packages/balm-core/types/**/*"
   ],
   "exclude": ["node_modules", "coverage", "lib", "tslib"]
 }

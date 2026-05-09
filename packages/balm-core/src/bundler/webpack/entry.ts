@@ -4,7 +4,7 @@ import {
   BalmEntry,
   BalmScripts,
   BalmVendor
-} from '@balm-core/index';
+} from '@balm-core/index.js';
 
 const FILENAME_REGEX = new RegExp('[^/]+$', 'i');
 const HOT_CLIENT = 'webpack-hot-middleware/client';

@@ -1,5 +1,5 @@
 import esbuild from '../../bundler/esbuild/index.js';
-import { BuildOptions, TransformOptions } from '@balm-core/index';
+import { BuildOptions, TransformOptions } from '@balm-core/index.js';
 
 class EsbuildTask extends BalmJS.BalmTask {
   constructor() {

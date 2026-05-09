@@ -1,4 +1,4 @@
-import { BalmProxyOptions } from '@balm-core/index';
+import { BalmProxyOptions } from '@balm-core/index.js';
 
 const port = 3000;
 const host: string | null = null;

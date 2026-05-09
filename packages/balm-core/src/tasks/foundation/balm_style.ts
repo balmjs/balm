@@ -1,6 +1,6 @@
 import BalmTask from './balm.js';
 import { ASSET } from '../../config/constants.js';
-import { BalmError } from '@balm-core/index';
+import { BalmError } from '@balm-core/index.js';
 
 class BalmStyleTask extends BalmTask {
   constructor(name: string) {
@@ -19,7 +19,7 @@ class BalmStyleTask extends BalmTask {
     }
 
     if (Array.isArray(BalmJS.config.styles.entry)) {
-      this.defaultInput = BalmJS.config.styles.entry.map((styleEntry) =>
+      this.defaultInput = BalmJS.config.styles.entry.map((styleEntry: string) =>
         node.path.join(BalmJS.config.src.css, styleEntry)
       );
     } else {

@@ -1,4 +1,4 @@
-import { BalmPath } from '@balm-core/index';
+import { BalmPath } from '@balm-core/index.js';
 
 const source: BalmPath = {
   base: '', // Project directory

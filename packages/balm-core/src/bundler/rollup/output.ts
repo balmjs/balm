@@ -1,5 +1,5 @@
 import { getOutputPlugins } from './plugins.js';
-import { OutputOptions, OutputPlugin } from '@balm-core/index';
+import { OutputOptions, OutputPlugin } from '@balm-core/index.js';
 
 function setOutput(outputOptions: OutputOptions): OutputOptions {
   const outputPlugins = getOutputPlugins(outputOptions);

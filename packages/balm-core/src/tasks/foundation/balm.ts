@@ -1,16 +1,16 @@
-import { BalmError } from '@balm-core/index';
+import { BalmError } from '@balm-core/index.js';
 
 class BalmTask {
-  protected name: string;
-  protected taskName: string;
+  public name: any;
+  public taskName: any;
 
-  protected defaultInput: string | string[] = '';
-  protected defaultOutput = '';
+  public defaultInput: any = '';
+  public defaultOutput: any = '';
 
-  protected input: string | string[] = '';
-  protected output = '';
-  protected customOptions: any = {};
-  protected gulpSrcOptions: object = {};
+  public input: any = '';
+  public output: any = '';
+  public customOptions: any = {};
+  public gulpSrcOptions: any = {};
 
   constructor(name: string) {
     this.name = name;

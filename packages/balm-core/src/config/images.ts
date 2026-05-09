@@ -1,4 +1,4 @@
-import { BalmImagesPlugins } from '@balm-core/index';
+import { BalmImagesPlugins } from '@balm-core/index.js';
 
 const plugins: Partial<BalmImagesPlugins> | Function[] = {};
 

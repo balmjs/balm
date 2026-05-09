@@ -1,5 +1,5 @@
 import { CHUNK, ASSET } from '../../config/constants.js';
-import { LooseObject, BalmScripts } from '@balm-core/index';
+import { LooseObject, BalmScripts } from '@balm-core/index.js';
 
 function getJsFilename(scripts: BalmScripts, isChunk = false): string {
   let filename: string;

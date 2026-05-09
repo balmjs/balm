@@ -58,6 +58,26 @@ interface BalmPlugins {
   legacySass: (options?: object, sync?: boolean) => any;
 }
 
+export declare class BalmTask {
+  constructor(name: string);
+  name: string;
+  taskName: string;
+  defaultInput: string | string[];
+  defaultOutput: string;
+  input: string | string[];
+  output: string;
+  customOptions: any;
+  gulpSrcOptions: object;
+  styleName: string;
+  src: any;
+  init(input?: string | string[], output?: string, options?: any): void;
+}
+
+export declare class BalmStyleTask extends BalmTask {
+  constructor(name: string);
+  handleStyle(name: string, output: string, options?: any): any;
+}
+
 export default interface BalmGlobal extends Balm {
   version: string;
   start: [number, number];

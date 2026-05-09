@@ -1,6 +1,6 @@
 import build from './build.js';
 import transform from './transform.js';
-import { BuildOptions, TransformOptions } from '@balm-core/index';
+import { BuildOptions, TransformOptions } from '@balm-core/index.js';
 
 const esbuild = (
   input: string | string[],

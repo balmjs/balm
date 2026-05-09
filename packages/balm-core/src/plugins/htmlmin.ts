@@ -1,7 +1,7 @@
 // Reference `gulp-htmlmin@5.0.1`
 import { TransformCallback } from 'node:stream';
 import { minify } from 'html-minifier';
-import { BalmError } from '@balm-core/index';
+import { BalmError } from '@balm-core/index.js';
 
 const PLUGIN_NAME = 'htmlmin';
 

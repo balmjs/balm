@@ -1,4 +1,4 @@
-import { OutputOptions, RollupOutput, RollupBuild } from '@balm-core/index';
+import { OutputOptions, RollupOutput, RollupBuild } from '@balm-core/index.js';
 
 const build = async (
   bundle: RollupBuild,

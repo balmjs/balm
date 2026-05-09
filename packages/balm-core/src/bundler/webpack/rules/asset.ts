@@ -1,6 +1,6 @@
 import { imgRegex, fontRegex, mediaRegex } from '../config/regex.js';
 import { ASSET } from '../../../config/constants.js';
-import { RuleSetRule } from '@balm-core/index';
+import { RuleSetRule } from '@balm-core/index.js';
 
 function assetLoader(): RuleSetRule[] {
   return [

@@ -1,6 +1,6 @@
 import { mergeWithRules, CustomizeRule } from 'webpack-merge';
 import LOADERS from './rules/index.js';
-import { RuleSetRule, BalmLoaders } from '@balm-core/index';
+import { RuleSetRule, BalmLoaders } from '@balm-core/index.js';
 
 function getLoaders(customLoaders: RuleSetRule[]): RuleSetRule[] {
   const enableDefaultLoaders: BalmLoaders = Object.assign(

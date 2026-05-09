@@ -12,7 +12,7 @@ import {
   SpriteOptions,
   ReplaceOptions,
   TemplateOption
-} from '@balm-core/index';
+} from '@balm-core/index.js';
 
 class BaseHooks {
   get env(): BalmEnvObject {

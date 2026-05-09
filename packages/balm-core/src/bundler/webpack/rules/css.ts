@@ -6,7 +6,7 @@ import {
   sassRegex,
   sassModuleRegex
 } from '../config/regex.js';
-import { RuleSetRule } from '@balm-core/index';
+import { RuleSetRule } from '@balm-core/index.js';
 
 // Check if Tailwind config exists
 const useTailwind = fs.existsSync(

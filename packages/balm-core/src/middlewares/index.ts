@@ -4,7 +4,7 @@ import historyMiddleware from './history.js';
 
 function getMiddlewares(): object[] {
   const canOverride = BalmJS.config.server.middlewares.every(
-    (middleware) =>
+    (middleware: any) =>
       BalmJS.utils.isFunction(middleware) || BalmJS.utils.isObject(middleware)
   );
 

@@ -6,7 +6,7 @@ import {
   BalmConfig,
   BalmPath,
   BalmAssetsPath
-} from '@balm-core/index';
+} from '@balm-core/index.js';
 
 function createQuickPath(
   config: BalmConfig,

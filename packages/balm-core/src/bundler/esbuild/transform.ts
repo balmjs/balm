@@ -1,6 +1,6 @@
 import { transform } from 'esbuild';
 import { minifyOptions } from './options.js';
-import { TransformOptions } from '@balm-core/index';
+import { TransformOptions } from '@balm-core/index.js';
 
 const esTransform = (
   entryPoints: string[],
