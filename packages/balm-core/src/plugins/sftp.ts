@@ -312,7 +312,6 @@ function gulpSftp(options: LooseObject): any {
         (cb: Function) => {
           let d = fileDirs.pop() as string;
           mkDirCache[d] = true;
-          // Mdrake - TODO: use a default file permission instead of defaulting to 755
           if (
             remotePlatform &&
             remotePlatform.toLowerCase().indexOf('win') !== -1
@@ -324,7 +323,8 @@ function gulpSftp(options: LooseObject): any {
             if (exist) {
               cb();
             } else {
-              sftp.mkdir(d, { mode: '0755' }, (err: string) => {
+              const dirMode = options.dirMode || '0755';
+              sftp.mkdir(d, { mode: dirMode }, (err: string) => {
                 // REMOTE PATH
                 if (err) {
                   // Assuming that the directory exists here, silencing this error
@@ -342,10 +342,11 @@ function gulpSftp(options: LooseObject): any {
           });
         },
         () => {
+          const fileMode = options.fileMode || '0666';
           const stream = sftp.createWriteStream(finalRemotePath, {
             flags: 'w',
             encoding: null,
-            mode: '0666',
+            mode: fileMode,
             autoClose: true
           });
 
