@@ -1,4 +1,4 @@
-import { BalmConfig, DeepPartial, BundlerType } from './types/index.js';
+import { BalmConfig, BalmCustomConfig, BundlerType } from './types/index.js';
 import { resolveConfig } from './config/index.js';
 import { TaskDAG } from './runner/dag.js';
 import { BalmHooks } from './hooks/index.js';
@@ -25,8 +25,8 @@ export class Balm {
   get config(): BalmConfig {
     return this._config;
   }
-  set config(customConfig: DeepPartial<BalmConfig>) {
-    this._config = resolveConfig(customConfig, customConfig.workspace);
+  set config(customConfig: BalmCustomConfig) {
+    this._config = resolveConfig(customConfig);
     if (this._config.logs?.level !== undefined) {
       logger.level = this._config.logs.level;
     }

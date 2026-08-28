@@ -13,3 +13,4 @@ export * from './hooks/index.js';
 export * from './utilities/logger.js';
 export * from './utilities/file.js';
 export * from './utilities/utils.js';
+export * from './utilities/workspace.js';

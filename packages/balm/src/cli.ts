@@ -2,7 +2,7 @@ import { cac } from 'cac';
 import path from 'node:path';
 import fs from 'node:fs';
 import pc from 'picocolors';
-import balm from 'balm-core';
+import balm, { setWorkspaces } from 'balm-core';
 import { resolveBalmCore } from './resolver.js';
 
 const cli = cac('balm');
@@ -20,6 +20,8 @@ cli
     const configDir = fs.existsSync(fullConfigPath)
       ? path.dirname(fullConfigPath)
       : process.cwd();
+
+    setWorkspaces(configDir, path.resolve(configDir, '..'));
 
     const balmInstance = await resolveBalmCore(configDir);
 

@@ -138,8 +138,16 @@ export interface BalmEnv {
   isMP: boolean;
 }
 
+export interface BalmWorkspaces {
+  local: string;
+  global: string;
+}
+
+export type BalmWorkspaceConfig = string | { local?: string; global?: string };
+
 export interface BalmConfig {
   workspace: string;
+  workspaces: BalmWorkspaces;
   alias: Record<string, string>;
   env: BalmEnv;
   inFrontend: boolean;
@@ -161,6 +169,10 @@ export interface BalmConfig {
   dest: BalmPathMap & { static: string };
   [key: string]: any;
 }
+
+export type BalmCustomConfig = Omit<DeepPartial<BalmConfig>, 'workspace'> & {
+  workspace?: BalmWorkspaceConfig;
+};
 
 export interface RenameOptions {
   dirname?: string;

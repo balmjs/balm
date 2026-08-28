@@ -1,20 +1,40 @@
 import path from 'node:path';
-import { BalmConfig, DeepPartial } from '../types/index.js';
+import { BalmConfig, BalmCustomConfig } from '../types/index.js';
 import { createDefaultConfig } from './defaults.js';
 import { deepMerge } from '../utilities/utils.js';
 import { ASSETS_TYPES } from './constants.js';
+import { setWorkspaces } from '../utilities/workspace.js';
 
 export function resolveConfig(
-  customConfig: DeepPartial<BalmConfig> = {},
-  workspace = process.cwd()
+  customConfig: BalmCustomConfig = {},
+  defaultWorkspace = process.cwd()
 ): BalmConfig {
-  const defaultConfig = createDefaultConfig(workspace);
+  let localWorkspace = defaultWorkspace;
+  let globalWorkspace = path.resolve(defaultWorkspace, '..');
+
+  if (customConfig.workspace) {
+    if (typeof customConfig.workspace === 'string') {
+      localWorkspace = path.resolve(customConfig.workspace);
+      globalWorkspace = path.resolve(localWorkspace, '..');
+    } else if (typeof customConfig.workspace === 'object') {
+      localWorkspace = path.resolve(customConfig.workspace.local || defaultWorkspace);
+      globalWorkspace = path.resolve(
+        customConfig.workspace.global || path.resolve(localWorkspace, '..')
+      );
+    }
+  }
+
+  setWorkspaces(localWorkspace, globalWorkspace);
+
+  const defaultConfig = createDefaultConfig(localWorkspace);
   const config = deepMerge(defaultConfig, customConfig) as BalmConfig;
 
-  // Sync workspace
-  if (customConfig.workspace) {
-    config.workspace = path.resolve(customConfig.workspace);
-  }
+  // Set normalized workspace path
+  config.workspace = localWorkspace;
+  config.workspaces = {
+    local: localWorkspace,
+    global: globalWorkspace
+  };
 
   // Update src quick directories
   config.src = {

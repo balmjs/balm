@@ -182,6 +182,10 @@ export function createDefaultConfig(workspace = process.cwd()): BalmConfig {
 
   return {
     workspace,
+    workspaces: {
+      local: workspace,
+      global: path.resolve(workspace, '..')
+    },
     alias,
     env,
     inFrontend: true,
