@@ -34,16 +34,40 @@ balm-next/
 
 ## 📥 Installation
 
-```bash
-# Using pnpm
-pnpm add -D balm
+BalmJS adopts an efficient **two-tier package architecture** designed to save disk space and maximize installation speed:
 
+### Step 1: Install `balm-core` Globally (Once per Machine)
+
+`balm-core` is the heavy build engine containing Webpack, Rollup, ESBuild, Dart Sass, Less, PostCSS, and other compilers. **You only need to install it once globally on your machine**:
+
+```bash
 # Using npm
-npm install --save-dev balm
+npm install -g balm-core
+
+# Using pnpm
+pnpm add -g balm-core
 
 # Using yarn
+yarn global add balm-core
+```
+
+### Step 2: Install `balm` in Your Project
+
+`balm` is the ultra-lightweight project-level CLI and configuration interface. It automatically detects and binds to your global `balm-core`:
+
+```bash
+# Inside your project directory
+npm install --save-dev balm
+
+# or using pnpm
+pnpm add -D balm
+
+# or using yarn
 yarn add -D balm
 ```
+
+> **Tip**: If you prefer project-isolated dependencies without global installation, you can also install `balm-core` locally as a devDependency in your project alongside `balm`.
+
 
 ---
 

@@ -1,0 +1,9 @@
+/* For cssnano bug test */
+
+:root {
+  --a: 16px;
+}
+
+.test {
+  margin: calc(var(--a, 16px) / 2 * -1);
+}

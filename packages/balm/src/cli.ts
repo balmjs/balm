@@ -3,6 +3,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import pc from 'picocolors';
 import balm from 'balm-core';
+import { resolveBalmCore } from './resolver.js';
 
 const cli = cac('balm');
 
@@ -16,25 +17,30 @@ cli
     if (options.prod) process.env.NODE_ENV = 'production';
     if (options.dev) process.env.NODE_ENV = 'development';
 
+    const configDir = fs.existsSync(fullConfigPath)
+      ? path.dirname(fullConfigPath)
+      : process.cwd();
+
+    const balmInstance = await resolveBalmCore(configDir);
+
     if (fs.existsSync(fullConfigPath)) {
       const imported = await import(fullConfigPath);
       const userConfig = imported.default || imported;
-      const configDir = path.dirname(fullConfigPath);
 
       if (typeof userConfig === 'function') {
-        balm.config = { workspace: configDir };
-        userConfig(balm);
+        balmInstance.config = { workspace: configDir };
+        userConfig(balmInstance);
       } else if (typeof userConfig === 'object') {
         const customConfig = userConfig.config || userConfig;
         if (!customConfig.workspace) {
           customConfig.workspace = configDir;
         }
-        balm.config = customConfig;
-        await balm.go(userConfig.recipes);
+        balmInstance.config = customConfig;
+        await balmInstance.go(userConfig.recipes);
       }
     } else {
       console.log(pc.yellow(`No config file found at ${fullConfigPath}, using defaults.`));
-      await balm.go();
+      await balmInstance.go();
     }
   });
 

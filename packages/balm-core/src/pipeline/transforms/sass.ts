@@ -1,5 +1,6 @@
 import * as sass from 'sass';
 import path from 'node:path';
+import fs from 'node:fs';
 import { TransformFn } from '../pipeline.js';
 import { logger } from '../../utilities/logger.js';
 
@@ -10,6 +11,32 @@ export interface SassTransformOptions {
   [key: string]: any;
 }
 
+function resolveFile(baseDir: string, url: string): string | null {
+  const possiblePaths = [
+    path.resolve(baseDir, url),
+    path.resolve(baseDir, `${url}.scss`),
+    path.resolve(baseDir, `${url}.sass`),
+    path.resolve(baseDir, `${url}.css`),
+    path.resolve(baseDir, path.dirname(url), `_${path.basename(url)}.scss`),
+    path.resolve(baseDir, path.dirname(url), `_${path.basename(url)}.sass`),
+    path.resolve(baseDir, url, '_index.scss'),
+    path.resolve(baseDir, url, '_index.sass'),
+    path.resolve(baseDir, url, 'index.scss'),
+    path.resolve(baseDir, url, 'index.sass')
+  ];
+
+  for (const p of possiblePaths) {
+    try {
+      if (fs.existsSync(p) && fs.statSync(p).isFile()) {
+        return p;
+      }
+    } catch {
+      // ignore
+    }
+  }
+  return null;
+}
+
 export function transformSass(options: SassTransformOptions = {}): TransformFn {
   return async (file) => {
     // Only process .scss / .sass files
@@ -18,15 +45,36 @@ export function transformSass(options: SassTransformOptions = {}): TransformFn {
     if (path.basename(file.path).startsWith('_')) return null;
 
     try {
-      const includePaths = [
+      const searchDirs = [
         path.dirname(file.path),
         path.resolve(file.cwd, 'node_modules'),
+        path.resolve(process.cwd(), 'node_modules'),
+        path.resolve(process.cwd(), '..', 'node_modules'),
         ...(options.includePaths || [])
       ];
 
+      const customImporter: sass.FileImporter<'async'> = {
+        findFileUrl(url) {
+          let cleanUrl = url;
+          if (cleanUrl.startsWith('~')) {
+            cleanUrl = cleanUrl.slice(1);
+          }
+
+          for (const dir of searchDirs) {
+            const resolved = resolveFile(dir, cleanUrl);
+            if (resolved) {
+              return new URL(`file://${resolved}`);
+            }
+          }
+          return null;
+        }
+      };
+
       const result = await sass.compileStringAsync(file.toString(), {
+        url: new URL(`file://${file.path}`),
         syntax: file.extname === '.sass' ? 'indented' : 'scss',
-        loadPaths: includePaths,
+        loadPaths: searchDirs,
+        importers: [customImporter, new sass.NodePackageImporter()],
         style: options.style || 'expanded',
         sourceMap: options.sourceMap || false
       });

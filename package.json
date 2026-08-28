@@ -19,6 +19,7 @@
     "@changesets/cli": "^3.0.1",
     "@types/node": "^22.13.5",
     "@vitest/coverage-v8": "^3.0.7",
+    "normalize.css": "^8.0.1",
     "prettier": "^3.5.2",
     "tsup": "^8.4.0",
     "typescript": "^5.7.3",
