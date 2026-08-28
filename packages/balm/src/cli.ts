@@ -19,11 +19,17 @@ cli
     if (fs.existsSync(fullConfigPath)) {
       const imported = await import(fullConfigPath);
       const userConfig = imported.default || imported;
+      const configDir = path.dirname(fullConfigPath);
 
       if (typeof userConfig === 'function') {
+        balm.config = { workspace: configDir };
         userConfig(balm);
       } else if (typeof userConfig === 'object') {
-        balm.config = userConfig.config || userConfig;
+        const customConfig = userConfig.config || userConfig;
+        if (!customConfig.workspace) {
+          customConfig.workspace = configDir;
+        }
+        balm.config = customConfig;
         await balm.go(userConfig.recipes);
       }
     } else {

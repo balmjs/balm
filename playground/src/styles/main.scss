@@ -1,0 +1,61 @@
+@use 'sass:color';
+
+$primary: #2563eb;
+$bg: #0f172a;
+$text: #f8fafc;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: $bg;
+  color: $text;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+.hero {
+  text-align: center;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #60a5fa, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+  }
+
+  button {
+    background: $primary;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+
+    &:hover {
+      background: color.adjust($primary, $lightness: 8%);
+      transform: translateY(-1px);
+    }
+  }
+
+  #output {
+    margin-top: 1rem;
+    font-weight: 500;
+    color: #38bdf8;
+  }
+}

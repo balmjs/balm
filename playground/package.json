@@ -1,0 +1,13 @@
+{
+  "name": "playground",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "balm -d",
+    "build": "balm -p"
+  },
+  "dependencies": {
+    "balm": "workspace:*"
+  }
+}

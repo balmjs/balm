@@ -9,9 +9,14 @@
     "dev": "pnpm -r run dev",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "changeset": "changeset",
+    "version-packages": "changeset version && pnpm install --lockfile-only",
+    "release": "pnpm build && changeset publish",
+    "playground:build": "node ./packages/balm/bin/balm.js ./playground/balm.config.js -p"
   },
   "devDependencies": {
+    "@changesets/cli": "^3.0.1",
     "@types/node": "^22.13.5",
     "@vitest/coverage-v8": "^3.0.7",
     "prettier": "^3.5.2",

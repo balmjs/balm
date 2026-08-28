@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "fixed": [["balm", "balm-core"]],
+  "linked": [],
+  "access": "public",
+  "baseBranch": "6.x",
+  "updateInternalDependencies": "patch",
+  "ignore": []
+}

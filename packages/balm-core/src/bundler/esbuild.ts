@@ -20,6 +20,7 @@ export async function runEsbuild(
       : typeof entryPoints === 'string'
         ? [entryPoints]
         : entryPoints) as any,
+    absWorkingDir: config.workspace,
     bundle: true,
     outdir: config.dest.js,
     minify: isProd || config.scripts.minify,

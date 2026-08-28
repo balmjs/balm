@@ -91,11 +91,14 @@ export class Pipeline {
   }
 
   async process(): Promise<VirtualFile[]> {
+    let isSrcLoaded = false;
     for (const transform of this.transforms) {
-      if (this.files.length === 0) {
+      if (!isSrcLoaded) {
         // Initial src loader
         await transform(null as any);
+        isSrcLoaded = true;
       } else {
+        if (this.files.length === 0) break;
         const nextFiles: VirtualFile[] = [];
         for (const file of this.files) {
           const result = await transform(file);
