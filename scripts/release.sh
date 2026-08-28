@@ -8,4 +8,4 @@ if [ -f ~/.zshrc ]; then
 fi
 
 npm run build
-lerna publish --dist-tag next
+lerna publish --dist-tag next --no-verify-access
