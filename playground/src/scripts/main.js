@@ -1,10 +1,12 @@
+import getAwesomeMessage from '@/scripts/awesome.js';
+
+console.log('🚀 BalmJS 6.x Playground Loaded with @/ alias!');
+
 const btn = document.getElementById('btn');
 const output = document.getElementById('output');
 
 if (btn && output) {
-  let count = 0;
   btn.addEventListener('click', () => {
-    count++;
-    output.textContent = `Button clicked ${count} times! (Balm 6.x reactive build)`;
+    output.textContent = getAwesomeMessage();
   });
 }

@@ -1,0 +1,12 @@
+$awesome-color: #646cff;
+$awesome-bg: rgba(100, 108, 255, 0.1);
+
+.awesome-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: $awesome-bg;
+  border: 1px dashed $awesome-color;
+  color: $awesome-color;
+  font-weight: 500;
+}

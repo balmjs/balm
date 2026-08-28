@@ -26,7 +26,10 @@ export async function runWebpack(
     },
     resolve: {
       extensions: ['.wasm', '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
-      alias: config.scripts.alias
+      alias: {
+        ...config.alias,
+        ...config.scripts.alias
+      }
     },
     module: {
       rules: [

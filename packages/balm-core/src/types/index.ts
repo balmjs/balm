@@ -31,6 +31,7 @@ export interface BalmStyles {
   extname: string;
   minify: boolean;
   atImportPaths: string[];
+  alias: Record<string, string>;
   options: Record<string, any>;
   sassOptions: Record<string, any>;
   lessOptions: Record<string, any>;
@@ -139,6 +140,7 @@ export interface BalmEnv {
 
 export interface BalmConfig {
   workspace: string;
+  alias: Record<string, string>;
   env: BalmEnv;
   inFrontend: boolean;
   useDefaults: boolean;

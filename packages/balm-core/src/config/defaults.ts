@@ -40,10 +40,15 @@ export function createDefaultConfig(workspace = process.cwd()): BalmConfig {
     }
   };
 
+  const alias: Record<string, string> = {
+    '@': path.join(workspace, roots.source)
+  };
+
   const styles = {
     extname: 'scss',
     minify: false,
     atImportPaths: [],
+    alias: {},
     options: {},
     sassOptions: {},
     lessOptions: {},
@@ -177,6 +182,7 @@ export function createDefaultConfig(workspace = process.cwd()): BalmConfig {
 
   return {
     workspace,
+    alias,
     env,
     inFrontend: true,
     useDefaults: true,

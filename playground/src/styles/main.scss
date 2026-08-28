@@ -1,61 +1,43 @@
-@use 'sass:color';
-
-$primary: #2563eb;
-$bg: #0f172a;
-$text: #f8fafc;
+@use '@/styles/_awesome.scss' as *;
 
 body {
   margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: $bg;
-  color: $text;
-  display: grid;
-  place-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
 }
 
 .hero {
   text-align: center;
   padding: 2.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  backdrop-filter: blur(12px);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  max-width: 500px;
+}
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #60a5fa, #a855f7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+button {
+  background: #646cff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #535bf2;
   }
+}
 
-  p {
-    color: #94a3b8;
-    margin-bottom: 1.5rem;
-  }
-
-  button {
-    background: $primary;
-    color: #ffffff;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: transform 0.1s ease, background-color 0.2s ease;
-
-    &:hover {
-      background: color.adjust($primary, $lightness: 8%);
-      transform: translateY(-1px);
-    }
-  }
-
-  #output {
-    margin-top: 1rem;
-    font-weight: 500;
-    color: #38bdf8;
-  }
+#output {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #10b981;
 }

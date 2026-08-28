@@ -6,6 +6,7 @@ import { logger } from '../../utilities/logger.js';
 
 export interface SassTransformOptions {
   includePaths?: string[];
+  alias?: Record<string, string>;
   style?: 'expanded' | 'compressed';
   sourceMap?: boolean;
   [key: string]: any;
@@ -60,6 +61,21 @@ export function transformSass(options: SassTransformOptions = {}): TransformFn {
             cleanUrl = cleanUrl.slice(1);
           }
 
+          // 1. Check alias resolution
+          if (options.alias) {
+            for (const [aliasKey, aliasTarget] of Object.entries(options.alias)) {
+              if (cleanUrl === aliasKey) {
+                const resolved = resolveFile(path.dirname(aliasTarget), path.basename(aliasTarget));
+                if (resolved) return new URL(`file://${resolved}`);
+              } else if (cleanUrl.startsWith(`${aliasKey}/`)) {
+                const subPath = cleanUrl.slice(aliasKey.length + 1);
+                const resolved = resolveFile(aliasTarget, subPath);
+                if (resolved) return new URL(`file://${resolved}`);
+              }
+            }
+          }
+
+          // 2. Check searchDirs
           for (const dir of searchDirs) {
             const resolved = resolveFile(dir, cleanUrl);
             if (resolved) {

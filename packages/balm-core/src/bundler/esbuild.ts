@@ -23,6 +23,10 @@ export async function runEsbuild(
     absWorkingDir: config.workspace,
     bundle: true,
     outdir: config.dest.js,
+    alias: {
+      ...config.alias,
+      ...config.scripts.alias
+    },
     minify: isProd || config.scripts.minify,
     sourcemap: !isProd,
     target:

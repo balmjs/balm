@@ -21,10 +21,16 @@ export class StyleTask extends BaseTask {
       base: config.src.css
     });
 
+    const styleAlias = {
+      ...config.alias,
+      ...config.styles.alias
+    };
+
     if (ext === 'scss' || ext === 'sass') {
       pipeline.pipe(
         transformSass({
           includePaths: [config.src.css, ...config.styles.atImportPaths],
+          alias: styleAlias,
           ...config.styles.sassOptions
         })
       );
@@ -32,6 +38,7 @@ export class StyleTask extends BaseTask {
       pipeline.pipe(
         transformLess({
           paths: [config.src.css, ...config.styles.atImportPaths],
+          alias: styleAlias,
           ...config.styles.lessOptions
         })
       );
