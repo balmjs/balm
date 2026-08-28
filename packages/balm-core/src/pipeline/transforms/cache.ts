@@ -33,7 +33,7 @@ export class AssetRevisioner {
     this.options = {
       fileNameManifest: 'rev-manifest.json',
       dontRenameFile: ['.html'],
-      dontUpdateReference: ['.html'],
+      dontUpdateReference: [],
       hashLength: 8,
       ...options
     };

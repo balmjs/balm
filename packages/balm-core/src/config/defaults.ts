@@ -107,7 +107,7 @@ export function createDefaultConfig(workspace = process.cwd()): BalmConfig {
     options: {
       fileNameManifest: 'rev-manifest.json',
       dontRenameFile: ['.html'],
-      dontUpdateReference: ['.html']
+      dontUpdateReference: []
     },
     includes: [],
     excludes: []
