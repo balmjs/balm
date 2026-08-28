@@ -1,6 +1,6 @@
 // Reference `gulp-htmlmin@5.0.1`
 import { TransformCallback } from 'node:stream';
-import { minify } from 'html-minifier';
+import { minify } from 'html-minifier-terser';
 import { BalmError } from '@balm-core/index.js';
 
 const PLUGIN_NAME = 'htmlmin';
@@ -18,13 +18,14 @@ function gulpHtmlmin(options: object): any {
       return;
     }
 
-    function htmlMinify(
+    async function htmlMinify(
       buf: any,
       enc: string | null,
       cb: TransformCallback
-    ): void {
+    ): Promise<void> {
       try {
-        const contents = Buffer.from(minify(buf.toString(), options));
+        const minified = await minify(buf.toString(), options);
+        const contents = Buffer.from(minified);
         if (cb === callback) {
           file.contents = contents;
           cb(null, file);

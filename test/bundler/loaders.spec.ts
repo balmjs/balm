@@ -12,7 +12,7 @@ describe('Bundler#getLoaders()', function () {
       };
     });
 
-    const rulesCount = 6;
+    const rulesCount = 7;
 
     it(
       `expected output: ${rulesCount}`,
@@ -29,13 +29,13 @@ describe('Bundler#getLoaders()', function () {
       balm.config = {
         scripts: {
           defaultLoaders: {
-            url: false
+            asset: false
           }
         }
       };
     });
 
-    const rulesCount = 3;
+    const rulesCount = 4;
 
     it(
       `expected output: ${rulesCount}`,
@@ -55,7 +55,7 @@ describe('Bundler#getLoaders()', function () {
             html: false,
             css: false,
             js: false,
-            url: false
+            asset: false
           }
         }
       };
@@ -84,14 +84,14 @@ describe('Bundler#getLoaders()', function () {
             html: true,
             css: true,
             js: true,
-            url: true
+            asset: true
           },
           extractCss: true
         }
       };
     });
 
-    const rulesCount = 6;
+    const rulesCount = 7;
 
     it(
       `expected output: ${rulesCount}`,

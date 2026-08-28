@@ -125,7 +125,7 @@ function getKey(options: any): object {
 function gulpSftp(options: LooseObject): any {
   options = Object.assign({}, options); // Credit sindresorhus
 
-  if (options.host === undefined) {
+  if (!options.host) {
     throw new PluginError(PLUGIN_NAME, '`host` required');
   }
 
@@ -243,7 +243,9 @@ function gulpSftp(options: LooseObject): any {
     });
 
     conn.on('error', (err: BalmError) => {
-      this.emit('error', new PluginError(PLUGIN_NAME, err));
+      const errorMsg =
+        (err && (err.message || err.toString())) || 'SFTP connection error';
+      this.emit('error', new PluginError(PLUGIN_NAME, errorMsg));
     });
 
     conn.on('end', () => {

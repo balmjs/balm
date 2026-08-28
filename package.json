@@ -14,8 +14,9 @@
   },
   "scripts": {
     "build": "gulp prepublish && rimraf packages/balm-core/tslib && tsc",
-    "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json TS_NODE_FILES=true nyc mocha",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "cross-env NODE_ENV=test vitest run",
+    "test:watch": "cross-env NODE_ENV=test vitest",
+    "coverage": "vitest run --coverage",
     "release": "./scripts/clone-license.sh && ./scripts/release.sh",
     "release:all": "./scripts/clone-license.sh && ./scripts/release-all.sh",
     "release:canary": "./scripts/clone-license.sh && ./scripts/release-canary.sh"
@@ -33,6 +34,7 @@
     "@types/node": "24",
     "@typescript-eslint/eslint-plugin": "8",
     "@typescript-eslint/parser": "8",
+    "@vitest/coverage-v8": "^4.1.11",
     "babel-plugin-istanbul": "8",
     "chai": "4",
     "coveralls": "3",
@@ -54,7 +56,8 @@
     "prettier": "3",
     "rimraf": "6",
     "ts-node": "10",
-    "typescript": "6"
+    "typescript": "6",
+    "vitest": "^4.1.11"
   },
   "private": true,
   "workspaces": [

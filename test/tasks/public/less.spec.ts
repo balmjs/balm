@@ -27,7 +27,7 @@ describe('Less Task', function () {
     it(
       `expected output: "${defaultInput}"`,
       asyncCase(function () {
-        lessTask.fn();
+        lessTask.init();
 
         expect(lessTask.input).to.equal(defaultInput);
       })
@@ -49,7 +49,7 @@ describe('Less Task', function () {
     it(
       `expected output: "${defaultInput}"`,
       asyncCase(function () {
-        lessTask.recipe(defaultInput, defaultOutput, {})();
+        lessTask.init(defaultInput, defaultOutput);
 
         expect(JSON.stringify(lessTask.input)).to.equal(
           JSON.stringify([

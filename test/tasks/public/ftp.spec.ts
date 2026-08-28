@@ -25,7 +25,7 @@ describe('Ftp Task', function () {
       it(
         `expected output: "${defaultInput}"`,
         asyncCase(function () {
-          ftpTask.recipe(defaultInput)();
+          ftpTask.init(defaultInput);
 
           expect(ftpTask.input).to.equal(
             node.path.join(balm.config.workspace, defaultInput)
@@ -49,10 +49,10 @@ describe('Ftp Task', function () {
           Object.assign(defaultOptions, ftp)
         )}"`,
         asyncCase(function () {
-          ftpTask.recipe(defaultInput, {
+          ftpTask.init(defaultInput, null, {
             src,
             ftp
-          })();
+          });
 
           expect(JSON.stringify(ftpTask.options)).to.equal(
             JSON.stringify(Object.assign(defaultOptions, ftp))

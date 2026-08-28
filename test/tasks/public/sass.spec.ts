@@ -27,7 +27,7 @@ describe('Sass Task', function () {
     it(
       `expected output: "${defaultInput}"`,
       asyncCase(function () {
-        sassTask.fn();
+        sassTask.init();
 
         expect(sassTask.input).to.equal(defaultInput);
       })
@@ -52,7 +52,7 @@ describe('Sass Task', function () {
     it(
       `expected output: "${defaultInput}"`,
       asyncCase(function () {
-        sassTask.recipe(defaultInput, defaultOutput, {})();
+        sassTask.init(defaultInput, defaultOutput);
 
         expect(JSON.stringify(sassTask.input)).to.equal(
           JSON.stringify([
@@ -90,7 +90,7 @@ describe('Sass Task', function () {
     it(
       `expected output: "${defaultOutput}"`,
       asyncCase(function () {
-        sassTask.fn();
+        sassTask.init();
 
         expect(sassTask.output).to.equal(defaultOutput);
       })

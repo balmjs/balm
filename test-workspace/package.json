@@ -4,6 +4,7 @@
   "author": "Elf-mousE <ifmouz@gmail.com>",
   "scripts": {
     "dev": "../packages/balm/bin/balm.js",
+    "build": "../packages/balm/bin/balm.js -p",
     "prod": "../packages/balm/bin/balm.js -p",
     "es:dev": "../packages/balm/bin/balm.js --config config/es/index.js",
     "es:prod": "../packages/balm/bin/balm.js -p --config config/es/index.js",

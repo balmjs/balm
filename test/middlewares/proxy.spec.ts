@@ -24,11 +24,10 @@ describe('Http Proxy Middleware', function () {
         before(function () {
           balm.config = {
             server: {
-              proxyConfig: {
-                context: '/api',
-                options: {
-                  target: 'https://balmjs.com'
-                }
+              proxyOptions: {
+                target: 'https://balmjs.com',
+                changeOrigin: true,
+                pathFilter: '/api'
               }
             }
           };
@@ -48,7 +47,7 @@ describe('Http Proxy Middleware', function () {
         before(function () {
           balm.config = {
             server: {
-              proxyConfig: {}
+              proxyOptions: {}
             }
           };
         });
@@ -69,18 +68,16 @@ describe('Http Proxy Middleware', function () {
         before(function () {
           balm.config = {
             server: {
-              proxyConfig: [
+              proxyOptions: [
                 {
-                  context: '/api/frontend-workflow',
-                  options: {
-                    target: 'https://balmjs.com'
-                  }
+                  target: 'https://balmjs.com',
+                  changeOrigin: true,
+                  pathFilter: '/api/frontend-workflow'
                 },
                 {
-                  context: '/api/ui',
-                  options: {
-                    target: 'https://material.balmjs.com'
-                  }
+                  target: 'https://material.balmjs.com',
+                  changeOrigin: true,
+                  pathFilter: '/api/ui'
                 }
               ]
             }
@@ -101,7 +98,7 @@ describe('Http Proxy Middleware', function () {
         before(function () {
           balm.config = {
             server: {
-              proxyConfig: [{}]
+              proxyOptions: [{}]
             }
           };
         });
@@ -121,7 +118,7 @@ describe('Http Proxy Middleware', function () {
       before(function () {
         balm.config = {
           server: {
-            proxyConfig: true
+            proxyOptions: true
           }
         };
       });
@@ -140,12 +137,10 @@ describe('Http Proxy Middleware', function () {
       before(function () {
         balm.config = {
           server: {
-            proxyConfig: {
-              context: '/api',
-              options: {
-                target: '',
-                changeOrigin: true
-              }
+            proxyOptions: {
+              target: '',
+              changeOrigin: true,
+              pathFilter: '/api'
             }
           }
         };
@@ -162,3 +157,4 @@ describe('Http Proxy Middleware', function () {
     });
   });
 });
+

@@ -25,7 +25,7 @@ describe('Url Task', function () {
     it(
       `expected output: "${defaultOutput}"`,
       asyncCase(function () {
-        urlTask.fn();
+        urlTask.init();
 
         expect(urlTask.output).to.equal(defaultOutput);
         expect(urlTask.input).to.equal(defaultInput);
@@ -51,7 +51,7 @@ describe('Url Task', function () {
     it(
       `expected output: "${defaultOutput}"`,
       asyncCase(function () {
-        urlTask.fn();
+        urlTask.init();
 
         expect(urlTask.output).to.equal(defaultOutput);
         expect(urlTask.input).to.equal(defaultInput);
@@ -74,7 +74,7 @@ describe('Url Task', function () {
     it(
       `expected output: "${defaultOutput}"`,
       asyncCase(function () {
-        urlTask.recipe(defaultInput, defaultOutput)();
+        urlTask.init(defaultInput, defaultOutput);
 
         expect(urlTask.output).to.equal(
           node.path.join(balm.config.workspace, defaultOutput)

@@ -37,9 +37,6 @@ describe('Jsmin Task', function () {
     describe('options', function () {
       const defaultOptions = {
         ecma: 5,
-        parse: {
-          ecma: 2017
-        },
         compress: {
           comparisons: false,
           inline: 2
@@ -47,7 +44,7 @@ describe('Jsmin Task', function () {
         mangle: {
           safari10: true
         },
-        output: {
+        format: {
           comments: false,
           ascii_only: true
         }

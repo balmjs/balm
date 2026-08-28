@@ -76,31 +76,34 @@ class PwaTask extends BalmJS.BalmTask {
             ? generateSW(options as GenerateSWOptions)
             : injectManifest(options as InjectManifestOptions);
 
-        await workboxBuild
-          .then(
-            ({
-              count,
-              size
-            }: {
-              count: number;
-              filePaths?: string[];
-              size: number;
-              warnings?: string[];
-            }) => {
-              BalmJS.logger.info(
-                `pwa - ${mode}`,
-                `Generated '${swDest}', which will precache ${count} files, totaling ${size} bytes`
-              );
+        try {
+          const { count, size } = await workboxBuild;
+          BalmJS.logger.info(
+            `pwa - ${mode}`,
+            `Generated '${swDest}', which will precache ${count} files, totaling ${size} bytes`
+          );
 
-              gulp.parallel(BalmJS.toNamespace('pwa-cache') as string)();
+          await new Promise<void>((resolve) => {
+            const pwaCacheTask = BalmJS.tasks.get('pwa-cache');
+            if (pwaCacheTask) {
+              const stream = pwaCacheTask.fn();
+              if (stream && typeof stream.on === 'function') {
+                stream.on('finish', resolve).on('error', () => resolve());
+              } else if (stream && typeof stream.then === 'function') {
+                stream.then(resolve, resolve);
+              } else {
+                resolve();
+              }
+            } else {
+              resolve();
             }
-          )
-          .catch((err: string) => {
-            BalmJS.logger.warn(
-              `pwa - ${mode}`,
-              `Service worker generation failed: ${err}`
-            );
           });
+        } catch (err: any) {
+          BalmJS.logger.warn(
+            `pwa - ${mode}`,
+            `Service worker generation failed: ${err}`
+          );
+        }
 
         callback();
       } else {

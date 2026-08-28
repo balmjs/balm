@@ -32,17 +32,17 @@ function shouldExist(file: string, contents?: string) {
 
   if (contents) {
     result = fs.readFileSync(filePath, { encoding: 'utf8' });
-    expect(result).to.equal(contents);
+    expect(result, `File content match failed for: ${file}`).to.equal(contents);
   } else {
     result = fs.existsSync(filePath);
-    expect(result).to.equal(true);
+    expect(result, `File should exist: ${file}`).to.equal(true);
   }
 }
 
 function shouldNotExist(file: string) {
   const filePath = `${balm.config.workspace}/${file}`;
   const result = fs.existsSync(filePath);
-  expect(result).to.equal(false);
+  expect(result, `File should not exist: ${file}`).to.equal(false);
 }
 
 function assertCase(
@@ -67,44 +67,56 @@ function assertCase(
   }
 }
 
-async function runTest(
+function runTest(
   testObj: string | false | string[] | TestObj,
-  timeout: Function | timeoutObj,
+  timeout?: Function | timeoutObj,
   checkExist: string | boolean = true
-) {
-  if (typeof testObj === 'object') {
-    balm.afterTask = function () {
-      assertCase((testObj as TestObj).testCase, checkExist);
+): Promise<void> {
+  return new Promise<void>((resolve, reject) => {
+    let doneFn: Function | undefined;
+    if (typeof timeout === 'function') {
+      doneFn = timeout;
+    } else if (
+      typeof timeout === 'object' &&
+      typeof timeout.done === 'function'
+    ) {
+      doneFn = timeout.done;
+    }
+
+    const finish = (err?: any) => {
+      if (err) {
+        if (doneFn) doneFn(err);
+        reject(err);
+      } else {
+        if (doneFn) doneFn();
+        resolve();
+      }
     };
 
-    try {
-      await balm.go((testObj as TestObj).testHook || function () {});
+    if (typeof testObj === 'object') {
+      balm.afterTask = function () {
+        try {
+          assertCase((testObj as TestObj).testCase, checkExist);
+          finish();
+        } catch (err) {
+          finish(err);
+        }
+      };
 
-      await gulp.parallel('balm:default')();
-    } catch (err) {
-      if (typeof timeout === 'object') {
-        setTimeout(() => {
-          timeout.done(err);
-        }, timeout.delay as number);
-      } else {
-        setTimeout(() => {
-          timeout(err);
-        }, 2000);
+      try {
+        balm.go((testObj as TestObj).testHook || function () {});
+      } catch (err) {
+        finish(err);
+      }
+    } else {
+      try {
+        assertCase(testObj, checkExist);
+        finish();
+      } catch (err) {
+        finish(err);
       }
     }
-  } else {
-    await assertCase(testObj, checkExist);
-  }
-
-  if (typeof timeout === 'object') {
-    setTimeout(() => {
-      timeout.done();
-    }, timeout.delay as number);
-  } else {
-    setTimeout(() => {
-      timeout();
-    }, 2000);
-  }
+  });
 }
 
 export { cleanup, runTest };

@@ -3,9 +3,9 @@ import CleanTask from '../../../packages/balm-core/src/tasks/private/clean';
 describe('Clean Task', function () {
   let cleanTask: any;
 
-  beforeEach(function (done) {
+  beforeEach(async function () {
     cleanTask = new CleanTask();
-    cleanTask.fn(done);
+    await cleanTask.fn(() => {});
   });
 
   context('in frontend', function () {

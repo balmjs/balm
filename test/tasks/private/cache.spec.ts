@@ -5,7 +5,7 @@ describe('Cache Task', function () {
 
   beforeEach(function () {
     cacheTask = new CacheTask();
-    cacheTask.fn();
+    cacheTask.init();
   });
 
   describe('in frontend', function () {
@@ -29,13 +29,11 @@ describe('Cache Task', function () {
     const dist = node.path.join(balm.config.workspace, 'dist');
     const defaultInput = [
       node.path.join(dist, 'css', '**', '*'),
-      // node.path.join(dist, 'js', '**', '*'),
       node.path.join(dist, 'img', '**', '*'),
       node.path.join(dist, 'font', '**', '*'),
       node.path.join(dist, 'media', '**', '*'),
-      '!' + node.path.join(dist, 'js', 'async', '*'),
-      '!' + node.path.join(dist, 'js', 'assets', '*'),
-      '!' + node.path.join(dist, 'css', 'async', '*'),
+      '!' + node.path.join(dist, 'js', 'chunk', '*'),
+      '!' + node.path.join(dist, 'js', 'asset', '*'),
       '!' + node.path.join(dist, 'manifest.json'),
       node.path.join(dist, '*.html')
     ];
@@ -74,9 +72,8 @@ describe('Cache Task', function () {
       node.path.join(dist, 'build', 'img', '**', '*'),
       node.path.join(dist, 'build', 'font', '**', '*'),
       node.path.join(dist, 'build', 'media', '**', '*'),
-      '!' + node.path.join(dist, 'build', 'js', 'async', '*'),
-      '!' + node.path.join(dist, 'build', 'js', 'assets', '*'),
-      '!' + node.path.join(dist, 'build', 'css', 'async', '*'),
+      '!' + node.path.join(dist, 'build', 'js', 'chunk', '*'),
+      '!' + node.path.join(dist, 'build', 'js', 'asset', '*'),
       '!' + node.path.join(dist, 'manifest.json'),
       node.path.join(balm.config.workspace, 'dist', 'foo.txt'),
       '!' + node.path.join(balm.config.workspace, 'dist', 'bar.txt')

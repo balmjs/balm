@@ -44,16 +44,24 @@ class CacheTask extends BalmJS.BalmTask {
     this.defaultOutput = BalmJS.config.inFrontend
       ? BalmJS.config.dest.base
       : BalmJS.config.dest.static;
+
+    this.gulpSrcOptions = {
+      base: this.defaultOutput
+    };
   }
 
   fn = (): any => {
     this.init();
 
+    this.gulpSrcOptions = {
+      base: this.output
+    };
+
     return this.src
       .pipe(revAll.revision(BalmJS.config.assets.options))
       .pipe($.if(/\.html$/, BalmJS.file.setPublicPath()))
       .pipe(gulp.dest(this.output))
-      .pipe($.revDeleteOriginal())
+      .pipe($.revDeleteOriginal({ exclude: /\.html$/ }))
       .pipe(revAll.manifestFile())
       .pipe(gulp.dest(this.output));
   };

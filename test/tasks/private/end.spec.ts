@@ -4,9 +4,9 @@ describe('End Task', function () {
   let endTask: any;
 
   describe('!after task', function () {
-    before(function (done) {
+    before(function () {
       endTask = new EndTask();
-      endTask.fn(done);
+      endTask.fn(() => {});
     });
 
     it(
@@ -18,13 +18,13 @@ describe('End Task', function () {
   });
 
   describe('after task', function () {
-    before(function (done) {
+    before(function () {
       balm.afterTask = function () {
         console.log('THX BalmJS');
       };
 
       endTask = new EndTask();
-      endTask.fn(done);
+      endTask.fn(() => {});
     });
 
     it(

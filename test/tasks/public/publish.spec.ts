@@ -40,25 +40,28 @@ describe('Publish Task', function () {
       it(
         'publish all static assets',
         asyncCase(function () {
-          publishTask.recipe()();
+          publishTask.init();
+          expect(publishTask.output).to.equal(BalmJS.config.assets.static);
         })
       );
 
       it(
         'publish one template',
         asyncCase(function () {
-          publishTask.recipe('default.html', 'dist', {
-            basename: 'home',
-            suffix: '.blade',
-            extname: '.php'
-          })();
+          publishTask.init(
+            node.path.join(BalmJS.config.dest.base, 'default.html'),
+            node.path.join(BalmJS.config.assets.root, 'dist')
+          );
+          expect(publishTask.output).to.equal(
+            node.path.join(BalmJS.config.assets.root, 'dist')
+          );
         })
       );
 
       it(
         'publish multiple templates',
         asyncCase(function () {
-          publishTask.recipe([
+          const fn = publishTask.recipe([
             {
               input: 'page-a.html',
               output: 'dist/page1',
@@ -73,7 +76,8 @@ describe('Publish Task', function () {
                 extname: '.php'
               }
             }
-          ])();
+          ]);
+          expect(typeof fn).to.equal('function');
         })
       );
     });

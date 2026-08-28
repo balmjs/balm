@@ -14,7 +14,7 @@ describe('Bundler#getOutput()', function () {
 
     describe('default', function () {
       const filename = 'js/[name].js';
-      const chunkFilename = 'js/async/[name].js';
+      const chunkFilename = 'js/chunk/[name].js';
 
       it(
         `expected output: "${filename}"`,
@@ -57,7 +57,7 @@ describe('Bundler#getOutput()', function () {
       });
 
       const filename = 'js/[name].js';
-      const chunkFilename = 'js/async/[name].[contenthash:8].js';
+      const chunkFilename = 'js/chunk/[name].[contenthash:8].js';
 
       it(
         `expected output: "${filename}"`,
@@ -83,7 +83,7 @@ describe('Bundler#getOutput()', function () {
       });
 
       const filename = 'js/[name].js';
-      const chunkFilename = 'js/async/[name].[contenthash:8].js';
+      const chunkFilename = 'js/chunk/[name].[contenthash:8].js';
 
       it(
         `expected output: "${filename}"`,
@@ -112,7 +112,7 @@ describe('Bundler#getOutput()', function () {
       });
 
       const filename = 'js/[name].[contenthash:8].js';
-      const chunkFilename = 'js/async/[name].[contenthash:8].js';
+      const chunkFilename = 'js/chunk/[name].[contenthash:8].js';
 
       it(
         `expected output: "${filename}"`,
@@ -134,8 +134,7 @@ describe('Bundler#getOutput()', function () {
             isProd: true
           },
           scripts: {
-            library: libraryName,
-            libraryTarget: 'umd'
+            library: libraryName
           }
         };
       });
@@ -163,9 +162,11 @@ describe('Bundler#getOutput()', function () {
 
     const mp = {
       path: node.path.join(balm.config.workspace, 'dist', 'common'),
-      library: 'createApp',
-      libraryTarget: 'window',
-      libraryExport: 'default'
+      library: {
+        name: 'createApp',
+        type: 'window',
+        export: 'default'
+      }
     };
 
     it(
@@ -174,9 +175,7 @@ describe('Bundler#getOutput()', function () {
         result = getOutput('', balm.config.scripts);
 
         expect(result.path).to.equal(mp.path);
-        expect(result.library).to.equal(mp.library);
-        expect(result.libraryTarget).to.equal(mp.libraryTarget);
-        expect(result.libraryExport).to.equal(mp.libraryExport);
+        expect(result.library).to.deep.equal(mp.library);
       })
     );
   });

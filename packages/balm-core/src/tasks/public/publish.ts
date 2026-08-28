@@ -17,23 +17,31 @@ class PublishTask extends BalmJS.BalmTask {
     output: string,
     renameOptions: string | Function | RenameOptions = {}
   ): any => {
+    let srcPath: string | string[];
+    let destPath: string;
+
     if (input && output) {
-      this.init(
-        node.path.join(BalmJS.config.dest.base, input),
-        node.path.join(BalmJS.config.assets.root, output) // Remote dir
+      srcPath = BalmJS.file.absPaths(
+        node.path.join(BalmJS.config.dest.base, input)
+      );
+      destPath = BalmJS.file.absPath(
+        node.path.join(BalmJS.config.assets.root, output)
       );
     } else {
       this.init();
+      srcPath = this.input;
+      destPath = this.output;
     }
 
-    return this.src
+    return gulp
+      .src(srcPath, { allowEmpty: true })
       .pipe(
         $.if(
-          !BalmJS.utils.isArray(this.input),
+          !BalmJS.utils.isArray(srcPath),
           BalmJS.plugins.rename(renameOptions)
         )
       )
-      .pipe(gulp.dest(this.output)); // Absolute path
+      .pipe(gulp.dest(destPath));
   };
 
   recipe(

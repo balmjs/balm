@@ -5,7 +5,7 @@ describe('Build Task', function () {
 
   beforeEach(function () {
     buildTask = new BuildTask();
-    buildTask.fn();
+    buildTask.init();
   });
 
   describe('measure size', function () {

@@ -27,7 +27,7 @@ describe('Postcss Task', function () {
     it(
       `expected output: "${defaultInput}"`,
       asyncCase(function () {
-        postcssTask.fn();
+        postcssTask.init();
 
         expect(postcssTask.input).to.equal(defaultInput);
       })
@@ -53,7 +53,7 @@ describe('Postcss Task', function () {
     it(
       `expected output: "${defaultInput}"`,
       asyncCase(function () {
-        postcssTask.recipe(defaultInput, defaultOutput)();
+        postcssTask.init(defaultInput, defaultOutput);
 
         expect(JSON.stringify(postcssTask.input)).to.equal(
           JSON.stringify([

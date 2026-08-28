@@ -69,10 +69,10 @@ class BalmTask {
     const useAbsPath = !['webpack', 'rollup', 'esbuild', 'sprite'].includes(
       key
     );
-    this.input = useAbsPath
+    this.input = useAbsPath && (input || this.defaultInput)
       ? BalmJS.file.absPaths(input || this.defaultInput)
       : input || this.defaultInput;
-    this.output = useAbsPath
+    this.output = useAbsPath && typeof (output || this.defaultOutput) === 'string'
       ? BalmJS.file.absPath(output || this.defaultOutput)
       : output || this.defaultOutput;
     this.customOptions = options[key] || {};
