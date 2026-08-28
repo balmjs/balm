@@ -42,7 +42,11 @@ export class ServerTask extends BaseTask {
     const server = http.createServer(app);
     return new Promise((resolve) => {
       server.listen(port, host, () => {
-        logger.success('server', `Server running at ${pc.cyan(`http://${host}:${port}`)}`);
+        console.log('');
+        logger.success('server', pc.bold('BalmJS Dev Server is ready!'));
+        console.log(`  ${pc.green('➜')}  ${pc.bold('Local:')}   ${pc.cyan(`http://${host}:${port}/`)}`);
+        console.log(`  ${pc.green('➜')}  ${pc.bold('Network:')} ${pc.cyan(`http://127.0.0.1:${port}/`)}`);
+        console.log('');
         resolve();
       });
     });

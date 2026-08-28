@@ -2,8 +2,8 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import balm, { file as fsUtil } from 'balm-core';
 import path from 'node:path';
 
-describe('Real Workspace Integration Suite (test-workspace/src)', () => {
-  const workspace = path.resolve(process.cwd(), 'test-workspace');
+describe('Real Fixtures Integration Suite (test/fixtures/src)', () => {
+  const workspace = path.resolve(process.cwd(), 'test', 'fixtures');
   const distDir = path.join(workspace, 'dist');
   const tmpDir = path.join(workspace, '.tmp');
 
@@ -16,7 +16,7 @@ describe('Real Workspace Integration Suite (test-workspace/src)', () => {
     await fsUtil.remove([distDir, tmpDir]);
   });
 
-  it('should compile full real-world multi-page project with Sass, Webpack, and HTML processing', async () => {
+  it('should compile full multi-page project with Sass, Webpack, and HTML processing', async () => {
     balm.config = {
       workspace,
       env: {
@@ -82,7 +82,7 @@ describe('Real Workspace Integration Suite (test-workspace/src)', () => {
     expect(await fsUtil.exists(path.join(distDir, manifest['js/page-b.js']))).toBe(true);
   });
 
-  it('should compile Less styles correctly from test-workspace', async () => {
+  it('should compile Less styles correctly from fixtures', async () => {
     balm.config = {
       workspace,
       useDefaults: false,

@@ -12,8 +12,8 @@
     "test:coverage": "vitest run --coverage",
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm install --lockfile-only",
-    "release": "pnpm build && changeset publish",
-    "playground:build": "node ./packages/balm/bin/balm.js ./playground/balm.config.js -p"
+    "playground:build": "node ./packages/balm/bin/balm.js ./playground/balm.config.js -p",
+    "playground:dev": "node ./packages/balm/bin/balm.js ./playground/balm.config.js -d"
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.1",
