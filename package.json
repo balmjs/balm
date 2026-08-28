@@ -15,6 +15,7 @@
     "pre:exit": "changeset pre exit",
     "version-packages": "changeset version && pnpm install --lockfile-only",
     "release": "pnpm build && changeset publish --tag alpha",
+    "release:direct": "pnpm build && pnpm -r publish --tag alpha --access public --no-git-checks",
     "playground:build": "node ./packages/balm/bin/balm.js ./playground/balm.config.js -p",
     "playground:dev": "node ./packages/balm/bin/balm.js ./playground/balm.config.js -d"
   },
