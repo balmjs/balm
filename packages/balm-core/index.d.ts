@@ -189,6 +189,8 @@ export interface BalmFtpConfig {
   username?: string;
   password?: string;
   remotePath?: string;
+  dirMode?: string;
+  fileMode?: string;
 }
 
 export interface BalmConfig {
