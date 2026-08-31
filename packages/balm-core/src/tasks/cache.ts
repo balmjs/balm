@@ -38,7 +38,21 @@ export class CacheTask extends BaseTask {
       })
     );
 
-    const revisioner = new AssetRevisioner(config.assets.options);
+    const cacheOptions = {
+      ...config.assets.options,
+      dontRenameFile: [
+        '.html',
+        'favicon.ico',
+        'manifest.json',
+        'robots.txt',
+        '*.ico',
+        'icons/*',
+        '**/icons/**',
+        ...(config.assets.excludes || []),
+        ...(config.assets.options?.dontRenameFile || [])
+      ]
+    };
+    const revisioner = new AssetRevisioner(cacheOptions);
     const resultFiles = revisioner.process(virtualFiles);
 
     // Remove old files that have been renamed

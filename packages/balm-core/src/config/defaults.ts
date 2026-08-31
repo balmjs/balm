@@ -135,7 +135,7 @@ export function createDefaultConfig(workspace = process.cwd()): BalmConfig {
     version: '',
     manifest: 'manifest.json',
     swSrcFilename: 'service-worker.js',
-    swDestFilename: 'sw.js',
+    swDestFilename: 'service-worker.js',
     options: {}
   };
 

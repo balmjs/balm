@@ -1,6 +1,6 @@
 {
   "name": "balm-core",
-  "version": "6.0.0-alpha.0",
+  "version": "6.0.0-alpha.1",
   "type": "module",
   "description": "Next-generation core build engine for BalmJS",
   "main": "./dist/index.cjs",
@@ -38,6 +38,7 @@
     "terser": "^5.39.0",
     "webpack": "^5.98.0",
     "workbox-build": "^7.3.0",
+    "workbox-sw": "^7.3.0",
     "ws": "^8.18.0"
   },
   "devDependencies": {

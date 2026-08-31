@@ -1,0 +1,1 @@
+:root{--a:16px}.test{margin:-8px;margin:calc(var(--a, 16px)/2*-1)}

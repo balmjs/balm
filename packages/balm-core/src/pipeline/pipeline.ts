@@ -41,45 +41,48 @@ export class Pipeline {
     if (options.allowEmpty !== undefined) this.allowEmpty = options.allowEmpty;
 
     this.transforms.push(async () => {
-      const matched = await fg(patterns, {
-        cwd: this.cwd,
-        absolute: true,
-        dot: true,
-        onlyFiles: true
-      });
+      const patternArr = Array.isArray(patterns) ? patterns : [patterns];
+      const posPatterns = patternArr.filter((p) => !p.startsWith('!'));
+      const ignorePatterns = patternArr.filter((p) => p.startsWith('!')).map((p) => p.slice(1));
 
-      if (!matched.length && !this.allowEmpty) {
-        throw new Error(`File not found with pattern: ${patterns}`);
-      }
-
-      // Calculate common base if not explicitly provided
-      let effectiveBase = this.base;
-      if (!effectiveBase) {
-        const patternArr = Array.isArray(patterns) ? patterns : [patterns];
-        const firstPos = patternArr.find((p) => !p.startsWith('!'));
-        if (firstPos) {
-          const globIdx = firstPos.indexOf('*');
+      const fileList: VirtualFile[] = [];
+      for (const p of posPatterns) {
+        let patternBase = this.base;
+        if (!patternBase) {
+          const globIdx = p.search(/[*?{[\\]/);
           if (globIdx !== -1) {
-            effectiveBase = path.resolve(this.cwd, firstPos.slice(0, globIdx));
+            patternBase = path.resolve(this.cwd, p.slice(0, globIdx));
           } else {
-            effectiveBase = path.resolve(this.cwd, path.dirname(firstPos));
+            patternBase = path.resolve(this.cwd, path.dirname(p));
           }
-        } else {
-          effectiveBase = this.cwd;
+        }
+
+        const matched = await fg(p, {
+          cwd: this.cwd,
+          absolute: true,
+          dot: true,
+          onlyFiles: true,
+          ignore: ignorePatterns
+        });
+
+        for (const filePath of matched) {
+          const buffer = await fs.readFile(filePath);
+          fileList.push(
+            new VirtualFile({
+              cwd: this.cwd,
+              base: patternBase,
+              path: filePath,
+              contents: buffer
+            })
+          );
         }
       }
 
-      this.files = await Promise.all(
-        matched.map(async (filePath) => {
-          const buffer = await fs.readFile(filePath);
-          return new VirtualFile({
-            cwd: this.cwd,
-            base: effectiveBase!,
-            path: filePath,
-            contents: buffer
-          });
-        })
-      );
+      if (!fileList.length && !this.allowEmpty) {
+        throw new Error(`File not found with pattern: ${patterns}`);
+      }
+
+      this.files = fileList;
     });
 
     return this;

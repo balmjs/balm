@@ -58,7 +58,9 @@ export interface BalmScripts {
   externals: string | string[] | Record<string, any> | RegExp | Function;
   injectHtml: boolean;
   htmlName: string;
+  htmlPluginOptions?: Record<string, any>;
   alias: Record<string, string>;
+  extensions?: string[];
   plugins: any[];
   loaders: any[];
   defaultLoaders: {

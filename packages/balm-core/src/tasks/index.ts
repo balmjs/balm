@@ -11,3 +11,4 @@ export * from './pwa.js';
 export * from './zip.js';
 export * from './ftp.js';
 export * from './server.js';
+export * from './static.js';

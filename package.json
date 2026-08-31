@@ -1,6 +1,6 @@
 {
   "name": "balmjs",
-  "version": "6.0.0-alpha.0",
+  "version": "6.0.0-alpha.1",
   "private": true,
   "description": "Next-generation frontend build workflow powered by native Node.js",
   "type": "module",

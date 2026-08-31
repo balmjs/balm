@@ -13,13 +13,28 @@ export interface CacheTransformOptions {
 
 function matchesAny(filePath: string, rules?: (string | RegExp)[]): boolean {
   if (!rules || !rules.length) return false;
-  for (const rule of rules) {
-    if (typeof rule === 'string') {
-      if (filePath.endsWith(rule) || picomatch.isMatch(filePath, rule)) {
+  const normalized = filePath.replace(/\\/g, '/');
+  const baseName = path.basename(normalized);
+  for (const rawRule of rules) {
+    if (typeof rawRule === 'string') {
+      const rule = rawRule.replace(/\\/g, '/');
+      const cleanRule = rule.replace(/^dist\//, '').replace(/^\.\/dist\//, '');
+      if (
+        normalized.endsWith(rule) ||
+        normalized.endsWith(cleanRule) ||
+        baseName === rule ||
+        baseName === cleanRule ||
+        baseName.endsWith(rule) ||
+        picomatch.isMatch(normalized, rule) ||
+        picomatch.isMatch(normalized, cleanRule) ||
+        picomatch.isMatch(normalized, `**/${cleanRule}`) ||
+        picomatch.isMatch(baseName, rule) ||
+        picomatch.isMatch(baseName, cleanRule)
+      ) {
         return true;
       }
-    } else if (rule instanceof RegExp) {
-      if (rule.test(filePath)) return true;
+    } else if (rawRule instanceof RegExp) {
+      if (rawRule.test(normalized) || rawRule.test(baseName)) return true;
     }
   }
   return false;
@@ -30,13 +45,30 @@ export class AssetRevisioner {
   private manifest: Record<string, string> = {};
 
   constructor(options: CacheTransformOptions = {}) {
+    const baseDontRename = [
+      '.html',
+      'favicon.ico',
+      'manifest.json',
+      'robots.txt',
+      '*.ico',
+      'workbox-sw.js',
+      'workbox-sw.js.map',
+      'service-worker.js',
+      'sw.js'
+    ];
     this.options = {
       fileNameManifest: 'rev-manifest.json',
-      dontRenameFile: ['.html'],
+      dontRenameFile: baseDontRename,
       dontUpdateReference: [],
       hashLength: 8,
       ...options
     };
+    if (options.dontRenameFile) {
+      this.options.dontRenameFile = [
+        ...baseDontRename,
+        ...options.dontRenameFile
+      ];
+    }
   }
 
   process(files: VirtualFile[]): VirtualFile[] {
@@ -48,7 +80,12 @@ export class AssetRevisioner {
       const origRelative = file.relative;
       file.revPathOriginal = file.path;
 
-      const shouldRename = !matchesAny(file.path, this.options.dontRenameFile) &&
+      // Check if file is already hashed (e.g. app.0e94aeee.js or chunk.22810145.js)
+      const alreadyHashed = /\.[a-f0-9]{8}$/i.test(file.stem);
+
+      const shouldRename =
+        !alreadyHashed &&
+        !matchesAny(file.path, this.options.dontRenameFile) &&
         !matchesAny(file.relative, this.options.dontRenameFile);
 
       if (shouldRename) {
@@ -58,23 +95,36 @@ export class AssetRevisioner {
         file.path = path.join(dir, newFilename);
       }
 
+      if (alreadyHashed) {
+        const unhashedRelative = file.relative.replace(/\.[a-f0-9]{8}(\.[^.]+)$/i, '$1');
+        this.manifest[unhashedRelative] = file.relative;
+      }
       this.manifest[origRelative] = file.relative;
       outputFiles.push(file);
     }
 
     // Phase 2: Rewrite references
+    const manifestEntries = Object.entries(this.manifest)
+      .filter(([orig, reved]) => orig !== reved)
+      .sort((a, b) => b[0].length - a[0].length);
+
     for (const file of outputFiles) {
-      const shouldUpdate = !matchesAny(file.path, this.options.dontUpdateReference) &&
+      const shouldUpdate =
+        !matchesAny(file.path, this.options.dontUpdateReference) &&
         !matchesAny(file.relative, this.options.dontUpdateReference);
 
       if (shouldUpdate && /\.(html|css|js)$/i.test(file.extname)) {
         let content = file.toString();
-        for (const [orig, reved] of Object.entries(this.manifest)) {
-          if (orig !== reved) {
-            const origBase = path.basename(orig);
-            const revedBase = path.basename(reved);
-            content = content.replaceAll(origBase, revedBase);
-          }
+        for (const [orig, reved] of manifestEntries) {
+          // Replace full relative path first
+          content = content.replaceAll(orig, reved);
+
+          // Replace basename with boundary check to avoid substring collision (e.g. .woff matching .woff2)
+          const origBase = path.basename(orig);
+          const revedBase = path.basename(reved);
+          const escapedBase = origBase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const baseRegex = new RegExp(`${escapedBase}(?![a-zA-Z0-9_])`, 'g');
+          content = content.replace(baseRegex, revedBase);
         }
         file.contents = Buffer.from(content);
       }

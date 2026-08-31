@@ -9,6 +9,7 @@ import { HtmlTask } from './tasks/html.js';
 import { CacheTask } from './tasks/cache.js';
 import { PwaTask } from './tasks/pwa.js';
 import { ServerTask } from './tasks/server.js';
+import { StaticTask } from './tasks/static.js';
 import { logger } from './utilities/logger.js';
 
 export class Balm {
@@ -40,6 +41,7 @@ export class Balm {
     this.dag.registerTask(new CleanTask());
     this.dag.registerTask(new StyleTask());
     this.dag.registerTask(new ScriptTask());
+    this.dag.registerTask(new StaticTask());
     this.dag.registerTask(new HtmlTask());
     this.dag.registerTask(new CacheTask());
     this.dag.registerTask(new PwaTask());
@@ -47,23 +49,8 @@ export class Balm {
 
     // Run recipe hooks
     if (typeof recipe === 'function') {
-      const hooks = new BalmHooks(this.dag);
+      const hooks = new BalmHooks(this.dag, this._config);
       recipe(hooks);
-    }
-
-    if (this._config.useDefaults) {
-      taskSequence.push('clean', 'style', 'script', 'html');
-
-      if (this._config.env.isProd) {
-        if (this._config.assets.cache) {
-          taskSequence.push('cache');
-        }
-        if (this._config.pwa.enabled) {
-          taskSequence.push('pwa');
-        }
-      } else {
-        taskSequence.push('serve');
-      }
     }
 
     try {
@@ -71,14 +58,32 @@ export class Balm {
         await this.beforeTask();
       }
 
-      // Execute built-in series
-      await this.dag.runSeries(taskSequence, this._config);
+      if (this._config.useDefaults) {
+        await this.dag.runSeries(
+          ['clean', 'style', 'script', 'static', 'html'],
+          this._config
+        );
+      }
 
       // Execute recipe tasks
       for (let i = 1; ; i++) {
         const recipeName = `recipe:${i}`;
         if (!this.dag.hasTask(recipeName)) break;
         await this.dag.executeTask(recipeName, this._config);
+      }
+
+      // Post-recipe tasks: cache, pwa, serve
+      if (this._config.useDefaults) {
+        if (this._config.env.isProd) {
+          if (this._config.assets.cache) {
+            await this.dag.executeTask('cache', this._config);
+          }
+          if (this._config.pwa.enabled) {
+            await this.dag.executeTask('pwa', this._config);
+          }
+        } else {
+          await this.dag.executeTask('serve', this._config);
+        }
       }
 
       if (this.afterTask) {

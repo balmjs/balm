@@ -16,17 +16,23 @@ export async function runRollup(
   }
 
   const inputOptions: RollupOptions = {
-    input: input as any,
     ...config.scripts.rollupOptions,
-    ...customInputOptions
+    ...customInputOptions,
+    input: (customInputOptions.input || input) as any
   };
 
-  const outputOptions: OutputOptions = {
-    dir: config.dest.js,
-    format: 'es',
-    sourcemap: !isProd,
-    ...customOutputOptions
-  };
+  const outputOptions: OutputOptions = customOutputOptions.file
+    ? {
+        format: 'es',
+        sourcemap: !isProd,
+        ...customOutputOptions
+      }
+    : {
+        dir: config.dest.js,
+        format: 'es',
+        sourcemap: !isProd,
+        ...customOutputOptions
+      };
 
   try {
     const bundle = await rollup(inputOptions);

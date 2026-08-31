@@ -9,6 +9,7 @@ const cli = cac('balm');
 
 cli
   .command('[config]', 'Run Balm build workflow')
+  .allowUnknownOptions()
   .option('-p, --prod', 'Production mode')
   .option('-d, --dev', 'Development mode')
   .action(async (configPath = 'balm.config.js', options) => {

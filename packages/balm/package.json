@@ -1,6 +1,6 @@
 {
   "name": "balm",
-  "version": "6.0.0-alpha.0",
+  "version": "6.0.0-alpha.1",
   "type": "module",
   "description": "Next-generation frontend build workflow",
   "main": "./dist/index.cjs",

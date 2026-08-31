@@ -1,0 +1,1 @@
+function e(){return"\u2728 Hello from @/scripts/awesome.js via global alias!"}console.log("\u{1F680} BalmJS 6.x Playground Loaded with @/ alias!");var t=document.getElementById("btn"),o=document.getElementById("output");t&&o&&t.addEventListener("click",()=>{o.textContent=e()});

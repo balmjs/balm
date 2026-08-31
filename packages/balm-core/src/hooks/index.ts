@@ -27,10 +27,20 @@ import { logger } from '../utilities/logger.js';
 
 export class BalmHooks {
   private dag: TaskDAG;
+  private _config: BalmConfig;
   private recipeIndex = 0;
 
-  constructor(dag: TaskDAG) {
+  constructor(dag: TaskDAG, config: BalmConfig) {
     this.dag = dag;
+    this._config = config;
+  }
+
+  get config(): BalmConfig {
+    return this._config;
+  }
+
+  get env() {
+    return this._config.env;
   }
 
   private addRecipeTask(fn: (config: BalmConfig) => Promise<void> | void): void {
@@ -100,24 +110,46 @@ export class BalmHooks {
     return this;
   }
 
-  webpack(entry?: any, output?: string, customOptions = {}): this {
+  webpack(entry?: any, output?: string, customOptions: any = {}): this {
     this.addRecipeTask(async (config) => {
-      await runWebpack(config, {
+      const mergedOptions = {
+        ...customOptions,
         ...(entry ? { entry } : {}),
-        ...(output ? { output: { path: output } } : {}),
-        ...customOptions
-      });
+        output: {
+          ...(output ? { path: output } : {}),
+          ...customOptions.output
+        }
+      };
+      await runWebpack(config, mergedOptions);
     });
     return this;
   }
 
-  rollup(input?: any, output?: any, customInputOptions = {}, customOutputOptions = {}): this {
+  rollup(
+    input?: any,
+    output?: any,
+    customInputOptions: any = {},
+    customOutputOptions: any = {}
+  ): this {
     this.addRecipeTask(async (config) => {
-      await runRollup(
-        config,
-        { ...(input ? { input } : {}), ...customInputOptions },
-        { ...(output ? { dir: output } : {}), ...customOutputOptions }
-      );
+      let inputOptions: any = {};
+      let outputOptions: any = {};
+
+      if (typeof input === 'object' && !Array.isArray(input) && input.input) {
+        inputOptions = { ...input, ...customInputOptions };
+        outputOptions =
+          typeof output === 'object'
+            ? { ...output, ...customOutputOptions }
+            : { ...(output ? { dir: output } : {}), ...customOutputOptions };
+      } else {
+        inputOptions = { ...(input ? { input } : {}), ...customInputOptions };
+        outputOptions =
+          typeof output === 'object'
+            ? { ...output, ...customOutputOptions }
+            : { ...(output ? { dir: output } : {}), ...customOutputOptions };
+      }
+
+      await runRollup(config, inputOptions, outputOptions);
     });
     return this;
   }
