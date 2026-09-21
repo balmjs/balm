@@ -44,15 +44,6 @@ export class StaticTask extends BaseTask {
         base: config.src.img
       });
       await imgPipeline.dest(config.dest.img);
-
-      // If source and target img dirs differ (e.g. images vs img), also copy to source dir for compatibility
-      if (config.paths.source.img && config.paths.target.img && config.paths.source.img !== config.paths.target.img) {
-        const compatPipeline = Pipeline.from(path.join(config.src.img, '**/*'), {
-          cwd: config.workspace,
-          base: config.src.img
-        });
-        await compatPipeline.dest(path.join(destBase, config.paths.source.img));
-      }
     }
 
     // 3. Copy fonts folder if exists in src
@@ -62,24 +53,6 @@ export class StaticTask extends BaseTask {
         base: config.src.font
       });
       await fontPipeline.dest(config.dest.font);
-
-      // Ensure both 'font' and 'fonts' directories exist in dest for compatibility
-      const targetFontsDir = path.join(destBase, 'fonts');
-      if (config.dest.font !== targetFontsDir) {
-        const fontsPipeline = Pipeline.from(path.join(config.src.font, '**/*'), {
-          cwd: config.workspace,
-          base: config.src.font
-        });
-        await fontsPipeline.dest(targetFontsDir);
-      }
-      const targetFontDir = path.join(destBase, 'font');
-      if (config.dest.font !== targetFontDir) {
-        const fontCompatPipeline = Pipeline.from(path.join(config.src.font, '**/*'), {
-          cwd: config.workspace,
-          base: config.src.font
-        });
-        await fontCompatPipeline.dest(targetFontDir);
-      }
     }
 
     // 4. Copy media folder if exists in src

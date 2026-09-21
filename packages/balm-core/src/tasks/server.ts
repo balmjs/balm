@@ -110,6 +110,41 @@ export class ServerTask extends BaseTask {
     app.use('/fonts', serveStatic(path.join(config.src.base, 'fonts')));
     app.use('/fonts', serveStatic(path.join(config.dest.base, 'fonts')));
 
+    // Custom serveStatic routing
+    if (config.server.serveStatic) {
+      const staticEntries = Array.isArray(config.server.serveStatic)
+        ? config.server.serveStatic
+        : [config.server.serveStatic];
+
+      for (const entry of staticEntries) {
+        if (typeof entry === 'string') {
+          const absoluteDir = path.isAbsolute(entry)
+            ? entry
+            : path.join(config.workspace, entry);
+          if (fs.existsSync(absoluteDir)) {
+            app.use(serveStatic(absoluteDir));
+          }
+        } else if (entry && typeof entry === 'object') {
+          const route = entry.route
+            ? (entry.route.startsWith('/') ? entry.route : `/${entry.route}`)
+            : '';
+          const dirs = Array.isArray(entry.dir) ? entry.dir : [entry.dir];
+          for (const dir of dirs) {
+            const absoluteDir = path.isAbsolute(dir)
+              ? dir
+              : path.join(config.workspace, dir);
+            if (fs.existsSync(absoluteDir)) {
+              if (route) {
+                app.use(route, serveStatic(absoluteDir));
+              } else {
+                app.use(serveStatic(absoluteDir));
+              }
+            }
+          }
+        }
+      }
+    }
+
     app.use(serveStatic(config.dest.base));
     app.use(serveStatic(config.src.base));
     app.use(serveStatic(config.workspace));

@@ -1,11 +1,11 @@
 {
   "name": "balmjs",
-  "version": "6.0.0-alpha.1",
+  "version": "6.0.0-alpha.2",
   "private": true,
   "description": "Next-generation frontend build workflow powered by native Node.js",
   "type": "module",
   "scripts": {
-    "build": "pnpm -r run build",
+    "build": "pnpm --filter balm-core build && pnpm --filter balm build",
     "dev": "pnpm -r run dev",
     "test": "vitest run",
     "test:watch": "vitest",

@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { existsSync } from 'node:fs';
 import fg from 'fast-glob';
 import { BaseTask } from '../runner/task.js';
 import { BalmConfig } from '../types/index.js';
@@ -59,8 +60,14 @@ export class HtmlTask extends BaseTask {
         ? config.src.base
         : config.src.html;
 
-      const pattern = path.join(templateDir, '*.html');
-      pipeline = Pipeline.from(pattern, {
+      const patterns = [path.join(templateDir, '*.html')];
+      if (config.pwa.manifest) {
+        const manifestPattern = path.join(templateDir, config.pwa.manifest);
+        if (existsSync(path.isAbsolute(manifestPattern) ? manifestPattern : path.join(config.workspace, manifestPattern))) {
+          patterns.push(manifestPattern);
+        }
+      }
+      pipeline = Pipeline.from(patterns, {
         cwd: config.workspace,
         base: templateDir
       });
@@ -205,6 +212,57 @@ export class HtmlTask extends BaseTask {
             }
             file.contents = Buffer.from(content);
           }
+        }
+        return file;
+      });
+    }
+
+    // In production, inject analytics if configured
+    if (config.env.isProd && config.html.analytics) {
+      pipeline.pipe(async (file) => {
+        if (/\.html$/i.test(file.extname)) {
+          let content = file.toString();
+          const { custom, google } = config.html.analytics!;
+
+          // 1. Custom analytics -> inject before </head>
+          if (custom && custom.src) {
+            const attrs = [
+              `src="${custom.src}"`,
+              custom.siteId !== undefined ? `data-website-id="${custom.siteId}"` : '',
+              custom.defer !== false ? 'defer' : '',
+              custom.async ? 'async' : ''
+            ]
+              .filter(Boolean)
+              .join(' ');
+            const customTag = `<script ${attrs}></script>`;
+
+            if (content.includes('</head>')) {
+              content = content.replace('</head>', `  ${customTag}\n</head>`);
+            } else {
+              content = `${customTag}\n${content}`;
+            }
+          }
+
+          // 2. Google Analytics -> inject before </body>
+          if (google) {
+            const gaSnippet = [
+              `<script async src="https://www.googletagmanager.com/gtag/js?id=${google}"></script>`,
+              '<script>',
+              '  window.dataLayer = window.dataLayer || [];',
+              '  function gtag(){dataLayer.push(arguments);}',
+              '  gtag(\'js\', new Date());',
+              `  gtag('config', '${google}');`,
+              '</script>'
+            ].join('\n');
+
+            if (content.includes('</body>')) {
+              content = content.replace('</body>', `${gaSnippet}\n</body>`);
+            } else {
+              content += `\n${gaSnippet}`;
+            }
+          }
+
+          file.contents = Buffer.from(content);
         }
         return file;
       });

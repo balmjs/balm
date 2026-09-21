@@ -118,3 +118,23 @@ export class FileSystem {
 }
 
 export const file = new FileSystem();
+
+export function resolveDefaultEntry(jsDir: string): string {
+  const candidates = [
+    'main.js',
+    'main.ts',
+    'index.js',
+    'index.ts',
+    'main.jsx',
+    'main.tsx',
+    'index.jsx',
+    'index.tsx'
+  ];
+  for (const c of candidates) {
+    const full = path.join(jsDir, c);
+    if (existsSync(full)) {
+      return full;
+    }
+  }
+  return path.join(jsDir, 'main.js');
+}

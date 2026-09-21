@@ -49,6 +49,7 @@ export class AssetRevisioner {
       '.html',
       'favicon.ico',
       'manifest.json',
+      '*.webmanifest',
       'robots.txt',
       '*.ico',
       'workbox-sw.js',

@@ -76,8 +76,22 @@ export interface BalmScripts {
   useCache: boolean;
 }
 
+export interface CustomAnalyticsOptions {
+  src: string;
+  siteId?: string | number;
+  defer?: boolean;
+  async?: boolean;
+  [key: string]: any;
+}
+
+export interface AnalyticsOptions {
+  google?: string;
+  custom?: CustomAnalyticsOptions;
+}
+
 export interface BalmHtml {
   options: Record<string, any>;
+  analytics?: AnalyticsOptions;
 }
 
 export interface BalmAssets {
@@ -100,6 +114,13 @@ export interface BalmAssets {
   [key: string]: any;
 }
 
+export interface ServeStaticOption {
+  route?: string;
+  dir: string | string[];
+}
+
+export type ServeStaticItem = string | ServeStaticOption;
+
 export interface BalmServer {
   host: string | null;
   port: number;
@@ -107,6 +128,7 @@ export interface BalmServer {
   proxy: boolean | Record<string, any> | Array<Record<string, any>>;
   proxyOptions: boolean | Record<string, any> | Array<Record<string, any>>;
   historyOptions: boolean | Record<string, any>;
+  serveStatic: ServeStaticItem | ServeStaticItem[];
   useHMR: boolean;
   options: Record<string, any>;
 }
@@ -116,6 +138,7 @@ export interface BalmPwa {
   mode: 'generateSW' | 'injectManifest';
   version: string;
   manifest: string;
+  workboxSw?: string;
   swSrcFilename: string;
   swDestFilename: string;
   options: Record<string, any>;

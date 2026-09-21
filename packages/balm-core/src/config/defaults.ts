@@ -99,7 +99,8 @@ export function createDefaultConfig(workspace = process.cwd()): BalmConfig {
       removeEmptyAttributes: true,
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true
-    }
+    },
+    analytics: undefined
   };
 
   const assets = {
@@ -125,6 +126,7 @@ export function createDefaultConfig(workspace = process.cwd()): BalmConfig {
     proxy: false,
     proxyOptions: false,
     historyOptions: false,
+    serveStatic: [],
     useHMR: false,
     options: {}
   };
@@ -134,8 +136,9 @@ export function createDefaultConfig(workspace = process.cwd()): BalmConfig {
     mode: 'generateSW' as const,
     version: '',
     manifest: 'manifest.json',
+    workboxSw: 'node_modules/workbox-sw/build/workbox-sw.js',
     swSrcFilename: 'service-worker.js',
-    swDestFilename: 'service-worker.js',
+    swDestFilename: 'sw.js',
     options: {}
   };
 

@@ -15,7 +15,15 @@ export class CacheTask extends BaseTask {
 
   async run(config: BalmConfig): Promise<void> {
     const destDir = config.dest.base;
-    const filesToRev = await fg(['**/*'], {
+    const assetGlobs = [
+      `${config.paths.target.css}/**/*`,
+      `${config.paths.target.js}/**/*`,
+      `${config.paths.target.img}/**/*`,
+      `${config.paths.target.font}/**/*`,
+      `${config.paths.target.media}/**/*`,
+      '*.html'
+    ];
+    const filesToRev = await fg(assetGlobs, {
       cwd: destDir,
       absolute: true,
       onlyFiles: true
@@ -44,10 +52,14 @@ export class CacheTask extends BaseTask {
         '.html',
         'favicon.ico',
         'manifest.json',
+        '*.webmanifest',
         'robots.txt',
         '*.ico',
         'icons/*',
         '**/icons/**',
+        'sw.js',
+        'service-worker.js',
+        'workbox-sw.js',
         ...(config.assets.excludes || []),
         ...(config.assets.options?.dontRenameFile || [])
       ]

@@ -12,34 +12,44 @@ cli
   .allowUnknownOptions()
   .option('-p, --prod', 'Production mode')
   .option('-d, --dev', 'Development mode')
-  .action(async (configPath = 'balm.config.js', options) => {
-    const fullConfigPath = path.resolve(process.cwd(), configPath);
+  .option('-c, --config <file>', 'Custom config file')
+  .action(async (configPath, options) => {
+    const rawConfigPath = options.config || configPath || 'balm.config.js';
+    const fullConfigPath = path.resolve(process.cwd(), rawConfigPath);
 
     if (options.prod) process.env.NODE_ENV = 'production';
     if (options.dev) process.env.NODE_ENV = 'development';
 
-    const configDir = fs.existsSync(fullConfigPath)
-      ? path.dirname(fullConfigPath)
-      : process.cwd();
+    const workspace = process.cwd();
+    setWorkspaces(workspace, path.resolve(workspace, '..'));
 
-    setWorkspaces(configDir, path.resolve(configDir, '..'));
-
-    const balmInstance = await resolveBalmCore(configDir);
+    const balmInstance = await resolveBalmCore(workspace);
 
     if (fs.existsSync(fullConfigPath)) {
       const imported = await import(fullConfigPath);
       const userConfig = imported.default || imported;
 
+      let configObj = userConfig;
       if (typeof userConfig === 'function') {
-        balmInstance.config = { workspace: configDir };
-        userConfig(balmInstance);
-      } else if (typeof userConfig === 'object') {
-        const customConfig = userConfig.config || userConfig;
+        configObj = await userConfig(balmInstance);
+      }
+
+      if (configObj && typeof configObj === 'object') {
+        const customConfig = configObj.config || configObj;
         if (!customConfig.workspace) {
-          customConfig.workspace = configDir;
+          customConfig.workspace = workspace;
         }
         balmInstance.config = customConfig;
-        await balmInstance.go(userConfig.recipes);
+        if (configObj.beforeTask) {
+          balmInstance.beforeTask = configObj.beforeTask;
+        }
+        if (configObj.afterTask) {
+          balmInstance.afterTask = configObj.afterTask;
+        }
+        const recipeFn = configObj.recipes || configObj.api;
+        await balmInstance.go(recipeFn);
+      } else {
+        await balmInstance.go();
       }
     } else {
       console.log(pc.yellow(`No config file found at ${fullConfigPath}, using defaults.`));

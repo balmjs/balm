@@ -2,6 +2,7 @@ import * as esbuild from 'esbuild';
 import path from 'node:path';
 import { BalmConfig } from '../types/index.js';
 import { logger } from '../utilities/logger.js';
+import { resolveDefaultEntry } from '../utilities/file.js';
 
 export async function runEsbuild(
   config: BalmConfig,
@@ -11,7 +12,7 @@ export async function runEsbuild(
 
   let entryPoints = customOptions.entryPoints || config.scripts.entry;
   if (!entryPoints) {
-    entryPoints = [path.join(config.src.js, 'main.js')];
+    entryPoints = [resolveDefaultEntry(config.src.js)];
   }
 
   const defaultOptions: esbuild.BuildOptions = {

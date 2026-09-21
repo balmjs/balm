@@ -45,10 +45,6 @@ export class PwaTask extends BaseTask {
       if (existsSync(p)) {
         const destFile = path.join(globDirectory, 'workbox-sw.js');
         await fs.copyFile(p, destFile);
-        const mapFile = `${p}.map`;
-        if (existsSync(mapFile)) {
-          await fs.copyFile(mapFile, path.join(globDirectory, 'workbox-sw.js.map'));
-        }
         break;
       }
     }
@@ -82,15 +78,6 @@ export class PwaTask extends BaseTask {
           .replaceAll('{{ version }}', config.pwa.version)
           .replaceAll('{{version}}', config.pwa.version);
         await fs.writeFile(swDest, swContent, 'utf-8');
-      }
-
-      // 4. Ensure both service-worker.js and sw.js exist in dest for compatibility
-      const swJsDest = path.join(globDirectory, 'sw.js');
-      const serviceWorkerJsDest = path.join(globDirectory, 'service-worker.js');
-      if (existsSync(serviceWorkerJsDest) && !existsSync(swJsDest)) {
-        await fs.copyFile(serviceWorkerJsDest, swJsDest);
-      } else if (existsSync(swJsDest) && !existsSync(serviceWorkerJsDest)) {
-        await fs.copyFile(swJsDest, serviceWorkerJsDest);
       }
     } catch (err: any) {
       logger.warn('pwa', `Service worker generation failed: ${err.message || err}`);

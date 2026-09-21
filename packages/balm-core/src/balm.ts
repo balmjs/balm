@@ -63,6 +63,15 @@ export class Balm {
           ['clean', 'style', 'script', 'static', 'html'],
           this._config
         );
+
+        if (this._config.env.isProd) {
+          if (this._config.assets.cache) {
+            await this.dag.executeTask('cache', this._config);
+          }
+          if (this._config.pwa.enabled) {
+            await this.dag.executeTask('pwa', this._config);
+          }
+        }
       }
 
       // Execute recipe tasks
@@ -72,18 +81,8 @@ export class Balm {
         await this.dag.executeTask(recipeName, this._config);
       }
 
-      // Post-recipe tasks: cache, pwa, serve
-      if (this._config.useDefaults) {
-        if (this._config.env.isProd) {
-          if (this._config.assets.cache) {
-            await this.dag.executeTask('cache', this._config);
-          }
-          if (this._config.pwa.enabled) {
-            await this.dag.executeTask('pwa', this._config);
-          }
-        } else {
-          await this.dag.executeTask('serve', this._config);
-        }
+      if (this._config.useDefaults && !this._config.env.isProd) {
+        await this.dag.executeTask('serve', this._config);
       }
 
       if (this.afterTask) {

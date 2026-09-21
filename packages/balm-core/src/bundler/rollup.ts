@@ -2,6 +2,7 @@ import { rollup, RollupOptions, OutputOptions } from 'rollup';
 import path from 'node:path';
 import { BalmConfig } from '../types/index.js';
 import { logger } from '../utilities/logger.js';
+import { resolveDefaultEntry } from '../utilities/file.js';
 
 export async function runRollup(
   config: BalmConfig,
@@ -12,7 +13,7 @@ export async function runRollup(
 
   let input = customInputOptions.input || config.scripts.entry;
   if (!input) {
-    input = path.join(config.src.js, 'main.js');
+    input = resolveDefaultEntry(config.src.js);
   }
 
   const inputOptions: RollupOptions = {

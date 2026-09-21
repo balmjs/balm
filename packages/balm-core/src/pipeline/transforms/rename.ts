@@ -30,8 +30,9 @@ export function transformRename(
     const currentDir = dirname ? path.resolve(file.cwd, dirname) : path.dirname(file.path);
     const base = basename !== undefined ? basename : file.stem;
     const ext = extname !== undefined ? extname : file.extname;
+    const dotExt = ext ? (ext.startsWith('.') ? ext : `.${ext}`) : '';
 
-    file.path = path.join(currentDir, `${prefix}${base}${suffix}${ext.startsWith('.') ? ext : `.${ext}`}`);
+    file.path = path.join(currentDir, `${prefix}${base}${suffix}${dotExt}`);
     return file;
   };
 }

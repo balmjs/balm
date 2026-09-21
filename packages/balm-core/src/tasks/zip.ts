@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import archiver from 'archiver';
+import fg from 'fast-glob';
 import { BaseTask } from '../runner/task.js';
 import { BalmConfig } from '../types/index.js';
 import { file as fsUtil } from '../utilities/file.js';
@@ -48,13 +49,24 @@ export class ZipTask extends BaseTask {
 
       const inputs = Array.isArray(input) ? input : [input];
       for (const item of inputs) {
-        const fullPath = path.isAbsolute(item) ? item : path.join(config.workspace, item);
-        if (fs.existsSync(fullPath)) {
-          const stat = fs.statSync(fullPath);
-          if (stat.isDirectory()) {
-            archive.directory(fullPath, false);
-          } else {
-            archive.file(fullPath, { name: path.basename(fullPath) });
+        const isGlob = /[*?{}]/.test(item);
+        if (isGlob) {
+          const base = item.split('*')[0].replace(/\/+$/, '') || '.';
+          const matched = fg.sync(item, { cwd: config.workspace, onlyFiles: true, dot: true });
+          for (const relPath of matched) {
+            const fullFilePath = path.join(config.workspace, relPath);
+            const zipName = path.relative(base, relPath);
+            archive.file(fullFilePath, { name: zipName });
+          }
+        } else {
+          const fullPath = path.isAbsolute(item) ? item : path.join(config.workspace, item);
+          if (fs.existsSync(fullPath)) {
+            const stat = fs.statSync(fullPath);
+            if (stat.isDirectory()) {
+              archive.directory(fullPath, false);
+            } else {
+              archive.file(fullPath, { name: path.basename(fullPath) });
+            }
           }
         }
       }

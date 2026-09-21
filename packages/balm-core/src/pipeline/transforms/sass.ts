@@ -90,7 +90,7 @@ export function transformSass(options: SassTransformOptions = {}): TransformFn {
         url: new URL(`file://${file.path}`),
         syntax: file.extname === '.sass' ? 'indented' : 'scss',
         loadPaths: searchDirs,
-        importers: [customImporter, new sass.NodePackageImporter()],
+        importers: [customImporter, new sass.NodePackageImporter(file.cwd || process.cwd())],
         style: options.style || 'expanded',
         sourceMap: options.sourceMap || false
       });

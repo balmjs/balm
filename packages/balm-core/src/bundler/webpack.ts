@@ -2,6 +2,7 @@ import webpack, { Configuration } from 'webpack';
 import path from 'node:path';
 import { BalmConfig } from '../types/index.js';
 import { logger } from '../utilities/logger.js';
+import { resolveDefaultEntry } from '../utilities/file.js';
 
 export async function runWebpack(
   config: BalmConfig,
@@ -11,7 +12,7 @@ export async function runWebpack(
 
   let entry = customOptions.entry || config.scripts.entry;
   if (!entry) {
-    entry = path.join(config.src.js, 'main.js');
+    entry = resolveDefaultEntry(config.src.js);
   }
 
   const rawOutputPath = customOptions.output?.path;
