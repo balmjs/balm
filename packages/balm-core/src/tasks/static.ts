@@ -20,6 +20,25 @@ export class StaticTask extends BaseTask {
       `!${path.join(srcBase, '*.html')}`
     ];
 
+    const extraIncludes = [
+      ...(config.extras?.includes || []),
+      ...(config.assets?.includes || [])
+    ];
+    const extraExcludes = [
+      ...(config.extras?.excludes || []),
+      ...(config.assets?.excludes || [])
+    ];
+
+    for (const inc of extraIncludes) {
+      const pattern = path.isAbsolute(inc) ? inc : path.join(srcBase, inc);
+      staticPatterns.push(pattern);
+    }
+
+    for (const exc of extraExcludes) {
+      const pattern = path.isAbsolute(exc) ? exc : path.join(srcBase, exc);
+      staticPatterns.push(`!${pattern}`);
+    }
+
     const pipeline = Pipeline.from(staticPatterns, {
       cwd: config.workspace,
       base: srcBase

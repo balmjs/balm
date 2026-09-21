@@ -46,4 +46,16 @@ describe('Config Subsystem', () => {
     });
     expect(prodConfig.dest.base).toBe(path.join('/app', 'dist'));
   });
+
+  it('should resolve extras configuration correctly', () => {
+    const config = resolveConfig({
+      workspace: '/app',
+      extras: {
+        includes: ['CNAME', 'custom.zip'],
+        excludes: ['temp.js']
+      }
+    });
+    expect(config.extras?.includes).toEqual(['CNAME', 'custom.zip']);
+    expect(config.extras?.excludes).toEqual(['temp.js']);
+  });
 });

@@ -58,6 +58,6 @@ cli
   });
 
 cli.help();
-cli.version('6.0.0-alpha.0');
+cli.version('6.0.0-alpha.2');
 
 cli.parse();

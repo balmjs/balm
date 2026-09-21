@@ -119,6 +119,11 @@ export function createDefaultConfig(workspace = process.cwd()): BalmConfig {
     excludes: []
   };
 
+  const extras = {
+    includes: [],
+    excludes: []
+  };
+
   const server = {
     host: null,
     port: 3000,
@@ -199,6 +204,7 @@ export function createDefaultConfig(workspace = process.cwd()): BalmConfig {
     scripts,
     html,
     assets,
+    extras,
     server,
     pwa,
     ftp,

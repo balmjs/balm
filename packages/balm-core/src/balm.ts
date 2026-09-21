@@ -15,8 +15,8 @@ import { logger } from './utilities/logger.js';
 export class Balm {
   private _config: BalmConfig;
   private dag = new TaskDAG();
-  beforeTask?: () => Promise<void> | void;
-  afterTask?: () => Promise<void> | void;
+  beforeTask?: (config: BalmConfig) => Promise<void> | void;
+  afterTask?: (config: BalmConfig) => Promise<void> | void;
   readonly Bundler = BundlerType;
 
   constructor() {
@@ -55,7 +55,7 @@ export class Balm {
 
     try {
       if (this.beforeTask) {
-        await this.beforeTask();
+        await this.beforeTask(this._config);
       }
 
       if (this._config.useDefaults) {
@@ -86,7 +86,7 @@ export class Balm {
       }
 
       if (this.afterTask) {
-        await this.afterTask();
+        await this.afterTask(this._config);
       }
 
       endTimer();

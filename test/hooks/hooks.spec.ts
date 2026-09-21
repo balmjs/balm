@@ -41,17 +41,17 @@ describe('Mix Hooks Subsystem', () => {
     expect(await fsUtil.exists(fileToRemove)).toBe(false);
   });
 
-  it('should support mix.replace() recipe', async () => {
+  it('should support mix.replace() recipe with all occurrences', async () => {
     const src = path.join(testWorkspace, 'source.txt');
     const dest = path.join(testWorkspace, 'dest');
-    await fsUtil.writeFile(src, 'Hello WORLD');
+    await fsUtil.writeFile(src, 'Hello WORLD and welcome WORLD');
 
     await balm.go((mix) => {
       mix.replace(src, dest, { substr: 'WORLD', replacement: 'Balm 6' });
     });
 
     const content = await fsUtil.readFile(path.join(dest, 'source.txt'));
-    expect(content).toBe('Hello Balm 6');
+    expect(content).toBe('Hello Balm 6 and welcome Balm 6');
   });
 
   it('should support mix.zip() recipe', async () => {

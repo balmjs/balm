@@ -18,10 +18,18 @@ export function transformReplace(
   return async (file) => {
     let content = file.toString();
     for (const rule of rules) {
-      if (typeof rule.replacement === 'function') {
-        content = content.replace(rule.substr, rule.replacement as any);
-      } else {
-        content = content.replace(rule.substr, rule.replacement);
+      if (typeof rule.substr === 'string') {
+        if (typeof rule.replacement === 'function') {
+          content = content.replaceAll(rule.substr, rule.replacement as any);
+        } else {
+          content = content.replaceAll(rule.substr, rule.replacement);
+        }
+      } else if (rule.substr instanceof RegExp) {
+        if (typeof rule.replacement === 'function') {
+          content = content.replace(rule.substr, rule.replacement as any);
+        } else {
+          content = content.replace(rule.substr, rule.replacement);
+        }
       }
     }
     file.contents = Buffer.from(content);

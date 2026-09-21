@@ -114,6 +114,11 @@ export interface BalmAssets {
   [key: string]: any;
 }
 
+export interface BalmExtras {
+  includes?: string[];
+  excludes?: string[];
+}
+
 export interface ServeStaticOption {
   route?: string;
   dir: string | string[];
@@ -183,6 +188,7 @@ export interface BalmConfig {
   scripts: BalmScripts;
   html: BalmHtml;
   assets: BalmAssets;
+  extras?: BalmExtras;
   server: BalmServer;
   pwa: BalmPwa;
   ftp: BalmFtp;
