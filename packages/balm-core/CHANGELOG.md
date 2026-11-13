@@ -1,5 +1,21 @@
 # balm-core
 
+## 6.0.0-alpha.3
+
+### Patch Changes
+
+- 1f31e81: Read CLI `--version` dynamically from `package.json` and configure npm package `"files"` and metadata for publishing
+- 1f31e81: Support `extras` includes/excludes in `StaticTask`, replace all occurrences in `transformReplace`, and pass config to lifecycle hooks
+  - Add `extras.includes` and `extras.excludes` handling in `StaticTask` alongside `assets` patterns
+  - Replace all string pattern occurrences via `replaceAll` in `transformReplace`
+  - Pass resolved `BalmConfig` to `beforeTask` and `afterTask` callbacks
+- 1f31e81: Improve Webpack 4.x compatibility, loader toolchain defaults, file watcher extensions, and CLI instance resolution
+  - Add `scripts.defaultLoaders` controls and built-in Babel 7 / Webpack 5 loader dependencies (`@babel/core`, `babel-loader`, `css-loader`, `html-loader`, `mini-css-extract-plugin`, `postcss-loader`, `style-loader`)
+  - Add 4.x compatibility script/html config defaults (`includeJsResource`, `excludeUrlResource`, `useEsModule`, `urlLoaderOptions`, `babelLoaderOptions`, `htmlLoaderOptions`, `postcssLoaderOptions`, `extractAllVendors`, `vendorName`, `extractCss`)
+  - Restrict `deepMerge` recursion to plain objects via `isPlainObject`
+  - Support watched directory deduplication and script rebuilds across extended file extensions in `FileWatcher`
+  - Unwrap nested default exports via `unwrapBalmInstance` in `balm` core resolver
+
 ## 6.0.0-alpha.2
 
 ### Patch Changes
