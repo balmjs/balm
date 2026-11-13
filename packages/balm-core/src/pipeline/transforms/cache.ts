@@ -52,6 +52,7 @@ export class AssetRevisioner {
       '*.webmanifest',
       'robots.txt',
       '*.ico',
+      '*.map',
       'workbox-sw.js',
       'workbox-sw.js.map',
       'service-worker.js',
@@ -73,16 +74,29 @@ export class AssetRevisioner {
   }
 
   process(files: VirtualFile[]): VirtualFile[] {
+    this.manifest = {};
     const hashLength = this.options.hashLength || 8;
+    const alreadyHashedRegex =
+      hashLength === 8
+        ? /\.[a-f0-9]{8}$/i
+        : new RegExp(`\\.(?:[a-f0-9]{8}|[a-f0-9]{${hashLength}})$`, 'i');
+    const alreadyHashedExtRegex =
+      hashLength === 8
+        ? /\.[a-f0-9]{8}(\.[^.]+)$/i
+        : new RegExp(`\\.(?:[a-f0-9]{8}|[a-f0-9]{${hashLength}})(\\.[^.]+)$`, 'i');
+
     const outputFiles: VirtualFile[] = [];
+    const renames: Array<[string, string]> = [];
+    const renamedOrigs = new Set<string>();
+    const alreadyHashedUniques = new Map<string, string | null>();
 
     // Phase 1: Calculate hashes and renames
     for (const file of files) {
-      const origRelative = file.relative;
+      const origRelative = file.relative.replace(/\\/g, '/');
       file.revPathOriginal = file.path;
 
-      // Check if file is already hashed (e.g. app.0e94aeee.js or chunk.22810145.js)
-      const alreadyHashed = /\.[a-f0-9]{8}$/i.test(file.stem);
+      // Check if file is already hashed by a bundler (e.g. app.0e94aeee.js or 1.859e0c2f.jpg)
+      const alreadyHashed = alreadyHashedRegex.test(file.stem);
 
       const shouldRename =
         !alreadyHashed &&
@@ -96,38 +110,74 @@ export class AssetRevisioner {
         file.path = path.join(dir, newFilename);
       }
 
+      const revedRelative = file.relative.replace(/\\/g, '/');
       if (alreadyHashed) {
-        const unhashedRelative = file.relative.replace(/\.[a-f0-9]{8}(\.[^.]+)$/i, '$1');
-        this.manifest[unhashedRelative] = file.relative;
+        const unhashedRelative = revedRelative.replace(alreadyHashedExtRegex, '$1');
+        alreadyHashedUniques.set(
+          unhashedRelative,
+          alreadyHashedUniques.has(unhashedRelative) ? null : revedRelative
+        );
+      } else if (origRelative !== revedRelative) {
+        renames.push([origRelative, revedRelative]);
+        renamedOrigs.add(origRelative);
       }
-      this.manifest[origRelative] = file.relative;
+
+      this.manifest[origRelative] = revedRelative;
       outputFiles.push(file);
     }
 
-    // Phase 2: Rewrite references
-    const manifestEntries = Object.entries(this.manifest)
-      .filter(([orig, reved]) => orig !== reved)
-      .sort((a, b) => b[0].length - a[0].length);
+    // Phase 2: Build single-pass replacement lookup (full paths + unambiguous basenames)
+    const lookup = new Map<string, string>();
+    for (const [unhashedRelative, revedRelative] of alreadyHashedUniques) {
+      if (
+        revedRelative &&
+        !renamedOrigs.has(unhashedRelative) &&
+        unhashedRelative !== revedRelative
+      ) {
+        this.manifest[unhashedRelative] = revedRelative;
+        lookup.set(unhashedRelative, revedRelative);
+      }
+    }
 
-    for (const file of outputFiles) {
-      const shouldUpdate =
-        !matchesAny(file.path, this.options.dontUpdateReference) &&
-        !matchesAny(file.relative, this.options.dontUpdateReference);
+    const basenameCounts = new Map<string, number>();
+    for (const [orig] of renames) {
+      const base = path.posix.basename(orig);
+      basenameCounts.set(base, (basenameCounts.get(base) || 0) + 1);
+    }
 
-      if (shouldUpdate && /\.(html|css|js)$/i.test(file.extname)) {
-        let content = file.toString();
-        for (const [orig, reved] of manifestEntries) {
-          // Replace full relative path first
-          content = content.replaceAll(orig, reved);
+    for (const [orig, reved] of renames) {
+      const origBase = path.posix.basename(orig);
+      const revedBase = path.posix.basename(reved);
+      if (basenameCounts.get(origBase) === 1 && !lookup.has(origBase)) {
+        lookup.set(origBase, revedBase);
+      }
+    }
 
-          // Replace basename with boundary check to avoid substring collision (e.g. .woff matching .woff2)
-          const origBase = path.basename(orig);
-          const revedBase = path.basename(reved);
-          const escapedBase = origBase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-          const baseRegex = new RegExp(`${escapedBase}(?![a-zA-Z0-9_])`, 'g');
-          content = content.replace(baseRegex, revedBase);
+    for (const [orig, reved] of renames) {
+      lookup.set(orig, reved);
+    }
+
+    if (lookup.size > 0) {
+      const patterns = [...lookup.keys()]
+        .sort((a, b) => b.length - a.length)
+        .map((key) => key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      const replaceRegex = new RegExp(
+        `(?<![a-zA-Z0-9_.@-])(?:${patterns.join('|')})(?![a-zA-Z0-9_.@-])`,
+        'g'
+      );
+
+      for (const file of outputFiles) {
+        const shouldUpdate =
+          !matchesAny(file.path, this.options.dontUpdateReference) &&
+          !matchesAny(file.relative, this.options.dontUpdateReference);
+
+        if (shouldUpdate && /\.(html|css|js)$/i.test(file.extname)) {
+          const content = file.toString();
+          const updated = content.replace(replaceRegex, (matched) => lookup.get(matched) || matched);
+          if (updated !== content) {
+            file.contents = Buffer.from(updated);
+          }
         }
-        file.contents = Buffer.from(content);
       }
     }
 
