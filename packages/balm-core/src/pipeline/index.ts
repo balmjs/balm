@@ -8,3 +8,4 @@ export * from './transforms/terser.js';
 export * from './transforms/replace.js';
 export * from './transforms/rename.js';
 export * from './transforms/cache.js';
+export * from './transforms/url.js';

@@ -5,6 +5,7 @@ import { Pipeline } from '../pipeline/pipeline.js';
 import { transformSass } from '../pipeline/transforms/sass.js';
 import { transformLess } from '../pipeline/transforms/less.js';
 import { transformPostcss } from '../pipeline/transforms/postcss.js';
+import { transformCssUrl } from '../pipeline/transforms/url.js';
 
 export class StyleTask extends BaseTask {
   constructor() {
@@ -51,6 +52,8 @@ export class StyleTask extends BaseTask {
         ...config.styles.postcssLoaderOptions
       })
     );
+
+    pipeline.pipe(transformCssUrl(config));
 
     await pipeline.dest(config.dest.css);
   }

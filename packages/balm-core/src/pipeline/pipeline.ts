@@ -43,7 +43,10 @@ export class Pipeline {
     this.transforms.push(async () => {
       const patternArr = Array.isArray(patterns) ? patterns : [patterns];
       const posPatterns = patternArr.filter((p) => !p.startsWith('!'));
-      const ignorePatterns = patternArr.filter((p) => p.startsWith('!')).map((p) => p.slice(1));
+      const ignorePatterns = [
+        '**/.DS_Store',
+        ...patternArr.filter((p) => p.startsWith('!')).map((p) => p.slice(1))
+      ];
 
       const fileList: VirtualFile[] = [];
       for (const p of posPatterns) {

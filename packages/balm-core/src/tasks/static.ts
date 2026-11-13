@@ -4,6 +4,10 @@ import { BaseTask } from '../runner/task.js';
 import { BalmConfig } from '../types/index.js';
 import { Pipeline } from '../pipeline/pipeline.js';
 import { PUBLIC_URL } from '../config/constants.js';
+import {
+  isManifestFile,
+  rewriteHtmlAssetPaths
+} from '../pipeline/transforms/url.js';
 
 export class StaticTask extends BaseTask {
   constructor() {
@@ -46,9 +50,13 @@ export class StaticTask extends BaseTask {
 
     const publicUrlReplacement = config.assets.virtualDir ? `/${config.assets.virtualDir}` : '';
     pipeline.pipe(async (file) => {
-      if (file.basename === 'manifest.json' || file.extname === '.json') {
+      const isManifest = isManifestFile(file, config);
+      if (isManifest || file.extname === '.json') {
         let content = file.toString();
         content = content.replaceAll(PUBLIC_URL, publicUrlReplacement);
+        if (isManifest) {
+          content = rewriteHtmlAssetPaths(content, config);
+        }
         file.contents = Buffer.from(content);
       }
       return file;

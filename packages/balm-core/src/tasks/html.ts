@@ -5,6 +5,11 @@ import { BaseTask } from '../runner/task.js';
 import { BalmConfig } from '../types/index.js';
 import { Pipeline } from '../pipeline/pipeline.js';
 import { transformHtmlmin } from '../pipeline/transforms/htmlmin.js';
+import {
+  isManifestFile,
+  rewriteHtmlAssetPaths,
+  shouldUseTargetPaths
+} from '../pipeline/transforms/url.js';
 import { transformReplace } from '../pipeline/transforms/replace.js';
 import { PUBLIC_URL } from '../config/constants.js';
 
@@ -85,84 +90,11 @@ export class HtmlTask extends BaseTask {
       });
     }
 
-    // In production, map source paths to target paths in HTML
-    if (config.env.isProd) {
+    // In production or backend mode, map source paths to target paths in HTML and manifests
+    if (shouldUseTargetPaths(config)) {
       pipeline.pipe(async (file) => {
-        if (/\.html$/i.test(file.extname)) {
-          let content = file.toString();
-          if (
-            config.paths.source.css &&
-            config.paths.target.css &&
-            config.paths.source.css !== config.paths.target.css
-          ) {
-            content = content.replaceAll(
-              `/${config.paths.source.css}/`,
-              `/${config.paths.target.css}/`
-            );
-            content = content.replaceAll(
-              `"${config.paths.source.css}/`,
-              `"${config.paths.target.css}/`
-            );
-            content = content.replaceAll(
-              `'${config.paths.source.css}/`,
-              `'${config.paths.target.css}/`
-            );
-          }
-          if (
-            config.paths.source.js &&
-            config.paths.target.js &&
-            config.paths.source.js !== config.paths.target.js
-          ) {
-            content = content.replaceAll(
-              `/${config.paths.source.js}/`,
-              `/${config.paths.target.js}/`
-            );
-            content = content.replaceAll(
-              `"${config.paths.source.js}/`,
-              `"${config.paths.target.js}/`
-            );
-            content = content.replaceAll(
-              `'${config.paths.source.js}/`,
-              `'${config.paths.target.js}/`
-            );
-          }
-          if (
-            config.paths.source.img &&
-            config.paths.target.img &&
-            config.paths.source.img !== config.paths.target.img
-          ) {
-            content = content.replaceAll(
-              `/${config.paths.source.img}/`,
-              `/${config.paths.target.img}/`
-            );
-            content = content.replaceAll(
-              `"${config.paths.source.img}/`,
-              `"${config.paths.target.img}/`
-            );
-            content = content.replaceAll(
-              `'${config.paths.source.img}/`,
-              `'${config.paths.target.img}/`
-            );
-          }
-          if (
-            config.paths.source.font &&
-            config.paths.target.font &&
-            config.paths.source.font !== config.paths.target.font
-          ) {
-            content = content.replaceAll(
-              `/${config.paths.source.font}/`,
-              `/${config.paths.target.font}/`
-            );
-            content = content.replaceAll(
-              `"${config.paths.source.font}/`,
-              `"${config.paths.target.font}/`
-            );
-            content = content.replaceAll(
-              `'${config.paths.source.font}/`,
-              `'${config.paths.target.font}/`
-            );
-          }
-          file.contents = Buffer.from(content);
+        if (/\.html$/i.test(file.extname) || isManifestFile(file, config)) {
+          file.contents = Buffer.from(rewriteHtmlAssetPaths(file.toString(), config));
         }
         return file;
       });
