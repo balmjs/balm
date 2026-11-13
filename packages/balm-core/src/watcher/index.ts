@@ -19,7 +19,8 @@ export class FileWatcher {
   private styleTask: StyleTask;
   private scriptTask: ScriptTask;
   private htmlTask: HtmlTask;
-  private watcher: fs.FSWatcher | null = null;
+  private watchers: fs.FSWatcher[] = [];
+  private isRebuilding = false;
 
   constructor(config: BalmConfig, broadcast: WatcherBroadcast) {
     this.config = config;
@@ -29,35 +30,70 @@ export class FileWatcher {
     this.htmlTask = new HtmlTask();
   }
 
+  private getWatchDirs(): string[] {
+    const candidates = [
+      this.config.src.base,
+      ...(this.config.scripts.includeJsResource || []),
+      ...(this.config.styles.atImportPaths || [])
+    ];
+
+    const resolved = candidates
+      .filter(Boolean)
+      .map((dir) => (path.isAbsolute(dir) ? dir : path.resolve(this.config.workspace, dir)))
+      .filter((dir) => fs.existsSync(dir) && !dir.includes(`${path.sep}node_modules`));
+
+    const unique = Array.from(new Set(resolved)).sort((a, b) => a.length - b.length);
+    return unique.filter(
+      (dir, index) =>
+        !unique.slice(0, index).some((parent) => dir.startsWith(`${parent}${path.sep}`))
+    );
+  }
+
   start(): void {
-    const watchDir = this.config.src.base;
-    if (!fs.existsSync(watchDir)) return;
+    const watchDirs = this.getWatchDirs();
+    if (!watchDirs.length) return;
 
-    logger.info('watch', `Watching for file changes in ${pc.cyan(watchDir)}`);
+    for (const watchDir of watchDirs) {
+      logger.info('watch', `Watching for file changes in ${pc.cyan(watchDir)}`);
 
-    try {
-      this.watcher = fs.watch(watchDir, { recursive: true }, (eventType, filename) => {
-        if (!filename) return;
-        this.pendingFiles.add(filename);
+      try {
+        const watcher = fs.watch(watchDir, { recursive: true }, (_eventType, filename) => {
+          if (!filename) return;
+          const normalized = filename.replace(/\\/g, '/');
+          if (normalized.includes('node_modules/') || normalized.startsWith('.git/')) {
+            return;
+          }
+          this.pendingFiles.add(filename);
 
-        if (this.debounceTimer) clearTimeout(this.debounceTimer);
-        this.debounceTimer = setTimeout(() => {
-          this.handleChanges();
-        }, 50);
-      });
-    } catch (err: any) {
-      logger.warn('watch', `Native recursive watch failed: ${err.message}`);
+          if (this.debounceTimer) clearTimeout(this.debounceTimer);
+          this.debounceTimer = setTimeout(() => {
+            this.handleChanges();
+          }, 50);
+        });
+        this.watchers.push(watcher);
+      } catch (err: any) {
+        logger.warn('watch', `Native recursive watch failed for ${watchDir}: ${err.message}`);
+      }
     }
   }
 
   private async handleChanges(): Promise<void> {
+    if (this.isRebuilding) {
+      this.debounceTimer = setTimeout(() => this.handleChanges(), 50);
+      return;
+    }
+
     const changed = Array.from(this.pendingFiles);
     this.pendingFiles.clear();
+    if (!changed.length) return;
 
     const hasStyle = changed.some((f) => /\.(scss|sass|less|css)$/i.test(f));
-    const hasScript = changed.some((f) => /\.(js|mjs|cjs|ts|jsx|tsx)$/i.test(f));
+    const hasScript = changed.some((f) =>
+      /\.(js|mjs|cjs|ts|jsx|tsx|vue|md|json)$/i.test(f)
+    );
     const hasHtml = changed.some((f) => /\.html$/i.test(f));
 
+    this.isRebuilding = true;
     try {
       if (hasStyle) {
         const start = performance.now();
@@ -88,13 +124,19 @@ export class FileWatcher {
       }
     } catch (err: any) {
       logger.error('watch', `Incremental rebuild failed: ${err?.message || err}`);
+    } finally {
+      this.isRebuilding = false;
     }
   }
 
   stop(): void {
-    if (this.watcher) {
-      this.watcher.close();
-      this.watcher = null;
+    if (this.debounceTimer) {
+      clearTimeout(this.debounceTimer);
+      this.debounceTimer = null;
     }
+    for (const watcher of this.watchers) {
+      watcher.close();
+    }
+    this.watchers = [];
   }
 }

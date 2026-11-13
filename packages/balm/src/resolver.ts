@@ -53,6 +53,14 @@ export function getGlobalNodeModules(): string[] {
   return globalPaths;
 }
 
+function unwrapBalmInstance(mod: any): any {
+  let target = mod;
+  while (target && typeof target === 'object' && 'default' in target && !('go' in target)) {
+    target = target.default;
+  }
+  return target;
+}
+
 export async function resolveBalmCore(workspace = process.cwd()): Promise<any> {
   // 0. Auto load balm.env.js if present
   await loadBalmEnv(workspace);
@@ -68,7 +76,7 @@ export async function resolveBalmCore(workspace = process.cwd()): Promise<any> {
     ];
     for (const c of candidates) {
       if (fs.existsSync(c)) {
-        return (await import(c)).default;
+        return unwrapBalmInstance(await import(c));
       }
     }
   }
@@ -83,7 +91,7 @@ export async function resolveBalmCore(workspace = process.cwd()): Promise<any> {
     ];
     for (const c of candidates) {
       if (fs.existsSync(c)) {
-        return (await import(c)).default;
+        return unwrapBalmInstance(await import(c));
       }
     }
   }
@@ -91,7 +99,7 @@ export async function resolveBalmCore(workspace = process.cwd()): Promise<any> {
   // 3. Check workspace resolution / direct import
   try {
     const directImport = await import('balm-core');
-    if (directImport) return directImport.default || directImport;
+    if (directImport) return unwrapBalmInstance(directImport);
   } catch {
     // fall through to global
   }
@@ -102,7 +110,7 @@ export async function resolveBalmCore(workspace = process.cwd()): Promise<any> {
     if (fs.existsSync(p)) {
       const modulePath = path.join(p, 'dist', 'index.js');
       if (fs.existsSync(modulePath)) {
-        return (await import(modulePath)).default;
+        return unwrapBalmInstance(await import(modulePath));
       }
     }
   }

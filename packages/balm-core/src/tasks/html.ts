@@ -173,10 +173,14 @@ export class HtmlTask extends BaseTask {
       pipeline.pipe(async (file) => {
         if (/\.html$/i.test(file.extname)) {
           let content = file.toString();
-          const entries =
+          const entryNames =
             typeof config.scripts.entry === 'object' && !Array.isArray(config.scripts.entry)
               ? Object.keys(config.scripts.entry)
               : ['main'];
+          const vendorName = config.scripts.vendorName || 'vendor';
+          const entries = config.scripts.extractAllVendors
+            ? [vendorName, ...entryNames]
+            : entryNames;
 
           const jsDir = config.env.isProd ? config.paths.target.js : config.paths.tmp.js;
           const jsPathPrefix = config.assets.virtualDir ? `/${config.assets.virtualDir}/${jsDir}` : `/${jsDir}`;
@@ -191,17 +195,24 @@ export class HtmlTask extends BaseTask {
             )
             .map((entryName) => {
               let actualFilename = `${entryName}.js`;
+              const hasUnhashed = existsSync(path.join(destJsFolder, actualFilename));
+              let found = hasUnhashed;
               try {
                 const matched = fg.sync(`${entryName}.*.js`, { cwd: destJsFolder });
                 if (matched.length) {
                   const valid = matched.find((f) => !f.endsWith('.map') && !f.endsWith('.txt'));
                   if (valid) {
                     actualFilename = valid;
+                    found = true;
                   }
                 }
               } catch {}
+              if (entryName === vendorName && config.scripts.extractAllVendors && !found) {
+                return '';
+              }
               return `<script defer src="${jsPathPrefix}/${actualFilename}"></script>`;
             })
+            .filter(Boolean)
             .join('\n');
 
           if (scriptTags) {

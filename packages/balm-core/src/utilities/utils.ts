@@ -18,14 +18,20 @@ export function isBoolean(val: any): val is boolean {
   return typeof val === 'boolean';
 }
 
+function isPlainObject(val: any): val is Record<string, any> {
+  if (val === null || typeof val !== 'object') return false;
+  const proto = Object.getPrototypeOf(val);
+  return proto === Object.prototype || proto === null;
+}
+
 export function deepMerge<T extends Record<string, any>>(target: T, ...sources: any[]): T {
   if (!sources.length) return target;
   const source = sources.shift();
 
-  if (isObject(target) && isObject(source)) {
+  if (isPlainObject(target) && isPlainObject(source)) {
     for (const key in source) {
-      if (isObject(source[key])) {
-        if (!target[key]) Object.assign(target, { [key]: {} });
+      if (isPlainObject(source[key])) {
+        if (!isPlainObject(target[key])) Object.assign(target, { [key]: {} });
         deepMerge(target[key], source[key]);
       } else if (isArray(source[key])) {
         (target as any)[key] = [...source[key]];
