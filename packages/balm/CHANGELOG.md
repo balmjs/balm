@@ -1,5 +1,12 @@
 # balm
 
+## 6.0.0-alpha.4
+
+### Patch Changes
+
+- Updated dependencies [c35e767]
+  - balm-core@6.0.0-alpha.4
+
 ## 6.0.0-alpha.3
 
 ### Patch Changes
