@@ -3,6 +3,30 @@
   "version": "6.0.0-alpha.2",
   "type": "module",
   "description": "Next-generation core build engine for BalmJS",
+  "keywords": [
+    "balm",
+    "balmjs",
+    "web",
+    "app",
+    "front-end",
+    "workflow"
+  ],
+  "homepage": "https://balm.js.org",
+  "license": "MIT",
+  "author": {
+    "name": "Elf-mousE",
+    "email": "ifmouz@gmail.com",
+    "url": "http://elf-mouse.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balmjs/balm.git",
+    "directory": "packages/balm-core"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -66,5 +90,8 @@
   },
   "engines": {
     "node": ">=18.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -1,8 +1,18 @@
 {
   "name": "balmjs",
-  "version": "6.0.0-alpha.2",
   "private": true,
   "description": "Next-generation frontend build workflow powered by native Node.js",
+  "homepage": "https://balm.js.org",
+  "license": "MIT",
+  "author": {
+    "name": "Elf-mousE",
+    "email": "ifmouz@gmail.com",
+    "url": "http://elf-mouse.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balmjs/balm.git"
+  },
   "type": "module",
   "scripts": {
     "build": "pnpm --filter balm-core build && pnpm --filter balm build",
@@ -11,11 +21,12 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "changeset": "changeset",
+    "changeset:status": "changeset status",
     "pre:enter": "changeset pre enter alpha",
     "pre:exit": "changeset pre exit",
     "version-packages": "changeset version && pnpm install --lockfile-only",
-    "release": "pnpm build && changeset publish --tag alpha",
-    "release:direct": "pnpm build && pnpm -r publish --tag alpha --access public --no-git-checks",
+    "release": "pnpm test && pnpm build && changeset publish",
+    "release:tag": "changeset tag",
     "playground:build": "node ./packages/balm/bin/balm.js ./playground/balm.config.js -p",
     "playground:dev": "node ./packages/balm/bin/balm.js ./playground/balm.config.js -d"
   },

@@ -161,6 +161,8 @@ pnpm test
 pnpm changeset
 ```
 
+For full release instructions (prerelease `alpha`, stable promotions, and CI automation), see [RELEASING.md](RELEASING.md).
+
 ---
 
 ## 📄 License

@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "6.x",
   "updateInternalDependencies": "patch",
-  "ignore": []
+  "ignore": ["playground"]
 }

@@ -57,7 +57,17 @@ cli
     }
   });
 
+function getCliVersion(): string {
+  try {
+    const pkgPath = new URL('../package.json', import.meta.url);
+    const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+    return pkg.version || '0.0.0';
+  } catch {
+    return '0.0.0';
+  }
+}
+
 cli.help();
-cli.version('6.0.0-alpha.2');
+cli.version(getCliVersion());
 
 cli.parse();
