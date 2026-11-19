@@ -1,4 +1,5 @@
 import http from 'node:http';
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -11,6 +12,16 @@ import { BalmConfig } from '../types/index.js';
 import { FileWatcher } from '../watcher/index.js';
 import { logger } from '../utilities/logger.js';
 import pc from 'picocolors';
+
+const DEV_STATIC_OPTIONS = {
+  etag: false,
+  lastModified: false,
+  cacheControl: false
+};
+
+export interface DevServerAppOptions {
+  ensureBuildReady?: () => void | Promise<void>;
+}
 
 export interface HistoryRewriteRule {
   from: RegExp | string;
@@ -125,8 +136,35 @@ export function createHistoryFallbackMiddleware(config: BalmConfig) {
   };
 }
 
-export function createDevServerApp(config: BalmConfig): ReturnType<typeof connect> {
+export function createDevServerApp(
+  config: BalmConfig,
+  options: DevServerAppOptions = {}
+): ReturnType<typeof connect> {
   const app = connect();
+
+  // Disable browser HTTP caching in development so edits always serve fresh assets
+  app.use((_req: any, res: any, next: any) => {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    next();
+  });
+
+  // Self-heal dev output directory if externally deleted while dev server is running
+  if (options.ensureBuildReady) {
+    app.use((_req: any, _res: any, next: any) => {
+      try {
+        const result = options.ensureBuildReady!();
+        if (result && typeof (result as Promise<void>).then === 'function') {
+          (result as Promise<void>).then(() => next()).catch((err) => next(err));
+        } else {
+          next();
+        }
+      } catch (err) {
+        next(err);
+      }
+    });
+  }
 
   // Rewrite %PUBLIC_URL% in request URLs
   app.use((req: any, _res: any, next: any) => {
@@ -178,46 +216,46 @@ export function createDevServerApp(config: BalmConfig): ReturnType<typeof connec
 
   // Static assets routing
   if (config.paths.source.css) {
-    app.use('/' + config.paths.source.css, serveStatic(config.dest.css));
+    app.use('/' + config.paths.source.css, serveStatic(config.dest.css, DEV_STATIC_OPTIONS));
   }
   if (config.paths.tmp.css && config.paths.tmp.css !== config.paths.source.css) {
-    app.use('/' + config.paths.tmp.css, serveStatic(config.dest.css));
+    app.use('/' + config.paths.tmp.css, serveStatic(config.dest.css, DEV_STATIC_OPTIONS));
   }
 
   if (config.paths.source.js) {
-    app.use('/' + config.paths.source.js, serveStatic(config.dest.js));
+    app.use('/' + config.paths.source.js, serveStatic(config.dest.js, DEV_STATIC_OPTIONS));
   }
   if (config.paths.tmp.js && config.paths.tmp.js !== config.paths.source.js) {
-    app.use('/' + config.paths.tmp.js, serveStatic(config.dest.js));
+    app.use('/' + config.paths.tmp.js, serveStatic(config.dest.js, DEV_STATIC_OPTIONS));
   }
-  app.use('/chunk', serveStatic(path.join(config.dest.js, 'chunk')));
-  app.use('/chunk', serveStatic(path.join(config.dest.base, 'chunk')));
+  app.use('/chunk', serveStatic(path.join(config.dest.js, 'chunk'), DEV_STATIC_OPTIONS));
+  app.use('/chunk', serveStatic(path.join(config.dest.base, 'chunk'), DEV_STATIC_OPTIONS));
 
   if (config.paths.source.img) {
     app.use(
       '/' + config.paths.source.img,
-      serveStatic(path.join(config.src.base, config.paths.source.img))
+      serveStatic(path.join(config.src.base, config.paths.source.img), DEV_STATIC_OPTIONS)
     );
   }
   if (config.paths.tmp.img) {
-    app.use('/' + config.paths.tmp.img, serveStatic(config.dest.img));
+    app.use('/' + config.paths.tmp.img, serveStatic(config.dest.img, DEV_STATIC_OPTIONS));
   }
-  app.use('/img', serveStatic(path.join(config.dest.base, 'img')));
-  app.use('/img', serveStatic(path.join(config.dest.js, 'img')));
+  app.use('/img', serveStatic(path.join(config.dest.base, 'img'), DEV_STATIC_OPTIONS));
+  app.use('/img', serveStatic(path.join(config.dest.js, 'img'), DEV_STATIC_OPTIONS));
 
   if (config.paths.source.font) {
     app.use(
       '/' + config.paths.source.font,
-      serveStatic(path.join(config.src.base, config.paths.source.font))
+      serveStatic(path.join(config.src.base, config.paths.source.font), DEV_STATIC_OPTIONS)
     );
   }
   if (config.paths.tmp.font) {
-    app.use('/' + config.paths.tmp.font, serveStatic(config.dest.font));
+    app.use('/' + config.paths.tmp.font, serveStatic(config.dest.font, DEV_STATIC_OPTIONS));
   }
-  app.use('/font', serveStatic(path.join(config.dest.base, 'font')));
-  app.use('/font', serveStatic(path.join(config.dest.js, 'font')));
-  app.use('/fonts', serveStatic(path.join(config.src.base, 'fonts')));
-  app.use('/fonts', serveStatic(path.join(config.dest.base, 'fonts')));
+  app.use('/font', serveStatic(path.join(config.dest.base, 'font'), DEV_STATIC_OPTIONS));
+  app.use('/font', serveStatic(path.join(config.dest.js, 'font'), DEV_STATIC_OPTIONS));
+  app.use('/fonts', serveStatic(path.join(config.src.base, 'fonts'), DEV_STATIC_OPTIONS));
+  app.use('/fonts', serveStatic(path.join(config.dest.base, 'fonts'), DEV_STATIC_OPTIONS));
 
   // Custom serveStatic routing
   if (config.server.serveStatic) {
@@ -231,7 +269,7 @@ export function createDevServerApp(config: BalmConfig): ReturnType<typeof connec
           ? entry
           : path.join(config.workspace, entry);
         if (fs.existsSync(absoluteDir)) {
-          app.use(serveStatic(absoluteDir));
+          app.use(serveStatic(absoluteDir, DEV_STATIC_OPTIONS));
         }
       } else if (entry && typeof entry === 'object') {
         const route = entry.route
@@ -244,9 +282,9 @@ export function createDevServerApp(config: BalmConfig): ReturnType<typeof connec
             : path.join(config.workspace, dir);
           if (fs.existsSync(absoluteDir)) {
             if (route) {
-              app.use(route, serveStatic(absoluteDir));
+              app.use(route, serveStatic(absoluteDir, DEV_STATIC_OPTIONS));
             } else {
-              app.use(serveStatic(absoluteDir));
+              app.use(serveStatic(absoluteDir, DEV_STATIC_OPTIONS));
             }
           }
         }
@@ -254,9 +292,9 @@ export function createDevServerApp(config: BalmConfig): ReturnType<typeof connec
     }
   }
 
-  app.use(serveStatic(config.dest.base));
-  app.use(serveStatic(config.src.base));
-  app.use(serveStatic(config.workspace));
+  app.use(serveStatic(config.dest.base, DEV_STATIC_OPTIONS));
+  app.use(serveStatic(config.src.base, DEV_STATIC_OPTIONS));
+  app.use(serveStatic(config.workspace, DEV_STATIC_OPTIONS));
 
   return app;
 }
@@ -299,18 +337,88 @@ export class ServerTask extends BaseTask {
   private watcher: FileWatcher | null = null;
   private wsServer: WebSocketServer | null = null;
   private clients = new Set<WebSocket>();
+  private serverId = crypto.randomUUID();
+  private buildVersion = 1;
+  private recoveryPromise: Promise<void> | null = null;
 
   constructor() {
     super({ name: 'serve', description: 'Start development server with live reload' });
   }
 
+  private getHandshakePayload(): string {
+    return JSON.stringify({
+      type: 'connected',
+      serverId: this.serverId,
+      buildVersion: this.buildVersion
+    });
+  }
+
   broadcast(data: { type: 'reload' | 'reload-css'; file?: string }): void {
-    const payload = JSON.stringify(data);
+    this.buildVersion += 1;
+    const payload = JSON.stringify({
+      ...data,
+      serverId: this.serverId,
+      buildVersion: this.buildVersion
+    });
     for (const client of this.clients) {
       if (client.readyState === WebSocket.OPEN) {
         client.send(payload);
       }
     }
+  }
+
+  private ensureBuildReady(config: BalmConfig): void | Promise<void> {
+    if (fs.existsSync(config.dest.base)) {
+      return;
+    }
+
+    if (!this.watcher) {
+      return;
+    }
+
+    if (this.recoveryPromise) {
+      return this.recoveryPromise;
+    }
+
+    logger.warn(
+      'server',
+      `Dev output directory (${config.dest.base}) missing — rebuilding workspace...`
+    );
+
+    const activeRecovery = this.watcher
+      .rebuildAll()
+      .then(() => {
+        this.buildVersion += 1;
+      })
+      .finally(() => {
+        if (this.recoveryPromise === activeRecovery) {
+          this.recoveryPromise = null;
+        }
+      });
+
+    this.recoveryPromise = activeRecovery;
+    return activeRecovery;
+  }
+
+  attachLiveReloadServer(server: http.Server): WebSocketServer {
+    const wsServer = new WebSocketServer({ server, path: '/__balm_ws' });
+    wsServer.on('connection', (socket) => {
+      this.clients.add(socket);
+      socket.send(this.getHandshakePayload());
+      socket.on('message', (raw) => {
+        try {
+          const msg = JSON.parse(raw.toString());
+          if (msg?.type === 'sync' && socket.readyState === WebSocket.OPEN) {
+            socket.send(this.getHandshakePayload());
+          }
+        } catch {
+          // ignore malformed client frames
+        }
+      });
+      socket.on('close', () => this.clients.delete(socket));
+    });
+    this.wsServer = wsServer;
+    return wsServer;
   }
 
   async run(config: BalmConfig): Promise<void> {
@@ -319,24 +427,22 @@ export class ServerTask extends BaseTask {
       return;
     }
 
-    const app = createDevServerApp(config);
+    // Start File Watcher before server so recovery requests can delegate to it
+    this.watcher = new FileWatcher(config, (data) => {
+      this.broadcast(data);
+    });
+    this.watcher.start();
+
+    const app = createDevServerApp(config, {
+      ensureBuildReady: () => this.ensureBuildReady(config)
+    });
     const port = config.server.port ?? 3000;
     const { host, isWildcard } = resolveServerHost(config.server.host);
 
     const server = http.createServer(app);
 
-    // WebSocket Live Reload Server
-    this.wsServer = new WebSocketServer({ server, path: '/__balm_ws' });
-    this.wsServer.on('connection', (socket) => {
-      this.clients.add(socket);
-      socket.on('close', () => this.clients.delete(socket));
-    });
-
-    // Start File Watcher
-    this.watcher = new FileWatcher(config, (data) => {
-      this.broadcast(data);
-    });
-    this.watcher.start();
+    // WebSocket Live Reload Server with serverId + buildVersion handshake
+    this.attachLiveReloadServer(server);
 
     return new Promise((resolve) => {
       server.listen(port, host, () => {
@@ -376,6 +482,20 @@ export class ServerTask extends BaseTask {
           this.wsServer?.close();
           server.close();
           resolve();
+        } else {
+          const cleanup = () => {
+            this.watcher?.stop();
+            this.wsServer?.close();
+            server.close();
+          };
+          process.once('SIGINT', () => {
+            cleanup();
+            process.exit(0);
+          });
+          process.once('SIGTERM', () => {
+            cleanup();
+            process.exit(0);
+          });
         }
       });
     });

@@ -10,12 +10,25 @@ export class CleanTask extends BaseTask {
   }
 
   async run(config: BalmConfig): Promise<void> {
-    const targets = [
-      path.join(config.workspace, config.roots.tmp),
-      path.join(config.workspace, config.roots.target)
-    ];
+    const workspaceRoot = path.resolve(config.workspace);
+    const activeDestBase = path.resolve(
+      config.dest?.base ||
+        path.join(
+          workspaceRoot,
+          config.env.isProd || !config.inFrontend ? config.roots.target : config.roots.tmp
+        )
+    );
 
-    const deleted = await file.remove(targets);
+    // Safety guard: never delete workspace root or an ancestor directory
+    if (
+      activeDestBase === workspaceRoot ||
+      workspaceRoot.startsWith(`${activeDestBase}${path.sep}`)
+    ) {
+      logger.warn('clean', `Skipping unsafe clean target: ${activeDestBase}`);
+      return;
+    }
+
+    const deleted = await file.remove([activeDestBase]);
     logger.info('clean', `Deleted ${deleted.length} directories`);
   }
 }
