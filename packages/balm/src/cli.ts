@@ -7,12 +7,38 @@ import { resolveBalmCore } from './resolver.js';
 
 const cli = cac('balm');
 
+function applyCliServerOptions(
+  customConfig: Record<string, any>,
+  options: { host?: string | boolean; port?: string | number }
+): Record<string, any> {
+  const serverOverrides: Record<string, any> = {};
+  if (options.host !== undefined) {
+    serverOverrides.host = options.host;
+  }
+  if (options.port !== undefined) {
+    const parsedPort = Number(options.port);
+    if (Number.isInteger(parsedPort) && parsedPort > 0) {
+      serverOverrides.port = parsedPort;
+    }
+  }
+
+  if (Object.keys(serverOverrides).length > 0) {
+    customConfig.server = {
+      ...customConfig.server,
+      ...serverOverrides
+    };
+  }
+  return customConfig;
+}
+
 cli
   .command('[config]', 'Run Balm build workflow')
   .allowUnknownOptions()
   .option('-p, --prod', 'Production mode')
   .option('-d, --dev', 'Development mode')
   .option('-c, --config <file>', 'Custom config file')
+  .option('--host [host]', 'Expose dev server to network (e.g. --host or --host 0.0.0.0)')
+  .option('--port <port>', 'Specify dev server port')
   .action(async (configPath, options) => {
     const rawConfigPath = options.config || configPath || 'balm.config.js';
     const fullConfigPath = path.resolve(process.cwd(), rawConfigPath);
@@ -39,7 +65,7 @@ cli
         if (!customConfig.workspace) {
           customConfig.workspace = workspace;
         }
-        balmInstance.config = customConfig;
+        balmInstance.config = applyCliServerOptions(customConfig, options);
         if (configObj.beforeTask) {
           balmInstance.beforeTask = configObj.beforeTask;
         }
@@ -49,10 +75,18 @@ cli
         const recipeFn = configObj.recipes || configObj.api;
         await balmInstance.go(recipeFn);
       } else {
+        const fallbackConfig = applyCliServerOptions({ workspace }, options);
+        if (fallbackConfig.server) {
+          balmInstance.config = fallbackConfig;
+        }
         await balmInstance.go();
       }
     } else {
       console.log(pc.yellow(`No config file found at ${fullConfigPath}, using defaults.`));
+      const fallbackConfig = applyCliServerOptions({ workspace }, options);
+      if (fallbackConfig.server) {
+        balmInstance.config = fallbackConfig;
+      }
       await balmInstance.go();
     }
   });

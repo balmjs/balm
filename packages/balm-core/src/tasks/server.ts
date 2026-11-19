@@ -1,5 +1,6 @@
 import http from 'node:http';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import connect from 'connect';
 import serveStatic from 'serve-static';
@@ -260,6 +261,40 @@ export function createDevServerApp(config: BalmConfig): ReturnType<typeof connec
   return app;
 }
 
+export function getNetworkAddresses(): string[] {
+  const addresses: string[] = [];
+  const interfaces = os.networkInterfaces();
+  for (const entries of Object.values(interfaces)) {
+    for (const net of entries || []) {
+      if (net.family === 'IPv4' && !net.internal) {
+        addresses.push(net.address);
+      }
+    }
+  }
+  return addresses;
+}
+
+export function resolveServerHost(
+  rawHost: string | boolean | null | undefined,
+  envHost = process.env.HOST
+): { host: string; isWildcard: boolean } {
+  let host = 'localhost';
+
+  if (rawHost === true) {
+    host = '0.0.0.0';
+  } else if (typeof rawHost === 'string' && rawHost.trim()) {
+    host = rawHost.trim();
+  } else if (rawHost !== false && typeof envHost === 'string' && envHost.trim()) {
+    const trimmed = envHost.trim();
+    host = trimmed === 'true' ? '0.0.0.0' : trimmed;
+  }
+
+  return {
+    host,
+    isWildcard: host === '0.0.0.0' || host === '::'
+  };
+}
+
 export class ServerTask extends BaseTask {
   private watcher: FileWatcher | null = null;
   private wsServer: WebSocketServer | null = null;
@@ -285,8 +320,8 @@ export class ServerTask extends BaseTask {
     }
 
     const app = createDevServerApp(config);
-    const port = config.server.port || 3000;
-    const host = config.server.host || 'localhost';
+    const port = config.server.port ?? 3000;
+    const { host, isWildcard } = resolveServerHost(config.server.host);
 
     const server = http.createServer(app);
 
@@ -305,10 +340,35 @@ export class ServerTask extends BaseTask {
 
     return new Promise((resolve) => {
       server.listen(port, host, () => {
+        const address = server.address();
+        const activePort =
+          address && typeof address === 'object' ? address.port : port;
+        const localHost = isWildcard ? 'localhost' : host;
+
         console.log('');
         logger.success('server', pc.bold('BalmJS Dev Server is ready!'));
-        console.log(`  ${pc.green('➜')}  ${pc.bold('Local:')}   ${pc.cyan(`http://${host}:${port}/`)}`);
-        console.log(`  ${pc.green('➜')}  ${pc.bold('Network:')} ${pc.cyan(`http://127.0.0.1:${port}/`)}`);
+        console.log(
+          `  ${pc.green('➜')}  ${pc.bold('Local:')}   ${pc.cyan(`http://${localHost}:${activePort}/`)}`
+        );
+
+        if (isWildcard) {
+          const networkIps = getNetworkAddresses();
+          if (networkIps.length > 0) {
+            for (const ip of networkIps) {
+              console.log(
+                `  ${pc.green('➜')}  ${pc.bold('Network:')} ${pc.cyan(`http://${ip}:${activePort}/`)}`
+              );
+            }
+          } else {
+            console.log(
+              `  ${pc.green('➜')}  ${pc.bold('Network:')} ${pc.cyan(`http://127.0.0.1:${activePort}/`)}`
+            );
+          }
+        } else if (host === 'localhost' || host === '127.0.0.1' || host === '::1') {
+          console.log(
+            `  ${pc.dim('➜  Network: use --host or server.host = true to expose')}`
+          );
+        }
         console.log('');
 
         if (config.env.isTest) {

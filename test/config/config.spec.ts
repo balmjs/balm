@@ -1,5 +1,11 @@
-import { describe, it, expect } from 'vitest';
-import { resolveConfig, createDefaultConfig } from 'balm-core';
+import { describe, it, expect, vi } from 'vitest';
+import {
+  resolveConfig,
+  createDefaultConfig,
+  resolveServerHost,
+  getNetworkAddresses,
+  ServerTask
+} from 'balm-core';
 import path from 'node:path';
 
 describe('Config Subsystem', () => {
@@ -57,5 +63,54 @@ describe('Config Subsystem', () => {
     });
     expect(config.extras?.includes).toEqual(['CNAME', 'custom.zip']);
     expect(config.extras?.excludes).toEqual(['temp.js']);
+  });
+
+  it('should resolve server host across config, boolean, and env fallbacks', () => {
+    expect(resolveServerHost(null, '')).toEqual({
+      host: 'localhost',
+      isWildcard: false
+    });
+    expect(resolveServerHost(true, '')).toEqual({
+      host: '0.0.0.0',
+      isWildcard: true
+    });
+    expect(resolveServerHost('::', '')).toEqual({
+      host: '::',
+      isWildcard: true
+    });
+    expect(resolveServerHost(null, '0.0.0.0')).toEqual({
+      host: '0.0.0.0',
+      isWildcard: true
+    });
+    expect(resolveServerHost(false, '0.0.0.0')).toEqual({
+      host: 'localhost',
+      isWildcard: false
+    });
+    expect(resolveServerHost('192.168.1.25', '')).toEqual({
+      host: '192.168.1.25',
+      isWildcard: false
+    });
+  });
+
+  it('should start ServerTask on 0.0.0.0 and print network URLs when server.host is true', async () => {
+    const config = resolveConfig({
+      workspace: process.cwd(),
+      env: { isProd: false, isDev: true, isTest: true },
+      server: { host: true, port: 0 }
+    });
+
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const task = new ServerTask();
+    await task.run(config);
+
+    const output = logSpy.mock.calls.map((args) => args.join(' ')).join('\n');
+    logSpy.mockRestore();
+
+    expect(output).toContain('Local:');
+    expect(output).toContain('http://localhost:');
+    expect(output).toContain('Network:');
+    for (const ip of getNetworkAddresses()) {
+      expect(output).toContain(`http://${ip}:`);
+    }
   });
 });

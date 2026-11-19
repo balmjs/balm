@@ -140,7 +140,7 @@ export interface ServeStaticOption {
 export type ServeStaticItem = string | ServeStaticOption;
 
 export interface BalmServer {
-  host: string | null;
+  host: string | boolean | null;
   port: number;
   open: boolean | string;
   proxy: boolean | Record<string, any> | Array<Record<string, any>>;
