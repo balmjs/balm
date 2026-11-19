@@ -1,5 +1,12 @@
 # balm
 
+## 6.0.0-alpha.8
+
+### Patch Changes
+
+- Updated dependencies
+  - balm-core@6.0.0-alpha.8
+
 ## 6.0.0-alpha.7
 
 ### Minor Changes
